@@ -1,0 +1,101 @@
+# Add remote branch
+git remote add upstream git://github.com/user/repo.git
+
+# git pull remote branch
+git pull upstream master // git pull latest from upstream master
+git pull <remote> <src>:<dest>
+
+# create and push to remote branch from local branch
+git push <remote> <local branch>:<remote branch>
+git push upstream junit-runner:master
+git push origin initial-queries:initial-queries
+
+# git push one branch
+git push <remote> <branch>
+
+# A git tag refers to a specific commit and does not change.
+# To pull git tag
+git pull -t
+
+# git: checkout remote branch and have local branch track it
+git checkout -b li-0.10-1 origin/li-0.10-1
+
+# git delete remote branch
+git push origin --delete initial-queries
+
+# git remove stale remote branches from local cache
+git remote prune <remote>
+
+# rename git branch
+git branch -m old_branch_name new_branch_name
+
+# git merge branch, will fast forward by default
+git merge <branch> # merges <branch> into current branch
+
+# git: checkout old commit
+git checkout HEAD~5 # checkout 5 commits ago
+git checkout COMMIT_HASH # checkout at specific commit
+
+# git remove untracked files
+git clean -f [-d]
+# -d removes untracked directories, too
+
+# git: uncommit last commit but keep changes in staging
+git reset --soft HEAD^
+
+# git show changes in commit
+git show <commit-hash>
+
+# Modify a git commit message
+# Changes the most recent commit message
+git commit --amend -m "New commit message"
+
+git stash save "name"
+git stash apply stash^{/name} # Doesn't seem to work anymore
+git stash apply stash@{0} # where 0 is a number (do git stash list first)
+
+# git pull rebase rather than merge
+git pull --rebase
+
+# git rename branch
+git branch -m <newname>
+
+# To reorder commits in git
+git rebase -i HEAD~2 # reorder last two commits
+
+# To rebase and replay local commits on another branch
+git rebase <branch>
+git rebase <remote>/<branch>
+
+# Rebase on top of a specific commit
+git rebase -i COMMIT_HASH
+
+# git push problems
+Try changing URL from HTTPS to SSH. Try including/excluding https:// or ssh://. Try adding or removing USERNAME@. Try using git@.
+
+# git: comparing a file between two branches
+git diff BRANCH1 BRANCH2 FILE
+
+# git diff file that has been moved
+git diff  6fab939e28486ab6e6d5038f33f5e9c3b406d4e1:ql/src/java/org/apache/hadoop/hive/ql/exec/MapRedTask.java ql/src/java/org/apache/hadoop/hive/ql/exec/mr/MapRedTask.java
+
+# GitHub pull requests: http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
+
+# git apply commit from one branch on another
+git cherry-pick HASH
+git pull <remote> <branch>
+# to pull from another local branch, push it to remote and then pull from remote
+
+# git apply commit from one repo to another
+# http://stackoverflow.com/questions/3816040/git-apply-changes-introduced-by-commit-in-one-repo-to-another-repo
+/path/to/1 $ git format-patch sha1^..sha1
+/path/to/1 $ cd /path/to/2
+/path/to/2 $ git am /path/to/1/0001-…-….patch
+
+# revert a commit
+git revert <commit_hash>
+
+# recover squashed commits, etc.
+# http://stackoverflow.com/questions/7457942/how-to-undo-a-git-merge-squash
+git reflog
+git reset <commit>

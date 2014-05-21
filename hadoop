@@ -1,0 +1,6 @@
+# Hadoop setup on Mac
+# http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
+# http://stackoverflow.com/questions/3425688/why-does-the-hadoop-incompatible-namespaceids-issue-happen
+# http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#javaioioexception-incompatible-namespaceids
+hadoop namenode -format
+# You may need to delete the hadoop tmp and dfs.data.dir directories.

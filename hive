@@ -1,0 +1,112 @@
+# Setting up/importing Hive trunk into Eclipse
+# https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIimportintoeclipse?
+$ mkdir workspace
+$ cd workspace
+$ git clone https://github.com/apache/hive.git
+$ cd hive
+$ mvn clean install -DskipTests -Phadoop-[1|2]
+$ mvn eclipse:clean
+$ mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-[1|2]
+$ cd itests
+$ mvn clean install -DskipTests -Phadoop-[1|2]
+$ mvn eclipse:clean
+$ mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-[1|2]
+
+When importing into Eclipse, use Import, NOT New -> Java Project.
+
+# Hive Eclipse arguments
+# Hive trunk Eclipse maven configuration
+CliDriver Classpath:
+- /home/ahsu/github/erwa/hive/hive/conf
+- /export/apps/hadoop/latest/conf
+- hive-metastore-0.14.0-SNAPSHOT.jar
+- hadoop-{core,test,tools}-1.2.1.jar
+- hive-cli (default classpath)
+
+Program arguments
+# initially none
+
+# I added:
+--hiveconf javax.jdo.option.ConnectionURL=jdbc:derby:;databaseName=/home/ahsu/metastore_db;create=true
+
+VM arguments
+# initially 
+-Xms256m -Xmx1024m -XX:-UseSplitVerifier -Dhive.root.logger=INFO,console -Dhadoop.bin.path=/home/ahsu/gitli/ahsu-hive/testutils/hadoop
+
+# After my changes:
+-Xms256m -Xmx1024m -XX:-UseSplitVerifier -Dhive.root.logger=INFO,console -Dhadoop.bin.path=/export/apps/hadoop/latest/bin/hadoop
+
+# initially, you might have to build twice for errors to go away
+# try clean after first build before building again
+# commons-codec .classpath library reference needs to be updated to newer version (also in the source tree), which has a new class StringUtils
+# Added /export/apps/hadoop/latest/conf to my HiveCLI run config classpath
+# Added /export/apps/hadoop/latest/hadoop-{core,test,tools}-1.2.1.jar to classpath
+# Added commons-configuration
+
+# Debug Hive, print more info
+hive -hiveconf hive.root.logger=INFO,console
+
+# Use different Hive config
+export HIVE_HOME=/export/home/ahsu/hive-0.12.0.li.new
+export HIVE_AUX_JARS_PATH=$HIVE_HOME/aux/lib
+export PATH=$HIVE_HOME/bin:$PATH
+hive
+# run your query
+
+# building Mavenized Hive as distribution
+mvn clean package -DskipTests -Phadoop-1 -Pdist
+# distribution appears in packaging/target
+
+# build Hive and tests with Maven, starting from Hive root dir:
+mvn clean install -DskipTests -Phadoop-1
+cd itests
+mvn clean install -DskipTests -Phadoop-1
+
+# ant, Hive 0.12.0 and earlier
+# building Hive
+ant clean package
+
+# running Hive tests
+ant clean package test -Dtestcase=TestCliDriver -Dqfile=avro_partitioned.q [-Doverwrite=true]
+ant test -Dtestcase=TestCliDriver -Dqfile=avro_partitioned.q [-Doverwrite=true]
+ant test -Dtestcase=TestCliDriver -Dqfile_regex=.*partition.*
+
+# build tarball in ant
+ant clean binary
+
+# do from itests or itests/qtest directory
+cd itests[/qtest]
+mvn test -Phadoop-1 -Dtest=TestCliDriver -Dqfile=avro_partitioned.q [-Dtest.output.overwrite=true]
+mvn test -Phadoop-1 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
+
+# run Hive unit test
+cd itests
+mvn test -Phadoop-1 -Dtest=TestAvroSerdeUtils
+
+# Hive print column names
+set hive.cli.print.header=true;
+
+# hive show permissions/roles/grants for user
+show grant user ahsu on database u_ahsu;
+show role grant user ahsu;
+
+# Hive example join
+select * from test2 a join test3 b where a.id = b.k;
+
+# load local data into Hive table
+# path specified is a directory
+load data local inpath '/export/home/ahsu/test2' into table test2;
+
+# create Hive table
+# create text Hive table
+create table test2 (id INT) row format delimited fields terminated by ',' stored as textfile;
+
+Hive PreCommit build: http://ec2-174-129-184-35.compute-1.amazonaws.com/jenkins/job/PreCommit-HIVE-Build/
+
+# In Hive 0.14, need to add Avro jar explicitly using "ADD JAR" command or else "insert" will fail with ClassNotFoundException
+
+# Launch Hive with aux/lib jars (like Haivvreo):
+hive --auxpath /export/apps/hive/latest/aux/lib
+
+# You can change log level and output location in conf/hive-log4j.properties
+hive.root.logger=DEBUG,DRFA,console
