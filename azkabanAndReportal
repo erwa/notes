@@ -1,0 +1,27 @@
+$ curl -k https://<host>:<port> -d "username=<username>&password=<password>&action=login"
+{
+  "status" : "success",
+  "session.id" : "<session.id>"
+}
+
+$ curl -k https://<host>:<port>/manager -G -d "project=reportal-ahsu-Reportal-Monitoring-Report&flow=data-collector&ajax=fetchFlowExecutions&start=0&length=1" -b azkaban.browser.session.id=<session.id>
+{
+  "executions" : [ {
+    "startTime" : 1396998055295,
+    "submitUser" : "ahsu",
+    "status" : "SUCCEEDED",
+    "submitTime" : 1396998055231,
+    "execId" : 44607,
+    "projectId" : 909,
+    "endTime" : 1396998377787,
+    "flowId" : "data-collector"
+  } ],
+  "total" : 7,
+  "project" : "reportal-ahsu-Reportal-Monitoring-Report",
+  "length" : 1,
+  "from" : 0,
+  "flow" : "data-collector",
+  "projectId" : 909
+}
+
+Azkaban servlet routes registered in AzkabanWebServer.java:main
