@@ -22,3 +22,15 @@ grep --include=*.job -r "type=hive" ./*
 
 # See members of a group
 getent group <groupname>
+
+# zip/unzip folder
+zip -r foo.zip foo
+unzip foo.zip
+
+# show files in tar/tarball/tar.bz2
+tar -tvf file.tar
+tar -ztvf file.tar.gz
+tar -jtvf file.tar.bz2
+
+# cd to previous directory
+cd -
