@@ -110,3 +110,5 @@ http://stackoverflow.com/questions/3689838/difference-between-head-working-tree-
 # HEAD^ is short for HEAD^1 and means the first parent of HEAD
 # HEAD~n means to go back n commits from HEAD, favoring the first parent in cases of ambiguity
 http://stackoverflow.com/questions/1955985/what-does-the-caret-character-mean
+
+On Windows, git looks for ~/.ssh/id_rsa to use as your SSH key
