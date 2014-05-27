@@ -82,6 +82,9 @@ git diff  6fab939e28486ab6e6d5038f33f5e9c3b406d4e1:ql/src/java/org/apache/hadoop
 # git diff, only show files changed
 git diff --stat f57ea64
 
+# git binary diff
+git diff --binary
+
 # GitHub pull requests: http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 
 # git apply commit from one branch on another
