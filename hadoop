@@ -4,3 +4,5 @@
 # http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#javaioioexception-incompatible-namespaceids
 hadoop namenode -format
 # You may need to delete the hadoop tmp and dfs.data.dir directories.
+
+For Hadoop local (single process) mode, just leave core-site.xml, hdfs-site.xml, and mapred-site.xml empty.
