@@ -20,6 +20,9 @@ for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; 
 # grep only files matching a pattern
 grep --include=*.job -r "type=hive" ./*
 
+# grep starting from certain line number
+sed -n '<line_number>,$ p' <file> | grep <pattern>
+
 # See members of a group
 getent group <groupname>
 
