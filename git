@@ -79,6 +79,10 @@ git diff BRANCH1 BRANCH2 FILE
 # git diff file that has been moved
 git diff  6fab939e28486ab6e6d5038f33f5e9c3b406d4e1:ql/src/java/org/apache/hadoop/hive/ql/exec/MapRedTask.java ql/src/java/org/apache/hadoop/hive/ql/exec/mr/MapRedTask.java
 
+# git diff one file
+git diff <commit1> <commit2> <file>
+git diff HEAD~1 HEAD <file>
+
 # git diff, only show files changed
 git diff --stat f57ea64
 
