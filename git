@@ -115,3 +115,6 @@ http://stackoverflow.com/questions/3689838/difference-between-head-working-tree-
 http://stackoverflow.com/questions/1955985/what-does-the-caret-character-mean
 
 On Windows, git looks for ~/.ssh/id_rsa to use as your SSH key
+
+# After installing the diff tool "meld", you can do
+git difftool <commit_hash1>..<commit_hash2>
