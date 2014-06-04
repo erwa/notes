@@ -25,3 +25,8 @@ $ curl -k https://<host>:<port>/manager -G -d "project=reportal-ahsu-Reportal-Mo
 }
 
 Azkaban servlet routes registered in AzkabanWebServer.java:main
+
+Can just set hadoop.home and hive.home in common.properties and commonprivate.properties and don't need to redefine these properties in all the jobtype subdirectories.
+
+# On OS X, to run a local SMTP mail server for local testing, run
+sudo postfix start
