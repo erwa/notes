@@ -6,3 +6,7 @@ hadoop namenode -format
 # You may need to delete the hadoop tmp and dfs.data.dir directories.
 
 For Hadoop local (single process) mode, just leave core-site.xml, hdfs-site.xml, and mapred-site.xml empty.
+
+Don't forget to set JAVA_HOME in conf/hadoop-env.sh
+
+To avoid having to type your password when launching the daemons, append .ssh/*.pub to .ssh/authorized_keys
