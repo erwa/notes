@@ -30,3 +30,6 @@ Can just set hadoop.home and hive.home in common.properties and commonprivate.pr
 
 # On OS X, to run a local SMTP mail server for local testing, run
 sudo postfix start
+
+# For Pig job type, you can override Hadoop confs by setting setting jvm.args. Example:
+-Dmapred.map.output.compression.codec=com.hadoop.compression.lzo.LzoCodec

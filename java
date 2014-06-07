@@ -24,3 +24,12 @@ OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 // An interface's methods are always public and abstract
 // You can specify "public abstract", but it is redundant and discouraged
 // http://stackoverflow.com/questions/161633/should-methods-in-a-java-interface-be-declared-with-or-without-a-public-access-m
+
+/* Bitwise shift operators */
+<< // unsigned left shift
+>> // signed right shift (leftmost bits are filled in with sign bit)
+// for negative numbers, this means leftmost bits are filled in with 1s
+>>> // unsigned right shift
+
+/* mix of Java 7 and Java 6 compiled jars */
+major version 51 is newer than 50, the highest major version supported by this compiler.
