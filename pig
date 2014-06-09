@@ -6,3 +6,7 @@ http://pig.apache.org/docs/r0.11.1/
 LOGS= LOAD 'log';
 LOGS_GROUP= GROUP LOGS ALL; -- groups all records into single group
 LOG_COUNT = FOREACH LOGS_GROUP GENERATE COUNT(LOGS);
+
+-- Combine Small Input Files
+-- http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
+set pig.maxCombinedSplitSize <size_in_bytes>
