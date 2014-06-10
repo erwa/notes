@@ -30,6 +30,9 @@ getent group <groupname>
 zip -r foo.zip foo
 unzip foo.zip
 
+# list files in a zip
+unzip -l foo.zip
+
 # show files in tar/tarball/tar.bz2
 tar -tvf file.tar
 tar -ztvf file.tar.gz
@@ -37,3 +40,16 @@ tar -jtvf file.tar.bz2
 
 # cd to previous directory
 cd -
+
+# Substring removal
+# http://wiki.bash-hackers.org/syntax/pe#substring_removal
+
+# Remove last character from substring_removal
+${MYSTRING%?}
+# % (percent) matches from the end
+# ? matches any character
+# http://wiki.bash-hackers.org/syntax/pattern
+
+# schedule a cron job
+crontab -e
+# http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/
