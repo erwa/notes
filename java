@@ -29,7 +29,7 @@ OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 << // unsigned left shift
 >> // signed right shift (leftmost bits are filled in with sign bit)
 // for negative numbers, this means leftmost bits are filled in with 1s
->>> // unsigned right shift
+>>> // unsigned right shift (leftmost bits are filled in with 0s)
 
 /* mix of Java 7 and Java 6 compiled jars */
 major version 51 is newer than 50, the highest major version supported by this compiler.
