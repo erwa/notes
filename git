@@ -120,5 +120,11 @@ http://stackoverflow.com/questions/1955985/what-does-the-caret-character-mean
 
 On Windows, git looks for ~/.ssh/id_rsa to use as your SSH key
 
-# After installing the diff tool "meld", you can do
+# After installing the side-by-side diff tool "meld", you can do
 git difftool <commit_hash1>..<commit_hash2>
+# however, this compares files one by one
+# It's often easier to fit to a
+git reset --soft HEAD~<number>
+# and then do a
+meld .
+# which will open all the files at once
