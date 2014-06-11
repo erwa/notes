@@ -53,3 +53,6 @@ ${MYSTRING%?}
 # schedule a cron job
 crontab -e
 # http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/
+
+# To see recent cron job runs
+grep <script_name> /var/log/cron

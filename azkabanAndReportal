@@ -33,3 +33,6 @@ sudo postfix start
 
 # For Pig job type, you can override Hadoop confs by setting setting jvm.args. Example:
 -Dmapred.map.output.compression.codec=com.hadoop.compression.lzo.LzoCodec
+
+# reload jobtype plugins without restarting executor server
+curl http://localhost:<port>/executor?action=reloadJobTypePlugins
