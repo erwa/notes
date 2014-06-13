@@ -38,6 +38,24 @@ tar -tvf file.tar
 tar -ztvf file.tar.gz
 tar -jtvf file.tar.bz2
 
+# extract one file from a jar
+# specify full path to file inside jar
+jar xf JAR FILE
+
+# delete a file from a jar
+zip -d JAR FILE
+
+# add file to jar
+# update a file in a jar
+# you have to recreate the file structure outside the jar first
+jar uf JAR FILE
+
+# create a jar
+jar cf JAR_NAME.jar file1 file2 dir1 file3 dir2 ...
+
+# Decompile Java class
+javap -c -private AvroGenericRecordReader
+
 # cd to previous directory
 cd -
 
@@ -56,3 +74,25 @@ crontab -e
 
 # To see recent cron job runs
 grep <script_name> /var/log/cron
+
+# Bash dollar sign variables
+# http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables
+$1, $2, $3 # positional parameters
+$@ array representation of positional parameters
+$# # number of parameters
+$* # IFS (Internal Field Separator) expansion
+$- # current shell options
+$$ # pid of current shell
+$_ # most recent parameter
+$IFS # input field separator
+$? # most recent foreground exit status
+$! # PID of most recent background command
+$0 # name of shell or shell script
+
+# Bash Bang (!) commands
+# http://ss64.com/bash/bang.html
+Alt + . # prints out last word of last command
+!! # run last command again
+!foo # run most recent command starting with foo
+!foo:p # !foo dry run, adds !foo to command history
+^foo^bar # run last command replacing foo with bar

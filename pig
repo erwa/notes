@@ -29,3 +29,9 @@ def helloworld():
 pig test.pig -Dmapred.cache.files=/user/ahsu/test#temp
 
 mapred.cache.files=<hdfs_path>#<local_symlink_name>
+
+-- UDFs are case-sensitive
+
+-- Combine small input files
+-- http://pig.apache.org/docs/r0.8.1/cookbook.html#Combine+Small+Input+Files
+set pig.maxCombinedSplitSize <sizeInBytes>;

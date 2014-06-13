@@ -6,3 +6,6 @@ Shift+Cmd+4
 
 # More screenshot variations
 http://guides.macrumors.com/Taking_Screenshots_in_Mac_OS_X
+
+# open file from Terminal using default app
+open <file>
