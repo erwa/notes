@@ -36,6 +36,9 @@ git merge <branch> # merges <branch> into current branch
 git checkout HEAD~5 # checkout 5 commits ago
 git checkout COMMIT_HASH # checkout at specific commit
 
+# if you're in a detached HEAD state and want to get back on a branch, do
+git checkout <branch>
+
 # git remove untracked files
 git clean -f [-d]
 # -d removes untracked directories, too

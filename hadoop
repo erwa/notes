@@ -2,11 +2,16 @@
 # http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
 # http://stackoverflow.com/questions/3425688/why-does-the-hadoop-incompatible-namespaceids-issue-happen
 # http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#javaioioexception-incompatible-namespaceids
+# Reformat the namenode
 hadoop namenode -format
 # You may need to delete the hadoop tmp and dfs.data.dir directories.
 
-For Hadoop local (single process) mode, just leave core-site.xml, hdfs-site.xml, and mapred-site.xml empty.
+# For Hadoop local (single process) mode, just leave core-site.xml, hdfs-site.xml, and mapred-site.xml empty.
 
-Don't forget to set JAVA_HOME in conf/hadoop-env.sh
+# Don't forget to set JAVA_HOME in conf/hadoop-env.sh
 
-To avoid having to type your password when launching the daemons, append .ssh/*.pub to .ssh/authorized_keys
+# To avoid having to type your password when launching the daemons, append .ssh/*.pub to .ssh/authorized_keys
+
+# Using curl to contact a secure WebHDFS instance
+# http://www.adaltas.com/blog/2013/09/25/webhdfs-security-kerberos-delegation-tokens/
+curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS"
