@@ -1,0 +1,3 @@
+# https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions
+sudo service jenkins start/stop/restart
+sudo chkconfig jenkins on

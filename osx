@@ -9,3 +9,7 @@ http://guides.macrumors.com/Taking_Screenshots_in_Mac_OS_X
 
 # open file from Terminal using default app
 open <file>
+
+# When ssh'ing from a Mac, you may need to add -A in order for git SSH connections to work. E.g.:
+ssh -A host
+# Without -A, git push/pull will prompt for a password (and no password seems to work)

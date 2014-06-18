@@ -95,4 +95,5 @@ Alt + . # prints out last word of last command
 !! # run last command again
 !foo # run most recent command starting with foo
 !foo:p # !foo dry run, adds !foo to command history
+!$ # last parameter of the last command
 ^foo^bar # run last command replacing foo with bar
