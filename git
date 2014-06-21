@@ -131,3 +131,6 @@ git reset --soft HEAD~<number>
 # and then do a
 meld .
 # which will open all the files at once
+
+# remove file from repo but keep locally
+git rm --cached <files...>

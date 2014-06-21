@@ -97,3 +97,6 @@ Alt + . # prints out last word of last command
 !foo:p # !foo dry run, adds !foo to command history
 !$ # last parameter of the last command
 ^foo^bar # run last command replacing foo with bar
+
+# Add to .bashrc to enable color ls output by default
+alias ls="ls --color=auto"
