@@ -30,7 +30,7 @@ Program arguments
 --hiveconf javax.jdo.option.ConnectionURL=jdbc:derby:;databaseName=/home/ahsu/metastore_db;create=true
 
 VM arguments
-# initially 
+# initially
 -Xms256m -Xmx1024m -XX:-UseSplitVerifier -Dhive.root.logger=INFO,console -Dhadoop.bin.path=/home/ahsu/gitli/ahsu-hive/testutils/hadoop
 
 # After my changes:
@@ -110,3 +110,5 @@ hive --auxpath /export/apps/hive/latest/aux/lib
 
 # You can change log level and output location in conf/hive-log4j.properties
 hive.root.logger=DEBUG,DRFA,console
+
+# Make sure you don't accidentally have a hive-site.xml file in the directory you launch hive from, or else it will be used instead of the one in $HIVE_HOME/conf

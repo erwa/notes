@@ -1,5 +1,11 @@
 # Hadoop setup on Mac
 # http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
+# To fix “Unable to load realm info from SCDynamicStore” error, add this to hadoop-env.sh
+export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc="
+
+# To suppress "$HADOOP_HOME is deprecated" warning message, add the follow to hadoop-env.sh
+export HADOOP_HOME_WARN_SUPPRESS="TRUE"
+
 # http://stackoverflow.com/questions/3425688/why-does-the-hadoop-incompatible-namespaceids-issue-happen
 # http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#javaioioexception-incompatible-namespaceids
 # Reformat the namenode
