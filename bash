@@ -71,6 +71,8 @@ ${MYSTRING%?}
 # schedule a cron job
 crontab -e
 # http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/
+# crontab stored in /var/spool/cron/, but not meant to be edited by hand
+# http://askubuntu.com/questions/216692/where-is-the-user-crontab-stored
 
 # To see recent cron job runs
 grep <script_name> /var/log/cron
