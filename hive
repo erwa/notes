@@ -112,3 +112,6 @@ hive --auxpath /export/apps/hive/latest/aux/lib
 hive.root.logger=DEBUG,DRFA,console
 
 # Make sure you don't accidentally have a hive-site.xml file in the directory you launch hive from, or else it will be used instead of the one in $HIVE_HOME/conf
+
+# If you're running locally using Derby, and you're trying to set up local Jenkins Hive tests, you may get
+# permissions issues because the db.lck file is read-only and owned by one user.

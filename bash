@@ -102,3 +102,7 @@ Alt + . # prints out last word of last command
 
 # Add to .bashrc to enable color ls output by default
 alias ls="ls --color=auto"
+
+# Set/see user-specific ACLs
+setfacl -m user:<user>:rwx <file>
+getfacl <file>
