@@ -115,3 +115,11 @@ hive.root.logger=DEBUG,DRFA,console
 
 # If you're running locally using Derby, and you're trying to set up local Jenkins Hive tests, you may get
 # permissions issues because the db.lck file is read-only and owned by one user.
+# The easiest solution is to just
+chmod -R 777 <hive_metastore_db_dir>
+
+# Explanation of
+# mapred.min.split.size.per.node (the minimum bytes of data to create a node-local partition, otherwise the data will combine to rack level. default:0)
+# mapred.min.split.size.per.rack (the minimum bytes of data to create a rack-local partition, otherwise the data will combine to global level. default:0)
+# mapred.max.split.size (the max size of each split, will be exceeded because we stop accumulating *after* reaching it, instead of before)
+# https://issues.apache.org/jira/browse/HIVE-74

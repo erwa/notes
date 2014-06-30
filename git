@@ -10,6 +10,9 @@ git push <remote> <local branch>:<remote branch>
 git push upstream junit-runner:master
 git push origin initial-queries:initial-queries
 
+# set upstream branch
+git branch --set-upstream <local-branch> <remote>/<remote-branch>
+
 # git push one branch
 git push <remote> <branch>
 

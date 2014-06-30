@@ -38,6 +38,9 @@ tar -tvf file.tar
 tar -ztvf file.tar.gz
 tar -jtvf file.tar.bz2
 
+# Extract to different directory
+tar -xf archive.tar --directory=/target/directory
+
 # extract one file from a jar
 # specify full path to file inside jar
 jar xf JAR FILE
@@ -103,6 +106,16 @@ Alt + . # prints out last word of last command
 # Add to .bashrc to enable color ls output by default
 alias ls="ls --color=auto"
 
-# Set/see user-specific ACLs
+# Set/modify/remove/see user-specific ACLs
 setfacl -m user:<user>:rwx <file>
+setfacl -x <user> <file> # Remove <user> from <file>'s ACL list
+setfacl --remove-all <file> # Remove all ACLs for a file
+setfacl --remove-default <file> # Remove default ACLs
 getfacl <file>
+
+# User needs execute permissions on a directory to cd into it.
+# Even if a file is 777, a user still needs permissions on the chain of
+# parent directories to access the file.
+
+# xargs with string substitution
+cat temp | xargs -I 'TABLE' hive -e 'drop table TABLE'
