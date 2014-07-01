@@ -23,3 +23,6 @@ hadoop namenode -format
 curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS"
 
 # For the Hadoop project, in Eclipse, make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
+
+# version 0.20S = 1.2.1
+# version 0.23 = 2.x

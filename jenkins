@@ -5,3 +5,6 @@ sudo chkconfig jenkins on
 # manual restart
 # http://stackoverflow.com/questions/8072700/jenkins-manual-restart
 (jenkins_url)/safeRestart
+
+# .hpi file downloads for manual plugin installation
+# https://updates.jenkins-ci.org/download/plugins

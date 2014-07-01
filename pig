@@ -33,5 +33,5 @@ mapred.cache.files=<hdfs_path>#<local_symlink_name>
 -- UDFs are case-sensitive
 
 -- Combine small input files
--- http://pig.apache.org/docs/r0.8.1/cookbook.html#Combine+Small+Input+Files
+-- http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
 set pig.maxCombinedSplitSize <sizeInBytes>;
