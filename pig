@@ -35,3 +35,8 @@ mapred.cache.files=<hdfs_path>#<local_symlink_name>
 -- Combine small input files
 -- http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
 set pig.maxCombinedSplitSize <sizeInBytes>;
+
+-- To solve Jython
+-- ImportError: No module named <module>
+-- https://issues.apache.org/jira/browse/PIG-2433
+pig -Dmapred.child.env="JYTHONPATH=job.jar/Lib" script.pig
