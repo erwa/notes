@@ -119,3 +119,16 @@ getfacl <file>
 
 # xargs with string substitution
 cat temp | xargs -I 'TABLE' hive -e 'drop table TABLE'
+
+# Apply a patch, but strip off leading a/ and b/
+# Example: Diff patch.diff looks like
+diff --git a/file b/file
+...
+# To apply as if the diff looks like
+diff --git file file
+...
+# Use
+patch -p1 < patch.diff
+
+# Extract diffs only applying to one file from another diff
+filterdiff -i '*file' patch.diff > filtered.diff
