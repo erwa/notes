@@ -33,3 +33,25 @@ OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 
 /* mix of Java 7 and Java 6 compiled jars */
 major version 51 is newer than 50, the highest major version supported by this compiler.
+
+# extract one file from a jar
+# specify full path to file inside jar
+jar xf JAR FILE
+
+# delete a file from a jar
+zip -d JAR FILE
+
+# add file to jar
+# update a file in a jar
+# you have to recreate the file structure outside the jar first
+jar uf JAR FILE
+
+# create a jar
+jar cf JAR_NAME.jar file1 file2 dir1 file3 dir2 ...
+
+# Decompile Java class
+javap -c -private AvroGenericRecordReader
+
+# Find jar that a class is in
+# http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done

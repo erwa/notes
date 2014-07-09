@@ -1,0 +1,11 @@
+# https://www.openssl.org/docs/apps/genpkey.html
+# Generate 2048-bit RSA private key
+# Encrypted data can be of length 2048 / 8 - 11 = 245 bytes long
+# http://stackoverflow.com/questions/10007147/getting-a-illegalblocksizeexception-data-must-not-be-longer-than-256-bytes-when
+openssl genpkey -algorithm RSA -out key.pem -pkeyopt rsa_keygen_bits:2048
+
+# Generate public key in PKCS8 DER format using RSA private key
+openssl rsa -in key.pem -inform PEM -pubout -outform DER -out public_key.der
+
+# Generate private key in PKCS8 DER format using RSA private key
+openssl pkcs8 -topk8 -in key.pem -inform PEM -nocrypt -out private_key.der -outform DER

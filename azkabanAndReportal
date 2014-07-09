@@ -4,7 +4,7 @@ $ curl -k https://<host>:<port> -d "username=<username>&password=<password>&acti
   "session.id" : "<session.id>"
 }
 
-$ curl -k https://<host>:<port>/manager -G -d "project=reportal-ahsu-Reportal-Monitoring-Report&flow=data-collector&ajax=fetchFlowExecutions&start=0&length=1" -b azkaban.browser.session.id=<session.id>
+$ curl -k https://<host>:<port>/manager -G -d "project=project-name&flow=flow-name&ajax=fetchFlowExecutions&start=0&length=1" -b azkaban.browser.session.id=<session.id>
 {
   "executions" : [ {
     "startTime" : 1396998055295,
@@ -14,13 +14,13 @@ $ curl -k https://<host>:<port>/manager -G -d "project=reportal-ahsu-Reportal-Mo
     "execId" : 44607,
     "projectId" : 909,
     "endTime" : 1396998377787,
-    "flowId" : "data-collector"
+    "flowId" : "flow-name"
   } ],
   "total" : 7,
-  "project" : "reportal-ahsu-Reportal-Monitoring-Report",
+  "project" : "project-name",
   "length" : 1,
   "from" : 0,
-  "flow" : "data-collector",
+  "flow" : "flow-name",
   "projectId" : 909
 }
 
@@ -36,3 +36,23 @@ sudo postfix start
 
 # reload jobtype plugins without restarting executor server
 curl http://localhost:<port>/executor?action=reloadJobTypePlugins
+
+# get project permissions
+curl -k https://<host>:<port>/manager -G -d "ajax=getPermissions&project=project-name" -b azkaban.browser.sesson.id=<session.id>
+{
+  "project" : "project-name",
+  "permissions" : [ {
+    "username" : "ahsu",
+    "permission" : [ "ADMIN" ]
+  } ],
+  "projectId" : 71
+}
+
+# execute flow
+curl -k https://<host>:<port>/executor -G -d "ajax=executeFlow&project=project-name&flow=flow-name" -b azkaban.browser.session.id=<session.id>
+{
+  "message" : "Execution submitted successfully with exec id 32285",
+  "project" : "project-name",
+  "flow" : "flow-name",
+  "execid" : 32285
+}
