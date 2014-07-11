@@ -56,3 +56,9 @@ curl -k https://<host>:<port>/executor -G -d "ajax=executeFlow&project=project-n
   "flow" : "flow-name",
   "execid" : 32285
 }
+
+# The number of flows in a project is equal to the number of end nodes (sinks). If you have a dependency graph like
+  A
+ / \
+B   C
+# when you upload the project, you will get two flows: B and C
