@@ -16,6 +16,9 @@ sysctl vm.swappiness
 # grep only files matching a pattern
 grep --include=*.job -r "type=hive" ./*
 
+# grep for items that do NOT match a pattern
+grep -v <pattern>
+
 # grep starting from certain line number
 sed -n '<line_number>,$ p' <file> | grep <pattern>
 
@@ -110,3 +113,6 @@ patch -p1 < patch.diff
 
 # Extract diffs only applying to one file from another diff
 filterdiff -i '*file' patch.diff > filtered.diff
+
+# ls everything on one line
+ls | tr "\\n" " "

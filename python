@@ -1,0 +1,4 @@
+# Reading from global variable does not require any special modifiers
+# To write to a global variable from a function, add
+global <var_name>
+# at the beginning of the function
