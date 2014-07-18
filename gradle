@@ -27,3 +27,24 @@ task copyFiles (type: Copy) {
     println "copying files"
   }
 }
+
+// Get test runtime classpath
+// http://forums.gradle.org/gradle/topics/how_to_add_to_a_test_classpath
+files = project.sourceSets.test.runtimeClasspath
+for (File file : files) {
+  print file
+}
+
+// JavaExec task
+// http://forums.gradle.org/gradle/topics/how_to_use_in_gradle_javaexec_with_classpath_dependency
+javaexec {
+    classpath project.configurations.buildDependencies
+    main = "com.simontuffs.onejar.Boot"
+    args = [
+        "install",
+        ampFile,
+        warFile,
+        "-force",
+        "-nobackup"
+    ].toList()
+}

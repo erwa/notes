@@ -62,3 +62,11 @@ curl -k https://<host>:<port>/executor -G -d "ajax=executeFlow&project=project-n
  / \
 B   C
 # when you upload the project, you will get two flows: B and C
+
+# Can also use &session.id=<session.id> instead of setting the azkaban.browser.session.id cookie
+
+# Get flow status
+curl -k https://<host>:<port>/executor -d "ajax=fetchexecflowupdate&execid=<exec.id>&lastUpdateTime=-1&project=<project.name>&flow=<flow.name>&session.id=<session.id>"
+
+# Kill flow
+curl -k https://<host>:<port>/executor -d "ajax=cancelFlow&execid=<exec.id>&session.id=<session.id>

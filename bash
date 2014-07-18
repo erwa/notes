@@ -108,11 +108,15 @@ diff --git a/file b/file
 # To apply as if the diff looks like
 diff --git file file
 ...
-# Use
+# use
 patch -p1 < patch.diff
 
 # Extract diffs only applying to one file from another diff
 filterdiff -i '*file' patch.diff > filtered.diff
+
+# One issue with filterdiff -i is it removes any "diff --git ..." and "index ..." lines
+# To avoid this, you can use filterdiff -x or -X. However, it does not exclude new and deleted files.
+filterdiff -X fileWithExcludePatternsOnePerLine patch.diff > filtered.diff
 
 # ls everything on one line
 ls | tr "\\n" " "

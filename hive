@@ -123,3 +123,7 @@ chmod -R 777 <hive_metastore_db_dir>
 # mapred.min.split.size.per.rack (the minimum bytes of data to create a rack-local partition, otherwise the data will combine to global level. default:0)
 # mapred.max.split.size (the max size of each split, will be exceeded because we stop accumulating *after* reaching it, instead of before)
 # https://issues.apache.org/jira/browse/HIVE-74
+
+# Disable map joins (which require launching a local task,
+# which might have memory issues)
+set hive.auto.convert.join = false;

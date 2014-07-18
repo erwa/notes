@@ -1,3 +1,7 @@
+################
+# Hadoop 1.2.1 #
+################
+
 # Hadoop setup on Mac
 # http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
 # To fix “Unable to load realm info from SCDynamicStore” error, add this to hadoop-env.sh
@@ -26,3 +30,109 @@ curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS
 
 # version 0.20S = 1.2.1
 # version 0.23 = 2.x
+
+# To leave safemode
+hadoop dfsadmin -safemode leave
+
+
+################
+# Hadoop 2.3.0 #
+################
+
+# Make sure you don't have environment variables from Hadoop 1.x still set
+env | grep -i home
+env | grep -i conf
+
+# hadoop-env.sh script
+export HADOOP_HOME=/export/apps/hadoop-2.3.0_li-SNAPSHOT
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
+
+# To set env using hadoop-env.sh script
+source hadoop-env.sh
+
+# Make sure you have stopped all the Hadoop 1.x daemons
+jps # to check
+
+# Run this from Hadoop base directory
+mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
+# This will create tarballs for all the components.
+# The tarball we care about is in hadoop-dist/target
+# Copy it to the location you want to install Hadoop and extract it.
+
+# Conf is in etc/hadoop
+# core-site.xml
+<configuration>
+  <property>
+    <name>fs.default.name</name>
+    <value>hdfs://localhost:9000</value>
+  </property>
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/home/ahsu/hadoop2-tmp</value>
+  </property>
+</configuration>
+
+# hdfs-site.xml
+<configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>dfs.permissions</name>
+    <value>false</value>
+  </property>
+</configuration>
+
+# mapred-site.xml
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+</configuration>
+
+# yarn-site.xml
+<configuration>
+<!-- Site specific YARN configuration properties -->
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+</configuration>
+
+# Before namenode can start, you must format the hadoop.tmp.dir
+hadoop namenode -format
+
+# Create a start-all.sh in bin directory with these contents
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/hadoop-daemon.sh start namenode
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/hadoop-daemons.sh start datanode
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/yarn-daemon.sh start resourcemanager
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/yarn-daemons.sh start nodemanager
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/mr-jobhistory-daemon.sh start historyserver
+
+# Create a stop-all.sh in bin directory with these contents
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/mr-jobhistory-daemon.sh stop historyserver
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/yarn-daemons.sh stop nodemanager
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/yarn-daemons.sh stop resourcemanager
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/hadoop-daemons.sh stop datanode
+/export/apps/hadoop-2.3.0_li-SNAPSHOT/sbin/hadoop-daemon.sh stop namenode
+
+# Running example job
+# Pi job (no files required)
+yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar pi 2 100
+
+# Word count example
+# Copy conf directory to HDFS
+hadoop fs -put etc/hadoop/ conf
+# Run word count
+yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out

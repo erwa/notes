@@ -13,3 +13,13 @@ openssl pkcs8 -topk8 -in key.pem -inform PEM -nocrypt -out private_key.der -outf
 # Specify different UserKnownHostsFile when using ssh or scp:
 ssh -o UserKnownHostsFile=/path/to/known_hosts <host>
 scp -o UserKnownHostsFile=/path/to/known_hosts <file> <host>:
+
+# Set timeout for ssh
+ssh -o ConnectTimeout=10  <hostName>
+
+# SSH and automatically add host to known_hosts file
+# http://askubuntu.com/questions/45679/ssh-connection-problem-with-host-key-verification-failed-error
+ssh -o StrictHostKeyChecking=no user@something.example.com <command>
+
+# Use different krb5.conf file than default /etc/krb5.conf
+export KRB5_CONFIG=/path/to/conf/file
