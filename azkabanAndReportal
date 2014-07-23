@@ -70,3 +70,12 @@ curl -k https://<host>:<port>/executor -d "ajax=fetchexecflowupdate&execid=<exec
 
 # Kill flow
 curl -k https://<host>:<port>/executor -d "ajax=cancelFlow&execid=<exec.id>&session.id=<session.id>
+
+# Scheduling a flow
+# Login first (see above)
+
+$ curl -k https://<host>:<port>/schedule -d "ajax=scheduleFlow&projectName=<projectName>&flow=<flowName>&projectId=<projectId>&scheduleTime=12,00,pm,PDT&scheduleDate=07/22/2014" -b azkaban.browser.session.id=<session.id>
+{
+  "message" : "<projectName>.<flowName> scheduled.",
+  "status" : "success"
+}
