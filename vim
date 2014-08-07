@@ -21,8 +21,11 @@ vim `ls -t | head -1`
  ctrl-w ctrl-w    - move cursor to another window (cycle)
  ctrl-w_          - maximize current window
  ctrl-w=          - make all equal size
- 10 ctrl-w+       - increase window size by 10 lines
  :vsplit file     - vertical split
+ 10 ctrl-w >      - increase vertical window size by 10 characters
+
+ 10 ctrl-w+       - increase horizontal window size by 10 lines
+
  :sview file      - same as split, but readonly
  :hide            - close current window
  :only            - keep only this window open

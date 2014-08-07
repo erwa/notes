@@ -40,6 +40,9 @@ tar -jtvf file.tar.bz2
 # Extract to different directory
 tar -xf archive.tar --directory=/target/directory
 
+# tar while excluding directories
+tar cvzf file.tar.gz  --exclude 'dir/a/*' --exclude 'dir/b/*' dir
+
 # cd to previous directory
 cd -
 
@@ -120,3 +123,9 @@ filterdiff -X fileWithExcludePatternsOnePerLine patch.diff > filtered.diff
 
 # ls everything on one line
 ls | tr "\\n" " "
+
+# Check disk usage, output in human-readable format
+df -h
+
+# Check disk usage of a directory, output in human-readable format
+du -h DIR

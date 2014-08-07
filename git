@@ -17,8 +17,11 @@ git branch --set-upstream <local-branch> <remote>/<remote-branch>
 git push <remote> <branch>
 
 # A git tag refers to a specific commit and does not change.
-# To pull git tag
-git pull -t
+# To fetch tags
+git fetch --tags
+
+# Show tags
+git tag
 
 # git: checkout remote branch and have local branch track it
 git checkout -b li-0.10-1 origin/li-0.10-1

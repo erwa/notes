@@ -79,3 +79,15 @@ $ curl -k https://<host>:<port>/schedule -d "ajax=scheduleFlow&projectName=<proj
   "message" : "<projectName>.<flowName> scheduled.",
   "status" : "success"
 }
+
+# Get all projects
+curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.id>
+
+# If you're getting a Jetty NOT_FOUND error when you try to load Azkaban,
+# it probably means one of your viewer plugins is not configured properly.
+
+# When installing Reportal, make sure to include velocity-tools-2.0.jar and slf4j-log4j12-1.6.4.jar
+# If you're using Hadoop, make sure to include the hadoop-core jar and add the Hadoop conf directory to your classpath.
+
+# For Azkaban, to build just the jars (and skip the tests), just run
+./gradlew jar
