@@ -124,6 +124,9 @@ filterdiff -X fileWithExcludePatternsOnePerLine patch.diff > filtered.diff
 # ls everything on one line
 ls | tr "\\n" " "
 
+# ls: output one file per line
+ls | cat
+
 # Check disk usage, output in human-readable format
 df -h
 

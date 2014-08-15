@@ -31,3 +31,6 @@ vim `ls -t | head -1`
  :only            - keep only this window open
  :ls              - show current buffers
  :b 2             - open buffer #2 in this window
+
+ # Jump to matching parenthesis/bracket/brace
+ %

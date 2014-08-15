@@ -48,3 +48,6 @@ javaexec {
         "-nobackup"
     ].toList()
 }
+
+// Build but exclude a task
+gradle -x <task>

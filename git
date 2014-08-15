@@ -16,6 +16,9 @@ git branch --set-upstream <local-branch> <remote>/<remote-branch>
 # git push one branch
 git push <remote> <branch>
 
+# Fetch remote branches
+git fetch <remote>
+
 # A git tag refers to a specific commit and does not change.
 # To fetch tags
 git fetch --tags
@@ -73,7 +76,7 @@ git branch -m <newname>
 git rebase -i HEAD~2 # reorder last two commits
 
 # To rebase and replay local commits on another branch
-git rebase <branch>
+git rebase <branch> # replays <branch> on your current branch
 git rebase <remote>/<branch>
 
 # Rebase on top of a specific commit
@@ -140,3 +143,5 @@ meld .
 
 # remove file from repo but keep locally
 git rm --cached <files...>
+
+# When cloning with one URL fails, try another one (SSH, HTTP, Git)

@@ -23,3 +23,10 @@ ssh -o StrictHostKeyChecking=no user@something.example.com <command>
 
 # Use different krb5.conf file than default /etc/krb5.conf
 export KRB5_CONFIG=/path/to/conf/file
+
+# To export a certificate from Firefox, click the Lock icon to the left of the URL --> More Information... --> View Certificate --> Details --> Export...
+# To add a certificate to your Java cacerts file
+# http://docs.acl.com/ax/300/index.jsp?topic=/com.acl.ax.admin.help/system_administration/t_importing_certificates_into_the_java_cacerts_file.html
+keytool -import -alias <alias> -keystore <cacerts_file> -trustcacerts -file <certificate_filename>
+# cacerts_file will be located somewhere like /export/apps/jdk/JDK-1_6_0_27/jre/lib/security/cacerts
+# Default Java cacerts password is "changeit"

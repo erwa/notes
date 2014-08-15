@@ -91,3 +91,6 @@ curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.i
 
 # For Azkaban, to build just the jars (and skip the tests), just run
 ./gradlew jar
+
+# Create a project
+curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=<description>" -b azkaban.browser.session.id=<session.id>

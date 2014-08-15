@@ -53,14 +53,7 @@ export PATH=$HIVE_HOME/bin:$PATH
 hive
 # run your query
 
-# building Mavenized Hive as distribution
-mvn clean package -DskipTests -Phadoop-1 -Pdist
-# distribution appears in packaging/target
-
-# build Hive and tests with Maven, starting from Hive root dir:
-mvn clean install -DskipTests -Phadoop-1
-cd itests
-mvn clean install -DskipTests -Phadoop-1
+### Ant ###
 
 # ant, Hive 0.12.0 and earlier
 # building Hive
@@ -74,9 +67,23 @@ ant test -Dtestcase=TestCliDriver -Dqfile_regex=.*partition.*
 # build tarball in ant
 ant clean binary
 
+### Maven ###
+
+# building Mavenized Hive as distribution
+mvn clean package -DskipTests -Phadoop-1 -Pdist
+# distribution appears in packaging/target
+
+# build Hive and tests with Maven, starting from Hive root dir:
+mvn clean install -DskipTests -Phadoop-1 # use -Phadoop-2 to build against Hadoop2
+cd itests
+mvn clean install -DskipTests -Phadoop-1
+
 # do from itests or itests/qtest directory
+# make sure you do a build first! (see above)
 cd itests[/qtest]
+# run a single test
 mvn test -Phadoop-1 -Dtest=TestCliDriver -Dqfile=avro_partitioned.q [-Dtest.output.overwrite=true]
+# run tests matching a regex
 mvn test -Phadoop-1 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
 
 # run Hive unit test
