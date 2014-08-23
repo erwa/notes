@@ -10,8 +10,11 @@ git push <remote> <local branch>:<remote branch>
 git push upstream junit-runner:master
 git push origin initial-queries:initial-queries
 
-# set upstream branch
+# set tracking branch
 git branch --set-upstream <local-branch> <remote>/<remote-branch>
+
+# see tracking branches
+git branch -vv
 
 # git push one branch
 git push <remote> <branch>
@@ -145,3 +148,7 @@ meld .
 git rm --cached <files...>
 
 # When cloning with one URL fails, try another one (SSH, HTTP, Git)
+
+# Enable color output on Mac
+# http://stackoverflow.com/questions/1156069/how-to-configure-mac-os-x-term-so-that-git-has-color
+git config --global color.ui true

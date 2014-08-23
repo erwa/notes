@@ -32,6 +32,9 @@ unzip foo.zip
 # list files in a zip
 unzip -l foo.zip
 
+# remove a file from a zip
+zip -d foo.zip file
+
 # show files in tar/tarball/tar.bz2
 tar -tvf file.tar
 tar -ztvf file.tar.gz
