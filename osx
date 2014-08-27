@@ -17,3 +17,6 @@ ssh -A host
 # Page Down and Up
 fn + <up/down>
 fn + [Shift +] <space>
+
+# Minimize all windows
+cmd + alt + m
