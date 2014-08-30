@@ -1,0 +1,7 @@
+# Insert a row above
+Alt + I, R
+# Insert a row below
+Alt + I, W
+
+# Delete a row
+Alt + E, D
