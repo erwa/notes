@@ -1,7 +1,9 @@
 # Insert a row above
 Alt + I, R
+Ctrl + option + I, R # Mac
 # Insert a row below
 Alt + I, W
-
+Ctrl + option + I, W # Mac
 # Delete a row
 Alt + E, D
+Ctrl + option + E, D # Mac
