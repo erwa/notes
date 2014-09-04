@@ -1,5 +1,8 @@
-# Add remote branch
+# Add remote repository
 git remote add upstream git://github.com/user/repo.git
+
+# Change URI that a remote points to
+git remote set-url <remote> git://...
 
 # git pull remote branch
 git pull upstream master // git pull latest from upstream master
@@ -54,6 +57,9 @@ git checkout <branch>
 # git remove untracked files
 git clean -f [-d]
 # -d removes untracked directories, too
+
+# Add all untracked files
+git add -A
 
 # git: uncommit last commit but keep changes in staging
 git reset --soft HEAD^

@@ -66,7 +66,25 @@ B   C
 # Can also use &session.id=<session.id> instead of setting the azkaban.browser.session.id cookie
 
 # Get flow status
-curl -k https://<host>:<port>/executor -d "ajax=fetchexecflowupdate&execid=<exec.id>&lastUpdateTime=-1&project=<project.name>&flow=<flow.name>&session.id=<session.id>"
+curl -k https://<host>:<port>/executor -d "ajax=fetchexecflowupdate&execid=<exec.id>&lastUpdateTime=-1&session.id=<session.id>"
+
+{
+  "id" : "test",
+  "startTime" : 1408152686395,
+  "attempt" : 0,
+  "status" : "RUNNING",
+  "updateTime" : 1408152686423,
+  "nodes" : [ {
+    "attempt" : 0,
+    "startTime" : 1408152686412,
+    "id" : "test",
+    "updateTime" : 1408152686420,
+    "status" : "RUNNING",
+    "endTime" : -1
+  } ],
+  "flow" : "test",
+  "endTime" : -1
+}
 
 # Kill flow
 curl -k https://<host>:<port>/executor -d "ajax=cancelFlow&execid=<exec.id>&session.id=<session.id>

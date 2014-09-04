@@ -55,3 +55,10 @@ javap -c -private AvroGenericRecordReader
 # Find jar that a class is in
 # http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
 for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
+
+// Pipe output stream to a String
+// http://stackoverflow.com/questions/216894/get-an-outputstream-into-a-string
+// Use ByteArrayOutputStream
+baos.toString();
+
+// According to Effective Java, 2nd Ed., page 276, you should use System.nanoTime instead of System.currentTimeMillis for interval timing.

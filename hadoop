@@ -136,3 +136,8 @@ yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-map
 hadoop fs -put etc/hadoop/ conf
 # Run word count
 yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out
+
+# Increase memory of tasks
+set mapred.job.map.memory.mb 4096;
+set mapred.job.reduce.memory.mb 4096;
+set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';

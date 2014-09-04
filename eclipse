@@ -12,3 +12,7 @@ Fn + Ctrl + Up/Down
 
 # Auto-complete on Linux
 Ctrl+Space
+
+# Output to file
+# http://stackoverflow.com/questions/5714053/how-can-we-redirect-eclipse-console-output-to-a-file
+Run --> Run Configurations --> Common

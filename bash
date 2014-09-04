@@ -22,6 +22,12 @@ grep -v <pattern>
 # grep starting from certain line number
 sed -n '<line_number>,$ p' <file> | grep <pattern>
 
+# awk example to find 0-byte HDFS files in a directory
+# You may need to add a grep to exclude directories (which are also 0 bytes)
+hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }'
+# To delete these 0-byte files, do
+hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }' | xargs hadoop fs -rm
+
 # See members of a group
 getent group <groupname>
 
@@ -135,3 +141,25 @@ df -h
 
 # Check disk usage of a directory, output in human-readable format
 du -h DIR
+
+# seconds since epoch
+date +%s
+
+# redirect both stdout and stderr to the same file
+# http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Output-and-Standard-Error
+<command> &> file
+
+# Look up hostname/IP address associated with IP address/hostname
+nslookup <ip_address>
+nslookup <hostname>
+
+# echo string with escape characters
+# $'' causes escape sequences to be interpreted
+echo $'a\tb'
+
+# print current machine name
+hostname
+
+# Check system specs (CPU, memory, etc.)
+cat /proc/cpuinfo
+cat /proc/meminfo

@@ -7,6 +7,9 @@ vim `ls -t | head -1`
 # vim count number of occurrences of pattern
 :%s/pattern//gn
 
+# substitution with prompt
+:%s/old/new/gc
+
 # vim show special characters
 :set list
 
