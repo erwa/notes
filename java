@@ -38,6 +38,9 @@ major version 51 is newer than 50, the highest major version supported by this c
 # specify full path to file inside jar
 jar xf JAR FILE
 
+# To extract to a different directory, navigate to that directory and then do
+jar xf <path/to/jar>
+
 # delete a file from a jar
 zip -d JAR FILE
 
