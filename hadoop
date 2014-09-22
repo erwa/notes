@@ -1,3 +1,11 @@
+###########
+# General #
+###########
+
+# Get replication factor of a file
+hadoop fs -ls # Look at 2nd column
+
+
 ################
 # Hadoop 1.2.1 #
 ################

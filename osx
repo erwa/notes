@@ -20,3 +20,7 @@ fn + [Shift +] <space>
 
 # Minimize all windows
 cmd + alt + m
+
+# Install package using Homebrew
+brew search <keyword>
+brew install <package_name>
