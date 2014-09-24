@@ -65,3 +65,21 @@ for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; 
 baos.toString();
 
 // According to Effective Java, 2nd Ed., page 276, you should use System.nanoTime instead of System.currentTimeMillis for interval timing.
+
+// Java data types
+http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+float // single-precision 32-bit IEEE 754 floating point
+double // double-precision 64-bit IEEE 754 floating point
+
+// Initializing a multidimensional array
+int[][][] threeDimArr = { { { 1, 2 }, { 3, 4 } }, { { 5, 6 }, { 7, 8 } } };
+
+// Print array
+import java.util.Arrays;
+Arrays.toString(<array>);
+
+// Common exceptions
+// Effective Java, 2nd Ed., Item 60
+IllegalArgumentException // Non-null parameter value is inappropriate
+IllegalStateException // Object state is inappropriate for method invocation
+NullPointerException // Parameter value is null where prohibited
