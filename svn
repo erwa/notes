@@ -1,0 +1,2 @@
+# Check out a repo
+svn checkout svn+ssh://<host>/repo/path
