@@ -2,3 +2,19 @@
 # To write to a global variable from a function, add
 global <var_name>
 # at the beginning of the function
+
+# Read file line by line
+# http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array
+
+# Read input arguments
+# http://stackoverflow.com/questions/983201/python-and-sys-argv
+import sys
+if len(sys.argv) > 1:
+  ...
+
+# Split string by whitespace
+# http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
+# str.split() splits on whitespace by default
+# Or you can use re
+import re
+re.split('\s+', <string>)

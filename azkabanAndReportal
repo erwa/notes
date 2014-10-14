@@ -112,3 +112,7 @@ curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.i
 
 # Create a project
 curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=<description>" -b azkaban.browser.session.id=<session.id>
+
+# Data trigger
+# Azkaban currently does not support data triggers
+# However, one workaround is to use Azkaban's "retries" feature with "retry.backoff"

@@ -37,3 +37,6 @@ vim `ls -t | head -1`
 
  # Jump to matching parenthesis/bracket/brace
  %
+
+# Insert control character
+Ctrl + v + <character>

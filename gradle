@@ -51,3 +51,12 @@ javaexec {
 
 // Build but exclude a task
 gradle -x <task>
+
+// Print all dependencies (including transitive ones)
+// Make sure to execute this command from the project itself
+// http://stackoverflow.com/questions/12288133/what-is-gradle-artifact-dependency-graph-command
+gradle dependencies
+
+// Depend on latest version or any version higher than some version -- use a +
+// http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution
+compile 'junit:junit:4.8.+'

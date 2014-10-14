@@ -40,3 +40,15 @@ set pig.maxCombinedSplitSize <sizeInBytes>;
 -- ImportError: No module named <module>
 -- https://issues.apache.org/jira/browse/PIG-2433
 pig -Dmapred.child.env="JYTHONPATH=job.jar/Lib" script.pig
+
+-- EXPLAIN a script to see the MR plan
+-- Start the Pig grunt shell
+explain -script <pig.script> -param <name>=<value> ...
+-- Or
+pig -e "explain -script <pig.script> -param <name>=<value> ..." > output_file
+
+-- Set custom Pig classpath
+PIG_CLASSPATH=/path/to/jars/* pig -x local
+
+-- Remove a file or directory
+RMF <file>

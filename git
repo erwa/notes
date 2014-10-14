@@ -110,8 +110,6 @@ git diff --stat f57ea64
 # git binary diff
 git diff --binary
 
-# GitHub pull requests: http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
-
 # git apply commit from one branch on another
 git cherry-pick HASH
 git pull <remote> <branch>
@@ -125,6 +123,24 @@ git pull <remote> <branch>
 
 # revert a commit
 git revert <commit_hash>
+
+# revert part of a commit
+# http://stackoverflow.com/questions/4795600/reverting-part-of-a-commit-with-git
+$ git revert -n $bad_commit    # Revert the commit, but don't commit the changes; -n means --no-commit
+$ git reset HEAD .             # Unstage the changes
+$ git add --patch .            # Add whatever changes you want
+$ git commit                   # Commit those changes
+
+# squash all history into one commit
+# http://stackoverflow.com/questions/1657017/squash-all-git-commits-into-a-single-commit
+rm -rf .git
+git init
+git add .
+git commit -m "<commit message>"
+
+# show the history of one file
+# http://stackoverflow.com/questions/278192/view-the-change-history-of-a-file-using-git-versioning
+git log -- [file]
 
 # recover squashed commits, etc.
 # http://stackoverflow.com/questions/7457942/how-to-undo-a-git-merge-squash

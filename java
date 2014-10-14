@@ -25,6 +25,9 @@ OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 // You can specify "public abstract", but it is redundant and discouraged
 // http://stackoverflow.com/questions/161633/should-methods-in-a-java-interface-be-declared-with-or-without-a-public-access-m
 
+// Implementing two interfaces that both contain the same method is okay as long as both methods have the same signature
+// http://stackoverflow.com/questions/2801878/implementing-two-interfaces-in-a-class-with-same-method-which-interface-method
+
 /* Bitwise shift operators */
 << // unsigned left shift
 >> // signed right shift (leftmost bits are filled in with sign bit)
@@ -83,3 +86,13 @@ Arrays.toString(<array>);
 IllegalArgumentException // Non-null parameter value is inappropriate
 IllegalStateException // Object state is inappropriate for method invocation
 NullPointerException // Parameter value is null where prohibited
+
+// Classpath wildcard behavior
+http://docs.oracle.com/javase/6/docs/technotes/tools/windows/classpath.html
+
+// Xms and Xmx
+// JVM is started with Xms memory and allowed to use up to Xmx memory
+
+// To run a jar
+java -jar foo.jar
+// The Main-Class must be defined in the jar's META-INF/MANIFEST.MF

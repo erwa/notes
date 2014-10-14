@@ -1,0 +1,16 @@
+# How to read an Avro file
+# http://stackoverflow.com/questions/11632067/reading-a-simple-avro-file-from-hdfs
+
+# Retrieve Avro schema from binary Avro file
+# http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/
+java -jar /export/apps/avro/avro-tools-1.7.5.jar getschema recursive.avro > recursive.avsc
+
+# Read schema from file
+Schema s = new Schema.Parser().parse(new File("/home/ahsu/recursive.avsc"));
+
+# Convert JSON to binary Avro
+# http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/#converting-to-and-from-binary-avro
+java -jar /export/apps/avro/avro-tools-1.7.5.jar fromjson --schema-file string.avsc string.json > string.avro
+
+# Convert binary Avro to JSON
+java -jar lib/avro-tools-*.jar tojson AVRO_FILE > JSON_FILE

@@ -1,0 +1,6 @@
+# How to do a pull request
+# http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
+
+# When you comment on a specific commit of a pull request, a notification is only sent to the
+# watchers of the repo being pulled from; a notification is NOT sent to the watchers of the
+# repo being merged into.

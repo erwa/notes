@@ -22,6 +22,11 @@ grep -v <pattern>
 # grep starting from certain line number
 sed -n '<line_number>,$ p' <file> | grep <pattern>
 
+# grep and only print the second field
+grep -r "pattern" ./* | cut -d ' ' -f 2
+# -d ' ' means split on space
+# -f 2 means select only the 2nd field
+
 # awk example to find 0-byte HDFS files in a directory
 # You may need to add a grep to exclude directories (which are also 0 bytes)
 hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }'
@@ -34,6 +39,9 @@ getent group <groupname>
 # zip/unzip folder
 zip -r foo.zip foo
 unzip foo.zip
+
+# unzip one file
+unzip foo.zip file
 
 # list files in a zip
 unzip -l foo.zip
@@ -142,6 +150,10 @@ df -h
 # Check disk usage of a directory, output in human-readable format
 du -h DIR
 
+# du of every file/directory (including hidden ones) in current directory, sort from largest to smallest
+# http://askubuntu.com/questions/356902/why-doesnt-this-show-the-hidden-files-folders
+du -sh  .[!.]* * | sort -hr
+
 # seconds since epoch
 date +%s
 
@@ -163,3 +175,26 @@ hostname
 # Check system specs (CPU, memory, etc.)
 cat /proc/cpuinfo
 cat /proc/meminfo
+
+# Print operating system information
+uname -a
+
+# Append to a file
+cat <file1> >> <file2>
+
+# Use default language for output, force sorting to be bytewise
+# http://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do
+LC_ALL=C
+
+# -a means "archive" mode, which preserves symbolic links, permissions, etc.
+# -z enables compression for the data transfer
+rsync -az
+
+# Run command only if previous command succeeded (exit status of 0) or failed
+# http://stackoverflow.com/questions/7402587/run-command2-only-if-command1-succeeded-in-cmd-windows-shell
+command1 && command2
+command1 || command2
+
+# Stop a script if a command or pipeline has an error
+# http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean
+set -e
