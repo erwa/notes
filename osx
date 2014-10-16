@@ -21,6 +21,15 @@ fn + [Shift +] <space>
 # Minimize all windows
 cmd + alt + m
 
+# Hide all windows except current
+cmd + alt + h
+
 # Install package using Homebrew
 brew search <keyword>
 brew install <package_name>
+
+# Crop a picture
+# Open picture in Preview, Save a Copy first! (if you modify the original, once Preview is closed after cropping, you cannot recover original)
+# Drag a rectangle
+Cmd + K (Tools --> Crop)
+(Cmd + Z to undo crop)

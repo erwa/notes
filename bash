@@ -150,6 +150,12 @@ ls | tr "\\n" " "
 # ls: output one file per line
 ls | cat
 
+# OSX only:
+# Show extended attributes
+ls -l@
+# To show the value of extended attributes, use
+xattr -l <filename>
+
 # Check disk usage, output in human-readable format
 df -h
 
@@ -209,3 +215,7 @@ set -e
 less <file>
 # For a long line, press <right-arrow> to show more of the line.
 # To highlight/unhighlight search results, type <Esc, u>
+
+# Print full path of file
+# Does not work on Mac/BSD bash
+readlink -f <file>

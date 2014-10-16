@@ -110,6 +110,9 @@ git diff --stat f57ea64
 # git binary diff
 git diff --binary
 
+# diff while ignoring whitespace changes
+git diff -w
+
 # git apply commit from one branch on another
 git cherry-pick HASH
 git pull <remote> <branch>

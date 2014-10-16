@@ -16,3 +16,10 @@ Ctrl+Space
 # Output to file
 # http://stackoverflow.com/questions/5714053/how-can-we-redirect-eclipse-console-output-to-a-file
 Run --> Run Configurations --> Common
+
+# Generate Javadoc
+Project -> Generate Javadoc...
+# To ensure links work, make sure to select the reference archives/projects on the second page of the wizard
+
+# In order for Java Save Actions (like auto-formatting) to apply to a Java file,
+# you must ensure the Java file is on a project's build path

@@ -43,3 +43,6 @@ Ctrl + v + <character>
 
 # Change casing of a character
 ~
+
+# Insert literal tab when expand tab is on
+Ctrl+v, Tab

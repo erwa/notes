@@ -52,3 +52,14 @@ PIG_CLASSPATH=/path/to/jars/* pig -x local
 
 -- Remove a file or directory
 RMF <file>
+
+-- Building Pig 0.11.1 tarball distribution
+ant clean src-release tar-release -Dhadoopversion=20  -Dhadoop-core.version=1.2.1 -Dhadoop-test.version=1.2.1 -Dforrest.home=$FORREST_HOME
+
+-- Change logging level
+pig -d DEBUG
+
+-- java.lang.NoSuchMethodError: org.joda.time.DateTime.compareTo(Lorg/joda/time/ReadableInstant;)I
+-- https://issues.apache.org/jira/browse/PIG-3953
+-- Workaround:
+PIG_CLASSPATH=/path/to/pig/lib/* pig
