@@ -27,6 +27,9 @@ grep -r "pattern" ./* | cut -d ' ' -f 2
 # -d ' ' means split on space
 # -f 2 means select only the 2nd field
 
+# grep, split on whitespace, and print fifth field
+grep "pattern" | awk '{print $5}'
+
 # grep for beginning of line
 grep '^<pattern>'
 
@@ -219,3 +222,6 @@ less <file>
 # Print full path of file
 # Does not work on Mac/BSD bash
 readlink -f <file>
+
+# See login times
+last
