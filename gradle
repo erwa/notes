@@ -60,3 +60,9 @@ gradle dependencies
 // Depend on latest version or any version higher than some version -- use a +
 // http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution
 compile 'junit:junit:4.8.+'
+
+// Check for property's existence
+hasProperty('property')
+
+// Get tasks Gradle was launched with
+gradle.startParameter.taskNames

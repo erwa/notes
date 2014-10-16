@@ -27,6 +27,9 @@ grep -r "pattern" ./* | cut -d ' ' -f 2
 # -d ' ' means split on space
 # -f 2 means select only the 2nd field
 
+# grep for beginning of line
+grep '^<pattern>'
+
 # awk example to find 0-byte HDFS files in a directory
 # You may need to add a grep to exclude directories (which are also 0 bytes)
 hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }'
@@ -42,6 +45,9 @@ unzip foo.zip
 
 # unzip one file
 unzip foo.zip file
+
+# unzip one file to standard out
+unzip -p foo.zip file
 
 # list files in a zip
 unzip -l foo.zip
@@ -198,3 +204,8 @@ command1 || command2
 # Stop a script if a command or pipeline has an error
 # http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean
 set -e
+
+# Open a large file
+less <file>
+# For a long line, press <right-arrow> to show more of the line.
+# To highlight/unhighlight search results, type <Esc, u>

@@ -70,7 +70,7 @@ baos.toString();
 // According to Effective Java, 2nd Ed., page 276, you should use System.nanoTime instead of System.currentTimeMillis for interval timing.
 
 // Java data types
-http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+// http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
 float // single-precision 32-bit IEEE 754 floating point
 double // double-precision 64-bit IEEE 754 floating point
 
@@ -88,7 +88,7 @@ IllegalStateException // Object state is inappropriate for method invocation
 NullPointerException // Parameter value is null where prohibited
 
 // Classpath wildcard behavior
-http://docs.oracle.com/javase/6/docs/technotes/tools/windows/classpath.html
+// http://docs.oracle.com/javase/6/docs/technotes/tools/windows/classpath.html
 
 // Xms and Xmx
 // JVM is started with Xms memory and allowed to use up to Xmx memory
@@ -96,3 +96,6 @@ http://docs.oracle.com/javase/6/docs/technotes/tools/windows/classpath.html
 // To run a jar
 java -jar foo.jar
 // The Main-Class must be defined in the jar's META-INF/MANIFEST.MF
+
+// Array is not assignable to Iterable
+// http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to-iterable

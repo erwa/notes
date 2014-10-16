@@ -11,3 +11,6 @@ sudo chkconfig jenkins on
 
 # Build artifacts are stored in $JENKINS_HOME/jobs
 # $JENKINS_HOME might be /export/apps/jenkins
+
+# Jenkins JIRA Plugin can auto update JIRA tickets
+# based on the ticket ID (example: HADOOP-1234) in the commit message

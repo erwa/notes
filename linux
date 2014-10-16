@@ -1,2 +1,8 @@
 # Move window to other workspace
 Ctrl + Shift + Alt + <arrow>
+
+# ls rwt permission explanation
+# http://www.linuxmisc.com/14-unix-administering/0de909bb7469bba9.htm
+# 't' means sticky bit
+# Sticky bit means folder can only be deleted by owner and root user,
+# even if other users have write permissions

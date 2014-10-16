@@ -134,3 +134,8 @@ chmod -R 777 <hive_metastore_db_dir>
 # Disable map joins (which require launching a local task,
 # which might have memory issues)
 set hive.auto.convert.join = false;
+
+# Enable session history
+hive -hiveconf hive.session.history.enabled=true
+# Default is false.
+# If true, this will cause a log to be created in `hive.querylog.location`

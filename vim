@@ -40,3 +40,6 @@ vim `ls -t | head -1`
 
 # Insert control character
 Ctrl + v + <character>
+
+# Change casing of a character
+~
