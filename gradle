@@ -66,3 +66,6 @@ hasProperty('property')
 
 // Get tasks Gradle was launched with
 gradle.startParameter.taskNames
+
+// Build with Java 7
+export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21

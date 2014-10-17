@@ -130,6 +130,9 @@ getfacl <file>
 # xargs with string substitution
 cat temp | xargs -I 'TABLE' hive -e 'drop table TABLE'
 
+# xargs with one argument per command line
+find . -name *.jar | xargs -n 1 jar tf
+
 # Apply a patch, but strip off leading a/ and b/
 # Example: Diff patch.diff looks like
 diff --git a/file b/file

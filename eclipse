@@ -23,3 +23,6 @@ Project -> Generate Javadoc...
 
 # In order for Java Save Actions (like auto-formatting) to apply to a Java file,
 # you must ensure the Java file is on a project's build path
+
+# To figure out what jar a class is in
+Ctrl + Shift + T --> search for the class

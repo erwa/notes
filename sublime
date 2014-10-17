@@ -7,3 +7,6 @@
 
 // Paste verbatim (without converting tabs to spaces)
 // View -> Indentation -> Uncheck "Indent Using Spaces" before pasting
+
+// Jump to matching brace
+Ctrl + M

@@ -63,3 +63,7 @@ pig -d DEBUG
 -- https://issues.apache.org/jira/browse/PIG-3953
 -- Workaround:
 PIG_CLASSPATH=/path/to/pig/lib/* pig
+
+/* multi-
+line
+comments */
