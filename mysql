@@ -11,3 +11,12 @@ Enter password:
 
 -- Run a file from the MySQL shell
 source <file>;
+
+# Configure MySQL in /etc/my.cnf
+user=mysql
+
+# Start MySQL
+sudo mysqld
+
+# Shutdown MySQL
+sudo mysqladmin shutdown
