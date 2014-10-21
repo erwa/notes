@@ -99,3 +99,7 @@ java -jar foo.jar
 
 // Array is not assignable to Iterable
 // http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to-iterable
+
+// How to interpret a stack trace
+// http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message
+// http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3
