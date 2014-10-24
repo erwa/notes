@@ -5,6 +5,13 @@
 # Get replication factor of a file
 hadoop fs -ls # Look at 2nd column
 
+# Eclipse setup
+# Remove any existing .classpath and .project files.
+# Re-add the project in Eclipse.
+# Make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
+
+# version 0.20S = 1.2.1
+# version 0.23 = 2.x
 
 ################
 # Hadoop 1.2.1 #
@@ -33,11 +40,6 @@ hadoop namenode -format
 # Using curl to contact a secure WebHDFS instance
 # http://www.adaltas.com/blog/2013/09/25/webhdfs-security-kerberos-delegation-tokens/
 curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS"
-
-# For the Hadoop project, in Eclipse, make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
-
-# version 0.20S = 1.2.1
-# version 0.23 = 2.x
 
 # To leave safemode
 hadoop dfsadmin -safemode leave

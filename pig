@@ -67,3 +67,10 @@ PIG_CLASSPATH=/path/to/pig/lib/* pig
 /* multi-
 line
 comments */
+
+-- Set default time zone for Pig's built-in date functions
+-- NOTE: This does not affect the default environment time zone (e.g.: for the `date` command)
+set pig.datetime.default.tz America/Los_Angeles;
+
+-- One instance of UDF per map or reduce task, so you can share state within that context
+-- http://chimera.labs.oreilly.com/books/1234000001811/ch10.html#where_udfs_run

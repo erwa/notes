@@ -1,4 +1,4 @@
-# if statements, expressions like [ -f FILE ]
+# if statements, expressions like [ -f FILE ], [ -z STRING ]
 # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 
 # See current memory usage
@@ -228,3 +228,19 @@ readlink -f <file>
 
 # See login times
 last
+
+# true/false
+# 0 is true, 1 is false
+# http://stackoverflow.com/questions/3924182/how-the-keyword-if-test-the-value-true-of-false
+# Exit codes of commands are evaluated. 0 is true, 1 is false.
+
+# [] vs. [[]] (square brackets vs. double square brackets)
+# http://stackoverflow.com/questions/13542832/bash-if-difference-between-square-brackets-and-double-square-brackets
+
+# Fall back to default value when variable is not set
+# http://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
+FOO=${VARIABLE:-default}
+
+# Use value of <parameter> as variable name and then evaluate variable
+${!parameter}
+# Suppose parameter = JAVA_HOME, then ${!parameter} = ${JAVA_HOME}

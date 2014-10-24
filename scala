@@ -1,0 +1,2 @@
+// For every Scala singleton object, the compiler will create a Java class for the object with a dollar sign added to the end.
+// http://stackoverflow.com/questions/5721046/singletons-as-synthetic-classes-in-scala

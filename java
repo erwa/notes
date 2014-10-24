@@ -28,6 +28,9 @@ OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 // Implementing two interfaces that both contain the same method is okay as long as both methods have the same signature
 // http://stackoverflow.com/questions/2801878/implementing-two-interfaces-in-a-class-with-same-method-which-interface-method
 
+// An interface cannot extend an abstract class
+// https://community.oracle.com/thread/2097080?start=0&tstart=0
+
 /* Bitwise shift operators */
 << // unsigned left shift
 >> // signed right shift (leftmost bits are filled in with sign bit)
@@ -103,3 +106,8 @@ java -jar foo.jar
 // How to interpret a stack trace
 // http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message
 // http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3
+
+# Set encoding of Java build and execution
+# http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+java -Dfile.encoding=UTF-8 ... com.x.Main
