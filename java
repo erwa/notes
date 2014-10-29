@@ -111,3 +111,11 @@ java -jar foo.jar
 # http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 java -Dfile.encoding=UTF-8 ... com.x.Main
+
+// Typical Java JDK installation location on OSX
+/Library/Java/JavaVirtualMachines
+
+// A daemon thread is one that does not prevent the JVM from exiting
+// when the program finishes but the thread is still running
+// http://stackoverflow.com/questions/2213340/what-is-daemon-thread-in-java
+setDaemon(true)

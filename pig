@@ -74,3 +74,6 @@ set pig.datetime.default.tz America/Los_Angeles;
 
 -- One instance of UDF per map or reduce task, so you can share state within that context
 -- http://chimera.labs.oreilly.com/books/1234000001811/ch10.html#where_udfs_run
+
+-- Order of JOIN operands matters. The large relation should come first.
+-- https://pig.apache.org/docs/r0.11.1/perf.html#replicated-joins

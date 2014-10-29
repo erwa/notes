@@ -33,3 +33,6 @@ brew install <package_name>
 # Drag a rectangle
 Cmd + K (Tools --> Crop)
 (Cmd + Z to undo crop)
+
+# Force quit application
+Cmd + Option + Esc -> Choose app
