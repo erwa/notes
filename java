@@ -119,3 +119,7 @@ java -Dfile.encoding=UTF-8 ... com.x.Main
 // when the program finishes but the thread is still running
 // http://stackoverflow.com/questions/2213340/what-is-daemon-thread-in-java
 setDaemon(true)
+
+// Java has no notion of a subpackage
+// `foo.bar` and `foo.bar.baz` are completely separate packages
+// http://stackoverflow.com/questions/1967229/java-subpackage-visiblity

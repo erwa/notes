@@ -77,3 +77,6 @@ set pig.datetime.default.tz America/Los_Angeles;
 
 -- Order of JOIN operands matters. The large relation should come first.
 -- https://pig.apache.org/docs/r0.11.1/perf.html#replicated-joins
+
+-- Avro arrays get converted to bags
+-- See AvroSchema2Pig.java, search for "convert array to a pig bag"

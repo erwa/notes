@@ -116,3 +116,7 @@ curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=
 # Data trigger
 # Azkaban currently does not support data triggers
 # However, one workaround is to use Azkaban's "retries" feature with "retry.backoff"
+
+# On OSX, tests may fail without setting
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+# Fixed by https://github.com/azkaban/azkaban/pull/343
