@@ -177,3 +177,10 @@ git rm --cached <files...>
 # Enable color output on Mac
 # http://stackoverflow.com/questions/1156069/how-to-configure-mac-os-x-term-so-that-git-has-color
 git config --global color.ui true
+
+# See configs
+git config -l
+
+# Set global user.email
+# http://stackoverflow.com/questions/10663492/how-to-change-default-author-and-commiter-in-eclipse-git-plugin
+git config --global user.email "<email>"
