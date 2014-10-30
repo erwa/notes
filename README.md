@@ -1,4 +1,4 @@
 notes
 =====
 
-Notes about technologies I use
+Notes about technologies and other stuff
