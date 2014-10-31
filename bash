@@ -244,3 +244,7 @@ FOO=${VARIABLE:-default}
 # Use value of <parameter> as variable name and then evaluate variable
 ${!parameter}
 # Suppose parameter = JAVA_HOME, then ${!parameter} = ${JAVA_HOME}
+
+# PS1 environment variable can be used to control the appearance of the Bash prompt
+# http://ss64.com/bash/syntax-prompt.html
+export PS1="My simple prompt> "

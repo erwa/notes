@@ -1,2 +1,14 @@
 # Check out a repo
 svn checkout svn+ssh://<host>/repo/path
+
+# Check out folder and all its immediate contents without recursing
+svn checkout --depth immediates svn+ssh://<host>/repo/path
+
+# Check out folder and all its files (but not directories)
+svn checkout --non-recursive svn+ssh://<host>/repo/path
+
+# Partial checkout and then add additional files as needed
+# http://stackoverflow.com/questions/50945/can-you-do-a-partial-checkout-with-subversion
+svn checkout --depth empty http://svnserver/trunk/proj
+svn update --set-depth infinity proj/foo
+svn update --depth=immediates proj/bar
