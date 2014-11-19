@@ -162,6 +162,16 @@ ls -l@
 # To show the value of extended attributes, use
 xattr -l <filename>
 
+# ls output explained
+# http://unix.stackexchange.com/questions/103114/what-do-the-fields-in-ls-al-output-mean
+# The first character is the file type
+# http://unix.stackexchange.com/a/103117
+# `c` means character special file, which behave like pipes and serial ports
+# Writing to them causes an immediate action, like displaying something on the screen
+# or playing a sound.
+# http://unix.stackexchange.com/questions/60034/what-are-character-special-and-block-special-files-in-a-unix-system
+
+
 # Check disk usage, output in human-readable format
 df -h
 
@@ -248,3 +258,14 @@ ${!parameter}
 # PS1 environment variable can be used to control the appearance of the Bash prompt
 # http://ss64.com/bash/syntax-prompt.html
 export PS1="My simple prompt> "
+
+# See quota for a user
+quota -s ahsu
+
+# Find process running on port
+sudo netstat -tulpn | grep <port>
+# -t means TCP
+# -u means UDP
+# -l means show only listening sockets
+# -p means show the PID and program using the socket/port
+# -n means show numerical addresses instead of symbolic host/port/username

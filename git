@@ -91,6 +91,10 @@ git rebase <remote>/<branch>
 # Rebase on top of a specific commit
 git rebase -i COMMIT_HASH
 
+# Undo a rebase: http://stackoverflow.com/questions/134882/undoing-a-git-rebase
+git reflog
+git reset --hard HEAD@{<number>}
+
 # git push problems
 Try changing URL from HTTPS to SSH. Try including/excluding https:// or ssh://. Try adding or removing USERNAME@. Try using git@.
 
@@ -123,6 +127,12 @@ git pull <remote> <branch>
 /path/to/1 $ git format-patch sha1^..sha1
 /path/to/1 $ cd /path/to/2
 /path/to/2 $ git am /path/to/1/0001-…-….patch
+
+# apply a patch
+# https://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/
+git apply --stat fix.patch # see patch changes
+git apply --check fix.patch # dry-run
+git apply fix.patch # apply for real
 
 # revert a commit
 git revert <commit_hash>

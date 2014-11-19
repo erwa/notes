@@ -39,6 +39,10 @@ if not a:
 # Python slicing and finding the last index of a character
 output_dir[:output_dir.rfind('/')]
 
+# Check if path is directory
+# https://docs.python.org/2/library/os.path.html#os.path.isdir
+os.path.isdir(path)
+
 # List files in directory
 # https://docs.python.org/2/library/os.html#os.listdir
 os.listdir(<path>)
@@ -50,3 +54,6 @@ text = 'gfgfdAAA1234ZZZuijjk'
 m = re.search('AAA(.+?)ZZZ', text)
 if m:
     found = m.group(1) # found: 1234
+
+# __init__.py file used to make Python treat directory as package
+# https://docs.python.org/2/tutorial/modules.html#packages
