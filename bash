@@ -69,6 +69,9 @@ tar -xf archive.tar --directory=/target/directory
 # tar while excluding directories
 tar cvzf file.tar.gz  --exclude 'dir/a/*' --exclude 'dir/b/*' dir
 
+# tar: extract one file to standard out
+tar -Oxzf tarball.tar.gz path/to/file
+
 # cd to previous directory
 cd -
 
@@ -269,3 +272,9 @@ sudo netstat -tulpn | grep <port>
 # -l means show only listening sockets
 # -p means show the PID and program using the socket/port
 # -n means show numerical addresses instead of symbolic host/port/username
+
+# See keyboard shortcut bindings
+bind -P
+
+# Delete to previous slash
+Esc, Ctrl-h

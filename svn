@@ -26,3 +26,12 @@ D  Deleted
 U  Updated
 C  Conflict
 G  Merged
+
+# discard changes to file
+# http://stackoverflow.com/questions/9463695/how-to-discard-local-changes-svn
+svn revert <file>
+
+# creating and applying a patch/diff
+# https://ariejan.net/2007/07/03/how-to-create-and-apply-a-patch-with-subversion/
+svn diff > patch
+patch -p0 -i patch
