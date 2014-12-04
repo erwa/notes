@@ -58,6 +58,11 @@ unzip -l foo.zip
 # remove a file from a zip
 zip -d foo.zip file
 
+# Extract gunzip'd .gz file to specified file
+gzip -c -d file.gz > file.out
+# -c = --stdout
+# -d = --decompress
+
 # show files in tar/tarball/tar.bz2
 tar -tvf file.tar
 tar -ztvf file.tar.gz
@@ -234,6 +239,10 @@ set -e
 less <file>
 # For a long line, press <right-arrow> to show more of the line.
 # To highlight/unhighlight search results, type <Esc, u>
+
+# Turn word wrap on/off in less
+# http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
+-, Shift-S
 
 # Print full path of file
 # Does not work on Mac/BSD bash
