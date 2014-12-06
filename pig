@@ -13,11 +13,14 @@ set pig.maxCombinedSplitSize <size_in_bytes>
 
 -- Add file to distributed cache for use in UDF
 -- http://ragrawal.wordpress.com/2014/03/25/apache-pig-and-distributed-cache/
---set mapred.cache.files /user/ahsu/test2#test2;
+set mapred.cache.files /user/ahsu/test2#test2;
 register 'test.py' using jython as myfuncs;
 a = load 'test';
 b = foreach a generate myfuncs.helloworld();
 dump b;
+
+-- REGISTER causes Pig to include the files in the jar you specified
+-- in the job jar sent to Hadoop
 
 # test.py
 @outputSchema("word:chararray")

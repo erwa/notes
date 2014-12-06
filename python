@@ -30,5 +30,30 @@ str1 = ''.join(list1) # 123
 list1 = [1, 2, 3]
 str1 = ''.join(str(e) for e in list1) # 123
 
+# Check if list is empty
+# http://stackoverflow.com/questions/53513/best-way-to-check-if-a-list-is-empty
+a = []
+if not a:
+  print "List is empty"
+
 # Python slicing and finding the last index of a character
 output_dir[:output_dir.rfind('/')]
+
+# Check if path is directory
+# https://docs.python.org/2/library/os.path.html#os.path.isdir
+os.path.isdir(path)
+
+# List files in directory
+# https://docs.python.org/2/library/os.html#os.listdir
+os.listdir(<path>)
+
+# Using regular expressions
+# http://stackoverflow.com/questions/4666973/how-to-extract-a-substring-from-inside-a-string-in-python
+import re
+text = 'gfgfdAAA1234ZZZuijjk'
+m = re.search('AAA(.+?)ZZZ', text)
+if m:
+    found = m.group(1) # found: 1234
+
+# __init__.py file used to make Python treat directory as package
+# https://docs.python.org/2/tutorial/modules.html#packages

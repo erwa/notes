@@ -120,3 +120,17 @@ curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=
 # On OSX, tests may fail without setting
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 # Fixed by https://github.com/azkaban/azkaban/pull/343
+
+# Do not run Azkaban as root or else many default environment variables like
+# JAVA_HOME and HADOOP_HOME will probably not be set and jobs will fail
+
+# Azkaban documentation source resides in gh-pages branch:
+# https://github.com/azkaban/azkaban/tree/gh-pages
+# To use Jekyll and GitHub Pages, see https://help.github.com/articles/using-jekyll-with-pages/
+gem install bundler
+# Create Gemfile in repo with these contents:
+source 'https://rubygems.org'
+gem 'github-pages'
+# Then run
+bundle install
+bundle exec jekyll serve

@@ -58,6 +58,11 @@ unzip -l foo.zip
 # remove a file from a zip
 zip -d foo.zip file
 
+# Extract gunzip'd .gz file to specified file
+gzip -c -d file.gz > file.out
+# -c = --stdout
+# -d = --decompress
+
 # show files in tar/tarball/tar.bz2
 tar -tvf file.tar
 tar -ztvf file.tar.gz
@@ -68,6 +73,9 @@ tar -xf archive.tar --directory=/target/directory
 
 # tar while excluding directories
 tar cvzf file.tar.gz  --exclude 'dir/a/*' --exclude 'dir/b/*' dir
+
+# tar: extract one file to standard out
+tar -Oxzf tarball.tar.gz path/to/file
 
 # cd to previous directory
 cd -
@@ -162,6 +170,16 @@ ls -l@
 # To show the value of extended attributes, use
 xattr -l <filename>
 
+# ls output explained
+# http://unix.stackexchange.com/questions/103114/what-do-the-fields-in-ls-al-output-mean
+# The first character is the file type
+# http://unix.stackexchange.com/a/103117
+# `c` means character special file, which behave like pipes and serial ports
+# Writing to them causes an immediate action, like displaying something on the screen
+# or playing a sound.
+# http://unix.stackexchange.com/questions/60034/what-are-character-special-and-block-special-files-in-a-unix-system
+
+
 # Check disk usage, output in human-readable format
 df -h
 
@@ -222,6 +240,10 @@ less <file>
 # For a long line, press <right-arrow> to show more of the line.
 # To highlight/unhighlight search results, type <Esc, u>
 
+# Turn word wrap on/off in less
+# http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
+-, Shift-S
+
 # Print full path of file
 # Does not work on Mac/BSD bash
 readlink -f <file>
@@ -244,3 +266,24 @@ FOO=${VARIABLE:-default}
 # Use value of <parameter> as variable name and then evaluate variable
 ${!parameter}
 # Suppose parameter = JAVA_HOME, then ${!parameter} = ${JAVA_HOME}
+
+# PS1 environment variable can be used to control the appearance of the Bash prompt
+# http://ss64.com/bash/syntax-prompt.html
+export PS1="My simple prompt> "
+
+# See quota for a user
+quota -s ahsu
+
+# Find process running on port
+sudo netstat -tulpn | grep <port>
+# -t means TCP
+# -u means UDP
+# -l means show only listening sockets
+# -p means show the PID and program using the socket/port
+# -n means show numerical addresses instead of symbolic host/port/username
+
+# See keyboard shortcut bindings
+bind -P
+
+# Delete to previous slash
+Esc, Ctrl-h

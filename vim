@@ -13,6 +13,9 @@ vim `ls -t | head -1`
 # vim show special characters
 :set list
 
+# Search for current word
+*
+
 # vim turn off search highlighting
 :set nohlsearch
 
@@ -46,3 +49,11 @@ Ctrl + v + <character>
 
 # Insert literal tab when expand tab is on
 Ctrl+v, Tab
+
+# Move screen without moving cursor
+# http://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
+Ctrl+e # Move screen up
+Ctrl+y # Move screen down
+zz # Center cursor
+zt # Move cursor line to top
+zb # Move cursor line to bottom

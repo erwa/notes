@@ -139,3 +139,6 @@ set hive.auto.convert.join = false;
 hive -hiveconf hive.session.history.enabled=true
 # Default is false.
 # If true, this will cause a log to be created in `hive.querylog.location`
+
+# Drop partitions greater than a time
+alter table foo drop partition (partitionfield > '2014-10-30-00')

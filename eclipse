@@ -28,3 +28,7 @@ Project -> Generate Javadoc...
 Ctrl + Shift + T --> search for the class
 
 # Renaming projects (changing the default name) may cause issues if you use `gradle eclipse` and your project depends on other projects.
+
+# See all Eclipse warnings
+# http://stackoverflow.com/questions/6786660/how-to-find-complete-list-of-warnings-in-eclipse-ide
+# Small triangle in upper right corner --> Configure Contents --> Show all itmes --> Uncheck "Use item limits"

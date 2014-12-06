@@ -6,3 +6,8 @@ Ctrl + Shift + Alt + <arrow>
 # 't' means sticky bit
 # Sticky bit means folder can only be deleted by owner and root user,
 # even if other users have write permissions
+
+# Edit RHEL menu bar
+/usr/local/share/applications # (referenced in /etc/xdg/menus/applications.menu)
+# http://www.centos.org/docs/4/html/rhd-dg-en-4/ch-ddg-menus.html
+# http://www.techotopia.com/index.php/Configuring_the_RHEL_6_Desktop_Menu_System
