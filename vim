@@ -7,6 +7,9 @@ vim `ls -t | head -1`
 # vim count number of occurrences of pattern
 :%s/pattern//gn
 
+# replace all occurrences of pattern
+:%s/old/new/g
+
 # substitution with prompt
 :%s/old/new/gc
 
@@ -57,3 +60,8 @@ Ctrl+y # Move screen down
 zz # Center cursor
 zt # Move cursor line to top
 zb # Move cursor line to bottom
+
+# vim command-line (:) navigation
+# http://stackoverflow.com/questions/2075569/how-can-i-move-around-in-the-vim-command-line
+Ctrl+b # jump to beginning of line
+Ctrl+e # jump to end of line

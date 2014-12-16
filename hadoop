@@ -13,6 +13,9 @@ hadoop fs -ls # Look at 2nd column
 # version 0.20S = 1.2.1
 # version 0.23 = 2.x
 
+# Enable more logging
+export HADOOP_ROOT_LOGGER=DEBUG,console
+
 ################
 # Hadoop 1.2.1 #
 ################
