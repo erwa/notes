@@ -123,3 +123,16 @@ setDaemon(true)
 // Java has no notion of a subpackage
 // `foo.bar` and `foo.bar.baz` are completely separate packages
 // http://stackoverflow.com/questions/1967229/java-subpackage-visiblity
+
+// Thread.sleep() does not cause the current thread to relinquish any
+// currently held locks
+// https://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html#sleep(long)
+
+// "A monitor is an entity that possesses both a lock and a wait set.
+// In Java, any Object can serve as a monitor."
+// http://stackoverflow.com/a/3362473/1128392
+
+// Redirect stdout and stderr
+System.setOut(PrintStream)
+System.setErr(PrintStream)
+// Example: https://github.com/azkaban/azkaban-plugins/blob/master/plugins/reportal/src/azkaban/jobtype/ReportalPigRunner.java#L71

@@ -4,3 +4,10 @@
 # When you comment on a specific commit of a pull request, a notification is only sent to the
 # watchers of the repo being pulled from; a notification is NOT sent to the watchers of the
 # repo being merged into.
+
+# Markdown emoji cheatsheet
+# http://www.emoji-cheat-sheet.com/
+
+# Bold/italicize part of a word
+# http://meta.stackexchange.com/questions/140706/how-do-i-make-part-of-a-word-bold-using-markdown
+<b>some</b><i>what</i>

@@ -11,3 +11,16 @@ Ctrl + Shift + Alt + <arrow>
 /usr/local/share/applications # (referenced in /etc/xdg/menus/applications.menu)
 # http://www.centos.org/docs/4/html/rhd-dg-en-4/ch-ddg-menus.html
 # http://www.techotopia.com/index.php/Configuring_the_RHEL_6_Desktop_Menu_System
+
+# Type Unicode
+Ctrl + Shift + u, <unicode code>, Enter/Space
+# In Sublime Text, need to use disable the default Ctrl + Shift + u key binding, and use "Space" instead of "Enter"
+# http://superuser.com/questions/510907/unicode-composition-in-sublime-text
+# http://character-code.com/spanish-html-codes.php
+# On Linux, you can omit the 0 prefixes.
+¡ 00a1
+¿ 00bf
+á 00e1
+é 00e9
+ñ 00f1
+ó 00f3

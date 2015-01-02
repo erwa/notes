@@ -69,3 +69,8 @@ gradle.startParameter.taskNames
 
 // Build with Java 7
 export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21
+
+// The default evaluation order of projects is alphanumeric (for the same nesting level).
+// http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies
+// Evaluation order can be set by adding
+evaluationDependsOn(':otherProject')

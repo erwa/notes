@@ -35,3 +35,6 @@ svn revert <file>
 # https://ariejan.net/2007/07/03/how-to-create-and-apply-a-patch-with-subversion/
 svn diff > patch
 patch -p0 -i patch
+
+# Resolve a conflict
+svn resolved <file>

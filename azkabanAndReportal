@@ -107,6 +107,9 @@ curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.i
 # When installing Reportal, make sure to include velocity-tools-2.0.jar and slf4j-log4j12-1.6.4.jar
 # If you're using Hadoop, make sure to include the hadoop-core jar and add the Hadoop conf directory to your classpath.
 
+# Fetch giant log
+https://<host>:<port>/executor?execid=<execid>&jobId=<jobid>&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0
+
 # For Azkaban, to build just the jars (and skip the tests), just run
 ./gradlew jar
 

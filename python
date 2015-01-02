@@ -23,6 +23,10 @@ re.split('\s+', <string>)
 # http://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python
 sys.stderr.write()
 
+# Add a module import path
+# http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-permanently
+sys.path.append("/path/to/directory")
+
 # Convert list/array to string
 # http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
 list1 = ['1', '2', '3']
@@ -57,3 +61,10 @@ if m:
 
 # __init__.py file used to make Python treat directory as package
 # https://docs.python.org/2/tutorial/modules.html#packages
+
+# __str__ vs. __repr__
+# http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
+# __repr__ is unambiguous representation, __str__ is human-readable representation
+# if __repr__ defined and __str__ undefined, then __str__ = __repr__
+str(x)
+repr(x)

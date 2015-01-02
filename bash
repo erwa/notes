@@ -1,5 +1,6 @@
 # if statements, expressions like [ -f FILE ], [ -z STRING ]
 # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+[ -e FILE ] # true if FILE exists
 
 # See current memory usage
 free
@@ -15,6 +16,14 @@ sysctl vm.swappiness
 
 # grep only files matching a pattern
 grep --include=*.job -r "type=hive" ./*
+
+# grep for classes with "Test" in their names
+# http://www.robelle.com/smugbook/regexpr.html
+grep Test.*class
+# grep Test*.class and grep Test*class do not work as expected.
+
+# grep for files ending in .xml
+grep "\.xml"
 
 # grep for items that do NOT match a pattern
 grep -v <pattern>
