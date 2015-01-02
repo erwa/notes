@@ -1,6 +1,7 @@
 # if statements, expressions like [ -f FILE ], [ -z STRING ]
 # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 [ -e FILE ] # true if FILE exists
+[ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 
 # See current memory usage
 free

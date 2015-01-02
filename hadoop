@@ -162,3 +162,6 @@ set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';
 # The /proxy/application_xxx_xxx URL often expires quickly
 # Look for the Hadoop job id job_xxx_xxx (the xxx_xxx will match the xxx_xxx part in the application URL)
 # Search for the job on the Job History Server
+
+# Deprecated properties between Hadoop 1 and Hadoop 2:
+# http://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-common/DeprecatedProperties.html
