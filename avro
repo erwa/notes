@@ -11,6 +11,9 @@ Schema s = new Schema.Parser().parse(new File("/home/ahsu/recursive.avsc"));
 # Convert JSON to binary Avro
 # http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/#converting-to-and-from-binary-avro
 java -jar /export/apps/avro/avro-tools-1.7.5.jar fromjson --schema-file string.avsc string.json > string.avro
+java -jar /opt/avro/avro-tools-1.7.7.jar fromjson --schema-file test_avro_map_union.avsc test_avro_map_union.json > test_avro_map_union.avro
 
 # Convert binary Avro to JSON
+# Leave off "> JSON_FILE" part to output to stdout
 java -jar lib/avro-tools-*.jar tojson AVRO_FILE > JSON_FILE
+java -jar /opt/avro/avro-tools-1.7.7.jar tojson AVRO_FILE > JSON_FILE
