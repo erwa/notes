@@ -1,3 +1,7 @@
+# Unicode is a superset of ASCII
+# 0-127 map to the same thing in both ASCII and Unicode
+# http://stackoverflow.com/questions/19212306/difference-between-ascii-and-unicode
+
 # Type Unicode
 Ctrl + Shift + u, <unicode code>, Enter/Space
 # In Sublime Text, need to use disable the default Ctrl + Shift + u key binding, and use "Space" instead of "Enter"
