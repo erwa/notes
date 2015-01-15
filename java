@@ -106,6 +106,7 @@ java -jar foo.jar
 // How to interpret a stack trace
 // http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message
 // http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3
+// V means void
 
 # Set encoding of Java build and execution
 # http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding
@@ -136,3 +137,7 @@ setDaemon(true)
 System.setOut(PrintStream)
 System.setErr(PrintStream)
 // Example: https://github.com/azkaban/azkaban-plugins/blob/master/plugins/reportal/src/azkaban/jobtype/ReportalPigRunner.java#L71
+
+// Jar loading order within a directory lib/* is not guaranteed
+// http://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html#A1100762
+// "The order in which the JAR files in a directory are enumerated in the expanded class path is not specified and may vary from platform to platform and even from moment to moment on the same machine. A well-constructed application should not depend upon any particular order. If a specific order is required, then the JAR files can be enumerated explicitly in the class path."

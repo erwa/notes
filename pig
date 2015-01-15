@@ -83,3 +83,8 @@ set pig.datetime.default.tz America/Los_Angeles;
 
 -- Avro arrays get converted to bags
 -- See AvroSchema2Pig.java, search for "convert array to a pig bag"
+
+-- IllegalArgumentException about an empty string path may indicate a typo in the classpath or Pig additional jars
+-- http://mail-archives.apache.org/mod_mbox/pig-user/201211.mbox/%3CCAG5+gXGj7SvoY4tx-h281xFhn9eK0MgQdRN-ST00XV7pJg9axw@mail.gmail.com%3E
+-- IllegalArgumentException: Can not create a Path from an empty string
+-- if pig.additional.jars=*, if * includes any non-jar files, you could see this exception as well

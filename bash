@@ -245,14 +245,34 @@ command1 || command2
 # http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean
 set -e
 
+########
+# less #
+########
+
 # Open a large file
 less <file>
 # For a long line, press <right-arrow> to show more of the line.
-# To highlight/unhighlight search results, type <Esc, u>
+
+# To highlight/unhighlight search results, type
+<Esc, u>
 
 # Turn word wrap on/off in less
 # http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
 -, Shift-S
+
+# Jump to line number
+# http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
+ng # s
+-N # turn line numbers on/off
+
+# Search forward
+/pattern
+# Search backward
+?pattern
+
+################
+### END less ###
+################
 
 # Print full path of file
 # Does not work on Mac/BSD bash
@@ -297,3 +317,11 @@ bind -P
 
 # Delete to previous slash
 Esc, Ctrl-h
+
+# Test if remote port is open
+# http://stackoverflow.com/questions/4922943/how-to-test-if-remote-tcp-port-is-opened-from-shell-script
+# -z means scan for listening daemons without sending any data
+# -w5 sets timeout to 5 seconds
+nc -z -w5 <host> <port>
+# will print message if successful
+echo $? # 0 on success, 1 on failure

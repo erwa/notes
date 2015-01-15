@@ -41,9 +41,6 @@ git push origin --delete initial-queries
 # git remove stale remote branches from local cache
 git remote prune <remote>
 
-# rename git branch
-git branch -m old_branch_name new_branch_name
-
 # git merge branch, will fast forward by default
 git merge <branch> # merges <branch> into current branch
 
@@ -78,8 +75,11 @@ git stash apply stash@{0} # where 0 is a number (do git stash list first)
 # git pull rebase rather than merge
 git pull --rebase
 
-# git rename branch
+# git rename current branch
 git branch -m <newname>
+
+# rename git branch
+git branch -m old_branch_name new_branch_name
 
 # To reorder commits in git
 git rebase -i HEAD~2 # reorder last two commits
@@ -155,6 +155,13 @@ git commit -m "<commit message>"
 # http://stackoverflow.com/questions/278192/view-the-change-history-of-a-file-using-git-versioning
 git log -- [file]
 
+# Case-insensitive search for "word" in commit log *contents*
+# http://stackoverflow.com/questions/1337320/how-to-grep-git-commit-diffs-or-contents-for-a-certain-word
+git log -i -S word
+
+# Case-insensitive search for "word" in commit log *message*
+git log -i --grep=word
+
 # recover squashed commits, etc.
 # http://stackoverflow.com/questions/7457942/how-to-undo-a-git-merge-squash
 git reflog
@@ -194,3 +201,6 @@ git config -l
 # Set global user.email
 # http://stackoverflow.com/questions/10663492/how-to-change-default-author-and-commiter-in-eclipse-git-plugin
 git config --global user.email "<email>"
+
+# Create a shallow copy with history truncated to 1 revision
+git clone --depth 1 ...

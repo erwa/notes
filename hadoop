@@ -16,6 +16,9 @@ hadoop fs -ls # Look at 2nd column
 # Enable more logging
 export HADOOP_ROOT_LOGGER=DEBUG,console
 
+# EOFException
+# https://wiki.apache.org/hadoop/EOFException
+
 ################
 # Hadoop 1.2.1 #
 ################

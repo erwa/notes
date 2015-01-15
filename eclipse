@@ -1,3 +1,6 @@
+# 10 Eclipse Shortcuts
+# http://rayfd.me/2007/05/20/10-eclipse-navigation-shortcuts-every-java-programmer-should-know/
+
 # Move current line up/down
 Alt + Up/Down
 
@@ -32,3 +35,10 @@ Ctrl + Shift + T --> search for the class
 # See all Eclipse warnings
 # http://stackoverflow.com/questions/6786660/how-to-find-complete-list-of-warnings-in-eclipse-ide
 # Small triangle in upper right corner --> Configure Contents --> Show all itmes --> Uncheck "Use item limits"
+
+# Jump to method/field
+Ctrl + O # Press again to show inherited members, too
+Ctrl + Shift + Up/Down # jump to next/previous method/field
+
+# Switch to a different open file
+Ctrl + E, Up/Down

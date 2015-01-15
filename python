@@ -5,6 +5,8 @@ global <var_name>
 
 # Read file line by line
 # http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array
+# Gets rid of the newline
+lines = [line.rstrip('\n') for line in open('filename')]
 
 # Read input arguments
 # http://stackoverflow.com/questions/983201/python-and-sys-argv
@@ -18,6 +20,10 @@ if len(sys.argv) > 1:
 # Or you can use re
 import re
 re.split('\s+', <string>)
+
+# Remove last character from string
+# http://stackoverflow.com/questions/15478127/remove-final-character-from-string-python
+'abcdefghij'[:-1]
 
 # Write to stderr
 # http://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python
@@ -68,3 +74,15 @@ if m:
 # if __repr__ defined and __str__ undefined, then __str__ = __repr__
 str(x)
 repr(x)
+
+# *args and **kwargs
+# http://stackoverflow.com/questions/3394835/args-and-kwargs
+# *args = list of args as positional arguments
+# **kwargs = list of named args as dictionary
+
+# Iterate over dictionary
+for key in d:
+for k,v in d.iteritems():
+
+# Sort a dictionary in descending order
+sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
