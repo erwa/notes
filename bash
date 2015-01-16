@@ -325,3 +325,7 @@ Esc, Ctrl-h
 nc -z -w5 <host> <port>
 # will print message if successful
 echo $? # 0 on success, 1 on failure
+
+# Add a Yum Repository on RHEL
+# https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html
+sudo yum-config-manager --add-repo http://yum.postgresql.org
