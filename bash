@@ -131,6 +131,10 @@ Alt + . # prints out last word of last command
 !$ # last parameter of the last command
 ^foo^bar # run last command replacing foo with bar
 
+# Clear history
+# http://askubuntu.com/questions/191999/how-to-clear-bash-history-completely
+history -c && history -w # clear current history, then write empty history to ~/.bash_history
+
 # Add to .bashrc to enable color ls output by default
 alias ls="ls --color=auto"
 
