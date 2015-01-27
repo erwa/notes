@@ -137,3 +137,6 @@ gem 'github-pages'
 # Then run
 bundle install
 bundle exec jekyll serve
+# View the page at http://localhost:4000
+# If port is already in use, you can launch on different port
+jekyll serve -P 4001

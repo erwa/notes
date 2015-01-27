@@ -204,3 +204,6 @@ git config --global user.email "<email>"
 
 # Create a shallow copy with history truncated to 1 revision
 git clone --depth 1 ...
+
+# Checkout repo and give it a different name
+git clone <repo> <new_name>

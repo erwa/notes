@@ -316,6 +316,12 @@ sudo netstat -tulpn | grep <port>
 # -p means show the PID and program using the socket/port
 # -n means show numerical addresses instead of symbolic host/port/username
 
+# Mac
+netstat -anp tcp | grep <port>
+# -a means show the state of all sockets, including server process sockets
+# -n means show network addresses as IP addresses instead of using domain names
+# -p tcp means show stats for the TCP protocol
+
 # See keyboard shortcut bindings
 bind -P
 
@@ -333,3 +339,8 @@ echo $? # 0 on success, 1 on failure
 # Add a Yum Repository on RHEL
 # https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html
 sudo yum-config-manager --add-repo http://yum.postgresql.org
+
+# Find out when computer was last rebooted.
+# http://www.ehow.com/how_5915486_tell-last-time-computer-rebooted.html
+uptime
+# the time after "up" is how long the computer has been running without reboot
