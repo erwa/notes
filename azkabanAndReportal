@@ -1,4 +1,4 @@
-$ curl -k https://<host>:<port> -d "username=<username>&password=<password>&action=login"
+curl -k https://<host>:<port> -d "username=<username>&password=<password>&action=login"
 {
   "status" : "success",
   "session.id" : "<session.id>"
@@ -92,7 +92,7 @@ curl -k https://<host>:<port>/executor -d "ajax=cancelFlow&execid=<exec.id>&sess
 # Scheduling a flow
 # Login first (see above)
 
-$ curl -k https://<host>:<port>/schedule -d "ajax=scheduleFlow&projectName=<projectName>&flow=<flowName>&projectId=<projectId>&scheduleTime=12,00,pm,PDT&scheduleDate=07/22/2014" -b azkaban.browser.session.id=<session.id>
+curl -k https://<host>:<port>/schedule -d "ajax=scheduleFlow&projectName=<projectName>&flow=<flowName>&projectId=<projectId>&scheduleTime=12,00,pm,PDT&scheduleDate=07/22/2014" -b azkaban.browser.session.id=<session.id>
 {
   "message" : "<projectName>.<flowName> scheduled.",
   "status" : "success"
@@ -131,9 +131,11 @@ export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 # https://github.com/azkaban/azkaban/tree/gh-pages
 # To use Jekyll and GitHub Pages, see https://help.github.com/articles/using-jekyll-with-pages/
 gem install bundler
-# Create Gemfile in repo with these contents:
+
+# Create 'Gemfile' in repo with these contents:
 source 'https://rubygems.org'
 gem 'github-pages'
+
 # Then run
 bundle install
 bundle exec jekyll serve

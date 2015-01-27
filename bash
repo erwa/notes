@@ -344,3 +344,14 @@ sudo yum-config-manager --add-repo http://yum.postgresql.org
 # http://www.ehow.com/how_5915486_tell-last-time-computer-rebooted.html
 uptime
 # the time after "up" is how long the computer has been running without reboot
+
+# Setting PKG_CONFIG_PATH for pkg-config
+# There should be .pc files in the PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
+# Get ./configure help
+./configure --help
+
+# Parcellite
+# Cycle through clipboard
+Ctrl + Alt + H, arrow keys, Enter

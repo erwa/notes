@@ -141,3 +141,7 @@ System.setErr(PrintStream)
 // Jar loading order within a directory lib/* is not guaranteed
 // http://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html#A1100762
 // "The order in which the JAR files in a directory are enumerated in the expanded class path is not specified and may vary from platform to platform and even from moment to moment on the same machine. A well-constructed application should not depend upon any particular order. If a specific order is required, then the JAR files can be enumerated explicitly in the class path."
+
+// NoClassDefFoundError != ClassNotFoundException
+// NoClassDefFoundError usually means ClassLoader ran into an error reading the class definition or in a static initializer
+// http://stackoverflow.com/questions/7325579/java-lang-noclassdeffounderror-could-not-initialize-class-xxx

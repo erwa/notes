@@ -2,7 +2,11 @@
 \det
 
 -- Describe a table
-\d TABLE
+\d table_name
+\d schema_name.table_name
+
+-- See view definition
+\d+ view_name
 
 -- Python UDFs
 create extension plpythonu;

@@ -17,6 +17,8 @@ user=mysql
 
 # Start MySQL
 sudo mysqld
+# on a specific port
+sudo mysqld --port=3307
 
 # Shutdown MySQL
 sudo mysqladmin shutdown
