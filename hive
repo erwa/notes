@@ -154,3 +154,9 @@ drop view testview;
 
 # Show databases matching expression
 show databases like 'a*';
+
+# Adding a jar
+# https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources
+add jar hdfs:/user/ahsu/foo.jar;
+add jar hdfs:///user/ahsu/foo.jar;
+add jar hdfs://NAMENODE_HOST:PORT/user/ahsu/foo.jar;

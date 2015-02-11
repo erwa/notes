@@ -8,6 +8,10 @@ java -jar /export/apps/avro/avro-tools-1.7.5.jar getschema recursive.avro > recu
 # Read schema from file
 Schema s = new Schema.Parser().parse(new File("/home/ahsu/recursive.avsc"));
 
+# Extract schema from .avro file
+# http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/#retrieve-avro-schema-from-binary-avro
+java -jar /opt/avro/avro-tools-1.7.7.jar getschema twitter.avro > twitter.avsc
+
 # Convert JSON to binary Avro
 # http://www.michael-noll.com/blog/2013/03/17/reading-and-writing-avro-files-from-the-command-line/#converting-to-and-from-binary-avro
 java -jar /export/apps/avro/avro-tools-1.7.5.jar fromjson --schema-file string.avsc string.json > string.avro

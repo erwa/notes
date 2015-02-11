@@ -98,3 +98,9 @@ The default evaluation order of projects is alphanumeric (for the same nesting l
 ```
 evaluationDependsOn(':otherProject')
 ```
+
+### Fix "PermGen space" build error
+See http://forums.gradle.org/gradle/topics/_system_out_java_lang_outofmemoryerror_permgen_space.
+```
+export JAVA_OPTS="-Xmx1024M -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512M"
+```

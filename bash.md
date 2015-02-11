@@ -103,6 +103,7 @@ unzip -p foo.zip file
 
 List files in a zip:
 ```
+zipinfo foo.zip
 unzip -l foo.zip
 ```
 
@@ -495,6 +496,11 @@ See http://www.ehow.com/how_5915486_tell-last-time-computer-rebooted.html.
 uptime
 ```
 The time after `up` is how long the computer has been running without reboot
+
+### Read first few lines of a file
+```
+head FILE
+```
 
 ### Setting PKG_CONFIG_PATH for pkg-config
 There should be .pc files in the `PKG_CONFIG_PATH`.

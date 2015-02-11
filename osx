@@ -24,6 +24,11 @@ cmd + alt + m
 # Hide all windows except current
 cmd + alt + h
 
+# Show desktop
+# https://superuser.com/questions/139922/show-desktop-keyboard-shortcut-in-mac-os-x/
+Cmd + F3 (no need to press Fn key)
+Fn + F11
+
 # Install package using Homebrew
 brew search <keyword>
 brew install <package_name>

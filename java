@@ -50,7 +50,7 @@ unzip -p foo.jar file
 # To extract to a different directory, navigate to that directory and then do
 jar xf <path/to/jar>
 
-# delete a file from a jar
+# delete/remove a file from a jar
 zip -d JAR FILE
 
 # add file to jar
