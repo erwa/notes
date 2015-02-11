@@ -112,35 +112,35 @@ zip -d foo.zip file
 ```
 
 Extract gunzip'd .gz file to specified file:
-```
+```bash
 gzip -c -d file.gz > file.out
 ```
 `-c` is equivalent to `--stdout`. `-d` is equivalent to `--decompress`.
 
 Show files in tar/tarball/tar.bz2:
-```
+```bash
 tar -tvf file.tar
 tar -ztvf file.tar.gz
 tar -jtvf file.tar.bz2
 ```
 
 Extract .tar file to different directory:
-```
+```bash
 tar -xf archive.tar --directory=/target/directory
 ```
 
 Tar but exclude some directories:
-```
+```bash
 tar cvzf file.tar.gz  --exclude 'dir/a/*' --exclude 'dir/b/*' dir
 ```
 
 Extract one file from tarball to standard out:
-```
+```bash
 tar -Oxzf tarball.tar.gz path/to/file
 ```
 
 ### cd to previous directory
-```
+```bash
 cd -
 ```
 
@@ -148,17 +148,17 @@ cd -
 See http://wiki.bash-hackers.org/syntax/pe#substring_removal.
 
 Remove last character from substring:
-```
+```bash
 ${MYSTRING%?}
 ```
 `%` (percent) matches from the end. `?` matches any character. See http://wiki.bash-hackers.org/syntax/pattern.
 
 ### Schedule a cron job
-```
+```bash
 crontab -e
 ```
 See http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/. The crontab is stored in `/var/spool/cron/`, but is not meant to be edited by hand. See http://askubuntu.com/questions/216692/where-is-the-user-crontab-stored. To see recent cron job runs, run:
-```
+```bash
 grep <script_name> /var/log/cron
 ```
 
@@ -166,7 +166,7 @@ grep <script_name> /var/log/cron
 See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
 ```bash
 $1, $2, $3 # positional parameters
-$@ array representation of positional parameters
+$@ # array representation of positional parameters
 $# # number of parameters
 $* # IFS (Internal Field Separator) expansion
 $- # current shell options
