@@ -1,10 +1,15 @@
-# if statements, expressions like [ -f FILE ], [ -z STRING ]
-# http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+### `if` Expressions
+See http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html.
+```bash
+[ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists
+[ -z STRING ] # true if STRING is of length 0
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ STRING1 == STRING2 ] # true if two strings are equal
 [ STRING1 != STRING2 ] # true if two strings are not equal
 [ $# < 1 ] # true if no arguments passed to script
+[ ! EXPR ] # true if EXPR is false
+```
 
 # See current memory usage
 free
@@ -180,6 +185,9 @@ ls | tr "\\n" " "
 
 # ls: output one file per line
 ls | cat
+
+# List only directories
+ls -d */
 
 # OSX only:
 # Show extended attributes
