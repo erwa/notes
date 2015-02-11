@@ -69,73 +69,102 @@ Grep matching the beginning of lines:
 grep '^<pattern>'
 ```
 
-# awk example to find 0-byte HDFS files in a directory
-# You may need to add a grep to exclude directories (which are also 0 bytes)
+### Use awk to find 0-byte HDFS files in a directory
+You may need to add a `grep` to exclude directories (which are also 0 bytes):
+```
 hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }'
-# To delete these 0-byte files, do
+```
+To delete these 0-byte files, do:
+```
 hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }' | xargs hadoop fs -rm
+```
 
-# See members of a group
+### See members of a group
+```
 getent group <groupname>
+```
 
-# zip/unzip folder
+# Archiving/Unarchiving
+Zip/unzip folder:
+```
 zip -r foo.zip foo
 unzip foo.zip
+```
 
-# unzip one file
+Unzip one file:
+```
 unzip foo.zip file
+```
 
-# unzip one file to standard out
+Unzip one file to standard out:
+```
 unzip -p foo.zip file
+```
 
-# list files in a zip
+List files in a zip:
+```
 unzip -l foo.zip
+```
 
-# remove a file from a zip
+Remove a file from a zip:
+```
 zip -d foo.zip file
+```
 
-# Extract gunzip'd .gz file to specified file
+Extract gunzip'd .gz file to specified file:
+```
 gzip -c -d file.gz > file.out
-# -c = --stdout
-# -d = --decompress
+```
+`-c` is equivalent to `--stdout`. `-d` is equivalent to `--decompress`.
 
-# show files in tar/tarball/tar.bz2
+Show files in tar/tarball/tar.bz2:
+```
 tar -tvf file.tar
 tar -ztvf file.tar.gz
 tar -jtvf file.tar.bz2
+```
 
-# Extract to different directory
+Extract .tar file to different directory:
+```
 tar -xf archive.tar --directory=/target/directory
+```
 
-# tar while excluding directories
+Tar but exclude some directories:
+```
 tar cvzf file.tar.gz  --exclude 'dir/a/*' --exclude 'dir/b/*' dir
+```
 
-# tar: extract one file to standard out
+Extract one file from tarball to standard out:
+```
 tar -Oxzf tarball.tar.gz path/to/file
+```
 
-# cd to previous directory
+### cd to previous directory
+```
 cd -
+```
 
-# Substring removal
-# http://wiki.bash-hackers.org/syntax/pe#substring_removal
+## Substring removal
+See http://wiki.bash-hackers.org/syntax/pe#substring_removal.
 
-# Remove last character from substring_removal
+Remove last character from substring:
+```
 ${MYSTRING%?}
-# % (percent) matches from the end
-# ? matches any character
-# http://wiki.bash-hackers.org/syntax/pattern
+```
+`%` (percent) matches from the end. `?` matches any character. See http://wiki.bash-hackers.org/syntax/pattern.
 
-# schedule a cron job
+### Schedule a cron job
+```
 crontab -e
-# http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/
-# crontab stored in /var/spool/cron/, but not meant to be edited by hand
-# http://askubuntu.com/questions/216692/where-is-the-user-crontab-stored
-
-# To see recent cron job runs
+```
+See http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/. The crontab is stored in `/var/spool/cron/`, but is not meant to be edited by hand. See http://askubuntu.com/questions/216692/where-is-the-user-crontab-stored. To see recent cron job runs, run:
+```
 grep <script_name> /var/log/cron
+```
 
-# Bash dollar sign variables
-# http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables
+# Bash dollar sign
+See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
+```bash
 $1, $2, $3 # positional parameters
 $@ array representation of positional parameters
 $# # number of parameters
@@ -147,6 +176,7 @@ $IFS # input field separator
 $? # most recent foreground exit status
 $! # PID of most recent background command
 $0 # name of shell or shell script
+```
 
 # Bash Bang (!) commands
 # http://ss64.com/bash/bang.html
