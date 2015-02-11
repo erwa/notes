@@ -1,10 +1,14 @@
-// list all available tasks
+ # List all available tasks
+```
 gradle tasks
+```
 
-// Set environment variable in unit test
+# Set environment variable in unit test
+```
 test {
   environment("VAR_NAME", "VAR_VALUE")
 }
+```
 
 // gradle always executes all configurations,
 // meaning if you have a print statement in a task configuration
