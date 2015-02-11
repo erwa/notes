@@ -544,3 +544,9 @@ filename="${filename%.*}"
 ```
 * `##` is greedy match and removal from beginning.
 * `%` matches and removes from the end.
+
+### `cut` on whitespace
+```
+tr -s ' ' | cut -d ' ' -f 4
+```
+`-s` means `--squeeze-repeats`, which means to replace repeated instances of the character with a single instance.
