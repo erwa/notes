@@ -260,8 +260,10 @@ ls | cat
 ```
 
 ### List only directories
+```
 ls -d */
 tree -d
+```
 
 
 ### ls: Show extended attributes
