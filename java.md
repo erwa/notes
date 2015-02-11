@@ -174,3 +174,7 @@ Example: https://github.com/azkaban/azkaban-plugins/blob/master/plugins/reportal
 
 ### `NoClassDefFoundError` != `ClassNotFoundException`
 `NoClassDefFoundError` usually means ClassLoader ran into an error reading the class definition or in a static initializer. See http://stackoverflow.com/questions/7325579/java-lang-noclassdeffounderror-could-not-initialize-class-xxx.
+
+### `java.io.tmpdir` not guaranteed to be affected by programmatic changes.
+See http://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-.
+>  A different value may be given to this system property when the Java virtual machine is invoked, but programmatic changes to this property are not guaranteed to have any effect upon the temporary directory used by this method.
