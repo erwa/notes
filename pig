@@ -88,3 +88,16 @@ set pig.datetime.default.tz America/Los_Angeles;
 -- http://mail-archives.apache.org/mod_mbox/pig-user/201211.mbox/%3CCAG5+gXGj7SvoY4tx-h281xFhn9eK0MgQdRN-ST00XV7pJg9axw@mail.gmail.com%3E
 -- IllegalArgumentException: Can not create a Path from an empty string
 -- if pig.additional.jars=*, if * includes any non-jar files, you could see this exception as well
+
+-- Reserved Keywords
+-- https://pig.apache.org/docs/r0.11.1/basic.html#reserved-keywords
+-- OUTPUT is a reserved keyword in Pig
+-- If you use it as the name of an alias, you may get parsing errors
+
+-- Accessing array of records
+array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field_1, record_field_2)
+
+-- Flatten a bag
+-- https://pig.apache.org/docs/r0.11.1/basic.html#flatten
+(a, {(b,c),(d,e)})
+GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)

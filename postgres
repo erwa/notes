@@ -21,3 +21,6 @@ drop function pytest(integer);
 
 -- use pytest
 select pytest(a) from test;
+
+-- Enable timing
+\timing

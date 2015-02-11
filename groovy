@@ -34,3 +34,6 @@ assert matcher.collect { it } == [["chee", "ch"], ["se", "s"], [" ple", " pl"], 
 // http://groovy.codehaus.org/Operators#Operators-ElvisOperator(?:)
 def displayName = user.name ? user.name : "Anonymous" //traditional ternary operator usage
 def displayName = user.name ?: "Anonymous"  // more compact Elvis operator - does same as above
+
+// Map keys are strings by default
+[a: 1] is equivalent to ["a": 1]

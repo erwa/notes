@@ -44,6 +44,9 @@ major version 51 is newer than 50, the highest major version supported by this c
 # specify full path to file inside jar
 jar xf JAR FILE
 
+# extract one file to stdout
+unzip -p foo.jar file
+
 # To extract to a different directory, navigate to that directory and then do
 jar xf <path/to/jar>
 

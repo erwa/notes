@@ -2,6 +2,9 @@
 # http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 [ -e FILE ] # true if FILE exists
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
+[ STRING1 == STRING2 ] # true if two strings are equal
+[ STRING1 != STRING2 ] # true if two strings are not equal
+[ $# < 1 ] # true if no arguments passed to script
 
 # See current memory usage
 free
@@ -207,6 +210,9 @@ du -sh  .[!.]* * | sort -hr
 # seconds since epoch
 date +%s
 
+# milliseconds since epoch
+date +%s%3N
+
 # redirect both stdout and stderr to the same file
 # http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Output-and-Standard-Error
 <command> &> file
@@ -355,3 +361,23 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 # Parcellite
 # Cycle through clipboard
 Ctrl + Alt + H, arrow keys, Enter
+
+# Convert string to lowercase
+$ string="A FEW WORDS"
+$ echo ${string,}
+a FEW WORDS
+$ echo ${string,,}
+a few words
+$ echo ${string,,[AEIUO]}
+a FeW WoRDS
+
+# Print folder tree / directory structure
+tree DIR
+tree -d DIR # print directories only
+
+# Extract filename and extension
+# http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+# ## is greedy match and removal from beginning
+# % matches and removes from the end
+extension="${filename##*.}"
+filename="${filename%.*}"
