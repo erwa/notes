@@ -11,45 +11,63 @@ See http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html.
 [ ! EXPR ] # true if EXPR is false
 ```
 
-# See current memory usage
+### See current memory usage
+```
 free
 top
+```
 
-# Swap space
-# www.linux.com/news/software/applications/8208-all-about-linux-swap-space
-# Check vm.swappiness in /etc/sysctl.conf
-# Default is 60
-# To verify:
+### Swap space
+See http://www.linux.com/news/software/applications/8208-all-about-linux-swap-space.
+
+Check `vm.swappiness` in `/etc/sysctl.conf`. Default is `60`. To verify:
+```
 sysctl vm.swappiness
-# Higher # means system is more likely to swap pages out into swap space
+```
+A higher number means the system is more likely to swap pages out into swap space.
 
-# grep only files matching a pattern
+# `grep`
+Grep only files matching a pattern:
+```
 grep --include=*.job -r "type=hive" ./*
+```
 
-# grep for classes with "Test" in their names
-# http://www.robelle.com/smugbook/regexpr.html
+Grep for classes with "Test" in their names. See http://www.robelle.com/smugbook/regexpr.html.
+```
 grep Test.*class
-# grep Test*.class and grep Test*class do not work as expected.
+```
+NOTE: `grep Test*.class` and `grep Test*class` do NOT work as expected.
 
-# grep for files ending in .xml
+Grep for files ending in .xml:
+```
 grep "\.xml"
+```
 
-# grep for items that do NOT match a pattern
+Grep for items that do NOT match a pattern:
+```
 grep -v <pattern>
+```
 
-# grep starting from certain line number
+Grep starting from certain line number:
+```
 sed -n '<line_number>,$ p' <file> | grep <pattern>
+```
 
-# grep and only print the second field
+Grep and only print the second field:
+```
 grep -r "pattern" ./* | cut -d ' ' -f 2
-# -d ' ' means split on space
-# -f 2 means select only the 2nd field
+```
+`-d ' '` means split on space. `-f 2` means select only the 2nd field.
 
-# grep, split on whitespace, and print fifth field
+Grep, split on whitespace, and print fifth field:
+```
 grep "pattern" | awk '{print $5}'
+```
 
-# grep for beginning of line
+Grep matching the beginning of lines:
+```
 grep '^<pattern>'
+```
 
 # awk example to find 0-byte HDFS files in a directory
 # You may need to add a grep to exclude directories (which are also 0 bytes)
