@@ -1,2 +1,9 @@
-# You cannot pin tabs in Safari
+# Safari
+
+### You cannot pin tabs in Safari
 http://superuser.com/questions/790785/how-to-pin-a-tab-in-safari-in-osx
+
+# Chrome
+
+### Reorder current tab
+Ctrl + Shift + Page Up/Down

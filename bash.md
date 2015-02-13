@@ -69,6 +69,12 @@ Grep matching the beginning of lines:
 grep '^<pattern>'
 ```
 
+Grep number of occurrences of WORD in FILE
+```
+grep -o WORD FILE | wc -l
+```
+`-o` causes grep to only print matching part (not entire line)
+
 ### Use awk to find 0-byte HDFS files in a directory
 You may need to add a `grep` to exclude directories (which are also 0 bytes):
 ```
@@ -550,3 +556,22 @@ filename="${filename%.*}"
 tr -s ' ' | cut -d ' ' -f 4
 ```
 `-s` means `--squeeze-repeats`, which means to replace repeated instances of the character with a single instance.
+
+### Send mail from command line
+```
+mailx -s "Testing mailx" -a testattachment EMAIL_ADDRESS
+BODY_OF_MESSAGE
+<Ctrl+D>
+```
+
+### List input devices
+```
+xinput list
+lsusb
+```
+
+### Figure out your mouse buttons
+```
+xev | grep button
+# Click around in pop-up window
+```
