@@ -41,3 +41,14 @@ Cmd + K (Tools --> Crop)
 
 # Force quit application
 Cmd + Option + Esc -> Choose app
+
+Show all  root folder contents in Finder: http://apple.stackexchange.com/questions/34871/how-to-view-root-directory-and-subdirectories-in-finder
+```
+defaults write com.apple.finder AppleShowAllFiles TRUE
+```
+
+Show hidden files in Open dialog: http://apple.stackexchange.com/questions/114628/display-hidden-files-hot-key-on-mavericks-gone
+```
+# Must be done in List view, not Column view!
+Cmd + Shift + .
+```

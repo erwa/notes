@@ -271,7 +271,7 @@ ls | tr "\\n" " "
 ls | cat
 ```
 
-### List only directories
+### List directories only
 ```
 ls -d */
 tree -d

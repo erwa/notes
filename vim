@@ -47,7 +47,8 @@ vim `ls -t | head -1`
 # Insert control character
 Ctrl + v + <character>
 
-# Change casing of a character
+# Change casing of a character / Lowercase/uppercase current character
+See http://vim.wikia.com/wiki/Switching_case_of_characters.
 ~
 
 # Insert literal tab when expand tab is on
@@ -65,3 +66,18 @@ zb # Move cursor line to bottom
 # http://stackoverflow.com/questions/2075569/how-can-i-move-around-in-the-vim-command-line
 Ctrl+b # jump to beginning of line
 Ctrl+e # jump to end of line
+
+### Turn word wrap on/off
+```
+set wrap
+set nowrap
+```
+
+Lower/upper-case word: http://stackoverflow.com/questions/2285255/how-to-change-letters-in-a-word-from-upper-case-to-lower-case-or-the-other-way-a
+```
+# Lowercase word
+guiw
+
+# Uppercase word
+gUiw
+```
