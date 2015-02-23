@@ -160,3 +160,9 @@ show databases like 'a*';
 add jar hdfs:/user/ahsu/foo.jar;
 add jar hdfs:///user/ahsu/foo.jar;
 add jar hdfs://NAMENODE_HOST:PORT/user/ahsu/foo.jar;
+
+Describe table with more details
+```
+describe formatted TABLE;
+describe extended TABLE;
+```

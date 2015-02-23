@@ -75,6 +75,11 @@ grep -o WORD FILE | wc -l
 ```
 `-o` causes grep to only print matching part (not entire line)
 
+Grep and ignore errors
+```
+grep -s ...
+```
+
 ### Use awk to find 0-byte HDFS files in a directory
 You may need to add a `grep` to exclude directories (which are also 0 bytes):
 ```
@@ -559,7 +564,7 @@ tr -s ' ' | cut -d ' ' -f 4
 
 ### Send mail from command line
 ```
-mailx -s "Testing mailx" -a testattachment EMAIL_ADDRESS
+mailx -s "Testing mailx" -a testattachment EMAIL_ADDRESS_1,EMAIL_ADDRESS_2
 BODY_OF_MESSAGE
 <Ctrl+D>
 ```

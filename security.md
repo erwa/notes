@@ -17,9 +17,23 @@ scp -o UserKnownHostsFile=/path/to/known_hosts <file> <host>:
 # Set timeout for ssh
 ssh -o ConnectTimeout=10  <hostName>
 
-# SSH and automatically add host to known_hosts file
-# http://askubuntu.com/questions/45679/ssh-connection-problem-with-host-key-verification-failed-error
+# Disable host key checking
+SSH and automatically add host to known_hosts file. See http://askubuntu.com/questions/45679/ssh-connection-problem-with-host-key-verification-failed-error.
+```
 ssh -o StrictHostKeyChecking=no user@something.example.com <command>
+```
+Or add following to `~/.ssh/config`:
+```
+Host *
+  StrictHostKeyChecking no
+```
+See http://linuxcommando.blogspot.com/2008/10/how-to-disable-ssh-host-key-checking.html for details.
+
+# SSH exit code
+From ssh man page:
+```
+ssh exits with the exit status of the remote command or with 255 if an error occurred.
+```
 
 # Use different krb5.conf file than default /etc/krb5.conf
 export KRB5_CONFIG=/path/to/conf/file
