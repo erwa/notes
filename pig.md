@@ -101,3 +101,11 @@ array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field
 -- https://pig.apache.org/docs/r0.11.1/basic.html#flatten
 (a, {(b,c),(d,e)})
 GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
+
+# Eclipse setup
+See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
+```
+ant clean eclipse-files
+
+ant compile gen
+```
