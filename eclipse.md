@@ -42,3 +42,8 @@ Ctrl + Shift + Up/Down # jump to next/previous method/field
 
 # Switch to a different open file
 Ctrl + E, Up/Down
+
+Run test:
+```
+Shift + Alt + X, T
+```

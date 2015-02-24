@@ -109,3 +109,4 @@ ant clean eclipse-files
 
 ant compile gen
 ```
+Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
