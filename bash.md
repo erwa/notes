@@ -580,3 +580,15 @@ lsusb
 xev | grep button
 # Click around in pop-up window
 ```
+
+# Screen
+
+Detach Screen window:
+```
+Ctrl + a, d
+```
+
+Reattach Screen window:
+```
+screen -r
+```

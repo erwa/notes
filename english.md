@@ -16,3 +16,11 @@
 
 # Why "Birthday" in "Happy Birthday" is capitalized
 # http://english.stackexchange.com/questions/22993/should-it-be-happy-birthday-or-happy-birthday-when-used-as-a-two-word-sent
+
+### Who vs. Whom
+See http://web.ku.edu/~edit/whom.html. Who acts like a subject. Whom acts like an object.
+```
+Who is that masked man?
+The men, four of whom are ill, were indicted for fraud.
+```
+Use he/him as a substitute for who/whom as a simple test.

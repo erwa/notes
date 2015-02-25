@@ -81,3 +81,14 @@ guiw
 # Uppercase word
 gUiw
 ```
+
+Global command
+See http://vim.wikia.com/wiki/Power_of_g.
+```
+:[RANGE]g/PATTERN/COMMAND
+```
+
+Delete all lines matching pattern
+```
+:g/PATTERN/d
+```
