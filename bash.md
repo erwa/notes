@@ -217,15 +217,23 @@ getfacl <file>
 
 A user needs execute permissions on a directory to `cd` into it. Even if a file is 777, a user still needs permissions on the chain of parent directories to access the file.
 
-### xargs with string substitution
+# `xargs`
+String substitution:
 ```
 cat temp | xargs -I 'TABLE' hive -e 'drop table TABLE'
 ```
 
-### xargs with one argument per command line
+One argument per command line:
 ```
 find . -name *.jar | xargs -n 1 jar tf
 ```
+
+Substitute in multiple places:
+```
+find . -name *.jar | grep PATTERN1 | xargs -n1 -I% sh -c 'echo % && jar tf % | grep PATTERN2'
+```
+`-I%` tells `xargs` to replace `%` with the arguments passed in. See http://stackoverflow.com/questions/18731610/xargs-with-multiple-commands for details.
+
 
 ### Apply a patch, but strip off leading a/ and b/
 If your patch file `patch.diff` looks like

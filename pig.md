@@ -105,8 +105,21 @@ GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
 # Eclipse setup
 See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
 ```
+# Use JDK 1.7
+
 ant clean eclipse-files
 
 ant compile gen
 ```
 Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
+
+Jars to add manually:
+* hadoop-common-*.jar
+* hadoop-mapreduce-client-common-*.jar
+* hadoop-mapreduce-client-core-*.jar
+* hadoop-yarn-api-*.jar
+* hadoop-yarn-common-*.jar
+* jettison-*.jar
+* tez-api-*.jar
+* tez-mapreduce-*.jar
+* tez-runtime-library-*.jar
