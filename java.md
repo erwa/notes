@@ -1,4 +1,10 @@
-# Static Nested vs. Inner Classes
+### Find jar that a class is in
+See http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name.
+```
+for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
+```
+
+### Static Nested vs. Inner Classes
 A nested class can be static or non-static. A non-static nested class is called an inner class. See http://stackoverflow.com/questions/70324/java-inner-class-and-static-nested-class.
 ```
 OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
@@ -77,12 +83,6 @@ jar cf JAR_NAME.jar file1 file2 dir1 file3 dir2 ...
 ### Decompile Java class
 ```
 javap -c -private AvroGenericRecordReader
-```
-
-## Find jar that a class is in
-See http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name.
-```
-for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
 ```
 
 ### Pipe output stream to a String

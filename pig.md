@@ -113,6 +113,7 @@ ant clean eclipse-files -Dhadoopversion=23
 
 ant compile gen -Dhadoopversion=23
 ```
+
 Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
 
 Jars to add manually:
@@ -156,3 +157,5 @@ Added these sources:
 * shims/test/hadoop23
 * test/perf/pigmix/src/java
 * test/resources
+
+Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details. Might also need to manually add Tez and Hadoop 2.4.0 jars (in `build/ivy/lib/Pig`) and remove Hadoop 1.0.4 jars.

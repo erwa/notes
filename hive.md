@@ -163,6 +163,6 @@ add jar hdfs://NAMENODE_HOST:PORT/user/ahsu/foo.jar;
 
 Describe table with more details
 ```
-describe formatted TABLE;
-describe extended TABLE;
+desc formatted TABLE;
+desc extended TABLE;
 ```
