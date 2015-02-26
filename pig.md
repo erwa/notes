@@ -102,24 +102,57 @@ array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field
 (a, {(b,c),(d,e)})
 GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
 
-# Eclipse setup
+# Eclipse setup for Hadoop 2
 See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
+
+Make sure JDK 1.7 is default in Eclipse and in command line.
 ```
 # Use JDK 1.7
 
-ant clean eclipse-files
+ant clean eclipse-files -Dhadoopversion=23
 
-ant compile gen
+ant compile gen -Dhadoopversion=23
 ```
 Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
 
 Jars to add manually:
+* guice-3.0.jar
+* guice-servlet-3.0.jar
+* hadoop-annotations-*.jar
+* hadoop-auth-*.jar
 * hadoop-common-*.jar
+* hadoop-common-*-tests.jar
+* hadoop-hdfs-*.jar
+* hadoop-hdfs-*-tests.jar
+* hadoop-mapreduce-client-app-*.jar
 * hadoop-mapreduce-client-common-*.jar
 * hadoop-mapreduce-client-core-*.jar
+* hadoop-mapreduce-client-jobclient-*-tests.jar
+* hadoop-mapreduce-client-shuffle-*.jar
 * hadoop-yarn-api-*.jar
 * hadoop-yarn-common-*.jar
+* hadoop-yarn-server-nodemanager-*.jar
+* hadoop-yarn-server-resourcemanager-*.jar
+* hadoop-yarn-server-tests-*-tests.jar
+* jersey-server-*.jar
 * jettison-*.jar
 * tez-api-*.jar
+* tez-dag-*.jar
 * tez-mapreduce-*.jar
+* tez-runtime-internals-*.jar
 * tez-runtime-library-*.jar
+* test/perf/pigmix/lib/sdsuLibJKD12.jar
+
+Removed these jars:
+* hadoop-core-*.jar
+* hadoop-test-*.jar
+
+Removed these sources:
+* shims/src/hadoop20
+* shims/test/hadoop20
+
+Added these sources:
+* shims/src/hadoop23
+* shims/test/hadoop23
+* test/perf/pigmix/src/java
+* test/resources
