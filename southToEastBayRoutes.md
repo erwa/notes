@@ -1,9 +1,15 @@
 # South Bay to East Bay Routes
 
+* VTA Bus & Rail Map: http://www.vta.org/sfc/servlet.shepherd/document/download/069A0000001cwcWIAQ
+
+* Light Rail Route 901 (Santa Teresa to Alum Rock): http://www.vta.org/routes/rt901
+
+* Light Rail Route 902 (Mountain View to Winchester): http://www.vta.org/routes/rt902
+
 ## Weekends
 
 ### VTA bus 181 from Fremont BART to Great Mall / Main Transit Center
-See www.vta.org/routes/rt181.
+See http://www.vta.org/routes/rt181.
 
 ## Weekdays only
 
