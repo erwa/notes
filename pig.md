@@ -114,7 +114,9 @@ ant clean eclipse-files -Dhadoopversion=23
 ant compile gen -Dhadoopversion=23
 ```
 
-Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
+* Add source folder `test/perf/pigmix/src/java`.
+* Add library `test/perf/pigmix/lib/sdsuLibJKD12.jar`.
+* Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
 
 Jars to add manually:
 * guice-3.0.jar
@@ -132,6 +134,7 @@ Jars to add manually:
 * hadoop-mapreduce-client-shuffle-*.jar
 * hadoop-yarn-api-*.jar
 * hadoop-yarn-common-*.jar
+* *hadoop-yarn-server-applicationhistoryservice-*.jar*
 * hadoop-yarn-server-nodemanager-*.jar
 * hadoop-yarn-server-resourcemanager-*.jar
 * hadoop-yarn-server-tests-*-tests.jar
@@ -142,11 +145,12 @@ Jars to add manually:
 * tez-mapreduce-*.jar
 * tez-runtime-internals-*.jar
 * tez-runtime-library-*.jar
-* test/perf/pigmix/lib/sdsuLibJKD12.jar
+* *test/perf/pigmix/lib/sdsuLibJKD12.jar*
 
 Removed these jars:
 * hadoop-core-*.jar
 * hadoop-test-*.jar
+* *javacc-4.2.jar*
 
 Removed these sources:
 * shims/src/hadoop20
@@ -159,3 +163,9 @@ Added these sources:
 * test/resources
 
 Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details. Might also need to manually add Tez and Hadoop 2.4.0 jars (in `build/ivy/lib/Pig`) and remove Hadoop 1.0.4 jars.
+
+### Contributing
+See https://cwiki.apache.org/confluence/display/PIG/HowToContribute.
+```
+git diff --no-prefix
+```
