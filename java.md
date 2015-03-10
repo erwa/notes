@@ -135,6 +135,7 @@ See http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to
 
 ### How to interpret a stack trace
 See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message and http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3. Also see http://stackoverflow.com/a/357386/1128392.
+* `Lfoo.bar.ClassName;` means the type is foo.bar.ClassName
 * `V` means void
 * `[TYPE` means array of TYPE
 
