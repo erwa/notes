@@ -5,6 +5,7 @@
 # String are mutable
 # Symbols are not
 # Each string is stored in a separate memory location
+```
 puts "hello world".object_id
 puts "hello world".object_id
 puts "hello world".object_id
@@ -22,4 +23,9 @@ puts "hello world".object_id
 ### List tasks
 ```
 rake -T
+```
+
+### Gemfile configuration
+```
+gem "azkaban-rb", :git => "git://github.com/erwa/azkaban-rb.git", :branch => 'pigLi'
 ```

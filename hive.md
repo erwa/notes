@@ -1,17 +1,17 @@
 # Hive Eclipse Setup
 See https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIimportintoeclipse?.
 ```
-$ mkdir workspace
-$ cd workspace
-$ git clone https://github.com/apache/hive.git
-$ cd hive
-$ mvn clean install -DskipTests -Phadoop-2
-$ mvn eclipse:clean
-$ mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-2
-$ cd itests
-$ mvn clean install -DskipTests -Phadoop-2
-$ mvn eclipse:clean
-$ mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-2
+mkdir workspace
+cd workspace
+git clone https://github.com/apache/hive.git
+cd hive
+mvn clean install -DskipTests -Phadoop-2
+mvn eclipse:clean
+mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-2
+cd itests
+mvn clean install -DskipTests -Phadoop-2
+mvn eclipse:clean
+mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-2
 ```
 
 When importing into Eclipse, use Import, NOT New -> Java Project.

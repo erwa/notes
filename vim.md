@@ -92,3 +92,6 @@ Delete all lines matching pattern
 ```
 :g/PATTERN/d
 ```
+
+Delete lines M to N, inclusive
+:M,Nd

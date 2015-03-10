@@ -102,6 +102,18 @@ array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field
 (a, {(b,c),(d,e)})
 GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
 
+### Eclipse Setup
+
+1. `ant clean eclipse-files -Dhadoopversion=23`
+2. `ant compile gen -Dhadoopversion=23`
+3. In Eclipse, File -> Import -> Existing Projects into Workspace -> Browse to Pig repo -> Finish.
+4. Project -> Properties -> Java Build Path -> Source -> Add Folder `test/perf/pigmix/src/java`.
+5. Project -> Properties -> Java Build Path -> Libraries -> Remove `javacc-4.2.jar`.
+6. Project -> Properties -> Java Build Path -> Libraries -> Add JAR `test/perf/pigmix/lib/sdsuLibJKD12.jar`.
+6. Project -> Properties -> Java Build Path -> Libraries -> Add JAR hadoop-yarn-server-applicationhistoryservice-*.jar (You may need to find and download this jar yourself. It is needed for running tests.).
+7. You should now be able to build the project and run the tests using JUnit from within Eclipse.
+
+
 # Eclipse setup for Hadoop 2
 See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
 

@@ -609,4 +609,8 @@ screen -r
 Kill detached session:
 ```
 screen -X -S SESSION quit
+
+### Download file using `curl`
+```
+curl http://example.com > example.txt
 ```
