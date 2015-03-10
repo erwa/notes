@@ -1,3 +1,5 @@
+### Curl Commands:
+```
 curl -k https://<host>:<port> -d "username=<username>&password=<password>&action=login"
 {
   "status" : "success",
@@ -23,6 +25,7 @@ $ curl -k https://<host>:<port>/manager -G -d "project=project-name&flow=flow-na
   "flow" : "flow-name",
   "projectId" : 909
 }
+```
 
 Azkaban servlet routes registered in AzkabanWebServer.java:main
 
@@ -149,3 +152,55 @@ jekyll serve -P 4001
 
 # Get full log for very long log
 Go to /executor?execid=EXEC_ID&jobId=JOB_NAME&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0
+
+### Azkaban Eclipse local setup
+1.
+```
+git clone git@github.com:azkaban/azkaban.git
+cd azkaban
+gradle cleanEclipse eclipse
+gradle build -x test
+cd ..
+mkdir azkaban-conf-local
+cp azkaban/azkaban-soloserver/src/package/conf/* azkaban-conf-local
+cp -r azkaban/azkaban-soloserver/build/package/web azkaban-conf-local
+```
+2. Modify the `azkaban.properties` file you copied to `azkaban-conf-local`:
+* Change `web.resource.dir` to `/PATH/TO/azkaban-conf-local/web`.
+* Change `user.manager.xml.file` to `/PATH/TO/azkaban-conf-local/azkaban-users.xml`.
+* Change `executor.global.properties` to `/PATH/TO/azkaban-conf-local/global.properties`
+* Change `database.sql.scripts.dir` to `/PATH/TO/azkaban/azkaban-sql/src/sql`.
+3. In Eclipse, File -> Import -> Existing Project.
+4. Create a new Eclipse configuration:
+* Set Main class to `azkaban.soloserver.AzkabanSingleServer`.
+* In Arguments, set Program arguments to `-conf /PATH/TO/azkaban-conf-local`.
+
+Now you should be able to run AzkabanSingleServer from Eclipse and view the web UI in your browser at http://localhost:8081.
+
+### Add jobtype plugins
+1.
+```
+git clone git@github.com:azkaban/azkaban-plugins.git
+cd azkaban-plugins
+ant
+cp -r dist/packages/jobtypes /PATH/TO/azkaban-conf-local
+cd /PATH/TO/azkaban-conf-local/jobtypes
+ln -s pig-0.11.0 pig
+```
+2. Edit `commonprivate.properties`:
+```
+hadoop.home=/PATH/TO/HADOOP/HOME
+hive.home=/PATH/TO/HIVE/HOME
+```
+3. Update `pig/private.properties`:
+```
+# For Hadoop 1.2.1
+jobtype.classpath=${hadoop.home}/conf,${hadoop.home}/*,${hadoop.home}/lib/*,lib/*
+
+```
+4. Add the following to `azkaban.properties`:
+```
+azkaban.jobtype.plugin.dir=/PATH/TO/azkaban-conf-local/jobtypes
+```
+5. Add `azkaban-plugins` to Eclipse.
+6. Before debugging, add a breakpoint in `Utils.callConstructor()` on the line that calls `cons.newInstance()`. Then launch AzkabanSingleServer in Debug mode. When the breakpoint is hit, F5, then Edit Source Lookup Path --> Add --> Workspace Folder --> `azkaban-plugins/plugins/jobtype/src`.
