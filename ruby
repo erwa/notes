@@ -16,3 +16,10 @@ puts "hello world".object_id
 # => 3093860
 # => 3089330
 # => 3084800
+
+# Rake
+
+### List tasks
+```
+rake -T
+```

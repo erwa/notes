@@ -591,6 +591,11 @@ xev | grep button
 
 # Screen
 
+Show sessions:
+```
+screen -ls
+```
+
 Detach Screen window:
 ```
 Ctrl + a, d
@@ -599,4 +604,9 @@ Ctrl + a, d
 Reattach Screen window:
 ```
 screen -r
+```
+
+Kill detached session:
+```
+screen -X -S SESSION quit
 ```

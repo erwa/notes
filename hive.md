@@ -145,11 +145,22 @@ hive -hiveconf hive.session.history.enabled=true
 # Drop partitions greater than a time
 alter table foo drop partition (partitionfield > '2014-10-30-00')
 
-# Create view
-create view testview as select a from test;
+# Views
 
-# Delete view
+### Create view
+```
+create view testview as select a from test;
+```
+
+### Delete view
+```
 drop view testview;
+```
+
+### Show view definition
+```
+describe formatted DATABASE.VIEWNAME;
+```
 
 # Hive 0.13 added permanent functions, which can be registered to a
 # particular database
