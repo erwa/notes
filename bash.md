@@ -315,6 +315,18 @@ See http://askubuntu.com/questions/356902/why-doesnt-this-show-the-hidden-files-
 du -sh  .[!.]* * | sort -hr
 ```
 
+# `date`
+
+### Date in `yyyyMMdd` format
+```
+date +%Y%m%d
+```
+
+### Date one day ago (only works on Linux)
+```
+date --date="1 day ago" +%Y%m%d
+```
+
 ### Seconds since epoch:
 ```
 date +%s
@@ -324,6 +336,13 @@ date +%s
 ```
 date +%s%3N
 ```
+
+### Date in different timezone
+```
+TZ=America/Los_Angeles date
+```
+
+---
 
 ### Redirect both stdout and stderr to the same file
 See http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Output-and-Standard-Error.

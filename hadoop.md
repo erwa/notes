@@ -53,12 +53,20 @@ curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS
 hadoop dfsadmin -safemode leave
 
 
-################
-# Hadoop 2.3.0 #
-################
+# Hadoop 2.3.0
 
-# You must use Java 7 to compile
+### Eclipse Setup
+You must use Java 7 to compile.
+```
 export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21
+```
+
+Install `protobuf-2.5.0`. If you copy a Linux installation to OS X, it probably won't work.
+```
+export HADOOP_PROTOC_PATH=/opt/protobuf/protobuf-2.5.0/bin/protoc
+```
+
+Build
 
 # Make sure you don't have environment variables from Hadoop 1.x still set
 env | grep -i home
