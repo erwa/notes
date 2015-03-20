@@ -26,3 +26,6 @@ X-Desktop-File-Install-Version=0.15
 References:
 * http://www.centos.org/docs/4/html/rhd-dg-en-4/ch-ddg-menus.html
 * http://www.techotopia.com/index.php/Configuring_the_RHEL_6_Desktop_Menu_System
+
+### Virtual Console
+Ctrl + Alt + F2 to switch to virtual console. Ctrl + Alt + F1/F7/F8 (depending on system) to switch back.

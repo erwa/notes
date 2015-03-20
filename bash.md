@@ -633,3 +633,6 @@ screen -X -S SESSION quit
 ```
 curl http://example.com > example.txt
 ```
+
+### MOTD (Message of the Day)
+Check out `/etc/motd`.

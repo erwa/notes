@@ -134,21 +134,29 @@ export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 # Do not run Azkaban as root or else many default environment variables like
 # JAVA_HOME and HADOOP_HOME will probably not be set and jobs will fail
 
-# Azkaban documentation source resides in gh-pages branch:
-# https://github.com/azkaban/azkaban/tree/gh-pages
-# To use Jekyll and GitHub Pages, see https://help.github.com/articles/using-jekyll-with-pages/
-gem install bundler
+# Updating the Azkaban documentation
+Source resides in gh-pages branch: https://github.com/azkaban/azkaban/tree/gh-pages. To use Jekyll and GitHub Pages, see https://help.github.com/articles/using-jekyll-with-pages/.
 
-# Create 'Gemfile' in repo with these contents:
+```
+gem install bundler
+```
+
+Create a `Gemfile` in repo with these contents:
+```
 source 'https://rubygems.org'
 gem 'github-pages'
+```
 
-# Then run
+Then run:
+```
 bundle install
 bundle exec jekyll serve
-# View the page at http://localhost:4000
-# If port is already in use, you can launch on different port
+```
+
+View the page at http://localhost:4000. If port is already in use, you can launch on different port:
+```
 jekyll serve -P 4001
+```
 
 # Get full log for very long log
 Go to /executor?execid=EXEC_ID&jobId=JOB_NAME&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0
