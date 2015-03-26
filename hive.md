@@ -33,8 +33,10 @@ mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-2
 
 When importing into Eclipse, use Import, NOT New -> Java Project.
 
-# Hive Eclipse arguments
-# Hive trunk Eclipse maven configuration
+### Hive Eclipse arguments
+
+#### Hive trunk Eclipse maven configuration
+
 CliDriver Classpath:
 - /home/ahsu/github/erwa/hive/hive/conf
 - /export/apps/hadoop/latest/conf
@@ -86,28 +88,49 @@ ant test -Dtestcase=TestCliDriver -Dqfile_regex=.*partition.*
 # build tarball in ant
 ant clean binary
 
-### Maven ###
-
-# building Mavenized Hive as distribution
+### Building Mavenized Hive as distribution
+```
 mvn clean package -DskipTests -Phadoop-1 -Pdist
-# distribution appears in packaging/target
+```
 
-# build Hive and tests with Maven, starting from Hive root dir:
-mvn clean install -DskipTests -Phadoop-1 # use -Phadoop-2 to build against Hadoop2
+Distribution appears in `packaging/target`.
+
+### Running Hive itests
+Start from the Hive root dir.
+```
+mvn clean install -DskipTests -Phadoop-2
 cd itests
-mvn clean install -DskipTests -Phadoop-1
+mvn clean install -DskipTests -Phadoop-2
+```
 
-# do from itests or itests/qtest directory
-# make sure you do a build first! (see above)
-cd itests[/qtest]
-# run a single test
-mvn test -Phadoop-1 -Dtest=TestCliDriver -Dqfile=avro_partitioned.q [-Dtest.output.overwrite=true]
-# run tests matching a regex
-mvn test -Phadoop-1 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
-
-# run Hive unit test
+Tests in the `itests` directory need to be run from the `itests` directory:
+```
+# Make sure you do a build first! (see above)
+# For tests in the itests directory:
 cd itests
-mvn test -Phadoop-1 -Dtest=TestAvroSerdeUtils
+
+# Run a single test
+# Add -Dtest.output.overwrite=true to overwrite expected output files
+mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile=avro_partitioned.q [-Dtest.output.overwrite=true]
+
+# Run single method of test class
+mvn test -Phadoop-2 -Dtest=TestRemoteHiveMetaStore#testAlterViewParititon
+
+# Run tests matching a regex
+mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
+```
+
+#### HiveMetaStore Tests
+TestHiveMetaStore.java is excluded because you should run TestEmbeddedHiveMetaStore.java and TestRemoteHiveMetaStore.java instead.
+
+#### Run Hive unit test not in itests directory
+```
+# Run from root directory.
+mvn test -Phadoop-2 -Dtest=TestAvroSerdeUtils
+```
+
+### Debug Hive unit test from Eclipse
+You may need to create a `hive-site.xml` somewhere with the custom properties you need and then add the containing folder to your debug classpath.
 
 # Hive print column names
 set hive.cli.print.header=true;

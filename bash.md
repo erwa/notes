@@ -11,6 +11,13 @@ See http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html.
 [ ! EXPR ] # true if EXPR is false
 ```
 
+Example:
+```
+if [ -f /var/log/messages ] then
+  echo "/var/log/messages exists."
+fi
+```
+
 ### See current memory usage
 ```
 free
