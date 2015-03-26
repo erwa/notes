@@ -103,6 +103,9 @@ array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field
 GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
 
 ### Eclipse Setup
+See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
+
+Make sure you're using JDK 1.7.
 
 1. `ant clean eclipse-files -Dhadoopversion=23`
 2. `ant compile gen -Dhadoopversion=23`
@@ -110,71 +113,10 @@ GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
 4. Project -> Properties -> Java Build Path -> Source -> Add Folder `test/perf/pigmix/src/java`.
 5. Project -> Properties -> Java Build Path -> Libraries -> Remove `javacc-4.2.jar`.
 6. Project -> Properties -> Java Build Path -> Libraries -> Add JAR `test/perf/pigmix/lib/sdsuLibJKD12.jar`.
-6. Project -> Properties -> Java Build Path -> Libraries -> Add JAR hadoop-yarn-server-applicationhistoryservice-*.jar (You may need to find and download this jar yourself. It is needed for running tests.).
-7. You should now be able to build the project and run the tests using JUnit from within Eclipse.
+7. Project -> Properties -> Java Build Path -> Libraries -> Add External JAR hadoop-yarn-server-applicationhistoryservice-*.jar (You may need to find and download this jar yourself. It is needed for running tests.).
+8. Project -> Properties -> Java Editor -> Save Actions -> Check "Enable project specific settings" -> Uncheck "Perform the selected actions on save" (This is to prevent reformatting of the code on save.).
 
-
-# Eclipse setup for Hadoop 2
-See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
-
-Make sure JDK 1.7 is default in Eclipse and in command line.
-```
-# Use JDK 1.7
-
-ant clean eclipse-files -Dhadoopversion=23
-
-ant compile gen -Dhadoopversion=23
-```
-
-* Add source folder `test/perf/pigmix/src/java`.
-* Add library `test/perf/pigmix/lib/sdsuLibJKD12.jar`.
-* Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details.
-
-Jars to add manually:
-* guice-3.0.jar
-* guice-servlet-3.0.jar
-* hadoop-annotations-*.jar
-* hadoop-auth-*.jar
-* hadoop-common-*.jar
-* hadoop-common-*-tests.jar
-* hadoop-hdfs-*.jar
-* hadoop-hdfs-*-tests.jar
-* hadoop-mapreduce-client-app-*.jar
-* hadoop-mapreduce-client-common-*.jar
-* hadoop-mapreduce-client-core-*.jar
-* hadoop-mapreduce-client-jobclient-*-tests.jar
-* hadoop-mapreduce-client-shuffle-*.jar
-* hadoop-yarn-api-*.jar
-* hadoop-yarn-common-*.jar
-* *hadoop-yarn-server-applicationhistoryservice-*.jar*
-* hadoop-yarn-server-nodemanager-*.jar
-* hadoop-yarn-server-resourcemanager-*.jar
-* hadoop-yarn-server-tests-*-tests.jar
-* jersey-server-*.jar
-* jettison-*.jar
-* tez-api-*.jar
-* tez-dag-*.jar
-* tez-mapreduce-*.jar
-* tez-runtime-internals-*.jar
-* tez-runtime-library-*.jar
-* *test/perf/pigmix/lib/sdsuLibJKD12.jar*
-
-Removed these jars:
-* hadoop-core-*.jar
-* hadoop-test-*.jar
-* *javacc-4.2.jar*
-
-Removed these sources:
-* shims/src/hadoop20
-* shims/test/hadoop20
-
-Added these sources:
-* shims/src/hadoop23
-* shims/test/hadoop23
-* test/perf/pigmix/src/java
-* test/resources
-
-Remove `build/ivy/lib/Pig/javacc-4.2.jar` from Java Build Path. See https://issues.apache.org/jira/browse/PIG-3399 for details. Might also need to manually add Tez and Hadoop 2.4.0 jars (in `build/ivy/lib/Pig`) and remove Hadoop 1.0.4 jars.
+You should now be able to build the project and run the tests using JUnit from within Eclipse.
 
 ### Contributing
 See https://cwiki.apache.org/confluence/display/PIG/HowToContribute.

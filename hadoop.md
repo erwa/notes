@@ -21,6 +21,11 @@ export HADOOP_ROOT_LOGGER=DEBUG,console
 Disable _SUCCESS file:
 To disable the `_SUCCESS` file from being created upon job completion, set the `mapreduce.fileoutputcommitter.marksuccessfuljobs` property to `false`. See http://mail-archives.apache.org/mod_mbox/hadoop-user/201305.mbox/%3CCAO7hTbNSu7vJ5nori9u3+r9px_xkkgO=+Of248x=ujC0tNZpuA@mail.gmail.com%3E.
 
+### Increase client heap size
+```
+export HADOOP_CLIENT_OPTS="-Xmx10g"
+```
+
 ################
 # Hadoop 1.2.1 #
 ################
