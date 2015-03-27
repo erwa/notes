@@ -1,3 +1,4 @@
+
 # Hive Eclipse Setup
 
 ### Hive 0.13 and newer
@@ -17,7 +18,7 @@ mvn eclipse:clean
 mvn eclipse:eclipse -DdownloadSources -DdownloadJavadocs -Phadoop-2
 ```
 
-When importing into Eclipse, use Import, NOT New -> Java Project.
+When importing into Eclipse, use Import, NOT New -> Java Project. Make sure to enable project specific save settings and disable save actions.
 
 ### Hive Eclipse arguments
 
@@ -90,7 +91,7 @@ ant clean binary
 
 ### Building Mavenized Hive as distribution
 ```
-mvn clean package -DskipTests -Phadoop-1 -Pdist
+mvn clean package -DskipTests -Phadoop-2 -Pdist
 ```
 
 Distribution appears in `packaging/target`.
@@ -130,7 +131,21 @@ mvn test -Phadoop-2 -Dtest=TestAvroSerdeUtils
 ```
 
 ### Debug Hive unit test from Eclipse
-You may need to create a `hive-site.xml` somewhere with the custom properties you need and then add the containing folder to your debug classpath.
+You may need to create a `hive-site.xml` somewhere with the custom properties you need and then add the containing folder to your debug classpath. If you need to attach source, you can add a Variable for your Git repository, and add an extension to the folder that contains the classes. When making changes, you may need to rebuild the project (sometimes from Eclipse and sometimes from the command line) for changes to take effect.
+
+### Ant ###
+
+# ant, Hive 0.12.0 and earlier
+# building Hive
+ant clean package
+
+# running Hive tests
+ant clean package test -Dtestcase=TestCliDriver -Dqfile=avro_partitioned.q [-Doverwrite=true]
+ant test -Dtestcase=TestCliDriver -Dqfile=avro_partitioned.q [-Doverwrite=true]
+ant test -Dtestcase=TestCliDriver -Dqfile_regex=.*partition.*
+
+# build tarball in ant
+ant clean binary
 
 # Hive print column names
 set hive.cli.print.header=true;

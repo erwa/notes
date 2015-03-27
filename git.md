@@ -134,8 +134,18 @@ git apply --stat fix.patch # see patch changes
 git apply --check fix.patch # dry-run
 git apply fix.patch # apply for real
 
-# revert a commit
+# Reverting
+
+### Revert a commit
+```
 git revert <commit_hash>
+```
+
+### Revert one file
+http://stackoverflow.com/questions/2733873/reverting-a-single-file-to-a-previous-version-in-git
+```
+git checkout <commit> path/to/file
+```
 
 # revert part of a commit
 # http://stackoverflow.com/questions/4795600/reverting-part-of-a-commit-with-git
