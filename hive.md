@@ -77,9 +77,15 @@ The jars are in `build/ivy/lib/hadoop0.20S.shim`. Replace the `commons-codec-1.3
 
 Then build the project in Eclipse. It will launch an ant delegate as part of the build. The build should take about 90 seconds.
 
-# ant, Hive 0.12.0 and earlier
-# building Hive
+#### Building Hive 0.12.0 and earlier versions
+```
 ant clean package
+```
+
+In case of memory issues, run
+```
+export ANT_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
+```
 
 # running Hive tests
 ant clean package test -Dtestcase=TestCliDriver -Dqfile=avro_partitioned.q [-Doverwrite=true]
