@@ -219,7 +219,7 @@ jekyll serve -P 4001
 Now you should be able to run AzkabanSingleServer from Eclipse and view the web UI in your browser at http://localhost:8081.
 
 ### Add jobtype plugins
-1.
+1. Run some terminal commands:
     ```
     git clone git@github.com:azkaban/azkaban-plugins.git
     cd azkaban-plugins
