@@ -216,7 +216,7 @@ jekyll serve -P 4001
   * Set Main class to `azkaban.soloserver.AzkabanSingleServer`.
   * In Arguments, set Program arguments to `-conf /PATH/TO/azkaban-conf-local`.
 
-Now you should be able to run AzkabanSingleServer from Eclipse and view the web UI in your browser at http://localhost:8081.
+Now you should be able to run AzkabanSingleServer from Eclipse and view the web UI in your browser at http://localhost:8081. You can login using azkaban/azkaban. You can add additional users in azkaban-conf-local/azkaban-users.xml.
 
 ### Add jobtype plugins
 1. Run some terminal commands:
