@@ -194,16 +194,16 @@ jekyll serve -P 4001
 
 # Azkaban Eclipse Setup
 1. Run some commands from a terminal:
-```
-git clone git@github.com:azkaban/azkaban.git
-cd azkaban
-gradle cleanEclipse eclipse
-gradle build -x test
-cd ..
-mkdir azkaban-conf-local
-cp azkaban/azkaban-soloserver/src/package/conf/* azkaban-conf-local
-cp -r azkaban/azkaban-soloserver/build/package/web azkaban-conf-local
-```
+    ```
+    git clone git@github.com:azkaban/azkaban.git
+    cd azkaban
+    gradle cleanEclipse eclipse
+    gradle build -x test
+    cd ..
+    mkdir azkaban-conf-local
+    cp azkaban/azkaban-soloserver/src/package/conf/* azkaban-conf-local
+    cp -r azkaban/azkaban-soloserver/build/package/web azkaban-conf-local
+    ```
 
 2. Modify the `azkaban.properties` file you copied to `azkaban-conf-local`:
   * Change `web.resource.dir` to `/PATH/TO/azkaban-conf-local/web`.
