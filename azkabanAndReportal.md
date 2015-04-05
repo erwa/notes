@@ -240,10 +240,12 @@ Now you should be able to run AzkabanSingleServer from Eclipse and view the web 
     # For Hadoop 1.2.1
     jobtype.classpath=${hadoop.home}/conf,${hadoop.home}/*,${hadoop.home}/lib/*,lib/*
     ```
+
 4. Add the following to `azkaban.properties`:
     ```
     azkaban.jobtype.plugin.dir=/PATH/TO/azkaban-conf-local/jobtypes
     ```
+
 5. Add `azkaban-plugins` to Eclipse.
 6. Before debugging, add a breakpoint in `Utils.callConstructor()` on the line that calls `cons.newInstance()`. Then launch AzkabanSingleServer in Debug mode. When the breakpoint is hit, F5, then Edit Source Lookup Path --> Add --> Workspace Folder --> `azkaban-plugins/plugins/jobtype/src`.
 
