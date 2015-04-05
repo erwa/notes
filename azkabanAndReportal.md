@@ -35,19 +35,6 @@ $ curl -k https://<host>:<port>/manager -G -d "project=project-name&flow=flow-na
 curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=<description>" -b azkaban.browser.session.id=<session.id>
 ```
 
-Can just set hadoop.home and hive.home in common.properties and commonprivate.properties and don't need to redefine these properties in all the jobtype subdirectories.
-
-### OS X local SMTP mail server for testing
-```
-sudo postfix start
-```
-
-### Pig job type Hadoop conf overrides
-For Pig jobs, you can override Hadoop confs by setting setting `jvm.args`. Example:
-```
--Dmapred.map.output.compression.codec=com.hadoop.compression.lzo.LzoCodec
-```
-
 ### Reload jobtype plugins without restarting executor server
 ```
 curl http://localhost:<port>/executor?action=reloadJobTypePlugins
@@ -76,19 +63,6 @@ curl -k https://<host>:<port>/executor -G -d "ajax=executeFlow&project=project-n
   "execid" : 32285
 }
 ```
-
-### Flows in a project
-
-The number of flows in a project is equal to the number of end nodes (sinks). If you have a dependency graph like
-```
-  A
- / \
-B   C
-```
-when you upload the project, you will get two flows: B and C
-
-### Session id
-You can also use `&session.id=<session.id>` instead of setting the `azkaban.browser.session.id` cookie.
 
 ### Get flow status
 ```
@@ -133,11 +107,37 @@ curl -k https://<host>:<port>/schedule -d "ajax=scheduleFlow&projectName=<projec
 curl -k https://<host>:<port>/schedule -d "action=removeSched&scheduleId=SCHEDULE_ID" -b azkaban.browser.session.id=SESSION_ID
 ```
 
-
 ### Get all projects
 ```
 curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.id>
 ```
+
+### Fetch giant log
+Go to `https://<host>:<port>/executor?execid=<execid>&jobId=<jobid>&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0`.
+
+-----
+
+### Setting jobtype properties
+Can just set hadoop.home and hive.home in common.properties and commonprivate.properties and don't need to redefine these properties in all the jobtype subdirectories.
+
+### Pig job type Hadoop conf overrides
+For Pig jobs, you can override Hadoop confs by setting setting `jvm.args`. Example:
+```
+-Dmapred.map.output.compression.codec=com.hadoop.compression.lzo.LzoCodec
+```
+
+### Flows in a project
+
+The number of flows in a project is equal to the number of end nodes (sinks). If you have a dependency graph like
+```
+  A
+ / \
+B   C
+```
+when you upload the project, you will get two flows: B and C
+
+### Session id
+You can also use `&session.id=<session.id>` instead of setting the `azkaban.browser.session.id` cookie.
 
 # Errors
 If you're getting a Jetty NOT_FOUND error when you try to load Azkaban, it probably means one of your viewer plugins is not configured properly.
@@ -146,8 +146,7 @@ When installing Reportal, make sure to include velocity-tools-2.0.jar and slf4j-
 
 If you're using Hadoop, make sure to include the hadoop-core jar and add the Hadoop conf directory to your classpath.
 
-### Fetch giant log
-Go to `https://<host>:<port>/executor?execid=<execid>&jobId=<jobid>&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0`.
+
 
 ### Building Azkaban
 To build just the jars (and skip the tests), run
@@ -193,8 +192,7 @@ View the page at http://localhost:4000. If port is already in use, you can launc
 jekyll serve -P 4001
 ```
 
-### Get full log for very long log
-Go to `/executor?execid=EXEC_ID&jobId=JOB_NAME&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0`.
+
 
 ### Azkaban Eclipse local setup
 1.
@@ -248,3 +246,8 @@ azkaban.jobtype.plugin.dir=/PATH/TO/azkaban-conf-local/jobtypes
 ```
 5. Add `azkaban-plugins` to Eclipse.
 6. Before debugging, add a breakpoint in `Utils.callConstructor()` on the line that calls `cons.newInstance()`. Then launch AzkabanSingleServer in Debug mode. When the breakpoint is hit, F5, then Edit Source Lookup Path --> Add --> Workspace Folder --> `azkaban-plugins/plugins/jobtype/src`.
+
+### OS X local SMTP mail server for testing
+```
+sudo postfix start
+```
