@@ -30,6 +30,9 @@ $ curl -k https://<host>:<port>/manager -G -d "project=project-name&flow=flow-na
 }
 ```
 
+### Session id
+You can also use `&session.id=<session.id>` instead of setting the `azkaban.browser.session.id` cookie.
+
 ### Create a project
 ```
 curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=<description>" -b azkaban.browser.session.id=<session.id>
@@ -136,27 +139,12 @@ B   C
 ```
 when you upload the project, you will get two flows: B and C
 
-### Session id
-You can also use `&session.id=<session.id>` instead of setting the `azkaban.browser.session.id` cookie.
-
 # Errors
 If you're getting a Jetty NOT_FOUND error when you try to load Azkaban, it probably means one of your viewer plugins is not configured properly.
 
 When installing Reportal, make sure to include velocity-tools-2.0.jar and slf4j-log4j12-1.6.4.jar.
 
 If you're using Hadoop, make sure to include the hadoop-core jar and add the Hadoop conf directory to your classpath.
-
-
-
-### Building Azkaban
-To build just the jars (and skip the tests), run
-```
-./gradlew jar
-```
-
-### Data triggers
-
-Azkaban currently does not support data triggers. However, one workaround is to use Azkaban's `retries` feature with `retry.backoff`.
 
 ### OSX Test Failures
 On OSX, tests may fail unless you set
@@ -167,6 +155,18 @@ Fixed in https://github.com/azkaban/azkaban/pull/343.
 
 ### Running Azkaban as root
 Do not run Azkaban as root or else many default environment variables like `JAVA_HOME` and `HADOOP_HOME` will probably not be set and jobs will fail.
+
+### Data triggers
+
+Azkaban currently does not support data triggers. However, one workaround is to use Azkaban's `retries` feature with `retry.backoff`.
+
+-----
+
+### Building Azkaban
+To build just the jars (and skip the tests), run
+```
+./gradlew jar
+```
 
 ### Updating the Azkaban documentation
 Source resides in gh-pages branch: https://github.com/azkaban/azkaban/tree/gh-pages. To use Jekyll and GitHub Pages, see https://help.github.com/articles/using-jekyll-with-pages/.
@@ -192,11 +192,8 @@ View the page at http://localhost:4000. If port is already in use, you can launc
 jekyll serve -P 4001
 ```
 
-
-
-### Azkaban Eclipse local setup
-1.
-```
+# Azkaban Eclipse Setup
+1.```
 git clone git@github.com:azkaban/azkaban.git
 cd azkaban
 gradle cleanEclipse eclipse
