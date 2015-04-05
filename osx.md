@@ -52,3 +52,8 @@ Show hidden files in Open dialog: http://apple.stackexchange.com/questions/11462
 # Must be done in List view, not Column view!
 Cmd + Shift + .
 ```
+
+# iOS development
+
+### Launch app on device
+https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40013839-CH34-SW1

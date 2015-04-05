@@ -632,9 +632,12 @@ Reattach Screen window:
 screen -r
 ```
 
-Kill detached session:
+Kill session:
 ```
+# -X sends a command
+# -S SESSION specifies the session
 screen -X -S SESSION quit
+```
 
 ### Download file using `curl`
 ```

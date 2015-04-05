@@ -52,7 +52,14 @@ hadoop namenode -format
 
 # Using curl to contact a secure WebHDFS instance
 # http://www.adaltas.com/blog/2013/09/25/webhdfs-security-kerberos-delegation-tokens/
+```
 curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS"
+```
+
+Get delegation token
+```
+curl --negotiate -u : -L "http://NAMENODE_HOST:50070/webhdfs/v1/?op=GETDELEGATIONTOKEN&user.name=USER"
+```
 
 # To leave safemode
 hadoop dfsadmin -safemode leave

@@ -3,6 +3,57 @@
 
 ### Hive 0.13 and newer
 
+### Building Mavenized Hive as distribution
+Use Java 7+.
+```
+mvn clean package -DskipTests -Phadoop-2 -Pdist
+```
+
+Distribution appears in `packaging/target`.
+
+### Running Hive itests
+Start from the Hive root dir.
+```
+mvn clean install -DskipTests -Phadoop-2
+cd itests
+mvn clean install -DskipTests -Phadoop-2
+```
+
+In case of memory issues, run
+```
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
+```
+
+Tests in the `itests` directory need to be run from the `itests` directory:
+```
+# Make sure you do a build first! (see above)
+# For tests in the itests directory:
+cd itests
+
+# Run a single test
+# Add -Dtest.output.overwrite=true to overwrite expected output files
+mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile=avro_partitioned.q [-Dtest.output.overwrite=true]
+
+# Run single method of test class
+mvn test -Phadoop-2 -Dtest=TestRemoteHiveMetaStore#testAlterViewParititon
+
+# Run tests matching a regex
+mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
+```
+
+#### HiveMetaStore Tests
+TestHiveMetaStore.java is excluded because you should run TestEmbeddedHiveMetaStore.java and TestRemoteHiveMetaStore.java instead.
+```
+mvn test -Phadoop-2 -Dtest=TestRemoteHiveMetaStore
+mvn test -Phadoop-2 -Dtest=TestEmbeddedHiveMetaStore
+```
+
+#### Run Hive unit test not in itests directory
+```
+# Run from root directory.
+mvn test -Phadoop-2 -Dtest=TestAvroSerdeUtils
+```
+
 See https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIimportintoeclipse?.
 ```
 mkdir workspace
@@ -31,35 +82,44 @@ CliDriver Classpath:
 - hadoop-{core,test,tools}-1.2.1.jar
 - hive-cli (default classpath)
 
-Program arguments
-# initially none
-
-# I added:
+Program arguments:
+* Initially none
+* I added:
+```
 --hiveconf javax.jdo.option.ConnectionURL=jdbc:derby:;databaseName=/home/ahsu/metastore_db;create=true
-
-VM arguments
+```
+* VM arguments:
+```
 # initially
 -Xms256m -Xmx1024m -XX:-UseSplitVerifier -Dhive.root.logger=INFO,console -Dhadoop.bin.path=/home/ahsu/gitli/ahsu-hive/testutils/hadoop
 
 # After my changes:
 -Xms256m -Xmx1024m -XX:-UseSplitVerifier -Dhive.root.logger=INFO,console -Dhadoop.bin.path=/export/apps/hadoop/latest/bin/hadoop
+```
 
-# initially, you might have to build twice for errors to go away
-# try clean after first build before building again
-# commons-codec .classpath library reference needs to be updated to newer version (also in the source tree), which has a new class StringUtils
-# Added /export/apps/hadoop/latest/conf to my HiveCLI run config classpath
-# Added /export/apps/hadoop/latest/hadoop-{core,test,tools}-1.2.1.jar to classpath
-# Added commons-configuration
+Initially, you might have to build twice for errors to go away.
+* Try clean after first build before building again
+* `commons-codec` .classpath library reference needs to be updated to newer version (also in the source tree), which has a new class StringUtils
+* Added /export/apps/hadoop/latest/conf to my HiveCLI run config classpath
+* Added /export/apps/hadoop/latest/hadoop-{core,test,tools}-1.2.1.jar to classpath
+* Added commons-configuration
 
-# Debug Hive, print more info
+To debug Hive and print more info:
+```
 hive -hiveconf hive.root.logger=INFO,console
+```
 
-# Use different Hive config
+To use a different Hive config
+```
 export HIVE_HOME=/export/home/ahsu/hive-0.12.0.li.new
 export HIVE_AUX_JARS_PATH=$HIVE_HOME/aux/lib
 export PATH=$HIVE_HOME/bin:$PATH
 hive
 # run your query
+```
+
+### Debug Hive unit test from Eclipse
+You may need to create a `hive-site.xml` somewhere with the custom properties you need and then add the containing folder to your debug classpath. If you need to attach source, you can add a Variable for your Git repository, and add an extension to the folder that contains the classes. When making changes, you may need to rebuild the project (sometimes from Eclipse and sometimes from the command line) for changes to take effect.
 
 ### Ant ###
 
@@ -94,50 +154,6 @@ ant test -Dtestcase=TestCliDriver -Dqfile_regex=.*partition.*
 
 # build tarball in ant
 ant clean binary
-
-### Building Mavenized Hive as distribution
-```
-mvn clean package -DskipTests -Phadoop-2 -Pdist
-```
-
-Distribution appears in `packaging/target`.
-
-### Running Hive itests
-Start from the Hive root dir.
-```
-mvn clean install -DskipTests -Phadoop-2
-cd itests
-mvn clean install -DskipTests -Phadoop-2
-```
-
-Tests in the `itests` directory need to be run from the `itests` directory:
-```
-# Make sure you do a build first! (see above)
-# For tests in the itests directory:
-cd itests
-
-# Run a single test
-# Add -Dtest.output.overwrite=true to overwrite expected output files
-mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile=avro_partitioned.q [-Dtest.output.overwrite=true]
-
-# Run single method of test class
-mvn test -Phadoop-2 -Dtest=TestRemoteHiveMetaStore#testAlterViewParititon
-
-# Run tests matching a regex
-mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
-```
-
-#### HiveMetaStore Tests
-TestHiveMetaStore.java is excluded because you should run TestEmbeddedHiveMetaStore.java and TestRemoteHiveMetaStore.java instead.
-
-#### Run Hive unit test not in itests directory
-```
-# Run from root directory.
-mvn test -Phadoop-2 -Dtest=TestAvroSerdeUtils
-```
-
-### Debug Hive unit test from Eclipse
-You may need to create a `hive-site.xml` somewhere with the custom properties you need and then add the containing folder to your debug classpath. If you need to attach source, you can add a Variable for your Git repository, and add an extension to the folder that contains the classes. When making changes, you may need to rebuild the project (sometimes from Eclipse and sometimes from the command line) for changes to take effect.
 
 ### Ant ###
 

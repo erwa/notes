@@ -78,7 +78,7 @@ gradle dependencies
 ```
 
 ### Depend on latest version
-Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.
+Wildcard dependency. Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.
 ```
 compile 'junit:junit:4.8.+'
 ```
