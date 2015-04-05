@@ -220,29 +220,28 @@ Now you should be able to run AzkabanSingleServer from Eclipse and view the web 
 
 ### Add jobtype plugins
 1.
-```
-git clone git@github.com:azkaban/azkaban-plugins.git
-cd azkaban-plugins
-ant
-cp -r dist/packages/jobtypes /PATH/TO/azkaban-conf-local
-cd /PATH/TO/azkaban-conf-local/jobtypes
-ln -s pig-0.11.0 pig
-```
+    ```
+    git clone git@github.com:azkaban/azkaban-plugins.git
+    cd azkaban-plugins
+    ant
+    cp -r dist/packages/jobtypes /PATH/TO/azkaban-conf-local
+    cd /PATH/TO/azkaban-conf-local/jobtypes
+    ln -s pig-0.11.0 pig
+    ```
 2. Edit `commonprivate.properties`:
-```
-hadoop.home=/PATH/TO/HADOOP/HOME
-hive.home=/PATH/TO/HIVE/HOME
-```
+    ```
+    hadoop.home=/PATH/TO/HADOOP/HOME
+    hive.home=/PATH/TO/HIVE/HOME
+    ```
 3. Update `pig/private.properties`:
-```
-# For Hadoop 1.2.1
-jobtype.classpath=${hadoop.home}/conf,${hadoop.home}/*,${hadoop.home}/lib/*,lib/*
-
-```
+    ```
+    # For Hadoop 1.2.1
+    jobtype.classpath=${hadoop.home}/conf,${hadoop.home}/*,${hadoop.home}/lib/*,lib/*
+    ```
 4. Add the following to `azkaban.properties`:
-```
-azkaban.jobtype.plugin.dir=/PATH/TO/azkaban-conf-local/jobtypes
-```
+    ```
+    azkaban.jobtype.plugin.dir=/PATH/TO/azkaban-conf-local/jobtypes
+    ```
 5. Add `azkaban-plugins` to Eclipse.
 6. Before debugging, add a breakpoint in `Utils.callConstructor()` on the line that calls `cons.newInstance()`. Then launch AzkabanSingleServer in Debug mode. When the breakpoint is hit, F5, then Edit Source Lookup Path --> Add --> Workspace Folder --> `azkaban-plugins/plugins/jobtype/src`.
 
