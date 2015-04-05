@@ -228,11 +228,13 @@ Now you should be able to run AzkabanSingleServer from Eclipse and view the web 
     cd /PATH/TO/azkaban-conf-local/jobtypes
     ln -s pig-0.11.0 pig
     ```
+
 2. Edit `commonprivate.properties`:
     ```
     hadoop.home=/PATH/TO/HADOOP/HOME
     hive.home=/PATH/TO/HIVE/HOME
     ```
+
 3. Update `pig/private.properties`:
     ```
     # For Hadoop 1.2.1
