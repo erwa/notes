@@ -104,3 +104,27 @@ See http://forums.gradle.org/gradle/topics/_system_out_java_lang_outofmemoryerro
 ```
 export JAVA_OPTS="-Xmx1024M -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512M"
 ```
+
+### Specify internal repository
+```
+repositories {
+  ivy {
+    url "http://HOST:PORT/PATH/TO/REPO"
+    layout "pattern", {
+      artifact "[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]"
+      ivy "[organization]/[module]/[revision]/[module]-[revision].ivy"
+      m2compatible = true
+    }
+  }
+}
+```
+
+If you just use
+```
+repositories {
+  maven {
+    url "http://HOST:PORT/PATH/TO/REPO"
+  }
+}
+```
+transitive dependencies will not get resolved.
