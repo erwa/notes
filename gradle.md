@@ -128,3 +128,10 @@ repositories {
 }
 ```
 transitive dependencies will not get resolved.
+
+### Execute shell command with wildcard
+```
+exec {
+  commandLine "bash", "-c", "ls *.log"
+}
+```

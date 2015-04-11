@@ -13,7 +13,8 @@ See http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html.
 
 Example:
 ```
-if [ -f /var/log/messages ] then
+if [ -f /var/log/messages ]
+then
   echo "/var/log/messages exists."
 fi
 ```
@@ -646,3 +647,22 @@ curl http://example.com > example.txt
 
 ### MOTD (Message of the Day)
 Check out `/etc/motd`.
+
+
+### Print all except first line
+```
+tail -n +2
+```
+See http://stackoverflow.com/questions/3507999/whats-the-opposite-of-head-i-want-all-but-the-first-n-lines-of-a-file.
+
+### Print columns of file in different order
+```
+awk '{ print $4 " " $1 " " $5 }' FILE
+```
+See http://stackoverflow.com/questions/2129123/rearrange-columns-using-cut.
+
+### Remove trailing slash
+```
+sed 's/\/$//'
+```
+See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
