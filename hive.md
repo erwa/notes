@@ -256,3 +256,32 @@ Describe table with more details
 desc formatted TABLE;
 desc extended TABLE;
 ```
+
+### Creating an Avro Table
+```
+CREATE [EXTERNAL] TABLE table_name
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+WITH SERDEPROPERTIES ('avro.schema.url'='SCHEME:///PATH/TO/SCHEMA')
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+[LOCATION '/PATH/TO/TABLE'];
+
+-- You can also use 'avro.schema.literal' instead of 'avro.schema.url'.
+```
+
+### Add partition
+```
+ALTER TABLE table_name ADD [IF NOT EXISTS]
+PARTITION (partition_column = partition_col_value)
+[LOCATION 'location1']
+```
+
+### Cannot drop external table
+```
+hive > drop table foo;
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:Table metadata not deleted since hdfs://HOST:PORT/path/to/foo is not writable by USER)
+
+hive > alter table foo set location 'hdfs:///path/to/dir/in/writable/dir';
+
+hive > drop table foo;
+```

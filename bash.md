@@ -666,3 +666,9 @@ See http://stackoverflow.com/questions/2129123/rearrange-columns-using-cut.
 sed 's/\/$//'
 ```
 See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
+
+### Replace string in all files
+```
+sed -i 's/old-word/new-word/g' *.txt
+```
+See http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/.
