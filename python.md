@@ -1,12 +1,16 @@
-# Reading from global variable does not require any special modifiers
-# To write to a global variable from a function, add
+### Global Variables
+Reading from global variable does not require any special modifiers. To write to a global variable from a function, add
+```
 global <var_name>
-# at the beginning of the function
+```
+at the beginning of the function.
 
-# Read file line by line
-# http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array
+### Read file line by line
+See http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array.
+```
 # Gets rid of the newline
 lines = [line.rstrip('\n') for line in open('filename')]
+```
 
 # Read input arguments
 # http://stackoverflow.com/questions/983201/python-and-sys-argv
@@ -86,3 +90,7 @@ for k,v in d.iteritems():
 
 # Sort a dictionary in descending order
 sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
+
+### Docstrings
+See https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring.
+> A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the __doc__ special attribute of that object.

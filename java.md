@@ -181,3 +181,25 @@ Example: https://github.com/azkaban/azkaban-plugins/blob/master/plugins/reportal
 ### `java.io.tmpdir` not guaranteed to be affected by programmatic changes.
 See http://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-.
 >  A different value may be given to this system property when the Java virtual machine is invoked, but programmatic changes to this property are not guaranteed to have any effect upon the temporary directory used by this method.
+
+### Read entire file into string
+```
+String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
+System.out.println(content);
+```
+See http://stackoverflow.com/questions/3402735/what-is-simplest-way-to-read-a-file-into-string.
+
+### Add multiple attachments to mail
+```
+Multipart multipart = new MimeMultipart("mixed");
+for (String str : attachment_PathList) {
+    MimeBodyPart messageBodyPart = new MimeBodyPart();
+    DataSource source = new FileDataSource(str);
+    messageBodyPart.setDataHandler(new DataHandler(source));
+    messageBodyPart.setFileName(source.getName());
+    multipart.addBodyPart(messageBodyPart);
+}
+msg.setContent(multipart);
+Transport.send(msg);
+```
+See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attachments-not-working for details.

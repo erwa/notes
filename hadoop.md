@@ -26,6 +26,10 @@ To disable the `_SUCCESS` file from being created upon job completion, set the `
 export HADOOP_CLIENT_OPTS="-Xmx10g"
 ```
 
+### Put user classpath first
+Set `mapreduce.user.classpath.first` to `true`. See http://stackoverflow.com/questions/11685949/overriding-default-hadoop-jars-in-class-path.
+
+
 ################
 # Hadoop 1.2.1 #
 ################
@@ -107,6 +111,7 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 
 # Conf is in etc/hadoop
 # core-site.xml
+```
 <configuration>
   <property>
     <name>fs.default.name</name>
@@ -117,8 +122,10 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
     <value>/home/ahsu/hadoop2-tmp</value>
   </property>
 </configuration>
+```
 
 # hdfs-site.xml
+```
 <configuration>
   <property>
     <name>dfs.replication</name>
@@ -129,16 +136,20 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
     <value>false</value>
   </property>
 </configuration>
+```
 
 # mapred-site.xml
+```
 <configuration>
   <property>
     <name>mapreduce.framework.name</name>
     <value>yarn</value>
   </property>
 </configuration>
+```
 
 # yarn-site.xml
+```
 <configuration>
 <!-- Site specific YARN configuration properties -->
   <property>
@@ -150,6 +161,7 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
     <value>org.apache.hadoop.mapred.ShuffleHandler</value>
   </property>
 </configuration>
+```
 
 # Before namenode can start, you must format the hadoop.tmp.dir
 hadoop namenode -format

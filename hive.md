@@ -285,3 +285,9 @@ hive > alter table foo set location 'hdfs:///path/to/dir/in/writable/dir';
 
 hive > drop table foo;
 ```
+
+### Setting properties in Hive script
+```
+set PROP = VALUE;
+```
+Gotcha: Don't forget the equal sign!
