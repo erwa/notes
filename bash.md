@@ -19,6 +19,17 @@ then
 fi
 ```
 
+### Test if string contains another string
+See http://stackoverflow.com/questions/229551/string-contains-in-bash.
+```
+string='My long string';
+
+if [[ $string == *"My long"* ]]
+then
+  echo "It's there!";
+fi
+```
+
 ### See current memory usage
 ```
 free
@@ -672,3 +683,11 @@ See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
 sed -i 's/old-word/new-word/g' *.txt
 ```
 See http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/.
+
+### Check for existence of executable
+See http://stackoverflow.com/a/677212/1128392.
+```
+if [ command -v java >/dev/null 2>&1 ]; then
+  ...
+fi
+```
