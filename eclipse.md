@@ -47,3 +47,6 @@ Run test:
 ```
 Shift + Alt + X, T
 ```
+
+### Jump to matching brace/bracket/parenthesis
+Ctrl + Shift + P. See http://stackoverflow.com/questions/289342/eclipse-jump-to-closing-brace.

@@ -464,6 +464,7 @@ ng # jump to line `n`
 ### Print full path of file
 NOTE: This does not work on Mac/BSD bash:
 ```
+# This also follows symbolic links.
 readlink -f <file>
 ```
 

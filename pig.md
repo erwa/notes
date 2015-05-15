@@ -71,9 +71,26 @@ PIG_CLASSPATH=/path/to/pig/lib/* pig
 line
 comments */
 
+### Run shell command
+See http://pig.apache.org/docs/r0.9.1/cmds.html#sh for details.
+```
+sh date
+
+-- Use this for built-in shell commands.
+sh bash -c date
+```
+
+### Setting timezone in Pig
+```
 -- Set default time zone for Pig's built-in date functions
 -- NOTE: This does not affect the default environment time zone (e.g.: for the `date` command)
 set pig.datetime.default.tz America/Los_Angeles;
+```
+
+Override environment timezone:
+```
+%declare ONE_DAY_AGO `bash -c "TZ=America/Los_Angeles date --date=\"1 day ago\" +%Y%m%d"`
+```
 
 -- One instance of UDF per map or reduce task, so you can share state within that context
 -- http://chimera.labs.oreilly.com/books/1234000001811/ch10.html#where_udfs_run
