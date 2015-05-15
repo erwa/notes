@@ -304,6 +304,12 @@ ls -d */
 tree -d
 ```
 
+### List files only
+```
+find . -maxdepth 1 -type f
+```
+From http://stackoverflow.com/questions/10574794/bash-how-to-list-only-files.
+
 
 ### ls: Show extended attributes
 This is an OSX-only feature:
