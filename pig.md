@@ -77,7 +77,7 @@ See http://pig.apache.org/docs/r0.9.1/cmds.html#sh for details.
 sh date
 
 -- Use this for built-in shell commands.
-sh bash -c date
+sh bash -c "date \-\-date=\"1 day ago\""
 ```
 
 ### Setting timezone in Pig
@@ -89,6 +89,10 @@ set pig.datetime.default.tz America/Los_Angeles;
 
 Override environment timezone:
 ```
+-- Option 1
+%declare todaysDate `env TZ=America/Los_Angeles date +%Y-%m-%d.%H-%M`
+
+-- Option 2
 %declare ONE_DAY_AGO `bash -c "TZ=America/Los_Angeles date --date=\"1 day ago\" +%Y%m%d"`
 ```
 

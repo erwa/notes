@@ -48,7 +48,7 @@ for (File file : files) {
 ### JavaExec task
 See http://forums.gradle.org/gradle/topics/how_to_use_in_gradle_javaexec_with_classpath_dependency.
 ```
-javaexec {
+def execResult = javaexec {
     classpath project.configurations.buildDependencies
     main = "com.simontuffs.onejar.Boot"
     args = [
@@ -131,7 +131,7 @@ transitive dependencies will not get resolved.
 
 ### Execute shell command with wildcard
 ```
-exec {
+def execResult = exec {
   commandLine "bash", "-c", "ls *.log"
 }
 ```
