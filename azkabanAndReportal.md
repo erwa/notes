@@ -253,3 +253,10 @@ Now you should be able to run AzkabanSingleServer from Eclipse and view the web 
 ```
 sudo postfix start
 ```
+
+### Fetch delegation tokens for other clusters
+```
+# Set this in Azkaban properties.
+# Use webhdfs if clusters are running different Hadoop versions.
+other_namenodes=hdfs://NN_HOST:9000,webhdfs://NN_HOST:50070
+```
