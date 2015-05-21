@@ -1,10 +1,22 @@
 ### GStrings
-See http://groovy.codehaus.org/Strings+and+GString.
+See http://docs.groovy-lang.org/latest/html/documentation/index.html#all-strings. String interpolation only works in double-quoted strings, not single- or triple-quoted strings.
 ```
 foxtype = 'quick'
 foxcolor = ['b', 'r', 'o', 'w', 'n']
 println "The $foxtype ${foxcolor.join()} fox"
 // => The quick brown fox
+```
+
+### Groovy Arrays (Lists)
+See http://mrhaki.blogspot.com/2009/09/groovy-goodness-working-with-arrays.html.
+```
+// Java
+String[] s = new String[] { "a", "b" };
+
+// Groovy
+String[] s = ["a", "b"] as String[]
+// or
+def s = ["a", "b"]
 ```
 
 ### Default access/visibility modifier is public
