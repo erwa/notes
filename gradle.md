@@ -66,6 +66,17 @@ def execResult = javaexec {
 gradle -x <task>
 ```
 
+### Exclude a package
+* http://stackoverflow.com/questions/19575474/gradle-how-to-exclude-a-particular-package-from-a-jar
+
+```
+jar {
+    exclude('mi/package/excluded/**')
+    exclude('mi/package/excluded2/**')
+}
+```
+
+
 ### Build with Java 7
 ```
 export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21

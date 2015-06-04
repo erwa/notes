@@ -4,6 +4,8 @@ See http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-
 for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
 ```
 
+* Also check out http://findjar.com
+
 ### Static Nested vs. Inner Classes
 A nested class can be static or non-static. A non-static nested class is called an inner class. See http://stackoverflow.com/questions/70324/java-inner-class-and-static-nested-class.
 ```
