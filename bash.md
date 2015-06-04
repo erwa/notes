@@ -175,7 +175,27 @@ tar -Oxzf tarball.tar.gz path/to/file
 cd -
 ```
 
-## Substring removal
+### Substrings
+
+See:
+* http://stackoverflow.com/questions/428109/extract-substring-in-bash
+* http://tldp.org/LDP/abs/html/string-manipulation.html
+
+#### Substring using string manipulation
+```
+$ word="abcde"
+$ echo ${word:0:3}
+abc
+```
+
+#### Substring using cut
+```
+$ word="abcde"
+$ echo $word | cut -c 1-3
+abc
+```
+
+#### Substring removal
 See http://wiki.bash-hackers.org/syntax/pe#substring_removal.
 
 Remove last character from substring:

@@ -203,3 +203,6 @@ msg.setContent(multipart);
 Transport.send(msg);
 ```
 See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attachments-not-working for details.
+
+### Java String.matches()
+Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-doesnt-work-in-string-matches for details.

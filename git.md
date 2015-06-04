@@ -29,8 +29,20 @@ git fetch <remote>
 # To fetch tags
 git fetch --tags
 
-# Show tags
+### Show tags
+```
 git tag
+```
+
+### Find most recent tag
+```
+git describe
+```
+
+### Push tags
+```
+git push --tags
+```
 
 # git: checkout remote branch and have local branch track it
 git checkout -b li-0.10-1 origin/li-0.10-1
