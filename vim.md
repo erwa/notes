@@ -26,6 +26,7 @@ vim `ls -t | head -1`
 # http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
  :e filename      - edit another file
  :split filename  - split window and load another file
+ ctrl-w w         - switch to another split window
  ctrl-w up arrow  - move cursor up a window
  ctrl-w ctrl-w    - move cursor to another window (cycle)
  ctrl-w_          - maximize current window

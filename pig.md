@@ -7,9 +7,14 @@ LOGS= LOAD 'log';
 LOGS_GROUP= GROUP LOGS ALL; -- groups all records into single group
 LOG_COUNT = FOREACH LOGS_GROUP GENERATE COUNT(LOGS);
 
--- Combine Small Input Files
--- http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
+### Combine Small Input Files
+* http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
+
+```
 set pig.maxCombinedSplitSize <size_in_bytes>
+```
+
+Make sure `pig.noSplitCombination` is NOT set to `true`.
 
 -- Add file to distributed cache for use in UDF
 -- http://ragrawal.wordpress.com/2014/03/25/apache-pig-and-distributed-cache/
@@ -144,3 +149,6 @@ See https://cwiki.apache.org/confluence/display/PIG/HowToContribute.
 ```
 git diff --no-prefix
 ```
+
+### Pig Input Format
+Pig seems to always set `mapreduce.job.inputformat.class` to `org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigInputFormat`.

@@ -41,6 +41,10 @@ git describe
 
 ### Push tags
 ```
+# Push one tag
+git push origin <tag>
+
+# Push all tags
 git push --tags
 ```
 

@@ -46,10 +46,17 @@ sysctl vm.swappiness
 A higher number means the system is more likely to swap pages out into swap space.
 
 # `grep`
+
 Grep only files matching a pattern:
 ```
 grep --include=*.job -r "type=hive" ./*
 ```
+
+Grep and only show matching files:
+```
+grep -l
+```
+* http://stackoverflow.com/questions/3908156/grep-output-to-show-only-matching-file
 
 Grep for classes with "Test" in their names. See http://www.robelle.com/smugbook/regexpr.html.
 ```
@@ -288,6 +295,11 @@ diff --git file file
 use
 ```
 patch -p1 < patch.diff
+```
+
+### Apply part of a patch (changes to only one file)
+```
+patch FILE PATCH
 ```
 
 ### Extract diffs concerning specific files from a diff

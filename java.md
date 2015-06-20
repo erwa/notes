@@ -48,6 +48,14 @@ See https://community.oracle.com/thread/2097080?start=0&tstart=0.
 major version 51 is newer than 50, the highest major version supported by this compiler.
 ```
 
+### Java major versions
+http://stackoverflow.com/questions/9170832/list-of-java-class-file-format-major-version-numbers
+* Java 1.2 uses major version 46
+* Java 1.3 uses major version 47
+* Java 1.4 uses major version 48
+* Java 5 uses major version 49
+* Java 6 uses major version 50
+
 # Manipulating jars
 ### Extract one file from a jar
 Specify the full path to a file inside jar:
@@ -81,6 +89,10 @@ jar uf JAR FILE
 ```
 jar cf JAR_NAME.jar file1 file2 dir1 file3 dir2 ...
 ```
+
+### Java Decompiler
+http://jd.benow.ca/
+* Build from source for Red Hat
 
 ### Decompile Java class
 ```
