@@ -96,3 +96,15 @@ Delete all lines matching pattern
 
 Delete lines M to N, inclusive
 :M,Nd
+
+### auto-indent
+```
+set autoindent
+set smartindent
+
+" Disables autoindent
+set paste
+
+" Renable autoindent
+set nopaste
+```

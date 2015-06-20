@@ -681,6 +681,8 @@ Ctrl + a, d
 Reattach Screen window:
 ```
 screen -r
+
+screen -r <session>
 ```
 
 Kill session:

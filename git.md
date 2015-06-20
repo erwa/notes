@@ -29,9 +29,26 @@ git fetch <remote>
 # To fetch tags
 git fetch --tags
 
+### Add annotated tag
+Annotated tags are meant for release versions.
+```
+git tag -a TAG_NAME
+```
+
+### Delete remote tag
+```
+git push origin :tagname
+```
+* http://stackoverflow.com/questions/5480258/how-to-delete-a-remote-git-tag
+
 ### Show tags
 ```
 git tag
+```
+
+### Show one tag with annotations
+```
+git tag -l 1.2.3 -n9
 ```
 
 ### Find most recent tag
@@ -79,6 +96,16 @@ git reset --soft HEAD^
 
 # git show changes in commit
 git show <commit-hash>
+
+### Show state of file at commit
+```
+git show <commit>:<file>
+```
+
+### git blame on old commit
+```
+git blame <commit> -- <file>
+```
 
 # Modify a git commit message
 # Changes the most recent commit message
