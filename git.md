@@ -44,6 +44,9 @@ git push origin :tagname
 ### Show tags
 ```
 git tag
+
+# With one-line description
+git tag -n1
 ```
 
 ### Show one tag with annotations

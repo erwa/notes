@@ -732,3 +732,9 @@ if [ command -v java >/dev/null 2>&1 ]; then
   ...
 fi
 ```
+
+### Match digit or other character classes
+```
+ls -ld [[:digit:]]*
+```
+http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_03.html#sect_04_03_02

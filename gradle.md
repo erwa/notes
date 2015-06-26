@@ -110,6 +110,12 @@ The default evaluation order of projects is alphanumeric (for the same nesting l
 evaluationDependsOn(':otherProject')
 ```
 
+### Set task execution order
+```
+taskA.mustRunAfter(taskB)
+```
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+
 ### Fix "PermGen space" build error
 See http://forums.gradle.org/gradle/topics/_system_out_java_lang_outofmemoryerror_permgen_space.
 ```

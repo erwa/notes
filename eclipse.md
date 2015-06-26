@@ -50,3 +50,9 @@ Shift + Alt + X, T
 
 ### Jump to matching brace/bracket/parenthesis
 Ctrl + Shift + P. See http://stackoverflow.com/questions/289342/eclipse-jump-to-closing-brace.
+
+### Change build output dir
+```
+Project Properties --> Java Build Path --> Source --> Check "Default output folder:"
+```
+http://stackoverflow.com/questions/3191693/how-do-i-change-a-java-projects-bin-folder-in-eclipse

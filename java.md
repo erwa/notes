@@ -220,3 +220,16 @@ See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attach
 
 ### Java String.matches()
 Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-doesnt-work-in-string-matches for details.
+
+### Read resource file from jar
+```
+InputStream in = T.class.getResourceAsStream( "/foo.txt" );
+```
+* http://stackoverflow.com/questions/20389255/reading-a-resource-file-from-within-jar
+* http://stackoverflow.com/questions/2195445/eclipse-getresourceasstream-returning-null
+
+### Get current working directory
+```
+System.out.println("Working Directory = " + System.getProperty("user.dir"));
+```
+http://stackoverflow.com/questions/4871051/getting-the-current-working-directory-in-java
