@@ -3,6 +3,12 @@
 gradle tasks
 ```
 
+### Get task by name
+```
+tasks.getByPath('foo').dependsOn(bar)
+```
+https://docs.gradle.org/current/userguide/more_about_tasks.html#accessUsingPath
+
 ### Set environment variable in unit test
 ```
 test {
