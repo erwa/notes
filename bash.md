@@ -264,9 +264,11 @@ getfacl <file>
 A user needs execute permissions on a directory to `cd` into it. Even if a file is 777, a user still needs permissions on the chain of parent directories to access the file.
 
 # `xargs`
-String substitution:
+With substitution:
 ```
 cat temp | xargs -I 'TABLE' hive -e 'drop table TABLE'
+
+find . -name *.jar | grep hadoop- | grep -v tests | grep -v sources | xargs -n1 -I% scp % $ANOTHER_MACHINE:hadooptest
 ```
 
 One argument per command line:
@@ -630,6 +632,10 @@ a FeW WoRDS
 ```
 tree DIR
 tree -d DIR # print directories only
+
+# Exclude some files
+tree -f -I build
+# http://unix.stackexchange.com/questions/61074/tree-command-for-multiple-includes-and-excludes
 ```
 
 ### Extract filename and extension
