@@ -158,3 +158,11 @@ def execResult = exec {
   commandLine "bash", "-c", "ls *.log"
 }
 ```
+
+### Disable all transitive dependencies.
+```
+configurations.all {
+  transitive = false
+}
+```
+http://stackoverflow.com/questions/17815864/gradle-how-to-disable-all-transitive-dependencies

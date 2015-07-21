@@ -69,3 +69,30 @@ String fileContents = new File('/path/to/file').text
 // http://groovy.329449.n5.nabble.com/Writing-a-string-to-a-file-td330117.html
 new File('test').write('hello')
 ```
+
+### Spread Operator `*.`
+http://docs.groovy-lang.org/latest/html/documentation/index.html#_spread_operator
+```
+class Car {
+    String make
+    String model
+}
+def cars = [
+       new Car(make: 'Peugeot', model: '508'),
+       new Car(make: 'Renault', model: 'Clio')]
+def makes = cars*.make
+assert makes == ['Peugeot', 'Renault']
+```
+
+### Direct field access operator `.@`
+http://docs.groovy-lang.org/latest/html/documentation/#_direct_field_access_operator
+```
+class User {
+    public final String name
+    User(String name) { this.name = name}
+    String getName() { "Name: $name" }
+}
+def user = new User('Bob')
+assert user.name == 'Name: Bob'
+assert user.@name == 'Bob'
+```

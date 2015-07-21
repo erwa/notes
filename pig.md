@@ -16,13 +16,17 @@ set pig.maxCombinedSplitSize <size_in_bytes>
 
 Make sure `pig.noSplitCombination` is NOT set to `true`.
 
--- Add file to distributed cache for use in UDF
--- http://ragrawal.wordpress.com/2014/03/25/apache-pig-and-distributed-cache/
-set mapred.cache.files /user/ahsu/test2#test2;
+### Add file to distributed cache for use in UDF
+http://ragrawal.wordpress.com/2014/03/25/apache-pig-and-distributed-cache/
+```
+-- no need to turn symlinking on in Hadoop 2, as it is always on in Hadoop 2
+-- http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/DeprecatedProperties.html
+set mapreduce.job.cache.files hdfs:///user/ahsu/foo1,hdfs:///user/ahsu/test2#foo2;
 register 'test.py' using jython as myfuncs;
 a = load 'test';
 b = foreach a generate myfuncs.helloworld();
 dump b;
+```
 
 -- REGISTER causes Pig to include the files in the jar you specified
 -- in the job jar sent to Hadoop
@@ -152,3 +156,6 @@ git diff --no-prefix
 
 ### Pig Input Format
 Pig seems to always set `mapreduce.job.inputformat.class` to `org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigInputFormat`.
+
+### Testing
+https://cwiki.apache.org/confluence/display/PIG/HowToTest

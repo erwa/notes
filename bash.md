@@ -478,6 +478,13 @@ For a long line, press `<right-arrow>` to show more of the line.
 
 To highlight/unhighlight search results, type `<Esc, u>`.
 
+### Scroll N lines forward/backward
+```
+10j – 10 lines forward.
+10k – 10 lines backward.
+```
+http://www.thegeekstuff.com/2010/02/unix-less-command-10-tips-for-effective-navigation/
+
 ### Turn word wrap on/off in less
 See http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
 ```
@@ -586,6 +593,18 @@ echo $? # 0 on success, 1 on failure
 See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html.
 ```
 sudo yum-config-manager --add-repo http://yum.postgresql.org
+```
+
+### Install RPM file
+http://www.cyberciti.biz/faq/rhel-redhat-fedora-opensuse-linux-install-rpmfile-command/
+```
+rpm -ivh RPM_FILE
+```
+
+### Determine where Yum package was installed
+http://stackoverflow.com/questions/1766380/determining-the-path-that-a-yum-package-installed-to
+```
+rpm -ql PACKAGE
 ```
 
 ### Find out when computer was last rebooted.
