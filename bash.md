@@ -601,6 +601,13 @@ http://www.cyberciti.biz/faq/rhel-redhat-fedora-opensuse-linux-install-rpmfile-c
 rpm -ivh RPM_FILE
 ```
 
+### Install all RPM files in a directory
+```
+for i in /path/to/rpms/*.rpm; do
+  sudo rpm -ivh $i
+done
+```
+
 ### Determine where Yum package was installed
 http://stackoverflow.com/questions/1766380/determining-the-path-that-a-yum-package-installed-to
 ```

@@ -29,3 +29,7 @@ References:
 
 ### Virtual Console
 Ctrl + Alt + F2 to switch to virtual console. Ctrl + Alt + F1/F7/F8 (depending on system) to switch back.
+
+### Open folders in same window
+http://srinisboulevard.blogspot.com/2010/04/how-to-open-linux-folders-in-same.html
+Edit -> Preferences -> Behavior -> Always open in browser windows
