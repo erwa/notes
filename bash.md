@@ -1,5 +1,5 @@
 ### `if` Expressions
-See http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html.
+http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 ```bash
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists

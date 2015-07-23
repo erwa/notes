@@ -183,9 +183,11 @@ select * from test2 a join test3 b where a.id = b.k;
 # path specified is a directory
 load data local inpath '/export/home/ahsu/test2' into table test2;
 
-# create Hive table
-# create text Hive table
-create table test2 (id INT) row format delimited fields terminated by ',' stored as textfile;
+### create Hive table
+```
+-- create text Hive table
+create table test (id INT) row format delimited fields terminated by ',' stored as textfile;
+```
 
 Hive PreCommit build: http://ec2-174-129-184-35.compute-1.amazonaws.com/jenkins/job/PreCommit-HIVE-Build/
 
@@ -291,3 +293,8 @@ hive > drop table foo;
 set PROP = VALUE;
 ```
 Gotcha: Don't forget the equal sign!
+
+### Showing DDL used to create a table/view
+```
+show create table TABLE
+```

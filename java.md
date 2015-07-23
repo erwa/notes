@@ -233,3 +233,10 @@ InputStream in = T.class.getResourceAsStream( "/foo.txt" );
 System.out.println("Working Directory = " + System.getProperty("user.dir"));
 ```
 http://stackoverflow.com/questions/4871051/getting-the-current-working-directory-in-java
+
+# Javadoc
+
+### `{@code MyClassName}`
+https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
+
+### `{@link InputStream}`

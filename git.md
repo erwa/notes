@@ -207,9 +207,15 @@ git init
 git add .
 git commit -m "<commit message>"
 
-# show the history of one file
-# http://stackoverflow.com/questions/278192/view-the-change-history-of-a-file-using-git-versioning
+### Show the history of one file
+http://stackoverflow.com/questions/278192/view-the-change-history-of-a-file-using-git-versioning
+```
 git log -- [file]
+
+# Tracks files through git mv's
+# http://stackoverflow.com/questions/3845234/viewing-git-history-of-moved-files
+git log --follow [file]
+```
 
 # Case-insensitive search for "word" in commit log *contents*
 # http://stackoverflow.com/questions/1337320/how-to-grep-git-commit-diffs-or-contents-for-a-certain-word

@@ -94,3 +94,15 @@ sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
 ### Docstrings
 See https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring.
 > A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the __doc__ special attribute of that object.
+
+### Convert letter to int and back
+http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
+```
+>>> ord('a')
+97
+>>> chr(97)
+'a'
+>>> chr(ord('a') + 3)
+'d'
+>>>
+```

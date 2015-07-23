@@ -57,3 +57,18 @@ Cmd + Shift + .
 
 ### Launch app on device
 https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40013839-CH34-SW1
+
+### Yosemite: Maximize but don't full screen
+```
+Option + Click green button
+Option + Shift + Click green button
+```
+http://apple.stackexchange.com/questions/139884/make-the-green-full-screen-window-icon-on-yosemite-maximize-windows
+
+### Move window to another desktop
+Open Mission Control (three finger swipe up), drag window to other desktop.
+
+http://superuser.com/questions/184763/is-there-a-way-to-move-the-current-window-to-another-desktop-without-using-a-mou
+
+### Terminal prompts for "login"
+Try deleting the entry containing "localhost" from ~/.ssh/known_hosts.
