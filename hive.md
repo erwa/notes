@@ -112,7 +112,10 @@ hive -hiveconf hive.root.logger=INFO,console
 To use a different Hive config
 ```
 export HIVE_HOME=/export/home/ahsu/hive-0.12.0.li.new
+
+# only supports local filesystem
 export HIVE_AUX_JARS_PATH=$HIVE_HOME/aux/lib
+
 export PATH=$HIVE_HOME/bin:$PATH
 hive
 # run your query
@@ -186,7 +189,7 @@ load data local inpath '/export/home/ahsu/test2' into table test2;
 ### create Hive table
 ```
 -- create text Hive table
-create table test (id INT) row format delimited fields terminated by ',' stored as textfile;
+create table test (a string) row format delimited fields terminated by ',' stored as textfile;
 ```
 
 Hive PreCommit build: http://ec2-174-129-184-35.compute-1.amazonaws.com/jenkins/job/PreCommit-HIVE-Build/
@@ -298,3 +301,9 @@ Gotcha: Don't forget the equal sign!
 ```
 show create table TABLE
 ```
+
+### Add file/jar to DistributedCache for UDF
+* getRequiredFiles()
+* getRequiredJars
+
+initialize() is called before these methods, so you can pass arguments to the initialize() method, store them, and then use them in the getRequiredFiles() and getRequiredJars() methods. See GenericUDF.initializeAndFoldConstants().

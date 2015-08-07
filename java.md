@@ -105,6 +105,8 @@ jar cf JAR_NAME.jar file1 file2 dir1 file3 dir2 ...
 ```
 
 ### Java Decompiler
+https://github.com/java-decompiler/jd-gui
+
 http://jd.benow.ca/
 * Build from source for Red Hat
 
@@ -276,3 +278,8 @@ PrintWriter out = new PrintWriter("filename.txt");
 out.println(text);
 ```
 http://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
+
+### Functional interface
+A functional interface is any interface that contains only one abstract method.
+
+* https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach5

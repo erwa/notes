@@ -27,3 +27,8 @@ java -jar lib/avro-tools-*.jar tojson AVRO_FILE > JSON_FILE
 java -jar /opt/avro/avro-tools-1.7.7.jar tojson AVRO_FILE > JSON_FILE
 
 # Setting "avro.java.string" : "String" can cause issues
+
+### Avro Maps
+http://avro.apache.org/docs/1.7.6/spec.html#Maps
+
+Keys are assume to be strings.

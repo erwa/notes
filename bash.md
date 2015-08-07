@@ -282,6 +282,15 @@ find . -name *.jar | grep PATTERN1 | xargs -n1 -I% sh -c 'echo % && jar tf % | g
 ```
 `-I%` tells `xargs` to replace `%` with the arguments passed in. See http://stackoverflow.com/questions/18731610/xargs-with-multiple-commands for details.
 
+### scp multiple files in one command
+```
+scp FILE1 FILE2 DESTINATION
+```
+
+### Diff and ignore whitespace
+```
+diff -w FILE1 FILE2
+```
 
 ### Apply a patch, but strip off leading a/ and b/
 If your patch file `patch.diff` looks like

@@ -59,6 +59,12 @@ git tag -l 1.2.3 -n9
 git describe
 ```
 
+### Show commit a tag points to
+```
+git rev-list $TAG | head -n 1
+```
+http://stackoverflow.com/questions/1862423/how-to-tell-which-commit-a-tag-points-to-in-git
+
 ### Push tags
 ```
 # Push one tag
@@ -112,7 +118,14 @@ git blame <commit> -- <file>
 
 # Modify a git commit message
 # Changes the most recent commit message
+```
 git commit --amend -m "New commit message"
+```
+
+### Do an empty commit
+```
+git commit --allow-empty
+```
 
 git stash save "name"
 git stash apply stash^{/name} # Doesn't seem to work anymore

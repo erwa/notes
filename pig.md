@@ -159,3 +159,8 @@ Pig seems to always set `mapreduce.job.inputformat.class` to `org.apache.pig.bac
 
 ### Testing
 https://cwiki.apache.org/confluence/display/PIG/HowToTest
+
+Run single test:
+```
+ant -Dtestcase=TestRegisteredJarVisibility clean test
+```
