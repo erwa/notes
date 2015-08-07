@@ -224,6 +224,12 @@ git log -i -S word
 # Case-insensitive search for "word" in commit log *message*
 git log -i --grep=word
 
+### Print history as graph
+```
+git log --graph
+```
+http://stackoverflow.com/questions/1838873/visualizing-branch-topology-in-git
+
 # recover squashed commits, etc.
 # http://stackoverflow.com/questions/7457942/how-to-undo-a-git-merge-squash
 git reflog
@@ -232,10 +238,14 @@ git reset <commit>
 # HEAD vs. working tree vs. index
 http://stackoverflow.com/questions/3689838/difference-between-head-working-tree-index-in-git
 
-# HEAD^ vs. HEAD~1
-# HEAD^ is short for HEAD^1 and means the first parent of HEAD
-# HEAD~n means to go back n commits from HEAD, favoring the first parent in cases of ambiguity
-http://stackoverflow.com/questions/1955985/what-does-the-caret-character-mean
+### HEAD^ vs. HEAD~1
+
+* `HEAD^` is short for `HEAD^1` and means the first parent of `HEAD`.
+* `HEAD~n` means to go back n commits from `HEAD`, favoring the first parent in cases of ambiguity
+* http://stackoverflow.com/questions/1955985/what-does-the-caret-character-mean
+* To go back 1 commit on the second parent, use `HEAD^2`.
+
+### Git SSH Key
 
 On Windows, git looks for ~/.ssh/id_rsa to use as your SSH key
 

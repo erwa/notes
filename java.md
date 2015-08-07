@@ -23,6 +23,20 @@ An inner class has direct access to methods and fields of enclosing class. An in
 OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 ```
 
+### Accessibility Modifiers
+https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+Least restrictive -> Most restrictive:
+
+* public
+    * world
+* protected
+    * class + package + subclass
+* no modifier (package private)
+    * class + package
+* private
+    * class only
+
 ### Top-level class/interface accessibility modifiers
 See http://stackoverflow.com/questions/6734849/why-cant-a-class-or-an-interface-receive-private-or-protected-access-modifiers. Top-level classes and interfaces can only have "public" or "package private" (default) accessibilities. Nested classes and interfaces can have private or protected modifiers
 
@@ -192,6 +206,19 @@ Example: https://github.com/azkaban/azkaban-plugins/blob/master/plugins/reportal
 ### `NoClassDefFoundError` != `ClassNotFoundException`
 `NoClassDefFoundError` usually means ClassLoader ran into an error reading the class definition or in a static initializer. See http://stackoverflow.com/questions/7325579/java-lang-noclassdeffounderror-could-not-initialize-class-xxx.
 
+
+### Class ClassLoader vs. thread context ClassLoader
+http://stackoverflow.com/questions/1771679/difference-between-threads-context-class-loader-and-normal-classloader
+
+Class classloader is the classloader originally used to load the class. Thread context classloader is the current thread's classloader. The two may be different if the class was created by one thread and then passed to another.
+```
+// class classloader
+getClass().getClassLoader()
+
+// thread context classloader
+Thread.currentThread().getContextClassLoader()
+```
+
 ### `java.io.tmpdir` not guaranteed to be affected by programmatic changes.
 See http://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-.
 >  A different value may be given to this system property when the Java virtual machine is invoked, but programmatic changes to this property are not guaranteed to have any effect upon the temporary directory used by this method.
@@ -240,3 +267,12 @@ http://stackoverflow.com/questions/4871051/getting-the-current-working-directory
 https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
 
 ### `{@link InputStream}`
+
+# End Javadoc
+
+### Write String to file
+```
+PrintWriter out = new PrintWriter("filename.txt");
+out.println(text);
+```
+http://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java

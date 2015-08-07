@@ -191,9 +191,11 @@ hadoop fs -put etc/hadoop/ conf
 yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out
 
 # Increase memory of tasks
+```
 set mapred.job.map.memory.mb 4096;
 set mapred.job.reduce.memory.mb 4096;
 set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';
+```
 
 # Find job given application id
 # The /proxy/application_xxx_xxx URL often expires quickly
@@ -202,3 +204,8 @@ set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';
 
 # Deprecated properties between Hadoop 1 and Hadoop 2:
 # http://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-common/DeprecatedProperties.html
+
+### `java.net.ConnectException: Connection refused`
+http://wiki.apache.org/hadoop/ConnectionRefused
+
+Check /etc/hosts and remove any line that maps 127.0.0.1 to your hostname.

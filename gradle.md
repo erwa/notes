@@ -166,3 +166,6 @@ configurations.all {
 }
 ```
 http://stackoverflow.com/questions/17815864/gradle-how-to-disable-all-transitive-dependencies
+
+### Unexpected repositories being used to resolve dependencies
+There may be .gradle scripts in $GRADLE_HOME/init.d that are adding the respositories.
