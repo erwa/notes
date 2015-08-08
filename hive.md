@@ -288,6 +288,11 @@ PARTITION (partition_column = partition_col_value)
 [LOCATION 'location1']
 ```
 
+### Drop table if exists
+```
+drop table if exists TABLE;
+```
+
 ### Cannot drop external table
 ```
 hive > drop table foo;
