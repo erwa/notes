@@ -55,6 +55,14 @@ See http://vim.wikia.com/wiki/Switching_case_of_characters.
 # Insert literal tab when expand tab is on
 Ctrl+v, Tab
 
+### Replace tabs with spaces
+```
+:%s/\t/  /g
+
+# Prompt before each replacement
+:%s/\t/  /gc
+```
+
 # Move screen without moving cursor
 # http://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
 Ctrl+e # Move screen up

@@ -247,6 +247,13 @@ describe formatted DATABASE.VIEWNAME;
 # Hive 0.13 added permanent functions, which can be registered to a
 # particular database
 
+### Show functions
+```
+SHOW FUNCTIONS "a.*";
+```
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ShowFunctions
+
+
 # Show databases matching expression
 show databases like 'a*';
 
@@ -307,3 +314,6 @@ show create table TABLE
 * getRequiredJars
 
 initialize() is called before these methods, so you can pass arguments to the initialize() method, store them, and then use them in the getRequiredFiles() and getRequiredJars() methods. See GenericUDF.initializeAndFoldConstants().
+
+### Comments don't work in Hive shell
+Don't use `--` in Hive shell. Watch out when copying and pasting scripts!

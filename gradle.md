@@ -94,6 +94,12 @@ Make sure to execute this command from the project itself. See http://stackoverf
 gradle dependencies
 ```
 
+### Figure out whether you're depending on a jar
+```
+gradle dependencyInsight --configuration runtime --dependency azkaban
+```
+https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:dependency_insight
+
 ### Depend on latest version
 Wildcard dependency. Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.
 ```
@@ -169,3 +175,11 @@ http://stackoverflow.com/questions/17815864/gradle-how-to-disable-all-transitive
 
 ### Unexpected repositories being used to resolve dependencies
 There may be .gradle scripts in $GRADLE_HOME/init.d that are adding the respositories.
+
+### Specify Ivy configuration
+```
+dependencies {
+    runtime group: 'org.somegroup', name: 'somedependency', version: '1.0', configuration: 'someConfiguration'
+}
+```
+https://docs.gradle.org/current/userguide/dependency_management.html#sec:dependency_configurations
