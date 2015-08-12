@@ -183,3 +183,8 @@ dependencies {
 }
 ```
 https://docs.gradle.org/current/userguide/dependency_management.html#sec:dependency_configurations
+
+### Extend from another configuration
+```
+configurations.B.extendsFrom(configurations.A)
+```

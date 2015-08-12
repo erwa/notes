@@ -22,8 +22,9 @@ vim `ls -t | head -1`
 # vim turn off search highlighting
 :set nohlsearch
 
-# multiple windows
-# http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
+# Multiple Windows
+http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
+```
  :e filename      - edit another file
  :split filename  - split window and load another file
  ctrl-w w         - switch to another split window
@@ -41,9 +42,12 @@ vim `ls -t | head -1`
  :only            - keep only this window open
  :ls              - show current buffers
  :b 2             - open buffer #2 in this window
+```
 
- # Jump to matching parenthesis/bracket/brace
- %
+# Jump to matching parenthesis/bracket/brace
+```
+%
+```
 
 # Insert control character
 Ctrl + v + <character>
@@ -97,7 +101,13 @@ See http://vim.wikia.com/wiki/Power_of_g.
 :[RANGE]g/PATTERN/COMMAND
 ```
 
-Delete all lines matching pattern
+### Match whole word
+```
+\<WORD\>
+```
+http://vim.wikia.com/wiki/Search_patterns
+
+### Delete all lines matching pattern
 ```
 :g/PATTERN/d
 ```

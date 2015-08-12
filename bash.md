@@ -11,10 +11,14 @@ http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 [ ! EXPR ] # true if EXPR is false
 ```
 
-Example:
+Examples:
 ```
-if [ -f /var/log/messages ]
-then
+if [ "$#" -ne 2 ]; then
+  echo "Two arguments required."
+  exit 1
+fi
+
+if [ -f /var/log/messages ]; then
   echo "/var/log/messages exists."
 fi
 ```
