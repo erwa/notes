@@ -209,3 +209,8 @@ set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';
 http://wiki.apache.org/hadoop/ConnectionRefused
 
 Check /etc/hosts and remove any line that maps 127.0.0.1 to your hostname.
+
+### Kill running YARN application
+```
+yarn application -kill application_XXX_XXX
+```

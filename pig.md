@@ -103,6 +103,9 @@ Override environment timezone:
 
 -- Option 2
 %declare ONE_DAY_AGO `bash -c "TZ=America/Los_Angeles date --date=\"1 day ago\" +%Y%m%d"`
+
+-- Two hours ago
+%declare TWO_HOURS_AGO env TZ=America/Los_Angeles date "+%Y-%m-%d-%H" -d "2 hours ago"
 ```
 
 -- One instance of UDF per map or reduce task, so you can share state within that context

@@ -82,6 +82,11 @@ jar {
 }
 ```
 
+### Exclude dependency from configuration
+```
+configurations.CONFIG_NAME.exclude group: 'com.foo', module: 'foo'
+```
+http://stackoverflow.com/questions/9918568/gradle-exclude-a-dependency-for-a-configuration-but-not-for-an-inheriting-con
 
 ### Build with Java 7
 ```
@@ -187,4 +192,11 @@ https://docs.gradle.org/current/userguide/dependency_management.html#sec:depende
 ### Extend from another configuration
 ```
 configurations.B.extendsFrom(configurations.A)
+```
+
+### Lazy Evaluation of Copy Configuration
+```
+from { fileTree("foo/bar").files } {
+  into "."
+}
 ```

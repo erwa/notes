@@ -29,6 +29,20 @@ cmd + alt + h
 Cmd + F3 (no need to press Fn key)
 Fn + F11
 
+### Diagonal arrow
+```
+Function + left/right
+```
+http://apple.stackexchange.com/questions/122514/how-do-i-do-a-diagonal-arrow-keyboard-shortcut
+
+
+### Arrow with two bars through it
+```
+Function + up/down
+```
+http://apple.stackexchange.com/questions/122514/how-do-i-do-a-diagonal-arrow-keyboard-shortcut
+
+
 # Install package using Homebrew
 brew search <keyword>
 brew install <package_name>
@@ -39,10 +53,13 @@ brew install <package_name>
 Cmd + K (Tools --> Crop)
 (Cmd + Z to undo crop)
 
+### Edit/annotate picture
+Open in Preview, click "toolbox" icon on icon bar.
+
 # Force quit application
 Cmd + Option + Esc -> Choose app
 
-Show all  root folder contents in Finder: http://apple.stackexchange.com/questions/34871/how-to-view-root-directory-and-subdirectories-in-finder
+Show all root folder contents in Finder: http://apple.stackexchange.com/questions/34871/how-to-view-root-directory-and-subdirectories-in-finder
 ```
 defaults write com.apple.finder AppleShowAllFiles TRUE
 ```

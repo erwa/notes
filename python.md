@@ -106,3 +106,22 @@ http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
 'd'
 >>>
 ```
+
+### try except else
+https://docs.python.org/2/tutorial/errors.html#handling-exceptions
+
+```
+for arg in sys.argv[1:]:
+    try:
+        f = open(arg, 'r')
+    except IOError:
+        print 'cannot open', arg
+    else:
+        print arg, 'has', len(f.readlines()), 'lines'
+        f.close()
+```
+
+`else` clause must follow all `except` clauses and will be executed if the `try` block does not throw an exception.
+
+### raise exception
+`raise` by itself re-raises the thrown exception.

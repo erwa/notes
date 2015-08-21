@@ -326,3 +326,16 @@ Don't use `--` in Hive shell. Watch out when copying and pasting scripts!
 
 ### Casting to complex type
 Does not seems supported in Hive. Grep code base for "CAST" and you won't see any examples CASTing to complex types. Related upstream ticket: https://issues.apache.org/jira/browse/HIVE-658
+
+### Getting two hours ago in different time zone in specific format
+Assuming you cannot change the TZ environment variable:
+```
+select concat(
+  substring(from_utc_timestamp(from_unixtime(unix_timestamp() - 7200), 'America/Los_Angeles'), 0, 10),
+  concat(
+    '-',
+    substring(from_utc_timestamp(from_unixtime(unix_timestamp() - 7200), 'America/Los_Angeles'), 12, 2)
+  )
+)
+from u_ahsu.test_text;
+```

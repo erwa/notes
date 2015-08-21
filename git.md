@@ -292,3 +292,9 @@ git clone --depth 1 ...
 
 # Checkout repo and give it a different name
 git clone <repo> <new_name>
+
+### Clone branch
+```
+git clone --depth DEPTH --branch BRANCH GIT_URI
+```
+http://strk.keybit.net/blog/2011/06/07/getting-just-the-tip-of-a-remote-git-branch/
