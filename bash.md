@@ -627,6 +627,16 @@ http://stackoverflow.com/questions/1766380/determining-the-path-that-a-yum-packa
 rpm -ql PACKAGE
 ```
 
+### Delete RPM package
+https://www.howtoforge.com/community/threads/how-do-i-uninstall-rpm-packages.8/
+```
+# Find exact package name
+rpm -qa | grep -i package_name
+
+# Uninstall it
+sudo rpm -e <package name>
+```
+
 ### Find out when computer was last rebooted.
 See http://www.ehow.com/how_5915486_tell-last-time-computer-rebooted.html.
 ```

@@ -33,3 +33,10 @@ Ctrl + Alt + F2 to switch to virtual console. Ctrl + Alt + F1/F7/F8 (depending o
 ### Open folders in same window
 http://srinisboulevard.blogspot.com/2010/04/how-to-open-linux-folders-in-same.html
 Edit -> Preferences -> Behavior -> Always open in browser windows
+
+### Install Shutter Screenshot Editor
+http://shutter-project.org/downloads/third-party-packages/
+```
+sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-1.el6.nux.noarch.rpm 
+sudo yum install shutter
+```
