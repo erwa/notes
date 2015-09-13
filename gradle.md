@@ -194,9 +194,19 @@ https://docs.gradle.org/current/userguide/dependency_management.html#sec:depende
 configurations.B.extendsFrom(configurations.A)
 ```
 
+### Clear extendsFrom
+```
+configurations.foo.extendsFrom = []
+```
+
 ### Lazy Evaluation of Copy Configuration
 ```
 from { fileTree("foo/bar").files } {
   into "."
 }
+```
+
+### Offline Build
+```
+gradle build --offline
 ```

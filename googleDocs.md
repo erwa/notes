@@ -31,3 +31,8 @@ It's all or nothing. See https://productforums.google.com/forum/#!topic/docs/PEL
 ```
 =ROW()
 ```
+
+### SUM after applying transformation to range of cells
+```
+=SUM(ARRAYFORMULA(VALUE(SUBSTITUTE(A1:A5," ft",""))))
+```

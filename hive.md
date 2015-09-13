@@ -339,3 +339,32 @@ select concat(
 )
 from u_ahsu.test_text;
 ```
+
+### Describe single column
+```
+desc TABLE.COLUMN;
+```
+
+### Access map field
+```
+select map_field['key_name'] ...
+```
+
+### Python UDF
+* http://spryinc.com/blog/guide-user-defined-functions-apache-hive
+```
+add FILE testUdf.py;
+
+SELECT
+TRANSFORM (hosting_ids, user_id, d)
+USING 'testUdf.py' AS (hosting_ranks_array, user_id, d)
+FROM
+s_table;
+```
+
+### Optimization settings
+* https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-QueryandDDLExecution
+```
+-- Convert more stuff to a fetch task (no MR job launched)
+set hive.fetch.task.conversion=more;
+```

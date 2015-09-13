@@ -298,3 +298,9 @@ git clone <repo> <new_name>
 git clone --depth DEPTH --branch BRANCH GIT_URI
 ```
 http://strk.keybit.net/blog/2011/06/07/getting-just-the-tip-of-a-remote-git-branch/
+
+### Check if file or folder is tracked
+```
+git ls-files FILE --error-unmatch
+```
+http://stackoverflow.com/questions/2405305/git-how-to-tell-if-a-file-is-git-tracked-by-shell-exit-code

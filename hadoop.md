@@ -186,7 +186,12 @@ yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-map
 
 # Word count example
 # Copy conf directory to HDFS
+```
 hadoop fs -put etc/hadoop/ conf
+
+# overwrite destination using -f
+hadoop fs -put -f <src> <dst>
+```
 # Run word count
 yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out
 
@@ -213,4 +218,9 @@ Check /etc/hosts and remove any line that maps 127.0.0.1 to your hostname.
 ### Kill running YARN application
 ```
 yarn application -kill application_XXX_XXX
+```
+
+### Get help on shell command
+```
+hadoop fs -help put
 ```

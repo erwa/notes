@@ -4,11 +4,17 @@
 # Move current line up/down
 Alt + Up/Down
 
+### Change casing
+http://stackoverflow.com/questions/6793570/changing-the-case-of-a-string-in-eclipse
+```
 # Uppercase text
 Ctrl+Shift+X
+Cmd + Shift + X
 
 # Lowercase text
 Ctrl+Shift+Y
+Cmd + Shift + Y
+```
 
 # OS X - switch tabs
 Fn + Ctrl + Up/Down
@@ -56,3 +62,9 @@ Ctrl + Shift + P. See http://stackoverflow.com/questions/289342/eclipse-jump-to-
 Project Properties --> Java Build Path --> Source --> Check "Default output folder:"
 ```
 http://stackoverflow.com/questions/3191693/how-do-i-change-a-java-projects-bin-folder-in-eclipse
+
+### Watch variables
+* Highlight variable
+* Run > Toggle Watchpoint
+* Watchpoints appear in Breakpoints view.
+http://stackoverflow.com/a/5665136/1128392

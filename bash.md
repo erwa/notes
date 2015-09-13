@@ -317,6 +317,11 @@ patch -p1 < patch.diff
 patch FILE PATCH
 ```
 
+### Apply patch in reverse
+```
+patch -R < PATCH
+```
+
 ### Extract diffs concerning specific files from a diff
 ```
 filterdiff -i '*file' patch.diff > filtered.diff

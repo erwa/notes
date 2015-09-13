@@ -167,3 +167,9 @@ Run single test:
 ```
 ant -Dtestcase=TestRegisteredJarVisibility clean test
 ```
+
+### Dereferencing NULL in Pig
+* Dereferencing NULL returns NULL in Pig (according to a user)
+
+### IMPORT statement
+IMPORT will search in jars, too.
