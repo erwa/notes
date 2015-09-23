@@ -279,7 +279,18 @@ out.println(text);
 ```
 http://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
 
+# Java 8 Features
+
 ### Functional interface
 A functional interface is any interface that contains only one abstract method.
 * https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach5
+
+### Streams
+```
+int sum = widgets.stream()
+                 .filter(w -> w.getColor() == RED)
+                 .mapToInt(w -> w.getWeight())
+                 .sum();
+```
+http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html

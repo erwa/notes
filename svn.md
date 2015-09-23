@@ -60,3 +60,14 @@ svn resolved <file>
 svn log
 ```
 http://stackoverflow.com/questions/9536476/how-to-get-a-list-of-all-recent-svn-commit-messages
+
+### Status
+```
+svn st
+```
+http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.status.html
+
+### Add file
+```
+svn add PATH/TO/FILE
+```

@@ -56,6 +56,11 @@ Cmd + K (Tools --> Crop)
 ### Edit/annotate picture
 Open in Preview, click "toolbox" icon on icon bar.
 
+### Use arrow keys to move through image previews
+Press "Space" in Finder, use Up and Down arrow keys to change picture.
+
+http://apple.stackexchange.com/questions/37914/move-through-images-in-a-folder-with-preview-app
+
 # Force quit application
 Cmd + Option + Esc -> Choose app
 

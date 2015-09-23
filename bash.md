@@ -798,3 +798,25 @@ fi
 ls -ld [[:digit:]]*
 ```
 http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_03.html#sect_04_03_02
+
+### Auto enter input in command line
+```
+yes | ./script
+```
+http://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
+
+### Delete files older than 1 day
+```
+# Test
+find ./my_dir -mtime +1
+
+# Delete
+find ./my_dir -mtime +1 -delete
+```
+http://stackoverflow.com/questions/13489398/delete-files-older-than-10-days-using-shell-script-in-unix
+
+### Copy directory while resolving symlink
+```
+# Add trailing slash
+cp symlink_dir/ new_location
+```
