@@ -254,6 +254,20 @@ SHOW FUNCTIONS "a.*";
 ```
 https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ShowFunctions
 
+### Permanent Functions
+* Create permanent function: http://stackoverflow.com/questions/20043448/how-to-add-a-permanent-function-in-hive
+```
+CREATE FUNCTION [db_name].function_name AS class_name [USING JAR|FILE|ARCHIVE 'file_uri' [, JAR|FILE|ARCHIVE 'file_uri'] ]
+
+CREATE FUNCTION getContentValue AS 'com.my.udf.GetContentValue' USING JAR '/home/taobao/oplog/hivescript/my_udf.jar';
+```
+
+### Temporary functions
+```
+CREATE TEMPORARY FUNCTION foo AS com.example.Foo;
+```
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/ReloadFunction
+
 
 # Show databases matching expression
 show databases like 'a*';

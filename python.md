@@ -125,3 +125,8 @@ for arg in sys.argv[1:]:
 
 ### raise exception
 `raise` by itself re-raises the thrown exception.
+
+### Pytest
+Test discovery: http://pytest.org/latest/goodpractises.html#test-discovery
+* Looks for `test_*.py` and `*_test.py` files, among other things.
+* Within a test file, runs `test_` prefixed functions and methods.

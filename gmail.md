@@ -13,6 +13,9 @@ a  # reply all
 Shift + a  # reply all in new window
 r  # reply
 Shift + r  # reply in new window
+* a  # select all mail
+* n  # unselect all
+/    # Put cursor in search box
 ```
 
 ### Label + Unread

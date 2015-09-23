@@ -4,6 +4,7 @@ http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists
 [ -z STRING ] # true if STRING is of length 0
+              # can also be used to test if a variable is set
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ STRING1 == STRING2 ] # true if two strings are equal
 [ STRING1 != STRING2 ] # true if two strings are not equal
@@ -820,3 +821,7 @@ http://stackoverflow.com/questions/13489398/delete-files-older-than-10-days-usin
 # Add trailing slash
 cp symlink_dir/ new_location
 ```
+
+### Double Quotes
+* Preserve literal value of all characters except $, `, \, and ! (when history expansion is enabled).
+* http://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html

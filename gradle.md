@@ -178,6 +178,14 @@ configurations.all {
 ```
 http://stackoverflow.com/questions/17815864/gradle-how-to-disable-all-transitive-dependencies
 
+### Exclude specific transitive dependency
+```
+compile('com.foo:foo:1.2.3') {
+  exclude module: 'bar'
+}
+```
+https://discuss.gradle.org/t/how-to-exclude-transitive-dependency/2119
+
 ### Unexpected repositories being used to resolve dependencies
 There may be .gradle scripts in $GRADLE_HOME/init.d that are adding the respositories.
 
