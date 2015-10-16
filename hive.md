@@ -310,6 +310,11 @@ PARTITION (partition_column = partition_col_value)
 [LOCATION 'location1']
 ```
 
+### Alter partition SerDe properties
+```
+alter table foo partition(part_col='testpartition') set serde 'org.apache.hadoop.hive.serde2.avro.AvroSerDe';
+```
+
 ### Drop table if exists
 ```
 drop table if exists TABLE;
