@@ -224,10 +224,17 @@ hive -hiveconf hive.session.history.enabled=true
 # Default is false.
 # If true, this will cause a log to be created in `hive.querylog.location`
 
-# Drop partitions greater than a time
+### Drop partitions greater than a time
+```
+-- Also deletes the data.
 alter table foo drop partition (partitionfield > '2014-10-30-00')
+```
 
-# Views
+To drop a partition without deleting the underlying data:
+* Change the location of the partition to point to a directory you don't mind deleting.
+* Drop the partition.
+
+## Views
 
 ### Create view
 ```
@@ -381,4 +388,22 @@ s_table;
 ```
 -- Convert more stuff to a fetch task (no MR job launched)
 set hive.fetch.task.conversion=more;
+```
+### ALTER VIEW
+```
+-- You cannot modify both TBLPROPERTIES and the view definition
+-- in the same ALTER VIEW statement. You have to execute them
+-- separately. You can only specify both at the same time
+-- during CREATE VIEW.
+
+ALTER VIEW view_name SET TBLPROPERTIES table_properties;
+
+ALTER VIEW view_name AS select_statement;
+```
+
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
+
+### Reduce amount of logging
+```
+hive --hiveconf hive.root.logger=OFF --hiveconf hive.session.silent=true -f test.hql
 ```

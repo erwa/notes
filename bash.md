@@ -290,12 +290,19 @@ find . -name *.jar | grep PATTERN1 | xargs -n1 -I% sh -c 'echo % && jar tf % | g
 ### scp multiple files in one command
 ```
 scp FILE1 FILE2 DESTINATION
+scp lib/{j1.jar,j2.jar,j3.jar} .
 ```
 
 ### Diff and ignore whitespace
 ```
 diff -w FILE1 FILE2
 ```
+
+### Diff file names between two directories
+```
+diff <(ls -1a ./dir1) <(ls -1a ./dir2)
+```
+http://superuser.com/questions/228763/how-to-diff-file-names-in-two-directories-without-writing-to-intermediate-files
 
 ### Apply a patch, but strip off leading a/ and b/
 If your patch file `patch.diff` looks like
@@ -356,6 +363,12 @@ ls | cat
 ls -d */
 tree -d
 ```
+
+### List files sorted by size
+```
+ls -Ssh
+```
+http://superuser.com/questions/368784/how-can-i-sort-all-files-by-size-in-a-directory
 
 ### List files only
 ```
@@ -816,11 +829,11 @@ find ./my_dir -mtime +1 -delete
 ```
 http://stackoverflow.com/questions/13489398/delete-files-older-than-10-days-using-shell-script-in-unix
 
-### Copy directory while resolving symlink
+### Copy directory while resolving symlinks
 ```
-# Add trailing slash
-cp symlink_dir/ new_location
+cp -Lr FROM TO
 ```
+http://superuser.com/questions/216919/how-to-copy-symlinks-to-target-as-normal-folders
 
 ### Double Quotes
 * Preserve literal value of all characters except $, `, \, and ! (when history expansion is enabled).

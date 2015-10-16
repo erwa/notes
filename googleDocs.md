@@ -24,6 +24,24 @@ Alt + E, D
 Ctrl + option + E, D
 ```
 
+# Inserting and Deleting Columns
+
+### Insert column
+```
+# Mac
+# Insert column left
+Ctrl + option + I, C
+
+# Insert column right
+Ctrl + option + I, G
+```
+
+### Delete column
+```
+# Mac
+Ctrl + option + E, E
+```
+
 ### Not possible to format (e.g.: bold) part of a cell
 It's all or nothing. See https://productforums.google.com/forum/#!topic/docs/PELcAqnlSoE%5B1-25-false%5D.
 

@@ -1,0 +1,14 @@
+- Passport
+- Laptop, charger
+- Phone charger
+- Power adaptor/converter -- different countries have different plugs and outlets
+- Sunscreen
+- Hat, sunglasses
+- Small umbrella
+- Reading material
+- Jacket
+- Money
+- Drawstring bag
+- Toiletries (toothbrush, toothpaste, floss, retainer, razor)
+- Blindfold, ear plugs
+- Nice belt (for formal events)

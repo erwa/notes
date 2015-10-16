@@ -6,8 +6,11 @@ sudo chkconfig jenkins on
 # http://stackoverflow.com/questions/8072700/jenkins-manual-restart
 (jenkins_url)/safeRestart
 
-# .hpi file downloads for manual plugin installation
-# https://updates.jenkins-ci.org/download/plugins
+### Manual Plugin installation
+1. Download plugin from https://updates.jenkins-ci.org/download/plugins (e.g.: http://updates.jenkins-ci.org/latest/build-with-parameters.hpi)
+2. Go to https://<host>:<port>/pluginManager/advanced
+3. Upload .hpi file and install
+4. Restart Jenkins by going to https://<host>:<port>/restart
 
 # Build artifacts are stored in $JENKINS_HOME/jobs
 # $JENKINS_HOME might be /export/apps/jenkins

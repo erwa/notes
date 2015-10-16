@@ -97,3 +97,11 @@ Try deleting the entry containing "localhost" from ~/.ssh/known_hosts.
 
 ### Rotate screen
 System Preferences -> Cmd + Option + click Display --> Rotation option should appear
+
+### Delete iPhone photos from Mac
+https://discussions.apple.com/thread/3075727?start=0&tstart=0
+1. Connect phone.
+2. Open "Image Capture".
+3. Click iPhone icon on left.
+4. Select pictures to delete.
+5. Press "Delete" icon.

@@ -130,10 +130,19 @@ Override environment timezone:
 -- Accessing array of records
 array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field_1, record_field_2)
 
--- Flatten a bag
--- https://pig.apache.org/docs/r0.11.1/basic.html#flatten
+### FLATTEN
+https://pig.apache.org/docs/r0.11.1/basic.html#flatten
+
+#### Flatten a bag
+```
 (a, {(b,c),(d,e)})
 GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
+```
+
+#### FLATTEN and give alias
+```
+FLATTEN(foo) as (a,b,c);
+```
 
 ### Eclipse Setup
 See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.

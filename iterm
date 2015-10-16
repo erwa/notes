@@ -1,8 +1,0 @@
-# Split vertically
-cmd-d
-
-# Split horizontally
-cmd-shift-d
-
-# Maximize current panel / restore all panels
-cmd-shift-enter
