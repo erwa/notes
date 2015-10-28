@@ -126,3 +126,18 @@ set paste
 " Renable autoindent
 set nopaste
 ```
+
+### Paste and preserve tabs
+```
+:set noexpandtab
+# Paste
+```
+http://stackoverflow.com/questions/12584465/how-to-maintain-tabs-when-pasting-in-vim
+
+### Show escape characters
+```
+:set list
+# Stop showing them
+:set nolist
+```
+http://www.unix.com/unix-for-dummies-questions-and-answers/22389-how-see-special-characters-file-using-vi.html

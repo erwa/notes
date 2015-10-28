@@ -3,9 +3,10 @@ http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 ```bash
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists
+[ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
+[ -x FILE ] # true if FILE exists and is executable
 [ -z STRING ] # true if STRING is of length 0
               # can also be used to test if a variable is set
-[ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ STRING1 == STRING2 ] # true if two strings are equal
 [ STRING1 != STRING2 ] # true if two strings are not equal
 [ $# < 1 ] # true if no arguments passed to script
@@ -247,7 +248,7 @@ See http://ss64.com/bash/bang.html. `Alt + .` prints out the last word of the la
 !! # run last command again
 !foo # run most recent command starting with foo
 !foo:p # !foo dry run, adds !foo to command history
-!$ # last parameter of the last command
+!$ # last parameter/last argument of the last command
 ^foo^bar # run last command replacing foo with bar
 ```
 

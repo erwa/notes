@@ -65,6 +65,12 @@ git rev-list $TAG | head -n 1
 ```
 http://stackoverflow.com/questions/1862423/how-to-tell-which-commit-a-tag-points-to-in-git
 
+### Count commits since tag
+```
+git rev-list TAG..HEAD --count
+```
+http://stackoverflow.com/questions/8595391/how-to-show-git-commit-using-number-of-commits-since-a-tag
+
 ### Push tags
 ```
 # Push one tag

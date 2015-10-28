@@ -10,5 +10,10 @@
 - Money
 - Drawstring bag
 - Toiletries (toothbrush, toothpaste, floss, retainer, razor)
+- Towel
 - Blindfold, ear plugs
 - Nice belt (for formal events)
+- Snacks (for plane or train ride)
+- Water bottle / Camelback
+- Clothes
+- Laundry bag

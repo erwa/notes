@@ -33,9 +33,11 @@ re.split('\s+', <string>)
 # http://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python
 sys.stderr.write()
 
-# Add a module import path
-# http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-permanently
+### Add a module import path
+```
 sys.path.append("/path/to/directory")
+```
+http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-permanently
 
 # Convert list/array to string
 # http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string

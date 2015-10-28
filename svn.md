@@ -61,6 +61,12 @@ svn log
 ```
 http://stackoverflow.com/questions/9536476/how-to-get-a-list-of-all-recent-svn-commit-messages
 
+### See log info for specific revision
+```
+svn log -r REVISION
+```
+http://stackoverflow.com/questions/14555944/svn-is-it-possible-to-get-svn-info-for-a-given-revision-number-of-a-branch
+
 ### Status
 ```
 svn st
