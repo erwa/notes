@@ -62,8 +62,11 @@ pig -e "explain -script <pig.script> -param <name>=<value> ..." > output_file
 -- Set custom Pig classpath
 PIG_CLASSPATH=/path/to/jars/* pig -x local
 
--- Remove a file or directory
-RMF <file>
+### Remove a file or directory
+```
+-- Don't use quotes around the file path.
+RMF <file>;
+```
 
 -- Building Pig 0.11.1 tarball distribution
 ant clean src-release tar-release -Dhadoopversion=20  -Dhadoop-core.version=1.2.1 -Dhadoop-test.version=1.2.1 -Dforrest.home=$FORREST_HOME
@@ -182,3 +185,9 @@ ant -Dtestcase=TestRegisteredJarVisibility clean test
 
 ### IMPORT statement
 IMPORT will search in jars, too.
+
+### Decode Pig script from Hadoop job configuration
+If pig.script is set, you can run
+```
+echo "HEX_STRING" | base64 -d
+```

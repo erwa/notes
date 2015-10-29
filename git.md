@@ -289,6 +289,16 @@ git config --global color.ui true
 # See configs
 git config -l
 
+### Config git push
+```
+# Push only current branch
+git config --global push.default simple
+
+# Push all matching branches
+git config --global push.default matching
+```
+http://stackoverflow.com/questions/21839651/git-what-is-the-difference-between-push-default-matching-and-simple
+
 # Set global user.email
 # http://stackoverflow.com/questions/10663492/how-to-change-default-author-and-commiter-in-eclipse-git-plugin
 git config --global user.email "<email>"
