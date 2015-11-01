@@ -42,6 +42,11 @@ free
 top
 ```
 
+#### Using top
+http://alvinalexander.com/linux/unix-linux-top-command-cpu-memory
+* To sort on memory, press 'o', press 'n', press Enter.
+* Press 'h' for help.
+
 ### Swap space
 See http://www.linux.com/news/software/applications/8208-all-about-linux-swap-space.
 
@@ -721,6 +726,12 @@ filename="${filename%.*}"
 tr -s ' ' | cut -d ' ' -f 4
 ```
 `-s` means `--squeeze-repeats`, which means to replace repeated instances of the character with a single instance.
+
+### Trim whitespace
+```
+cat FILE | tr -d '[[:space:]]'
+```
+http://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 
 ### Send mail from command line
 ```
