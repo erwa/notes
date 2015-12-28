@@ -1,10 +1,11 @@
+General
 - Passport
 - Laptop, charger
-- Phone charger
+- Phone, phone charger
 - Power adaptor/converter -- different countries have different plugs and outlets
 - Sunscreen
 - Hat, sunglasses
-- Small umbrella
+- Small umbrella / poncho
 - Reading material
 - Jacket
 - Money
@@ -14,6 +15,32 @@
 - Blindfold, ear plugs
 - Nice belt (for formal events)
 - Snacks (for plane or train ride)
-- Water bottle / Camelback
+- Water bottle / Camelbak
 - Clothes
+- Shorts/change of clothes for exercising
 - Laundry bag
+- Notebook / loose leaf paper
+
+Camping/hiking/backpacking
+- tent
+- tarp
+- sleeping bag
+- thermals
+- hoodie
+- sleeping pad
+- water filter
+- first-aid kit
+- hiking poles
+- Camelbak
+- toilet paper
+- trowel
+- gloves
+- extra pairs of socks
+- compass
+- towel
+- touque
+- headlamp
+- trash bags, extra Ziploc bags
+- deodorant
+- carabiners
+- paper towels, napkins, tissues

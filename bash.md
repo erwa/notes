@@ -248,7 +248,7 @@ $0 # name of shell or shell script
 ```
 
 # Bash Bang commands and related stuff
-See http://ss64.com/bash/bang.html. `Alt + .` prints out the last word of the last command.
+See http://ss64.com/bash/bang.html. On Linux, `Alt + .` prints out the last word of the last command.
 ```
 !! # run last command again
 !foo # run most recent command starting with foo
@@ -382,6 +382,18 @@ find . -maxdepth 1 -type f
 ```
 From http://stackoverflow.com/questions/10574794/bash-how-to-list-only-files.
 
+### Find and suppress permission denied errors
+```
+find . ! -readable -prune
+```
+http://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find
+
+### Find but exclude directories
+```
+find . -not -path "./dir/to/exclude/*"
+find . -path ./dir/to/exclude -prune -o -print
+```
+http://stackoverflow.com/questions/4210042/exclude-directory-from-find-command
 
 ### ls: Show extended attributes
 This is an OSX-only feature:
@@ -438,6 +450,15 @@ date +%s%3N
 ```
 TZ=America/Los_Angeles date
 ```
+
+### Convert epoch time to date
+```
+date -j -f %s EPOCH_TIME
+
+# Example
+date -j -f %s 1446662585
+```
+http://stackoverflow.com/questions/21958851/convert-unix-epoch-time-to-human-readable-date-on-mac-osx-bsd
 
 ---
 
@@ -500,11 +521,17 @@ command1 && command2
 command1 || command2
 ```
 
-### Stop a script if a command or pipeline has an error
+### Exit immediately if any command returns non-0
 See http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean.
 ```
 set -e
 ```
+
+### Print out commands run
+```
+set -x
+```
+http://serverfault.com/questions/391255/what-does-passing-the-xe-parameters-to-bin-bash-do
 
 # less
 
@@ -545,6 +572,13 @@ ng # jump to line `n`
 ```
 ?pattern
 ```
+
+### Start reading from middle of large file
+```
+# Skip first 3 GB
+tail -c +3221225472 FILE | less
+```
+http://unix.stackexchange.com/questions/8444/is-it-possible-in-bash-to-start-reading-a-file-from-an-arbitary-byte-count-offs
 
 ### Print full path of file
 NOTE: This does not work on Mac/BSD bash:
@@ -807,9 +841,13 @@ See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
 
 ### Replace string in all files
 ```
+# Only works on Linux
 sed -i 's/old-word/new-word/g' *.txt
+
+perl -pi -w -e 's/ahsu/dalitest/g;' *.job
 ```
-See http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/.
+* http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/
+* http://lifehacker.com/5810026/quickly-find-and-replace-text-across-multiple-documents-via-the-command-line
 
 ### Check for existence of executable
 See http://stackoverflow.com/a/677212/1128392.
@@ -850,3 +888,12 @@ http://superuser.com/questions/216919/how-to-copy-symlinks-to-target-as-normal-f
 ### Double Quotes
 * Preserve literal value of all characters except $, `, \, and ! (when history expansion is enabled).
 * http://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html
+
+### Extract substring in Bash
+http://stackoverflow.com/questions/13373249/extract-substring-using-regexp-in-plain-bash
+```
+echo "US/Central - 10:26 PM (CST)" | grep -oP "\-\s+\K\d{2}:\d{2}"
+
+$ echo "US/Central - 10:26 PM (CST)" |
+    perl -lne 'print $& if /\-\s+\K\d{2}:\d{2}/'
+```

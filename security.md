@@ -44,3 +44,8 @@ export KRB5_CONFIG=/path/to/conf/file
 keytool -import -alias <alias> -keystore <cacerts_file> -trustcacerts -file <certificate_filename>
 # cacerts_file will be located somewhere like /export/apps/jdk/JDK-1_6_0_27/jre/lib/security/cacerts
 # Default Java cacerts password is "changeit"
+
+### Remove an entry from ~/.ssh/known_hosts
+```
+ssh-keygen -R HOST_NAME
+```

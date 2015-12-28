@@ -1,3 +1,10 @@
+### Keyboard Shortcuts
+* https://support.google.com/docs/answer/179738?hl=en
+* `Ctrl/Command + /` for help.
+
+### Choose heading format
+`Cmd + Option + <heading_size>`
+
 # Inserting and Deleting Rows
 
 ### Insert a row above

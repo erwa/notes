@@ -20,5 +20,9 @@ Shift + r  # reply in new window
 
 ### Label + Unread
 ```
-label:LABEL is:unread 
+label:LABEL is:unread
 ```
+
+### Open email/draft in new window
+* Shift + click
+* http://email.about.com/od/gmailtips/qt/separate_window.htm

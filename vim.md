@@ -141,3 +141,16 @@ http://stackoverflow.com/questions/12584465/how-to-maintain-tabs-when-pasting-in
 :set nolist
 ```
 http://www.unix.com/unix-for-dummies-questions-and-answers/22389-how-see-special-characters-file-using-vi.html
+
+### NERDTree
+http://www.vim.org/scripts/script.php?script_id=1658
+```
+:NERDTree
+```
+
+
+### Delete trailing whitespace
+```
+:%s/\s\+$//
+```
+http://vim.wikia.com/wiki/Remove_unwanted_spaces

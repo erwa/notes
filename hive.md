@@ -412,3 +412,11 @@ https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 ```
 hive --hiveconf hive.root.logger=OFF --hiveconf hive.session.silent=true -f test.hql
 ```
+
+### Enums
+Hive has no concept of enums.
+* https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types
+* https://cwiki.apache.org/confluence/display/Hive/AvroSerDe
+
+### Characters to escape
+Need to escape semicolons using `\;`.

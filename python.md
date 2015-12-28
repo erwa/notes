@@ -18,12 +18,18 @@ import sys
 if len(sys.argv) > 1:
   ...
 
-# Split string by whitespace
-# http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
+### Split string by whitespace
+```
 # str.split() splits on whitespace by default
+>>> "many   fancy word \nhello    \thi".split()
+['many', 'fancy', 'word', 'hello', 'hi']
+
 # Or you can use re
 import re
 re.split('\s+', <string>)
+```
+http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
+
 
 # Remove last character from string
 # http://stackoverflow.com/questions/15478127/remove-final-character-from-string-python
@@ -86,12 +92,20 @@ repr(x)
 # *args = list of args as positional arguments
 # **kwargs = list of named args as dictionary
 
+### Dictionaries
+
+```
+# Check if key in dictionary
+if key in d:
+# http://stackoverflow.com/questions/1602934/check-if-a-given-key-already-exists-in-a-dictionary
+
 # Iterate over dictionary
 for key in d:
 for k,v in d.iteritems():
 
 # Sort a dictionary in descending order
 sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
+```
 
 ### Docstrings
 See https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring.
@@ -132,3 +146,94 @@ for arg in sys.argv[1:]:
 Test discovery: http://pytest.org/latest/goodpractises.html#test-discovery
 * Looks for `test_*.py` and `*_test.py` files, among other things.
 * Within a test file, runs `test_` prefixed functions and methods.
+
+### Debugger
+```
+python -m pdb myscript.py
+
+# Set breakpoint in file.py at line 38
+b /path/to/file.py:38
+
+# Set breakpoint at line 19 of current file
+b 19
+
+# Continue until breakpoint
+c
+
+# Print args of current function
+a
+
+# Print a variable
+print VARIABLE_NAME
+# You can execute arbitrary Python
+
+# Next line
+n
+```
+https://docs.python.org/2/library/pdb.html
+
+### Exit with error code
+```
+import sys
+sys.exit(1)
+```
+
+### Disable output buffering
+```
+python -u foo.py
+```
+http://stackoverflow.com/questions/107705/disable-output-buffering
+
+### Redirect output
+http://stackoverflow.com/questions/4675728/redirect-stdout-to-a-file-in-python
+```
+import sys
+sys.stdout = open('file', 'w')
+print 'test'
+```
+
+```
+$ python foo.py > file
+```
+
+### mkdir
+```
+os.mkdir(path)
+```
+http://www.tutorialspoint.com/python/os_mkdir.htm
+
+### Delete file or folder
+```
+# remove a file
+os.remove()
+
+# remove an empty directory
+os.rmdir()
+
+# delete a directory and all its contents
+shutil.rmtree()
+```
+http://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
+
+### Delete if not exists
+```
+try:
+    os.remove(filename)
+except OSError:
+    pass
+```
+http://stackoverflow.com/questions/10840533/most-pythonic-way-to-delete-a-file-which-may-not-exist
+
+### Run external command
+```
+from subprocess import call
+call(["ls", "-l"])
+```
+http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
+
+
+### Print current working directory
+```
+os.getcwd()
+```
+http://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory

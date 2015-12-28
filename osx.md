@@ -1,14 +1,29 @@
-# Take screenshot, picture gets saved on Desktop
+### Taking a picture with built-in webcam
+Use Photo Booth.
+* http://apple.stackexchange.com/questions/11497/can-i-take-a-still-photo-with-my-built-in-webcam
+
+### Taking screenshots
+```
 Shift+Cmd+3
+```
+Picture gets saved on Desktop
 
-# Select area to screenshot, picture gets saved on Desktop
+Select area to screenshot, picture gets saved on Desktop
+```
 Shift+Cmd+4
+```
 
-# More screenshot variations
-http://guides.macrumors.com/Taking_Screenshots_in_Mac_OS_X
+More screenshot variations:
+* http://guides.macrumors.com/Taking_Screenshots_in_Mac_OS_X
 
-# open file from Terminal using default app
+### open file from Terminal using default app
+```
 open <file>
+```
+
+### Open Finder location in Terminal
+Drag the Finder file or folder to the Terminal.
+* http://apple.stackexchange.com/questions/11323/how-can-i-open-a-terminal-window-directly-from-my-current-finder-location
 
 # When ssh'ing from a Mac, you may need to add -A in order for git SSH connections to work. E.g.:
 ssh -A host
@@ -61,19 +76,33 @@ Press "Space" in Finder, use Up and Down arrow keys to change picture.
 
 http://apple.stackexchange.com/questions/37914/move-through-images-in-a-folder-with-preview-app
 
-# Force quit application
+### Force quit application
 Cmd + Option + Esc -> Choose app
 
-Show all root folder contents in Finder: http://apple.stackexchange.com/questions/34871/how-to-view-root-directory-and-subdirectories-in-finder
+### Show all root folder contents in Finder
+http://apple.stackexchange.com/questions/34871/how-to-view-root-directory-and-subdirectories-in-finder
 ```
 defaults write com.apple.finder AppleShowAllFiles TRUE
 ```
 
-Show hidden files in Open dialog: http://apple.stackexchange.com/questions/114628/display-hidden-files-hot-key-on-mavericks-gone
+### Open app as root
+```
+sudo /Applications/Audacity/Audacity.app/Contents/MacOS/Audacity
+```
+http://osxdaily.com/2013/02/06/how-to-run-gui-apps-as-root-in-mac-os-x/
+
+### Show hidden files in Open dialog
+http://apple.stackexchange.com/questions/114628/display-hidden-files-hot-key-on-mavericks-gone
 ```
 # Must be done in List view, not Column view!
 Cmd + Shift + .
 ```
+
+### Go to Folder
+```
+Shift + Cmd + G
+```
+http://superuser.com/questions/44086/open-folder-for-a-given-path-in-mac-os-x
 
 # iOS development
 
@@ -98,6 +127,9 @@ Try deleting the entry containing "localhost" from ~/.ssh/known_hosts.
 ### Rotate screen
 System Preferences -> Cmd + Option + click Display --> Rotation option should appear
 
+### Open iPhone photos in Finder
+Use Image Capture to export to a folder, which you can then open in Finder.
+
 ### Delete iPhone photos from Mac
 https://discussions.apple.com/thread/3075727?start=0&tstart=0
 1. Connect phone.
@@ -105,3 +137,12 @@ https://discussions.apple.com/thread/3075727?start=0&tstart=0
 3. Click iPhone icon on left.
 4. Select pictures to delete.
 5. Press "Delete" icon.
+
+### Shrink PDF size
+Open PDF in Preview. File -> Export -> change Quartz Filter to "Reduce File Size".
+* http://www.cultofmac.com/260256/use-preview-make-pdf-documents-smaller-os-x/
+
+
+### Adjust Picture Size
+Preview -> Tools -> Adjust Size
+http://www.wikihow.com/Resize-Pictures-(for-Macs)

@@ -218,3 +218,11 @@ from { fileTree("foo/bar").files } {
 ```
 gradle build --offline
 ```
+
+### Iterate over FileCollection
+```
+collection.each {File file ->
+  println file.name
+}
+```
+https://docs.gradle.org/current/userguide/working_with_files.html

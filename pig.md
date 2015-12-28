@@ -53,11 +53,16 @@ set pig.maxCombinedSplitSize <sizeInBytes>;
 -- https://issues.apache.org/jira/browse/PIG-2433
 pig -Dmapred.child.env="JYTHONPATH=job.jar/Lib" script.pig
 
--- EXPLAIN a script to see the MR plan
--- Start the Pig grunt shell
+### EXPLAIN a script to see the MR plan
+```
+# From the Pig grunt shell
 explain -script <pig.script> -param <name>=<value> ...
--- Or
+
+# From command-line
 pig -e "explain -script <pig.script> -param <name>=<value> ..." > output_file
+
+pig -e "explain -script foo.pig" > temp
+```
 
 -- Set custom Pig classpath
 PIG_CLASSPATH=/path/to/jars/* pig -x local

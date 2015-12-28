@@ -24,3 +24,7 @@ Who is that masked man?
 The men, four of whom are ill, were indicted for fraud.
 ```
 Use he/him as a substitute for who/whom as a simple test.
+
+### Worst comes to worst
+Full expression: if the worst comes to the worst
+http://english.stackexchange.com/questions/9141/worse-comes-to-worst-or-worst-comes-to-worst

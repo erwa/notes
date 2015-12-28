@@ -35,6 +35,12 @@ Annotated tags are meant for release versions.
 git tag -a TAG_NAME
 ```
 
+### Sort tags chronologically by date
+```
+git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags
+```
+http://stackoverflow.com/questions/6269927/how-can-i-list-all-tags-in-my-git-repository-by-the-date-they-were-created
+
 ### Delete remote tag
 ```
 git push origin :tagname
@@ -236,6 +242,12 @@ git log -- [file]
 git log --follow [file]
 ```
 
+### Show history of folder
+```
+git log [FOLDER]
+```
+http://stackoverflow.com/questions/11950037/view-git-history-for-folder
+
 # Case-insensitive search for "word" in commit log *contents*
 # http://stackoverflow.com/questions/1337320/how-to-grep-git-commit-diffs-or-contents-for-a-certain-word
 git log -i -S word
@@ -320,3 +332,9 @@ http://strk.keybit.net/blog/2011/06/07/getting-just-the-tip-of-a-remote-git-bran
 git ls-files FILE --error-unmatch
 ```
 http://stackoverflow.com/questions/2405305/git-how-to-tell-if-a-file-is-git-tracked-by-shell-exit-code
+
+### Find commit that deleted a line
+```
+git log -S <string> path/to/file
+```
+http://stackoverflow.com/questions/4404444/how-do-i-blame-a-deleted-line

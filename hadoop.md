@@ -224,3 +224,33 @@ yarn application -kill application_XXX_XXX
 ```
 hadoop fs -help put
 ```
+
+### `yarn.application.classpath`
+`YARN_APPLICATION_CLASSPATH`.
+
+### FileSystem loaded using ServiceLoader API
+* hadoop-common jar's `META-INF/services/org.apache.hadoop.fs.FileSystem` file contains
+```
+org.apache.hadoop.fs.LocalFileSystem
+org.apache.hadoop.fs.viewfs.ViewFileSystem
+org.apache.hadoop.fs.s3.S3FileSystem
+org.apache.hadoop.fs.s3native.NativeS3FileSystem
+org.apache.hadoop.fs.ftp.FTPFileSystem
+org.apache.hadoop.fs.HarFileSystem
+```
+* hadoop-hdfs jar's `META-INF/services/org.apache.hadoop.fs.FileSystem` file contains
+```
+org.apache.hadoop.hdfs.DistributedFileSystem
+org.apache.hadoop.hdfs.web.HftpFileSystem
+org.apache.hadoop.hdfs.web.HsftpFileSystem
+org.apache.hadoop.hdfs.web.WebHdfsFileSystem
+org.apache.hadoop.hdfs.web.SWebHdfsFileSystem
+```
+
+### Hadoop Archive (HAR) Files
+```
+hadoop fs -ls har:///path/to/file
+```
+
+You can access individual files within a HAR.
+http://www.aosabook.org/en/hdfs.html

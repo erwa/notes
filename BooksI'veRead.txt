@@ -2,6 +2,10 @@ Java Concurrency in Practice
 Brian Goetz, David Holmes, Doug Lea, Tim Peierls, Joshua Bloch, Joseph Bowbeer
 Read Dec 2014 - October 2015
 
+Our Kids: The American Dream in Crisis
+Robert Putnam
+Read in August-September 2015
+
 Gradle Beyond the Basics
 Tim Berglund
 Read June - July 2015
