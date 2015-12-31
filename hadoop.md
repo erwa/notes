@@ -71,6 +71,26 @@ hadoop dfsadmin -safemode leave
 
 # Hadoop 2.3.0
 
+http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/SingleNodeSetup.html
+(2.3.0 redirects to 2.4.1)
+
+### Passwordless SSH
+
+Ensure the public keys in `~/.ssh` are appended to `~/.ssh/authorized_keys`.
+
+### Setup
+```
+bin/hadoop namenode -format
+
+bin/start-all.sh
+
+# To verify
+jps
+# There should be 5 processes:
+# NN, SNN, DN, RM, NM
+```
+NameNode UI running at http://localhost:50070
+
 ### Eclipse Setup
 You must use Java 7 to compile.
 ```
