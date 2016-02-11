@@ -274,3 +274,16 @@ hadoop fs -ls har:///path/to/file
 
 You can access individual files within a HAR.
 http://www.aosabook.org/en/hdfs.html
+
+
+### Get Yarn application logs
+```
+# Only works after application finishes
+# Gets logs for ALL containers
+yarn logs -applicationId application_X_Y
+
+# To filter, use
+yarn logs -applicationId application_X_Y -nodeAddres host.example.com:123 -containerId container_X_Y_Z_A
+
+yarn logs # See options
+```

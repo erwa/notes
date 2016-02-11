@@ -1,8 +1,12 @@
-# Add remote repository
+### Add remote repository
+```
 git remote add upstream git://github.com/user/repo.git
+```
 
-# Change URI that a remote points to
+### Change URI that a remote points to
+```
 git remote set-url <remote> git://...
+```
 
 # git pull remote branch
 git pull upstream master // git pull latest from upstream master
@@ -199,11 +203,19 @@ git pull <remote> <branch>
 /path/to/1 $ cd /path/to/2
 /path/to/2 $ git am /path/to/1/0001-…-….patch
 
-# apply a patch
-# https://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/
+### Apply a patch
+```
 git apply --stat fix.patch # see patch changes
 git apply --check fix.patch # dry-run
 git apply fix.patch # apply for real
+```
+https://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/
+
+### Apply changes to one file
+```
+git checkout <branch> -- <filename>
+```
+http://stackoverflow.com/questions/16068186/git-how-to-cherry-pick-only-changes-for-only-one-file-not-the-whole-commit
 
 # Reverting
 
@@ -338,3 +350,10 @@ http://stackoverflow.com/questions/2405305/git-how-to-tell-if-a-file-is-git-trac
 git log -S <string> path/to/file
 ```
 http://stackoverflow.com/questions/4404444/how-do-i-blame-a-deleted-line
+
+### Avoid prompt for passphrase
+```
+$ eval $(ssh-agent)
+$ ssh-add PRIVATE_KEY_FILE
+```
+http://stackoverflow.com/questions/10032461/git-keeps-asking-me-for-my-ssh-key-passphrase

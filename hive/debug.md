@@ -21,3 +21,23 @@ hive
 # run your query
 ```
 
+### Debug query in Eclipse
+https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIdebugmyqueriesinHive?
+```
+# See hadoop.md for details.
+hadoop namenode -format
+
+start-all.sh
+
+beeline --debug
+
+# Or use Hive CLI
+# hive --debug
+
+# Set breakpoint in Eclipse.
+# Debug Configurations -> Remote Java Application -> localhost:8000
+# Can debug from monolithic Hive Eclipse project (rather than the bajillion individual projects)
+
+!connect jdbc:hive2://
+# Blank username and password
+```

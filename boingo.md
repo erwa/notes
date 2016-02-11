@@ -1,0 +1,1 @@
+Go to boingo.com/mcr to connect. Example: at DAL airport.

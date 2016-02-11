@@ -22,3 +22,29 @@ Run (embedded) HiveServer2 and Beeline in same process:
 ```
 beeline -u jdbc:hive2://
 ```
+
+
+### Standalone local metastore
+```
+hive --service metastore
+```
+
+Add follow to hive-site.xml to allow clients to connect:
+```
+    <property>
+      <name>hive.metastore.uris</name>
+      <value>thrift://localhost:9083</value>
+    </property>
+```
+
+### Configure logging
+Copy hive-log4j.properties.template to hive-log4j.properties. In trunk, it's hive-log4j2.properties.
+
+To enable printing to console, change
+```
+log4j.rootLogger=${hive.root.logger}, EventCounter
+```
+to
+```
+log4j.rootLogger=${hive.root.logger}, console
+```

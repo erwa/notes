@@ -1,3 +1,7 @@
+### Debugging.
+
+See [debug.md](debug.md).
+
 ### Hive 0.13 and newer
 
 ### Building Mavenized Hive as distribution
@@ -270,3 +274,12 @@ Hive has no concept of enums.
 
 ### Characters to escape
 Need to escape semicolons using `\;`.
+
+### Hive Hooks
+http://stackoverflow.com/questions/17461932/hive-execution-hook
+
+
+### Set output file extension
+```
+set hive.output.file.extension=.foo;
+```

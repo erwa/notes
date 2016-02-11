@@ -9,6 +9,7 @@ n  # Move cursor to newer message in conversation
 p  # Move cursor to previous message in conversation
 #  # move conversation to Trash
 y  # Remove from current view (removes a label if the current view is a label)
+x  # select conversation
 a  # reply all
 Shift + a  # reply all in new window
 r  # reply

@@ -169,6 +169,7 @@ See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmeth
 * `V` means void
 * `B` means byte
 * `[TYPE` means array of TYPE
+* Return type follows closing parenthesis
 
 ### Set encoding of Java build and execution
 See http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding.
@@ -294,3 +295,14 @@ int sum = widgets.stream()
                  .sum();
 ```
 http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
+
+
+### `java -cp` vs. `java -jar`
+You cannot specify both.
+
+http://stackoverflow.com/questions/11922681/differences-between-java-cp-and-java-jar
+
+
+### `java` vs. `javax` packages
+Historical thing. Not much difference now.
+http://stackoverflow.com/questions/727844/javax-vs-java-package

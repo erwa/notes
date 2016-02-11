@@ -1,8 +1,14 @@
-# 10 Eclipse Shortcuts
-# http://rayfd.me/2007/05/20/10-eclipse-navigation-shortcuts-every-java-programmer-should-know/
+### Eclipse Shortcuts
+http://rayfd.me/2007/05/20/10-eclipse-navigation-shortcuts-every-java-programmer-should-know/
 
-# Move current line up/down
+#### Move current line up/down
 Alt + Up/Down
+
+#### Delete line
+```
+Ctrl + D / Cmd + D
+```
+http://stackoverflow.com/questions/591172/delete-a-line-in-eclipse
 
 ### Change casing
 http://stackoverflow.com/questions/6793570/changing-the-case-of-a-string-in-eclipse

@@ -101,7 +101,7 @@ gradle dependencies
 
 ### Figure out whether you're depending on a jar
 ```
-gradle dependencyInsight --configuration runtime --dependency azkaban
+gradle dependencyInsight --configuration default --dependency azkaban
 ```
 https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:dependency_insight
 
@@ -109,6 +109,11 @@ https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:
 Wildcard dependency. Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.
 ```
 compile 'junit:junit:4.8.+'
+```
+
+### See what dependencies a configuration has
+```
+gradle :SUB_PROJECT_NAME:dependencies --configuration default
 ```
 
 ### Check for property's existence
@@ -138,6 +143,13 @@ See http://forums.gradle.org/gradle/topics/_system_out_java_lang_outofmemoryerro
 ```
 export JAVA_OPTS="-Xmx1024M -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512M"
 ```
+
+### Multi-project Configuration Order
+Top-down (root project, then subprojects), even when build is executed from subproject.
+```
+Also note that all projects are always configured, even when you start the build from a subproject. The default configuration order is top down, which is usually what is needed.
+```
+https://docs.gradle.org/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies
 
 ### Specify internal repository
 ```
@@ -226,3 +238,17 @@ collection.each {File file ->
 }
 ```
 https://docs.gradle.org/current/userguide/working_with_files.html
+
+
+### Set temp dir
+```
+# Make sure the /path/to/new/dir exists
+gradle build -Djava.io.tmpdir=/path/to/new/dir
+```
+
+### Print configuration dependencies
+```
+println "Printing compile configuration"
+configurations.compile.resolve().each { println it }
+```
+https://discuss.gradle.org/t/sourcesets-main-compileclasspath-vs-configurations-compile/6782

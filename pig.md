@@ -196,3 +196,11 @@ If pig.script is set, you can run
 ```
 echo "HEX_STRING" | base64 -d
 ```
+
+### ILLUSTRATE
+https://pig.apache.org/docs/r0.11.1/test.html#illustrate
+```
+words = load 'test.avro' using AvroStorage();
+frequent_words = filter words by freq >= 10;
+illustrate frequent_words;
+```

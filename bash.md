@@ -23,6 +23,19 @@ fi
 if [ -f /var/log/messages ]; then
   echo "/var/log/messages exists."
 fi
+
+# http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_02.html
+if [ $[$year % 400] -eq "0" ]; then
+  echo "This is a leap year.  February has 29 days."
+elif [ $[$year % 4] -eq 0 ]; then
+        if [ $[$year % 100] -ne 0 ]; then
+          echo "This is a leap year, February has 29 days."
+        else
+          echo "This is not a leap year.  February has 28 days."
+        fi
+else
+  echo "This is not a leap year.  February has 28 days."
+fi
 ```
 
 ### Test if string contains another string
@@ -116,6 +129,17 @@ Grep and ignore errors
 ```
 grep -s ...
 ```
+
+Grep and hide filename
+```
+grep -h
+```
+
+Grep and show lines before and after
+```
+grep -B 1 -A 1
+```
+http://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines
 
 ### Use awk to find 0-byte HDFS files in a directory
 You may need to add a `grep` to exclude directories (which are also 0 bytes):
@@ -231,7 +255,7 @@ See http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-o
 grep <script_name> /var/log/cron
 ```
 
-# Bash dollar sign variables
+### Bash dollar sign variables
 See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
 ```bash
 $1, $2, $3 # positional parameters
@@ -453,9 +477,10 @@ TZ=America/Los_Angeles date
 
 ### Convert epoch time to date
 ```
-date -j -f %s EPOCH_TIME
+# Linux
+date -d @1432752946.852
 
-# Example
+# Mac
 date -j -f %s 1446662585
 ```
 http://stackoverflow.com/questions/21958851/convert-unix-epoch-time-to-human-readable-date-on-mac-osx-bsd
@@ -841,8 +866,12 @@ See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
 
 ### Replace string in all files
 ```
-# Only works on Linux
+# Linux
 sed -i 's/old-word/new-word/g' *.txt
+
+# Mac
+# http://stackoverflow.com/questions/4247068/sed-command-with-i-option-failing-on-mac-but-works-on-linux
+sed -i '' 's/old-word/new-word/g' *.txt
 
 perl -pi -w -e 's/ahsu/dalitest/g;' *.job
 ```
@@ -879,6 +908,11 @@ find ./my_dir -mtime +1 -delete
 ```
 http://stackoverflow.com/questions/13489398/delete-files-older-than-10-days-using-shell-script-in-unix
 
+### Delete /tmp folders belonging to a user
+```
+ls -l /tmp | grep $USER | tr -s ' ' | cut -d ' ' -f 9 | xargs -I% rm -rf /tmp/%
+```
+
 ### Copy directory while resolving symlinks
 ```
 cp -Lr FROM TO
@@ -897,3 +931,24 @@ echo "US/Central - 10:26 PM (CST)" | grep -oP "\-\s+\K\d{2}:\d{2}"
 $ echo "US/Central - 10:26 PM (CST)" |
     perl -lne 'print $& if /\-\s+\K\d{2}:\d{2}/'
 ```
+
+### Update symlink
+```
+ln -hfs NEW_LOCATION EXISTING_LINK
+```
+https://superuser.com/questions/36626/how-to-change-a-symlink-in-os-x/938865#938865
+
+### Length of array
+```
+${#array[@]}
+```
+http://unix.stackexchange.com/questions/193039/how-to-count-the-length-of-an-array-defined-in-bash
+
+### Check filesystem type
+```
+# Linux
+df -T
+
+mount
+```
+http://unix.stackexchange.com/questions/53313/how-to-show-the-filesystem-type-via-the-terminal

@@ -32,3 +32,11 @@ hive -hiveconf hive.session.history.enabled=true
 # Default is false.
 # If true, this will cause a log to be created in `hive.querylog.location`
 ```
+
+### Unset table properties
+```
+ALTER VIEW view UNSET TBLPROPERTIES IF EXISTS ('foo', 'bar');
+
+alter table test unset tblproperties if exists ('foo');
+```
+https://issues.apache.org/jira/browse/HIVE-3829

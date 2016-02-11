@@ -8,18 +8,26 @@ General
 - Small umbrella / poncho
 - Reading material
 - Jacket
-- Money
+- Money (split up into several places)
 - Drawstring bag
-- Toiletries (toothbrush, toothpaste, floss, retainer, razor)
+- Toiletries (toothbrush, toothpaste, floss, retainer, razor, nail clipper)
 - Towel
 - Blindfold, ear plugs
 - Nice belt (for formal events)
 - Snacks (for plane or train ride)
 - Water bottle / Camelbak
-- Clothes
+- Clothes (check weather forecast)
 - Shorts/change of clothes for exercising
 - Laundry bag
 - Notebook / loose leaf paper
+- Clipboard
+- Halt newspaper
+- Notify credit card company of travel destination
+- Dictionary for language of destination
+- trash bags, extra Ziploc bags
+- slippers
+- Tissues / toilet paper
+- Keys
 
 Camping/hiking/backpacking
 - tent
@@ -40,7 +48,6 @@ Camping/hiking/backpacking
 - towel
 - touque
 - headlamp
-- trash bags, extra Ziploc bags
 - deodorant
 - carabiners
 - paper towels, napkins, tissues

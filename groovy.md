@@ -55,8 +55,18 @@ See http://groovy.codehaus.org/Operators#Operators-ElvisOperator(?:)
 def displayName = user.name ? user.name : "Anonymous" //traditional ternary operator usage
 def displayName = user.name ?: "Anonymous"  // more compact Elvis operator - does same as above
 
-### Map keys are strings by default
-[a: 1] is equivalent to ["a": 1]
+### Map literal
+```
+def map = [name: 'Gromit', likes: 'cheese', id: 1234]
+// keys are strings by default
+```
+http://www.groovy-lang.org/groovy-dev-kit.html#_map_literals
+
+### `withDefault`: Map default values
+```
+final Map<String, Set<String>> myMap = [:].withDefault { new HashSet<>() }
+```
+http://mrhaki.blogspot.com/2010/07/groovy-goodness-map-with-default-values.html
 
 ### Read/write string to file
 ```
@@ -84,6 +94,16 @@ def makes = cars*.make
 assert makes == ['Peugeot', 'Renault']
 ```
 
+### `@Field` Annotation
+Changes variable scope from run method to class level.
+```
+import groovy.transform.Field
+
+@Field List awe = [1, 2, 3]
+def awesum() { awe.sum() }
+assert awesum() == 6
+```
+
 ### Direct field access operator `.@`
 http://docs.groovy-lang.org/latest/html/documentation/#_direct_field_access_operator
 ```
@@ -96,3 +116,15 @@ def user = new User('Bob')
 assert user.name == 'Name: Bob'
 assert user.@name == 'Bob'
 ```
+
+### Tokenize
+```
+String  testString='hello world'
+
+// tokenize() ignores empty strings
+assert ['hel',' world']==testString.split('lo')
+
+// The tokenize() method uses each character of a String as delimiter
+assert ['he',' w','r','d']==testString.tokenize('lo')
+```
+http://www.tothenew.com/blog/groovy-tokenize-vs-split/
