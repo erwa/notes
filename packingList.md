@@ -10,7 +10,7 @@ General
 - Jacket
 - Money (split up into several places)
 - Drawstring bag
-- Toiletries (toothbrush, toothpaste, floss, retainer, razor, nail clipper)
+- Toiletries (toothbrush, toothpaste, floss, razor, nail clipper, comb)
 - Towel
 - Blindfold, ear plugs
 - Nice belt (for formal events)
@@ -28,6 +28,7 @@ General
 - slippers
 - Tissues / toilet paper
 - Keys
+- card/board games
 
 Camping/hiking/backpacking
 - tent

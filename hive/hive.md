@@ -283,3 +283,17 @@ http://stackoverflow.com/questions/17461932/hive-execution-hook
 ```
 set hive.output.file.extension=.foo;
 ```
+
+
+### Contributing
+```
+git diff --no-prefix <commit> > HIVE-1234.1.patch
+
+# Upload patch
+# Click "Submit Patch"
+# Unit tests will automatically run, usually within 24 hours
+
+# Post an RB
+rbt post --guess-fields yes
+```
+https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-CreatingaPatch

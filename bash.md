@@ -38,6 +38,12 @@ else
 fi
 ```
 
+### Comparison operators
+```
+-lt # less than
+http://www.tldp.org/LDP/abs/html/comparison-ops.html
+```
+
 ### Test if string contains another string
 See http://stackoverflow.com/questions/229551/string-contains-in-bash.
 ```
@@ -952,3 +958,14 @@ df -T
 mount
 ```
 http://unix.stackexchange.com/questions/53313/how-to-show-the-filesystem-type-via-the-terminal
+
+
+### For loop
+```
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+
+# http://www.cyberciti.biz/faq/bash-for-loop/
+```
