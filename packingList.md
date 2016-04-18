@@ -1,4 +1,4 @@
-General
+### General
 - Passport
 - Laptop, charger
 - Phone, phone charger, battery pack
@@ -30,7 +30,7 @@ General
 - Keys
 - card/board games
 
-Camping/hiking/backpacking
+### Camping/hiking/backpacking
 - tent
 - tarp
 - sleeping bag
