@@ -2,6 +2,15 @@
 * https://support.google.com/docs/answer/179738?hl=en
 * `Ctrl/Command + /` for help.
 
+```
+# Align Right
+Ctrl + Shift + R
+
+# Align Center
+Cmd + Shift + E
+```
+
+
 ### Choose heading format
 `Cmd + Option + <heading_size>`
 

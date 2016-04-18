@@ -194,7 +194,8 @@ IMPORT will search in jars, too.
 ### Decode Pig script from Hadoop job configuration
 If pig.script is set, you can run
 ```
-echo "HEX_STRING" | base64 -d
+# Linux
+echo "BASE64_STRING" | base64 -d
 ```
 
 ### ILLUSTRATE

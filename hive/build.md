@@ -2,8 +2,9 @@
 Works for trunk
 ```
 # Takes about 6 minutes
-# Omit clean to make it run faster
-mvn clean package -DskipTests -Pdist
+# Include "clean" to be safe
+# Add "install" if you want to install in local Maven repo
+mvn package -DskipTests -Pdist
 
 # Output in packaging/target directory
 ```
@@ -13,12 +14,14 @@ https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperF
 Works for trunk.
 ```
 # Takes about 4 minutes
-mvn clean install -DskipTests
+# Add "clean" to be safe (or if the build fails the first time you try)
+mvn install -DskipTests
 
 cd itests
 
 # Takes about 2 minutes
-mvn clean install -DskipTests
+# Add "clean" to be safe
+mvn install -DskipTests
 ```
 https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-Howtobuildallsource?
 
@@ -33,3 +36,9 @@ cd metastore
 mvn test
 ```
 https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunalloftheunittests?
+
+### Run a single test
+```
+mvn test -Dtest=ClassName
+```
+https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunasingletest?

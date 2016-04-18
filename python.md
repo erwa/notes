@@ -1,3 +1,135 @@
+### Get environment variable
+```
+import os
+print os.environ['HOME']
+```
+http://stackoverflow.com/questions/4906977/how-to-access-environment-variables-from-python
+
+
+### Get path and directory of current file
+```
+os.path.realpath(__file__)
+
+os.path.dirname(os.path.realpath(__file__))
+```
+http://stackoverflow.com/questions/50499/how-do-i-get-the-path-and-name-of-the-file-that-is-currently-executing
+http://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
+
+
+### Class variables / static variables
+```
+class Test(object):
+    i = 3 # class (or static) variable
+    @classmethod
+    def g(cls, arg):
+        # here we can use 'cls' instead of the class name (Test)
+        if arg > cls.i:
+            cls.i = arg # would the the same as  Test.i = arg1
+```
+http://stackoverflow.com/questions/68645/static-class-variables-in-python
+
+
+### Add set to another set
+```
+set1.update(set2)
+```
+
+
+### Regex match anywhere in string
+```
+match = re.search('CREATE TABLE ([a-z.]+)', contents)
+print match.group(1)
+```
+https://docs.python.org/2/library/re.html#re.search
+
+
+### Untar
+```
+import tarfile
+tar = tarfile.open("sample.tar.gz")
+tar.extractall()
+tar.close()
+```
+http://stackoverflow.com/questions/8893359/untar-archive-in-python-with-errors
+
+
+#### Untar in memory
+```
+from StringIO import StringIO
+
+import tarfile
+import urllib
+
+handle = urllib.urlopen('http://host/foo.tgz')
+
+tarfile = tarfile.open(fileobj=StringIO(handle.read()))
+print tarfile.extractfile('file_inside_tgz').read()
+```
+http://stackoverflow.com/a/4204690/1128392
+http://stackoverflow.com/questions/8858414/using-python-how-do-you-untar-purely-in-memory
+
+
+### `defaultdict`
+```
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+
+# Create defaultdict with initial values
+d = defaultdict(int, {'a': 1, 'b': 2})
+```
+http://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work
+
+
+### Run background process
+```
+import subprocess
+subprocess.Popen(["rm","-r","some.file"])
+
+# subprocess.Popen() only runs a process in the background if nothing
+# in the python script depends on the output of the command being run
+```
+http://stackoverflow.com/a/7224186/1128392
+
+
+### Parallel commands
+```
+import multiprocessing as mp
+import time
+
+pool = mp.Pool(3)
+results = pool.map(time.sleep, [4, 6, 8])
+```
+http://stackoverflow.com/a/12097555/1128392
+
+
+### Write to file or stdout
+```
+output = open(file, 'w') if file else sys.stdout
+
+output.write(...)
+
+if output is not sys.stdout:
+    output.close()
+```
+
+
+### Write to file
+```
+with open('somefile.txt', 'w') as the_file:
+    the_file.write('Hello\n')
+```
+http://stackoverflow.com/a/6160082/1128392
+
+
+### Zip files
+```
+import shutil
+shutil.make_archive(output_filename, 'zip', dir_name)
+```
+http://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory
+
+
 ### Global Variables
 Reading from global variable does not require any special modifiers. To write to a global variable from a function, add
 ```
@@ -6,10 +138,17 @@ global <var_name>
 at the beginning of the function.
 
 ### Read file line by line
-See http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array.
 ```
+# Stream file line by line
+with open(...) as f:
+    for line in f:
+        <do something with line>
+# http://stackoverflow.com/questions/8009882/how-to-read-large-file-line-by-line-in-python
+
+# Read into an array
 # Gets rid of the newline
 lines = [line.rstrip('\n') for line in open('filename')]
+# http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array
 ```
 
 # Read input arguments
@@ -17,6 +156,14 @@ lines = [line.rstrip('\n') for line in open('filename')]
 import sys
 if len(sys.argv) > 1:
   ...
+
+
+### Split string into two variables
+```
+firstName, lastName = myString.split()
+```
+http://stackoverflow.com/a/6670331/1128392
+
 
 ### Split string by whitespace
 ```
@@ -45,7 +192,21 @@ sys.path.append("/path/to/directory")
 ```
 http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-permanently
 
-# Convert list/array to string
+
+### Concat lists
+```
+list1 + list2
+```
+http://stackoverflow.com/questions/4344017/how-can-i-get-the-concatenation-of-two-lists-in-python-without-modifying-either
+
+
+### Append to list
+```
+list.append(x)
+```
+http://www.tutorialspoint.com/python/list_append.htm
+
+### Convert list/array to string
 # http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
 list1 = ['1', '2', '3']
 str1 = ''.join(list1) # 123
@@ -105,6 +266,12 @@ for k,v in d.iteritems():
 
 # Sort a dictionary in descending order
 sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
+
+# Delete from dictionary while iterating
+for k in mydict.keys():
+    if k == 'two':
+        del mydict[k]
+# http://stackoverflow.com/questions/5384914/how-to-delete-items-from-a-dictionary-while-iterating-over-it
 ```
 
 ### Docstrings
@@ -122,6 +289,11 @@ http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
 'd'
 >>>
 ```
+
+### Built-in exceptions
+
+https://docs.python.org/2/library/exceptions.html
+
 
 ### try except else
 https://docs.python.org/2/tutorial/errors.html#handling-exceptions
@@ -169,6 +341,9 @@ print VARIABLE_NAME
 
 # Next line
 n
+
+# Quit
+q
 ```
 https://docs.python.org/2/library/pdb.html
 
@@ -204,14 +379,16 @@ http://www.tutorialspoint.com/python/os_mkdir.htm
 
 ### Delete file or folder
 ```
-# remove a file
-os.remove()
+# Remove a file
+if os.path.isfile(path):
+    os.remove(path)
 
 # remove an empty directory
 os.rmdir()
 
 # delete a directory and all its contents
-shutil.rmtree()
+shutil.rmtree(path[, ignore_errors=False])
+# https://docs.python.org/2/library/shutil.html#shutil.rmtree
 ```
 http://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
 
@@ -232,8 +409,30 @@ call(["ls", "-l"])
 http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
 
+### Run external command and capture output
+```
+import subprocess
+output = subprocess.Popen(["cat", "temp"], stdout=subprocess.PIPE).communicate()[0]
+```
+http://stackoverflow.com/a/4760517/1128392
+
+
 ### Print current working directory
 ```
 os.getcwd()
 ```
 http://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
+
+
+### Multiline comments
+
+Use triple-quoted strings.
+
+http://stackoverflow.com/questions/7696924/multiline-comments-in-python
+
+
+### Trim string
+```
+s.strip()
+```
+http://stackoverflow.com/questions/1185524/how-to-trim-whitespace-including-tabs

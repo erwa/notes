@@ -1,3 +1,10 @@
+### Replace mode
+```
+Shift + R
+```
+http://stackoverflow.com/questions/9209776/how-to-switch-to-replace-mode-in-vim
+
+
 # open most recent file in a directory
 vim `ls -t | head -1`
 
@@ -154,3 +161,27 @@ http://www.vim.org/scripts/script.php?script_id=1658
 :%s/\s\+$//
 ```
 http://vim.wikia.com/wiki/Remove_unwanted_spaces
+
+### Tab Pages
+
+```
+gt # next tab
+gT # previous tab
+```
+
+http://vim.wikia.com/wiki/Using_tab_pages
+
+
+### Find file within vim
+
+```
+:set path=/path/to/project/**
+
+:find file.ext
+
+# open in new tab/split-screen
+:tabfind
+:sfind
+```
+
+http://stackoverflow.com/questions/3241566/is-there-a-quick-way-with-macvim-nerdtree-plugin-to-find-a-file

@@ -1,9 +1,57 @@
+### Run commands in parallel
+```
+pids=""
+for command in $COMMANDS
+do
+  # Use & (ampersand) to run task in background
+  # Use $! to get pid of most recent background command
+  $command &
+  pids+=" $!"
+done
+
+for pid in $pids
+do
+  wait $pid
+done
+```
+
+
+### Read file line-by-line
+```
+filename="$1"
+while read -r line
+do
+    echo "$line"
+done < "$filename"
+```
+http://stackoverflow.com/questions/10929453/bash-scripting-read-file-line-by-line
+
+
+### Iterate over files in directory
+```
+for test_file in tests/test_*.py
+do
+  ./$test_file
+done
+```
+http://stackoverflow.com/questions/20796200/how-to-iterate-over-files-in-directory-with-bash
+
+
 ### `if` Expressions
 http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 ```bash
+# Tests the return status of the last executed command
+# AND
+if COMMAND1 && COMMAND2
+
+# OR
+if COMMAND1 || COMMAND2
+
+# Conditional expressions (include square brackets [ ] around them)
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
+[ -s FILE ] # true if FILE exists and has a size greater than 0
 [ -x FILE ] # true if FILE exists and is executable
 [ -z STRING ] # true if STRING is of length 0
               # can also be used to test if a variable is set
@@ -15,6 +63,11 @@ http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 
 Examples:
 ```
+# integer comparison
+# equal to
+if [ "$a" -eq "$b" ]
+# http://tldp.org/LDP/abs/html/comparison-ops.html
+
 if [ "$#" -ne 2 ]; then
   echo "Two arguments required."
   exit 1
@@ -37,6 +90,10 @@ else
   echo "This is not a leap year.  February has 28 days."
 fi
 ```
+
+### Truthiness: What is true? What is false?
+`0` is true, `1` is false. See http://stackoverflow.com/questions/3924182/how-the-keyword-if-test-the-value-true-of-false. Exit codes of commands are evaluated. `0` is true, `1` is false.
+
 
 ### Comparison operators
 ```
@@ -109,6 +166,11 @@ Grep starting from certain line number:
 sed -n '<line_number>,$ p' <file> | grep <pattern>
 ```
 
+Grep, cut, and sed:
+```
+grep pattern FILE | cut -d '"' -f 4 | sed -e 's/://' | sed -e 's/\.git//'
+```
+
 Grep and only print the second field:
 ```
 grep -r "pattern" ./* | cut -d ' ' -f 2
@@ -120,9 +182,19 @@ Grep, split on whitespace, and print fifth field:
 grep "pattern" | awk '{print $5}'
 ```
 
-Grep matching the beginning of lines:
+
 ```
+# Match the beginning of lines
 grep '^<pattern>'
+
+# Don't show file name
+grep -h
+
+# Show matching part only
+grep -o
+
+# Trim whitespace (technically will leave one leading space)
+grep ... | tr -s [:space:]
 ```
 
 Grep number of occurrences of WORD in FILE
@@ -146,6 +218,13 @@ Grep and show lines before and after
 grep -B 1 -A 1
 ```
 http://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines
+
+Grep for full word
+```
+grep -w WORD
+# http://stackoverflow.com/questions/2879085/how-to-grep-for-the-whole-word
+```
+
 
 ### Use awk to find 0-byte HDFS files in a directory
 You may need to add a `grep` to exclude directories (which are also 0 bytes):
@@ -356,6 +435,12 @@ use
 patch -p1 < patch.diff
 ```
 
+### Apply patch as is
+```
+patch -p0 < patch.diff
+```
+
+
 ### Apply part of a patch (changes to only one file)
 ```
 patch FILE PATCH
@@ -411,6 +496,14 @@ http://superuser.com/questions/368784/how-can-i-sort-all-files-by-size-in-a-dire
 find . -maxdepth 1 -type f
 ```
 From http://stackoverflow.com/questions/10574794/bash-how-to-list-only-files.
+
+
+### Find and exec
+```
+find . -name "test_*.py" -exec {} \;
+```
+http://stackoverflow.com/questions/7719785/using-find-with-exec-is-there-a-way-to-count-the-total
+
 
 ### Find and suppress permission denied errors
 ```
@@ -623,9 +716,6 @@ readlink -f <file>
 last
 ```
 
-### true/false
-`0` is true, `1` is false. See http://stackoverflow.com/questions/3924182/how-the-keyword-if-test-the-value-true-of-false. Exit codes of commands are evaluated. `0` is true, `1` is false.
-
 ### `[]` vs. `[[]]` (square brackets vs. double square brackets)
 See http://stackoverflow.com/questions/13542832/bash-if-difference-between-square-brackets-and-double-square-brackets. `[[]]` is an extension to `[]` and supports some extra conditional expressions.
 
@@ -651,6 +741,9 @@ export PS1="My simple prompt> "
 ```
 quota -s ahsu
 ```
+For an explanation of the output, see http://serverfault.com/questions/94368/understanding-quota-output
+
+To calculate the amount of space used, multiply the number of blocks (first number) by the BLOCK_SIZE (defined in /usr/include/sys/mount.h). Reference: http://stackoverflow.com/questions/2506288/detect-block-size-for-quota-in-linux
 
 ### Find process running on port
 ```
@@ -969,3 +1062,38 @@ done
 
 # http://www.cyberciti.biz/faq/bash-for-loop/
 ```
+
+
+### Split string
+```
+# On whitespace
+sentence="this is a story"
+stringarray=($sentence)
+echo ${stringarray[0]}
+first_word=${stringarray[0]}
+# http://stackoverflow.com/a/13402368/1128392
+
+# Split on /
+IFS='/' read -ra PARTS <<< "$A"
+GROUP="${PARTS[5]}.${PARTS[6]}.${PARTS[7]}"
+MODULE="${PARTS[8]}"
+VERSION="${PARTS[9]}"
+ARTIFACT="$GROUP:$MODULE:$VERSION"
+echo $ARTIFACT
+```
+
+http://stackoverflow.com/questions/673055/correct-bash-and-shell-script-variable-capitalization
+
+
+### Multiline String
+```
+s=$(cat << EOF
+multi
+  line
+string
+EOF
+)
+
+echo "$s"
+```
+http://stevemorin.blogspot.com/2011/01/multi-line-string-in-bash.html

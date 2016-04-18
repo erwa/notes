@@ -143,9 +143,12 @@ git commit --amend -m "New commit message"
 git commit --allow-empty
 ```
 
+### Git Stash
+```
 git stash save "name"
 git stash apply stash^{/name} # Doesn't seem to work anymore
 git stash apply stash@{0} # where 0 is a number (do git stash list first)
+```
 
 # git pull rebase rather than merge
 git pull --rebase
@@ -173,6 +176,8 @@ git reset --hard HEAD@{<number>}
 # git push problems
 Try changing URL from HTTPS to SSH. Try including/excluding https:// or ssh://. Try adding or removing USERNAME@. Try using git@.
 
+### Git Diff
+```
 # git: comparing a file between two branches
 git diff BRANCH1 BRANCH2 FILE
 
@@ -191,6 +196,11 @@ git diff --binary
 
 # diff while ignoring whitespace changes
 git diff -w
+
+# diff two branches
+git diff branch1..branch2
+# http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git
+```
 
 # git apply commit from one branch on another
 git cherry-pick HASH
@@ -350,6 +360,14 @@ http://stackoverflow.com/questions/2405305/git-how-to-tell-if-a-file-is-git-trac
 git log -S <string> path/to/file
 ```
 http://stackoverflow.com/questions/4404444/how-do-i-blame-a-deleted-line
+
+### Search for deleted file
+http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-on-in-the-project-commit-history
+```
+git log --all -- <path-to-file>
+
+git log --all -- **/thefile.*
+```
 
 ### Avoid prompt for passphrase
 ```

@@ -33,9 +33,10 @@ beeline --debug
 
 # Or use Hive CLI
 # hive --debug
+# --debug must come before any other options
 
 # Set breakpoint in Eclipse.
-# Debug Configurations -> Remote Java Application -> localhost:8000
+# Run -> Debug Configurations -> Remote Java Application -> localhost:8000
 # Can debug from monolithic Hive Eclipse project (rather than the bajillion individual projects)
 
 !connect jdbc:hive2://

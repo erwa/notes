@@ -1,7 +1,7 @@
 General
 - Passport
 - Laptop, charger
-- Phone, phone charger
+- Phone, phone charger, battery pack
 - Power adaptor/converter -- different countries have different plugs and outlets
 - Sunscreen
 - Hat, sunglasses

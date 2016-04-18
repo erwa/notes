@@ -1,3 +1,9 @@
+### Filter email from search
+```
+dinner -movie # emails that contain "dinner" but not "movie"
+```
+https://support.google.com/mail/answer/7190?hl=en
+
 ### Keyboard Shortcuts
 https://support.google.com/mail/answer/6594?hl=en
 ```
@@ -27,3 +33,8 @@ label:LABEL is:unread
 ### Open email/draft in new window
 * Shift + click
 * http://email.about.com/od/gmailtips/qt/separate_window.htm
+
+
+### Gmail ###
+# To compose in full screen
+Ctrl/Cmd + click the Compose button or your Saved Draft

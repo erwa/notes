@@ -1,3 +1,8 @@
+### Host job was submitted from
+
+`mapreduce.job.submithostname` in job conf
+
+
 # General
 
 # Get replication factor of a file

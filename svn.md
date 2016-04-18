@@ -57,9 +57,20 @@ svn resolved <file>
 
 ### See commit history
 ```
+# All history
 svn log
+
+# Last 3 revisions to FILE
+svn log -l3 FILE
 ```
 http://stackoverflow.com/questions/9536476/how-to-get-a-list-of-all-recent-svn-commit-messages
+
+### See revision of file
+```
+svn info FILE
+```
+http://stackoverflow.com/questions/579196/getting-the-last-revision-number-in-svn
+
 
 ### See log info for specific revision
 ```

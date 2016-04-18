@@ -1,7 +1,15 @@
+### Figure out whether you're depending on a jar
+```
+gradle dependencyInsight --configuration default --dependency azkaban
+```
+https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:dependency_insight
+
+
 ### List all available tasks
 ```
 gradle tasks
 ```
+
 
 ### Get task by name
 ```
@@ -98,12 +106,6 @@ Make sure to execute this command from the project itself. See http://stackoverf
 ```
 gradle dependencies
 ```
-
-### Figure out whether you're depending on a jar
-```
-gradle dependencyInsight --configuration default --dependency azkaban
-```
-https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:dependency_insight
 
 ### Depend on latest version
 Wildcard dependency. Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.

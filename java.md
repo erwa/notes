@@ -306,3 +306,23 @@ http://stackoverflow.com/questions/11922681/differences-between-java-cp-and-java
 ### `java` vs. `javax` packages
 Historical thing. Not much difference now.
 http://stackoverflow.com/questions/727844/javax-vs-java-package
+
+
+### Java CLI Debugger (jdb)
+```
+jdb -attach localhost:8000
+
+help
+
+next
+
+# Set breakpoint at beginning of method
+stop in org.apache.hadoop.hive.ql.exec.FunctionRegistry.getFunctionNames
+
+# Set breakpoint at line number
+stop at org.apache.hadoop.hive.ql.exec.FunctionRegistry:485
+
+# Print stacktrace
+where
+```
+http://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html

@@ -4,6 +4,6 @@
 # account, including contents such as emails
 # https://support.google.com/accounts/answer/181692?hl=en
 
-### Gmail ###
-# To compose in full screen
-Ctrl/Cmd + click the Compose button or your Saved Draft
+
+### Group text with Google Voice / Google Hangouts
+https://support.google.com/hangouts/answer/6023920

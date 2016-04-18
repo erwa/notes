@@ -1,3 +1,14 @@
+### Beeline
+
+```
+# Run in embedded HiveServer2 mode
+beeline -u "jdbc:hive2://"
+
+!q # quit
+```
+
+
+
 ### Debugging.
 
 See [debug.md](debug.md).
@@ -289,7 +300,7 @@ set hive.output.file.extension=.foo;
 ```
 git diff --no-prefix <commit> > HIVE-1234.1.patch
 
-# Upload patch
+# Upload patch (More --> Attach Files)
 # Click "Submit Patch"
 # Unit tests will automatically run, usually within 24 hours
 
@@ -297,3 +308,9 @@ git diff --no-prefix <commit> > HIVE-1234.1.patch
 rbt post --guess-fields yes
 ```
 https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-CreatingaPatch
+
+
+### Generating Thrift
+https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-GeneratingThriftCode
+
+Use Java 7 when building Thrift.

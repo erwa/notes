@@ -128,3 +128,43 @@ assert ['hel',' world']==testString.split('lo')
 assert ['he',' w','r','d']==testString.tokenize('lo')
 ```
 http://www.tothenew.com/blog/groovy-tokenize-vs-split/
+
+
+### Multiline Strings
+```
+def a = """
+    test
+    test
+    test
+""".stripIndent()
+```
+http://stackoverflow.com/a/5079914/1128392
+
+
+### With Method
+```
+class Sample {
+    String username
+    String email
+    List<String> labels = []
+    def speakUp() { "I am $username" }
+    def addLabel(value) { labels << value }
+}
+
+def sample = new Sample()
+sample.with {
+    username = 'mrhaki'
+    email = 'email@host.com'
+    println speakUp()  // Output: I am mrhaki
+    addLabel 'Groovy'
+    addLabel 'Java'
+}
+
+def sb = new StringBuilder()
+sb.with {
+    append 'Just another way to add '
+    append 'strings to the StringBuilder '
+    append 'object.'
+}
+```
+http://mrhaki.blogspot.com/2009/09/groovy-goodness-with-method.html
