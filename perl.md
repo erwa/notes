@@ -1,3 +1,22 @@
+### Capture groups
+http://perldoc.perl.org/perlre.html#Capture-groups
+```
+# Removes whitespace between foo and bar
+# \1 and \2 are backreferences to captured groups
+'s#^(foo)\s+(bar)#\1\2#'
+```
+
+### `#` as delimiter in regular expressions
+```
+q#STRING#
+# q function returns a single-quoted string
+
+# above is equivalent to
+q{STRING}
+```
+http://stackoverflow.com/questions/14329355/what-is-the-meaning-of-the-number-sign-in-a-perl-regex-match
+http://www.tutorialspoint.com/perl/perl_q.htm
+
 ### `$&` (dollar ampersand) -- the matched string
 http://cslibrary.stanford.edu/108/EssentialPerl.html
 

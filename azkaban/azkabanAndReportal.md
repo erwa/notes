@@ -3,6 +3,10 @@
 Azkaban servlet routes registered in AzkabanWebServer.java:main.
 
 ```
+curl http://localhost:8081 -d "username=azkaban&password=azkaban&action=login"
+
+curl -k http://localhost:8081/manager -G -b azkaban.browser.session.id=<session.id> -d "project=foo&ajax=fetchProjectLogs"
+
 curl -k https://<host>:<port> -d "username=<username>&password=<password>&action=login"
 {
   "status" : "success",

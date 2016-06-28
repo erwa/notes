@@ -107,6 +107,11 @@ Make sure to execute this command from the project itself. See http://stackoverf
 gradle dependencies
 ```
 
+### Compile from local file
+```
+compile files('../lib/foo.jar')
+```
+
 ### Depend on latest version
 Wildcard dependency. Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.
 ```
@@ -195,7 +200,9 @@ http://stackoverflow.com/questions/17815864/gradle-how-to-disable-all-transitive
 ### Exclude specific transitive dependency
 ```
 compile('com.foo:foo:1.2.3') {
-  exclude module: 'bar'
+  exclude module: 'cglib' //by artifact name
+  exclude group: 'org.jmock' //by group
+  exclude group: 'org.unwanted', module: 'iAmBuggy' //by both name and group
 }
 ```
 https://discuss.gradle.org/t/how-to-exclude-transitive-dependency/2119

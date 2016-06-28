@@ -122,6 +122,15 @@ http://vim.wikia.com/wiki/Search_patterns
 Delete lines M to N, inclusive
 :M,Nd
 
+
+### Indentation preferences per file type
+Add to `.vimrc`:
+```
+autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+```
+http://stackoverflow.com/questions/1562633/setting-vim-whitespace-preferences-by-filetype
+
+
 ### auto-indent
 ```
 set autoindent

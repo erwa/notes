@@ -1,3 +1,10 @@
+### Convert Array to List
+```
+Arrays.asList("intField", "stringField");
+Arrays.asList(new Foo(), new Foo());
+```
+
+
 ### Find jar that a class is in
 * http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
 ```

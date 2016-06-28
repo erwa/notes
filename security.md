@@ -10,7 +10,13 @@ openssl rsa -in key.pem -inform PEM -pubout -outform DER -out public_key.der
 # Generate private key in PKCS8 DER format using RSA private key
 openssl pkcs8 -topk8 -in key.pem -inform PEM -nocrypt -out private_key.der -outform DER
 
-# Specify different UserKnownHostsFile when using ssh or scp:
+### Make SSH ignore config file
+```
+ssh -F /dev/null ...
+```
+http://unix.stackexchange.com/questions/110283/how-can-i-make-ssh-ignore-ssh-config
+
+### Specify different UserKnownHostsFile when using ssh or scp:
 ssh -o UserKnownHostsFile=/path/to/known_hosts <host>
 scp -o UserKnownHostsFile=/path/to/known_hosts <file> <host>:
 

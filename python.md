@@ -1,3 +1,141 @@
+### Variable Scope
+A function introduces a new scope.
+```
+def foo(a):
+    if a:
+        b = True
+    else:
+        b = False
+
+    print b  # b will be either True or False, unlike in Java,
+             # where b would not be defined
+```
+http://stackoverflow.com/questions/291978/short-description-of-python-scoping-rules
+
+
+### Read password from stdin
+```
+import getpass
+pw = getpass.getpass()
+```
+http://stackoverflow.com/questions/1761744/read-password-from-stdin
+
+
+### String endswith
+```
+s.endswith('foo')
+```
+http://www.tutorialspoint.com/python/string_endswith.htm
+
+
+### Variable substitution inside triple strings
+```
+"""%s is awesome.""" % 'Pizza'
+```
+http://stackoverflow.com/questions/3877623/in-python-can-you-have-variables-within-triple-quotes-if-so-how
+
+
+### Pydoc
+
+https://docs.python.org/devguide/documenting.html
+
+
+### Unicode string comparison
+```
+u'MyString' == 'MyString'  # True
+u'MyString' is 'MyString'  # False
+```
+
+
+### Parse JSON
+```
+with open('/path/to/file') as f:
+    data = json.load(f)
+
+print(json.dumps(data, indent=2))
+```
+
+To maintain order, use
+```
+import json
+from collections import OrderedDict
+
+# OrderedDict requires Python 2.7
+data = json.loads('{"foo":1, "bar": 2}', object_pairs_hook=OrderedDict)
+print json.dumps(data, indent=4)
+```
+http://stackoverflow.com/questions/6921699/can-i-get-json-to-load-into-an-ordereddict-in-python
+
+
+### Line breaks
+Break before an operator
+```
+# Yes: easy to match operators with operands
+income = (gross_wages
+          + taxable_interest
+          + (dividends - qualified_dividends)
+          - ira_deduction
+          - student_loan_interest)
+```
+
+https://www.python.org/dev/peps/pep-0008/#should-a-line-break-before-or-after-a-binary-operator
+
+
+### Class and static methods
+First argument to a class method is the class (not an instance). Static method does not take any required arguments.
+
+http://stackoverflow.com/questions/12179271/python-classmethod-and-staticmethod-for-beginner
+
+
+### Accessing class variables
+Assigning to an instance variable (self.foo) named the same as a class variable (Class.foo) will hide the class attribute with an instance attribute with the same name.
+```
+>>> class RLCN:
+...     static_var = 5
+...     def method1(self):
+...         RLCN.static_var += 1
+...     def method2(self):
+...         self.static_var += 1
+>>> rlcn = RLCN()
+>>> RLCN.static_var, rlcn.static_var
+(5, 5)
+>>> rlcn.static_var
+5
+>>> rlcn.method1()
+>>> RLCN.static_var, rlcn.static_var
+(6, 6)
+>>> rlcn.method2()
+>>> RLCN.static_var, rlcn.static_var
+(6, 7)
+```
+http://stackoverflow.com/questions/25577578/python-access-class-variable-from-instance
+
+
+### `self` argument
+First argument to every instance method, including `__init__`, is a reference to the current instance of the class.
+
+https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
+
+
+### Naming conventions
+```
+_INTERNAL_CLASS_CONSTANT
+PUBLIC_CLASS_CONSTANT
+_internal_class_variable
+public_class_variable
+_internal_instance_variable
+public_instance_variable
+```
+https://google.github.io/styleguide/pyguide.html?showone=Naming#Naming
+
+
+### Find location library is installed / get file path of imported module
+```
+import jpype
+print jpype.__file__
+```
+http://stackoverflow.com/questions/269795/how-do-i-find-the-location-of-python-module-sources
+
 ### Get environment variable
 ```
 import os
@@ -34,10 +172,25 @@ http://stackoverflow.com/questions/68645/static-class-variables-in-python
 set1.update(set2)
 ```
 
+### String replacement
+```
+str.replace(old, new[, max])
+```
+http://www.tutorialspoint.com/python/string_replace.htm
+
+
+### Regex replace
+```
+# The 'r' prefix tells Python the following is a raw string.
+# https://docs.python.org/2/library/re.html
+line = re.sub(r'</?\[\d+>', "", line)
+```
+http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replace-in-python
+
 
 ### Regex match anywhere in string
 ```
-match = re.search('CREATE TABLE ([a-z.]+)', contents)
+match = re.search('CREATE TABLE ([a-z._]+)', contents)
 print match.group(1)
 ```
 https://docs.python.org/2/library/re.html#re.search
@@ -51,6 +204,18 @@ tar.extractall()
 tar.close()
 ```
 http://stackoverflow.com/questions/8893359/untar-archive-in-python-with-errors
+
+
+### Read URL
+```
+import urllib
+
+link = "http://www.somesite.com/details.pl?urn=2344"
+f = urllib.urlopen(link)
+myfile = f.read()
+print myfile
+```
+http://stackoverflow.com/questions/15138614/how-can-i-read-the-contents-of-an-url-with-python
 
 
 #### Untar in memory
@@ -71,6 +236,8 @@ http://stackoverflow.com/questions/8858414/using-python-how-do-you-untar-purely-
 
 ### `defaultdict`
 ```
+from collections import defaultdict
+
 d = defaultdict(int)
 for k in s:
     d[k] += 1
@@ -90,6 +257,29 @@ subprocess.Popen(["rm","-r","some.file"])
 # in the python script depends on the output of the command being run
 ```
 http://stackoverflow.com/a/7224186/1128392
+
+### Write to and read from other process
+```
+#!/usr/bin/env python
+from subprocess import PIPE, Popen
+
+process = Popen('./test.sh', stdin=PIPE, stdout=PIPE, shell=False, close_fds=True)
+process.stdin.write('foobar\n')
+out = process.stdout.readline()
+print out
+process.stdin.write('qux\n')
+out = process.stdout.readline()
+print out
+```
+
+`test.sh`:
+```
+#!/usr/bin/env bash
+while read line
+do
+  echo "$line"
+done < "${1:-/dev/stdin}"
+```
 
 
 ### Parallel commands
@@ -136,6 +326,33 @@ Reading from global variable does not require any special modifiers. To write to
 global <var_name>
 ```
 at the beginning of the function.
+
+
+### Read string line by line
+```
+for line in textData.splitlines():
+    print(line)
+```
+http://stackoverflow.com/questions/15422144/how-to-read-a-long-multiline-string-line-by-line-in-python
+
+
+### Read file into string
+```
+# Option 1
+fh = open('foo')
+data = fh.read()
+fh.close()
+
+
+# Option 2
+with open('data.txt', 'r') as myfile:
+    data=myfile.read()
+
+# Option 3: one-liner that does not close the file
+data = open("data.txt").read().replace('\n','')
+```
+http://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-string-variable-in-python
+
 
 ### Read file line by line
 ```
@@ -193,6 +410,15 @@ sys.path.append("/path/to/directory")
 http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-permanently
 
 
+### Insert list at beginning of list
+```
+>>> a = [1,2,3]
+>>> a[:0] = [4,5,6]
+>>> a
+[4, 5, 6, 1, 2, 3]
+```
+
+
 ### Concat lists
 ```
 list1 + list2
@@ -221,6 +447,18 @@ if not a:
 
 # Python slicing and finding the last index of a character
 output_dir[:output_dir.rfind('/')]
+
+#### Check if path exists and is directory
+```
+os.path.exists(path) and os.path.isdir(path)
+```
+http://stackoverflow.com/a/8933290/1128392
+
+#### Change current working directory
+```
+os.chdir(path)
+```
+http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python
 
 # Check if path is directory
 # https://docs.python.org/2/library/os.path.html#os.path.isdir
@@ -268,7 +506,8 @@ for k,v in d.iteritems():
 sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
 
 # Delete from dictionary while iterating
-for k in mydict.keys():
+# Only works in Python 2
+for k in mydict.keys(): # Creates copy of keys
     if k == 'two':
         del mydict[k]
 # http://stackoverflow.com/questions/5384914/how-to-delete-items-from-a-dictionary-while-iterating-over-it
@@ -386,7 +625,7 @@ if os.path.isfile(path):
 # remove an empty directory
 os.rmdir()
 
-# delete a directory and all its contents
+### Delete a directory and all its contents / remove directory
 shutil.rmtree(path[, ignore_errors=False])
 # https://docs.python.org/2/library/shutil.html#shutil.rmtree
 ```
@@ -404,7 +643,7 @@ http://stackoverflow.com/questions/10840533/most-pythonic-way-to-delete-a-file-w
 ### Run external command
 ```
 from subprocess import call
-call(["ls", "-l"])
+exit_status = call(["ls", "-l"])
 ```
 http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
@@ -412,7 +651,12 @@ http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 ### Run external command and capture output
 ```
 import subprocess
-output = subprocess.Popen(["cat", "temp"], stdout=subprocess.PIPE).communicate()[0]
+process = subprocess.Popen(["cat", "temp"], stdout=subprocess.PIPE)
+output = process.communicate()[0]
+
+# returncode is only set after calling communicate(), poll(), or wait()
+exit_status = process.returncode
+
 ```
 http://stackoverflow.com/a/4760517/1128392
 

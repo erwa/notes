@@ -1,3 +1,100 @@
+### Highlight all occurrences of variable
+```
+Shift + Cmd + F7
+
+# Use F3 / Shift + F3 to navigate through occurrences
+
+# Use Esc to unhighlight
+```
+
+
+### Word Wrap
+View -> Active Editor -> Use Soft Wraps
+
+
+### Organize Imports
+```
+Cmd + Option + O
+```
+
+
+### Move line up/down
+```
+Option + Shift + arrow (up/down)
+```
+
+
+### Move method up/down
+```
+Cmd + Shift + arrow (up/down)
+```
+
+
+### Change casing
+```
+Shift + Cmd + U
+```
+
+
+### Peek at Code
+If you hover your mouse cursor over the scroll bar, a pop-up will show you the code at that location.
+
+
+### Add folder to classpath
+```
+Project Structure (select project in navigation window, F4) --> Dependencies --> + --> JARS or directories --> select directory --> OK --> use "Classes" as category of selected file
+```
+http://stackoverflow.com/questions/854264/how-to-add-directory-to-classpath-in-an-application-run-profile-in-intellij-idea
+
+
+### Expand code block
+```
+Cmd + .
+```
+
+
+### Collapse code block
+```
+Cmd + Shift + .
+```
+
+
+### Expand selection
+```
+Cmd + W
+```
+Example: Put cursor in word, Cmd + W will expand to word, then another word or method, then whole line, then block, then method, etc.
+
+
+### Debug Window
+```
+Cmd + 5
+```
+
+
+### Search for Action or Option
+```
+Shift + Cmd + A
+```
+
+
+### Maven support
+You can open pom.xml files from IntelliJ and it will automatically resolve dependencies. You can specify the profiles to import by navigating to View -> Tool Windows -> Maven Projects -> Profiles
+
+
+### Go to implementations of interface method
+```
+Option + Cmd + B
+```
+
+
+### Multiline edit
+```
+Alt + Shift + Click
+```
+http://blog.jetbrains.com/idea/2014/03/intellij-idea-13-1-rc-introduces-sublime-text-style-multiple-selections/
+
+
 ### Keyboard shortcuts
 
 ```
@@ -63,7 +160,7 @@ Cmd + Shift + N
 # Navigate to a class
 Cmd + N
 
-# Show methods (show class structure)
+# Show methods (show class structure, overview of class)
 Cmd + F12
 # http://stackoverflow.com/questions/3990289/intellij-shortcut-to-show-a-popup-of-methods-in-a-class-that-can-be-searched
 

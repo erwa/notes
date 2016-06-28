@@ -2,9 +2,9 @@
 
 ```
 # Run in embedded HiveServer2 mode
-beeline -u "jdbc:hive2://"
+beeline -u jdbc:hive2://
 
-!q # quit
+!q # quit, or Ctrl + D
 ```
 
 
@@ -144,11 +144,13 @@ https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManu
 # Show databases matching expression
 show databases like 'a*';
 
-# Adding a jar
-# https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources
+### Adding a jar
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources
+```
 add jar hdfs:/user/ahsu/foo.jar;
 add jar hdfs:///user/ahsu/foo.jar;
 add jar hdfs://NAMENODE_HOST:PORT/user/ahsu/foo.jar;
+```
 
 Describe table with more details
 ```
@@ -158,6 +160,15 @@ desc extended TABLE;
 
 ### Creating an Avro Table
 ```
+create external table u_ahsu.map_table
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+location 'hdfs:///user/ahsu/map_table'
+TBLPROPERTIES ('avro.schema.literal'='{"namespace":"test","name":"avrostruct","type":"record","fields":[
+{"name":"map_field","type": {"type": "map", "values": "string" } }
+] }');
+
 CREATE [EXTERNAL] TABLE table_name
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
 WITH SERDEPROPERTIES ('avro.schema.url'='SCHEME:///PATH/TO/SCHEMA')
@@ -303,6 +314,8 @@ git diff --no-prefix <commit> > HIVE-1234.1.patch
 # Upload patch (More --> Attach Files)
 # Click "Submit Patch"
 # Unit tests will automatically run, usually within 24 hours
+
+# When updating patch, click "Submit Patch" again.
 
 # Post an RB
 rbt post --guess-fields yes

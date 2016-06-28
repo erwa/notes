@@ -7,6 +7,12 @@ println "The $foxtype ${foxcolor.join()} fox"
 // => The quick brown fox
 ```
 
+GStrings are not evaluated until toString() is called. You probably want to call .toString() before adding GStrings to a collection, or else comparisons may fail unexpected. GString and String are NOT equal.
+
+http://mrhaki.blogspot.com/2009/08/groovy-goodness-string-strings-strings.html
+http://groovy.jmiguel.eu/groovy.codehaus.org/Strings+and+GString.html
+
+
 ### Groovy Arrays (Lists)
 See http://mrhaki.blogspot.com/2009/09/groovy-goodness-working-with-arrays.html.
 ```

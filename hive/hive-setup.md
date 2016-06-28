@@ -27,6 +27,8 @@ beeline -u jdbc:hive2://
 ### Standalone local metastore
 ```
 hive --service metastore
+
+# To stop, press Ctrl + C
 ```
 
 Add follow to hive-site.xml to allow clients to connect:
@@ -35,6 +37,11 @@ Add follow to hive-site.xml to allow clients to connect:
       <name>hive.metastore.uris</name>
       <value>thrift://localhost:9083</value>
     </property>
+```
+
+Connect using Beeline with embedded HiveServer2:
+```
+beeline -u jdbc:hive2://
 ```
 
 ### Configure logging

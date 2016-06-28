@@ -1,4 +1,15 @@
--- Pig 0.11 documentation
+### Contribute patch
+```
+git diff --no-prefix <commit> > PIG-1234.1.patch
+
+# Upload patch (More --> Attach Files)
+
+rbt post --guess-fields yes
+```
+https://cwiki.apache.org/confluence/display/PIG/HowToContribute#HowToContribute-Contributingyourwork
+
+
+### Pig 0.11 documentation
 -- http://pig.apache.org/docs/r0.11.1/
 
 -- count # of rows in an alias
@@ -15,6 +26,14 @@ set pig.maxCombinedSplitSize <size_in_bytes>
 ```
 
 Make sure `pig.noSplitCombination` is NOT set to `true`.
+
+
+### Define alias for UDF
+```
+REGISTER piggybank.jar
+DEFINE MAXNUM org.apache.pig.piggybank.evaluation.math.MAX;
+```
+
 
 ### Add file to distributed cache for use in UDF
 http://ragrawal.wordpress.com/2014/03/25/apache-pig-and-distributed-cache/

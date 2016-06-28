@@ -1,3 +1,9 @@
+### Run git command from outside Git repo
+```
+git --work-tree=~/git --git-dir=~/git/.git diff -- git.c
+```
+http://stackoverflow.com/questions/8560618/how-can-i-use-full-paths-in-git
+
 ### Add remote repository
 ```
 git remote add upstream git://github.com/user/repo.git
@@ -41,9 +47,9 @@ git tag -a TAG_NAME
 
 ### Sort tags chronologically by date
 ```
-git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags
+git tag --sort version:refname
 ```
-http://stackoverflow.com/questions/6269927/how-can-i-list-all-tags-in-my-git-repository-by-the-date-they-were-created
+http://stackoverflow.com/questions/18659959/git-tag-sorted-in-chronological-order-of-the-date-of-the-commit-pointed-to
 
 ### Delete remote tag
 ```
@@ -99,8 +105,22 @@ git push origin --delete initial-queries
 # git remove stale remote branches from local cache
 git remote prune <remote>
 
-# git merge branch, will fast forward by default
+### Merge branch
+```
+# will fast forward by default
 git merge <branch> # merges <branch> into current branch
+```
+
+### Resolve binary merge conflict
+```
+# Use branch that you're merging or rebasing
+git checkout --theirs -- path/to/conflicted-file.txt
+
+# Use your version of the file
+git checkout --ours -- path/to/conflicted-file.txt
+
+# http://stackoverflow.com/questions/278081/resolving-a-git-conflict-with-binary-files
+```
 
 # git: checkout old commit
 git checkout HEAD~5 # checkout 5 commits ago
@@ -247,12 +267,22 @@ $ git reset HEAD .             # Unstage the changes
 $ git add --patch .            # Add whatever changes you want
 $ git commit                   # Commit those changes
 
-# squash all history into one commit
+### Squash all history into one commit
 # http://stackoverflow.com/questions/1657017/squash-all-git-commits-into-a-single-commit
 rm -rf .git
 git init
 git add .
 git commit -m "<commit message>"
+
+
+### Squash several commits into one
+```
+# Squash last 3 commits
+git reset --soft HEAD~3
+git commit -m 'New commit message'
+```
+http://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git
+
 
 ### Show the history of one file
 http://stackoverflow.com/questions/278192/view-the-change-history-of-a-file-using-git-versioning
@@ -276,6 +306,12 @@ git log -i -S word
 
 # Case-insensitive search for "word" in commit log *message*
 git log -i --grep=word
+
+
+### Print message only of last commit
+```
+git log -1 --pretty=format:"%s"
+```
 
 ### Print history as graph
 ```
@@ -333,9 +369,16 @@ git config --global push.default matching
 ```
 http://stackoverflow.com/questions/21839651/git-what-is-the-difference-between-push-default-matching-and-simple
 
-# Set global user.email
-# http://stackoverflow.com/questions/10663492/how-to-change-default-author-and-commiter-in-eclipse-git-plugin
+### Set global user.email
+http://stackoverflow.com/questions/10663492/how-to-change-default-author-and-commiter-in-eclipse-git-plugin
+```
 git config --global user.email "<email>"
+```
+
+### Specify author when committing
+```
+git commit --author="John Smith <john.smith@example.com>"
+```
 
 # Create a shallow copy with history truncated to 1 revision
 git clone --depth 1 ...
@@ -348,6 +391,23 @@ git clone <repo> <new_name>
 git clone --depth DEPTH --branch BRANCH GIT_URI
 ```
 http://strk.keybit.net/blog/2011/06/07/getting-just-the-tip-of-a-remote-git-branch/
+
+
+### Clone commit
+```
+# Not directly possible, so you have to use `git reset`
+git clone $URL
+git reset --hard $SHA1
+```
+http://stackoverflow.com/questions/3489173/how-to-clone-git-repository-with-specific-revision-changeset
+
+
+### Clone into folder
+```
+git clone git@github.com:whatever folder-name
+```
+http://stackoverflow.com/questions/651038/how-do-you-clone-a-git-repository-into-a-specific-folder
+
 
 ### Check if file or folder is tracked
 ```
@@ -367,6 +427,11 @@ http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-
 git log --all -- <path-to-file>
 
 git log --all -- **/thefile.*
+```
+
+### Convert SSH key to fingerprint
+```
+ssh-keygen -lf ahsu_ssh_key.pub
 ```
 
 ### Avoid prompt for passphrase

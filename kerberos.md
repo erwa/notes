@@ -1,3 +1,9 @@
+### Enable client logging
+```
+export KRB5_TRACE=/dev/stdout
+```
+
+
 ### What are Keytabs and how to create one
 http://kb.iu.edu/data/aumh.html
 

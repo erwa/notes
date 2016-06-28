@@ -4,7 +4,8 @@ Works for trunk
 # Takes about 6 minutes
 # Include "clean" to be safe
 # Add "install" if you want to install in local Maven repo
-mvn package -DskipTests -Pdist
+# Add -Pdist to generate tarball
+mvn package -DskipTests -Dmaven.javadoc.skip=true
 
 # Output in packaging/target directory
 ```

@@ -1,3 +1,11 @@
+### Check alias
+Check what an alias is assigned to
+```
+type ALIAS
+```
+http://askubuntu.com/questions/102093/how-to-see-the-command-attached-to-a-bash-alias
+
+
 ### Run commands in parallel
 ```
 pids=""
@@ -53,7 +61,7 @@ if COMMAND1 || COMMAND2
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ -s FILE ] # true if FILE exists and has a size greater than 0
 [ -x FILE ] # true if FILE exists and is executable
-[ -z STRING ] # true if STRING is of length 0
+[ -z STRING ] # true if STRING is of length 0 (empty string)
               # can also be used to test if a variable is set
 [ STRING1 == STRING2 ] # true if two strings are equal
 [ STRING1 != STRING2 ] # true if two strings are not equal
@@ -241,7 +249,14 @@ hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }' | xargs hadoop fs -rm
 getent group <groupname>
 ```
 
-# Archiving/Unarchiving
+### Archiving/Unarchiving
+
+Zip hidden files
+```
+zip -r foo.zip .
+```
+http://stackoverflow.com/questions/12493206/zip-including-hidden-files
+
 Zip/unzip folder:
 ```
 zip -r foo.zip foo
@@ -463,6 +478,11 @@ filterdiff -X fileWithExcludePatternsOnePerLine patch.diff > filtered.diff
 
 # `ls`
 
+### `ls` another user's home directory
+```
+ls ~USER
+```
+
 ### `ls` color output
 Add the following to your .bashrc to enable color ls output by default:
 ```
@@ -544,6 +564,7 @@ du -h DIR
 ### du of every file/directory (including hidden ones) in current directory, sort from largest to smallest:
 See http://askubuntu.com/questions/356902/why-doesnt-this-show-the-hidden-files-folders.
 ```
+# du hidden files
 du -sh  .[!.]* * | sort -hr
 ```
 
@@ -580,7 +601,7 @@ TZ=America/Los_Angeles date
 date -d @1432752946.852
 
 # Mac
-date -j -f %s 1446662585
+date -jf %s 1446662585
 ```
 http://stackoverflow.com/questions/21958851/convert-unix-epoch-time-to-human-readable-date-on-mac-osx-bsd
 
@@ -804,10 +825,15 @@ for i in /path/to/rpms/*.rpm; do
 done
 ```
 
-### Determine where Yum package was installed
+### Determine where Yum package was installed / list files in package
 http://stackoverflow.com/questions/1766380/determining-the-path-that-a-yum-package-installed-to
 ```
 rpm -ql PACKAGE
+```
+
+### List all installed RPMs
+```
+rpm -qa
 ```
 
 ### Delete RPM package
@@ -865,8 +891,8 @@ a FeW WoRDS
 tree DIR
 tree -d DIR # print directories only
 
-# Exclude some files
-tree -f -I build
+# Exclude some directories
+tree -I build
 # http://unix.stackexchange.com/questions/61074/tree-command-for-multiple-includes-and-excludes
 ```
 
@@ -911,6 +937,12 @@ xev | grep button
 ```
 
 # Screen
+
+Attach to another session (detach it and then reattach)
+```
+screen -d -r SESSION
+```
+http://stackoverflow.com/questions/20807696/how-do-i-force-detach-screen-from-another-ssh-session
 
 Show sessions:
 ```
@@ -962,6 +994,12 @@ See http://stackoverflow.com/questions/2129123/rearrange-columns-using-cut.
 sed 's/\/$//'
 ```
 See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
+
+### Find and replace
+```
+find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
+```
+http://stackoverflow.com/questions/15402770/how-to-grep-and-replace
 
 ### Replace string in all files
 ```
@@ -1033,9 +1071,15 @@ $ echo "US/Central - 10:26 PM (CST)" |
 
 ### Update symlink
 ```
+# Mac
 ln -hfs NEW_LOCATION EXISTING_LINK
+# https://superuser.com/questions/36626/how-to-change-a-symlink-in-os-x/938865#938865
+
+# Linux
+ln -fns NEW_LOCATION EXISTING_LINK
+# http://serverfault.com/questions/389997/how-to-override-update-a-symlink
 ```
-https://superuser.com/questions/36626/how-to-change-a-symlink-in-os-x/938865#938865
+
 
 ### Length of array
 ```

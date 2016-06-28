@@ -1,3 +1,10 @@
+### Filter by date
+```
+before:2015/12/25 after: 2015/12/01
+```
+https://support.google.com/mail/answer/7190?hl=en
+
+
 ### Filter email from search
 ```
 dinner -movie # emails that contain "dinner" but not "movie"

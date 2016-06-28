@@ -1,3 +1,12 @@
+### Esc key icon
+⎋ means Esc.
+http://superuser.com/questions/421890/what-is-the-key
+
+
+### Zoom
+Pinch or spread with 2 fingers on trackpad. Some programs support it, some don't.
+
+
 ### Taking a picture with built-in webcam
 Use Photo Booth.
 * http://apple.stackexchange.com/questions/11497/can-i-take-a-still-photo-with-my-built-in-webcam
@@ -11,6 +20,11 @@ Picture gets saved on Desktop
 Select area to screenshot, picture gets saved on Desktop
 ```
 Shift+Cmd+4
+```
+
+Print screen to clipboard
+```
+Cmd + Control + Shift + 3
 ```
 
 More screenshot variations:
@@ -98,11 +112,12 @@ http://apple.stackexchange.com/questions/114628/display-hidden-files-hot-key-on-
 Cmd + Shift + .
 ```
 
-### Go to Folder
+### Go to Folder in Finder / Open Folder in Finder
 ```
 Shift + Cmd + G
 ```
 http://superuser.com/questions/44086/open-folder-for-a-given-path-in-mac-os-x
+http://www.alexandre-gomes.com/?p=376
 
 # iOS development
 
