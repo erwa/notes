@@ -29,6 +29,8 @@
 - Tissues / toilet paper
 - Keys
 - card/board games
+- Swimming trunks
+- Offline tour guide information
 
 ### Camping/hiking/backpacking
 - tent

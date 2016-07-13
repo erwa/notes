@@ -1,3 +1,9 @@
+### Time ANDed commands
+```
+time (sleep 1 && sleep 1)
+```
+
+
 ### Check alias
 Check what an alias is assigned to
 ```

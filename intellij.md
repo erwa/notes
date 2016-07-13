@@ -1,3 +1,9 @@
+### Jump between syntax errors / suggestions
+```
+F2 / Shift + F2
+```
+
+
 ### Highlight all occurrences of variable
 ```
 Shift + Cmd + F7

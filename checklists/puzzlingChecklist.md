@@ -11,3 +11,10 @@ Puzzling Checklist
 * Pens / pencils
 * Scratch paper
 * Hat, sunscreen
+
+
+Apps
+----
+
+* Bar Code Scanner
+* Sound Hound / Music Identifier

@@ -195,6 +195,8 @@ print match.group(1)
 ```
 https://docs.python.org/2/library/re.html#re.search
 
+NOTE that `re.match` only matches at the BEGINNING of the string. See https://docs.python.org/2/library/re.html#re.match.
+
 
 ### Untar
 ```

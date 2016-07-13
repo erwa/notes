@@ -1,3 +1,8 @@
+### Enable password-less SSH to host
+
+Add public key to `~/.ssh/authorized_keys` file on the host.
+
+
 # https://www.openssl.org/docs/apps/genpkey.html
 # Generate 2048-bit RSA private key
 # Encrypted data can be of length 2048 / 8 - 11 = 245 bytes long

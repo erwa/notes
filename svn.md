@@ -1,3 +1,19 @@
+### `svn blame`
+See revision and author for each line.
+```
+svn blame FILE
+# Add -v for date
+```
+
+
+### See changes in revision / commit
+```
+svn diff -c <revision> path/to/file
+# -c means changeset
+```
+http://stackoverflow.com/questions/21720865/how-to-view-changes-made-to-files-on-a-certain-revision-in-subversion
+
+
 ### Check out a repo
 ```
 svn checkout svn+ssh://<host>/repo/path
