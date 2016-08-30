@@ -1,3 +1,9 @@
+### Show whitespace
+Temporarily: search by regex
+
+Other methods: http://stackoverflow.com/questions/10153998/sublime-text-2-view-whitespace-characters
+
+
 ### Language-specific indentation settings
 
 See http://mlo.io/blog/2012/08/23/language-specific-indents-sublime.html. Sublime Text 2 -> Preferences -> Settings - More -> Syntax Specific - User

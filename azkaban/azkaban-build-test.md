@@ -1,4 +1,14 @@
-### Build
+### Build Azkaban Plugins
+```
+ant # build all plugins
+
+# Build 1 plugin
+cd plugins/PLUGIN_NAME
+ant
+```
+
+
+### Build Azkaban
 ```
 gradlew build -x test
 ```

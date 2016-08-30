@@ -1,3 +1,37 @@
+### Case sensitive git ignore
+```
+git config core.ignorecase false
+```
+
+
+### Git Aliases for .bashrc or .bash_profile
+```
+# Git aliases
+alias ga="git add"
+alias gb="git branch"
+alias gca="git commit --amend"
+alias gce="git commit --allow-empty -m"
+alias gcfd="git clean -fd"
+alias gcm="git commit -am"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
+alias gcr2="git commit -am will-be-deleted && git rebase -i HEAD~2"
+alias gcr2p="git commit -am will-be-deleted && git rebase -i HEAD~2 && rbt post -g no -r"
+alias gd="git diff"
+alias gdesc="git describe"
+alias glg="git log"
+alias gpl="git pull"
+alias gp="git push"
+alias gr="git rebase"
+alias grs="git reset"
+alias grsh1="git reset --hard HEAD~1"
+alias grd="git review dcommit -r"
+alias gsh="git show"
+alias gst="git status"
+alias gt="git tag"
+```
+
+
 ### Run git command from outside Git repo
 ```
 git --work-tree=~/git --git-dir=~/git/.git diff -- git.c
@@ -352,12 +386,22 @@ git rm --cached <files...>
 
 # When cloning with one URL fails, try another one (SSH, HTTP, Git)
 
-# Enable color output on Mac
-# http://stackoverflow.com/questions/1156069/how-to-configure-mac-os-x-term-so-that-git-has-color
+### Enable color output
+```
 git config --global color.ui true
+```
+http://stackoverflow.com/questions/1156069/how-to-configure-mac-os-x-term-so-that-git-has-color
 
-# See configs
+### Avoid escape (ESC) characters
+```
+git config --global core.pager more
+```
+http://michael.otacoo.com/linux-2/avoid-escape-characters-in-git/
+
+### See configs
+```
 git config -l
+```
 
 ### Config git push
 ```
@@ -409,7 +453,7 @@ git clone git@github.com:whatever folder-name
 http://stackoverflow.com/questions/651038/how-do-you-clone-a-git-repository-into-a-specific-folder
 
 
-### Check if file or folder is tracked
+### Check if file or folder is tracked / under source control
 ```
 git ls-files FILE --error-unmatch
 ```
@@ -436,7 +480,13 @@ ssh-keygen -lf ahsu_ssh_key.pub
 
 ### Avoid prompt for passphrase
 ```
-$ eval $(ssh-agent)
-$ ssh-add PRIVATE_KEY_FILE
+eval $(ssh-agent)
+ssh-add PRIVATE_KEY_FILE
 ```
 http://stackoverflow.com/questions/10032461/git-keeps-asking-me-for-my-ssh-key-passphrase
+
+If you're SSHing to a remote host and want your ssh-agent forwarded, use
+```
+ssh -A ...
+```
+http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions

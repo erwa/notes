@@ -1,3 +1,25 @@
+### Remove all keys from ssh-agent
+```
+ssh-add -D
+```
+http://stackoverflow.com/questions/25464930/how-to-remove-a-ssh-key
+
+
+### List keys added to ssh-agent
+```
+ssh-add -l
+# or
+ssh-add -L
+```
+http://unix.stackexchange.com/questions/58969/how-to-list-keys-added-to-ssh-agent-with-ssh-add
+
+
+### Forward ssh-agent
+```
+ssh -A ...
+```
+
+
 ### Enable password-less SSH to host
 
 Add public key to `~/.ssh/authorized_keys` file on the host.

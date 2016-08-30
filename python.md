@@ -1,3 +1,128 @@
+### Get type of object
+```
+type(obj)
+```
+http://stackoverflow.com/questions/402504/how-to-determine-the-variable-type-in-python
+
+
+### Parse map from string
+```
+import ast
+a = ast.literal_eval('{0:1,1:3,6:8}')
+print a
+print a[0]
+print a[6]
+```
+http://stackoverflow.com/questions/988228/converting-a-string-to-dictionary
+
+
+### Wait for keypress from user
+```
+while True:
+    try:
+        raw_input()
+    except EOFError:  # terminate on Ctrl+D
+        sys.exit()
+```
+http://stackoverflow.com/questions/17650754/how-can-i-capture-ctrl-d-in-python-interactive-console
+
+
+### Connect to MySQL
+```
+#!/usr/bin/env python
+
+import MySQLdb
+
+import getpass
+pw = getpass.getpass()
+
+db = MySQLdb.connect(host="foo.example.com",
+                     user="user",
+                     passwd=pw,
+                     db="database")
+
+cur = db.cursor()
+cur.execute("desc DUMMY_TABLE;")
+for row in cur.fetchall():
+    print row
+
+db.close()
+```
+
+
+### Get function name as string
+```
+def foo
+    pass
+
+foo.__name__
+```
+http://stackoverflow.com/questions/251464/how-to-get-a-function-name-as-a-string-in-python
+
+
+### Enable logging in Pytest
+```
+py.test --capture=no
+```
+
+
+### ArgumentParser
+https://docs.python.org/2/library/argparse.html
+
+Optional arguments start with `-`. Positional arguments do not.
+
+Multiline help text:
+```
+from argparse import RawTextHelpFormatter
+parser = ArgumentParser(description='test', formatter_class=RawTextHelpFormatter)
+```
+http://stackoverflow.com/questions/3853722/python-argparse-how-to-insert-newline-in-the-help-text
+
+
+### sleep
+```
+import time
+time.sleep(5) # delays for 5 seconds
+```
+http://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
+
+
+### Expand list to function arguments / unpacking argument lists
+```
+def foo(x,y,z):
+   return "%d, %d, %d" % (x,y,z)
+
+values = [1,2,3]
+
+# the solution.
+foo(*values)
+```
+http://stackoverflow.com/questions/7745952/python-expand-list-to-function-arguments
+
+
+### Invoke method by name
+```
+import foo
+result = getattr(foo, 'bar')()
+```
+http://stackoverflow.com/questions/3061/calling-a-function-of-a-module-from-a-string-with-the-functions-name-in-python
+
+
+### Iterate with index
+```
+for idx, val in enumerate(ints):
+    print(idx, val)
+```
+http://stackoverflow.com/questions/522563/accessing-the-index-in-python-for-loops
+
+
+### Convert epoch to datetime
+```
+import time
+time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime(1347517370))
+```
+
+
 ### Variable Scope
 A function introduces a new scope.
 ```
@@ -44,6 +169,22 @@ https://docs.python.org/devguide/documenting.html
 ```
 u'MyString' == 'MyString'  # True
 u'MyString' is 'MyString'  # False
+```
+
+
+### `json.load()` vs. `json.loads()`
+* `load()` take a file-like object.
+* `loads()` takes a string.
+https://www.reddit.com/r/learnpython/comments/3nx9ch/json_load_vs_loads/
+
+
+### Diff JSON
+```
+import json
+a = json.loads(...)
+b = json.loads(...)
+
+a == b
 ```
 
 
@@ -125,8 +266,14 @@ _internal_class_variable
 public_class_variable
 _internal_instance_variable
 public_instance_variable
+
+# classses are in modules, which use lowercase_underscore_separated naming
+MyClass
+
+# packages (directories) should use lowercasepreferablywithoutunderscores
 ```
 https://google.github.io/styleguide/pyguide.html?showone=Naming#Naming
+http://programmers.stackexchange.com/questions/308972/python-file-naming-convention
 
 
 ### Find location library is installed / get file path of imported module
@@ -135,6 +282,15 @@ import jpype
 print jpype.__file__
 ```
 http://stackoverflow.com/questions/269795/how-do-i-find-the-location-of-python-module-sources
+
+
+### Set environment variable
+```
+import os
+os.environ['FOO'] = 'bar'
+```
+http://stackoverflow.com/questions/5971635/setting-reading-up-environment-variables-in-python
+
 
 ### Get environment variable
 ```
@@ -156,6 +312,17 @@ http://stackoverflow.com/questions/5137497/find-current-directory-and-files-dire
 
 ### Class variables / static variables
 ```
+# No inheritance
+class MyClass:
+
+    # constructor, initializes class
+    def __init__(self, a, b):
+        ...
+
+# instantiate a class
+x = MyClass()
+
+# extends `object`
 class Test(object):
     i = 3 # class (or static) variable
     @classmethod
@@ -165,6 +332,20 @@ class Test(object):
             cls.i = arg # would the the same as  Test.i = arg1
 ```
 http://stackoverflow.com/questions/68645/static-class-variables-in-python
+
+#### Calling other methods within a class
+```
+class Bag:
+    def __init__(self):
+        self.data = []
+
+    def add(self, x):
+        self.data.append(x)
+
+    def addtwice(self, x):
+        self.add(x)
+        self.add(x)
+```
 
 
 ### Add set to another set
@@ -177,6 +358,13 @@ set1.update(set2)
 str.replace(old, new[, max])
 ```
 http://www.tutorialspoint.com/python/string_replace.htm
+
+
+### Regex multiline sub
+```
+re.sub(re.compile('foo$', re.MULTILINE), 'bar', input_string)
+```
+http://stackoverflow.com/questions/42581/python-re-sub-multiline-caret-match
 
 
 ### Regex replace
@@ -450,6 +638,14 @@ if not a:
 # Python slicing and finding the last index of a character
 output_dir[:output_dir.rfind('/')]
 
+### Check if file exists
+```
+import os.path
+os.path.isfile(fname)
+```
+http://stackoverflow.com/questions/82831/how-to-check-whether-a-file-exists-using-python
+
+
 #### Check if path exists and is directory
 ```
 os.path.exists(path) and os.path.isdir(path)
@@ -543,8 +739,9 @@ https://docs.python.org/2/tutorial/errors.html#handling-exceptions
 for arg in sys.argv[1:]:
     try:
         f = open(arg, 'r')
-    except IOError:
+    except IOError as e:
         print 'cannot open', arg
+        print e
     else:
         print arg, 'has', len(f.readlines()), 'lines'
         f.close()
@@ -552,7 +749,7 @@ for arg in sys.argv[1:]:
 
 `else` clause must follow all `except` clauses and will be executed if the `try` block does not throw an exception.
 
-### raise exception
+### raise exception / reraise exception
 `raise` by itself re-raises the thrown exception.
 
 ### Pytest
@@ -582,6 +779,12 @@ print VARIABLE_NAME
 
 # Next line
 n
+
+# Step into
+s
+
+# Step out
+r
 
 # Quit
 q
@@ -615,6 +818,10 @@ $ python foo.py > file
 ### mkdir
 ```
 os.mkdir(path)
+
+# if not exists and mkdir recursively
+if not os.path.exists(directory):
+    os.makedirs(directory)
 ```
 http://www.tutorialspoint.com/python/os_mkdir.htm
 
@@ -651,6 +858,10 @@ http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
 
 ### Run external command and capture output
+```
+foo = Popen(['command', 'arg1'], stdout=PIPE, stderr=STDOUT).stdout.read()
+```
+
 ```
 import subprocess
 process = subprocess.Popen(["cat", "temp"], stdout=subprocess.PIPE)

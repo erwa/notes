@@ -7,14 +7,22 @@ Puzzling Checklist
 * Ruler / straightedge
 * Clipboard
 * Phone / charger / battery pack
-* Reference sheet
+* Power strip
+* Laptop / charger
+* Reference sheet (need to add Greek letters)
 * Pens / pencils
 * Scratch paper
 * Hat, sunscreen
+* Water bottle / Camelbak / bag for Camelbak
+* Backpack / drawstring bag
+* Switch language to English on Google accounts and computer/phone
+* Turn up volume on phone, turn on ClueKeeper notifications
 
 
-Apps
+
+Apps / References
 ----
 
 * Bar Code Scanner
 * Sound Hound / Music Identifier
+* Anagrammer, regex dictionary

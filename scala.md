@@ -1,3 +1,23 @@
+### Sort List
+```
+scala> var a = List((0,1),(1,0))
+
+# Sort by second element in list
+scala> a.sortBy(x => x._2)
+res1: List[(Int, Int)] = List((1,0), (0,1))
+```
+
+
+### Covariance
+http://stackoverflow.com/questions/4531455/whats-the-difference-between-ab-and-b-in-scala/4531696#4531696
+
+
+### Type Bounds
+An upper type bound `T <: A` declares that type variable T refers to a subtype of type A. `A` is an upper bound of type `T`.
+
+http://docs.scala-lang.org/tutorials/tour/upper-type-bounds
+
+
 ### Method Accessibility Scope
 
 ```
@@ -39,6 +59,13 @@ val str : String = Foo.unapply(x) match {
 }
 ```
 http://stackoverflow.com/questions/18468786/using-apply-unapply
+
+
+### Run Scala file
+```
+scala foo.scala
+```
+https://blog.ajduke.in/2013/05/31/various-ways-to-run-scala-code/
 
 
 ### Scala REPL

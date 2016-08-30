@@ -169,6 +169,8 @@ Open PDF in Preview. File -> Export -> change Quartz Filter to "Reduce File Size
 Preview -> Tools -> Adjust Size
 http://www.wikihow.com/Resize-Pictures-(for-Macs)
 
+Batch resize with Preview: http://osxdaily.com/2009/12/16/batch-resize-images-on-mac-with-preview/
+
 
 ### Text forwarding
 * Make sure phone and Mac are on same wifi network.

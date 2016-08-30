@@ -1,13 +1,23 @@
-# How to do a pull request
-# http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
+### Link to specific commit (canonical URLs)
+Press `y` in the source file.
 
-# When you comment on a specific commit of a pull request, a notification is only sent to the
-# watchers of the repo being pulled from; a notification is NOT sent to the watchers of the
-# repo being merged into.
+http://stackoverflow.com/questions/23821235/how-to-link-to-specific-line-number-on-github
 
-# Markdown emoji cheatsheet
-# http://www.emoji-cheat-sheet.com/
 
-# Bold/italicize part of a word
-# http://meta.stackexchange.com/questions/140706/how-do-i-make-part-of-a-word-bold-using-markdown
+### How to do a pull request
+http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
+
+
+### Notififcations
+When you comment on a specific commit of a pull request, a notification is only sent to the watchers of the repo being pulled from; a notification is NOT sent to the watchers of the repo being merged into.
+
+
+### Markdown emoji cheatsheet
+http://www.emoji-cheat-sheet.com/
+
+
+### Bold/italicize part of a word
+```
 <b>some</b><i>what</i>
+```
+http://meta.stackexchange.com/questions/140706/how-do-i-make-part-of-a-word-bold-using-markdown

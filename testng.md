@@ -1,3 +1,12 @@
+### Setup method for class
+```
+  @BeforeClass
+  public void setUp() {
+    ...
+  }
+```
+
+
 ### Expected Exceptions
 ```
   @Test(expectedExceptions = ArithmeticException.class)

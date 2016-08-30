@@ -319,6 +319,8 @@ http://stackoverflow.com/questions/727844/javax-vs-java-package
 ```
 jdb -attach localhost:8000
 
+jdb -classpath *:`hadoop classpath` DelegationTokenTest
+
 help
 
 next
@@ -328,6 +330,12 @@ stop in org.apache.hadoop.hive.ql.exec.FunctionRegistry.getFunctionNames
 
 # Set breakpoint at line number
 stop at org.apache.hadoop.hive.ql.exec.FunctionRegistry:485
+
+stop in org.apache.hadoop.ipc.Client.getTimeout
+
+stop in org.apache.hadoop.ipc.Client.getConnection
+
+stop in org.apache.hadoop.ipc.Client$Connection.setupIOstreams
 
 # Print stacktrace
 where

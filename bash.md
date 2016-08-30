@@ -1,3 +1,24 @@
+### Run command as another user
+```
+sudo -u pigmgr COMMAND
+```
+http://askubuntu.com/questions/294736/run-a-shell-script-as-another-user-that-has-no-password
+
+
+### base64 decode
+```
+echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode
+```
+http://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line
+
+
+### `xmllint`
+Validate but don't output tree:
+```
+xmllint -noout foo.xml
+```
+
+
 ### Time ANDed commands
 ```
 time (sleep 1 && sleep 1)
@@ -57,6 +78,12 @@ http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 # Tests the return status of the last executed command
 # AND
 if COMMAND1 && COMMAND2
+
+# e.g.:
+if ! grep foo my_file
+then  # Run if "foo" not present in my_file
+  ...
+fi
 
 # OR
 if COMMAND1 || COMMAND2
@@ -132,11 +159,6 @@ free
 top
 ```
 
-#### Using top
-http://alvinalexander.com/linux/unix-linux-top-command-cpu-memory
-* To sort on memory, press 'o', press 'n', press Enter.
-* Press 'h' for help.
-
 ### Swap space
 See http://www.linux.com/news/software/applications/8208-all-about-linux-swap-space.
 
@@ -145,99 +167,6 @@ Check `vm.swappiness` in `/etc/sysctl.conf`. Default is `60`. To verify:
 sysctl vm.swappiness
 ```
 A higher number means the system is more likely to swap pages out into swap space.
-
-# `grep`
-
-Grep only files matching a pattern:
-```
-grep --include=*.job -r "type=hive" ./*
-```
-
-Grep and only show matching files:
-```
-grep -l
-```
-* http://stackoverflow.com/questions/3908156/grep-output-to-show-only-matching-file
-
-Grep for classes with "Test" in their names. See http://www.robelle.com/smugbook/regexpr.html.
-```
-grep Test.*class
-```
-NOTE: `grep Test*.class` and `grep Test*class` do NOT work as expected.
-
-Grep for files ending in .xml:
-```
-grep "\.xml"
-```
-
-Grep for items that do NOT match a pattern:
-```
-grep -v <pattern>
-```
-
-Grep starting from certain line number:
-```
-sed -n '<line_number>,$ p' <file> | grep <pattern>
-```
-
-Grep, cut, and sed:
-```
-grep pattern FILE | cut -d '"' -f 4 | sed -e 's/://' | sed -e 's/\.git//'
-```
-
-Grep and only print the second field:
-```
-grep -r "pattern" ./* | cut -d ' ' -f 2
-```
-`-d ' '` means split on space. `-f 2` means select only the 2nd field.
-
-Grep, split on whitespace, and print fifth field:
-```
-grep "pattern" | awk '{print $5}'
-```
-
-
-```
-# Match the beginning of lines
-grep '^<pattern>'
-
-# Don't show file name
-grep -h
-
-# Show matching part only
-grep -o
-
-# Trim whitespace (technically will leave one leading space)
-grep ... | tr -s [:space:]
-```
-
-Grep number of occurrences of WORD in FILE
-```
-grep -o WORD FILE | wc -l
-```
-`-o` causes grep to only print matching part (not entire line)
-
-Grep and ignore errors
-```
-grep -s ...
-```
-
-Grep and hide filename
-```
-grep -h
-```
-
-Grep and show lines before and after
-```
-grep -B 1 -A 1
-```
-http://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines
-
-Grep for full word
-```
-grep -w WORD
-# http://stackoverflow.com/questions/2879085/how-to-grep-for-the-whole-word
-```
 
 
 ### Use awk to find 0-byte HDFS files in a directory
@@ -351,15 +280,6 @@ Remove last character from substring:
 ${MYSTRING%?}
 ```
 `%` (percent) matches from the end. `?` matches any character. See http://wiki.bash-hackers.org/syntax/pattern.
-
-### Schedule a cron job
-```bash
-crontab -e
-```
-See http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/. The crontab is stored in `/var/spool/cron/`, but is not meant to be edited by hand. See http://askubuntu.com/questions/216692/where-is-the-user-crontab-stored. To see recent cron job runs, run:
-```bash
-grep <script_name> /var/log/cron
-```
 
 ### Bash dollar sign variables
 See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
@@ -636,6 +556,12 @@ echo $'a\tb'
 hostname
 ```
 
+### Find all file descriptors used by a process
+```
+ls -l /proc/PROCESS_ID/fd | less
+```
+
+
 ### Check system specs (CPU, memory, etc.)
 ```
 cat /proc/cpuinfo
@@ -646,6 +572,7 @@ cat /proc/meminfo
 ```
 uname -a
 ```
+See https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#RHEL_6 for what kernel version maps to what 6.x version.
 
 ### Append to a file
 ```
@@ -685,6 +612,12 @@ set -x
 http://serverfault.com/questions/391255/what-does-passing-the-xe-parameters-to-bin-bash-do
 
 # less
+
+### Start reading from 50.2% in
+```
+less -n +50.2p foo.log
+```
+http://serverfault.com/questions/411280/how-to-get-less-to-seek-faster-with-large-log-files
 
 ### Open a large file
 ```
@@ -772,6 +705,7 @@ For an explanation of the output, see http://serverfault.com/questions/94368/und
 
 To calculate the amount of space used, multiply the number of blocks (first number) by the BLOCK_SIZE (defined in /usr/include/sys/mount.h). Reference: http://stackoverflow.com/questions/2506288/detect-block-size-for-quota-in-linux
 
+
 ### Find process running on port
 ```
 sudo netstat -tulpn | grep <port>
@@ -810,46 +744,6 @@ nc -z -w5 <host> <port>
 This will print a message if successful:
 ```
 echo $? # 0 on success, 1 on failure
-```
-
-### Add a Yum Repository on RHEL
-See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Managing_Yum_Repositories.html.
-```
-sudo yum-config-manager --add-repo http://yum.postgresql.org
-```
-
-### Install RPM file
-http://www.cyberciti.biz/faq/rhel-redhat-fedora-opensuse-linux-install-rpmfile-command/
-```
-rpm -ivh RPM_FILE
-```
-
-### Install all RPM files in a directory
-```
-for i in /path/to/rpms/*.rpm; do
-  sudo rpm -ivh $i
-done
-```
-
-### Determine where Yum package was installed / list files in package
-http://stackoverflow.com/questions/1766380/determining-the-path-that-a-yum-package-installed-to
-```
-rpm -ql PACKAGE
-```
-
-### List all installed RPMs
-```
-rpm -qa
-```
-
-### Delete RPM package
-https://www.howtoforge.com/community/threads/how-do-i-uninstall-rpm-packages.8/
-```
-# Find exact package name
-rpm -qa | grep -i package_name
-
-# Uninstall it
-sudo rpm -e <package name>
 ```
 
 ### Find out when computer was last rebooted.
@@ -1020,6 +914,7 @@ perl -pi -w -e 's/ahsu/dalitest/g;' *.job
 ```
 * http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/
 * http://lifehacker.com/5810026/quickly-find-and-replace-text-across-multiple-documents-via-the-command-line
+
 
 ### Check for existence of executable
 See http://stackoverflow.com/a/677212/1128392.

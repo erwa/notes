@@ -1,10 +1,27 @@
+### SUMIF
+
+Range to be tested against criteria comes FIRST.
+```
+=SUMIF(range_to_be_tested_against_criteria, criteria, range_to_be_summed)
+```
+
+https://support.google.com/docs/answer/3093583?hl=en
+
+### SUMIFS
+
+```
+=SUMIFS(sum_range, criteria_range_1, criteria1, criteria_range_2, criteria2, ...)
+```
+https://support.google.com/docs/answer/3238496?hl=en
+
+
 ### Keyboard Shortcuts
 * https://support.google.com/docs/answer/179738?hl=en
 * `Ctrl/Command + /` for help.
 
 ```
 # Align Right
-Ctrl + Shift + R
+Cmd + Shift + R
 
 # Align Center
 Cmd + Shift + E

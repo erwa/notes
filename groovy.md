@@ -1,3 +1,10 @@
+### Run Groovy using groovy-all jar
+```
+java -cp 'src:.:lib/*' groovy.ui.GroovyMain src/com/example/MyScript.groovy
+```
+http://stackoverflow.com/questions/12391985/when-running-groovy-scripts-using-the-groovy-all-jar-how-do-you-specify-a-class
+
+
 ### GStrings
 See http://docs.groovy-lang.org/latest/html/documentation/index.html#all-strings. String interpolation only works in double-quoted strings, not single- or triple-quoted strings.
 ```

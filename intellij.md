@@ -1,3 +1,15 @@
+### Show whitespace characters
+View -> Active Editor -> Show Whitespaces
+
+http://stackoverflow.com/questions/9868796/how-to-display-hidden-characters-by-default-zero-width-space-ie-8203
+
+
+### Generate main method
+Type `psvm`, then press Enter.
+
+https://www.jetbrains.com/help/idea/2016.1/generating-main-method-example-of-applying-a-simple-live-template.html
+
+
 ### Jump between syntax errors / suggestions
 ```
 F2 / Shift + F2

@@ -267,3 +267,9 @@ other_namenodes=hdfs://NN_HOST:9000,webhdfs://NN_HOST:50070
 
 ### Running flow on specific executor server
 As an admin, add a flow parameter `useExecutor=<executor_id>`. The `executor_id` comes from the `executors` DB table.
+
+```
+mysql -h HOST -D DATABASE -u USER --password
+
+select * from executors;
+```

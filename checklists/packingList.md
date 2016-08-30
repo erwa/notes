@@ -46,6 +46,7 @@
 - toilet paper
 - trowel
 - gloves
+- hiking boots
 - extra pairs of socks
 - compass
 - towel

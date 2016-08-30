@@ -1,3 +1,14 @@
+### Special characters
+`^@` is NUL character.
+http://unix.stackexchange.com/questions/217010/search-and-replace-control-characters-m-i-in-vi
+
+
+### Next word in insert mode
+```
+Shift + right arrow
+```
+
+
 ### Replace mode
 ```
 Shift + R
@@ -153,6 +164,8 @@ http://stackoverflow.com/questions/12584465/how-to-maintain-tabs-when-pasting-in
 ### Show escape characters
 ```
 :set list
+# Tabs appear as ^I
+
 # Stop showing them
 :set nolist
 ```
