@@ -1,3 +1,10 @@
+### Set option on start-up
+```
+vim -c 'set paste'
+```
+http://vi.stackexchange.com/questions/2973/setting-a-vim-option-from-the-command-line
+
+
 ### Special characters
 `^@` is NUL character.
 http://unix.stackexchange.com/questions/217010/search-and-replace-control-characters-m-i-in-vi

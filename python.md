@@ -1,3 +1,57 @@
+### Sets
+```
+s = set()
+s.add(x)
+s.pop()
+s.remove(x)
+```
+https://docs.python.org/2/library/sets.html
+
+
+### pytest Exceptions
+```
+def test_zero_division():
+    with pytest.raises(ZeroDivisionError):
+        1 / 0
+```
+
+
+### Parameterize tests
+```
+import pytest
+
+@pytest.mark.parametrize('name, left, right', [['foo', 'a', 'a'],
+                                               ['bar', 'a', 'b'],
+                                               ['baz', 'b', 'b']])
+def test_me(name, left, right):
+    assert left == right, name
+```
+
+Run using `py.test`.
+
+http://stackoverflow.com/a/25626660/1128392
+
+
+### Running using virtual environment in IntelliJ
+
+http://stackoverflow.com/questions/20877106/using-intellijidea-within-an-existing-virtualenv
+
+
+### unittest
+
+```
+import unittest
+
+class TestMyClass(unittest.TestCase):
+
+    # Setup method called once per class
+    # Use this rather than __init__
+    def setUp():
+        ...
+```
+https://docs.python.org/2/library/unittest.html#unittest.TestCase.setUp
+
+
 ### Get type of object
 ```
 type(obj)
@@ -190,7 +244,7 @@ a == b
 
 ### Parse JSON
 ```
-with open('/path/to/file') as f:
+with open('/path/to/file') as f:  # defaults to 'r' mode
     data = json.load(f)
 
 print(json.dumps(data, indent=2))
@@ -562,6 +616,8 @@ lines = [line.rstrip('\n') for line in open('filename')]
 # http://stackoverflow.com/questions/983201/python-and-sys-argv
 import sys
 if len(sys.argv) > 1:
+  # sys.argv[0] = file name
+  # sys.argv[1] = first argument
   ...
 
 
@@ -635,7 +691,7 @@ a = []
 if not a:
   print "List is empty"
 
-# Python slicing and finding the last index of a character
+# Python slicing and finding the last index (indexof) of a character
 output_dir[:output_dir.rfind('/')]
 
 ### Check if file exists

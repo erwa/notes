@@ -1,3 +1,11 @@
+### strace
+Monitor network traffic of process
+```
+strace -f -e trace=network -s 10000 PROCESS ARGUMENTS
+```
+http://askubuntu.com/questions/11709/how-can-i-capture-network-traffic-of-a-single-process/499850
+
+
 ### Run command as another user
 ```
 sudo -u pigmgr COMMAND
@@ -402,7 +410,21 @@ One issue with `filterdiff -i` is it removes any `diff --git ...` and `index ...
 filterdiff -X fileWithExcludePatternsOnePerLine patch.diff > filtered.diff
 ```
 
+### Change file/directory modified or inode change time
+```
+# mtime
+touch -m --date="7 days ago" FILE
+```
+
+
 # `ls`
+
+### atime vs ctime vs mtime
+```
+ls -l   # mtime (modification time)
+ls -cl  # ctime (inode change time)
+ls -ul  # atime (access time)
+```
 
 ### `ls` another user's home directory
 ```
@@ -757,6 +779,18 @@ The time after `up` is how long the computer has been running without reboot
 ```
 head FILE
 ```
+
+
+### Configure PATH
+```
+# Option 1
+$HOME/.bash_profile
+
+# Option 2
+/etc/paths.d
+```
+http://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-variable/
+
 
 ### Setting PKG_CONFIG_PATH for pkg-config
 There should be .pc files in the `PKG_CONFIG_PATH`.

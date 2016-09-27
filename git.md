@@ -69,6 +69,9 @@ git push <remote> <branch>
 # Fetch remote branches
 git fetch <remote>
 
+# Add refspec
+git fetch origin +branch-1:branch-1
+
 # A git tag refers to a specific commit and does not change.
 # To fetch tags
 git fetch --tags

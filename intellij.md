@@ -1,3 +1,34 @@
+### Find symbol (method, field)
+Option + Shift + Cmd + N
+
+
+### Increase memory limit
+Help -> Edit Custom VM Options
+
+http://stackoverflow.com/questions/13578062/how-to-increase-ide-memory-limit-in-intellij-idea-on-mac
+
+
+### Add source directory
+Project View -> Right click -> Mark Directory As -> Sources Root
+
+
+### Python virtualenv
+http://stackoverflow.com/questions/20877106/using-intellijidea-within-an-existing-virtualenv
+
+
+### Git
+Right click next to line -> Annotate. Search (Cmd + Shift + A) "Show History" command to see file history.
+
+#### Compare files between branches
+Compare with Branch (Cmd + Shift + A)
+
+
+### Reformat file
+```
+Option + Cmd + L
+```
+
+
 ### Show whitespace characters
 View -> Active Editor -> Show Whitespaces
 

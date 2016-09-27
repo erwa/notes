@@ -6,10 +6,13 @@
 ```
 http://stackoverflow.com/questions/7126709/how-do-i-set-log4j-level-on-the-command-line
 
-### Change logging level for package
+### Change logging level for package/class
 ```
 log4j.logger.my.pkg=DEBUG
+
+log4j.logger.my.pkg.ab.class1=debug
 ```
+http://stackoverflow.com/questions/4527204/log4j-set-different-loglevel-for-different-packages-classes
 
 
 # slf4j

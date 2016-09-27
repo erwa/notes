@@ -1,3 +1,12 @@
+### Copy files
+
+```
+FileUtil.copy(srcFs, srcPath, destFs, destPath, false, c);
+```
+http://stackoverflow.com/questions/35806830/how-to-copy-a-file-from-one-hdfs-folder-to-another-hdfs-folder-using-java-api
+
+
+
 ### Host job was submitted from
 
 `mapreduce.job.submithostname` in job conf

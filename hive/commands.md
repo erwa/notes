@@ -1,3 +1,13 @@
+### Alter column
+
+```
+use my_db;
+alter table foo change bar qux string;
+```
+
+
+### Examples
+
 ```
 # Hive print column names
 set hive.cli.print.header=true;

@@ -1,3 +1,29 @@
+### String Interpolation
+
+```
+// s string, allows direct use of variables in strings
+val name = "James"
+println(s"Hello, $name")  // Hello, James
+```
+http://docs.scala-lang.org/overviews/core/string-interpolation.html
+
+
+### Type-Relation Operators
+```
+<:<
+=:=
+```
+
+
+### Types
+
+All values are objects (no primitives). Numbers are objects. Functions are objects.
+
+All values are instances of a class.
+
+http://docs.scala-lang.org/tutorials/tour/unified-types.html
+
+
 ### Sort List
 ```
 scala> var a = List((0,1),(1,0))
@@ -10,6 +36,23 @@ res1: List[(Int, Int)] = List((1,0), (0,1))
 
 ### Covariance
 http://stackoverflow.com/questions/4531455/whats-the-difference-between-ab-and-b-in-scala/4531696#4531696
+
+
+### Context Bounds
+```
+Generally, a type parameter with a context bound is of the form [T: Bound]; it is expanded to plain type parameter T together with an implicit parameter of type Bound[T].
+```
+http://stackoverflow.com/questions/2982276/what-is-a-context-bound-in-scala
+
+`[T: Bound]` -> `T` + implicit `Bound[T]`.
+
+```
+def foo[T: Manifest](x: List[T]) = ...
+// is equivalent to
+def foo[T](x: List[T])(implicit m: Manifest[T]) = ...
+```
+
+`Manifest` is basically used to preserve type information at runtime (which is generally not available to JVM). Ref: http://stackoverflow.com/questions/3213510/what-is-a-manifest-in-scala-and-when-do-you-need-it
 
 
 ### Type Bounds
@@ -38,6 +81,29 @@ http://alvinalexander.com/scala/how-to-control-scala-method-scope-object-private
 * http://stackoverflow.com/questions/9084464/scala-equality-with-type-checking
 
 
+### Extractor
+
+http://docs.scala-lang.org/tutorials/tour/extractor-objects.html
+```
+object Twice {
+  def apply(x: Int): Int = x * 2
+  def unapply(z: Int): Option[Int] = if (z%2 == 0) Some(z/2) else None
+}
+object TwiceTest extends App {
+  val x = Twice(21)
+  x match { case Twice(n) => Console.println(n) } // prints 21
+}
+```
+
+```
+The return type of an unapply should be chosen as follows:
+
+* If it is just a test, return a Boolean. For instance case even()
+* If it returns a single sub-value of type T, return an Option[T]
+* If you want to return several sub-values T1,...,Tn, group them in an optional tuple Option[(T1,...,Tn)].
+```
+
+
 ### `apply` / `unapply`
 ```
 // `apply` lets you treat object like a function
@@ -52,7 +118,7 @@ object Foo {
 }
 
 val Foo(str) = x
-// gets converted to
+// gets converted to (is syntactic sugar for)
 val str : String = Foo.unapply(x) match {
   case Some(s) => s
   case None    => throw new scala.MatchError(x)
@@ -287,7 +353,7 @@ object ImplicitTest extends App {
 
 http://stackoverflow.com/questions/5512397/passing-scala-math-integral-as-implicit-parameter
 http://docs.scala-lang.org/tutorials/tour/implicit-parameters.html
-
+http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
 
 
 ### Repeated Parameters
@@ -367,6 +433,11 @@ http://joelabrahamsson.com/learning-scala-part-four-classes-and-constructors/
 
 
 ### Case classes and pattern matching
+```
+It only makes sense to define case classes if pattern matching is used to decompose data structures.
+```
+http://docs.scala-lang.org/tutorials/tour/case-classes
+
 http://www.scala-lang.org/docu/files/ScalaTutorial.pdf section 6
 ```
 abstract class Tree
@@ -465,6 +536,7 @@ For every Scala singleton object, the compiler will create a Java class for the 
 ```
 // "object" will create a singleton
 // http://www.scala-lang.org/docu/files/ScalaTutorial.pdf
+// Think of "object" as singleton of implicit class
 object HelloWorld {
   def main(args: Array[String]) {
     println("Hello, world!")

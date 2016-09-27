@@ -1,3 +1,8 @@
+### Remove quoted text line
+
+Unindent (`Ctrl + [`)
+
+
 ### Filter by date
 ```
 before:2015/12/25 after: 2015/12/01
@@ -19,6 +24,7 @@ Shift + i  # mark message as read
 k  # next conversation
 j  # previous conversation
 n  # Move cursor to newer message in conversation
+Shift + o  # open in new window
 p  # Move cursor to previous message in conversation
 #  # move conversation to Trash
 y  # Remove from current view (removes a label if the current view is a label)
