@@ -1,5 +1,15 @@
 # log4j
 
+### Layout
+Layout customizes the format of the log message for a specific appender.
+
+
+### Logger vs. Appender
+Logger generates messages, appender sends messages somewhere (console, database, etc.)
+
+http://stackoverflow.com/questions/23322602/log4j-config-different-logs-to-different-files
+
+
 ### Change logging level from command line:
 ```
 -Dlog4j.configuration=file:/path/to/file

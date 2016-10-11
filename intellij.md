@@ -1,3 +1,22 @@
+### Conditional Breakpoint
+Right click on breakpoint -> Condition. Example
+```
+var.varname.equals("bar")
+```
+
+
+### New View into File
+Right click file tab -> Split Vertically.
+
+
+### Dark Theme
+Intellij IDEA -> Preferences -> Appearance & Behavior -> Appearance -> Theme: Darcula
+
+
+### See recent changes
+Option + Shift + C
+
+
 ### Find symbol (method, field)
 Option + Shift + Cmd + N
 
@@ -179,10 +198,17 @@ Option + Shift + F10
 # Build (Make Project)
 Cmd + F9
 
-# Gradle integration
+### Gradle integration
+Import Project -> select the root build.gradle file
+
+View -> Tool Windows -> Gradle (only appears for Gradle projects)
+
+### Gradle IDEA IntelliJ project file generation
+```
 gradle idea
-# File -> Open -> select .ipr file
-# https://docs.gradle.org/current/userguide/idea_plugin.html
+```
+File -> Open -> select .ipr file
+https://docs.gradle.org/current/userguide/idea_plugin.html
 
 # Show type hierarchy
 Control + H

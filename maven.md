@@ -1,3 +1,11 @@
+### Assertions
+Maven Surefire Plugin enables assertions by default for tests.
+
+http://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#enableAssertions
+
+http://stackoverflow.com/questions/19966620/enable-assert-in-a-maven-built-project
+
+
 ### Listing goals/targets
 You cannot list all goals/targets in Maven, like you can in Ant
 

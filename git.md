@@ -48,9 +48,17 @@ git remote add upstream git://github.com/user/repo.git
 git remote set-url <remote> git://...
 ```
 
-# git pull remote branch
+### Abort pull with conflicts
+```
+git reset --hard HEAD
+```
+
+
+### Pull remote branch
+```
 git pull upstream master // git pull latest from upstream master
 git pull <remote> <src>:<dest>
+```
 
 # create and push to remote branch from local branch
 git push <remote> <local branch>:<remote branch>
@@ -69,18 +77,33 @@ git push <remote> <branch>
 # Fetch remote branches
 git fetch <remote>
 
-# Add refspec
+# Add refspec (you might need to do this if you did a shallow clone originally)
 git fetch origin +branch-1:branch-1
 
 # A git tag refers to a specific commit and does not change.
 # To fetch tags
 git fetch --tags
 
+
+### Update tag
+```
+# delete remote branch
+git push origin :<tagname>
+
+# update commit local tag points to
+git tag -fa <tagname>
+
+# push tag
+git push origin <tagname>
+```
+
+
 ### Add annotated tag
 Annotated tags are meant for release versions.
 ```
 git tag -a TAG_NAME
 ```
+
 
 ### Sort tags chronologically by date
 ```
@@ -264,11 +287,13 @@ git cherry-pick HASH
 git pull <remote> <branch>
 # to pull from another local branch, push it to remote and then pull from remote
 
-# git apply commit from one repo to another
-# http://stackoverflow.com/questions/3816040/git-apply-changes-introduced-by-commit-in-one-repo-to-another-repo
+### Apply commit from one repo to another
+```
 /path/to/1 $ git format-patch sha1^..sha1
 /path/to/1 $ cd /path/to/2
 /path/to/2 $ git am /path/to/1/0001-…-….patch
+```
+http://stackoverflow.com/questions/3816040/git-apply-changes-introduced-by-commit-in-one-repo-to-another-repo
 
 ### Apply a patch
 ```

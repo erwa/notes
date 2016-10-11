@@ -1,11 +1,19 @@
+### Basic queries
+```
+desc schema.table
+
+show tables in my_schema
+```
+
+
 ### Show all databases
 ```
-show schemas;
+show schemas
 ```
 
 ### Catalogs
 Presto supports connectors to other storage systems to allow it to query data stored in these systems. These systems will show up as "catalogs" in presto.
 
 ```
-show catalogs;
+show catalogs
 ```

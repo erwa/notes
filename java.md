@@ -1,3 +1,9 @@
+### Class of primitive type
+```
+byte[].class
+```
+
+
 ### Convert Array to List
 ```
 Arrays.asList("intField", "stringField");

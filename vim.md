@@ -184,6 +184,17 @@ http://www.vim.org/scripts/script.php?script_id=1658
 :NERDTree
 ```
 
+### Show whitespace characters
+```
+:set list
+
+# may also be helpful
+:syntax on
+# use syntax for Whitespace programming language
+:set syntax=whitespace
+```
+http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
+
 
 ### Delete trailing whitespace
 ```

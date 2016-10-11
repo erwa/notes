@@ -1,3 +1,9 @@
+### Handling exception thrown in a generator
+Once a generator throws an exception, it exits. You cannot keep consuming items after that.
+
+http://stackoverflow.com/questions/11366064/handle-an-exception-thrown-in-a-generator
+
+
 ### Sets
 ```
 s = set()
@@ -112,6 +118,33 @@ def foo
 foo.__name__
 ```
 http://stackoverflow.com/questions/251464/how-to-get-a-function-name-as-a-string-in-python
+
+
+### logging
+```
+import logging
+logging.warning('Watch out!')  # will print a message to the console
+logging.info('I told you so')  # will not print anything
+```
+Default level is WARNING.
+
+Format log message:
+```
+import logging
+logging.basicConfig(format='%(asctime)s %(message)s')
+logging.warning('is when this event was logged.')
+
+# Output
+# 12/12/2010 11:46:36 AM is when this event was logged.
+```
+
+Convert logging level string to int:
+```
+Log = logging.getLogger('myLogger')
+level = logging.getLevelName('INFO')
+Log.setLevel(level)
+```
+http://stackoverflow.com/questions/10332748/python-logging-setlevel
 
 
 ### Enable logging in Pytest
@@ -546,6 +579,15 @@ output.write(...)
 if output is not sys.stdout:
     output.close()
 ```
+
+
+### `with open` multiple files
+```
+# Possible in Python 2.7+
+with open(newfile, 'w') as outfile, open(oldfile, 'r', encoding='utf-8') as infile:
+```
+http://stackoverflow.com/questions/9282967/how-to-open-a-file-using-the-open-with-statement
+
 
 
 ### Write to file

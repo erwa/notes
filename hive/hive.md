@@ -1,3 +1,29 @@
+### Writing Hive UDF
+
+http://blog.matthewrathbone.com/2013/08/10/guide-to-writing-hive-udfs.html
+
+
+### Test configuration
+Uses `data/conf/hive-site.xml`.
+
+
+### Logging
+Hive will use the hive-log4j.properties in the current working directory, if present.
+
+
+### Recover partitions
+```
+MSCK REPAIR TABLE table_name;
+```
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE)
+
+
+### Qtests
+
+Initialized by data/scripts/q_test_init.sql
+
+
+
 ### Beeline
 
 ```

@@ -1,3 +1,27 @@
+### COGROUP
+Put things into groups by a key, for each field specify the group key. In below example, A's key is owner, B's key is friend2.
+
+```
+X = COGROUP A BY owner, B BY friend2;
+
+DESCRIBE X;
+X: {group: chararray,A: {owner: chararray,pet: chararray},B: {friend1: chararray,friend2: chararray}}
+
+-- What X consists of:
+(Alice,{(Alice,turtle),(Alice,goldfish),(Alice,cat)},{(Cindy,Alice),(Mark,Alice)})
+(Bob,{(Bob,dog),(Bob,cat)},{(Paul,Bob)})
+(Jane,{},{(Paul,Jane)})
+```
+http://pig.apache.org/docs/r0.15.0/basic.html#group
+
+
+### Print dependencies
+```
+ant ivy-deps
+# Generates a .html file with dependency graph
+```
+
+
 ### Contribute patch
 ```
 git diff --no-prefix <commit> > PIG-1234.1.patch
@@ -18,6 +42,7 @@ LOGS= LOAD 'log';
 LOGS_GROUP= GROUP LOGS ALL; -- groups all records into single group
 LOG_COUNT = FOREACH LOGS_GROUP GENERATE COUNT(LOGS);
 
+
 ### Combine Small Input Files
 * http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
 
@@ -26,6 +51,12 @@ set pig.maxCombinedSplitSize <size_in_bytes>
 ```
 
 Make sure `pig.noSplitCombination` is NOT set to `true`.
+
+
+### Accessing Tuple fields in UDF
+Must be by positional index, not name. If it were name, every Pig script would have to use the same names!
+
+http://stackoverflow.com/questions/16993414/get-fields-by-name-in-pig
 
 
 ### Define alias for UDF

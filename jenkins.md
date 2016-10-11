@@ -1,3 +1,11 @@
+### Build Logs
+
+On master, in `$JENKINS_HOME/jobs/$JOB_NAME/builds`.
+
+http://stackoverflow.com/questions/37386581/jenkins-console-output-log-location-in-filesystem#comment62294529_37389388
+
+
+
 ### Starting and stopping Jenkins
 ```
 sudo service jenkins start/stop/restart

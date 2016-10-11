@@ -20,6 +20,14 @@ echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode
 http://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line
 
 
+### Validate JSON
+```
+cat foo.json | python -m json.tool
+# will print error if invalid, otherwise prints out json
+```
+http://stackoverflow.com/questions/3858671/unix-command-line-json-parser
+
+
 ### `xmllint`
 Validate but don't output tree:
 ```
@@ -1041,6 +1049,15 @@ done
 
 # http://www.cyberciti.biz/faq/bash-for-loop/
 ```
+
+### Loop over all files in directory
+```
+for f in *; do echo $f; done
+
+# read all files in directory into comma-separated string
+a=""; for f in *.q; do a+=$f; done; echo $a
+```
+http://www.cyberciti.biz/faq/bash-loop-over-file/
 
 
 ### Split string
