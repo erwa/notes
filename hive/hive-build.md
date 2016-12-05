@@ -1,11 +1,36 @@
+### Thrift
+
+```
+brew install thrift
+```
+
+Alternatively, build from source:
+
+Download from http://thrift.apache.org/
+```
+cd /path/to/thrift-0.9.3
+./configure --without-csharp --without-ruby
+
+# build with Java 7
+make
+sudo make install
+
+cd /path/to/hive
+mvn clean install -Pthriftif -DskipTests -Dthrift.home=/usr/local
+```
+
+https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-GeneratingThriftCode
+
+
+
 ### Generating tarball
 Works for trunk
 ```
 # Takes about 6 minutes
-# Include "clean" to be safe
-# Add "install" if you want to install in local Maven repo
+# Include "clean" to be safe or if you encounter build issues.
 # Add -Pdist to generate tarball
-mvn package -DskipTests -Dmaven.javadoc.skip=true
+# Add -Pitests to build itests, too
+mvn install -DskipTests -Dmaven.javadoc.skip=true
 
 # Output in packaging/target directory
 ```

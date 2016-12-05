@@ -196,10 +196,19 @@ git clean -f [-d]
 # Add all untracked files
 git add -A
 
-# git: uncommit last commit but keep changes in staging
-git reset --soft HEAD^
 
-# git show changes in commit
+### Reset one file
+```
+git reset HEAD^ path/to/file
+```
+
+
+### Uncommit last commit but keep changes in staging
+```
+git reset --soft HEAD^
+```
+
+### Show changes in commit
 git show <commit-hash>
 
 ### Show state of file at commit
@@ -207,16 +216,26 @@ git show <commit-hash>
 git show <commit>:<file>
 ```
 
+
 ### git blame on old commit
 ```
 git blame <commit> -- <file>
 ```
+http://stackoverflow.com/questions/5098256/git-blame-prior-commits
 
-# Modify a git commit message
+
+### Modify a git commit message
+
+```
 # Changes the most recent commit message
-```
 git commit --amend -m "New commit message"
+
+# Change up to older commit
+git rebase --interactive 'bbc643cd^'
+# Change "pick" to "e" or "edit"
 ```
+http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit-in-git
+
 
 ### Do an empty commit
 ```
@@ -258,6 +277,25 @@ Try changing URL from HTTPS to SSH. Try including/excluding https:// or ssh://. 
 
 ### Git Diff
 ```
+# diff with parent
+git diff 0ac424f0a17b341efe299da167791112e4a953e9^!
+# http://stackoverflow.com/questions/17563726/how-to-see-the-changes-in-a-commit
+
+# generate diff of one file in commit
+git diff <commit>^! -- path/to/file > foo.patch
+
+# apply patch to different path
+# -p<n> removes `n` leading directories
+# --directory prepends a path
+# `-3` allows conflict resolution
+cat foo.patch | git apply -3 -p2 --directory='new/path/'
+
+# one-line
+git diff <commit>^! -- path/to/file | git apply -3 -p2 --directory='new/path/'
+
+# -p1 strips off a/ and b/ prefixes Git automatically adds
+patch -p1 new/path foo.patch
+
 # git: comparing a file between two branches
 git diff BRANCH1 BRANCH2 FILE
 
@@ -274,6 +312,9 @@ git diff --stat f57ea64
 # git binary diff
 git diff --binary
 
+# Treat all files as text
+git diff --text
+
 # diff while ignoring whitespace changes
 git diff -w
 
@@ -282,18 +323,44 @@ git diff branch1..branch2
 # http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git
 ```
 
-# git apply commit from one branch on another
+
+### Apply diff in one repo to another
+```
+# repo 1
+git diff FILE > patch
+
+# repo 2
+git apply /path/to/patch
+```
+
+### Cherry-pick specific files
+```
+# use `git apply -3 -` to allow for conflict resolution
+# can also use `-p<n>` and `--directory`
+git show SHA -- file1.txt file2.txt | git apply -
+```
+http://stackoverflow.com/questions/5717026/how-to-git-cherry-pick-only-changes-to-certain-files
+
+`git apply` also support `--include=<path-pattern>` to only apply patches to some files.
+
+
+### Apply commit from one branch on another
+```
 git cherry-pick HASH
 git pull <remote> <branch>
 # to pull from another local branch, push it to remote and then pull from remote
+```
+
 
 ### Apply commit from one repo to another
 ```
+# Alternative
 /path/to/1 $ git format-patch sha1^..sha1
 /path/to/1 $ cd /path/to/2
 /path/to/2 $ git am /path/to/1/0001-…-….patch
 ```
 http://stackoverflow.com/questions/3816040/git-apply-changes-introduced-by-commit-in-one-repo-to-another-repo
+
 
 ### Apply a patch
 ```
@@ -313,6 +380,7 @@ http://stackoverflow.com/questions/16068186/git-how-to-cherry-pick-only-changes-
 
 ### Revert a commit
 ```
+# Add --no-edit to avoid edit prompt
 git revert <commit_hash>
 ```
 
@@ -353,7 +421,7 @@ git log -- [file]
 
 # Tracks files through git mv's
 # http://stackoverflow.com/questions/3845234/viewing-git-history-of-moved-files
-git log --follow [file]
+git log --follow -- [file]
 ```
 
 ### Show history of folder
@@ -372,7 +440,7 @@ git log -i --grep=word
 
 ### Print message only of last commit
 ```
-git log -1 --pretty=format:"%s"
+git log -1 --pretty=format:%s
 ```
 
 ### Print history as graph

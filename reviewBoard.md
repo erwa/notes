@@ -12,7 +12,7 @@ rbt post -g no
 
 ### Set fields from command line when posting
 ```
-rbt post --branch master --bugs-closed FOO-123 --description "Test commit" --testing-done "Ran unit tests." --target-people jdoe,jsmith --target-groups my-team --parent master --summary "Fixed FOO-123"
+rbt post --branch master --bugs-closed FOO-123 --description "Test commit" --testing-done "Ran unit tests." --target-people="jdoe, jsmith" --target-groups my-team --parent master --summary "Fixed FOO-123"
 ```
 
 

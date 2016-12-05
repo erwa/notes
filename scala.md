@@ -1,3 +1,19 @@
+### Build and run
+Test.scala:
+```
+object HelloWorld {
+  def main(args: Array[String]) {
+    println("hello, world!")
+  }
+}
+```
+
+```
+scalac Test.scala && scala HelloWorld
+```
+
+
+
 ### String Interpolation
 
 ```

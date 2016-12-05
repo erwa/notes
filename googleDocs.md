@@ -1,3 +1,10 @@
+### COUNTIF not blank
+```
+=COUNTIF(F90:F158,"<>")
+```
+http://stackoverflow.com/questions/12519073/google-docs-count-cells-that-contain-any-text
+
+
 ### SUMIF
 
 Range to be tested against criteria comes FIRST.

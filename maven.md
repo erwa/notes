@@ -1,3 +1,20 @@
+### Offline mode
+Add `-o` flag.
+
+
+### Find unused dependencies
+```
+mvn dependency:analyze
+```
+http://stackoverflow.com/questions/1517611/is-there-a-simple-way-to-remove-unused-dependencies-from-a-maven-pom-xml
+
+
+### Override Maven properties from command line
+Define property, then reference property in configuration. Use `-DpropName=propValue` on command line to override default value.
+
+http://stackoverflow.com/questions/13876165/how-to-override-maven-property-in-command-line
+
+
 ### Assertions
 Maven Surefire Plugin enables assertions by default for tests.
 

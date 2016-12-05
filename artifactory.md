@@ -1,3 +1,11 @@
+### Default Virtual Repository
+Virtual repository is an aggregation of local and remote (physical) repositories.
+
+Default virtual repository is /repo.
+
+https://www.jfrog.com/confluence/display/RTF/Configuring+Repositories#ConfiguringRepositories-TheDefaultVirtualRepository(Deprecated)
+
+
 ### Download latest version of Artifactory
 See https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact.
 ```
@@ -6,6 +14,7 @@ GET http://localhost:8080/artifactory/ivy-local/org/acme/[RELEASE]/acme-[RELEASE
 
 ### Folder-based view of Artifactory contents
 http://HOST:PORT/artifactory/repo/com/foo/bar
+
 
 ### GAVC (GroupId, ArtifactId, Version, Classifier) Search
 ```

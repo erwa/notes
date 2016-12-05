@@ -1,3 +1,18 @@
+### Enum to String
+```
+from enum import Enum
+
+
+class D(Enum):
+    x = 1
+    y = 2
+
+
+print(D.x.value)
+```
+http://stackoverflow.com/questions/24487405/python-enum-getting-value-of-enum-on-string-conversion
+
+
 ### Handling exception thrown in a generator
 Once a generator throws an exception, it exits. You cannot keep consuming items after that.
 
@@ -10,6 +25,8 @@ s = set()
 s.add(x)
 s.pop()
 s.remove(x)
+s.update(set2)  // set2 can be any iterable, modifies existing set
+s.union(set2)   // set2 can be any iterable, returns NEW set
 ```
 https://docs.python.org/2/library/sets.html
 
@@ -312,6 +329,17 @@ https://www.python.org/dev/peps/pep-0008/#should-a-line-break-before-or-after-a-
 ### Class and static methods
 First argument to a class method is the class (not an instance). Static method does not take any required arguments.
 
+```
+# Class method
+    @classmethod
+    def from_string(cls, date_as_string):
+        day, month, year = map(int, date_as_string.split('-'))
+        date1 = cls(day, month, year)
+        return date1
+
+date2 = Date.from_string('11-09-2012')
+```
+
 http://stackoverflow.com/questions/12179271/python-classmethod-and-staticmethod-for-beginner
 
 
@@ -385,6 +413,18 @@ import os
 print os.environ['HOME']
 ```
 http://stackoverflow.com/questions/4906977/how-to-access-environment-variables-from-python
+
+
+### Iterate over files in directory
+```
+for filename in os.listdir(directory):
+    if filename.endswith(".asm") or filename.endswith(".py"): 
+        # print(os.path.join(directory, filename))
+        continue
+    else:
+        continue
+```
+http://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
 
 
 ### Get path and directory of current file
@@ -678,7 +718,7 @@ http://stackoverflow.com/a/6670331/1128392
 
 # Or you can use re
 import re
-re.split('\s+', <string>)
+re.split(r'\s+', <string>)  # 'r' means raw string
 ```
 http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
 

@@ -1,5 +1,12 @@
 # log4j
 
+### Hierarchy
+
+A logger is an ancestor if name followed by dot is prefix of descendant logger name. Example: Logger "foo" is an ancestor of logger "foo.bar".
+
+https://logging.apache.org/log4j/1.2/manual.html#Logger_hierarchy
+
+
 ### Layout
 Layout customizes the format of the log message for a specific appender.
 

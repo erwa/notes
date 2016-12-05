@@ -178,11 +178,13 @@ See http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to
 
 ### How to interpret a stack trace
 See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message and http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3. Also see http://stackoverflow.com/a/357386/1128392.
+* `[TYPE` means array of TYPE
+* `B` means byte
 * `Lfoo.bar.ClassName;` means the type is foo.bar.ClassName
 * `V` means void
-* `B` means byte
-* `[TYPE` means array of TYPE
-* Return type follows closing parenthesis
+* `Z` means boolean
+
+Return type follows closing parenthesis
 
 ### Set encoding of Java build and execution
 See http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding.
@@ -301,12 +303,32 @@ A functional interface is any interface that contains only one abstract method.
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach5
 
 ### Streams
+Streams consist of:
+(1) source
+(2) intermediate operations
+(3) terminal perations
+
+(2) is not executed until (3) is. (2) return new streams. Streams are functional and return new streams rather than modifying the original stream. E.g.: Filtering a Collection stream returns a new stream and does not modify the original Collection.
+
+When (3) is performed, the stream is consumed and can no longer be used. You must create a new stream from the source if you want to traverse the data again.
+
 ```
 int sum = widgets.stream()
                  .filter(w -> w.getColor() == RED)
                  .mapToInt(w -> w.getWeight())
                  .sum();
+
+List<String> l = new ArrayList(Arrays.asList("one", "two"));
+Stream<String> sl = l.stream();
+l.add("three");
+String s = sl.collect(joining(" "));
+
+int sum = numbers.parallelStream().reduce(0, Integer::sum);
+
+List<String> strings = stream.map(Object::toString)
+                             .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 ```
+https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
 http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
 
 
@@ -345,5 +367,8 @@ stop in org.apache.hadoop.ipc.Client$Connection.setupIOstreams
 
 # Print stacktrace
 where
+
+# continue
+cont
 ```
 http://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html

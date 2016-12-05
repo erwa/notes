@@ -1,3 +1,7 @@
+### Browse Workspace in UI
+Job page -> Workspace (in middle of page)
+
+
 ### Build Logs
 
 On master, in `$JENKINS_HOME/jobs/$JOB_NAME/builds`.

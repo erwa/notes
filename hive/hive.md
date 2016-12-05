@@ -1,3 +1,75 @@
+### Run CLI commands using Driver
+```
+HiveConf hiveConf = new HiveConf();
+Driver driver = new Driver(hiveConf);
+SessionState.start(hiveConf);
+driver.init();
+driver.run("show tables;");
+```
+
+May have to set `java.security.krb5.realm` and `java.security.krb5.kdc`.
+
+
+### Insert Values
+```
+INSERT INTO TABLE tablename [PARTITION (partcol1[=val1], partcol2[=val2] ...)] VALUES values_row [, values_row ...]
+```
+
+Cannot insert complex types because it does not support literals for complex types (array, map, union, struct). For complex types, need to either load from file or load from another table (and use complex type constructors).
+
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML#LanguageManualDML-InsertingvaluesintotablesfromSQL
+
+
+### Distribute By, Sort By, Cluster By
+
+* Distribute By COL means all rows with the same value for COL will go to one reducer. Does not guarantee ordering.
+* Sort By COL ensures rows are sorted by COL when fed to reducer. Guarantees PER REDUCER order. Order By guarantees total order.
+* Cluster By is syntactic sugar for Distribute By AND Sort BY
+
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+SortBy
+
+
+### Hive on Spark
+First available in Hive 1.1.0 (HIVE-7292). Developed on "spark" and "spark2" branches, periodically merged into "master".
+
+https://cwiki.apache.org/confluence/display/Hive/Hive+on+Spark%3A+Getting+Started
+
+
+### CBO (Cost-based Optimization)
+Introduced in Hive 0.14.0 in HIVE-5775.
+
+https://cwiki.apache.org/confluence/display/Hive/Cost-based+optimization+in+Hive
+
+
+### LLAP
+Live Long and Process. Added in Hive 2.0.0 (HIVE-7926).
+
+https://cwiki.apache.org/confluence/display/Hive/LLAP
+
+
+### Hive on Tez
+First added in Hive 0.13 using Tez 0.4.0. Hive 0.14 through 1.1 use Tez 0.5.2. Hive 1.2 uses 0.5.3. Hive 2.0 uses 0.8.2.
+
+https://cwiki.apache.org/confluence/display/Hive/Hive-Tez+Compatibility
+
+
+### ORC
+
+Originally added in Hive 0.11.0 in HIVE-3874.
+
+
+### System variables
+```
+LOAD DATA LOCAL INPATH "${system:user.home}/..." INTO TABLE foo;
+```
+
+
+### Set system property for CLI
+```
+hive --hiveconf sys.prop=foo ...
+```
+
+
 ### Writing Hive UDF
 
 http://blog.matthewrathbone.com/2013/08/10/guide-to-writing-hive-udfs.html
@@ -7,8 +79,20 @@ http://blog.matthewrathbone.com/2013/08/10/guide-to-writing-hive-udfs.html
 Uses `data/conf/hive-site.xml`.
 
 
+### Enable more Grape logging
+```
+hive --hiveconf groovy.grape.report.downloads=true ...
+```
+
+
 ### Logging
 Hive will use the hive-log4j.properties in the current working directory, if present.
+
+```
+log4j.logger.hive=WARN
+log4j.logger.org.apache.hadoop.hive.=WARN
+log4j.logger.SessionState=WARN
+```
 
 
 ### Recover partitions
@@ -31,6 +115,12 @@ Initialized by data/scripts/q_test_init.sql
 beeline -u jdbc:hive2://
 
 !q # quit, or Ctrl + D
+
+# Help
+!help
+
+# Connect to embedded HiveServer2
+!connect jdbc:hive2://
 ```
 
 
@@ -335,7 +425,7 @@ set hive.output.file.extension=.foo;
 
 ### Contributing
 ```
-git diff --no-prefix <commit> > HIVE-1234.1.patch
+git diff --no-prefix <commit>^ > HIVE-1234.1.patch
 
 # Upload patch (More --> Attach Files)
 # Click "Submit Patch"
@@ -347,6 +437,11 @@ git diff --no-prefix <commit> > HIVE-1234.1.patch
 rbt post --guess-fields yes
 ```
 https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-CreatingaPatch
+
+### Retest patch
+Cancel and resubmit patch.
+
+https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-PrecommitTestsbyHiveQA
 
 
 ### Generating Thrift

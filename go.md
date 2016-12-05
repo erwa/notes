@@ -1,3 +1,165 @@
+### Getters
+
+Getter for a field `owner` should be named `Owner`, not GetOwner.
+
+https://golang.org/doc/effective_go.html#Getters
+
+
+### Trailing comma
+
+```
+// Invalid
+mapa := map[string]string{
+        "jedan":"one",
+        "dva":"two"
+       }
+
+// Valid
+mapa := map[string]string{
+        "jedan":"one",
+        "dva":"two",
+       }
+```
+Semicolons are auto-inserted by Go compiler.
+
+http://stackoverflow.com/questions/29300607/golang-bug-or-intended-feature-on-map-literals
+
+
+### Method overloading
+
+Not supported in Go.
+
+http://stackoverflow.com/questions/2032149/optional-parameters
+
+
+### Naming Conventions
+
+Used camelCase or PascalCase instead of underscores for multiword names.
+
+https://golang.org/doc/effective_go.html
+
+
+### Global variables and constants
+```
+//This is how you declare a global variable
+var someOption bool
+
+//This is how you declare a global constant
+const usageMsg string = "goprog [-someoption] args\n"
+```
+http://stackoverflow.com/questions/9539633/global-variables-get-command-line-argument-and-print-it
+
+
+### Lists
+
+```
+package main
+
+import (
+  "container/list"
+  "fmt"
+)
+
+func main() {
+  // Create a new list and put some numbers in it.
+  l := list.New()
+  e4 := l.PushBack(4)
+  e1 := l.PushFront(1)
+  l.InsertBefore(3, e4)
+  l.InsertAfter(2, e1)
+
+  // Iterate through list and print its contents.
+  for e := l.Front(); e != nil; e = e.Next() {
+    fmt.Println(e.Value)
+  }
+
+}
+```
+
+https://golang.org/pkg/container/list/#example_
+
+
+### Constructors
+```
+package matrix
+function NewMatrix(rows, cols int) *matrix {
+    m := new(matrix)
+    m.rows = rows
+    m.cols = cols
+    m.elems = make([]float, rows*cols)
+    return m
+}
+
+
+package main
+import "matrix"
+wrong := new(matrix.matrix)    // will NOT compile (matrix is private)
+right := matrix.NewMatrix(2,3) // ONLY way to instantiate a matrix
+```
+http://www.golangpatterns.info/object-oriented/constructors
+
+
+### Composite literal
+
+```
+[]Example{
+  Example{
+   []string{"a", "b", "c"},
+  },
+}
+```
+
+Without the `[]string`, you'll get `missing type in composite literal`.
+
+https://golang.org/doc/effective_go.html#composite_literals
+
+http://stackoverflow.com/questions/19482612/go-golang-array-type-inside-struct-missing-type-composite-literal
+
+
+### Exported functions
+Functions are exported if they begin with a capital letter.
+
+https://tour.golang.org/basics/3
+
+
+### Instantiate struct.
+```
+type person struct {
+    name string
+    age  int
+}
+
+func main() {
+
+    // This syntax creates a new struct.
+    fmt.Println(person{"Bob", 20})
+
+    // You can name the fields when initializing a struct.
+    fmt.Println(person{name: "Alice", age: 30})
+
+    // Omitted fields will be zero-valued.
+    fmt.Println(person{name: "Fred"})
+
+    // An `&` prefix yields a pointer to the struct.
+    fmt.Println(&person{name: "Ann", age: 40})
+
+    // Access struct fields with a dot.
+    s := person{name: "Sean", age: 50}
+    fmt.Println(s.name)
+
+    // You can also use dots with struct pointers - the
+    // pointers are automatically dereferenced.
+    sp := &s
+    fmt.Println(sp.age)
+
+    // Structs are mutable.
+    sp.age = 51
+    fmt.Println(sp.age)
+}
+```
+https://gobyexample.com/structs
+
+
 ### GoSublime plugin
 * Requires Sublime Text 3.
 * https://github.com/DisposaBoy/GoSublime
@@ -48,7 +210,7 @@ http://stackoverflow.com/questions/1760757/how-to-efficiently-concatenate-string
 
 
 ### Default toString method
-For a `type X`, impl a method `func (x X) String() string`.
+For a `type X`, impl a method `func (x X) String() string` Using `(x *X)` doesn't work.
 ```
 package main
 
@@ -143,11 +305,16 @@ http://stackoverflow.com/questions/16521472/assignment-operator-in-go-language
 ```
 
 
-### Iterate over array
+### Iterate over array / foreach loop
 ```
   var a [4]int
   for i, val := range a {
     fmt.Printf("%v, %v\n", i, val)
+  }
+
+  // http://stackoverflow.com/questions/7782411/is-there-a-foreach-loop-in-go`
+  for _, element := range someSlice {
+    // element is the element from someSlice for where we are
   }
 ```
 
@@ -194,6 +361,13 @@ func (r rect) perim() int {
 }
 ```
 Usage within method body treats variable like value. (Everything in Go is pass by value.) Data structure structs usually just contain pointers and a few primitives, so copying is not a big deal. However, if you need modifications to the primitives (e.g.: ints) persisted, then you need to pass a pointer to the struct.
+
+
+### Default Struct Values
+
+Use a constructor function.
+
+http://stackoverflow.com/questions/37135193/how-to-set-default-values-in-golang-structs
 
 
 ### Default Variable Initialization

@@ -1,3 +1,16 @@
+### Task monitor
+Spotlight -> Activity Monitor
+
+http://apple.stackexchange.com/questions/41125/where-can-i-find-the-task-manager-in-mac-os-x-lion
+
+
+### Microphone not working Google Hangouts
+```
+sudo killall coreaudiod
+```
+http://superuser.com/questions/566102/microphone-not-working-with-google-hangout
+
+
 ### Esc key icon
 ⎋ means Esc.
 http://superuser.com/questions/421890/what-is-the-key
@@ -21,6 +34,13 @@ Select area to screenshot, picture gets saved on Desktop
 ```
 Shift+Cmd+4
 ```
+
+Take a screenshot of a window
+```
+Shift + Cmd + 4, Space
+```
+https://support.apple.com/en-us/HT201361
+
 
 Print screen to clipboard
 ```

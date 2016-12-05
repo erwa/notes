@@ -10,7 +10,7 @@ Puzzling Checklist
 * Power strip
 * Laptop / charger
 * Reference sheet (need to add Greek letters)
-* Pens / pencils
+* Pencils
 * Scratch paper
 * Hat, sunscreen
 * Water bottle / Camelbak / bag for Camelbak

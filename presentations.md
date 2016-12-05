@@ -1,0 +1,1 @@
+Use mouse pointer that is red circle that audience members can follow.

@@ -23,6 +23,7 @@
 - Clipboard
 - Halt newspaper
 - Notify credit card company of travel destination
+- ATM/debit card for withdrawals
 - Dictionary for language of destination
 - trash bags, extra Ziploc bags
 - slippers
@@ -31,6 +32,8 @@
 - card/board games
 - Swimming trunks
 - Offline tour guide information
+- Printed itinerary/map - send email summarizing trip post-trip.
+- Figure out conversion rate, where to put toilet paper, whether tap water is potable.
 
 ### Camping/hiking/backpacking
 - tent

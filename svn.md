@@ -1,3 +1,9 @@
+### Upgrade working copy
+Run `svn upgrade` in the directory containing the `.svn/wc.db` folder.
+
+http://stackoverflow.com/questions/7992034/svn-upgrade-working-copy
+
+
 ### `svn blame`
 See revision and author for each line.
 ```

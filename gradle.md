@@ -1,3 +1,37 @@
+### compileOnly dependencies
+Not inherited by test classpath.
+
+https://gradle.org/blog/compile-only-dependencies/
+
+There's also `testCompileOnly`.
+
+
+### Buildscript variables
+Define variables in `buildscript` block, will be accessible both inside and outside it.
+```
+buildscript {
+   ext {
+     androidPluginVersion = '0.8.+'
+   }
+   repositories {
+      mavenCentral()
+   }
+   dependencies {
+      classpath "com.android.tools.build:gradle:$androidPluginVersion"
+   }
+}
+```
+http://wtanaka.com/node/8111
+
+
+### Build Phases
+1) Initialization
+2) Configuration
+3) Execution
+
+https://docs.gradle.org/current/userguide/build_lifecycle.html
+
+
 ### Figure out whether you're depending on a jar
 ```
 gradle dependencyInsight --configuration default --dependency azkaban
@@ -157,6 +191,14 @@ Top-down (root project, then subprojects), even when build is executed from subp
 Also note that all projects are always configured, even when you start the build from a subproject. The default configuration order is top down, which is usually what is needed.
 ```
 https://docs.gradle.org/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies
+
+
+### Repository layout
+
+https://docs.gradle.org/current/userguide/dependency_management.html#sec:repositories
+
+https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.repositories.IvyArtifactRepository.html#org.gradle.api.artifacts.repositories.IvyArtifactRepository:layout(java.lang.String, groovy.lang.Closure)
+
 
 ### Specify internal repository
 ```

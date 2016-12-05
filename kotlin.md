@@ -1,3 +1,11 @@
+### Class Instantiation
+```
+val invoice = Invoice()
+val customer = Customer("Joe Smith")
+```
+https://kotlinlang.org/docs/reference/classes.html
+
+
 ### Reflection
 
 Print type of variable
@@ -18,6 +26,8 @@ if (i in 1..10) { // equivalent of 1 <= i && i <= 10
 }
 
 for (i in 1..4) print(i) // prints "1234"
+# or
+(1..4).forEach { i -> print(i) }
 
 for (i in 4..1) print(i) // prints nothing
 
@@ -119,6 +129,16 @@ list.withIndex() // returns iterator of IndexedValues
                  // elem.index, elem.value
 ```
 https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/with-index.html
+
+
+### Pair
+```
+val p = Pair(1, "a")
+val (a, b) = p  // decompose pair
+assert(1 == a)
+assert("a".equals(b))
+```
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html
 
 
 

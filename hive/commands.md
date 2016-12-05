@@ -1,3 +1,9 @@
+### Add column
+```
+alter table avro_int_string3 add columns (b string);
+```
+
+
 ### Alter column
 
 ```

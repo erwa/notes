@@ -1,3 +1,21 @@
+### Lateral View
+Use `CROSS JOIN UNNEST` instead of `LATERAL VIEW explode()`.
+
+```
+-- Hive
+SELECT student, score
+FROM tests
+LATERAL VIEW explode(scores) t AS score;
+
+-- Presto
+SELECT student, score
+FROM tests
+CROSS JOIN UNNEST(scores) AS t (score);
+```
+
+https://prestodb.io/docs/current/migration/from-hive.html
+
+
 ### Basic queries
 ```
 desc schema.table

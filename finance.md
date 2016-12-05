@@ -1,3 +1,9 @@
+### Balance Transfer
+Using one credit card to pay another.
+
+https://www.nerdwallet.com/blog/credit-cards/balance-transfer-3/
+
+
 ### Short and long term capital gains
 Short-term capital gains are taxed at the same rate as your income bracket.
 

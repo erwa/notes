@@ -1,5 +1,3 @@
-tcpdump.md
-
 https://danielmiessler.com/study/tcpdump/
 
 ### Filter traffic on port from all interfaces

@@ -1,3 +1,53 @@
+### Remove newlines from string
+```
+echo "STRING
+WITH
+NEWLINES" | tr '\n' ' '
+```
+
+
+### Print file, replacing `\n` with actual newlines
+```
+echo -e $(cat filename)
+```
+
+
+### Delete empty lines
+```
+sed '/^\s*$/d'
+```
+http://stackoverflow.com/questions/16414410/delete-empty-lines-using-sed
+
+
+### dot command
+Synonym of `source`. Runs commands from file in current shell.
+
+`bash file` causes file to be run in child process, and parent script will not see modifications (e.g.: to variables).
+
+http://askubuntu.com/questions/232932/in-a-bash-script-what-does-a-dot-followed-by-a-space-and-then-a-path-mean
+
+
+### With or without `export`
+`export` makes the variable available to sub-processes.
+
+http://stackoverflow.com/questions/1158091/defining-a-variable-with-or-without-export
+
+
+### Portable readarray
+`readarray` is not available on OSX.
+
+```
+# instead of
+readarray -t myArray < thing_per_line
+
+# use
+while read line; do
+  myArray+=($line)
+done < thing_per_line
+```
+http://stackoverflow.com/questions/23842261/alternative-to-readarray-because-it-does-not-work-on-mac-os-x
+
+
 ### strace
 Monitor network traffic of process
 ```
@@ -106,7 +156,7 @@ if COMMAND1 || COMMAND2
 
 # Conditional expressions (include square brackets [ ] around them)
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
-[ -e FILE ] # true if FILE exists
+[ -e FILE ] # true if FILE exists. FILE could be directory.
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ -s FILE ] # true if FILE exists and has a size greater than 0
 [ -x FILE ] # true if FILE exists and is executable
@@ -629,11 +679,13 @@ command1 && command2
 command1 || command2
 ```
 
+
 ### Exit immediately if any command returns non-0
-See http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean.
 ```
 set -e
 ```
+http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean
+
 
 ### Print out commands run
 ```
@@ -641,13 +693,18 @@ set -x
 ```
 http://serverfault.com/questions/391255/what-does-passing-the-xe-parameters-to-bin-bash-do
 
+
+
 # less
 
+
 ### Start reading from 50.2% in
+Seems to be fastest way of jumping to a specific time in a file.
 ```
 less -n +50.2p foo.log
 ```
 http://serverfault.com/questions/411280/how-to-get-less-to-seek-faster-with-large-log-files
+
 
 ### Open a large file
 ```
@@ -657,6 +714,15 @@ For a long line, press `<right-arrow>` to show more of the line.
 
 To highlight/unhighlight search results, type `<Esc, u>`.
 
+
+### Move N windows forward/backward
+```
+10f - 10 windows forward
+10b - 10 windows backward
+```
+http://ss64.com/bash/less.html
+
+
 ### Scroll N lines forward/backward
 ```
 10j – 10 lines forward.
@@ -664,11 +730,20 @@ To highlight/unhighlight search results, type `<Esc, u>`.
 ```
 http://www.thegeekstuff.com/2010/02/unix-less-command-10-tips-for-effective-navigation/
 
+
 ### Turn word wrap on/off in less
 See http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
 ```
 -, Shift-S
 ```
+
+
+### Open file at line number
+```
+less +320123 filename
+```
+http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
+
 
 ### Jump to line number
 See http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
@@ -796,6 +871,8 @@ $HOME/.bash_profile
 
 # Option 2
 /etc/paths.d
+
+# System defaults are in `/etc/paths`
 ```
 http://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-variable/
 
@@ -879,6 +956,20 @@ xev | grep button
 ```
 
 # Screen
+
+Create a named screen `foo`
+```
+screen -S foo
+```
+http://stackoverflow.com/questions/3202111/how-to-assign-name-for-a-screen
+
+
+Check if in screen session
+```
+echo $STY
+# "" means no screen session. Else screen session.
+```
+http://serverfault.com/questions/257975/how-to-check-if-im-in-screen-session
 
 Attach to another session (detach it and then reattach)
 ```
@@ -1062,6 +1153,13 @@ http://www.cyberciti.biz/faq/bash-loop-over-file/
 
 ### Split string
 ```
+# into multiple lines
+echo $FOO | tr '<delimiter>' '\n'
+
+# Example
+getent netgroup NETGROUP_NAME | tr ')' '\n' | wc -l
+
+
 # On whitespace
 sentence="this is a story"
 stringarray=($sentence)

@@ -1,3 +1,55 @@
+### MySQL DB
+```
+$ sudo mysql
+mysql> create database metastore_db;
+mysql> use metastore_db;
+mysql> source /path/to/metastore/scripts/upgrade/mysql/hive-schema-1.1.0.mysql.sql
+mysql> grant all on metastore_db.* to testuser@'localhost' IDENTIFIED BY 'testpassword';
+```
+
+
+### Metastore Setup
+```
+# from Hive root directory
+mkdir -p hcatalog/var/log
+```
+
+hive-site.xml:
+```
+  <property>
+    <name>hive.metastore.schema.verification</name>
+    <value>false</value>
+  </property>
+  
+  <property>
+    <name>datanucleus.schema.autoCreateAll</name>
+    <value>true</value>
+  </property>
+```
+
+
+### Local Acid Testing
+Can set the following properties:
+```
+    <property>
+      <name>hive.txn.manager</name>
+      <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+    </property>
+
+    <property>
+      <name>hive.in.test</name>
+      <value>true</value>
+    </property>
+
+    <property>
+      <name>hive.support.concurrency</name>
+      <value>true</value>
+    </property>
+```
+
+http://www.aboutyun.com/thread-12151-1-1.html
+
+
 ### Local Setup
 https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-RunningHive
 

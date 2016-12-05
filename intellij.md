@@ -1,3 +1,24 @@
+### Very slow indexing
+Indexing uses a lot of CPU but should not cause the UI to lag/hang. If it is, one thing to try is File -> Invalidate Caches / Restart -> Invalidate and Restart. Note that subsequently IntelliJ will have to re-index all your projects and this can take a while.
+
+http://stackoverflow.com/questions/32550292/why-is-intellij-idea-hanging-on-indexing
+
+
+### `System.out.println`
+```
+sout, Tab
+```
+http://stackoverflow.com/questions/3320764/how-to-make-system-out-println-shorter
+
+
+### Show Javadoc / documentation
+Ctrl + J
+
+
+### Open Recent
+Shift + Cmd + A, "Open Recent"
+
+
 ### Conditional Breakpoint
 Right click on breakpoint -> Condition. Example
 ```
@@ -32,6 +53,17 @@ Project View -> Right click -> Mark Directory As -> Sources Root
 
 
 ### Python virtualenv
+* Add SDK -> Python virtualenv
+* SDK home path should be to bin/python2.7 in venv
+* Classpath should include:
+```
+venv/lib/python2.7/site-packages
+venv/lib/python2.7/lib-dynload
+/usr/lib/python2.7
+/usr/lib/python2.7/plat-darwin
+/usr/lib/python2.7/lib-tk
+```
+
 http://stackoverflow.com/questions/20877106/using-intellijidea-within-an-existing-virtualenv
 
 
@@ -40,6 +72,17 @@ Right click next to line -> Annotate. Search (Cmd + Shift + A) "Show History" co
 
 #### Compare files between branches
 Compare with Branch (Cmd + Shift + A)
+
+
+### Disable auto-deletion of trailing whitespace
+Preferences (Cmd + ,) -> Editor -> General -> Other
+(can also search for "trailing" in Preferences)
+
+http://stackoverflow.com/questions/26354301/how-do-i-auto-remove-trailing-whitespace-in-android-studio
+
+
+### Disable auto-formatting for project
+Preferences (Cmd + ,) -> Editor -> Code Style -> Scheme: Project -> <Language> (e.g.: Java) -> Uncheck/check formatting rules
 
 
 ### Reformat file
@@ -60,10 +103,22 @@ Type `psvm`, then press Enter.
 https://www.jetbrains.com/help/idea/2016.1/generating-main-method-example-of-applying-a-simple-live-template.html
 
 
+### Red J
+IntelliJ recognizes Java file but it's not part of project sources. Right click directory in Project Window -> Mark Directory As -> Source Root.
+
+http://stackoverflow.com/questions/30131939/intellij-idea-files-with-a-red-circle
+
+
 ### Jump between syntax errors / suggestions
 ```
+# Navigate -> Next/Previous Highlighted Error
 F2 / Shift + F2
 ```
+http://stackoverflow.com/questions/11775315/intellij-show-where-errors-are
+
+If errors, red exclamation point bubble will appear at the top of the scroll bar.
+
+https://www.jetbrains.com/help/idea/2016.2/code-analysis.html
 
 
 ### Highlight all occurrences of variable
@@ -132,6 +187,10 @@ Cmd + Shift + .
 Cmd + W
 ```
 Example: Put cursor in word, Cmd + W will expand to word, then another word or method, then whole line, then block, then method, etc.
+
+
+### See more entries for variable in debugger
+Expand variable, then right click variable -> Adjust Range
 
 
 ### Debug Window

@@ -1,6 +1,10 @@
 ### Combine PDFs
 
-http://www.pdfmerge.com/
+Open 1 PDF in Preview -> Edit -> Insert from File.
+
+https://support.apple.com/en-us/HT202945
+
+Alternative: http://www.pdfmerge.com/
 
 
 ### Rotate PDF
