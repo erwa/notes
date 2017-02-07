@@ -14,6 +14,22 @@ https://avro.apache.org/docs/1.7.7/gettingstartedjava.html#Creating+users
 {"a": {"int": 1}}
 ```
 
+### Read file from HDFS
+```
+Path path = new Path("/path/on/hdfs");
+Configuration config = new Configuration(); // make this your Hadoop env config
+SeekableInput input = new FsInput(path, config);
+DatumReader<GenericRecord> reader = new GenericDatumReader<GenericRecord>();
+FileReader<GenericRecord> fileReader = DataFileReader.openReader(input, reader);
+
+for (GenericRecord datum : fileReader) {
+    System.out.println("value = " + datum);
+}
+
+fileReader.close(); // also closes underlying FsInput
+```
+http://stackoverflow.com/questions/11632067/reading-a-simple-avro-file-from-hdfs
+
 
 ### How to read an Avro file
 http://stackoverflow.com/questions/11632067/reading-a-simple-avro-file-from-hdfs

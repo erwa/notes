@@ -1,3 +1,10 @@
+### Change color of comments from dark blue to light blue
+```
+set background=dark
+```
+http://stackoverflow.com/questions/2032747/how-to-comment-in-vims-config-files-vimrc
+
+
 ### Set option on start-up
 ```
 vim -c 'set paste'

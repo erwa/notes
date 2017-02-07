@@ -1,3 +1,7 @@
+### Lock screen / sleep
+Ctrl + Shift + Power
+
+
 ### Task monitor
 Spotlight -> Activity Monitor
 
@@ -151,10 +155,12 @@ Option + Shift + Click green button
 ```
 http://apple.stackexchange.com/questions/139884/make-the-green-full-screen-window-icon-on-yosemite-maximize-windows
 
+
 ### Move window to another desktop
 Open Mission Control (three finger swipe up), drag window to other desktop.
 
 http://superuser.com/questions/184763/is-there-a-way-to-move-the-current-window-to-another-desktop-without-using-a-mou
+
 
 ### Terminal prompts for "login"
 Try deleting the entry containing "localhost" from ~/.ssh/known_hosts.

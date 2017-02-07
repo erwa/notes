@@ -1,3 +1,10 @@
+### Modifiers
+```
+(?s)  // single line mode, dot (.) matches all characters, including line breaks
+```
+http://www.regular-expressions.info/modifiers.html
+
+
 ### Optional Pattern
 ```
 colou?r # matches color and colour

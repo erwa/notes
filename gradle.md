@@ -1,9 +1,26 @@
+### Show test results in console in real-time
+```
+# You will also see a lot more info related to other tasks.
+gradle test -i  # -i == --info
+```
+http://stackoverflow.com/questions/3963708/gradle-how-to-display-test-results-in-the-console-in-real-time
+
+
 ### compileOnly dependencies
 Not inherited by test classpath.
 
 https://gradle.org/blog/compile-only-dependencies/
 
 There's also `testCompileOnly`.
+
+
+### Print buildscript classpath
+```
+task printBuildScriptClasspath << {
+  println project.buildscript.configurations.classpath.asPath
+}
+```
+https://gist.github.com/xconnecting/4037220
 
 
 ### Buildscript variables

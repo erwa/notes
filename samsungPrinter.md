@@ -2,9 +2,9 @@
 
 May take a really long time to start up.
 
-Switch to Advanced Mode (shortcut-looking icon (with little arrow) in top-right).
+If not already in Advanced Mode (has a Device Settings tab), switch to Advanced Mode (shortcut-looking icon (with little arrow) in top-right).
 
-Select printer -> Device Settings tab
+Select printer -> Device Settings tab -> Internet settings
 
 Under "Wifi Settings" -> Wizard to set up.
 

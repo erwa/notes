@@ -23,7 +23,7 @@ v  # move message to a different label
 Shift + i  # mark message as read
 k  # next conversation
 j  # previous conversation
-n  # Move cursor to newer message in conversation
+n  # Move cursor to newer message in conversation (next message in thread)
 Shift + o  # open in new window
 p  # Move cursor to previous message in conversation
 #  # move conversation to Trash

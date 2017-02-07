@@ -1,3 +1,9 @@
+### Multi-cursor
+One per line: select block -> Cmd + Shift + L
+
+http://stackoverflow.com/questions/12520214/select-all-and-multiple-cursors-using-sublimetext2
+
+
 ### Delete duplicate lines
 Edit -> Permute Lines -> Unique
 

@@ -1,3 +1,10 @@
+### Search across all branches
+```
+git branch | tr -d \* | xargs git grep "foo"
+```
+http://stackoverflow.com/questions/15292391/is-it-possible-to-perform-a-grep-search-in-all-the-branches-of-git-project
+
+
 ### Case sensitive git ignore
 ```
 git config core.ignorecase false
@@ -354,6 +361,12 @@ git pull <remote> <branch>
 
 ### Apply commit from one repo to another
 ```
+# repo 1
+git show <commit> > foo.patch
+
+# repo 2
+git apply /path/to/foo.patch
+
 # Alternative
 /path/to/1 $ git format-patch sha1^..sha1
 /path/to/1 $ cd /path/to/2
@@ -482,17 +495,20 @@ git rm --cached <files...>
 
 # When cloning with one URL fails, try another one (SSH, HTTP, Git)
 
+
 ### Enable color output
 ```
 git config --global color.ui true
 ```
 http://stackoverflow.com/questions/1156069/how-to-configure-mac-os-x-term-so-that-git-has-color
 
+
 ### Avoid escape (ESC) characters
 ```
 git config --global core.pager more
 ```
 http://michael.otacoo.com/linux-2/avoid-escape-characters-in-git/
+
 
 ### See configs
 ```
@@ -569,10 +585,18 @@ git log --all -- <path-to-file>
 git log --all -- **/thefile.*
 ```
 
+
+### List active SSH keys
+```
+ssh-add -l
+```
+
+
 ### Convert SSH key to fingerprint
 ```
 ssh-keygen -lf ahsu_ssh_key.pub
 ```
+
 
 ### Avoid prompt for passphrase
 ```

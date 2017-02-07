@@ -1,3 +1,8 @@
+### Split size
+
+When using CombineFileInputFormat, max split size controlled by `mapreduce.input.fileinputformat.split.maxsize`. Set to 0 (default) to combine all data into one split.
+
+
 ### Copy files
 
 ```
@@ -12,15 +17,23 @@ http://stackoverflow.com/questions/35806830/how-to-copy-a-file-from-one-hdfs-fol
 `mapreduce.job.submithostname` in job conf
 
 
-# General
+### Set replication factor of a file
+```
+dfs.replication=1
+```
+http://stackoverflow.com/questions/30558217/to-change-replication-factor-of-a-directory-in-hadoop
 
-# Get replication factor of a file
+
+### Get replication factor of a file
+```
 hadoop fs -ls # Look at 2nd column
+```
 
-# Eclipse setup
-# Remove any existing .classpath and .project files.
-# Re-add the project in Eclipse.
-# Make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
+
+### Eclipse setup
+* Remove any existing .classpath and .project files.
+* Re-add the project in Eclipse.
+* Make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
 
 # version 0.20S = 1.2.1
 # version 0.23 = 2.x

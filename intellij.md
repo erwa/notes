@@ -1,3 +1,47 @@
+### Line Width
+
+Preferences -> Editor -> Code Style -> Right margin (columns)
+
+
+### See how data flows to method
+Right click -> Analyze -> Analyze Data Flow to Here
+
+
+### Iterate over array
+Type `itar, Tab`.
+```
+String[] array1, array2;
+itar
+```
+changes to
+```
+String[] array1, array2;
+for (int i = 0; i < array1.length; i++) {
+```
+
+
+
+### Extract variable
+```
+Option + Cmd + V
+```
+Move complicated expression into a separate variable.
+
+
+### Don't use wildcard imports
+```
+Cmd + , -> Editor -> Code Style -> Java -> Imports -> select "Use single class import" -> set "Class count to use import with '*'" to 999 -> set "Names count to use static import with '*'" to 999
+```
+http://stackoverflow.com/questions/3348816/intellij-never-use-wildcard-imports
+
+
+### Jump to matching brace
+```
+Shift + Cmd + M
+```
+https://www.jetbrains.com/help/idea/2016.3/navigating-to-braces.html
+
+
 ### Very slow indexing
 Indexing uses a lot of CPU but should not cause the UI to lag/hang. If it is, one thing to try is File -> Invalidate Caches / Restart -> Invalidate and Restart. Note that subsequently IntelliJ will have to re-index all your projects and this can take a while.
 
@@ -12,11 +56,15 @@ http://stackoverflow.com/questions/3320764/how-to-make-system-out-println-shorte
 
 
 ### Show Javadoc / documentation
+```
 Ctrl + J
+```
 
 
 ### Open Recent
+```
 Shift + Cmd + A, "Open Recent"
+```
 
 
 ### Conditional Breakpoint
@@ -121,7 +169,7 @@ If errors, red exclamation point bubble will appear at the top of the scroll bar
 https://www.jetbrains.com/help/idea/2016.2/code-analysis.html
 
 
-### Highlight all occurrences of variable
+### Highlight all occurrences of variable / highlight method invocations that throw exceptions
 ```
 Shift + Cmd + F7
 
@@ -129,6 +177,7 @@ Shift + Cmd + F7
 
 # Use Esc to unhighlight
 ```
+http://stackoverflow.com/questions/7773670/highlight-exception-throwers-in-intellij-idea
 
 
 ### Word Wrap

@@ -1,3 +1,69 @@
+### Generating tarball
+Works for trunk
+```
+# Add "clean" to be safe or if you encounter build issues.
+
+# Takes about 6 minutes
+# build tarball
+mvn install -DskipTests -Dmaven.javadoc.skip=true -Pdist
+
+# Output in packaging/target directory
+
+# build for itests
+mvn install -DskipTests -Dmaven.javadoc.skip=true -Pitests
+```
+https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-Howtogeneratetarball?
+
+
+### Testing
+
+```
+# Run all tests
+# https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunalloftheunittests?
+mvn test -Pitest
+
+# You can also run tests for just one component by cd'ing to that component directory first
+cd metastore
+mvn test
+
+# Run a single test
+# https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunasingletest?
+mvn test -Dtest=ClassName
+
+##############
+### qtests ###
+##############
+
+# Run qtests from itests/qtest
+# if you want to build incremental changes before running, run from root directory
+# but add -Pitests
+
+### single qtest ###
+# CliDriver
+mvn test -Dtest=TestCliDriver -Dqfile=truncate_column_list_bucket.q
+
+# MiniTezCliDriver
+mvn test -Dtest=TestMiniTezCliDriver -Dqfile=explainuser_3.q
+
+# LLAP tests (both MiniLlapLocalCliDriver and MiniLlapCliDriver) hang on Mac (https://issues.apache.org/jira/browse/HIVE-15467)
+mvn test -Dtest=TestMiniLlapLocalCliDriver -Dqfile=auto_sortmerge_join_13.q
+mvn test -Dtest=TestMiniLlapCliDriver -Dqfile=mapreduce2.q
+
+# ovewrite output
+mvn test -Dtest=TestCliDriver -Dqfile=orc_ppd_same_table_multiple_aliases.q -Dtest.output.overwrite=true
+
+# custom init script
+mvn test -Dtest=TestCliDriver -Dqfile=orc_ppd_same_table_multiple_aliases.q -DinitScript=test.sql
+```
+
+
+### ANTLR
+```
+# from ql directory
+mvn antlr3:antlr
+```
+
+
 ### Thrift
 
 ```
@@ -20,51 +86,3 @@ mvn clean install -Pthriftif -DskipTests -Dthrift.home=/usr/local
 ```
 
 https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-GeneratingThriftCode
-
-
-
-### Generating tarball
-Works for trunk
-```
-# Takes about 6 minutes
-# Include "clean" to be safe or if you encounter build issues.
-# Add -Pdist to generate tarball
-# Add -Pitests to build itests, too
-mvn install -DskipTests -Dmaven.javadoc.skip=true
-
-# Output in packaging/target directory
-```
-https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-Howtogeneratetarball?
-
-### Building all source
-Works for trunk.
-```
-# Takes about 4 minutes
-# Add "clean" to be safe (or if the build fails the first time you try)
-mvn install -DskipTests
-
-cd itests
-
-# Takes about 2 minutes
-# Add "clean" to be safe
-mvn install -DskipTests
-```
-https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-Howtobuildallsource?
-
-### Running all tests
-```
-mvn test
-cd itests
-mvn test
-
-# You can also run tests for just one component by cd'ing to that component directory first
-cd metastore
-mvn test
-```
-https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunalloftheunittests?
-
-### Run a single test
-```
-mvn test -Dtest=ClassName
-```
-https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunasingletest?

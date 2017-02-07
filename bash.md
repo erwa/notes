@@ -1,3 +1,41 @@
+### Do math / arithmetic
+```
+$ expr 1 + 1
+2
+
+# floating-point arithmetic (not supported natively in Bash)
+$ awk "BEGIN {print 208955300 / 15892428}"
+13.1481
+```
+https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/
+
+
+### Sum stream of numbers
+```
+# split on space, take 11th field, remove comma, sum
+cat MY_FILE | cut -d ' ' -f 11 | sed 's/,//' | awk '{s+=$1} END {print s}'
+```
+http://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
+
+
+### Sort by version number
+```
+sort -V
+
+# Example output
+0.1.0
+0.1.1
+0.1.2
+0.1.10
+```
+
+
+### Find process start-time
+Get process id using `ps -ef`. Then use `ps -eo pid,cmd,lstart | grep <pid>`.
+
+http://stackoverflow.com/questions/5731234/how-to-get-the-start-time-of-a-long-running-linux-process
+
+
 ### Remove newlines from string
 ```
 echo "STRING
@@ -46,14 +84,6 @@ while read line; do
 done < thing_per_line
 ```
 http://stackoverflow.com/questions/23842261/alternative-to-readarray-because-it-does-not-work-on-mac-os-x
-
-
-### strace
-Monitor network traffic of process
-```
-strace -f -e trace=network -s 10000 PROCESS ARGUMENTS
-```
-http://askubuntu.com/questions/11709/how-can-i-capture-network-traffic-of-a-single-process/499850
 
 
 ### Run command as another user
@@ -339,7 +369,12 @@ abc
 ```
 
 #### Substring removal
-See http://wiki.bash-hackers.org/syntax/pe#substring_removal.
+```
+# Remove longest match of `substring` from `$string`
+${string##substring}
+```
+
+Also see http://wiki.bash-hackers.org/syntax/pe#substring_removal.
 
 Remove last character from substring:
 ```bash
@@ -571,7 +606,7 @@ du -h DIR
 See http://askubuntu.com/questions/356902/why-doesnt-this-show-the-hidden-files-folders.
 ```
 # du hidden files
-du -sh  .[!.]* * | sort -hr
+du -sh  .[!.]* * | sort -h
 ```
 
 # `date`
@@ -601,7 +636,7 @@ date +%s%3N
 TZ=America/Los_Angeles date
 ```
 
-### Convert epoch time to date
+### Convert epoch time (seconds) to date
 ```
 # Linux
 date -d @1432752946.852

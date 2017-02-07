@@ -332,6 +332,37 @@ res7: Int = 3906
 http://stackoverflow.com/questions/4684185/why-does-scala-provide-both-multiple-parameters-lists-and-multiple-parameters-pe
 
 
+### Implicit class
+
+Has implicit constructor that can take at most one non-implicit parameter. Adds methods to the non-implicit parameter.
+
+```
+object Helpers {
+  implicit class IntWithTimes(x: Int) {
+    def times[A](f: => A): Unit = {
+      def loop(current: Int): Unit =
+        if(current > 0) {
+          f
+          loop(current - 1)
+        }
+      loop(x)
+    }
+  }
+}
+
+scala> import Helpers._
+import Helpers._
+scala> 5 times println("HI")
+HI
+HI
+HI
+HI
+HI
+```
+
+http://docs.scala-lang.org/overviews/core/implicit-classes.html
+
+
 ### Implicit Parameters
 If not explicitly specified, Scala will try to fill in the value implicitly.
 ```

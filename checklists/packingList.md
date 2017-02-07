@@ -21,7 +21,7 @@
 - Laundry bag
 - Notebook / loose leaf paper
 - Clipboard
-- Halt newspaper
+- Halt mail / newspaper
 - Notify credit card company of travel destination
 - ATM/debit card for withdrawals
 - Dictionary for language of destination
@@ -34,6 +34,7 @@
 - Offline tour guide information
 - Printed itinerary/map - send email summarizing trip post-trip.
 - Figure out conversion rate, where to put toilet paper, whether tap water is potable.
+- Out-of-office response
 
 ### Camping/hiking/backpacking
 - tent
@@ -58,3 +59,7 @@
 - deodorant
 - carabiners
 - paper towels, napkins, tissues
+- camping pots
+- ear plugs, blindfold
+- poncho
+- Swiss army knife

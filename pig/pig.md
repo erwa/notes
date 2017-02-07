@@ -1,3 +1,12 @@
+### In operator
+```
+a = LOAD ‘1.txt’ USING PigStorage (‘,’) AS (i:int);
+
+b = FILTER a BY i IN (1, 22, 333, 4444, 55555);
+```
+https://www.edureka.co/blog/operators-in-apache-pig-diagnostic-operators/
+
+
 ### COGROUP
 Put things into groups by a key, for each field specify the group key. In below example, A's key is owner, B's key is friend2.
 
@@ -255,3 +264,5 @@ words = load 'test.avro' using AvroStorage();
 frequent_words = filter words by freq >= 10;
 illustrate frequent_words;
 ```
+
+Hacked BagTo2Tuple together based on BagToTuple.

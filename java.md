@@ -1,3 +1,47 @@
+### JDBC
+
+Connection
+* autoCommit true (default) means each statement executed and committed as individual transactions
+* autoCommit false means statements are grouped together and terminated by call to commit() or rollback()
+
+
+### Find jar that a class is in
+* http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+```
+for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
+```
+
+* Also check out http://findjar.com
+
+
+### Metaspace
+
+Memory used by JVM to load classes. No default max size (apart from OS limits), so often makes sense to set a max size yourself:
+```
+-XX:MaxMetaspaceSize=<metaspace size>[g|m|k]
+```
+http://stackoverflow.com/questions/27131165/what-is-the-difference-between-permgen-and-metaspace
+http://blog.sokolenko.me/2014/11/javavm-options-production.html
+
+
+### LinkageError
+
+Generally happens when you have the same class loaded by multipled classloaders and try to use them together. Classes loaded in separate classloaders (even from identical jars) are treated as two separate classes.
+
+http://stackoverflow.com/questions/244482/how-to-deal-with-linkageerrors-in-java
+
+
+### Memory usage at runtime
+```
+Runtime.getRuntime().totalMemory()
+Runtime.getRuntime().freeMemory()
+
+// amount of memory currently in use
+Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()
+```
+http://stackoverflow.com/questions/17374743/how-can-i-get-the-memory-that-my-java-program-uses-via-javas-runtime-api
+
+
 ### Class of primitive type
 ```
 byte[].class
@@ -10,14 +54,6 @@ Arrays.asList("intField", "stringField");
 Arrays.asList(new Foo(), new Foo());
 ```
 
-
-### Find jar that a class is in
-* http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
-```
-for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
-```
-
-* Also check out http://findjar.com
 
 ### Static Nested vs. Inner Classes
 A nested class can be static or non-static. A non-static nested class is called an inner class. See http://stackoverflow.com/questions/70324/java-inner-class-and-static-nested-class.
@@ -48,7 +84,7 @@ Least restrictive -> Most restrictive:
 * no modifier (package private)
     * class + package
 * private
-    * class only
+    * class only (NOT object. Object of type C can access private fields of another object of type C: http://stackoverflow.com/questions/17027139/access-private-field-of-another-object-in-same-class)
 
 ### Top-level class/interface accessibility modifiers
 See http://stackoverflow.com/questions/6734849/why-cant-a-class-or-an-interface-receive-private-or-protected-access-modifiers. Top-level classes and interfaces can only have "public" or "package private" (default) accessibilities. Nested classes and interfaces can have private or protected modifiers
@@ -177,9 +213,15 @@ The Main-Class must be defined in the jar's `META-INF/MANIFEST.MF` file.
 See http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to-iterable.
 
 ### How to interpret a stack trace
+```
+<init>  # inside constructor or while initializing variables
+```
+http://stackoverflow.com/questions/11789990/what-does-init-signify-in-a-java-exception
+
 See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message and http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3. Also see http://stackoverflow.com/a/357386/1128392.
 * `[TYPE` means array of TYPE
 * `B` means byte
+* `I` means integer
 * `Lfoo.bar.ClassName;` means the type is foo.bar.ClassName
 * `V` means void
 * `Z` means boolean
@@ -263,8 +305,17 @@ Transport.send(msg);
 ```
 See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attachments-not-working for details.
 
+
 ### Java String.matches()
 Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-doesnt-work-in-string-matches for details.
+
+
+### Get resource file path
+```
+URL resource = Foo.class.getResource("resourceFile");
+String resourceFilePath = new File(resource.toURI()).getAbsolutePath();
+```
+
 
 ### Read resource file from jar
 ```
@@ -272,6 +323,7 @@ InputStream in = T.class.getResourceAsStream( "/foo.txt" );
 ```
 * http://stackoverflow.com/questions/20389255/reading-a-resource-file-from-within-jar
 * http://stackoverflow.com/questions/2195445/eclipse-getresourceasstream-returning-null
+
 
 ### Get current working directory
 ```

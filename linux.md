@@ -1,3 +1,9 @@
+### Check RHEL version
+```
+lsb_release -sd
+```
+
+
 ### RHEL Versions
 
 See https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#RHEL_6 for what kernel version maps to what 6.x version.

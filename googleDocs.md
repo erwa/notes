@@ -1,3 +1,9 @@
+### Hide page breaks
+View -> disable Print View
+
+http://stackoverflow.com/questions/33195011/how-to-turn-off-page-breaks-in-google-docs
+
+
 ### COUNTIF not blank
 ```
 =COUNTIF(F90:F158,"<>")
@@ -50,10 +56,10 @@ Ctrl + option + I, R
 
 ### Insert a row below
 ```
-Alt + I, W
+Alt + I, B
 
 # Mac
-Ctrl + option + I, W
+Ctrl + option + I, B
 ```
 
 ### Delete a row

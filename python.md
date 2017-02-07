@@ -1,3 +1,11 @@
+### String contains
+```
+if "blah" in my_var:
+    ...
+```
+http://stackoverflow.com/questions/3437059/does-python-have-a-string-contains-substring-method
+
+
 ### Enum to String
 ```
 from enum import Enum
@@ -565,6 +573,17 @@ d = defaultdict(int, {'a': 1, 'b': 2})
 http://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work
 
 
+### Invoke shell command
+```
+# using command substitution
+subprocess.Popen('echo `date`', shell=True)
+
+# using wildcards
+subprocess.Popen('cat foo*', shell=True)
+```
+http://stackoverflow.com/questions/9997048/python-subprocess-wildcard-usage
+
+
 ### Run background process
 ```
 import subprocess
@@ -997,6 +1016,7 @@ http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
 ### Run external command and capture output
 ```
+from subprocess import PIPE, Popen, STDOUT
 foo = Popen(['command', 'arg1'], stdout=PIPE, stderr=STDOUT).stdout.read()
 ```
 

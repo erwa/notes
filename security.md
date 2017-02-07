@@ -1,3 +1,9 @@
+### Add key to ssh-agent
+```
+ssh-add ~/.ssh/id_rsa
+```
+
+
 ### Remove all keys from ssh-agent
 ```
 ssh-add -D

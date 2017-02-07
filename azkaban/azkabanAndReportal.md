@@ -1,3 +1,8 @@
+### Job Executor Classpath
+
+When building job executor, Azkaban uses its start-up classpath, set in bin/azkaban-exec-start.sh, not the job plugin classpath.
+
+
 # Curl Commands
 
 Azkaban servlet routes registered in AzkabanWebServer.java:main.

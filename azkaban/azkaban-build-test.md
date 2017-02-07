@@ -1,3 +1,9 @@
+### Log to Kafka
+`azkaban.job.logging.kafka.enable=true`
+
+http://azkaban.github.io/azkaban/docs/latest/#how-to (Logging job logs to a Kafka cluster)
+
+
 ### Build Azkaban Plugins
 ```
 ant # build all plugins

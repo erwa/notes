@@ -7,7 +7,7 @@ Puzzling Checklist
 * Ruler / straightedge
 * Clipboard
 * Phone / charger / battery pack
-* Power strip
+* Power strip (label with your name)
 * Laptop / charger
 * Reference sheet (need to add Greek letters)
 * Pencils

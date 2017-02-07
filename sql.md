@@ -1,3 +1,13 @@
+### Read Isolation Levels
+
+READ COMMITTED - may see changes to same row between the first time reading it and second the second time.
+
+READ REPEATABLE - same row will appear same both times (so other transactions are unable to commit changes to those rows while another transaction is reading them)
+
+https://msdn.microsoft.com/en-us/library/ms709374(v=vs.85).aspx
+https://msdn.microsoft.com/en-us/library/ms378149(v=sql.110).aspx
+
+
 ### Recursive queries (WITH RECURSIVE)
 A special kind of Common Table Expression (CTE) (a table expression within a SELECT statement) that lets you do a JOIN recursively.
 ```

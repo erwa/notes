@@ -1,3 +1,11 @@
+### TABLESAMPLE
+```
+-- take the first 10 rows from each input split
+SELECT * FROM source TABLESAMPLE(10 ROWS);
+```
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling#LanguageManualSampling-BlockSampling
+
+
 ### Run CLI commands using Driver
 ```
 HiveConf hiveConf = new HiveConf();
@@ -107,12 +115,21 @@ https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManu
 Initialized by data/scripts/q_test_init.sql
 
 
+### HiveServer2
+
+JDBC client -> Thrift client -> HiveServer2. No JDBC implementation in HiveServer2 itself. Just a client-side interface wrapping Thrift client.
+
+Internally, JDBC uses Driver (same as used by Hive CLI) for executing queries.
+
 
 ### Beeline
 
 ```
 # Run in embedded HiveServer2 mode
 beeline -u jdbc:hive2://
+
+# for more logging, add
+--version
 
 !q # quit, or Ctrl + D
 
@@ -181,7 +198,8 @@ mvn test -Phadoop-2 -Dtest=TestEmbeddedHiveMetaStore
 mvn test -Phadoop-2 -Dtest=TestAvroSerdeUtils
 ```
 
-Hive PreCommit build: http://ec2-174-129-184-35.compute-1.amazonaws.com/jenkins/job/PreCommit-HIVE-Build/
+Hive PreCommit build: https://builds.apache.org/job/PreCommit-HIVE-Build/
+Logs kept around for about 3 days.
 
 In Hive 0.14, need to add Avro jar explicitly using "ADD JAR" command or else "insert" will fail with ClassNotFoundException
 
@@ -383,6 +401,9 @@ s_table;
 ### Optimization settings
 * https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-QueryandDDLExecution
 ```
+-- Disable fetch task
+set hive.fetch.task.conversion=none;
+
 -- Convert more stuff to a fetch task (no MR job launched)
 set hive.fetch.task.conversion=more;
 ```

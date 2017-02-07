@@ -1,12 +1,53 @@
+### Kill long-running transactions
+
+Set `wait_timeout`. See http://stackoverflow.com/questions/9936699/mysql-rollback-on-transaction-with-lost-disconnected-connection
+
+Long-running query doesn't count as idle. Can test using something like: `select 1, sleep(10) from dual`
+
+
+### Implicit Commits
+
+Some statements cause implicit commits. For example, most DDL commands.
+
+https://dev.mysql.com/doc/refman/5.7/en/implicit-commit.html
+
+
+### Primary, Unique, and Multiple Occurrences Keys
+* Primary key can only appear once per table
+
+http://stackoverflow.com/questions/5317889/sql-keys-mul-vs-pri-vs-uni
+
+
+### Show default transaction isolation level
+```
+mysql> SHOW GLOBAL VARIABLES LIKE 'tx_isolation';
++---------------+-----------------+
+| Variable_name | Value           |
++---------------+-----------------+
+| tx_isolation  | REPEATABLE-READ |
++---------------+-----------------+
+1 row in set (0.00 sec)
+```
+http://stackoverflow.com/questions/5347567/view-isolation-level-for-a-query-in-mysql
+
+Default isolation level for InnoDB (MySQL's default storage engine) is REPEATABLE READ.
+
+
+### NULL predicate
+Use `IS NULL`. `= NULL` does NOT work.
+
+
 ### LIKE expression
 ```
 select * from foo where name like 'bar%' limit 5;
 ```
 
+
 ### UPDATE rows in table
 ```
 update db.table set col=... where col=...;
 ```
+
 
 ### See permissions for user
 ```
