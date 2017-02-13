@@ -1,5 +1,8 @@
 ### Create GenericRecord
 ```
+// parse from String
+Schema schema = new Schema.Parser().parse("<schema string>");
+
 Schema schema = new Schema.Parser().parse(new File("user.avsc"));
 GenericRecord user1 = new GenericData.Record(schema);
 user1.put("name", "Alyssa");

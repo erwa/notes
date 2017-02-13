@@ -1,3 +1,19 @@
+### Garbage Collection
+```
+jstat -gcutil <pid> <time between measurements> <number measurements>
+jstat -gcutil 11885 1000 10  # 10 measurements, 1 second between each
+
+# can also use -gccause to find out cause of last GC
+```
+https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
+
+Major GC is cleaning the Tenured space.
+Full GC is cleaning the entire Heap – both Young and Tenured spaces.
+
+https://plumbr.eu/blog/garbage-collection/minor-gc-vs-major-gc-vs-full-gc
+
+
+
 ### JDBC
 
 Connection

@@ -702,6 +702,9 @@ LC_ALL=C
 
 ### `rsync` example:
 ```
+# copy and show progress
+rsync --progress SOURCE DEST
+
 rsync -az
 ```
 `-a` means "archive" mode, which preserves symbolic links, permissions, etc. `-z` enables compression for the data transfer.

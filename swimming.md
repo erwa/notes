@@ -1,3 +1,10 @@
+### Goggles
+
+Wear under swim cap to prevent chance of movement and falling off.
+
+https://www.quora.com/Is-it-better-to-wear-your-goggles-over-or-under-your-swim-cap-Why
+
+
 ### Front Crawl (often called Freestyle)
 
 - Fingers can be slightly spread apart to increase surface area.

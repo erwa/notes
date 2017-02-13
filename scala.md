@@ -1,3 +1,56 @@
+### Multiline Strings
+```
+"""multi
+line
+string"""
+```
+https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch01s03.html
+
+
+### Print Scala version
+```
+util.Properties.versionString
+```
+http://stackoverflow.com/questions/6121403/how-do-i-get-the-scala-version-from-within-scala-itself
+
+
+### Apply function to values in map
+```
+m.transform{ (key, value) => if (k(key)) f(value) else value }
+```
+http://stackoverflow.com/questions/23242235/in-scala-apply-function-to-values-for-some-keys-in-immutable-map
+
+
+### foreach loop
+```
+val x = List(1,2,3)
+x.foreach { println }
+```
+http://alvinalexander.com/scala/iterating-scala-lists-foreach-for-comprehension
+
+
+### For comprehension
+```
+val names = Vector("Bob", "Fred", "Joe", "Julia", "Kim")
+for (name <- names if name.startsWith("J"))
+```
+
+
+### Add element to set
+```
+// use var with mutable
+var set = scala.collection.mutable.Set[Int]()
+
+// add one element
+set += 1
+
+// add multiple elements
+set += (2, 3)
+```
+
+https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch11s25.html
+
+
 ### Build and run
 Test.scala:
 ```
@@ -223,7 +276,12 @@ http://stackoverflow.com/questions/918590/what-does-a-single-apostrophe-mean-in-
 ### Tuple literal
 ```
 (1,2,3) // Tuple3
+
+val t = (1,2,3)
+t._1 // first element of tuple
 ```
+https://www.tutorialspoint.com/scala/scala_tuples.htm
+
 
 ### ArrowAssoc (dash greater than, hyphen great than)
 key->value creates a tuple (key,value)
@@ -464,6 +522,13 @@ class Date(y: Int, m: Int, d: Int) extends Ord {
 ```
 val o = that.asInstanceOf[Date]
 ```
+
+
+### Cast Long to Int
+```
+.toInt
+```
+http://stackoverflow.com/questions/7782502/how-to-cast-long-to-int-in-scala
 
 
 ### Constructors

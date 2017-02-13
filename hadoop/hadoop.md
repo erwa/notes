@@ -1,3 +1,8 @@
+### DistributedCache
+
+NodeManager has ContainerManager that uses ResourceLocalizationService. ResourceLocalizationService has LocalizedRunner that has addResource() method which uses FSDownload to localize file.
+
+
 ### Split size
 
 When using CombineFileInputFormat, max split size controlled by `mapreduce.input.fileinputformat.split.maxsize`. Set to 0 (default) to combine all data into one split.
