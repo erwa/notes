@@ -1,3 +1,10 @@
+### Add captions to video
+
+Use YouTube to generate and edit SRT file. Then upload with your video on Facebook.
+
+https://www.youtube.com/watch?v=nldTF2WcuKY
+
+
 ### Event picture size
 
 784 x 295 pixels

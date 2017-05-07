@@ -22,3 +22,5 @@ Docs: http://gobblin.readthedocs.io/
 
 File -> Open -> <Gobblin root folder>
 May have to mark folders as Source or Test Source.
+
+Install Lombok IntelliJ plugin to build and test in IntelliJ. See "Installation" steps at https://github.com/mplushnikov/lombok-intellij-plugin. 5-minute setup.

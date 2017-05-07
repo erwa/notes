@@ -1,3 +1,4 @@
-# Quickselect
+### Quickselect
+
 O(n) average case because you're dividing input in half on average each time and only recursing on one side.
 n + n/2 + n/4 + ... = 2n = O(n)

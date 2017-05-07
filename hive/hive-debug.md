@@ -1,3 +1,29 @@
+### Minimal Hive Driver testing
+```
+public class DriverTest {
+  public static void main(String[] args) throws CommandNeedRetryException {
+    String krb5ConfFile = new File(DriverTest.class.getClassLoader().getResource("krb5.conf").getFile())
+        .getAbsolutePath();
+    System.setProperty("java.security.krb5.conf", krb5ConfFile);
+
+    HiveConf conf = new HiveConf();
+    conf.setVar(HiveConf.ConfVars.METASTOREWAREHOUSE, System.getProperty("user.home") + "/warehouse");
+    Driver driver = new Driver(conf);
+    SessionState.start(conf);
+    driver.init();
+    driver.run("CREATE TABLE t (a int)");
+  }
+}
+```
+
+
+### IncompatibleClassChangeError: Implementing class
+
+Ensure avro-tools jar (which fat jars old Hadoop classes) is not on classpath.
+
+http://stackoverflow.com/questions/23332022/hive-0-12-0-incompatibleclasschangeerror
+
+
 ### Enable Ivy logging
 ```
 hive --hiveconf ivy.message.logger.level=4

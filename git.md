@@ -1,3 +1,10 @@
+### Find common ancestor of two branches
+```
+git merge-base <branch1> <branch2>
+```
+http://stackoverflow.com/questions/1549146/find-common-ancestor-of-two-git-branches
+
+
 ### Search across all branches
 ```
 git branch | tr -d \* | xargs git grep "foo"
@@ -83,6 +90,8 @@ git push <remote> <branch>
 
 # Fetch remote branches
 git fetch <remote>
+git fetch <remote> <local-branch>:<remote-branch>
+# http://stackoverflow.com/questions/11266478/git-add-remote-branch
 
 # Add refspec (you might need to do this if you did a shallow clone originally)
 git fetch origin +branch-1:branch-1

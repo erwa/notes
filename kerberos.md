@@ -1,3 +1,15 @@
+### AS Request
+AS request = Authentication Service request
+
+https://msdn.microsoft.com/en-us/library/bb742516.aspx (Kerberos Explained)
+
+
+### Authentication vs. Authorization
+Kerberos only deals with authentication and defers authorization to services themselves.
+
+http://www.kerberos.org/software/adminkerberos.pdf
+
+
 ### Enable additional debugging in Java
 ```
 -Dsun.security.krb5.debug=true

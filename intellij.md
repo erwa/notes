@@ -1,3 +1,12 @@
+### UML (Unified Modeling Language) Diagrams
+
+Right click class -> Diagram -> Show Diagram.
+
+To show descendants, select element, Option + Command + B.
+
+https://www.jetbrains.com/help/idea/2017.1/viewing-ancestors-descendants-and-usages.html
+
+
 ### Line Width
 
 Preferences -> Editor -> Code Style -> Right margin (columns)
@@ -236,6 +245,11 @@ Cmd + Shift + .
 Cmd + W
 ```
 Example: Put cursor in word, Cmd + W will expand to word, then another word or method, then whole line, then block, then method, etc.
+
+
+### Evaluate expression during debugging
+
+Alt + click expression
 
 
 ### See more entries for variable in debugger

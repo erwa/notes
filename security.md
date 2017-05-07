@@ -4,6 +4,13 @@ ssh-add ~/.ssh/id_rsa
 ```
 
 
+### Remove key
+```
+ssh-add -d ~/.ssh/id_rsa
+```
+
+
+
 ### Remove all keys from ssh-agent
 ```
 ssh-add -D
@@ -29,6 +36,8 @@ ssh -A ...
 ### Enable password-less SSH to host
 
 Add public key to `~/.ssh/authorized_keys` file on the host.
+
+Ensure `$HOME` directory has 750 permissions.
 
 
 # https://www.openssl.org/docs/apps/genpkey.html

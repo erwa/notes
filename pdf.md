@@ -1,3 +1,7 @@
+### Delete page from PDF
+Open in Preview -> in sidebar, select page to delete, press Delete key.
+
+
 ### Combine PDFs
 
 Open 1 PDF in Preview -> Edit -> Insert from File.

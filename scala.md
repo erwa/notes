@@ -1,3 +1,106 @@
+### `Predef.identity`
+Function that returns input unchanged.
+
+http://stackoverflow.com/questions/28407482/what-does-predef-identity-do-in-scala
+
+
+### `???`
+```
+def doSomething(s: String): Int = ???
+```
+
+Defined in Predef as:
+```
+/**
+ * `???` can be used for marking methods that remain to be implemented.
+ *  @throws NotImplementedError
+ */
+def ??? : Nothing = throw new NotImplementedError
+```
+http://alvinalexander.com/scala/what-does-three-question-marks-in-scala-mean
+
+
+### Object class names
+```
+object HelloWorld {}
+
+HelloWorld.getClass.getName  // HelloWorld$ (note $ at end)
+```
+
+
+### Convert Scala Map to Java Map
+```
+import scala.collection.JavaConverters._
+
+Map("foo" -> "bar").asJava
+```
+
+
+### JUnit BeforeClass
+```
+object TestClass {
+
+  @BeforeClass
+  def stuff() {
+    // beforeclass stuff
+  }
+
+}
+
+class TestClass {
+
+  @Test
+  ...
+
+}
+```
+http://stackoverflow.com/questions/5751686/how-do-you-implement-beforeclass-semantics-in-a-junit-4-test-written-in-scala
+
+
+### Current time
+```
+import java.util.Calendar
+Calendar.getInstance().getTime()
+```
+http://alvinalexander.com/scala/scala-get-current-date-time-hour-calendar-example
+
+
+### Incremental Builds
+Use Zinc. scala-maven-plugin has support for Zinc. Analysis cache files are stored in `${project.build.directory}/analysis/compile` by default (e.g.: `<module>/target/analysis/compile`)
+
+http://davidb.github.io/scala-maven-plugin/compile-mojo.html#analysisCacheFile
+
+
+### Show compilation details
+```
+scala -Xprint:typer -e "val a = 2; ~a"
+...
+private[this] val a: Int = 2;
+private <stable> <accessor> def a: Int = $anon.this.a;
+$anon.this.a.unary_~
+```
+http://stackoverflow.com/questions/9442437/the-tilde-operator-in-scala
+
+
+### Compatibility between versions
+2.11 is NOT binary compatible wtih 2.10.
+2.10 code should still compile against 2.11, unless it was using certain experimental features.
+
+https://www.scala-lang.org/news/2.11.0
+
+To run Scala classes compiled for a certain version of Scala, you only need to have that Scala library jar version on your classpath.
+
+http://stackoverflow.com/questions/1893714/can-a-scala-program-be-compiled-to-run-on-any-jvm-without-having-scala-installe
+
+
+### Cross-building
+```
+# sbt
++ package  # build against all versions listed in build.scala.versions
+```
+http://www.scala-sbt.org/0.12.2/docs/Detailed-Topics/Cross-Build.html#cross-buildiwng-a-project
+
+
 ### Multiline Strings
 ```
 """multi
@@ -133,12 +236,21 @@ http://docs.scala-lang.org/tutorials/tour/upper-type-bounds
 ### Method Accessibility Scope
 
 ```
+// PACKAGE_NAME / CLASS_NAME must enclose the definition
+
+// only members of the package PACKAGE_NAME can access
+private[PACKAGE_NAME] ...
+
+// only accessible from CLASS_NAME (not much point for this, same as private without qualifier)
+private[CLASS_NAME]
+
 // object-private: only the instance of the object can use it
 private[this] def isFoo = true
 
 // private: like in Java
 private def isFoo = true
 ```
+http://stackoverflow.com/questions/26664365/scala-parameters-for-access-modifiers
 http://alvinalexander.com/scala/how-to-control-scala-method-scope-object-private-package
 
 
@@ -461,6 +573,15 @@ http://docs.scala-lang.org/tutorials/tour/implicit-parameters.html
 http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
 
 
+### Variable arguments
+```
+def printAll(strings: String*) {
+  strings.foreach(println)
+}
+```
+http://alvinalexander.com/scala/how-to-define-methods-variable-arguments-varargs-fields
+
+
 ### Repeated Parameters
 Passing Seq to function that takes varargs
 
@@ -544,11 +665,69 @@ class Greeter(message: String, secondaryMessage: String) {
 http://joelabrahamsson.com/learning-scala-part-four-classes-and-constructors/
 
 
+### Companion class
+
+* A class and its companion object must be defined in same source file.
+* A class and its companion can access each others' private members. They are like C++ "friends" (ref: http://www.cplusplus.com/doc/tutorial/inheritance/). If you want to make a member truly private, use `private[this]`.
+* The class associated with a singleton object is known as the "companion class".
+
+http://docs.scala-lang.org/tutorials/tour/singleton-objects.html
+
+
+### `new` keyword
+Need when using Java classes, which rarely have companion objects with an `apply` method. Use `new` if you want to use a class's own constructor as opposed to its companion object's `apply` method.
+
+
 ### Case classes and pattern matching
+```
+object MatchTest2 extends App {
+  def matchTest(x: Any): Any = x match {
+    case 1 => "one"
+    case "two" => 2
+    case y: Int => "scala.Int"
+  }
+  println(matchTest("two"))
+}
+```
+http://docs.scala-lang.org/tutorials/tour/pattern-matching.html
+
+Case statements support if expressions (guards)
+```
+i match {
+  case a if 0 to 9 contains a => println("0-9 range: " + a)
+  case b if 10 to 19 contains b => println("10-19 range: " + b)
+  case c if 20 to 29 contains c => println("20-29 range: " + c)
+  case _ => println("Hmmm...")
+}
+```
+https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch03s14.html
+
+Regular classes that are
+
+* Immutable by default
+* Decomposable through pattern matching
+* Compared by structural equality instead of by reference
+* Succinct to instantiate and operate on
+
 ```
 It only makes sense to define case classes if pattern matching is used to decompose data structures.
 ```
 http://docs.scala-lang.org/tutorials/tour/case-classes
+
+Scala turns
+```
+case class Foo()
+```
+
+into
+```
+class Foo { }
+object Foo {
+    def apply() = new Foo
+}
+```
+http://stackoverflow.com/questions/9727637/new-keyword-in-scala
+
 
 http://www.scala-lang.org/docu/files/ScalaTutorial.pdf section 6
 ```
@@ -637,8 +816,23 @@ df format now
 ```
 
 
-### Scala does not support static methods or fields
-Instead of static members, you create singleton objects.
+### Static fields
+
+Scala does not support static methods or fields. Instead of static members, you create singleton objects.
+
+```
+import java.util.concurrent.atomic.AtomicInteger
+
+object Foo {
+  val counter = new AtomicInteger(0)
+}
+
+class Foo {
+  val i = Foo.counter.incrementAndGet()
+  println(i)
+}
+```
+http://stackoverflow.com/questions/20963080/static-field-in-scala-companion-object
 
 
 ### Scala singletons

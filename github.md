@@ -1,3 +1,11 @@
+### Jump to oldest commit
+Find a file that's likely to be old, look at blame, click commit or "View blame prior to this change" -> find commit with 0 parents
+
+Checkout repo, use `git log`.
+
+http://stackoverflow.com/questions/28533602/navigating-to-the-earliest-commit-in-github
+
+
 ### Commits to repo by user
 https://github.com/azkaban/azkaban/commits/master?author=erwa
 

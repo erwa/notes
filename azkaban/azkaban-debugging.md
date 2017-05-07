@@ -1,3 +1,12 @@
+### Rerunning failed jobs
+Go to failed execution -> Prepare Execution -> should only have failed jobs highlighted and will already have Flow Parameters populated from previous run.
+
+
+### Find project/flow from execution id
+
+Go to https://<host>:<port>/executor?execid=<execid>
+
+
 ### Enable DEBUG logging
 
 In bin/azkaban-executor-start.sh, add to AZKABAN_OPTS

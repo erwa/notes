@@ -1,0 +1,27 @@
+### Camping/hiking/backpacking
+- tent
+- tarp
+- sleeping bag
+- thermals
+- hoodie
+- sleeping pad
+- water filter
+- first-aid kit
+- hiking poles
+- Camelbak
+- toilet paper
+- trowel
+- gloves
+- hiking boots
+- extra pairs of socks
+- compass
+- towel
+- touque
+- headlamp
+- deodorant
+- carabiners
+- paper towels, napkins, tissues
+- camping pots
+- ear plugs, blindfold
+- poncho
+- Swiss army knife

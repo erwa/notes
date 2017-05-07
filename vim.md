@@ -1,3 +1,13 @@
+### Comment lines
+Go to first line to comment, Ctrl + V, select down to last line, Shift + I, type comment character, press Esc, wait a sec.
+
+http://stackoverflow.com/a/1676690/1128392
+
+
+### Uncomment lines
+Go to first line to uncomment, Ctrl + V, select down to last line, d
+
+
 ### Change color of comments from dark blue to light blue
 ```
 set background=dark

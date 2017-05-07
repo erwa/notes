@@ -1,3 +1,21 @@
+### Escaping hyphens
+Only needed when not the first or last character in character class
+```
+[-a-z]
+[0-9-]
+[a-z\-0-9]
+```
+http://stackoverflow.com/questions/9589074/regex-should-hyphens-be-escaped
+
+
+### Word characters
+```
+# does NOT include - (hyphen)
+[A-Za-z0-9_]
+```
+http://www.regular-expressions.info/shorthand.html
+
+
 ### Modifiers
 ```
 (?s)  // single line mode, dot (.) matches all characters, including line breaks

@@ -1,3 +1,8 @@
+### When locks are released
+
+https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html (see "Rules for Lock Release")
+
+
 ### Kill long-running transactions
 
 Set `wait_timeout`. See http://stackoverflow.com/questions/9936699/mysql-rollback-on-transaction-with-lost-disconnected-connection

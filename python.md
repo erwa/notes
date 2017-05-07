@@ -1,3 +1,87 @@
+### EAFP vs. LBYL
+
+EAFP = easier to ask for forgiveness than permission
+LBYL = look before you leap
+
+Community seems to prefer EAFP:
+
+In favor of EAFP:
+
+http://stackoverflow.com/questions/7604636/better-to-try-something-and-catch-the-exception-or-test-if-its-possible-first/7604717#7604717
+
+http://stackoverflow.com/questions/11360858/what-is-the-eafp-principle-in-python
+
+
+In favor of LBYL:
+
+http://stackoverflow.com/questions/4512557/python-if-key-in-dict-vs-try-except/4513009#4513009
+
+
+### Test if object is string or unicode
+```
+isinstance(obj, basestring)
+# equivalent to
+isinstance(obj, (str, unicode))
+```
+https://docs.python.org/2/library/functions.html#isinstance
+https://docs.python.org/2/library/functions.html#basestring
+
+
+### Merge XML files
+xmlcombine.py:
+```
+#!/usr/bin/env python
+import sys
+from xml.etree import ElementTree
+
+def run(files):
+    first = None
+    for filename in files:
+        data = ElementTree.parse(filename).getroot()
+        if first is None:
+            first = data
+        else:
+            first.extend(data)
+    if first is not None:
+        print ElementTree.tostring(first)
+
+if __name__ == "__main__":
+    run(sys.argv[1:])
+```
+
+```
+python xmlcombine.py ?.xml > combined.xml
+```
+
+http://stackoverflow.com/questions/9004135/merge-multiple-xml-files-from-command-line
+
+
+### Install pip
+```
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+```
+https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py
+
+On Linux:
+```
+sudo easy_install -U pip
+```
+http://stackoverflow.com/questions/28031277/pip-install-error-cannot-import-name-unpack-url
+
+
+### Manipulate images
+Use Pillow
+```
+# http://pillow.readthedocs.io/en/latest/installation.html
+pip install Pillow
+```
+http://stackoverflow.com/questions/3735553/how-do-i-read-an-image-file-using-python
+
+Pillow does not support multi-channel images with > 8 bits per channel.
+https://github.com/python-pillow/Pillow/issues/2107
+
+
 ### String contains
 ```
 if "blah" in my_var:
@@ -47,6 +131,14 @@ def test_zero_division():
 ```
 
 
+### Run one pytest
+```
+pytest test_mod.py::TestClass::test_method  # run a single method in
+                                            # a single class
+```
+http://doc.pytest.org/en/latest/usage.html#specifying-tests-selecting-tests
+
+
 ### Parameterize tests
 ```
 import pytest
@@ -61,6 +153,10 @@ def test_me(name, left, right):
 Run using `py.test`.
 
 http://stackoverflow.com/a/25626660/1128392
+
+
+### Debug virtual environment
+Can write `test.py` file and import modules in the virtual environment.
 
 
 ### Running using virtual environment in IntelliJ
@@ -270,6 +366,27 @@ http://www.tutorialspoint.com/python/string_endswith.htm
 """%s is awesome.""" % 'Pizza'
 ```
 http://stackoverflow.com/questions/3877623/in-python-can-you-have-variables-within-triple-quotes-if-so-how
+
+
+### doctest
+Test interactive Python examples in documentation
+```
+"""
+This is the "example" module.
+
+The example module supplies one function, factorial().  For example,
+
+>>> factorial(5)
+120
+"""
+
+...
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+```
+https://docs.python.org/2/library/doctest.html
 
 
 ### Pydoc
@@ -746,6 +863,13 @@ http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
 # http://stackoverflow.com/questions/15478127/remove-final-character-from-string-python
 'abcdefghij'[:-1]
 
+
+### Write without newline
+```
+import sys
+sys.stdout.write()
+```
+
 # Write to stderr
 # http://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python
 sys.stderr.write()
@@ -778,6 +902,14 @@ http://stackoverflow.com/questions/4344017/how-can-i-get-the-concatenation-of-tw
 list.append(x)
 ```
 http://www.tutorialspoint.com/python/list_append.htm
+
+
+### Convert string to int
+```
+int(s)
+```
+http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
+
 
 ### Convert list/array to string
 # http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
@@ -909,10 +1041,12 @@ for arg in sys.argv[1:]:
 ### raise exception / reraise exception
 `raise` by itself re-raises the thrown exception.
 
+
 ### Pytest
 Test discovery: http://pytest.org/latest/goodpractises.html#test-discovery
 * Looks for `test_*.py` and `*_test.py` files, among other things.
 * Within a test file, runs `test_` prefixed functions and methods.
+
 
 ### Debugger
 ```
@@ -1005,6 +1139,15 @@ except OSError:
     pass
 ```
 http://stackoverflow.com/questions/10840533/most-pythonic-way-to-delete-a-file-which-may-not-exist
+
+
+### Read output of command as list
+```
+import os
+fo = os.popen('ls')
+result = fo.read().split()
+```
+
 
 ### Run external command
 ```

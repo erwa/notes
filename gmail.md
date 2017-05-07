@@ -1,13 +1,32 @@
+### Strikethrough
+Chrome plugin: https://chrome.google.com/webstore/detail/strikethrough/peahilnfgiacdkackbnbdbgkkjaghool
+A little flaky.
+
+Alternatively, copy strikethrough text from another program/website and then edit it.
+https://webapps.stackexchange.com/questions/62412/how-do-i-strikethrough-text-in-gmail
+
+
+### Mark All as Read
+is:unread -> Checkbox -> All -> "Select all conversations that match this search" -> More -> Mark as read
+
+http://www.zdnet.com/article/how-to-mark-all-unread-emails-as-read-in-gmail-and-more/
+
+
 ### Remove quoted text line
 
 Unindent (`Ctrl + [`)
 
 
-### Filter by date
+### Filters
 ```
+# by date
 before:2015/12/25 after: 2015/12/01
+
+# with attachment
+has:attachment
 ```
 https://support.google.com/mail/answer/7190?hl=en
+http://www.makeuseof.com/tag/quickly-find-email-attachments-gmail/
 
 
 ### Filter email from search

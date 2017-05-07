@@ -1,3 +1,36 @@
+### DISTINCT
+Removes duplicates from result set (takes all columns into consideration). Think of "SELECT DISTINCT" as a unit.
+
+https://blog.udemy.com/sql-select-distinct/
+http://stackoverflow.com/questions/54418/how-do-i-or-can-i-select-distinct-on-multiple-columns
+
+
+### COUNT DISTINCT with conditions
+```
+select
+  count(distinct tag) as tag_count,
+  count(distinct (case when entryId > 0 then tag end)) as positive_tag_count
+from
+  your_table_name;
+```
+http://stackoverflow.com/questions/14048098/count-distinct-with-conditions
+
+
+### Alias in GROUP BY clause
+Reason you often can't use alias is because SQL usually executed in this order:
+
+```
+FROM clause
+WHERE clause
+GROUP BY clause
+HAVING clause
+SELECT clause
+ORDER BY clause
+```
+
+http://stackoverflow.com/questions/3841295/sql-using-alias-in-group-by
+
+
 ### Read Isolation Levels
 
 READ COMMITTED - may see changes to same row between the first time reading it and second the second time.

@@ -1,3 +1,16 @@
+### Find file by name quickly
+```
+locate libffi
+```
+
+
+### wget download to specific directory
+```
+wget URL -P my_dir
+```
+http://stackoverflow.com/questions/1078524/how-to-specify-the-location-with-wget
+
+
 ### Do math / arithmetic
 ```
 $ expr 1 + 1
@@ -187,6 +200,7 @@ if COMMAND1 || COMMAND2
 # Conditional expressions (include square brackets [ ] around them)
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists. FILE could be directory.
+[ -h FILE ] # true if FILE exists and is a symlink.
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ -s FILE ] # true if FILE exists and has a size greater than 0
 [ -x FILE ] # true if FILE exists and is executable
@@ -353,6 +367,14 @@ cd -
 See:
 * http://stackoverflow.com/questions/428109/extract-substring-in-bash
 * http://tldp.org/LDP/abs/html/string-manipulation.html
+
+
+#### Delete longest match of `substring` from back of `string`
+```
+${string%%substring}
+```
+http://tldp.org/LDP/abs/html/string-manipulation.html
+
 
 #### Substring using string manipulation
 ```
@@ -683,11 +705,6 @@ cat /proc/cpuinfo
 cat /proc/meminfo
 ```
 
-### Print operating system information
-```
-uname -a
-```
-See https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#RHEL_6 for what kernel version maps to what 6.x version.
 
 ### Append to a file
 ```
@@ -848,24 +865,6 @@ For an explanation of the output, see http://serverfault.com/questions/94368/und
 
 To calculate the amount of space used, multiply the number of blocks (first number) by the BLOCK_SIZE (defined in /usr/include/sys/mount.h). Reference: http://stackoverflow.com/questions/2506288/detect-block-size-for-quota-in-linux
 
-
-### Find process running on port
-```
-sudo netstat -tulpn | grep <port>
-```
-* `-t` means TCP.
-* `-u` means UDP.
-* `-l` means show only listening sockets.
-* `-p` means show the PID and program using the socket/port.
-* `-n` means show numerical addresses instead of symbolic host/port/username.
-
-On a Mac, use:
-```
-netstat -anp tcp | grep <port>
-```
-* `-a` means show the state of all sockets, including server process sockets.
-* `-n` means show network addresses as IP addresses instead of using domain names.
-* `-p tcp` means show stats for the TCP protocol.
 
 ### See keyboard shortcut bindings
 ```
@@ -1077,11 +1076,14 @@ http://stackoverflow.com/questions/15402770/how-to-grep-and-replace
 # Linux
 sed -i 's/old-word/new-word/g' *.txt
 
+sed -i 's/%{foo}/\/export\/apps\/foo/g' my_file
+
 # Mac
 # http://stackoverflow.com/questions/4247068/sed-command-with-i-option-failing-on-mac-but-works-on-linux
 sed -i '' 's/old-word/new-word/g' *.txt
 
-perl -pi -w -e 's/ahsu/dalitest/g;' *.job
+# portable
+perl -pi -w -e 's/ahsu/dalitest/g' *.job
 ```
 * http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/
 * http://lifehacker.com/5810026/quickly-find-and-replace-text-across-multiple-documents-via-the-command-line
@@ -1128,9 +1130,11 @@ cp -Lr FROM TO
 ```
 http://superuser.com/questions/216919/how-to-copy-symlinks-to-target-as-normal-folders
 
+
 ### Double Quotes
 * Preserve literal value of all characters except $, `, \, and ! (when history expansion is enabled).
 * http://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html
+
 
 ### Extract substring in Bash
 http://stackoverflow.com/questions/13373249/extract-substring-using-regexp-in-plain-bash

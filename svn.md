@@ -9,13 +9,28 @@ See revision and author for each line.
 ```
 svn blame FILE
 # Add -v for date
+
+# at specific revision
+svn blame FILE@r123
+# http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.blame.html
 ```
+
+
+### Diff revision with working copy
+```
+svn diff -r 12345 <file/folder>
+```
+http://stackoverflow.com/questions/2376309/how-can-i-find-the-svn-diff-between-working-copy-and-arbitrary-rev
 
 
 ### See changes in revision / commit
 ```
 svn diff -c <revision> path/to/file
 # -c means changeset
+
+# see only list of files changed
+# -v == --verbose
+svn log -v -rXXX
 ```
 http://stackoverflow.com/questions/21720865/how-to-view-changes-made-to-files-on-a-certain-revision-in-subversion
 
@@ -92,6 +107,13 @@ http://stackoverflow.com/questions/9536476/how-to-get-a-list-of-all-recent-svn-c
 svn info FILE
 ```
 http://stackoverflow.com/questions/579196/getting-the-last-revision-number-in-svn
+
+
+### Checkout specific revision of file
+```
+svn up -r XXXX FILE
+```
+http://stackoverflow.com/questions/2812901/reverting-single-file-in-svn-to-a-particular-revision
 
 
 ### See log info for specific revision

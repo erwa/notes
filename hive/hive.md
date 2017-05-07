@@ -1,3 +1,29 @@
+### Equal not null operator
+```
+<=>
+```
+http://docs.qubole.com/en/latest/user-guide/features/smart-query/hive-smart-query.html
+
+
+### JOIN column types
+You can JOIN on complex types, too.
+
+
+### Ignore CLI errors
+Useful when running a Hive file with multiple statements.
+```
+set hive.cli.errors.ignore=true;
+...
+```
+
+
+### BETWEEN
+```
+select * from foo where uid between 2 and 4;
+```
+http://cloudfront.blogspot.com/2012/07/between-operator-in-hive.html
+
+
 ### TABLESAMPLE
 ```
 -- take the first 10 rows from each input split
@@ -215,6 +241,11 @@ hive --auxpath /export/apps/hive/latest/aux/lib
 chmod -R 777 <hive_metastore_db_dir>
 ```
 
+
+### Splits across partitions
+One map task gets one CombineHiveInputSplit, which may contain splits from more than one partition. However, all the partitions will have the same InputFormat.
+
+
 ### Split sizes
 ```
 # mapred.min.split.size.per.node (the minimum bytes of data to create a node-local partition, otherwise the data will combine to rack level. default:0)
@@ -222,6 +253,7 @@ chmod -R 777 <hive_metastore_db_dir>
 # mapred.max.split.size (the max size of each split, will be exceeded because we stop accumulating *after* reaching it, instead of before)
 # https://issues.apache.org/jira/browse/HIVE-74
 ```
+
 
 ### Drop partitions greater than a time
 ```
@@ -357,11 +389,20 @@ show create table TABLE
 
 initialize() is called before these methods, so you can pass arguments to the initialize() method, store them, and then use them in the getRequiredFiles() and getRequiredJars() methods. See GenericUDF.initializeAndFoldConstants().
 
+
 ### Comments don't work in Hive shell
 Don't use `--` in Hive shell. Watch out when copying and pasting scripts!
 
+
 ### Casting to complex type
 Does not seems supported in Hive. Grep code base for "CAST" and you won't see any examples CASTing to complex types. Related upstream ticket: https://issues.apache.org/jira/browse/HIVE-658
+
+Workaround:
+```
+-- create NULL struct field
+if (false, named_struct('foo', true, 'bar', ''), NULL) AS struct_field
+```
+
 
 ### Getting two hours ago in different time zone in specific format
 Assuming you cannot change the TZ environment variable:

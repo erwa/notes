@@ -1,3 +1,9 @@
+### SIZE UDF
+When used on bag, returns number of tuples in bag.
+
+https://www.tutorialspoint.com/apache_pig/apache_pig_size.htm
+
+
 ### In operator
 ```
 a = LOAD ‘1.txt’ USING PigStorage (‘,’) AS (i:int);
@@ -102,10 +108,6 @@ pig test.pig -Dmapred.cache.files=/user/ahsu/test#temp
 mapred.cache.files=<hdfs_path>#<local_symlink_name>
 
 -- UDFs are case-sensitive
-
--- Combine small input files
--- http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
-set pig.maxCombinedSplitSize <sizeInBytes>;
 
 -- To solve Jython
 -- ImportError: No module named <module>

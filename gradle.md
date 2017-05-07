@@ -1,9 +1,78 @@
+### Fail build
+```
+throw new GradleException('error occurred')
+```
+http://stackoverflow.com/questions/10312259/recommended-way-to-stop-a-gradle-build
+
+
+### Get directories in build dir
+```
+def tree = project.buildDir
+tree.list().each { println it }
+```
+
+
+### Extract tarball
+```
+task test << {
+    // invokes Project.copy() method - see https://discuss.gradle.org/t/copying-file-filetree-to-multiple-directories/7443
+    copy {
+        from tarTree(resources.gzip('model.tar.gz'))
+        into getProjectDir()
+    }
+}
+```
+http://stackoverflow.com/questions/13017121/unpacking-tar-gz-into-root-dir-with-gradle
+
+
+### Run one test
+```
+// * used to match any package name
+gradle test --tests *SomeTest.method
+```
+http://stackoverflow.com/questions/22505533/how-to-run-a-one-test-class-only-on-gradle
+
+
+### Use local repo
+```
+# local ivy repo
+repositories {
+  ivy {
+    url '/Users/ahsu/local-repo'
+    layout 'pattern', {
+      ivy '[organisation]/[module]/[revision]/[module]-[revision].ivy'
+      artifact '[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]'
+      m2compatible = true
+    }
+  }
+}
+```
+http://stackoverflow.com/questions/10219627/how-to-specify-a-relative-path-to-the-local-ivy-repo-in-gradle
+
+
+### Dependency with classifier
+```
+compile 'group:module:version:classifier'
+```
+https://docs.gradle.org/current/userguide/dependency_management.html#sub:classifiers
+
+
 ### Show test results in console in real-time
 ```
 # You will also see a lot more info related to other tasks.
 gradle test -i  # -i == --info
 ```
 http://stackoverflow.com/questions/3963708/gradle-how-to-display-test-results-in-the-console-in-real-time
+
+
+### File dependencies
+```
+dependencies {
+    runtime files('libs/a.jar', 'libs/b.jar')
+    runtime fileTree(dir: 'libs', include: '*.jar')
+}
+```
+https://docs.gradle.org/current/userguide/dependency_management.html#sub:file_dependencies
 
 
 ### compileOnly dependencies
@@ -151,6 +220,13 @@ http://stackoverflow.com/questions/9918568/gradle-exclude-a-dependency-for-a-con
 ```
 export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21
 ```
+
+
+### See all jars in use
+```
+ligradle idea --debug 2>&1 | less
+```
+
 
 ### Print all dependencies (including transitive ones)
 Make sure to execute this command from the project itself. See http://stackoverflow.com/questions/12288133/what-is-gradle-artifact-dependency-graph-command.

@@ -1,3 +1,15 @@
+### Show line number
+```
+grep -n
+```
+
+
+### Treat binary file as text file
+```
+grep -a ...
+```
+
+
 ### Only show line following match
 ```
 # works if following line does not contain the pattern

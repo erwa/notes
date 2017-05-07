@@ -1,3 +1,68 @@
+### Find jar that a class is in
+* http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+```
+for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
+```
+
+* Also check out http://findjar.com
+
+
+### Enum class
+File can contain only an enum class:
+
+Int.java
+```
+public enum Int {
+    ONE(1),
+    TWO(2);
+
+    private final int value;
+
+    Int(final int value) { this.value = value; }
+
+    public int getValue() { return value; }
+
+    @Override
+    public String toString() { return "I am integer " + value; }
+}
+```
+
+
+### Read file into String
+Use commons-io `FileUtils.readFileToString(File file)`.
+
+http://stackoverflow.com/questions/326390/how-do-i-create-a-java-string-from-the-contents-of-a-file
+
+
+### Access private field
+
+```
+B b = new B();
+Field[] fs = b.getClass().getSuperclass().getDeclaredFields();
+fs[0].setAccessible(true);
+System.out.println(fs[0].get(b));
+```
+
+http://stackoverflow.com/questions/3567372/access-to-private-inherited-fields-via-reflection-in-java
+
+
+### Multiline strings
+`+` should be on newline, per CheckStyle.
+
+
+### JVM arguments changeable at runtime
+```
+java -XX:+PrintFlagsFinal -version|grep manageable
+```
+https://confluence.atlassian.com/kb/how-to-change-jvm-arguments-at-runtime-to-avoid-application-restart-816682109.html
+
+
+### `-client` vs. `-server` JVM flags
+`-client` ignored for 64-bit JDK. `-server` is implicit.
+
+http://stackoverflow.com/questions/198577/real-differences-between-java-server-and-java-client
+
+
 ### Garbage Collection
 ```
 jstat -gcutil <pid> <time between measurements> <number measurements>
@@ -19,15 +84,6 @@ https://plumbr.eu/blog/garbage-collection/minor-gc-vs-major-gc-vs-full-gc
 Connection
 * autoCommit true (default) means each statement executed and committed as individual transactions
 * autoCommit false means statements are grouped together and terminated by call to commit() or rollback()
-
-
-### Find jar that a class is in
-* http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
-```
-for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
-```
-
-* Also check out http://findjar.com
 
 
 ### Metaspace
@@ -176,8 +232,11 @@ http://jd.benow.ca/
 * Build from source for Red Hat
 
 ### Decompile Java class
+If jar, extract/unzip jar first.
 ```
-javap -c -private AvroGenericRecordReader
+# -c prints disassembled code for each method in class
+# -p prints all classes and members (including private ones)
+javap -c -p AvroGenericRecordReader
 ```
 
 ### Pipe output stream to a String
@@ -235,7 +294,7 @@ See http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to
 http://stackoverflow.com/questions/11789990/what-does-init-signify-in-a-java-exception
 
 See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message and http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3. Also see http://stackoverflow.com/a/357386/1128392.
-* `[TYPE` means array of TYPE
+* `[TYPE` means array of TYPE (`[Ljava.lang.Object` means array of Object)
 * `B` means byte
 * `I` means integer
 * `Lfoo.bar.ClassName;` means the type is foo.bar.ClassName
@@ -322,15 +381,32 @@ Transport.send(msg);
 See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attachments-not-working for details.
 
 
+### Case-insensitive regex
+```
+String target = "FOOBar";
+target = target.replaceAll("(?i)foo", "");
+System.out.println(target);
+```
+http://stackoverflow.com/questions/5054995/how-to-replace-case-insensitive-literal-substrings-in-java
+
+
+### Regex replace
+```
+// Capturing groups indexed left to right, starting from 1
+str = str.replaceAll("<b>([^<]*)</b>", "$1");
+```
+http://www.javamex.com/tutorials/regular_expressions/search_replace.shtml
+
+
 ### Java String.matches()
 Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-doesnt-work-in-string-matches for details.
 
 
 ### Get resource file path
 ```
-URL resource = Foo.class.getResource("resourceFile");
-String resourceFilePath = new File(resource.toURI()).getAbsolutePath();
+File file = new File(getClass().getClassLoader().getResource("file/test.xml").getFile());
 ```
+https://www.mkyong.com/java/java-read-a-file-from-resources-folder/
 
 
 ### Read resource file from jar
@@ -347,14 +423,35 @@ System.out.println("Working Directory = " + System.getProperty("user.dir"));
 ```
 http://stackoverflow.com/questions/4871051/getting-the-current-working-directory-in-java
 
+
+
 # Javadoc
+
+For examples, scan through http://www.oracle.com/technetwork/articles/java/index-137868.html.
+
+### Reference method
+```
+/** See also the method {@link #myMethod(String)}. */
+```
+http://stackoverflow.com/questions/5915992/how-to-reference-a-method-in-javadoc
+
+### Reference method parameter in method Javadoc
+```
+{@code paramName}
+```
+http://stackoverflow.com/questions/1667212/how-to-add-reference-to-a-method-parameter-in-javadoc
+
 
 ### `{@code MyClassName}`
 https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
 
+
 ### `{@link InputStream}`
 
+
 # End Javadoc
+
+
 
 ### Write String to file
 ```
@@ -402,8 +499,12 @@ http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
 
 ### `java -cp` vs. `java -jar`
 You cannot specify both.
-
 http://stackoverflow.com/questions/11922681/differences-between-java-cp-and-java-jar
+
+```
+# java -cp example
+java -cp `hadoop classpath`:$HIVE_HOME/lib/*:$HIVE_CONF_DIR:. groovy.ui.GroovyMain ...
+```
 
 
 ### `java` vs. `javax` packages

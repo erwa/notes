@@ -1,3 +1,14 @@
+### Insert Anchor
+
+Insert -> Bookmark
+
+http://smallbusiness.chron.com/insert-anchor-google-docs-48623.html
+
+
+### Decrease Font Size / Increase Font Size
+Cmd + Shift + < / >
+
+
 ### Hide page breaks
 View -> disable Print View
 

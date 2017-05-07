@@ -1,3 +1,16 @@
+### Runtime jars
+
+Needed at runtime for running an embedded metastore:
+```
+# Hive 1.1
+jdo-api-3.0.1.jar
+datanucleus-api-jdo-3.2.6.jar
+datanucleus-core-3.2.10.jar
+datanucleus-rdbms-3.2.9.jar
+derby-10.11.1.1.jar
+```
+
+
 ### Generating tarball
 Works for trunk
 ```

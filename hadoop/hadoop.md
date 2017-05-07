@@ -1,3 +1,7 @@
+### Dependencies
+Specified in hadoop-project/pom.xml.
+
+
 ### DistributedCache
 
 NodeManager has ContainerManager that uses ResourceLocalizationService. ResourceLocalizationService has LocalizedRunner that has addResource() method which uses FSDownload to localize file.

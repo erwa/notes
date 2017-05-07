@@ -1,3 +1,18 @@
+### Layer Mask
+
+Allows you to selectively modify opacity of different areas of a layer.
+
+https://www.gimp.org/tutorials/Layer_Masks/
+
+
+### Rubber Stamp
+
+Text box. Add Rectangle around it. Select -> Border. Merge layers. Rotate Tool to rotate. Add Layer Mask - White (Full Opacity). Use Brush - Confetti to make stamp look faded. Use Ink tool to add lines to make stamp look more faded.
+
+https://www.youtube.com/watch?v=9-WyO01SIU4
+https://www.youtube.com/watch?v=k76hBRampi0#t=211.052769
+
+
 ### Diagonal cut
 
 Use lasso tool -> right click -> Edit -> paste as -> new layer.

@@ -1,5 +1,37 @@
 # log4j
 
+### Change log level for category
+```
+Logger.getLogger("CATEGORY_NAME").setLevel(Level.OFF)
+```
+Example: DataNucleus: http://www.datanucleus.org/products/accessplatform/logging.html#_logging_categories
+
+
+### Bare bones logging example
+```
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+
+public class TestJava {
+  private static final Logger _LOG = Logger.getLogger(TestJava.class);
+
+  public static void main(String[] args) throws Exception {
+    ConsoleAppender console = new ConsoleAppender();
+    console.setName("consoleAppender");
+    console.activateOptions();
+    console.setLayout(new PatternLayout());
+    Logger.getRootLogger().addAppender(console);
+
+    // Change global log level
+    Logger.getRootLogger().setLevel(Level.INFO)
+
+    _LOG.info("hi");
+  }
+}
+```
+
+
 ### Hierarchy
 
 A logger is an ancestor if name followed by dot is prefix of descendant logger name. Example: Logger "foo" is an ancestor of logger "foo.bar".

@@ -1,3 +1,9 @@
+### Find frame rate of video
+Open in QuickTime -> Cmd + I
+
+https://forums.macrumors.com/threads/how-to-find-out-the-frame-rate-of-a-video.1109804/
+
+
 ### Lock screen / sleep
 Ctrl + Shift + Power
 
@@ -96,12 +102,20 @@ Function + up/down
 http://apple.stackexchange.com/questions/122514/how-do-i-do-a-diagonal-arrow-keyboard-shortcut
 
 
-# Install package using Homebrew
+### Homebrew
+```
+# check if package installed
+brew list <package_name>
+brew list  # see all installed packages
+# http://apple.stackexchange.com/questions/101090/list-of-all-packages-installed-using-homebrew
+
 brew search <keyword>
 brew install <package_name>
+```
 
-# Crop a picture
-# Open picture in Preview, Save a Copy first! (if you modify the original, once Preview is closed after cropping, you cannot recover original)
+
+### Crop a picture
+Open picture in Preview, Save a Copy first! (if you modify the original, once Preview is closed after cropping, you cannot recover original)
 # Drag a rectangle
 Cmd + K (Tools --> Crop)
 (Cmd + Z to undo crop)
