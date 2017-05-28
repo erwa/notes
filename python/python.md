@@ -1,3 +1,43 @@
+### `/dev/null`
+
+```
+# Python < 3.3
+import os
+os.devnull
+
+# Python >= 3.3
+import subprocess
+subprocess.DEVNULL
+```
+https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7
+
+
+### Get host from IP
+```
+import socket
+socket.getfqdn('<IP_ADDRESS>')
+```
+
+
+### CLI packages
+
+http://click.pocoo.org/5/
+
+
+### Multiline strings
+```
+s = """ this is a very
+        long string if I had the
+        energy to type more and more ..."""
+
+ s = ("this is a very"
+      "long string too"
+      "for sure ..."
+     )
+```
+http://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string
+
+
 ### EAFP vs. LBYL
 
 EAFP = easier to ask for forgiveness than permission
@@ -123,38 +163,6 @@ s.union(set2)   // set2 can be any iterable, returns NEW set
 https://docs.python.org/2/library/sets.html
 
 
-### pytest Exceptions
-```
-def test_zero_division():
-    with pytest.raises(ZeroDivisionError):
-        1 / 0
-```
-
-
-### Run one pytest
-```
-pytest test_mod.py::TestClass::test_method  # run a single method in
-                                            # a single class
-```
-http://doc.pytest.org/en/latest/usage.html#specifying-tests-selecting-tests
-
-
-### Parameterize tests
-```
-import pytest
-
-@pytest.mark.parametrize('name, left, right', [['foo', 'a', 'a'],
-                                               ['bar', 'a', 'b'],
-                                               ['baz', 'b', 'b']])
-def test_me(name, left, right):
-    assert left == right, name
-```
-
-Run using `py.test`.
-
-http://stackoverflow.com/a/25626660/1128392
-
-
 ### Debug virtual environment
 Can write `test.py` file and import modules in the virtual environment.
 
@@ -266,12 +274,6 @@ level = logging.getLevelName('INFO')
 Log.setLevel(level)
 ```
 http://stackoverflow.com/questions/10332748/python-logging-setlevel
-
-
-### Enable logging in Pytest
-```
-py.test --capture=no
-```
 
 
 ### ArgumentParser
@@ -630,7 +632,7 @@ http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replac
 
 ### Regex match anywhere in string
 ```
-match = re.search('CREATE TABLE ([a-z._]+)', contents)
+match = re.search(r'CREATE TABLE ([a-z._]+)', contents)
 print match.group(1)
 ```
 https://docs.python.org/2/library/re.html#re.search
@@ -656,6 +658,10 @@ link = "http://www.somesite.com/details.pl?urn=2344"
 f = urllib.urlopen(link)
 myfile = f.read()
 print myfile
+
+# parse as json
+import json
+obj = json.loads(myfile)
 ```
 http://stackoverflow.com/questions/15138614/how-can-i-read-the-contents-of-an-url-with-python
 
@@ -788,6 +794,11 @@ Reading from global variable does not require any special modifiers. To write to
 global <var_name>
 ```
 at the beginning of the function.
+
+Reasons for not using global variables for storing command line arguments:
+* the `parse_args()` method will need to use `global x, y, z` to set/modify the args
+* functions are less self-contained, harder to see what the inputs/outputs are
+* state could be encapsulated in a class
 
 
 ### Read string line by line
@@ -1042,12 +1053,6 @@ for arg in sys.argv[1:]:
 `raise` by itself re-raises the thrown exception.
 
 
-### Pytest
-Test discovery: http://pytest.org/latest/goodpractises.html#test-discovery
-* Looks for `test_*.py` and `*_test.py` files, among other things.
-* Within a test file, runs `test_` prefixed functions and methods.
-
-
 ### Debugger
 ```
 python -m pdb myscript.py
@@ -1159,6 +1164,19 @@ http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
 ### Run external command and capture output
 ```
+from subprocess import check_output
+output=check_output("dmesg | grep hda", shell=True)
+```
+https://docs.python.org/2/library/subprocess.html#subprocess-replacements
+
+Ignore stderr
+```
+from subprocess import check_output
+import os
+output = check_output([cmd, 'lo:bgp1'], stderr=open(os.devnull, 'w'), close_fds=True)
+```
+
+```
 from subprocess import PIPE, Popen, STDOUT
 foo = Popen(['command', 'arg1'], stdout=PIPE, stderr=STDOUT).stdout.read()
 ```
@@ -1171,6 +1189,9 @@ output = process.communicate()[0]
 # returncode is only set after calling communicate(), poll(), or wait()
 exit_status = process.returncode
 
+# capture both stdout and stderr
+process = Popen(cmd, stdout=PIPE, stderr=PIPE)
+(output, errorOutput) = process.communicate()  # Blocks until process finishes
 ```
 http://stackoverflow.com/a/4760517/1128392
 

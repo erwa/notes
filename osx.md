@@ -1,3 +1,19 @@
+### Add specific songs to iPhone
+
+Drag and drop songs from your iTune Library to your phone icon on left.
+
+https://support.apple.com/en-us/HT201593
+
+If having issues, delete all songs (can do so from iTunes on Mac) and then recopy.
+
+
+### Rip / burn CDs
+
+Use iTunes, select CD icon in top-left, then click Import in top-right.
+
+http://www.macworld.com/article/1156861/software-graphics/howto-rip-cds.html
+
+
 ### Find frame rate of video
 Open in QuickTime -> Cmd + I
 
@@ -189,8 +205,10 @@ System Preferences -> Cmd + Option + click Display --> Rotation option should ap
 
 http://osxdaily.com/2012/05/11/batch-rotate-a-group-of-images-with-preview-for-mac-os-x/
 
+
 ### Open iPhone photos in Finder
 Use Image Capture to export to a folder, which you can then open in Finder.
+
 
 ### Delete iPhone photos from Mac
 https://discussions.apple.com/thread/3075727?start=0&tstart=0

@@ -1,3 +1,11 @@
+### Get BGP Loopback IP
+```
+/sbin/ip addr show lo:bgp1
+
+ifconfig lo:bgp1
+```
+
+
 ### SOCKS (Socket Secure)
 Internet protocol for exchanging network packets between client and server through a proxy server. Also provides authentication so only authorized users can access a server. Proxy server does the TCP/UDP connections and passes them to client.
 

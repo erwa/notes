@@ -1,3 +1,8 @@
+### Notes
+
+You can Insert -> Note in a spreadsheet which will yield a pop-up when you click on a cell.
+
+
 ### Insert Anchor
 
 Insert -> Bookmark

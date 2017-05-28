@@ -15,13 +15,18 @@
 - hiking boots
 - extra pairs of socks
 - compass
-- towel
-- touque
+- towel / microfiber cloth
+- balaclava / touque
 - headlamp
 - deodorant
+- toiletries
 - carabiners
 - paper towels, napkins, tissues
 - camping pots
 - ear plugs, blindfold
 - poncho
 - Swiss army knife
+- pens / pencils / paper
+- clipboard
+- drawstring bag / day pack
+- ski goggles (for cold weather) - I have Scott Heli OTG (over the glass) goggles, can wear over glasses, has anti-fog lens treatment

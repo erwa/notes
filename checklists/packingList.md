@@ -19,7 +19,7 @@
 - Clothes (check weather forecast)
 - Shorts/change of clothes for exercising
 - Laundry bag
-- Notebook / loose leaf paper
+- Notebook / loose leaf paper / sheet protectors
 - Clipboard
 - Halt mail / newspaper
 - Notify credit card company of travel destination

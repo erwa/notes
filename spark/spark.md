@@ -1,3 +1,29 @@
+### Spark SQL
+
+Can execute SQL directly:
+```
+// .sql returns a DataFrame
+val sqlDF = spark.sql("SELECT * FROM people")
+
+// Hive UDFs can be used but need to be registered first
+// and need to be present in your classpath
+```
+
+or use Scala API
+
+```
+df.select(...).filter(...).groupBy(...)
+```
+
+https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/sql/SparkSQLExample.scala
+
+No matter what, a jar needs to be generated and submitted.
+
+Performance overhead:
+- in-memory Spark representation needs to be converted to Hive object, Hive UDF applied, then converted back
+- same with Scala UDF, in-memory representation converted to simple Scala objects, then converted back. Theoretically, could write a Scala UDF that operates directly on in-memory representation but difficult.
+
+
 ### Upstream contributions and builds
 
 Contributions happen on GitHub as Pull Requests. Pull request builds happen on Amplab's Jenkins server: https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/

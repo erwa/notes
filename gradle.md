@@ -1,3 +1,10 @@
+### Default Log Level
+
+Is LIFECYCLE. Does NOT include INFO.
+
+https://docs.gradle.org/current/userguide/logging.html
+
+
 ### Fail build
 ```
 throw new GradleException('error occurred')
@@ -81,6 +88,26 @@ Not inherited by test classpath.
 https://gradle.org/blog/compile-only-dependencies/
 
 There's also `testCompileOnly`.
+
+
+### Classpath order
+The `dependencies { }` section returns given set of dependencies in a fixed but arbitrary order.
+
+https://discuss.gradle.org/t/how-do-i-control-the-order-of-compile-classpaths/5329/4
+
+Add jar to beginning of classpath:
+```
+    def snakeYamlPath
+    configurations.runtime.resolve().each {
+      def jarPath = it.getAbsolutePath()
+      if (jarPath.contains('snakeyaml')) {
+        snakeYamlPath = jarPath
+      }
+    }
+    classpath = files(snakeYamlPath) + sourceSets.main.runtimeClasspath
+```
+
+Ref: https://discuss.gradle.org/t/how-to-get-absolute-path-of-a-file-declared-in-dependencies/5463/3
 
 
 ### Print buildscript classpath
@@ -169,6 +196,17 @@ task copyFiles (type: Copy) {
   }
 }
 ```
+
+
+### Print classpath
+```
+task printClasspath {
+    doLast {
+        configurations.compile.each { println it }
+    }
+}
+```
+
 
 ### Get test runtime classpath
 See http://forums.gradle.org/gradle/topics/how_to_add_to_a_test_classpath.

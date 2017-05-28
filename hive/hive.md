@@ -1,3 +1,12 @@
+### SMB (sort-merge-bucket) join
+
+`hive.enforce.bucketing` sorts data within each bucket.
+
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-AutoConversiontoSMBMapJoin
+
+https://stackoverflow.com/questions/6934327/using-sorted-tables-in-hive
+
+
 ### Equal not null operator
 ```
 <=>

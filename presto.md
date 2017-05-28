@@ -1,3 +1,10 @@
+### `count_if`
+```
+count_if(is_hive)
+```
+https://prestodb.io/docs/current/functions/aggregate.html#count_if
+
+
 ### Convert epoch to timestamp
 ```
 from_unixtime(epoch_time_in_seconds)

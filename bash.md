@@ -43,6 +43,14 @@ sort -V
 ```
 
 
+### `ps` output explained
+```
+# -f prints uid, pid, parent pid, ...
+ps -ef
+```
+https://superuser.com/questions/117913/ps-aux-output-meaning
+
+
 ### Find process start-time
 Get process id using `ps -ef`. Then use `ps -eo pid,cmd,lstart | grep <pid>`.
 
@@ -267,7 +275,15 @@ fi
 ```
 free
 top
+
+# check memory usage of process
+ps aux PID
+
+# VSZ = virtual memory usage of entire process (in KiB)
+# RSS = resident set size, the non-swapped physical memory that a task has used (in KiB)
 ```
+https://superuser.com/questions/117913/ps-aux-output-meaning
+
 
 ### Swap space
 See http://www.linux.com/news/software/applications/8208-all-about-linux-swap-space.

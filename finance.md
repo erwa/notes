@@ -1,3 +1,24 @@
+### Municipal Bond
+
+Bond issued by NPO / private-sector corporation, or public entity (state, municipality, or county) to finance expenditures (e.g.: highways, bridges, schools). Exempt from federal taxes and most state/local taxes.
+
+http://www.investopedia.com/terms/m/municipalbond.asp
+
+
+### Blue-Chip Stock
+
+Stock of a large, well-established and financially sound company.
+
+
+### Price-Earnings (P/E) Ratio
+
+Price per share divided by earnings per share. Equivalently, total market cap divided by annual earnings. Earnings means after-tax net income.
+
+Historically, median P/E for S&P 500 is 16. (TIME article, May 29, 2017 issue)
+
+http://www.investopedia.com/terms/p/price-earningsratio.asp
+
+
 ### Cost Basis
 Original value of an asset for tax purposes, usually the purchase price.
 

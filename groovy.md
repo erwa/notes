@@ -1,3 +1,7 @@
+### `getText()`
+https://github.com/apache/groovy/blob/master/src/main/org/codehaus/groovy/runtime/IOGroovyMethods.java#L809
+
+
 ### Number Type Suffixes
 ```
 // BigDecimal

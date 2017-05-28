@@ -1,3 +1,8 @@
+### See memory usage of process
+
+Use JVM Debugger Memory View plugin: https://blog.jetbrains.com/idea/2016/08/jvm-debugger-memory-view-for-intellij-idea/
+
+
 ### UML (Unified Modeling Language) Diagrams
 
 Right click class -> Diagram -> Show Diagram.
