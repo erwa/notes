@@ -1,3 +1,20 @@
+### Set test system property
+
+```
+test {
+    systemProperty "cassandra.ip", project.getProperty("cassandra.ip")
+}
+
+https://stackoverflow.com/questions/21406265/how-to-give-system-property-to-my-test-via-gradle-and-d```
+
+
+### Force run tasks
+```
+--rerun-tasks
+```
+https://stackoverflow.com/questions/42175235/force-gradle-to-run-task-even-if-it-is-up-to-date
+
+
 ### Default Log Level
 
 Is LIFECYCLE. Does NOT include INFO.
@@ -41,6 +58,8 @@ http://stackoverflow.com/questions/22505533/how-to-run-a-one-test-class-only-on-
 
 
 ### Use local repo
+
+Note that the order of the repositories listed matters. Gradle checks them in order.
 ```
 # local ivy repo
 repositories {
@@ -65,24 +84,29 @@ https://docs.gradle.org/current/userguide/dependency_management.html#sub:classif
 
 
 ### Show test results in console in real-time
+
 ```
 # You will also see a lot more info related to other tasks.
 gradle test -i  # -i == --info
 ```
+
 http://stackoverflow.com/questions/3963708/gradle-how-to-display-test-results-in-the-console-in-real-time
 
 
 ### File dependencies
+
 ```
 dependencies {
     runtime files('libs/a.jar', 'libs/b.jar')
     runtime fileTree(dir: 'libs', include: '*.jar')
 }
 ```
+
 https://docs.gradle.org/current/userguide/dependency_management.html#sub:file_dependencies
 
 
 ### compileOnly dependencies
+
 Not inherited by test classpath.
 
 https://gradle.org/blog/compile-only-dependencies/
@@ -90,12 +114,21 @@ https://gradle.org/blog/compile-only-dependencies/
 There's also `testCompileOnly`.
 
 
+### Add directory to classpath
+
+Copy files to `src/main/resources`.
+
+https://stackoverflow.com/questions/35545405/gradle-add-directory-to-classpath
+
+
 ### Classpath order
+
 The `dependencies { }` section returns given set of dependencies in a fixed but arbitrary order.
 
 https://discuss.gradle.org/t/how-do-i-control-the-order-of-compile-classpaths/5329/4
 
 Add jar to beginning of classpath:
+
 ```
     def snakeYamlPath
     configurations.runtime.resolve().each {
@@ -111,16 +144,20 @@ Ref: https://discuss.gradle.org/t/how-to-get-absolute-path-of-a-file-declared-in
 
 
 ### Print buildscript classpath
+
 ```
 task printBuildScriptClasspath << {
   println project.buildscript.configurations.classpath.asPath
 }
 ```
+
 https://gist.github.com/xconnecting/4037220
 
 
 ### Buildscript variables
+
 Define variables in `buildscript` block, will be accessible both inside and outside it.
+
 ```
 buildscript {
    ext {
@@ -134,10 +171,12 @@ buildscript {
    }
 }
 ```
+
 http://wtanaka.com/node/8111
 
 
 ### Build Phases
+
 1) Initialization
 2) Configuration
 3) Execution
@@ -238,6 +277,7 @@ def execResult = javaexec {
 gradle -x <task>
 ```
 
+
 ### Exclude a package
 * http://stackoverflow.com/questions/19575474/gradle-how-to-exclude-a-particular-package-from-a-jar
 
@@ -248,61 +288,96 @@ jar {
 }
 ```
 
+
+### Dependency Configuration / Depend on specific configuration
+
+By default, when you depend on a module, you depend on its "default" configuration. To specify configuration:
+
+```
+dependencies {
+    runtime group: 'org.somegroup', name: 'somedependency', version: '1.0', configuration: 'someConfiguration'
+}
+```
+
+https://docs.gradle.org/3.3/userguide/dependency_management.html#sec:dependency_configurations
+
+
 ### Exclude dependency from configuration
+
 ```
 configurations.CONFIG_NAME.exclude group: 'com.foo', module: 'foo'
 ```
+
 http://stackoverflow.com/questions/9918568/gradle-exclude-a-dependency-for-a-configuration-but-not-for-an-inheriting-con
 
+
 ### Build with Java 7
+
 ```
 export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21
 ```
 
 
 ### See all jars in use
+
 ```
 ligradle idea --debug 2>&1 | less
 ```
 
 
 ### Print all dependencies (including transitive ones)
+
 Make sure to execute this command from the project itself. See http://stackoverflow.com/questions/12288133/what-is-gradle-artifact-dependency-graph-command.
+
 ```
 gradle dependencies
 ```
 
+
 ### Compile from local file
+
 ```
 compile files('../lib/foo.jar')
 ```
 
+
 ### Depend on latest version
+
 Wildcard dependency. Use a `+`. See http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:dependency_resolution.
+
 ```
 compile 'junit:junit:4.8.+'
 ```
+
 
 ### See what dependencies a configuration has
 ```
 gradle :SUB_PROJECT_NAME:dependencies --configuration default
 ```
 
+
 ### Check for property's existence
+
 ```
 hasProperty('property')
 ```
 
+
 ### Get tasks Gradle was launched with
+
 ```
 gradle.startParameter.taskNames
 ```
 
+
 ### Default Evaluation Order
+
 The default evaluation order of projects is alphanumeric (for the same nesting level). See http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies. The evaluation order can be set by adding
+
 ```
 evaluationDependsOn(':otherProject')
 ```
+
 
 ### Set task execution order
 ```

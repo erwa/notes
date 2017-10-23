@@ -16,7 +16,9 @@ http://solving-cryptics.com/
 
 Anagram indicators: http://cryptics.wikia.com/wiki/List_of_anagram_indicators
 
-Subtraction indicators: http://www.highlightpress.com.au/subtractions.html
+Subtraction indicators:
+* http://www.highlightpress.com.au/subtractions.html
+* http://bestforpuzzles.com/cryptic-crossword-dictionary/subtraction-indicators.html
 
 http://www.dummies.com/games/crossword-puzzles/spotting-indicator-words-when-solving-cryptic-crosswords/
 https://crypticshewrote.wordpress.com/explanations/

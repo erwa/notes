@@ -1,4 +1,12 @@
+### Configure Kotlin in IntelliJ
+
+Configure -> Java
+
+https://blog.jetbrains.com/kotlin/2013/10/how-to-configure-kotlin-in-your-project/
+
+
 ### Class Instantiation
+
 ```
 val invoice = Invoice()
 val customer = Customer("Joe Smith")
@@ -51,7 +59,7 @@ Can use to return multiple values from a function:
 data class Result(val result: Int, val status: Status)
 fun function(...): Result {
     // computations
-    
+
     return Result(result, status)
 }
 
@@ -79,16 +87,19 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
 
 
 ### Splitting empty string
+
 `"".split()` will return empty array, not an array with one elemtn.
 
 
 ### Style Guide / Coding Conventions
+
 * 4-space indentation
 
 http://kotlinlang.org/docs/reference/coding-conventions.html
 
 
 ### Read-only vs. Mutable Variables
+
 ```
 # assign-once (read-only)
 val b = 1

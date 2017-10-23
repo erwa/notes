@@ -1,2 +1,0 @@
-# start webserver
-sudo apachectl -k start

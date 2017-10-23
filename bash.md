@@ -1,17 +1,30 @@
+### Get absolute path of current script
+
+```
+SCRIPTPATH=$( cd $(dirname $0) ; pwd )
+```
+
+https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+
+
 ### Find file by name quickly
+
 ```
 locate libffi
 ```
 
 
 ### wget download to specific directory
+
 ```
 wget URL -P my_dir
 ```
+
 http://stackoverflow.com/questions/1078524/how-to-specify-the-location-with-wget
 
 
 ### Do math / arithmetic
+
 ```
 $ expr 1 + 1
 2
@@ -20,18 +33,22 @@ $ expr 1 + 1
 $ awk "BEGIN {print 208955300 / 15892428}"
 13.1481
 ```
+
 https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/
 
 
 ### Sum stream of numbers
+
 ```
 # split on space, take 11th field, remove comma, sum
 cat MY_FILE | cut -d ' ' -f 11 | sed 's/,//' | awk '{s+=$1} END {print s}'
 ```
+
 http://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
 
 
 ### Sort by version number
+
 ```
 sort -V
 
@@ -44,20 +61,24 @@ sort -V
 
 
 ### `ps` output explained
+
 ```
 # -f prints uid, pid, parent pid, ...
 ps -ef
 ```
+
 https://superuser.com/questions/117913/ps-aux-output-meaning
 
 
 ### Find process start-time
+
 Get process id using `ps -ef`. Then use `ps -eo pid,cmd,lstart | grep <pid>`.
 
 http://stackoverflow.com/questions/5731234/how-to-get-the-start-time-of-a-long-running-linux-process
 
 
 ### Remove newlines from string
+
 ```
 echo "STRING
 WITH
@@ -66,19 +87,23 @@ NEWLINES" | tr '\n' ' '
 
 
 ### Print file, replacing `\n` with actual newlines
+
 ```
 echo -e $(cat filename)
 ```
 
 
 ### Delete empty lines
+
 ```
 sed '/^\s*$/d'
 ```
+
 http://stackoverflow.com/questions/16414410/delete-empty-lines-using-sed
 
 
 ### dot command
+
 Synonym of `source`. Runs commands from file in current shell.
 
 `bash file` causes file to be run in child process, and parent script will not see modifications (e.g.: to variables).
@@ -87,12 +112,14 @@ http://askubuntu.com/questions/232932/in-a-bash-script-what-does-a-dot-followed-
 
 
 ### With or without `export`
+
 `export` makes the variable available to sub-processes.
 
 http://stackoverflow.com/questions/1158091/defining-a-variable-with-or-without-export
 
 
 ### Portable readarray
+
 `readarray` is not available on OSX.
 
 ```
@@ -573,27 +600,37 @@ alias ls="ls --color=auto"
 ls | tr "\\n" " "
 ```
 
+
 ### ls: output one file per line
+
 ```
 ls | cat
 ```
 
+
 ### List directories only
+
 ```
 ls -d */
 tree -d
 ```
 
+
 ### List files sorted by size
+
 ```
 ls -Ssh
 ```
+
 http://superuser.com/questions/368784/how-can-i-sort-all-files-by-size-in-a-directory
 
+
 ### List files only
+
 ```
 find . -maxdepth 1 -type f
 ```
+
 From http://stackoverflow.com/questions/10574794/bash-how-to-list-only-files.
 
 
@@ -628,53 +665,35 @@ xattr -l <filename>
 ```
 
 ### ls output explained
+
 See http://unix.stackexchange.com/questions/103114/what-do-the-fields-in-ls-al-output-mean. The first character is the file type. See http://unix.stackexchange.com/a/103117. `c` means character special file, which behave like pipes and serial ports. Writing to them causes an immediate action, like displaying something on the screen or playing a sound. See http://unix.stackexchange.com/questions/60034/what-are-character-special-and-block-special-files-in-a-unix-system.
 
 ### Check disk usage, output in human-readable format:
+
 ```
 df -h
 ```
 
+
 ### Check disk usage of a directory, output in human-readable format:
+
 ```
 du -h DIR
 ```
 
+
 ### du of every file/directory (including hidden ones) in current directory, sort from largest to smallest:
+
 See http://askubuntu.com/questions/356902/why-doesnt-this-show-the-hidden-files-folders.
+
 ```
 # du hidden files
 du -sh  .[!.]* * | sort -h
 ```
 
-# `date`
-
-### Date in `yyyyMMdd` format
-```
-date +%Y%m%d
-```
-
-### Date one day ago (only works on Linux)
-```
-date --date="1 day ago" +%Y%m%d
-```
-
-### Seconds since epoch:
-```
-date +%s
-```
-
-### Milliseconds since epoch:
-```
-date +%s%3N
-```
-
-### Date in different timezone
-```
-TZ=America/Los_Angeles date
-```
 
 ### Convert epoch time (seconds) to date
+
 ```
 # Linux
 date -d @1432752946.852
@@ -682,15 +701,54 @@ date -d @1432752946.852
 # Mac
 date -jf %s 1446662585
 ```
+
 http://stackoverflow.com/questions/21958851/convert-unix-epoch-time-to-human-readable-date-on-mac-osx-bsd
 
----
+### Date in `yyyyMMdd` format
+
+```
+date +%Y%m%d
+```
+
+### Date in epoch
+
+```
+date -j -f "%Y%m%d %T" "20170808 00:00:00" +%s
+```
+
+
+### Date one day ago (only works on Linux)
+```
+date --date="1 day ago" +%Y%m%d
+```
+
+### Seconds since epoch:
+
+```
+date +%s
+```
+
+### Milliseconds since epoch:
+
+```
+date +%s%3N
+```
+
+### Date in different timezone
+
+```
+TZ=America/Los_Angeles date
+```
+
 
 ### Redirect both stdout and stderr to the same file
+
 See http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Output-and-Standard-Error.
+
 ```
 <command> &> file
 ```
+
 
 ### Look up hostname/IP address associated with IP address/hostname
 ```
@@ -765,74 +823,6 @@ set -x
 http://serverfault.com/questions/391255/what-does-passing-the-xe-parameters-to-bin-bash-do
 
 
-
-# less
-
-
-### Start reading from 50.2% in
-Seems to be fastest way of jumping to a specific time in a file.
-```
-less -n +50.2p foo.log
-```
-http://serverfault.com/questions/411280/how-to-get-less-to-seek-faster-with-large-log-files
-
-
-### Open a large file
-```
-less <file>
-```
-For a long line, press `<right-arrow>` to show more of the line.
-
-To highlight/unhighlight search results, type `<Esc, u>`.
-
-
-### Move N windows forward/backward
-```
-10f - 10 windows forward
-10b - 10 windows backward
-```
-http://ss64.com/bash/less.html
-
-
-### Scroll N lines forward/backward
-```
-10j – 10 lines forward.
-10k – 10 lines backward.
-```
-http://www.thegeekstuff.com/2010/02/unix-less-command-10-tips-for-effective-navigation/
-
-
-### Turn word wrap on/off in less
-See http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
-```
--, Shift-S
-```
-
-
-### Open file at line number
-```
-less +320123 filename
-```
-http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
-
-
-### Jump to line number
-See http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
-```
-ng # jump to line `n`
--N # turn line numbers on/off
-```
-
-### Search forward
-```
-/pattern
-```
-
-### Search backward
-```
-?pattern
-```
-
 ### Start reading from middle of large file
 ```
 # Skip first 3 GB
@@ -874,20 +864,28 @@ export PS1="My simple prompt> "
 ```
 
 ### See quota for a user
+
 ```
 quota -s ahsu
+
+# If command prints nothing, no quota set.
+# https://askubuntu.com/questions/703323/why-would-the-quota-command-not-work-at-all?newreg=577748f150494a27a66b070d7d421831
 ```
+
 For an explanation of the output, see http://serverfault.com/questions/94368/understanding-quota-output
 
 To calculate the amount of space used, multiply the number of blocks (first number) by the BLOCK_SIZE (defined in /usr/include/sys/mount.h). Reference: http://stackoverflow.com/questions/2506288/detect-block-size-for-quota-in-linux
 
 
 ### See keyboard shortcut bindings
+
 ```
 bind -P
 ```
 
+
 ### Delete to previous slash
+
 ```
 Esc, Ctrl-h
 ```
@@ -1008,51 +1006,6 @@ xev | grep button
 # Click around in pop-up window
 ```
 
-# Screen
-
-Create a named screen `foo`
-```
-screen -S foo
-```
-http://stackoverflow.com/questions/3202111/how-to-assign-name-for-a-screen
-
-
-Check if in screen session
-```
-echo $STY
-# "" means no screen session. Else screen session.
-```
-http://serverfault.com/questions/257975/how-to-check-if-im-in-screen-session
-
-Attach to another session (detach it and then reattach)
-```
-screen -d -r SESSION
-```
-http://stackoverflow.com/questions/20807696/how-do-i-force-detach-screen-from-another-ssh-session
-
-Show sessions:
-```
-screen -ls
-```
-
-Detach Screen window:
-```
-Ctrl + a, d
-```
-
-Reattach Screen window:
-```
-screen -r
-
-screen -r <session>
-```
-
-Kill session:
-```
-# -X sends a command
-# -S SESSION specifies the session
-screen -X -S SESSION quit
-```
 
 ### Download file using `curl`
 ```
@@ -1075,19 +1028,30 @@ awk '{ print $4 " " $1 " " $5 }' FILE
 ```
 See http://stackoverflow.com/questions/2129123/rearrange-columns-using-cut.
 
+
 ### Remove trailing slash
+
 ```
 sed 's/\/$//'
 ```
+
 See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
 
+
 ### Find and replace
+
 ```
+# Portable
+find . -name pom.xml -exec perl -pi -w -e 's/foo/bar/g' {} \;
+
 find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
 ```
+
 http://stackoverflow.com/questions/15402770/how-to-grep-and-replace
 
+
 ### Replace string in all files
+
 ```
 # Linux
 sed -i 's/old-word/new-word/g' *.txt
@@ -1100,12 +1064,29 @@ sed -i '' 's/old-word/new-word/g' *.txt
 
 # portable
 perl -pi -w -e 's/ahsu/dalitest/g' *.job
+# -p means to assume following loop around your program
+              LINE:
+                while (<>) {
+                    ...             # your program goes here
+                } continue {
+                    print or die "-p destination: $!\n";
+                }
+# -i means files processed by '<>' construct are to be edited in-place
+# -w prints warnings about dubious constructs
+# -e used to enter a one-line program
+
+
+### lowercase line
+perl -pi -w -e 's/(^LINE_TO_LOWERCASE$)/lc($1)/ge'
+# /e tells Perl to evaluate replacement as Perl expression first
 ```
+
 * http://www.cyberciti.biz/faq/unix-linux-replace-string-words-in-many-files/
 * http://lifehacker.com/5810026/quickly-find-and-replace-text-across-multiple-documents-via-the-command-line
 
 
 ### Check for existence of executable
+
 See http://stackoverflow.com/a/677212/1128392.
 ```
 if [ command -v java >/dev/null 2>&1 ]; then

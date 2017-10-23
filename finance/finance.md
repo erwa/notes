@@ -1,3 +1,22 @@
+### Hard pull vs. soft pull on credit score
+
+General rule of thumb:
+
+* Hard means you had to give lender permission.
+* Soft means you didn't.
+
+Hard can lower credit score. Soft does not. Soft pulls are still allowed if you have a credit freeze.
+
+https://www.creditkarma.com/advice/i/hard-credit-inquiries-and-soft-credit-inquiries/
+
+
+### Mortgage tax deductibility
+
+Mortgage interest and property tax and tax-deductible, but not mortgage principle.
+
+http://budgeting.thenest.com/mortgage-payments-tax-deductible-4482.html
+
+
 ### Municipal Bond
 
 Bond issued by NPO / private-sector corporation, or public entity (state, municipality, or county) to finance expenditures (e.g.: highways, bridges, schools). Exempt from federal taxes and most state/local taxes.

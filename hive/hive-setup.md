@@ -1,10 +1,52 @@
 ### MySQL DB
+
 ```
 $ sudo mysql
 mysql> create database metastore_db;
 mysql> use metastore_db;
 mysql> source /path/to/metastore/scripts/upgrade/mysql/hive-schema-1.1.0.mysql.sql
 mysql> grant all on metastore_db.* to testuser@'localhost' IDENTIFIED BY 'testpassword';
+```
+
+
+Start MySQL server:
+
+```
+mysql.server start
+```
+
+
+In `hive-site.xml`:
+
+```
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://localhost/metastore_db?createDatabaseIfNotExists=true</value>
+    <description>JDBC connect string for a JDBC metastore</description>
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+    <description>Driver class name for a JDBC metastore</description>
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>testuser</value>
+    <description>username to use against metastore database</description>
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>testpassword</value>
+    <description>password to use against metastore database</description>
+  </property>
+
+  <property>
+    <name>datanucleus.schema.autoCreateAll</name>
+    <value>true</value>
+  </property>
 ```
 
 
@@ -20,7 +62,7 @@ hive-site.xml:
     <name>hive.metastore.schema.verification</name>
     <value>false</value>
   </property>
-  
+
   <property>
     <name>datanucleus.schema.autoCreateAll</name>
     <value>true</value>

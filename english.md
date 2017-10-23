@@ -1,3 +1,8 @@
+### Preaching to the choir
+
+Preaching to people who already believe the same thing.
+
+
 # homogenous and homogeneous are now used interchangeably
 # http://grammarist.com/usage/homogenous-homogeneous/
 

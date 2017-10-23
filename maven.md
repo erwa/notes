@@ -1,3 +1,31 @@
+### `<dependencies>` vs. `<dependencyManagement>`
+
+`<dependencyManagement>` lets you declare all your dependencies in one place without having child POMs auto-inherit them. They can simply reference and include the ones they need.
+
+https://stackoverflow.com/questions/2619598/differences-between-dependencymanagement-and-dependencies-in-maven
+
+
+### POM dependency
+
+```
+<dependencies>
+  <dependency>
+     <groupId>com.my</groupId>
+     <artifactId>commons-deps</artifactId>
+     <type>pom</type>
+  </dependency>
+</dependencies>
+```
+
+Transitively adds all `<dependencies>` (NOT `<dependencyManagement>`) in com.my:commons-deps to current POM.
+
+https://stackoverflow.com/questions/16894032/how-to-use-poms-as-a-dependency-in-maven
+
+"However if in your POM you simply define a normal dependency to other-pom-artifact-id then all dependencies from the dependency section of the other-pom-artifact-id are included transitively in your project - however the dependencies defined in the dependencyManagement section of the other-pom-artifact-id are not included at all."
+
+https://stackoverflow.com/questions/11778276/difference-between-scope-import-and-pom-type-dependency
+
+
 ### Child POM inheritance of parent plugins
 * Plugins declared outside `<pluginManagement>` are inherited by child POMs by default.
 * Plugins declared within `<pluginManagement>` configure global settings inherited by all child POMs that explicitly depend on those plugins.
@@ -18,10 +46,21 @@
   </plugins>
 </build>
 ```
+
 http://stackoverflow.com/questions/9477789/maven-parent-pom-child-inheritance
 
 
+### Print transitive dependencies
+
+```
+mvn dependency:tree
+```
+
+https://stackoverflow.com/questions/6110782/how-can-i-view-transitive-dependencies-of-a-maven-pom-xml-file
+
+
 ### Exclude all transitive dependencies
+
 ```
 <dependency>
     <groupId>${project.groupId}</groupId>

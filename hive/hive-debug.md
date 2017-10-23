@@ -1,5 +1,10 @@
 ### Minimal Hive Driver testing
+
 ```
+import org.apache.hadoop.hive.conf.HiveConf;
+import org.apache.hadoop.hive.ql.Driver;
+import org.apache.hadoop.hive.ql.session.SessionState;
+
 public class DriverTest {
   public static void main(String[] args) throws CommandNeedRetryException {
     String krb5ConfFile = new File(DriverTest.class.getClassLoader().getResource("krb5.conf").getFile())
@@ -37,21 +42,30 @@ Backport https://issues.apache.org/jira/browse/HIVE-11538.
 
 
 ### Test warehouse dir
+
 `test.warehouse.dir` set in root pom.xml. Generally `itests/qtest/target/warehouse`.
 
 
 ### Change logging level
+
 To debug Hive and print more info:
+
 ```
 hive -hiveconf hive.root.logger=INFO,console
 ```
 
 You can also change log level and output location in `conf/hive-log4j.properties`
+
 ```
 hive.root.logger=DEBUG,DRFA,console
+
+# disable logging for a class
+log4j.logger.org.apache.hadoop=OFF
+log4j.logger.org.apache.thrift=OFF
 ```
 
-To use a different Hive config
+To use a different Hive config:
+
 ```
 export HIVE_HOME=/export/home/ahsu/hive-0.12.0.li.new
 
@@ -65,6 +79,7 @@ hive
 
 
 ### Debug metastore
+
 ```
 hive --debug --service metastore
 ```

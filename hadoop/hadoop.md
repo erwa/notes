@@ -1,3 +1,28 @@
+### Superuser vs. proxyuser
+
+Super users can set any permissions, owners, and groups they want. No permission checks apply.
+
+Proxy users can proxy as any other user, but permissions still apply normally, both to the proxy user and to the user they proxy as.
+
+* https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#The_Super-User
+* https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html
+
+
+### Write to multiple OutputFormats
+
+Use MultipleOutputs: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/mapreduce/lib/output/MultipleOutputs.html
+
+
+### Counters
+
+"Total megabyte-seconds taken by all map tasks" is really MB_MILLIS_MAPS. The description should read "megabyte-milliseconds"
+
+
+### Mailing Lists
+
+https://hadoop.apache.org/mailing_lists.html
+
+
 ### Dependencies
 Specified in hadoop-project/pom.xml.
 
@@ -6,10 +31,30 @@ Specified in hadoop-project/pom.xml.
 
 NodeManager has ContainerManager that uses ResourceLocalizationService. ResourceLocalizationService has LocalizedRunner that has addResource() method which uses FSDownload to localize file.
 
+Look at `mapreduce.job.cache.files` property in job conf to see what files were added to the cache.
+
 
 ### Split size
 
 When using CombineFileInputFormat, max split size controlled by `mapreduce.input.fileinputformat.split.maxsize`. Set to 0 (default) to combine all data into one split.
+
+Relevant parameters:
+
+```
+mapreduce.input.fileinputformat.split.maxsize
+mapreduce.input.fileinputformat.split.minsize.per.node
+mapreduce.input.fileinputformat.split.minsize.per.rack
+```
+
+`mapreduce.input.fileinputformat.split.minsize` does NOT matter; only matters for FileInputFormat.
+
+Way CombineFileInputFormat algorithm works:
+
+1. for each node, group blocks together into splits of at least maxsize
+2. for any remaining blocks on a node, if the sum of their sizes exceeds minsize.per.node, group them together into a split
+3. for any remaining blocks on a rack, if the sum of their sizes exceeds minsize.per.rack, group them together into a split
+4. for any remaining blocks across rocks, group them together into splits of at least maxsize
+5. group all remaining blocks into one final split
 
 
 ### Copy files
@@ -167,6 +212,7 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 
 # Conf is in etc/hadoop
 # core-site.xml
+
 ```
 <configuration>
   <property>
@@ -205,6 +251,7 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 ```
 
 # yarn-site.xml
+
 ```
 <configuration>
 <!-- Site specific YARN configuration properties -->
@@ -242,16 +289,19 @@ yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-map
 
 # Word count example
 # Copy conf directory to HDFS
+
 ```
 hadoop fs -put etc/hadoop/ conf
 
 # overwrite destination using -f
 hadoop fs -put -f <src> <dst>
 ```
+
 # Run word count
 yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out
 
 # Increase memory of tasks
+
 ```
 set mapred.job.map.memory.mb 4096;
 set mapred.job.reduce.memory.mb 4096;

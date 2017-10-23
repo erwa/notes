@@ -3,7 +3,7 @@
 When building job executor, Azkaban uses its start-up classpath, set in bin/azkaban-exec-start.sh, not the job plugin classpath.
 
 
-# Curl Commands
+### Curl Commands
 
 Azkaban servlet routes registered in AzkabanWebServer.java:main.
 
@@ -119,15 +119,13 @@ curl -k https://<host>:<port>/schedule -d "ajax=scheduleFlow&projectName=<projec
 curl -k https://<host>:<port>/schedule -d "action=removeSched&scheduleId=SCHEDULE_ID" -b azkaban.browser.session.id=SESSION_ID
 ```
 
+
 ### Get all projects
+
 ```
 curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.id>
 ```
 
-### Fetch giant log
-Go to `https://<host>:<port>/executor?execid=<execid>&jobId=<jobid>&ajax=fetchExecJobLogs&offset=0&length=2147483647&attempt=0`.
-
------
 
 ### Setting jobtype properties
 Can just set hadoop.home and hive.home in common.properties and commonprivate.properties and don't need to redefine these properties in all the jobtype subdirectories.
@@ -276,5 +274,5 @@ As an admin, add a flow parameter `useExecutor=<executor_id>`. The `executor_id`
 ```
 mysql -h HOST -D DATABASE -u USER --password
 
-select * from executors;
+select * from executors where active=1;
 ```

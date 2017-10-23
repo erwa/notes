@@ -12,7 +12,9 @@ derby-10.11.1.1.jar
 
 
 ### Generating tarball
+
 Works for trunk
+
 ```
 # Add "clean" to be safe or if you encounter build issues.
 
@@ -21,6 +23,9 @@ Works for trunk
 mvn install -DskipTests -Dmaven.javadoc.skip=true -Pdist
 
 # Output in packaging/target directory
+
+# build without itests
+mvn package -DskipTests -Dmaven.javadoc.skip=true
 
 # build for itests
 mvn install -DskipTests -Dmaven.javadoc.skip=true -Pitests

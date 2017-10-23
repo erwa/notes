@@ -1,3 +1,17 @@
+### Local repo
+```
+      <filesystem name="local-repo" m2compatible="true">
+        <ivy pattern="${user.home}/local-repo/[organization]/[module]/[revision]/[module]-[revision].ivy"/>
+        <artifact pattern="${user.home}/local-repo/[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]"/>
+      </filesystem>
+```
+
+
+### Resolving Maven / POM Artifacts
+
+https://stackoverflow.com/questions/7104364/how-are-maven-scopes-mapped-to-ivy-configurations-by-ivy
+
+
 ### Use custom ivysettings.xml file
 ```
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="ant test" default="run">

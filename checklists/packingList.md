@@ -1,14 +1,17 @@
 ### General
+
+- remove bike lock, bike accessories
 - Passport
 - Laptop, charger
 - Phone, phone charger, battery pack
 - Power adaptor/converter -- different countries have different plugs and outlets
-- Sunscreen
+- Sunscreen (replace big sunscreen bottle with small one)
 - Hat, sunglasses (need contacts for sunglasses that don't fit comfortably over glasses)
 - Small umbrella / poncho
 - Reading material
 - Jacket
 - Money (split up into several places)
+- MetroCard, Clipper Card, Caltrain Go Pass
 - Drawstring bag
 - Toiletries (RAZOR, toothbrush, toothpaste, floss, nail clipper, comb)
 - Towel
@@ -17,21 +20,28 @@
 - Snacks (for plane or train ride)
 - Water bottle / Camelbak
 - Clothes (check weather forecast)
+- extra underwear is nice (especially if you exercise often during the trip)
 - Shorts/change of clothes for exercising
 - Laundry bag
 - Notebook / loose leaf paper / sheet protectors
 - Clipboard
+- whiteboard
 - Halt mail / newspaper
 - Notify credit card company of travel destination
-- ATM/debit card for withdrawals
-- Dictionary for language of destination
+- ATM/debit card for withdrawals, also notify bank
+- Cash, for transferring into local currency
+- Dictionary/phrasebook for language of destination
+- learn/practice language of destination
 - trash bags, extra Ziploc bags
 - slippers
-- Tissues / toilet paper
+- Tissues / toilet paper / trowel
 - Keys
-- card/board games
+- card/board games / juggling balls
 - Swimming trunks
 - Offline tour guide information
 - Printed itinerary/map - send email summarizing trip post-trip.
 - Figure out conversion rate, where to put toilet paper, whether tap water is potable.
 - Out-of-office response
+- photos / physical copies of boarding passes, in case no Internet access
+- Download language pack in Google Translate for offline translation
+- water filter (for filtering tap water, if coffee pot / water heater is not available)

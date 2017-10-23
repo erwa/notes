@@ -1,7 +1,6 @@
 pig-0.15.0-build.md
 
 ```
-# Need to use Java 7
 # jar only (takes about 1 min on Mac)
 ant clean jar -Dhadoopversion=23  -Dhadoop-common.version=2.6.1 -Dhadoop-hdfs.version=2.6.1 -Dhadoop-mapreduce.version=2.6.1 -Dforrest.home=$FORREST_HOME
 
@@ -10,6 +9,8 @@ ant clean tar -Dhadoopversion=23  -Dhadoop-common.version=2.6.1 -Dhadoop-hdfs.ve
 
 # Run precommit tests (20 minutes)
 ant -Djavac.args="-Xlint -Xmaxwarns 1000" clean test-commit -Dhadoopversion=23
+
+# Add -Dtest.junit.output.format=xml to output in XML
 
 git diff --no-prefix > PIG-4547.1.patch
 ```

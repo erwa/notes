@@ -1,3 +1,20 @@
+### Zoom
+`+` - zoom in
+`-` - zoom out
+View -> Zoom -> Zoom In/Out
+
+
+### Fit Canvas to Image
+Image -> Fit Canvas to Layers/Selection
+
+
+### Crop picture
+Crop one layer: Layer -> Crop to Selection
+https://docs.gimp.org/en/gimp-layer-crop.html
+
+Shift + C. Exacto Knife icon. Tools -> Transform Tools -> Crop.
+
+
 ### Layer Mask
 
 Allows you to selectively modify opacity of different areas of a layer.

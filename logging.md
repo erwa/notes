@@ -1,9 +1,23 @@
+### Disable commons-logging
+
+```
+  static {
+    System.setProperty("org.apache.commons.logging.Log",
+        "org.apache.commons.logging.impl.NoOpLog");
+  }
+```
+
+https://stackoverflow.com/questions/1436761/turn-off-apache-common-logging
+
+
 # log4j
 
 ### Change log level for category
+
 ```
 Logger.getLogger("CATEGORY_NAME").setLevel(Level.OFF)
 ```
+
 Example: DataNucleus: http://www.datanucleus.org/products/accessplatform/logging.html#_logging_categories
 
 

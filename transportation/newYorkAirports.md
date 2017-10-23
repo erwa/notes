@@ -25,6 +25,8 @@ Fare is $2.75 for one-way ticket.
 * https://www.panynj.gov/path/newark-station.html
 * http://www.panynj.gov/path/pdf/path-map-schedule-english_dec25.pdf
 
+5/30 - Empire State Building to EWR took 75 minutes.
+
 
 ### Newark Airport Express Bus
 

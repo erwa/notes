@@ -1,3 +1,12 @@
+### Clear Yum cache
+
+May be necessary if you do not see a new RPM you just added.
+
+```
+sudo yum clean all
+```
+
+
 ### Determine which repos contain package
 ```
 sudo yum list PACKAGE
@@ -28,7 +37,10 @@ sudo yum-config-manager --add-repo http://yum.postgresql.org
 ### Install RPM file
 http://www.cyberciti.biz/faq/rhel-redhat-fedora-opensuse-linux-install-rpmfile-command/
 ```
-rpm -ivh RPM_FILE
+sudo rpm -ivh RPM_FILE
+# -i for install
+# -h for printing hash marks to indicate progress
+# -v for verbose
 ```
 
 

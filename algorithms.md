@@ -1,3 +1,13 @@
+### Settling expenses among a group
+
+https://stackoverflow.com/questions/974922/algorithm-to-share-settle-expenses-among-a-group
+
+
+### Splitwise minimum number of transactions is NP-hard
+
+https://stackoverflow.com/questions/877728/what-algorithm-to-use-to-determine-minimum-number-of-actions-required-to-get-the/
+
+
 ### Complexity theory
 
 https://en.wikipedia.org/wiki/NP-hardness#NP-naming_convention

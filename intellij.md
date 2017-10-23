@@ -1,3 +1,32 @@
+### Profiler
+
+Install VisualVM plugin. Give path to `$JAVA_HOME/bin/jvisualvm`. Right click green triangle next to main() method -> Run with VisualVM.
+
+
+### Show valid parameters
+
+Cmd + P within parentheses
+
+
+### Surround with
+
+Option + Cmd + T
+
+Can surround with if / while / try blocks.
+
+
+### Set Project SDK
+
+Cmd + ; (File -> Project Structure) -> Project -> choose Project SDK.
+
+
+### Lombok Plugin
+
+Preferences -> Settings -> Plugins -> Browse repositories -> Search for "lombok" -> Install Lombok Plugin
+
+https://github.com/mplushnikov/lombok-intellij-plugin
+
+
 ### See memory usage of process
 
 Use JVM Debugger Memory View plugin: https://blog.jetbrains.com/idea/2016/08/jvm-debugger-memory-view-for-intellij-idea/
@@ -18,16 +47,21 @@ Preferences -> Editor -> Code Style -> Right margin (columns)
 
 
 ### See how data flows to method
+
 Right click -> Analyze -> Analyze Data Flow to Here
 
 
 ### Iterate over array
+
 Type `itar, Tab`.
+
 ```
 String[] array1, array2;
 itar
 ```
+
 changes to
+
 ```
 String[] array1, array2;
 for (int i = 0; i < array1.length; i++) {
@@ -36,33 +70,41 @@ for (int i = 0; i < array1.length; i++) {
 
 
 ### Extract variable
+
 ```
 Option + Cmd + V
 ```
+
 Move complicated expression into a separate variable.
 
 
 ### Don't use wildcard imports
+
 ```
 Cmd + , -> Editor -> Code Style -> Java -> Imports -> select "Use single class import" -> set "Class count to use import with '*'" to 999 -> set "Names count to use static import with '*'" to 999
 ```
+
 http://stackoverflow.com/questions/3348816/intellij-never-use-wildcard-imports
 
 
 ### Jump to matching brace
+
 ```
 Shift + Cmd + M
 ```
+
 https://www.jetbrains.com/help/idea/2016.3/navigating-to-braces.html
 
 
 ### Very slow indexing
+
 Indexing uses a lot of CPU but should not cause the UI to lag/hang. If it is, one thing to try is File -> Invalidate Caches / Restart -> Invalidate and Restart. Note that subsequently IntelliJ will have to re-index all your projects and this can take a while.
 
 http://stackoverflow.com/questions/32550292/why-is-intellij-idea-hanging-on-indexing
 
 
 ### `System.out.println`
+
 ```
 sout, Tab
 ```
@@ -70,44 +112,64 @@ http://stackoverflow.com/questions/3320764/how-to-make-system-out-println-shorte
 
 
 ### Show Javadoc / documentation
+
 ```
 Ctrl + J
 ```
 
 
 ### Open Recent
+
 ```
 Shift + Cmd + A, "Open Recent"
 ```
 
 
 ### Conditional Breakpoint
-Right click on breakpoint -> Condition. Example
+
+Right click on breakpoint -> Condition. Examples:
+
 ```
 var.varname.equals("bar")
+
+typeDescr == null
 ```
+
+https://www.jetbrains.com/help/idea/configuring-breakpoints.html
 
 
 ### New View into File
+
 Right click file tab -> Split Vertically.
 
 
 ### Dark Theme
+
 Intellij IDEA -> Preferences -> Appearance & Behavior -> Appearance -> Theme: Darcula
 
 
 ### See recent changes
+
 Option + Shift + C
 
 
 ### Find symbol (method, field)
+
 Option + Shift + Cmd + N
 
 
 ### Increase memory limit
+
 Help -> Edit Custom VM Options
 
 http://stackoverflow.com/questions/13578062/how-to-increase-ide-memory-limit-in-intellij-idea-on-mac
+
+
+### Add directory to classpath
+
+Project -> Dependencies -> Add Jar or Directories -> select -> choose Classes.
+
+https://stackoverflow.com/questions/854264/how-to-add-directory-to-classpath-in-an-application-run-profile-in-intellij-idea
 
 
 ### Add source directory
@@ -184,6 +246,7 @@ https://www.jetbrains.com/help/idea/2016.2/code-analysis.html
 
 
 ### Highlight all occurrences of variable / highlight method invocations that throw exceptions
+
 ```
 Shift + Cmd + F7
 
@@ -277,7 +340,13 @@ Shift + Cmd + A
 You can open pom.xml files from IntelliJ and it will automatically resolve dependencies. You can specify the profiles to import by navigating to View -> Tool Windows -> Maven Projects -> Profiles
 
 
+### Go to interface declaration
+
+Go to super method: `Cmd + U`
+
+
 ### Go to implementations of interface method
+
 ```
 Option + Cmd + B
 ```
@@ -330,10 +399,15 @@ Import Project -> select the root build.gradle file
 
 View -> Tool Windows -> Gradle (only appears for Gradle projects)
 
+
 ### Gradle IDEA IntelliJ project file generation
+
 ```
+# if it doesn't seem to be refreshing the project in IntelliJ,
+# try running `cleanIdea` and deleting `out` and `build` directories
 gradle idea
 ```
+
 File -> Open -> select .ipr file
 https://docs.gradle.org/current/userguide/idea_plugin.html
 

@@ -1,3 +1,42 @@
+### PigRunner vs. PigServer
+
+Use PigRunner. Have experienced issues with PigServer in the past.
+
+```
+import org.apache.pig.PigRunner;
+
+PigRunner.run(new String[] {
+        "-x", "local",
+        "/tmp/foo.pig"
+    }, null);
+```
+
+
+### Disable direct HDFS fetch
+
+```
+set opt.fetch false;
+```
+
+
+### Ivy logging
+
+```
+-Divy.message.logger.level=4
+```
+
+
+### Disable optimizations
+
+```
+-- Disable just the ColumnMapKeyPrune optimization
+set pig.optimizer.rules.disabled 'ColumnMapKeyPrune';
+
+-- Disable all optimizations (not recommended)
+set pig.optimizer.rules.disabled 'all';
+```
+
+
 ### SIZE UDF
 When used on bag, returns number of tuples in bag.
 
@@ -45,10 +84,12 @@ git diff --no-prefix <commit> > PIG-1234.1.patch
 
 rbt post --guess-fields yes
 ```
+
 https://cwiki.apache.org/confluence/display/PIG/HowToContribute#HowToContribute-Contributingyourwork
 
 
 ### Pig 0.11 documentation
+
 -- http://pig.apache.org/docs/r0.11.1/
 
 -- count # of rows in an alias
@@ -59,6 +100,7 @@ LOG_COUNT = FOREACH LOGS_GROUP GENERATE COUNT(LOGS);
 
 
 ### Combine Small Input Files
+
 * http://pig.apache.org/docs/r0.11.1/perf.html#combine-files
 
 ```

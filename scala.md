@@ -212,8 +212,20 @@ http://stackoverflow.com/questions/4531455/whats-the-difference-between-ab-and-b
 
 ### Context Bounds
 ```
+def maxList[T: Ordering](elements: List[T]): T = ...
+
+# is equivalent to
+
+def maxList[T](elements: List[T])
+  (implicit ordering: Ordering[T]): T = ...
+```
+
+Programming in Scala, Section 21.6.
+
+```
 Generally, a type parameter with a context bound is of the form [T: Bound]; it is expanded to plain type parameter T together with an implicit parameter of type Bound[T].
 ```
+
 http://stackoverflow.com/questions/2982276/what-is-a-context-bound-in-scala
 
 `[T: Bound]` -> `T` + implicit `Bound[T]`.
@@ -228,6 +240,7 @@ def foo[T](x: List[T])(implicit m: Manifest[T]) = ...
 
 
 ### Type Bounds
+
 An upper type bound `T <: A` declares that type variable T refers to a subtype of type A. `A` is an upper bound of type `T`.
 
 http://docs.scala-lang.org/tutorials/tour/upper-type-bounds
@@ -652,7 +665,18 @@ val o = that.asInstanceOf[Date]
 http://stackoverflow.com/questions/7782502/how-to-cast-long-to-int-in-scala
 
 
+### Invoke superclass constructor
+```
+class LineElement(s: String) extends ArrayElement(Array(s)) { ... }
+
+class ArrayElement(conts: Array[String]) extends Element { ...}
+```
+
+Programming in Scala, Section 10.7, p. 193
+
+
 ### Constructors
+
 Primary constructor's parameter list always comes right after class name. Auxiliary constructors can be defined using `this` and must directly call another auxiliary constructor or the primary constructor.
 
 ```
@@ -679,6 +703,11 @@ Need when using Java classes, which rarely have companion objects with an `apply
 
 
 ### Case classes and pattern matching
+
+Compared by structure and not reference.
+
+http://docs.scala-lang.org/tour/case-classes.html
+
 ```
 object MatchTest2 extends App {
   def matchTest(x: Any): Any = x match {

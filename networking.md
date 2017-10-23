@@ -1,3 +1,10 @@
+### Check speed of network interface
+```
+$ sudo ethtool eth0 | grep Speed
+  Speed: 1000Mb/s
+```
+
+
 ### Get BGP Loopback IP
 ```
 /sbin/ip addr show lo:bgp1

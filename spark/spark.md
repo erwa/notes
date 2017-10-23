@@ -1,3 +1,24 @@
+### Spark Shell progress
+
+```
+(numCompletedTasks + numActiveTasks) / totalNumOfTasksInThisStage
+(53 + 10) / 2542
+```
+
+https://stackoverflow.com/questions/30245180/what-do-the-numbers-on-the-progress-bar-mean-in-spark-shell
+
+
+### Client vs. Cluster mode
+
+In client / yarn-client mode, Driver (which instantiates SparkContext) runs in same process as client that submits the application. Application master only used for requesting resources from YARN.
+
+In cluster mode, Driver runs on worker process (generally the Application Master) in cluster, and client exits as soon as it submits the application (without waiting for it to finish)
+
+* https://stackoverflow.com/questions/20793694/what-is-yarn-client-mode-in-spark
+* https://spark.apache.org/docs/latest/running-on-yarn.html
+* https://stackoverflow.com/questions/37027732/spark-standalone-differences-between-client-and-cluster-deploy-modes
+
+
 ### Spark SQL
 
 Can execute SQL directly:

@@ -181,12 +181,12 @@ magicNumber(11)
 
 Closures can have variable number of arguments:
 ```
-def concat1 = { String... args -> args.join('') }           
-assert concat1('abc','def') == 'abcdef'                     
-def concat2 = { String[] args -> args.join('') }            
+def concat1 = { String... args -> args.join('') }
+assert concat1('abc','def') == 'abcdef'
+def concat2 = { String[] args -> args.join('') }
 assert concat2('abc', 'def') == 'abcdef'  // you don't have to explicitly wrap in array!
 
-def multiConcat = { int n, String... args ->                
+def multiConcat = { int n, String... args ->
     args.join('')*n
 }
 assert multiConcat(2, 'abc','def') == 'abcdefabcdef'
@@ -199,10 +199,10 @@ Owner of a closure is the direct enclosing class instance or closure.
 class NestedClosures {
     void run() {
         def nestedClosures = {
-            def cl = { owner }                               
+            def cl = { owner }
             cl()
         }
-        assert nestedClosures() == nestedClosures            
+        assert nestedClosures() == nestedClosures
     }
 }
 ```
@@ -217,20 +217,20 @@ Delegate of a closure is by default the owner. Can get the delegate using `getDe
 ```
 class Person {
     String name
-    def pretty = { "My name is $name" }             
+    def pretty = { "My name is $name" }
     String toString() {
         pretty()
     }
 }
 class Thing {
-    String name                                     
+    String name
 }
 
 def p = new Person(name: 'Sarah')
 def t = new Thing(name: 'Teapot')
 
-assert p.toString() == 'My name is Sarah'           
-p.pretty.delegate = t                               
+assert p.toString() == 'My name is Sarah'
+p.pretty.delegate = t
 assert p.toString() == 'My name is Sarah'
 p.pretty.resolveStrategy = Closure.DELEGATE_FIRST
 assert p.toString() == 'My name is Teapot'
@@ -378,8 +378,11 @@ String fileContents = new File('/path/to/file').text
 new File('test').write('hello')
 ```
 
+
 ### Spread Operator `*.`
-http://docs.groovy-lang.org/latest/html/documentation/index.html#_spread_operator
+
+Invoke an action on all items in a collection and collect results into a list
+
 ```
 class Car {
     String make
@@ -391,6 +394,9 @@ def cars = [
 def makes = cars*.make
 assert makes == ['Peugeot', 'Renault']
 ```
+
+http://docs.groovy-lang.org/latest/html/documentation/index.html#_spread_operator
+
 
 ### `@Field` Annotation
 Changes variable scope from run method to class level.

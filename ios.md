@@ -1,3 +1,25 @@
+### Permanently delete photos and videos
+
+Delete photo/video -> go to Recently Deleted photo album -> delete.
+
+https://support.apple.com/en-us/HT205856
+
+
+### Transfer PDF from Mac to iPhone
+
+Install iBooks on iPhone. Use iTunes -> Books -> drag and drop PDF file to transfer file.
+
+
+### Extension on phone number
+
+Press +*# button, then "Pause" to insert comma.
+
+
+### Send iMessage from Mac
+
+iMessage -> iMessage -> Preferences -> Accounts -> Sign in with Apple ID.
+
+
 ### Music App
 
 Create playlist

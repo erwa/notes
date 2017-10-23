@@ -1,32 +1,39 @@
 ### Camping/hiking/backpacking
-- tent
+
+Keep in backpacking pack for storage:
+- tent / footprint
+- sleeping bag / sleeping liner
+- first-aid kit
+- toilet paper + trowel + bags
+- carabiners
+- Swiss army knife
+- cadet-style cape hat
+
+Other things:
+- headlamp
 - tarp
-- sleeping bag
 - thermals
 - hoodie
 - sleeping pad
 - water filter
-- first-aid kit
 - hiking poles
 - Camelbak
-- toilet paper
-- trowel
 - gloves
 - hiking boots
 - extra pairs of socks
 - compass
 - towel / microfiber cloth
 - balaclava / touque
-- headlamp
+- spare batteries
 - deodorant
 - toiletries
-- carabiners
 - paper towels, napkins, tissues
 - camping pots
 - ear plugs, blindfold
 - poncho
-- Swiss army knife
 - pens / pencils / paper
 - clipboard
 - drawstring bag / day pack
 - ski goggles (for cold weather) - I have Scott Heli OTG (over the glass) goggles, can wear over glasses, has anti-fog lens treatment
+- extra plastic bags, Ziploc bags, garbage bags
+- snacks / food

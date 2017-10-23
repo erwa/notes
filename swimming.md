@@ -1,3 +1,12 @@
+### Bay Area Events
+
+Splash and Dash
+
+First Thursday of June, July, August
+
+http://www.firstwave-events.com/events/splash-dash-evening-series/
+
+
 ### Goggles
 
 Wear under swim cap to prevent chance of movement and falling off.
@@ -12,12 +21,26 @@ https://www.quora.com/Is-it-better-to-wear-your-goggles-over-or-under-your-swim-
 - sculling motion
 
 
+### Bay Area Open Water Swim Locations
+
+http://rhorii.com/BABP/bestswim.htm
+
+
+
+### Santa Cruz
+
+Water quality: http://gis.co.santa-cruz.ca.us/PublicWaterQuality/
+
+
 ### Pools in Bay Area
 
 Sunnyvale Swim Complex at Fremont High School
 - http://www.calsportscenter.com/locations/sunnyvale-swim/
 - lap swim generally M-F 6-8 am, 6-8 pm; Sat/Sun 8-11 am
 - Masters: M-F 8-9 am, Tu/Th 5:30-6:30 am, Sat: 8-9am
+- 50 meters x 25 yards (http://swim.isport.com/swimming-pools/us/california/sunnyvale/sunnyvale-swim-complex-at-fremont-high-school-1018560)
+- heated to about 80 degrees Fahrenheit
+- 12-pass is good for 1 year
 
 Mountain View
 - Eagle Park Pool

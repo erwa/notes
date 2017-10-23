@@ -1,10 +1,139 @@
+### Wrapping lines
+
+* Break before an operator (so start next line with operator)
+
+
+### Underscores in numeric literals
+
+```
+long creditCardNumber = 1234_5678_9012_3456L;
+long socialSecurityNumber = 999_99_9999L;
+float pi =  3.14_15F;
+long hexBytes = 0xFF_EC_DE_5E;
+long hexWords = 0xCAFE_BABE;
+long maxLong = 0x7fff_ffff_ffff_ffffL;
+byte nybbles = 0b0010_0101;
+long bytes = 0b11010010_01101001_10010100_10010010;
+```
+
+Since Java 7.
+
+http://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html
+
+
+### Profiler
+
+Try VisualVM in Intellij (see [intellij.md](intellij.md)).
+
+In Settings for Sampler, you can choose packages to profile.
+
+In Settings for Profiler, you can choose classes from which to start profiling.
+
+
 ### Find jar that a class is in
-* http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+
 ```
 for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
 ```
 
-* Also check out http://findjar.com
+http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+
+Also check out http://findjar.com
+
+
+### Round to decimal places
+
+```
+DecimalFormat df = new DecimalFormat("#.00000");
+df.format(0.912385);
+```
+
+https://stackoverflow.com/questions/153724/how-to-round-a-number-to-n-decimal-places-in-java
+
+
+### Integer Exponentiation
+
+```
+(int) Math.pow(10, 6)
+
+# or BigInteger.pow()
+```
+
+https://stackoverflow.com/questions/8071363/calculating-powers-in-java
+
+
+### List files in directory
+
+```
+File curDir = new File(".");
+File[] filesList = curDir.listFiles();
+for (File f : filesList) {
+  System.out.println(f.getName());
+}
+```
+
+https://stackoverflow.com/questions/15482423/how-to-list-the-files-in-current-directory
+
+
+### Random long in [m, n)
+
+```
+// For 2-digit integers, 10-99 inclusive.
+long v = ThreadLocalRandom.current().nextLong(10,100);
+```
+
+https://stackoverflow.com/questions/2546078/java-random-long-number-in-0-x-n-range/31682930#31682930
+
+
+### Random double in [0, 1)
+
+```
+Math.random()
+```
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#random--
+
+
+### Random boolean (random true/false)
+
+```
+import java.util.Random
+
+...
+
+Random random = new Random();
+return random.nextBoolean();
+```
+
+
+### Trailing comma
+
+Allowed in array initializer:
+```
+int a[][] = {{1,2,} ,{3,4,} , {5,6,},}; //Trailing commas cause no compiler error
+```
+
+https://stackoverflow.com/questions/11621917/arrays-with-trailing-commas-inside-an-array-initializer-in-java
+
+
+### Date math
+```
+Calendar cal = Calendar.getInstance();
+cal.setTime(new Date());
+cal.add(Calendar.DAY_OF_YEAR, -3);
+Date d = cal.getTime();
+```
+
+
+### Print current date in time zone
+
+Date object is in milliseconds since epoch UTC. Does not include time zone info. You apply time zone info when printing it using a DateFormat.
+```
+SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd-HH");
+dt.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+System.out.println(dt.format(new Date()));
+```
+https://stackoverflow.com/questions/1305350/how-to-get-the-current-date-and-time-of-your-timezone-in-java
 
 
 ### Enum class
@@ -28,10 +157,33 @@ public enum Int {
 ```
 
 
+### Read file line-by-line
+
+```
+try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+  stream.forEach(System.out::println);
+}
+```
+
+https://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
+
+
 ### Read file into String
+
 Use commons-io `FileUtils.readFileToString(File file)`.
 
 http://stackoverflow.com/questions/326390/how-do-i-create-a-java-string-from-the-contents-of-a-file
+
+
+### Invoke static method via reflection
+
+```
+// String.class here is the parameter type, that might not be the case with you
+Method method = clazz.getMethod("methodName", String.class);
+Object o = method.invoke(null, "whatever");
+```
+
+https://stackoverflow.com/questions/2467544/invoking-a-static-method-using-reflection
 
 
 ### Access private field
@@ -115,12 +267,14 @@ http://stackoverflow.com/questions/17374743/how-can-i-get-the-memory-that-my-jav
 
 
 ### Class of primitive type
+
 ```
 byte[].class
 ```
 
 
 ### Convert Array to List
+
 ```
 Arrays.asList("intField", "stringField");
 Arrays.asList(new Foo(), new Foo());
@@ -128,7 +282,9 @@ Arrays.asList(new Foo(), new Foo());
 
 
 ### Static Nested vs. Inner Classes
+
 A nested class can be static or non-static. A non-static nested class is called an inner class. See http://stackoverflow.com/questions/70324/java-inner-class-and-static-nested-class.
+
 ```
 OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
 
@@ -139,12 +295,16 @@ class OuterClass {
     }
 }
 ```
+
 An inner class has direct access to methods and fields of enclosing class. An inner class must be instantiated through instance of outer class:
+
 ```
 OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 ```
 
+
 ### Accessibility Modifiers
+
 https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
 
 Least restrictive -> Most restrictive:
@@ -158,19 +318,43 @@ Least restrictive -> Most restrictive:
 * private
     * class only (NOT object. Object of type C can access private fields of another object of type C: http://stackoverflow.com/questions/17027139/access-private-field-of-another-object-in-same-class)
 
+
 ### Top-level class/interface accessibility modifiers
+
 See http://stackoverflow.com/questions/6734849/why-cant-a-class-or-an-interface-receive-private-or-protected-access-modifiers. Top-level classes and interfaces can only have "public" or "package private" (default) accessibilities. Nested classes and interfaces can have private or protected modifiers
 
+
+### Method Pointer / Method Reference
+
+Not a true method pointer, just syntactic sugar for method invocation.
+
+```
+# in lambda expression
+Person::compareByAge
+# is equivalent to
+(a, b) -> Person.compareByAge(a, b)
+```
+
+https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+
+
 ### Interface method modifiers
+
 An interface's methods are always public and abstract. You can specify `public abstract`, but it is redundant and discouraged. See http://stackoverflow.com/questions/161633/should-methods-in-a-java-interface-be-declared-with-or-without-a-public-access-m.
 
+
 ### Interfaces with same method
+
 Implementing two interfaces that both contain the same method is okay as long as both methods have the same signature. See http://stackoverflow.com/questions/2801878/implementing-two-interfaces-in-a-class-with-same-method-which-interface-method.
 
+
 ### An interface cannot extend an abstract class
+
 See https://community.oracle.com/thread/2097080?start=0&tstart=0.
 
+
 ### Bitwise shift operators
+
 ```java
 << // unsigned left shift
 >> // signed right shift (leftmost bits are filled in with sign bit)
@@ -178,68 +362,99 @@ See https://community.oracle.com/thread/2097080?start=0&tstart=0.
 >>> // unsigned right shift (leftmost bits are filled in with 0s)
 ```
 
+
 ### Error when mixing Java 7 and Java 6 compiled jars
+
 ```
 major version 51 is newer than 50, the highest major version supported by this compiler.
 ```
 
+
 ### Java major versions
+
 http://stackoverflow.com/questions/9170832/list-of-java-class-file-format-major-version-numbers
+
 * Java 1.2 uses major version 46
 * Java 1.3 uses major version 47
 * Java 1.4 uses major version 48
 * Java 5 uses major version 49
 * Java 6 uses major version 50
 
+
 # Manipulating jars
+
 ### Extract one file from a jar
+
 Specify the full path to a file inside jar:
+
 ```
 jar xf JAR FILE
 ```
 
 ### Extract one file to stdout:
+
 ```
 unzip -p foo.jar file
 ```
 
+
 ### Extract to a different directory
+
 First, navigate to that directory and then do:
 ```
 jar xf <path/to/jar>
 ```
 
+
 ### Delete/remove a file from a jar
+
 ```
 zip -d JAR FILE
 ```
 
+
 ### Update a jar
+
 First, recreate the file structure outside the jar. Then run:
 ```
 jar uf JAR FILE
 ```
 
+
 ### Create a jar
+
 ```
 jar cf JAR_NAME.jar file1 file2 dir1 file3 dir2 ...
 ```
 
 ### Java Decompiler
+
 https://github.com/java-decompiler/jd-gui
 
 http://jd.benow.ca/
+
 * Build from source for Red Hat
 
+
 ### Decompile Java class
+
 If jar, extract/unzip jar first.
 ```
+# unzip the jar first
+
 # -c prints disassembled code for each method in class
 # -p prints all classes and members (including private ones)
 javap -c -p AvroGenericRecordReader
 ```
 
+Output explanations:
+
+* `invokevirtual` calls a class method
+* `invokeinterface` class an interface mthod
+
+
 ### Pipe output stream to a String
+
 See http://stackoverflow.com/questions/216894/get-an-outputstream-into-a-string.
 ```
 // Use ByteArrayOutputStream
@@ -328,24 +543,33 @@ setDaemon(true)
 `Thread.sleep()` does not cause the current thread to relinquish any currently held locks. See https://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html#sleep(long).
 
 ### Monitor
+
 See http://stackoverflow.com/a/3362473/1128392.
+
 > A monitor is an entity that possesses both a lock and a wait set. In Java, any Object can serve as a monitor.
 
+
 ### Redirect stdout and stderr
+
 ```
 System.setOut(PrintStream)
 System.setErr(PrintStream)
 ```
+
 Example: https://github.com/azkaban/azkaban-plugins/blob/master/plugins/reportal/src/azkaban/jobtype/ReportalPigRunner.java#L71
 
+
 ### `NoClassDefFoundError` != `ClassNotFoundException`
+
 `NoClassDefFoundError` usually means ClassLoader ran into an error reading the class definition or in a static initializer. See http://stackoverflow.com/questions/7325579/java-lang-noclassdeffounderror-could-not-initialize-class-xxx.
 
 
 ### Class ClassLoader vs. thread context ClassLoader
+
 http://stackoverflow.com/questions/1771679/difference-between-threads-context-class-loader-and-normal-classloader
 
 Class classloader is the classloader originally used to load the class. Thread context classloader is the current thread's classloader. The two may be different if the class was created by one thread and then passed to another.
+
 ```
 // class classloader
 getClass().getClassLoader()
@@ -354,18 +578,25 @@ getClass().getClassLoader()
 Thread.currentThread().getContextClassLoader()
 ```
 
+
 ### `java.io.tmpdir` not guaranteed to be affected by programmatic changes.
+
 See http://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-.
 >  A different value may be given to this system property when the Java virtual machine is invoked, but programmatic changes to this property are not guaranteed to have any effect upon the temporary directory used by this method.
 
+
 ### Read entire file into string
+
 ```
 String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
 System.out.println(content);
 ```
+
 See http://stackoverflow.com/questions/3402735/what-is-simplest-way-to-read-a-file-into-string.
 
+
 ### Add multiple attachments to mail
+
 ```
 Multipart multipart = new MimeMultipart("mixed");
 for (String str : attachment_PathList) {
@@ -378,82 +609,104 @@ for (String str : attachment_PathList) {
 msg.setContent(multipart);
 Transport.send(msg);
 ```
+
 See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attachments-not-working for details.
 
 
 ### Case-insensitive regex
+
 ```
 String target = "FOOBar";
 target = target.replaceAll("(?i)foo", "");
 System.out.println(target);
 ```
+
 http://stackoverflow.com/questions/5054995/how-to-replace-case-insensitive-literal-substrings-in-java
 
 
 ### Regex replace
+
 ```
 // Capturing groups indexed left to right, starting from 1
 str = str.replaceAll("<b>([^<]*)</b>", "$1");
 ```
+
 http://www.javamex.com/tutorials/regular_expressions/search_replace.shtml
 
 
 ### Java String.matches()
+
 Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-doesnt-work-in-string-matches for details.
 
 
 ### Get resource file path
+
 ```
 File file = new File(getClass().getClassLoader().getResource("file/test.xml").getFile());
 ```
+
 https://www.mkyong.com/java/java-read-a-file-from-resources-folder/
 
 
 ### Read resource file from jar
+
 ```
 InputStream in = T.class.getResourceAsStream( "/foo.txt" );
 ```
+
 * http://stackoverflow.com/questions/20389255/reading-a-resource-file-from-within-jar
 * http://stackoverflow.com/questions/2195445/eclipse-getresourceasstream-returning-null
 
 
 ### Get current working directory
+
 ```
 System.out.println("Working Directory = " + System.getProperty("user.dir"));
 ```
+
 http://stackoverflow.com/questions/4871051/getting-the-current-working-directory-in-java
 
 
 
-# Javadoc
+### Javadoc
 
 For examples, scan through http://www.oracle.com/technetwork/articles/java/index-137868.html.
 
 ### Reference method
+
 ```
 /** See also the method {@link #myMethod(String)}. */
 ```
+
 http://stackoverflow.com/questions/5915992/how-to-reference-a-method-in-javadoc
 
 ### Reference method parameter in method Javadoc
+
 ```
 {@code paramName}
 ```
+
 http://stackoverflow.com/questions/1667212/how-to-add-reference-to-a-method-parameter-in-javadoc
 
-
 ### `{@code MyClassName}`
-https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
 
+https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
 
 ### `{@link InputStream}`
 
 
-# End Javadoc
+### Convert String to Class
 
+```
+Class c = Class.forName("package.name.Bean1");
+c.newInstance();
+```
+
+https://stackoverflow.com/questions/4030618/java-string-to-class
 
 
 ### Write String to file
+
 ```
 PrintWriter out = new PrintWriter("filename.txt");
 out.println(text);
@@ -508,11 +761,22 @@ java -cp `hadoop classpath`:$HIVE_HOME/lib/*:$HIVE_CONF_DIR:. groovy.ui.GroovyMa
 
 
 ### `java` vs. `javax` packages
+
 Historical thing. Not much difference now.
 http://stackoverflow.com/questions/727844/javax-vs-java-package
 
 
+### Debug remote Java process
+
+```
+ssh -L 8000:localhost:8000 user@remotehost.com
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000 ...
+# Connect in IntelliJ, debug Remote Application, set port to 8000
+```
+
+
 ### Java CLI Debugger (jdb)
+
 ```
 jdb -attach localhost:8000
 
@@ -540,4 +804,5 @@ where
 # continue
 cont
 ```
+
 http://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html

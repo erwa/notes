@@ -18,11 +18,14 @@ https://holgerkrekel.net/2009/03/03/monkeypatching-in-unit-tests-done-right/
 
 
 ### pytest Exceptions
+
+Assert that a test raises an Exception
 ```
 def test_zero_division():
     with pytest.raises(ZeroDivisionError):
         1 / 0
 ```
+https://stackoverflow.com/questions/23337471/how-to-properly-assert-that-an-exception-gets-raised-in-pytest
 
 
 ### Run one pytest

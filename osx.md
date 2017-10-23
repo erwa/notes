@@ -1,3 +1,20 @@
+### Permanently remove default apps from dock
+
+Disable System Integrity Protection: Restart, when you hear chime, press Cmd + R. Utilities -> Terminal -> csrutil disable -> reboot.
+
+```
+sudo /usr/libexec/PlistBuddy -c "delete:add-app" /System/Library/CoreServices/Dock.app/Contents/Resources/com.apple.dockfixup.plist
+
+sudo /usr/libexec/PlistBuddy -c "delete:add-doc" /System/Library/CoreServices/Dock.app/Contents/Resources/com.apple.dockfixup.plist
+```
+
+Re-enable System Integrity Protection: Restart, when you hear chime, press Cmd + R. Utilities -> Terminal -> csrutil enable -> reboot.
+
+Now when you remove icons from dock, they will not come back upon relogin or reboot.
+
+https://apple.stackexchange.com/questions/227272/permanently-remove-icons-from-dock
+
+
 ### Add specific songs to iPhone
 
 Drag and drop songs from your iTune Library to your phone icon on left.
@@ -7,14 +24,25 @@ https://support.apple.com/en-us/HT201593
 If having issues, delete all songs (can do so from iTunes on Mac) and then recopy.
 
 
-### Rip / burn CDs
+### Burn music CDs
+
+iTunes -> create playlist -> add songs -> File -> Burn
+
+
+### Rip music CD
 
 Use iTunes, select CD icon in top-left, then click Import in top-right.
 
 http://www.macworld.com/article/1156861/software-graphics/howto-rip-cds.html
 
 
+### Copy video from phone to Mac
+
+Use Photos app.
+
+
 ### Find frame rate of video
+
 Open in QuickTime -> Cmd + I
 
 https://forums.macrumors.com/threads/how-to-find-out-the-frame-rate-of-a-video.1109804/
@@ -209,6 +237,10 @@ http://osxdaily.com/2012/05/11/batch-rotate-a-group-of-images-with-preview-for-m
 ### Open iPhone photos in Finder
 Use Image Capture to export to a folder, which you can then open in Finder.
 
+Image Capture only shows pictures in Camera Roll, not screenshots or other photos.
+
+https://discussions.apple.com/thread/6776330?start=0&tstart=0
+
 
 ### Delete iPhone photos from Mac
 https://discussions.apple.com/thread/3075727?start=0&tstart=0
@@ -223,7 +255,22 @@ Open PDF in Preview. File -> Export -> change Quartz Filter to "Reduce File Size
 * http://www.cultofmac.com/260256/use-preview-make-pdf-documents-smaller-os-x/
 
 
+### Make square image
+
+Open in Preview -> selection tool, hold Shift while selecting.
+
+http://www.cultofmac.com/95739/how-to-crop-any-image-to-a-perfect-square-using-preview-100-tips-54/
+
+
 ### Adjust Picture Size
+Batch resize
+```
+# resizes all images in-place to 800 pixels max length/width, preserving aspect ratio
+sips -Z 800 *.JPG
+```
+http://lifehacker.com/5962420/batch-resize-images-quickly-in-the-os-x-terminal
+
+
 Preview -> Tools -> Adjust Size
 http://www.wikihow.com/Resize-Pictures-(for-Macs)
 

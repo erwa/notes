@@ -1,3 +1,77 @@
+### Parse HTML
+
+```
+from bs4 import BeautifulSoup
+html = #the HTML code you've written above
+parsed_html = BeautifulSoup(html)
+print parsed_html.body.find('div', attrs={'class':'container'}).text
+```
+
+https://stackoverflow.com/questions/11709079/parsing-html-using-python
+
+
+### Install Wheel
+
+```
+sudo pip install foo.whl
+```
+
+https://stackoverflow.com/questions/27885397/how-do-i-install-a-python-package-with-a-whl-file
+
+
+### Compile Python files
+
+```
+python -m py_compile test.py test2.py
+```
+
+https://askubuntu.com/questions/324871/how-to-compile-a-python-file
+
+
+### Test alphabet letter
+
+```
+s.isalpha()
+```
+
+https://docs.python.org/2/library/stdtypes.html#str.isalpha
+
+
+### Unpack tuple into variables
+
+```
+def foo((a,b)):
+    print a
+    print b
+
+foo((1,2))
+```
+
+
+### Set literal
+
+```
+my_set = {1, 2, 3}
+
+# to disambiguate empty dictionary from set, you need to use
+set()
+```
+
+https://stackoverflow.com/questions/36674083/why-is-it-possible-to-replace-set-with
+
+
+### Mac `ValueError: unknown locale: UTF-8`
+
+Add the following to `~/.bash_profile`:
+
+```
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
+
+https://coderwall.com/p/-k_93g/mac-os-x-valueerror-unknown-locale-utf-8-in-python
+
+
 ### `/dev/null`
 
 ```
@@ -68,7 +142,9 @@ https://docs.python.org/2/library/functions.html#basestring
 
 
 ### Merge XML files
+
 xmlcombine.py:
+
 ```
 #!/usr/bin/env python
 import sys
@@ -152,6 +228,7 @@ http://stackoverflow.com/questions/11366064/handle-an-exception-thrown-in-a-gene
 
 
 ### Sets
+
 ```
 s = set()
 s.add(x)
@@ -160,10 +237,12 @@ s.remove(x)
 s.update(set2)  // set2 can be any iterable, modifies existing set
 s.union(set2)   // set2 can be any iterable, returns NEW set
 ```
+
 https://docs.python.org/2/library/sets.html
 
 
 ### Debug virtual environment
+
 Can write `test.py` file and import modules in the virtual environment.
 
 
@@ -184,17 +263,21 @@ class TestMyClass(unittest.TestCase):
     def setUp():
         ...
 ```
+
 https://docs.python.org/2/library/unittest.html#unittest.TestCase.setUp
 
 
 ### Get type of object
+
 ```
 type(obj)
 ```
+
 http://stackoverflow.com/questions/402504/how-to-determine-the-variable-type-in-python
 
 
 ### Parse map from string
+
 ```
 import ast
 a = ast.literal_eval('{0:1,1:3,6:8}')
@@ -202,10 +285,12 @@ print a
 print a[0]
 print a[6]
 ```
+
 http://stackoverflow.com/questions/988228/converting-a-string-to-dictionary
 
 
 ### Wait for keypress from user
+
 ```
 while True:
     try:
@@ -277,6 +362,24 @@ http://stackoverflow.com/questions/10332748/python-logging-setlevel
 
 
 ### ArgumentParser
+Example:
+```
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description='This parses args.')
+
+# Add required argument
+parser.add_argument('f', metavar='FILE', help='File containing stuff.')
+
+# Add option
+parser.add_argument('-c', '--continue', dest='continue',
+                    help='Whether to continue.')
+
+args = parser.parse_args()
+file = args.f
+continue = args.continue
+```
+
 https://docs.python.org/2/library/argparse.html
 
 Optional arguments start with `-`. Positional arguments do not.
@@ -349,6 +452,7 @@ http://stackoverflow.com/questions/291978/short-description-of-python-scoping-ru
 
 
 ### Read password from stdin
+
 ```
 import getpass
 pw = getpass.getpass()
@@ -357,6 +461,7 @@ http://stackoverflow.com/questions/1761744/read-password-from-stdin
 
 
 ### String endswith
+
 ```
 s.endswith('foo')
 ```
@@ -404,12 +509,15 @@ u'MyString' is 'MyString'  # False
 
 
 ### `json.load()` vs. `json.loads()`
+
 * `load()` take a file-like object.
 * `loads()` takes a string.
+
 https://www.reddit.com/r/learnpython/comments/3nx9ch/json_load_vs_loads/
 
 
 ### Diff JSON
+
 ```
 import json
 a = json.loads(...)
@@ -419,7 +527,22 @@ a == b
 ```
 
 
+### Sort dictionary by keys
+
+Dictionaries are unsorted, but you can achieve this effect by serializing to a list, sorting the list, and then reconstructing the dictionary using OrderedDict.
+
+```
+from collections import OrderedDict
+import operator
+
+my_dict = OrderedDict(sorted(my_dict.items(), key=lambda x: x[0]))
+```
+
+https://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value
+
+
 ### Parse JSON
+
 ```
 with open('/path/to/file') as f:  # defaults to 'r' mode
     data = json.load(f)
@@ -428,6 +551,7 @@ print(json.dumps(data, indent=2))
 ```
 
 To maintain order, use
+
 ```
 import json
 from collections import OrderedDict
@@ -436,11 +560,14 @@ from collections import OrderedDict
 data = json.loads('{"foo":1, "bar": 2}', object_pairs_hook=OrderedDict)
 print json.dumps(data, indent=4)
 ```
+
 http://stackoverflow.com/questions/6921699/can-i-get-json-to-load-into-an-ordereddict-in-python
 
 
 ### Line breaks
+
 Break before an operator
+
 ```
 # Yes: easy to match operators with operands
 income = (gross_wages
@@ -500,6 +627,20 @@ First argument to every instance method, including `__init__`, is a reference to
 https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
 
 
+### String startswith
+```
+s.startswith('foo')
+```
+https://www.tutorialspoint.com/python/string_startswith.htm
+
+
+### Lowercase a string
+```
+s.lower()
+```
+https://stackoverflow.com/questions/6797984/how-to-convert-string-to-lowercase-in-python
+
+
 ### Naming conventions
 ```
 _INTERNAL_CLASS_CONSTANT
@@ -531,40 +672,48 @@ http://stackoverflow.com/questions/269795/how-do-i-find-the-location-of-python-m
 import os
 os.environ['FOO'] = 'bar'
 ```
+
 http://stackoverflow.com/questions/5971635/setting-reading-up-environment-variables-in-python
 
 
 ### Get environment variable
+
 ```
 import os
 print os.environ['HOME']
 ```
+
 http://stackoverflow.com/questions/4906977/how-to-access-environment-variables-from-python
 
 
-### Iterate over files in directory
+### Iterate over files in
+
 ```
 for filename in os.listdir(directory):
-    if filename.endswith(".asm") or filename.endswith(".py"): 
+    if filename.endswith(".asm") or filename.endswith(".py"):
         # print(os.path.join(directory, filename))
         continue
     else:
         continue
 ```
+
 http://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
 
 
 ### Get path and directory of current file
+
 ```
 os.path.realpath(__file__)
 
 os.path.dirname(os.path.realpath(__file__))
 ```
+
 http://stackoverflow.com/questions/50499/how-do-i-get-the-path-and-name-of-the-file-that-is-currently-executing
 http://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
 
 
 ### Class variables / static variables
+
 ```
 # No inheritance
 class MyClass:
@@ -603,11 +752,14 @@ class Bag:
 
 
 ### Add set to another set
+
 ```
 set1.update(set2)
 ```
 
+
 ### String replacement
+
 ```
 str.replace(old, new[, max])
 ```
@@ -615,13 +767,16 @@ http://www.tutorialspoint.com/python/string_replace.htm
 
 
 ### Regex multiline sub
+
 ```
 re.sub(re.compile('foo$', re.MULTILINE), 'bar', input_string)
 ```
+
 http://stackoverflow.com/questions/42581/python-re-sub-multiline-caret-match
 
 
 ### Regex replace
+
 ```
 # The 'r' prefix tells Python the following is a raw string.
 # https://docs.python.org/2/library/re.html
@@ -631,9 +786,10 @@ http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replac
 
 
 ### Regex match anywhere in string
+
 ```
 match = re.search(r'CREATE TABLE ([a-z._]+)', contents)
-print match.group(1)
+print match.group(1)  # print first capture group
 ```
 https://docs.python.org/2/library/re.html#re.search
 
@@ -641,6 +797,7 @@ NOTE that `re.match` only matches at the BEGINNING of the string. See https://do
 
 
 ### Untar
+
 ```
 import tarfile
 tar = tarfile.open("sample.tar.gz")
@@ -650,7 +807,22 @@ tar.close()
 http://stackoverflow.com/questions/8893359/untar-archive-in-python-with-errors
 
 
+### POST request
+
+```
+import json
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
+
+post_fields = {'username': 'erwa', 'password': pw, 'action': 'login'}
+request = Request(az_base_url, urlencode(post_fields).encode())
+resp = urlopen(request).read().decode()
+obj = json.loads(resp)
+```
+
+
 ### Read URL
+
 ```
 import urllib
 
@@ -667,6 +839,7 @@ http://stackoverflow.com/questions/15138614/how-can-i-read-the-contents-of-an-ur
 
 
 #### Untar in memory
+
 ```
 from StringIO import StringIO
 
@@ -696,7 +869,7 @@ d = defaultdict(int, {'a': 1, 'b': 2})
 http://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work
 
 
-### Invoke shell command
+### Run shell command
 ```
 # using command substitution
 subprocess.Popen('echo `date`', shell=True)
@@ -796,20 +969,24 @@ global <var_name>
 at the beginning of the function.
 
 Reasons for not using global variables for storing command line arguments:
+
 * the `parse_args()` method will need to use `global x, y, z` to set/modify the args
 * functions are less self-contained, harder to see what the inputs/outputs are
 * state could be encapsulated in a class
 
 
 ### Read string line by line
+
 ```
 for line in textData.splitlines():
     print(line)
 ```
+
 http://stackoverflow.com/questions/15422144/how-to-read-a-long-multiline-string-line-by-line-in-python
 
 
 ### Read file into string
+
 ```
 # Option 1
 fh = open('foo')
@@ -828,6 +1005,7 @@ http://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-stri
 
 
 ### Read file line by line
+
 ```
 # Stream file line by line
 with open(...) as f:
@@ -848,6 +1026,13 @@ if len(sys.argv) > 1:
   # sys.argv[0] = file name
   # sys.argv[1] = first argument
   ...
+
+
+### Split list into multiple variables
+```
+a = [1, 2]
+b, c = a  # b = 1, c = 2
+```
 
 
 ### Split string into two variables
@@ -922,6 +1107,13 @@ int(s)
 http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
 
 
+### Count occurrences of character in string
+```
+s.count('a')
+```
+https://stackoverflow.com/questions/2600191/how-can-i-count-the-occurrences-of-a-list-item-in-python
+
+
 ### Convert list/array to string
 # http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
 list1 = ['1', '2', '3']
@@ -937,6 +1129,14 @@ if not a:
 
 # Python slicing and finding the last index (indexof) of a character
 output_dir[:output_dir.rfind('/')]
+
+
+### String find
+```
+str.find(str, beg=0, end=len(string))
+```
+https://www.tutorialspoint.com/python/string_find.htm
+
 
 ### Check if file exists
 ```
@@ -1196,7 +1396,7 @@ process = Popen(cmd, stdout=PIPE, stderr=PIPE)
 http://stackoverflow.com/a/4760517/1128392
 
 
-### Print current working directory
+### Print current working directory / current directory
 ```
 os.getcwd()
 ```

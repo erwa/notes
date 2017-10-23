@@ -1,3 +1,10 @@
+### Data Transfer Rate
+disk-to-buffer: 128 MB/s
+buffer-to-computer (e.g.: SATA): 300 MB/s
+
+https://en.wikipedia.org/wiki/Hard_disk_drive_performance_characteristics#Data_transfer_rate
+
+
 ### Check number of disks
 ```
 sudo fdisk -l

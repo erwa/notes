@@ -1,14 +1,36 @@
+### Median
+
+Use `approx_percentile(x, 0.5)`.
+
+https://groups.google.com/forum/#!topic/presto-users/wXR-oikVUwo
+https://prestodb.io/docs/current/functions/aggregate.html#approx_percentile
+
+
+### N days ago
+
+```
+-- current_date returns date at start of query
+date_add('day', -8, current_date)
+```
+
+https://prestodb.io/docs/current/functions/datetime.html#interval-functions
+
+
 ### `count_if`
+
 ```
 count_if(is_hive)
 ```
+
 https://prestodb.io/docs/current/functions/aggregate.html#count_if
 
 
 ### Convert epoch to timestamp
+
 ```
 from_unixtime(epoch_time_in_seconds)
 ```
+
 https://prestodb.io/docs/current/functions/datetime.html#from_unixtime
 
 

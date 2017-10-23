@@ -540,7 +540,9 @@ http://stackoverflow.com/questions/10663492/how-to-change-default-author-and-com
 git config --global user.email "<email>"
 ```
 
+
 ### Specify author when committing
+
 ```
 git commit --author="John Smith <john.smith@example.com>"
 ```
@@ -551,10 +553,13 @@ git clone --depth 1 ...
 # Checkout repo and give it a different name
 git clone <repo> <new_name>
 
+
 ### Clone branch
+
 ```
 git clone --depth DEPTH --branch BRANCH GIT_URI
 ```
+
 http://strk.keybit.net/blog/2011/06/07/getting-just-the-tip-of-a-remote-git-branch/
 
 
@@ -568,23 +573,39 @@ http://stackoverflow.com/questions/3489173/how-to-clone-git-repository-with-spec
 
 
 ### Clone into folder
+
 ```
 git clone git@github.com:whatever folder-name
 ```
+
 http://stackoverflow.com/questions/651038/how-do-you-clone-a-git-repository-into-a-specific-folder
 
 
 ### Check if file or folder is tracked / under source control
+
 ```
 git ls-files FILE --error-unmatch
 ```
+
 http://stackoverflow.com/questions/2405305/git-how-to-tell-if-a-file-is-git-tracked-by-shell-exit-code
 
+
 ### Find commit that deleted a line
+
 ```
 git log -S <string> path/to/file
 ```
+
 http://stackoverflow.com/questions/4404444/how-do-i-blame-a-deleted-line
+
+
+### Open file at commit
+In iTerm2:
+```
+git show <commit>
+```
+Cmd + click file name (--- a/path/to/file)
+
 
 ### Search for deleted file
 http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-on-in-the-project-commit-history

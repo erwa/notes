@@ -1,3 +1,20 @@
+### Show current database
+
+```
+set hive.cli.print.current.db = true;
+```
+
+
+### Security
+
+SSL support for HMS added in 2.3.0: https://issues.apache.org/jira/browse/HIVE-15025
+
+
+### Mailing Lists
+
+https://hive.apache.org/mailing_lists.html
+
+
 ### SMB (sort-merge-bucket) join
 
 `hive.enforce.bucketing` sorts data within each bucket.
@@ -8,18 +25,23 @@ https://stackoverflow.com/questions/6934327/using-sorted-tables-in-hive
 
 
 ### Equal not null operator
+
 ```
 <=>
 ```
+
 http://docs.qubole.com/en/latest/user-guide/features/smart-query/hive-smart-query.html
 
 
 ### JOIN column types
+
 You can JOIN on complex types, too.
 
 
 ### Ignore CLI errors
+
 Useful when running a Hive file with multiple statements.
+
 ```
 set hive.cli.errors.ignore=true;
 ...
@@ -42,6 +64,7 @@ https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling#Languag
 
 
 ### Run CLI commands using Driver
+
 ```
 HiveConf hiveConf = new HiveConf();
 Driver driver = new Driver(hiveConf);
@@ -54,6 +77,7 @@ May have to set `java.security.krb5.realm` and `java.security.krb5.kdc`.
 
 
 ### Insert Values
+
 ```
 INSERT INTO TABLE tablename [PARTITION (partcol1[=val1], partcol2[=val2] ...)] VALUES values_row [, values_row ...]
 ```
@@ -221,13 +245,17 @@ mvn test -Phadoop-2 -Dtest=TestCliDriver -Dqfile_regex=.*avro.*
 ```
 
 #### HiveMetaStore Tests
+
 TestHiveMetaStore.java is excluded because you should run TestEmbeddedHiveMetaStore.java and TestRemoteHiveMetaStore.java instead.
+
 ```
 mvn test -Phadoop-2 -Dtest=TestRemoteHiveMetaStore
 mvn test -Phadoop-2 -Dtest=TestEmbeddedHiveMetaStore
 ```
 
+
 #### Run Hive unit test not in itests directory
+
 ```
 # Run from root directory.
 mvn test -Phadoop-2 -Dtest=TestAvroSerdeUtils
@@ -251,17 +279,35 @@ chmod -R 777 <hive_metastore_db_dir>
 ```
 
 
+### One split per file
+
+```
+set hive.input.format = org.apache.hadoop.hive.ql.io.HiveInputFormat;
+set mapreduce.input.fileinputformat.split.minsize = 999999999999;
+```
+
+
 ### Splits across partitions
+
 One map task gets one CombineHiveInputSplit, which may contain splits from more than one partition. However, all the partitions will have the same InputFormat.
 
 
 ### Split sizes
+
 ```
 # mapred.min.split.size.per.node (the minimum bytes of data to create a node-local partition, otherwise the data will combine to rack level. default:0)
 # mapred.min.split.size.per.rack (the minimum bytes of data to create a rack-local partition, otherwise the data will combine to global level. default:0)
 # mapred.max.split.size (the max size of each split, will be exceeded because we stop accumulating *after* reaching it, instead of before)
 # https://issues.apache.org/jira/browse/HIVE-74
 ```
+
+
+### Rename column
+```
+ALTER TABLE table_name CHANGE col_old_name col_new_name col_type;
+```
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ChangeColumnName/Type/Position/Comment
+
 
 
 ### Drop partitions greater than a time
@@ -286,6 +332,7 @@ create view testview as select a from test;
 drop view testview;
 ```
 
+
 ### Show view definition
 ```
 describe formatted DATABASE.VIEWNAME;
@@ -294,12 +341,25 @@ describe formatted DATABASE.VIEWNAME;
 # Hive 0.13 added permanent functions, which can be registered to a
 # particular database
 
+
+### Describe functions
+
+```
+DESC FUNCTION myUdf;
+DESC FUNCTION EXTENDED myUdf;
+```
+
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
+
+
 ### Show functions
+
 ```
 -- Only seems to show built-in functions, not permanent functions
 SHOW FUNCTIONS "a.*";
 ```
 https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ShowFunctions
+
 
 ### Permanent Functions
 * Create permanent function: http://stackoverflow.com/questions/20043448/how-to-add-a-permanent-function-in-hive
@@ -316,24 +376,34 @@ CREATE TEMPORARY FUNCTION foo AS com.example.Foo;
 https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/ReloadFunction
 
 
-# Show databases matching expression
+###  Show databases matching expression
+
+```
 show databases like 'a*';
+```
+
 
 ### Adding a jar
-https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources
+
 ```
 add jar hdfs:/user/ahsu/foo.jar;
 add jar hdfs:///user/ahsu/foo.jar;
 add jar hdfs://NAMENODE_HOST:PORT/user/ahsu/foo.jar;
 ```
 
-Describe table with more details
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli#LanguageManualCli-HiveResources
+
+
+### Describe table with more details
+
 ```
 desc formatted TABLE;
 desc extended TABLE;
 ```
 
+
 ### Creating an Avro Table
+
 ```
 create external table u_ahsu.map_table
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
@@ -354,22 +424,29 @@ OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
 -- You can also use 'avro.schema.literal' instead of 'avro.schema.url'.
 ```
 
+
 ### Add partition
+
 ```
 ALTER TABLE table_name ADD [IF NOT EXISTS]
 PARTITION (partition_column = partition_col_value)
 [LOCATION 'location1']
 ```
 
+
 ### Alter partition SerDe properties
+
 ```
 alter table foo partition(part_col='testpartition') set serde 'org.apache.hadoop.hive.serde2.avro.AvroSerDe';
 ```
 
+
 ### Drop table if exists
+
 ```
 drop table if exists TABLE;
 ```
+
 
 ### Cannot drop external table
 ```
@@ -484,17 +561,23 @@ Hive has no concept of enums.
 ### Characters to escape
 Need to escape semicolons using `\;`.
 
+
 ### Hive Hooks
+
+Driver hooks, called in this order: HiveDriverRunHook -> HiveSemanticAnalyzerHook -> PreExecute
+
 http://stackoverflow.com/questions/17461932/hive-execution-hook
 
 
 ### Set output file extension
+
 ```
 set hive.output.file.extension=.foo;
 ```
 
 
 ### Contributing
+
 ```
 git diff --no-prefix <commit>^ > HIVE-1234.1.patch
 
@@ -507,9 +590,12 @@ git diff --no-prefix <commit>^ > HIVE-1234.1.patch
 # Post an RB
 rbt post --guess-fields yes
 ```
+
 https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-CreatingaPatch
 
+
 ### Retest patch
+
 Cancel and resubmit patch.
 
 https://cwiki.apache.org/confluence/display/Hive/HowToContribute#HowToContribute-PrecommitTestsbyHiveQA

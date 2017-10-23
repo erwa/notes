@@ -1,4 +1,14 @@
+### Password Protect
+
+Open in Preview -> Export -> Add Password. Messes up links.
+
+Use File -> Print -> PDF -> Save as PDF -> Add Password to preserve links.
+
+https://www.digitaltrends.com/computing/password-protect-pdf/
+
+
 ### Delete page from PDF
+
 Open in Preview -> in sidebar, select page to delete, press Delete key.
 
 
