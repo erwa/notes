@@ -1,19 +1,26 @@
 ### General
 
 - remove bike lock, bike accessories
+- Jacket
+- Swimming trunks (preferably regular ones)
+- soap (if not available)
 - Passport
 - Laptop, charger
+- ear buds
 - Phone, phone charger, battery pack
-- Power adaptor/converter -- different countries have different plugs and outlets
+- Power adaptor/converter -- different countries have different plugs and outlets, also useful for cruise ships
 - Sunscreen (replace big sunscreen bottle with small one)
-- Hat, sunglasses (need contacts for sunglasses that don't fit comfortably over glasses)
+- Hat
+- sunglasses
+-- prescription sunglasses
+-- bring non-prescription sunglasses if wearing contacts
 - Small umbrella / poncho
 - Reading material
-- Jacket
 - Money (split up into several places)
+- quarters / change (parking, exact fare on buses)
 - MetroCard, Clipper Card, Caltrain Go Pass
 - Drawstring bag
-- Toiletries (RAZOR, toothbrush, toothpaste, floss, nail clipper, comb)
+- Toiletries (razor, toothbrush, toothpaste, floss, nail clipper, comb, contacts, contact solution)
 - Towel
 - Blindfold, ear plugs
 - Nice belt (for formal events)
@@ -33,11 +40,10 @@
 - Dictionary/phrasebook for language of destination
 - learn/practice language of destination
 - trash bags, extra Ziploc bags
-- slippers
+- slippers / flip-flops
 - Tissues / toilet paper / trowel
 - Keys
 - card/board games / juggling balls
-- Swimming trunks
 - Offline tour guide information
 - Printed itinerary/map - send email summarizing trip post-trip.
 - Figure out conversion rate, where to put toilet paper, whether tap water is potable.

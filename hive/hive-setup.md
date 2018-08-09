@@ -51,12 +51,14 @@ In `hive-site.xml`:
 
 
 ### Metastore Setup
+
 ```
 # from Hive root directory
 mkdir -p hcatalog/var/log
 ```
 
 hive-site.xml:
+
 ```
   <property>
     <name>hive.metastore.schema.verification</name>

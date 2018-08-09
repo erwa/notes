@@ -1,3 +1,87 @@
+### Set queue
+
+```
+# Hive
+set mapreduce.job.queuename = my_custom_queue;
+```
+
+
+### Client to ApplicationMaster communication
+
+Client should add ApplicationReport.getClientToAMToken to UGI.
+
+```
+LOG.info("Client to AM token: " + report.getClientToAMToken());
+InetSocketAddress serviceAddr = NetUtils.createSocketAddrForHost(
+    report.getHost(), report.getRpcPort());
+if (UserGroupInformation.isSecurityEnabled()) {
+  org.apache.hadoop.yarn.api.records.Token clientToAMToken = report.getClientToAMToken();
+  Token<ClientToAMTokenIdentifier> token = ConverterUtils.convertFromYarn(clientToAMToken, serviceAddr);
+  UserGroupInformation.getCurrentUser().addToken(token);
+}
+```
+
+
+### Refresh proxy users
+
+```
+# kinit as user that ResourceManager is running as first
+yarn rmadmin -refreshSuperUserGroupsConfiguration
+```
+
+
+### Task timeout
+
+Can set to 0 to fix "Timed out after 600 secs" issue
+
+```
+mapreduce.task.timeout
+```
+
+
+### Classloader / classpath related variables
+
+```
+mapreduce.job.classloader
+
+# default system classes present in
+# org.apache.hadoop.application-classloader.properties
+mapreduce.job.classloader.system.classes
+
+mapreduce.job.user.classpath.first
+```
+
+
+### Have job succeed even if some percentage of mappers fail.
+
+Set `mapreduce.map.failures.maxpercent`.
+
+
+### Web Proxy / Web Application Proxy
+
+Responsibility of the Application Master to provide a web UI to the Resource Manager.
+
+https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/WebApplicationProxy.html
+
+
+### Multiple writer, single reader
+
+Make directory `rwx-wx-wx`. Anyone can write to it, but users can only delete or rename files if they can guess the path inside. However, directories cannot be deleted or renamed unless the user has write permission to the directory.
+
+
+### World writeable directory
+
+You can move and delete files and directories inside, but you can't read the contents.
+
+
+### HDFS Permissions Group Inheritance Example
+
+* dir1 is rwxrwxrwx u1/g1
+* u2, part of g2 but not part of g1, writes to dir1/foo
+* dir1/foo has rw-r----- u2/g1  permissions
+* u2 can chgrp g2 on dir1/foo so it ends up with rw-r----- u2/g2
+
+
 ### Superuser vs. proxyuser
 
 Super users can set any permissions, owners, and groups they want. No permission checks apply.
@@ -24,6 +108,7 @@ https://hadoop.apache.org/mailing_lists.html
 
 
 ### Dependencies
+
 Specified in hadoop-project/pom.xml.
 
 
@@ -72,6 +157,7 @@ http://stackoverflow.com/questions/35806830/how-to-copy-a-file-from-one-hdfs-fol
 
 
 ### Set replication factor of a file
+
 ```
 dfs.replication=1
 ```
@@ -79,12 +165,14 @@ http://stackoverflow.com/questions/30558217/to-change-replication-factor-of-a-di
 
 
 ### Get replication factor of a file
+
 ```
 hadoop fs -ls # Look at 2nd column
 ```
 
 
 ### Eclipse setup
+
 * Remove any existing .classpath and .project files.
 * Re-add the project in Eclipse.
 * Make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
@@ -95,32 +183,37 @@ hadoop fs -ls # Look at 2nd column
 # Enable more logging
 export HADOOP_ROOT_LOGGER=DEBUG,console
 
-# EOFException
-# https://wiki.apache.org/hadoop/EOFException
 
-###
+### EOFException
+
+https://wiki.apache.org/hadoop/EOFException
+
+
 Disable _SUCCESS file:
 To disable the `_SUCCESS` file from being created upon job completion, set the `mapreduce.fileoutputcommitter.marksuccessfuljobs` property to `false`. See http://mail-archives.apache.org/mod_mbox/hadoop-user/201305.mbox/%3CCAO7hTbNSu7vJ5nori9u3+r9px_xkkgO=+Of248x=ujC0tNZpuA@mail.gmail.com%3E.
 
 ### Increase client heap size
+
 ```
 export HADOOP_CLIENT_OPTS="-Xmx10g"
 ```
 
+
 ### Put user classpath first
+
 Set `mapreduce.user.classpath.first` to `true`. See http://stackoverflow.com/questions/11685949/overriding-default-hadoop-jars-in-class-path.
 
 
-################
-# Hadoop 1.2.1 #
-################
+### Hadoop 1.2.1
 
-# Hadoop setup on Mac
-# http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
-# To fix “Unable to load realm info from SCDynamicStore” error, add this to hadoop-env.sh
+Hadoop setup on Mac
+
+http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
+
+To fix “Unable to load realm info from SCDynamicStore” error, add this to hadoop-env.sh
 export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc="
 
-# To suppress "$HADOOP_HOME is deprecated" warning message, add the follow to hadoop-env.sh
+To suppress "$HADOOP_HOME is deprecated" warning message, add the follow to hadoop-env.sh
 export HADOOP_HOME_WARN_SUPPRESS="TRUE"
 
 # http://stackoverflow.com/questions/3425688/why-does-the-hadoop-incompatible-namespaceids-issue-happen
@@ -135,13 +228,15 @@ hadoop namenode -format
 
 # To avoid having to type your password when launching the daemons, append .ssh/*.pub to .ssh/authorized_keys
 
-# Using curl to contact a secure WebHDFS instance
-# http://www.adaltas.com/blog/2013/09/25/webhdfs-security-kerberos-delegation-tokens/
+Using curl to contact a secure WebHDFS instance
+http://www.adaltas.com/blog/2013/09/25/webhdfs-security-kerberos-delegation-tokens/
+
 ```
 curl --negotiate -u : "http://<nn>:50070/webhdfs/v1/user/ahsu/test?op=LISTSTATUS"
 ```
 
 Get delegation token
+
 ```
 curl --negotiate -u : -L "http://NAMENODE_HOST:50070/webhdfs/v1/?op=GETDELEGATIONTOKEN&user.name=USER"
 ```
@@ -160,6 +255,7 @@ http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/SingleNod
 Ensure the public keys in `~/.ssh` are appended to `~/.ssh/authorized_keys`.
 
 ### Setup
+
 ```
 bin/hadoop namenode -format
 
@@ -173,6 +269,7 @@ jps
 NameNode UI running at http://localhost:50070
 
 ### Eclipse Setup
+
 You must use Java 7 to compile.
 ```
 export JAVA_HOME=/export/apps/jdk/JDK-1_7_0_21
@@ -316,25 +413,35 @@ set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';
 # Deprecated properties between Hadoop 1 and Hadoop 2:
 # http://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-common/DeprecatedProperties.html
 
+
 ### `java.net.ConnectException: Connection refused`
+
 http://wiki.apache.org/hadoop/ConnectionRefused
 
 Check /etc/hosts and remove any line that maps 127.0.0.1 to your hostname.
 
+
 ### Kill running YARN application
+
 ```
 yarn application -kill application_XXX_XXX
 ```
 
+
 ### Get help on shell command
+
 ```
 hadoop fs -help put
 ```
 
+
 ### `yarn.application.classpath`
+
 `YARN_APPLICATION_CLASSPATH`.
 
+
 ### FileSystem loaded using ServiceLoader API
+
 * hadoop-common jar's `META-INF/services/org.apache.hadoop.fs.FileSystem` file contains
 ```
 org.apache.hadoop.fs.LocalFileSystem
@@ -354,6 +461,7 @@ org.apache.hadoop.hdfs.web.SWebHdfsFileSystem
 ```
 
 ### Hadoop Archive (HAR) Files
+
 ```
 hadoop fs -ls har:///path/to/file
 ```
@@ -363,6 +471,7 @@ http://www.aosabook.org/en/hdfs.html
 
 
 ### Get Yarn application logs
+
 ```
 # Only works after application finishes
 # Gets logs for ALL containers

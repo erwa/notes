@@ -1,3 +1,15 @@
+### Get IMEI number
+
+Dial `*#06#`.
+
+https://www.macworld.co.uk/how-to/iphone/how-find-iphone-imei-number-3534703/
+
+
+### Transfer Voice Memo to Mac
+
+Easiest way is to email to yourself.
+
+
 ### Permanently delete photos and videos
 
 Delete photo/video -> go to Recently Deleted photo album -> delete.
@@ -12,10 +24,18 @@ Install iBooks on iPhone. Use iTunes -> Books -> drag and drop PDF file to trans
 
 ### Extension on phone number
 
-Press +*# button, then "Pause" to insert comma.
+Press `+*#` button, then "Pause" to insert comma.
+
+
+
+### iMessage new line
+
+Alt + enter
 
 
 ### Send iMessage from Mac
+
+On phone: Settings -> Messages -> Text Message Forwarding
 
 iMessage -> iMessage -> Preferences -> Accounts -> Sign in with Apple ID.
 
@@ -27,6 +47,7 @@ Create playlist
 
 
 ### Ctrl + F (Find) on an iPhone
+
 1. Type term in URL address box.
 2. At the bottom, there is a "search on page" option.
 

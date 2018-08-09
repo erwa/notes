@@ -7,9 +7,14 @@ Keep in backpacking pack for storage:
 - toilet paper + trowel + bags
 - carabiners
 - Swiss army knife
-- cadet-style cape hat
+- hat
 
 Other things:
+- download offline maps (Google Maps or Maps.me)
+- bar of soap for showering at campground showers (or just use water)
+- rubber bands
+- a roll of paper towels, napkins, tissues
+- snacks / food (including leftover food from previous trips - peanut butter, Nutella)
 - headlamp
 - tarp
 - thermals
@@ -27,7 +32,6 @@ Other things:
 - spare batteries
 - deodorant
 - toiletries
-- paper towels, napkins, tissues
 - camping pots
 - ear plugs, blindfold
 - poncho
@@ -36,4 +40,3 @@ Other things:
 - drawstring bag / day pack
 - ski goggles (for cold weather) - I have Scott Heli OTG (over the glass) goggles, can wear over glasses, has anti-fog lens treatment
 - extra plastic bags, Ziploc bags, garbage bags
-- snacks / food

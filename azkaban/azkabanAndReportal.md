@@ -1,3 +1,8 @@
+### Multiline properties
+
+Add `\` at end of each line to continue on next line.
+
+
 ### Job Executor Classpath
 
 When building job executor, Azkaban uses its start-up classpath, set in bin/azkaban-exec-start.sh, not the job plugin classpath.
@@ -40,19 +45,26 @@ $ curl -k https://<host>:<port>/manager -G -d "project=project-name&flow=flow-na
 ```
 
 ### Session id
+
 You can also use `&session.id=<session.id>` instead of setting the `azkaban.browser.session.id` cookie.
 
+
 ### Create a project
+
 ```
 curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=<description>" -b azkaban.browser.session.id=<session.id>
 ```
 
+
 ### Reload jobtype plugins without restarting executor server
+
 ```
 curl http://localhost:<port>/executor?action=reloadJobTypePlugins
 ```
 
+
 ### Get project permissions
+
 ```
 curl -k https://<host>:<port>/manager -G -d "ajax=getPermissions&project=project-name" -b azkaban.browser.sesson.id=<session.id>
 {
@@ -256,19 +268,46 @@ Now you should be able to run AzkabanSingleServer from Eclipse and view the web 
 5. Add `azkaban-plugins` to Eclipse.
 6. Before debugging, add a breakpoint in `Utils.callConstructor()` on the line that calls `cons.newInstance()`. Then launch AzkabanSingleServer in Debug mode. When the breakpoint is hit, F5, then Edit Source Lookup Path --> Add --> Workspace Folder --> `azkaban-plugins/plugins/jobtype/src`.
 
+
 ### OS X local SMTP mail server for testing
+
 ```
 sudo postfix start
 ```
 
+
 ### Fetch delegation tokens for other clusters
+
 ```
 # Set this in Azkaban properties.
 # Use webhdfs if clusters are running different Hadoop versions.
 other_namenodes=hdfs://NN_HOST:9000,webhdfs://NN_HOST:50070
 ```
 
+
+### Activating an executor server
+
+```
+curl -G "localhost:$(<./executor.port)/executor?action=activate"
+
+# reload executors in web server
+https://<host>:<port>/executor?ajax=reloadExecutors
+```
+
+```
+# see all executors
+SELECT id, host, port, active FROM executors;
+
+# set one to active
+update executors set active=1 where id=129;
+
+# double check
+SELECT id, host, port, active FROM executors where active=true;
+```
+
+
 ### Running flow on specific executor server
+
 As an admin, add a flow parameter `useExecutor=<executor_id>`. The `executor_id` comes from the `executors` DB table.
 
 ```

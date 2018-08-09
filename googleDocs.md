@@ -1,3 +1,101 @@
+### Show document outline / table of contents on sidebar
+
+View -> Show outline
+
+https://support.google.com/docs/answer/6367684?hl=zh-Hant&co=GENIE.Platform%3DDesktop
+
+
+### Exchange rate
+
+```
+# Convert from X to USD
+=GOOGLEFINANCE("CURRENCY:"&E2&"USD")
+```
+
+https://www.ablebits.com/office-addins-blog/2017/11/30/currency-conversion-google-sheets/
+
+
+### Subscript / Superscript
+
+```
+Cmd + ,  # Subscript
+Cmd + .  # Superscript
+```
+
+https://productforums.google.com/forum/#!topic/docs/H90aHHv2bIU
+
+
+### Disable smart quotes
+
+Tools --> Preferences --> Uncheck "use smart quotes"
+
+http://www.solveyourtech.com/turn-off-smart-quotes-google-docs/
+
+
+### Chat / Anonymity
+
+May need to explicitly be added as a person the doc is shared with for you to see the chat and not show up as an anonymous animal.
+
+
+### Rename folder or file in Google Drive
+
+```
+n
+```
+
+https://support.google.com/drive/answer/2563044?hl=en
+
+
+### Count if not empty
+
+```
+=COUNTIF(A6:A, "<>")
+```
+
+https://stackoverflow.com/questions/12519073/google-docs-count-cells-that-contain-any-text
+
+
+### LaTex in Google Docs
+
+Auto-LaTeX Equations plugin
+https://chrome.google.com/webstore/detail/auto-latex-equations/iaainhiejkciadlhlodaajgbffkebdog
+
+To enable: Add-ons -> Auto-Latex Equations -> Start
+
+https://sites.google.com/site/autolatexequations/tutorial
+
+
+### Download image from Google Slides
+
+Go to presentation mode -> Inspect Element -> get image URL -> go there and save
+
+
+### Convert number to letter
+
+```
+=CHAR(1 + 64)
+```
+
+
+### Convert letter to number
+
+```
+=CODE('A')-64
+```
+
+
+### Change sheets
+
+Cmd + Shift + Fn + Up/Down
+
+https://support.google.com/docs/answer/181110?co=GENIE.Platform%3DDesktop&hl=en
+
+
+### Document Owner and Creation Date
+
+File -> Document Details
+
+
 ### Force row height
 
 If you want row height to be less than text height (with newlines), that's not possible currently.
@@ -41,9 +139,11 @@ https://gsuitetips.com/tips/drive/protect-your-google-drive-folders-by-setting-p
 
 
 ### Add row below in table
+
 ```
 Cmd + Option + B, B
 ```
+
 https://support.google.com/docs/answer/179738?co=GENIE.Platform%3DDesktop&hl=en
 
 
@@ -57,6 +157,7 @@ http://www.mousewhisperer.co.uk/drivebunny/aligning-tables-side-by-side-in-googl
 
 
 ### Export spreadsheet without gridlines
+
 File -> Export as -> PDF -> check "No Gridlines"
 
 https://productforums.google.com/forum/?hl=en#!category-topic/docs/formatting/oxFWS7Gl8tk

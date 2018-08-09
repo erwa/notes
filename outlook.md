@@ -1,3 +1,12 @@
+### Multiple accounts.
+
+Office 365 does not allow being signed-in to multiple accounts at once.
+
+Easiest workaround is to open one account in an incognito window.
+
+When switching accounts, you may need to restart your web browser.
+
+
 ### Limitations
 
 * Cannot filter by color categories. No point using them.

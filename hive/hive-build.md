@@ -1,6 +1,7 @@
 ### Runtime jars
 
 Needed at runtime for running an embedded metastore:
+
 ```
 # Hive 1.1
 jdo-api-3.0.1.jar
@@ -11,6 +12,24 @@ derby-10.11.1.1.jar
 ```
 
 
+### Build one module
+
+```
+# build just ql (hive-exec) module and all the modules it depends on
+mvn package -pl ql -am -DskipTests -Dmaven.javadoc.skip=true
+```
+
+
+### Build for itests
+
+Add `clean` to be safe.
+
+```
+# build for itests
+mvn install -DskipTests -Dmaven.javadoc.skip=true -Pitests
+```
+
+
 ### Generating tarball
 
 Works for trunk
@@ -18,7 +37,7 @@ Works for trunk
 ```
 # Add "clean" to be safe or if you encounter build issues.
 
-# Takes about 6 minutes
+# Takes about 5 minutes
 # build tarball
 mvn install -DskipTests -Dmaven.javadoc.skip=true -Pdist
 
@@ -26,10 +45,8 @@ mvn install -DskipTests -Dmaven.javadoc.skip=true -Pdist
 
 # build without itests
 mvn package -DskipTests -Dmaven.javadoc.skip=true
-
-# build for itests
-mvn install -DskipTests -Dmaven.javadoc.skip=true -Pitests
 ```
+
 https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-Howtogeneratetarball?
 
 
@@ -38,7 +55,7 @@ https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperF
 ```
 # Run all tests
 # https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunalloftheunittests?
-mvn test -Pitest
+mvn test -Pitests
 
 # You can also run tests for just one component by cd'ing to that component directory first
 cd metastore
@@ -48,8 +65,13 @@ mvn test
 # https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIrunasingletest?
 mvn test -Dtest=ClassName
 
+# Run 1 method in 1 unit test class
+mvn test -Phadoop-2 -Dtest=org.apache.hadoop.hive.serde2.avro.TestAvroSerdeUtils#determineSchemaCanReadSchemaFromHDFS
+
 ##############
+
 ### qtests ###
+
 ##############
 
 # Run qtests from itests/qtest
@@ -57,6 +79,7 @@ mvn test -Dtest=ClassName
 # but add -Pitests
 
 ### single qtest ###
+
 # CliDriver
 mvn test -Dtest=TestCliDriver -Dqfile=truncate_column_list_bucket.q
 
@@ -72,10 +95,13 @@ mvn test -Dtest=TestCliDriver -Dqfile=orc_ppd_same_table_multiple_aliases.q -Dte
 
 # custom init script
 mvn test -Dtest=TestCliDriver -Dqfile=orc_ppd_same_table_multiple_aliases.q -DinitScript=test.sql
+
+mvn test -Dtest=TestCliDriver -Dqfile=orc_ppd_same_table_multiple_aliases.q -DinitScript=src_only.sql
 ```
 
 
 ### ANTLR
+
 ```
 # from ql directory
 mvn antlr3:antlr

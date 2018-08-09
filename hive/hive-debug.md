@@ -30,6 +30,7 @@ http://stackoverflow.com/questions/23332022/hive-0-12-0-incompatibleclasschangee
 
 
 ### Enable Ivy logging
+
 ```
 hive --hiveconf ivy.message.logger.level=4
 ```
@@ -97,7 +98,9 @@ http://stackoverflow.com/questions/21114066/attach-intellij-idea-debugger-to-a-r
 
 
 ### Debug query in Eclipse
+
 https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ#HiveDeveloperFAQ-HowdoIdebugmyqueriesinHive?
+
 ```
 # See hadoop.md for details.
 hadoop namenode -format

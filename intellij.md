@@ -1,3 +1,52 @@
+### Community vs. Ultimate Edition differences
+
+Ultimate supports JavaScript.
+
+
+### Set default JDK
+
+File -> Other Settings -> Default Project Structure -> Project Settings -> Project -> Project SDK.
+
+To control the default 1.8 JDK, name the specific 1.8 JDK you want to be the default "1.8".
+
+
+### Run Scala Test
+
+Right click -> Run
+
+Make sure your project's SDK is a new version of Java 8+ (e.g. 1.8u121) or you might get weird VerifyErrors.
+
+
+### Copy multi-line string
+
+Place cursor on value of string -> Alt + Enter -> Copy String Concatenation Text to the Clipboard
+
+https://stackoverflow.com/questions/31699115/intellij-idea-reverse-paste-into-string-aka-copy-from-string
+
+
+### Enable warning
+
+Cmd + , -> Editor -> Inspections -> ensure check mark next to warning
+
+
+### Disable warning for one line
+
+Alt Enter -> right arrow to expand to submenu -> should be an option
+
+```
+//noinspection JavaReflectionMemberAccess
+```
+
+https://stackoverflow.com/questions/7798908/disable-warning-in-intellij-for-one-line
+
+
+### Enable / Disable parameter hints
+
+To disable, right click on the hint -> Disable.
+
+https://stackoverflow.com/questions/40866202/intellij-shows-method-parameter-hints-on-usage-how-to-disable-it
+
+
 ### Profiler
 
 Install VisualVM plugin. Give path to `$JAVA_HOME/bin/jvisualvm`. Right click green triangle next to main() method -> Run with VisualVM.
@@ -23,6 +72,8 @@ Cmd + ; (File -> Project Structure) -> Project -> choose Project SDK.
 ### Lombok Plugin
 
 Preferences -> Settings -> Plugins -> Browse repositories -> Search for "lombok" -> Install Lombok Plugin
+
+Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors -> Enable Annotation Processing
 
 https://github.com/mplushnikov/lombok-intellij-plugin
 
@@ -158,7 +209,14 @@ Option + Shift + C
 Option + Shift + Cmd + N
 
 
-### Increase memory limit
+### Increase build process heap size
+
+Preferences -> Build, Execution, Deployment -> Compiler -> Build process heap size
+
+https://stackoverflow.com/questions/8581501/how-can-i-give-the-intellij-compiler-more-heap-space
+
+
+### Increase IntelliJ memory limit
 
 Help -> Edit Custom VM Options
 
@@ -173,13 +231,16 @@ https://stackoverflow.com/questions/854264/how-to-add-directory-to-classpath-in-
 
 
 ### Add source directory
+
 Project View -> Right click -> Mark Directory As -> Sources Root
 
 
 ### Python virtualenv
+
 * Add SDK -> Python virtualenv
 * SDK home path should be to bin/python2.7 in venv
 * Classpath should include:
+
 ```
 venv/lib/python2.7/site-packages
 venv/lib/python2.7/lib-dynload
@@ -191,14 +252,28 @@ venv/lib/python2.7/lib-dynload
 http://stackoverflow.com/questions/20877106/using-intellijidea-within-an-existing-virtualenv
 
 
-### Git
+### Resolving git merge conflicts
+
+Use IntelliJ UI.
+
+
+### Git Commit
+
+Right click on project in Project Explorer -> Git -> Commit Directory
+
+
+### Git Annotate
+
 Right click next to line -> Annotate. Search (Cmd + Shift + A) "Show History" command to see file history.
 
-#### Compare files between branches
+
+### Compare files between branches
+
 Compare with Branch (Cmd + Shift + A)
 
 
 ### Disable auto-deletion of trailing whitespace
+
 Preferences (Cmd + ,) -> Editor -> General -> Other
 (can also search for "trailing" in Preferences)
 
@@ -206,34 +281,40 @@ http://stackoverflow.com/questions/26354301/how-do-i-auto-remove-trailing-whites
 
 
 ### Disable auto-formatting for project
+
 Preferences (Cmd + ,) -> Editor -> Code Style -> Scheme: Project -> <Language> (e.g.: Java) -> Uncheck/check formatting rules
 
 
 ### Reformat file
+
 ```
 Option + Cmd + L
 ```
 
 
 ### Show whitespace characters
+
 View -> Active Editor -> Show Whitespaces
 
 http://stackoverflow.com/questions/9868796/how-to-display-hidden-characters-by-default-zero-width-space-ie-8203
 
 
 ### Generate main method
+
 Type `psvm`, then press Enter.
 
 https://www.jetbrains.com/help/idea/2016.1/generating-main-method-example-of-applying-a-simple-live-template.html
 
 
 ### Red J
+
 IntelliJ recognizes Java file but it's not part of project sources. Right click directory in Project Window -> Mark Directory As -> Source Root.
 
 http://stackoverflow.com/questions/30131939/intellij-idea-files-with-a-red-circle
 
 
 ### Jump between syntax errors / suggestions
+
 ```
 # Navigate -> Next/Previous Highlighted Error
 F2 / Shift + F2
@@ -258,38 +339,52 @@ http://stackoverflow.com/questions/7773670/highlight-exception-throwers-in-intel
 
 
 ### Word Wrap
+
 View -> Active Editor -> Use Soft Wraps
 
 
-### Organize Imports
+### Organize Imports / Sort Imports
+
 ```
 Cmd + Option + O
 ```
 
+https://stackoverflow.com/questions/8608710/intellij-organize-imports
+
 
 ### Move line up/down
+
 ```
 Option + Shift + arrow (up/down)
 ```
 
 
 ### Move method up/down
+
 ```
 Cmd + Shift + arrow (up/down)
 ```
 
 
-### Change casing
+### Change casing / uppercase
+
 ```
 Shift + Cmd + U
 ```
 
 
+### Pop-up method implementation / show method definition
+
+Cmd + Shift + I
+
+
 ### Peek at Code
+
 If you hover your mouse cursor over the scroll bar, a pop-up will show you the code at that location.
 
 
 ### Add folder to classpath
+
 ```
 Project Structure (select project in navigation window, F4) --> Dependencies --> + --> JARS or directories --> select directory --> OK --> use "Classes" as category of selected file
 ```
@@ -297,18 +392,21 @@ http://stackoverflow.com/questions/854264/how-to-add-directory-to-classpath-in-a
 
 
 ### Expand code block
+
 ```
 Cmd + .
 ```
 
 
 ### Collapse code block
+
 ```
 Cmd + Shift + .
 ```
 
 
 ### Expand selection
+
 ```
 Cmd + W
 ```
@@ -321,22 +419,26 @@ Alt + click expression
 
 
 ### See more entries for variable in debugger
+
 Expand variable, then right click variable -> Adjust Range
 
 
 ### Debug Window
+
 ```
 Cmd + 5
 ```
 
 
 ### Search for Action or Option
+
 ```
 Shift + Cmd + A
 ```
 
 
 ### Maven support
+
 You can open pom.xml files from IntelliJ and it will automatically resolve dependencies. You can specify the profiles to import by navigating to View -> Tool Windows -> Maven Projects -> Profiles
 
 
@@ -353,10 +455,17 @@ Option + Cmd + B
 
 
 ### Multiline edit
+
 ```
 Alt + Shift + Click
 ```
+
 http://blog.jetbrains.com/idea/2014/03/intellij-idea-13-1-rc-introduces-sublime-text-style-multiple-selections/
+
+
+### Find and Replace in entire project
+
+Edit -> Find -> Replace in Path
 
 
 ### Keyboard shortcuts
@@ -395,6 +504,7 @@ Option + Shift + F10
 Cmd + F9
 
 ### Gradle integration
+
 Import Project -> select the root build.gradle file
 
 View -> Tool Windows -> Gradle (only appears for Gradle projects)
@@ -419,7 +529,7 @@ Control + H
 Control + Shift + F
 
 # Find usages
-Option + F7
+Cmd + B, Option + F7
 
 # Go back, go to previous location
 Option + Cmd + Left
@@ -459,6 +569,7 @@ Cmd + 1
 ```
 
 ### Other Tricks
+
 ```
 # Show file in project browser
 Press the cross-hairs button

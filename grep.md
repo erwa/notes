@@ -1,16 +1,28 @@
+### Grep only subdirectories matching pattern
+
+```
+grep -r "test" foo*/
+```
+
+https://unix.stackexchange.com/questions/61366/grep-only-subdirectories-matching-pattern
+
+
 ### Show line number
+
 ```
 grep -n
 ```
 
 
 ### Treat binary file as text file
+
 ```
 grep -a ...
 ```
 
 
 ### Only show line following match
+
 ```
 # works if following line does not contain the pattern
 grep -A1 'blah' | grep -v 'blah'
@@ -18,13 +30,16 @@ grep -A1 'blah' | grep -v 'blah'
 
 
 ### Remove `--` separator
+
 ```
 grep ... | grep -v "^--$"
 ```
+
 http://stackoverflow.com/questions/2168065/how-do-i-get-rid-of-line-separator-when-using-grep-with-context-lines
 
 
 ### Grep multiple files
+
 ```
 grep PATTERN file1 file2
 ```

@@ -1,15 +1,74 @@
+### Replace one color with another
+
+Colors -> Map -> Color Exchange
+
+https://docs.gimp.org/en/plug-in-exchange.html
+
+
+### Bucket tool
+
+If not working, make sure Select -> None
+
+
+### Delete Parts from Transparent Image
+
+Select Magic Wand. Set Mode to "Add to the current selection". Select parts to delete. Edit -> Clear.
+
+https://en.wikibooks.org/wiki/GIMP/Removal_of_Unwanted_Elements_in_the_Image
+
+Save as PNG. Open PNG. Use eraser.
+
+
+### Show Toolbox
+
+Windows -> Recently Closed Docks --> Toolbox
+
+https://superuser.com/questions/645532/i-accidentally-closed-my-gimp-toolbox-can-i-get-it-back
+
+You can create a new Toolbox using Windows -> New Toolbox
+
+
+### Make transparent
+
+Several options:
+
+Fuzzy select -> Edit -> Clear.
+
+Use eraser on layer with alpha channel.
+
+Colors -> Color to Alpha
+
+https://graphicdesign.stackexchange.com/questions/5446/making-the-background-of-an-image-transparent-in-gimp
+
+
+### Paste face into picture
+
+Paths tool to draw path (press Cmd to close the curve).
+
+Edit -> Copy, Edit -> Paste -> New Layer
+Scale button (in Toolbox) -> click Link to preserve aspect ratio
+
+https://www.youtube.com/watch?v=avsFWzp6iXw
+
+
 ### Zoom
+
 `+` - zoom in
 `-` - zoom out
 View -> Zoom -> Zoom In/Out
 
 
 ### Fit Canvas to Image
+
 Image -> Fit Canvas to Layers/Selection
 
 
 ### Crop picture
+
 Crop one layer: Layer -> Crop to Selection
+
+Alternatively, use Crop Tool, and ensure "Current layer only" is checked in options.
+
 https://docs.gimp.org/en/gimp-layer-crop.html
 
 Shift + C. Exacto Knife icon. Tools -> Transform Tools -> Crop.

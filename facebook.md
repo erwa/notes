@@ -24,6 +24,11 @@ Upload video privately by posting it to your Timeline with visibility set to Onl
 https://www.facebook.com/help/community/question/?id=982879541736218
 
 
+### Download video
+
+https://www.fbdown.net/down.php
+
+
 ### Add captions to video
 
 Use YouTube to generate and edit SRT file. Then upload with your video on Facebook.

@@ -1,3 +1,8 @@
+### Pedals
+
+There are right and left pedals!
+
+
 ### Tire Numbers
 
 Example: 40-622 (700 x 38C - 28 x 1 5/8 x 1 1/2)

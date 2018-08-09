@@ -1,17 +1,149 @@
+### Automatically enable annotation preprocessing
+
+Useful if you're using Lombok
+
+```
+// Automatically configure IDEA to enable annotation preprocessing
+// Ref: http://mrhaki.blogspot.com/2016/03/gradle-goodness-enable-compiler.html
+idea.project.ipr.withXml { provider ->
+  // Get XML as groovy.util.Node to work with.
+  def projectXml = provider.asNode()
+
+  // Find compiler configuration component.
+  def compilerConfiguration = projectXml.component.find {
+    component -> component.'@name' == 'CompilerConfiguration'
+  }
+
+  // Replace current annotationProcessing
+  // that is part of the compiler configuration.
+  def currentAnnotationProcessing = compilerConfiguration.annotationProcessing
+  currentAnnotationProcessing.replaceNode {
+    annotationProcessing {
+      profile(name: 'Default', default: true, enabled: true) {
+        processorPath(useClasspath: true)
+      }
+    }
+  }
+}
+```
+
+
+### Print task dependency graph
+
+```
+gradle <task> --dry-run
+
+# prints tasks in execution order
+```
+
+https://stackoverflow.com/a/43512599/1128392
+
+
+### Get jar location of another module programmatically
+
+```
+task foo(dependsOn: ':another:jar') << {
+  print project(':another').jar.outputs.files.singleFile
+}
+```
+
+
+### Get single file in collection
+
+```
+// Asserts collection contains exactly 1 file
+fileCollection.singleFile
+```
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html#getSingleFile--
+https://docs.gradle.org/current/userguide/working_with_files.html#sec:file_collections
+
+
+### Recursive projects
+
+You can only have one `settings.gradle` file.
+
+https://stackoverflow.com/questions/18676734/gradle-recursive-subprojects
+
+
+### Find unused dependencies
+
+https://github.com/nebula-plugins/gradle-lint-plugin
+https://stackoverflow.com/a/37583197/1128392
+
+```
+# in root build.gradle
+buildscript {
+  dependencies {
+    classpath 'com.netflix.nebula:gradle-lint-plugin:latest.release'
+  }
+
+  repositories { jcenter() }
+}
+
+allprojects {
+  apply plugin: 'nebula.lint'
+  gradleLint.rules = ['unused-dependency']
+}
+```
+
+Then run
+
+```
+gradle lintGradle
+```
+
+
+### Increase heap space for Gradle
+
+```
+# set in root gradle.properties file
+org.gradle.jvmargs=-XX\:MaxHeapSize\=2048m -Xmx2048m
+```
+
+
 ### Set test system property
 
 ```
 test {
-    systemProperty "cassandra.ip", project.getProperty("cassandra.ip")
-}
+  // pass in on command line using -Darg1=foo
+  systemProperty 'arg1', System.getProperty('arg1')
+  systemProperty "propertyName", "propertyValue"
+  systemProperty "cassandra.ip", project.getProperty("cassandra.ip")
 
-https://stackoverflow.com/questions/21406265/how-to-give-system-property-to-my-test-via-gradle-and-d```
+  // pass all system properties
+  systemProperties(System.getProperties())
+}
+```
+
+https://stackoverflow.com/questions/42492742/how-to-pass-command-line-arguments-to-tests-with-gradle-test
+https://stackoverflow.com/questions/21406265/how-to-give-system-property-to-my-test-via-gradle-and-d
+
+
+### Task Outcomes
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:task_outcomes
+
+
+### Disable up-to-date check
+
+```
+test.outputs.upToDateWhen {false}
+```
+
+https://stackoverflow.com/questions/29427020/how-to-run-gradle-test-when-all-tests-are-up-to-date
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:how_does_it_work
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html explains UP-TO-DATE, FROM-CACHE, SKIPPED, etc.
 
 
 ### Force run tasks
+
 ```
 --rerun-tasks
 ```
+
 https://stackoverflow.com/questions/42175235/force-gradle-to-run-task-even-if-it-is-up-to-date
 
 
@@ -23,20 +155,33 @@ https://docs.gradle.org/current/userguide/logging.html
 
 
 ### Fail build
+
 ```
 throw new GradleException('error occurred')
 ```
+
 http://stackoverflow.com/questions/10312259/recommended-way-to-stop-a-gradle-build
 
 
 ### Get directories in build dir
+
 ```
 def tree = project.buildDir
 tree.list().each { println it }
 ```
 
 
+### Project directory
+
+```
+projectDir
+```
+
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:projectDir
+
+
 ### Extract tarball
+
 ```
 task test << {
     // invokes Project.copy() method - see https://discuss.gradle.org/t/copying-file-filetree-to-multiple-directories/7443
@@ -46,20 +191,38 @@ task test << {
     }
 }
 ```
+
 http://stackoverflow.com/questions/13017121/unpacking-tar-gz-into-root-dir-with-gradle
 
 
-### Run one test
+### Testing framework
+
 ```
+test {
+  // default is JUnit
+  useTestNG()
+}
+```
+
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
+
+
+### Run one test / run one unit test / run 1 unit test
+
+```
+./gradlew :gobblin-data-management:test --tests *AvroSchemaManagerTest
+
 // * used to match any package name
 gradle test --tests *SomeTest.method
 ```
+
 http://stackoverflow.com/questions/22505533/how-to-run-a-one-test-class-only-on-gradle
 
 
 ### Use local repo
 
 Note that the order of the repositories listed matters. Gradle checks them in order.
+
 ```
 # local ivy repo
 repositories {
@@ -73,13 +236,16 @@ repositories {
   }
 }
 ```
+
 http://stackoverflow.com/questions/10219627/how-to-specify-a-relative-path-to-the-local-ivy-repo-in-gradle
 
 
 ### Dependency with classifier
+
 ```
 compile 'group:module:version:classifier'
 ```
+
 https://docs.gradle.org/current/userguide/dependency_management.html#sub:classifiers
 
 
@@ -183,8 +349,11 @@ http://wtanaka.com/node/8111
 
 https://docs.gradle.org/current/userguide/build_lifecycle.html
 
+Tasks may be defined at the end of the Configuration phase: https://stackoverflow.com/a/44325473/1128392
+
 
 ### Figure out whether you're depending on a jar
+
 ```
 gradle dependencyInsight --configuration default --dependency azkaban
 ```
@@ -192,26 +361,43 @@ https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:
 
 
 ### List all available tasks
+
 ```
 gradle tasks
 ```
 
 
 ### Get task by name
+
 ```
 tasks.getByPath('foo').dependsOn(bar)
 ```
+
 https://docs.gradle.org/current/userguide/more_about_tasks.html#accessUsingPath
 
+
+### Unset environment variable
+
+```
+environment.remove('HIVE_CONF_DIR')
+```
+
+https://discuss.gradle.org/t/unset-environment-variable-in-an-exec-task/25519
+
+
 ### Set environment variable in unit test
+
 ```
 test {
   environment("VAR_NAME", "VAR_VALUE")
 }
 ```
 
+
 ### Configurations
+
 Gradle always executes all configurations, meaning if you have a print statement in a task configuration, it will always get executed. See http://codespelunker.blogspot.com/2013/02/gradle-configuration-vs-execution.html.
+
 ```
 task newTask  {
   print "You will see this in the configuration phase"
@@ -219,6 +405,7 @@ task newTask  {
 ```
 
 `<<` is syntactic sugar for doLast.
+
 ```
 task newTask(type: Copy) << {
   print "You will only see this in the execution phase"
@@ -226,6 +413,7 @@ task newTask(type: Copy) << {
 ```
 
 Literal doLast example:
+
 ```
 task copyFiles (type: Copy) {
   from "srcDir"
@@ -238,6 +426,7 @@ task copyFiles (type: Copy) {
 
 
 ### Print classpath
+
 ```
 task printClasspath {
     doLast {
@@ -248,7 +437,9 @@ task printClasspath {
 
 
 ### Get test runtime classpath
+
 See http://forums.gradle.org/gradle/topics/how_to_add_to_a_test_classpath.
+
 ```
 files = project.sourceSets.test.runtimeClasspath
 for (File file : files) {
@@ -257,6 +448,7 @@ for (File file : files) {
 ```
 
 ### JavaExec task
+
 See http://forums.gradle.org/gradle/topics/how_to_use_in_gradle_javaexec_with_classpath_dependency.
 ```
 def execResult = javaexec {
@@ -273,12 +465,14 @@ def execResult = javaexec {
 ```
 
 ### Exclude a task
+
 ```
 gradle -x <task>
 ```
 
 
 ### Exclude a package
+
 * http://stackoverflow.com/questions/19575474/gradle-how-to-exclude-a-particular-package-from-a-jar
 
 ```
@@ -289,6 +483,17 @@ jar {
 ```
 
 
+### Test class dependencies / depend on test classes in another subproject
+
+```
+dependencies {
+  testCompile project(':A').sourceSets.test.output
+}
+```
+
+https://stackoverflow.com/questions/5644011/multi-project-test-dependencies-with-gradle
+
+
 ### Dependency Configuration / Depend on specific configuration
 
 By default, when you depend on a module, you depend on its "default" configuration. To specify configuration:
@@ -296,8 +501,28 @@ By default, when you depend on a module, you depend on its "default" configurati
 ```
 dependencies {
     runtime group: 'org.somegroup', name: 'somedependency', version: '1.0', configuration: 'someConfiguration'
+    compile project(path: ':other-project', configuration: 'compile')
+
+    runtime group: 'org.springframework', name: 'spring-core', version: '2.5'
+    runtime 'org.springframework:spring-core:2.5',
+            'org.springframework:spring-aop:2.5'
+    runtime(
+        [group: 'org.springframework', name: 'spring-core', version: '2.5'],
+        [group: 'org.springframework', name: 'spring-aop', version: '2.5']
+    )
+    runtime('org.hibernate:hibernate:3.0.5') {
+        transitive = true
+    }
+    runtime group: 'org.hibernate', name: 'hibernate', version: '3.0.5', transitive: true
+    runtime(group: 'org.hibernate', name: 'hibernate', version: '3.0.5') {
+        transitive = true
+    }
 }
 ```
+
+https://docs.gradle.org/current/userguide/dependency_types.html
+
+https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html
 
 https://docs.gradle.org/3.3/userguide/dependency_management.html#sec:dependency_configurations
 
@@ -305,6 +530,7 @@ https://docs.gradle.org/3.3/userguide/dependency_management.html#sec:dependency_
 ### Exclude dependency from configuration
 
 ```
+configurations.all*.exclude group: 'com.foo'
 configurations.CONFIG_NAME.exclude group: 'com.foo', module: 'foo'
 ```
 
@@ -351,6 +577,7 @@ compile 'junit:junit:4.8.+'
 
 
 ### See what dependencies a configuration has
+
 ```
 gradle :SUB_PROJECT_NAME:dependencies --configuration default
 ```
@@ -370,6 +597,15 @@ gradle.startParameter.taskNames
 ```
 
 
+### Make one task depend on another
+
+```
+task taskX(dependsOn: ':projectB:taskY') {
+```
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:adding_dependencies_to_tasks
+
+
 ### Default Evaluation Order
 
 The default evaluation order of projects is alphanumeric (for the same nesting level). See http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies. The evaluation order can be set by adding
@@ -380,22 +616,45 @@ evaluationDependsOn(':otherProject')
 
 
 ### Set task execution order
+
 ```
 taskA.mustRunAfter(taskB)
 ```
+
 https://docs.gradle.org/current/userguide/more_about_tasks.html
 
+
 ### Fix "PermGen space" build error
+
 See http://forums.gradle.org/gradle/topics/_system_out_java_lang_outofmemoryerror_permgen_space.
+
 ```
 export JAVA_OPTS="-Xmx1024M -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512M"
 ```
 
+
+### `subprojects` block
+
+Is recursive, not just direct children.
+
+
+### Change configuration execution order
+
+```
+evaluationDependsOn(':producer')
+```
+
+https://docs.gradle.org/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies
+
+
 ### Multi-project Configuration Order
+
 Top-down (root project, then subprojects), even when build is executed from subproject.
+
 ```
 Also note that all projects are always configured, even when you start the build from a subproject. The default configuration order is top down, which is usually what is needed.
 ```
+
 https://docs.gradle.org/current/userguide/multi_project_builds.html#sub:configuration_time_dependencies
 
 
@@ -407,6 +666,7 @@ https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.repositories.IvyArt
 
 
 ### Specify internal repository
+
 ```
 repositories {
   ivy {
@@ -421,6 +681,7 @@ repositories {
 ```
 
 If you just use
+
 ```
 repositories {
   maven {
@@ -428,24 +689,32 @@ repositories {
   }
 }
 ```
+
 transitive dependencies will not get resolved.
 
+
 ### Execute shell command with wildcard
+
 ```
 def execResult = exec {
   commandLine "bash", "-c", "ls *.log"
 }
 ```
 
+
 ### Disable all transitive dependencies.
+
 ```
 configurations.all {
   transitive = false
 }
 ```
+
 http://stackoverflow.com/questions/17815864/gradle-how-to-disable-all-transitive-dependencies
 
+
 ### Exclude specific transitive dependency
+
 ```
 compile('com.foo:foo:1.2.3') {
   exclude module: 'cglib' //by artifact name
@@ -453,59 +722,82 @@ compile('com.foo:foo:1.2.3') {
   exclude group: 'org.unwanted', module: 'iAmBuggy' //by both name and group
 }
 ```
+
 https://discuss.gradle.org/t/how-to-exclude-transitive-dependency/2119
 
+
 ### Unexpected repositories being used to resolve dependencies
+
 There may be .gradle scripts in $GRADLE_HOME/init.d that are adding the respositories.
 
-### Specify Ivy configuration
+
+### Specify Ivy
+
 ```
 dependencies {
     runtime group: 'org.somegroup', name: 'somedependency', version: '1.0', configuration: 'someConfiguration'
 }
 ```
+
 https://docs.gradle.org/current/userguide/dependency_management.html#sec:dependency_configurations
 
+
 ### Extend from another configuration
+
 ```
 configurations.B.extendsFrom(configurations.A)
 ```
 
+
 ### Clear extendsFrom
+
 ```
 configurations.foo.extendsFrom = []
 ```
 
+
 ### Lazy Evaluation of Copy Configuration
+
 ```
 from { fileTree("foo/bar").files } {
   into "."
 }
 ```
 
+
 ### Offline Build
+
 ```
 gradle build --offline
 ```
 
+
 ### Iterate over FileCollection
+
 ```
 collection.each {File file ->
   println file.name
 }
 ```
+
 https://docs.gradle.org/current/userguide/working_with_files.html
 
 
-### Set temp dir
+### Set temp dir, /tmp quota exceeded issues
+
 ```
 # Make sure the /path/to/new/dir exists
 gradle build -Djava.io.tmpdir=/path/to/new/dir
 ```
 
+https://stackoverflow.com/questions/44648664/move-gradle-temporary-cache-dir-to-other-directory
+
+
 ### Print configuration dependencies
+
 ```
 println "Printing compile configuration"
 configurations.compile.resolve().each { println it }
 ```
+
 https://discuss.gradle.org/t/sourcesets-main-compileclasspath-vs-configurations-compile/6782

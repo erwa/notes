@@ -27,8 +27,10 @@ https://stackoverflow.com/questions/11778276/difference-between-scope-import-and
 
 
 ### Child POM inheritance of parent plugins
+
 * Plugins declared outside `<pluginManagement>` are inherited by child POMs by default.
 * Plugins declared within `<pluginManagement>` configure global settings inherited by all child POMs that explicitly depend on those plugins.
+
 ```
 <build>
   <plugins>
@@ -78,6 +80,7 @@ http://stackoverflow.com/questions/547805/exclude-all-transitive-dependencies-of
 
 
 ### Build Lifecycle
+
 3 built-in lifecycles:
 * default
 * clean
@@ -93,14 +96,17 @@ A full list of all the phases (in order) in the built-in lifecycles can be found
 
 
 ### Parallel Builds
+
 ```
 -T 1C  # build with 1 thread per CPU core
 -T 4   # build with 4 threads
 ```
+
 https://cwiki.apache.org/confluence/display/MAVEN/Parallel+builds+in+Maven+3
 
 
-### Build specific submodules
+### Build specific submodules / build one module
+
 ```
 # only build B submodule and the submodules it depends on
 mvn install -pl B -am
@@ -112,10 +118,12 @@ mvn install -pl B -am
 -am, --also-make
         If project list is specified, also build projects required by the list
 ```
+
 http://stackoverflow.com/questions/1114026/maven-modules-building-a-single-specific-module
 
 
 ### Profile activation
+
 Profile is automatically activated if JDK version starts with 1.4
 ```
 <profiles>
@@ -136,6 +144,7 @@ http://stackoverflow.com/questions/23391502/whats-the-meaning-of-user-property-o
 
 
 ### Disable sources jar
+
 ```
 -Dsource.skip=true
 
@@ -145,22 +154,28 @@ http://stackoverflow.com/questions/23391502/whats-the-meaning-of-user-property-o
 # should see log message
 [INFO] Skipping source per configuration.
 ```
+
 http://maven.apache.org/plugins/maven-source-plugin/jar-mojo.html#skipSource
 
 
 ### Scala Maven Plugin
+
 Disable scaladoc
+
 ```
 -Dskip=true
 
 # should see
 [INFO] Skipping javadoc generation
 ```
+
 http://davidb.github.io/scala-maven-plugin/doc-jar-mojo.html#skip
 
 
 ### Javadoc plugin
+
 pom.xml
+
 ```
   <build>
     <plugins>
@@ -176,10 +191,12 @@ pom.xml
 ```
 mvn javadoc:jar
 ```
+
 https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html#Generate_Standalone_Javadocs
 
 
 ### Disable javadoc
+
 ```
 -Dmaven.javadoc.skip=true
 
@@ -190,28 +207,34 @@ http://stackoverflow.com/questions/7412016/how-can-i-disable-the-maven-javadoc-p
 
 
 ### Offline mode
+
 Add `-o` flag.
 
 
 ### Find unused dependencies
+
 ```
 mvn dependency:analyze
 ```
+
 http://stackoverflow.com/questions/1517611/is-there-a-simple-way-to-remove-unused-dependencies-from-a-maven-pom-xml
 
 
 ### Override Maven properties from command line
+
 Define property, then reference property in configuration. Use `-DpropName=propValue` on command line to override default value.
 
 http://stackoverflow.com/questions/13876165/how-to-override-maven-property-in-command-line
 
 If property is hardcoded in `<configuration>` block, no general way of overriding:
+
 * http://stackoverflow.com/questions/4660047/override-maven-plugin-configuration-defined-in-the-pom-pluginmanagement-from-the
 * http://stackoverflow.com/questions/35048422/override-maven-plugin-parameters
 * http://stackoverflow.com/questions/13708738/how-to-get-a-command-line-property-to-overwrite-a-maven-property
 
 
 ### Assertions
+
 Maven Surefire Plugin enables assertions by default for tests.
 
 http://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#enableAssertions
@@ -220,6 +243,7 @@ http://stackoverflow.com/questions/19966620/enable-assert-in-a-maven-built-proje
 
 
 ### Listing goals/targets
+
 You cannot list all goals/targets in Maven, like you can in Ant
 
 http://stackoverflow.com/questions/3996802/list-all-of-the-possible-goals-in-maven-2
@@ -245,12 +269,14 @@ http://maven.apache.org/plugins/maven-shade-plugin/
 * Example: rename `org.codehaus.plexus.util` to `org.shaded.plexus.util`
 
 ### Resume build
+
 ```
 -rf myproject-commons
 ```
 https://dzone.com/articles/5-maven-tips
 
 ### Dependent Modules
+
 Maven will NOT automatically build dependent modules, but just use the latest good version in the repository
 
 http://stackoverflow.com/questions/808516/maven-and-dependent-modules

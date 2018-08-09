@@ -1,3 +1,10 @@
+### Create animated GIF
+
+Use LICEcap - https://www.cockos.com/licecap/
+
+https://superuser.com/questions/81826/how-do-i-create-a-gif-screencast-in-windows/657800#657800
+
+
 ### Add captions to video
 
 - Type up transcript in text file, one line per subtitle.

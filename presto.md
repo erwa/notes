@@ -35,6 +35,7 @@ https://prestodb.io/docs/current/functions/datetime.html#from_unixtime
 
 
 ### Not equal
+
 `<>`
 https://prestodb.io/docs/current/functions/comparison.html
 
@@ -48,6 +49,7 @@ https://github.com/prestodb/presto/issues/5918
 
 
 ### URL encode
+
 ```
 url_encode(string)
 ```
@@ -56,6 +58,7 @@ https://prestodb.io/docs/current/functions/url.html#url_encode
 
 
 ### Round
+
 ```
 round(x, d)  // round x to d decimal places
 ```
@@ -63,6 +66,7 @@ https://prestodb.io/docs/current/functions/math.html
 
 
 ### Floating point division of integers
+
 ```
 SELECT CAST(5 AS DOUBLE) / 2
 ```
@@ -70,6 +74,7 @@ https://prestodb.io/docs/current/migration/from-hive.html#use-cast-when-dividing
 
 
 ### IN clause
+
 ```
 SELECT name
 FROM nation
@@ -79,6 +84,7 @@ https://prestodb.io/docs/current/sql/select.html#in
 
 
 ### Common Table Expressions
+
 ```
 WITH subtable1 AS (
   SELECT ...
@@ -91,6 +97,7 @@ SELECT ...
 
 
 ### CASE WHEN
+
 ```
 CASE expression
     WHEN value THEN result
@@ -98,26 +105,32 @@ CASE expression
     [ ELSE result ]
 END
 ```
+
 https://prestodb.io/docs/current/functions/conditional.html
 
 
 ### Regular Expression capture group
+
 ```
 SELECT regexp_extract('1a 2b 14m', '(\d+)([a-z]+)', 2); -- 'a'
 ```
+
 https://prestodb.io/docs/current/functions/regexp.html#regexp_extract
 
 
 ### String contains
+
 ```
 string_field like '%pattern%'
 
 # can also use regexp_like (which only requires that pattern is contained in string instead of matching the whole string)
 ```
+
 https://prestodb.io/docs/current/functions/regexp.html
 
 
 ### Lateral View
+
 Use `CROSS JOIN UNNEST` instead of `LATERAL VIEW explode()`.
 
 ```
@@ -136,6 +149,7 @@ https://prestodb.io/docs/current/migration/from-hive.html
 
 
 ### Basic queries
+
 ```
 desc schema.table
 
@@ -144,11 +158,13 @@ show tables in my_schema
 
 
 ### Show all databases
+
 ```
 show schemas
 ```
 
 ### Catalogs
+
 Presto supports connectors to other storage systems to allow it to query data stored in these systems. These systems will show up as "catalogs" in presto.
 
 ```

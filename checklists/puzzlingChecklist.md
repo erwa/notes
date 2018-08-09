@@ -9,7 +9,6 @@ Puzzling Checklist
 * Phone / charger / battery pack
 * Power strip (label with your name)
 * Laptop / charger
-* Reference sheet (need to add Greek letters)
 * Pencils
 * Scratch paper
 * Hat, sunscreen
@@ -23,6 +22,6 @@ Puzzling Checklist
 Apps / References
 ----
 
-* Bar Code Scanner
 * Sound Hound / Music Identifier
+* Sidekick app
 * Anagrammer, regex dictionary

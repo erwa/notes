@@ -1,3 +1,29 @@
+### Testing a jobtype change
+
+Restarting the exec-server should not be necessary once [#1817](https://github.com/azkaban/azkaban/issues/1817) is fixed.
+
+```
+# Replace the az-hadoop-jobtype-plugin jar in the current exec-server
+bin/shutdown-exec.sh
+bin/start-exec.sh
+
+# Connect to Azkaban MySQL database and activated the new executor:
+update executors set active=1 where id=129;
+
+# Restart the web server
+bin/shutdown-web.sh
+bin/start-web.sh
+```
+
+
+### Remote debug
+
+* In IDE, set breakpoint, and start remote debug (Listen)
+* Get inet address from en0 from ifconfig
+* Set `jvm.args` in Azkaban job to `-agentlib:jdwp=transport=dt_socket,server=n,address=<hostname>:5005,suspend=y`
+* Start Azkaban job
+
+
 ### Run on specific executor
 
 Get executor ID from Azkaban MySQL database:

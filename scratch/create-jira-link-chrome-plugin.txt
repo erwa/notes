@@ -1,0 +1,50 @@
+create-jira-link-chrome-plugin.txt
+
+Google Docs - sometimes clicked range has no data because you end up clicking the <div> for the cursor
+
+
+
+x = $0.childNodes[1];
+r = document.createRange();
+r.selectNodeContents(x);
+r.setEnd(x, 1);
+r.toString();
+
+r.toString() includes [startOffset, endOffset)
+
+
+
+        chrome.storage.sync.set({color: item}, function() {
+          console.log('color is ' + item);
+        })
+
+
+
+  chrome.storage.sync.get('color', function(data) {
+    changeColor.style.backgroundColor = data.color;
+    changeColor.setAttribute('value', data.color);
+  });
+
+chrome.storage is async
+localStorage is synchronous
+but with chrome.storage, no need for background page
+
+
+{
+   "author": "Anthony Hsu",
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   } ],
+   "description": "Click a JIRA ticket id (e.g.: XXX-123) and a pop-up with a link will appear.",
+   "manifest_version": 2,
+   "name": "Create Jira Link",
+   "options_page": "options.html",
+   "permissions": [ "activeTab", "storage" ],
+   "short_name": "JiraLink",
+   "version": "1.0"
+}
+
+
+Publication to Chrome store can be delayed. It might still say 0.0.1, but 0.0.2 gets downloaded.

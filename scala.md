@@ -1,15 +1,148 @@
+### `Not found: value ...` in IntelliJ
+
+Make sure test folder is not registered in both subproject and root project.
+
+
+### Matchers
+
+http://www.scalatest.org/user_guide/using_matchers
+
+```
+result shouldBe 3
+result should equal (3)
+```
+
+
+### `main` method
+
+The equivalent of Java's `main` entrypoint needs to be inside an object.
+
+```
+// Scala *class* with main
+class MyScalaClass{
+   def main(args: Array[String]): Unit = {
+         println("Hello from main of class")
+   }
+}
+
+// gets compiled to this
+public class MyScalaClass {
+      public void main(java.lang.String[]);
+      public MyScalaClass();
+}
+```
+
+```
+// *object* with main
+object MyScalaClass{
+ def main(args: Array[String]): Unit = {
+  println("Hello from main of object")
+ }
+}
+
+
+// gets compiled to these
+Decompiling the following:
+javap MyScalaClass$.class
+
+Compiled from "MyScalaClass.scala"
+public final class MyScalaClass$ {
+ public static final MyScalaClass$ MODULE$;
+ public static {};
+ public void main(java.lang.String[]);
+}
+
+Decompiling the following
+javap MyScalaClass.class
+
+Compiled from "MyScalaClass.scala"
+public final class MyScalaClass {
+  public static void main(java.lang.String[]);
+}
+```
+
+https://stackoverflow.com/a/34391003/1128392
+
+
+### Print environment variables
+
+```
+println(sys.env.get("HIVE_CONF_DIR"))
+```
+
+https://stackoverflow.com/questions/9997292/how-to-read-environment-variables-in-scala
+
+
+### Prepend item to list
+
+```
+"item"::myList
+```
+
+https://stackoverflow.com/questions/40554830/what-does-dot-colon-colon-meaning-in-scala
+
+
+### Print system property
+
+```
+println(System.getProperty("user.dir"))
+```
+
+
+### Convert Iterable to Seq
+
+```
+// map is a Spark function that takes Column*
+map(origMap.flatMap { e => Seq(lit(e._1), lit(e._2)) }.toSeq:_*)
+```
+
+
+### Seq vs List
+
+> In Java terms, Scala's Seq would be Java's List, and Scala's List would be Java's LinkedList.
+
+https://stackoverflow.com/questions/10866639/difference-between-a-seq-and-a-list-in-scala
+
+
+### Ternary operator
+
+```
+if (i == 1) x else y
+
+val a = if (i == 1) x else y
+```
+
+https://alvinalexander.com/scala/scala-ternary-operator-syntax
+
+
+### Equivalent support for Java lambda expressions
+
+```
+btn.setOnAction(
+  event -> System.out.println("Hello World!")
+);
+```
+
+Scala equivalent of above Java code is not supported yet.
+
+https://stackoverflow.com/questions/24369449/scala-using-java-libraries-taking-advantage-of-lambda-expressions-support-in-ja
+
+
 ### `Predef.identity`
+
 Function that returns input unchanged.
 
 http://stackoverflow.com/questions/28407482/what-does-predef-identity-do-in-scala
 
 
 ### `???`
+
 ```
 def doSomething(s: String): Int = ???
 ```
 
 Defined in Predef as:
+
 ```
 /**
  * `???` can be used for marking methods that remain to be implemented.
@@ -17,10 +150,12 @@ Defined in Predef as:
  */
 def ??? : Nothing = throw new NotImplementedError
 ```
+
 http://alvinalexander.com/scala/what-does-three-question-marks-in-scala-mean
 
 
 ### Object class names
+
 ```
 object HelloWorld {}
 
@@ -29,6 +164,7 @@ HelloWorld.getClass.getName  // HelloWorld$ (note $ at end)
 
 
 ### Convert Scala Map to Java Map
+
 ```
 import scala.collection.JavaConverters._
 
@@ -37,6 +173,7 @@ Map("foo" -> "bar").asJava
 
 
 ### JUnit BeforeClass
+
 ```
 object TestClass {
 
@@ -58,6 +195,7 @@ http://stackoverflow.com/questions/5751686/how-do-you-implement-beforeclass-sema
 
 
 ### Current time
+
 ```
 import java.util.Calendar
 Calendar.getInstance().getTime()
@@ -66,12 +204,19 @@ http://alvinalexander.com/scala/scala-get-current-date-time-hour-calendar-exampl
 
 
 ### Incremental Builds
+
 Use Zinc. scala-maven-plugin has support for Zinc. Analysis cache files are stored in `${project.build.directory}/analysis/compile` by default (e.g.: `<module>/target/analysis/compile`)
 
 http://davidb.github.io/scala-maven-plugin/compile-mojo.html#analysisCacheFile
 
 
+### Scala compilation into Java details
+
+http://blog.thegodcode.net/post/239967776/a-look-at-how-scala-compiles-to-java
+
+
 ### Show compilation details
+
 ```
 scala -Xprint:typer -e "val a = 2; ~a"
 ...
@@ -83,6 +228,7 @@ http://stackoverflow.com/questions/9442437/the-tilde-operator-in-scala
 
 
 ### Compatibility between versions
+
 2.11 is NOT binary compatible wtih 2.10.
 2.10 code should still compile against 2.11, unless it was using certain experimental features.
 
@@ -94,6 +240,7 @@ http://stackoverflow.com/questions/1893714/can-a-scala-program-be-compiled-to-ru
 
 
 ### Cross-building
+
 ```
 # sbt
 + package  # build against all versions listed in build.scala.versions
@@ -102,6 +249,7 @@ http://www.scala-sbt.org/0.12.2/docs/Detailed-Topics/Cross-Build.html#cross-buil
 
 
 ### Multiline Strings
+
 ```
 """multi
 line
@@ -111,6 +259,7 @@ https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch01
 
 
 ### Print Scala version
+
 ```
 util.Properties.versionString
 ```
@@ -118,21 +267,26 @@ http://stackoverflow.com/questions/6121403/how-do-i-get-the-scala-version-from-w
 
 
 ### Apply function to values in map
+
 ```
 m.transform{ (key, value) => if (k(key)) f(value) else value }
 ```
+
 http://stackoverflow.com/questions/23242235/in-scala-apply-function-to-values-for-some-keys-in-immutable-map
 
 
 ### foreach loop
+
 ```
 val x = List(1,2,3)
 x.foreach { println }
 ```
+
 http://alvinalexander.com/scala/iterating-scala-lists-foreach-for-comprehension
 
 
 ### For comprehension
+
 ```
 val names = Vector("Bob", "Fred", "Joe", "Julia", "Kim")
 for (name <- names if name.startsWith("J"))
@@ -140,6 +294,7 @@ for (name <- names if name.startsWith("J"))
 
 
 ### Add element to set
+
 ```
 // use var with mutable
 var set = scala.collection.mutable.Set[Int]()
@@ -155,7 +310,9 @@ https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch11
 
 
 ### Build and run
+
 Test.scala:
+
 ```
 object HelloWorld {
   def main(args: Array[String]) {
@@ -170,17 +327,19 @@ scalac Test.scala && scala HelloWorld
 
 
 
-### String Interpolation
+### String Interpolation / Variable substitution inside strings
 
 ```
 // s string, allows direct use of variables in strings
 val name = "James"
 println(s"Hello, $name")  // Hello, James
 ```
+
 http://docs.scala-lang.org/overviews/core/string-interpolation.html
 
 
 ### Type-Relation Operators
+
 ```
 <:<
 =:=
@@ -197,6 +356,7 @@ http://docs.scala-lang.org/tutorials/tour/unified-types.html
 
 
 ### Sort List
+
 ```
 scala> var a = List((0,1),(1,0))
 
@@ -207,10 +367,12 @@ res1: List[(Int, Int)] = List((1,0), (0,1))
 
 
 ### Covariance
+
 http://stackoverflow.com/questions/4531455/whats-the-difference-between-ab-and-b-in-scala/4531696#4531696
 
 
 ### Context Bounds
+
 ```
 def maxList[T: Ordering](elements: List[T]): T = ...
 
@@ -268,6 +430,7 @@ http://alvinalexander.com/scala/how-to-control-scala-method-scope-object-private
 
 
 ### Triple Equals (`===`)
+
 * Gives better error messages when used with `assert`.
 * http://stackoverflow.com/questions/10489548/what-is-the-triple-equals-operator-in-scala-koans
 
@@ -278,6 +441,7 @@ http://alvinalexander.com/scala/how-to-control-scala-method-scope-object-private
 ### Extractor
 
 http://docs.scala-lang.org/tutorials/tour/extractor-objects.html
+
 ```
 object Twice {
   def apply(x: Int): Int = x * 2
@@ -299,6 +463,7 @@ The return type of an unapply should be chosen as follows:
 
 
 ### `apply` / `unapply`
+
 ```
 // `apply` lets you treat object like a function
 obj(a, b, c)
@@ -322,6 +487,7 @@ http://stackoverflow.com/questions/18468786/using-apply-unapply
 
 
 ### Run Scala file
+
 ```
 scala foo.scala
 ```
@@ -329,6 +495,7 @@ https://blog.ajduke.in/2013/05/31/various-ways-to-run-scala-code/
 
 
 ### Scala REPL
+
 ```
 $ scala
 
@@ -338,6 +505,7 @@ scala> :q
 
 
 ### Mixin Class Composition
+
 In Scala, a class can only inherit from one other class.
 https://www.safaribooksonline.com/blog/2013/05/30/traits-how-scala-tames-multiple-inheritance/
 
@@ -370,45 +538,56 @@ More info: http://docs.scala-lang.org/tutorials/tour/mixin-class-composition.htm
 
 
 ### Arrays
+
 String Array type:
+
 ```
 Array[String]
 ```
 
 ### Immutable vs. Mutable Variables
+
 Use `val` for immutable variables, `var` for mutable ones.
+
 ```
 val v = ... // immutable
 var w = ... // mutable
 ```
+
 http://joelabrahamsson.com/learning-scala-part-four-classes-and-constructors/
 
 
 ### Get type of variable
+
 ```
 myVar.getClass
 ```
 
 
 ### Symbol
+
 ```
 // Create a Symbol
 'foo // invokes Symbol('foo')
 ```
+
 http://stackoverflow.com/questions/918590/what-does-a-single-apostrophe-mean-in-scala
 
 
 ### Tuple literal
+
 ```
 (1,2,3) // Tuple3
 
 val t = (1,2,3)
 t._1 // first element of tuple
 ```
+
 https://www.tutorialspoint.com/scala/scala_tuples.htm
 
 
 ### ArrowAssoc (dash greater than, hyphen great than)
+
 key->value creates a tuple (key,value)
 ```
 "a"->1
@@ -435,6 +614,7 @@ http://stackoverflow.com/questions/4980515/scala-maps-operator
 
 
 ### Function Type Parameters
+
 Scala uses `[T]` as opposed to `<T>`.
 
 ```
@@ -448,6 +628,7 @@ http://stackoverflow.com/questions/15264838/in-scala-can-generic-type-parameters
 
 
 ### Call-by-name
+
 ```
 object Test {
    def main(args: Array[String]) {
@@ -481,6 +662,7 @@ C:/>
 
 
 ### Partially Applied Functions
+
 ```
 import java.util.Date
 
@@ -501,10 +683,40 @@ object Test {
    }
 }
 ```
+
 http://www.tutorialspoint.com/scala/partially_applied_functions.htm
 
 
+### Empty map
+
+```
+Map.empty
+```
+
+
+### Convert List to Map
+
+```
+c map (t => t.getP -> t) toMap
+```
+
+https://stackoverflow.com/questions/674639/scala-best-way-of-turning-a-collection-into-a-map-by-key
+
+
+### Append to list
+
+```
+var fruits = new ListBuffer[String]()
+fruits += "Apple"
+fruits += "Banana"
+val fruitsList = fruits.toList
+```
+
+https://stackoverflow.com/questions/7794063/appending-an-element-to-the-end-of-a-list-in-scala
+
+
 ### Multiple Parameter Lists
+
 ```
 scala> def foo(as: Int*)(bs: Int*)(cs: Int*) = as.sum * bs.sum * cs.sum
 foo: (as: Int*)(bs: Int*)(cs: Int*)Int
@@ -547,6 +759,7 @@ http://docs.scala-lang.org/overviews/core/implicit-classes.html
 
 
 ### Implicit Parameters
+
 If not explicitly specified, Scala will try to fill in the value implicitly.
 ```
 abstract class SemiGroup[A] {
@@ -587,15 +800,18 @@ http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
 
 
 ### Variable arguments
+
 ```
 def printAll(strings: String*) {
   strings.foreach(println)
 }
 ```
+
 http://alvinalexander.com/scala/how-to-define-methods-variable-arguments-varargs-fields
 
 
 ### Repeated Parameters
+
 Passing Seq to function that takes varargs
 
 > When a parameter is followed by `: _*`, this tells Scala to expand the argument to a variable argument list rather than a single argument.
@@ -604,6 +820,13 @@ http://blog.darevay.com/2009/01/remedial-scala-repeated-parameters-and-initializ
 
 
 ### Default values
+
+Initialize variable to default variable
+
+```
+var foo: String = _
+```
+
 ```
 class Reference[T] {
   // `_` means default value
@@ -614,8 +837,11 @@ class Reference[T] {
 }
 ```
 
+https://stackoverflow.com/questions/8336640/in-scala-what-exactly-does-val-a-a-underscore-mean
+
 
 ### Traits
+
 * Like Java interfaces
 * Can contain methods
 * Classes that inherit (`extends`) a trait must implements its interface
@@ -653,19 +879,23 @@ class Date(y: Int, m: Int, d: Int) extends Ord {
 
 
 ### Cast operator
+
 ```
 val o = that.asInstanceOf[Date]
 ```
 
 
 ### Cast Long to Int
+
 ```
 .toInt
 ```
+
 http://stackoverflow.com/questions/7782502/how-to-cast-long-to-int-in-scala
 
 
 ### Invoke superclass constructor
+
 ```
 class LineElement(s: String) extends ArrayElement(Array(s)) { ... }
 
@@ -677,6 +907,10 @@ Programming in Scala, Section 10.7, p. 193
 
 ### Constructors
 
+Code outside methods are the constructor. It's considered part of the primary constructor.
+
+https://twitter.github.io/scala_school/basics.html#class
+
 Primary constructor's parameter list always comes right after class name. Auxiliary constructors can be defined using `this` and must directly call another auxiliary constructor or the primary constructor.
 
 ```
@@ -686,7 +920,15 @@ class Greeter(message: String, secondaryMessage: String) {
     def SayHi() = println(message + secondaryMessage)
 }
 ```
+
 http://joelabrahamsson.com/learning-scala-part-four-classes-and-constructors/
+
+
+### Object vs. class
+
+Objects are singletons. All methods inside an object are static.
+
+https://stackoverflow.com/questions/1755345/difference-between-object-and-class-in-scala
 
 
 ### Companion class
@@ -699,6 +941,7 @@ http://docs.scala-lang.org/tutorials/tour/singleton-objects.html
 
 
 ### `new` keyword
+
 Need when using Java classes, which rarely have companion objects with an `apply` method. Use `new` if you want to use a class's own constructor as opposed to its companion object's `apply` method.
 
 
@@ -721,6 +964,7 @@ object MatchTest2 extends App {
 http://docs.scala-lang.org/tutorials/tour/pattern-matching.html
 
 Case statements support if expressions (guards)
+
 ```
 i match {
   case a if 0 to 9 contains a => println("0-9 range: " + a)
@@ -729,6 +973,7 @@ i match {
   case _ => println("Hmmm...")
 }
 ```
+
 https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch03s14.html
 
 Regular classes that are
@@ -741,9 +986,11 @@ Regular classes that are
 ```
 It only makes sense to define case classes if pattern matching is used to decompose data structures.
 ```
-http://docs.scala-lang.org/tutorials/tour/case-classes
+
+https://docs.scala-lang.org/tour/case-classes.html
 
 Scala turns
+
 ```
 case class Foo()
 ```
@@ -759,6 +1006,7 @@ http://stackoverflow.com/questions/9727637/new-keyword-in-scala
 
 
 http://www.scala-lang.org/docu/files/ScalaTutorial.pdf section 6
+
 ```
 abstract class Tree
 
@@ -798,6 +1046,7 @@ def main(args: Array[String]) {
 
 
 ### Methods without arguments
+
 ```
 class Complex(real: Double, imaginary: Double) {
   def re = real
@@ -810,6 +1059,7 @@ println("imaginary part: " + c.im)
 
 
 ### No-argument, no-return (void) function
+
 ```
 def oncePerSecond(callback: () => Unit) {
   while (true) { callback(); Thread sleep 1000 }
@@ -819,6 +1069,7 @@ def oncePerSecond(callback: () => Unit) {
 ```
 
 ### Anonymous Function
+
 ```
 def main(args: Array[String]) {
   oncePerSecond(() =>
@@ -828,6 +1079,7 @@ def main(args: Array[String]) {
 
 
 ### Everything is an object
+
 Including numbers are functions.
 ```
 1 + 2 * 3 / x
@@ -837,6 +1089,7 @@ Including numbers are functions.
 
 
 ### infix notation
+
 One-argument method calls can use infix syntax:
 ```
 // The following are equivalent
@@ -852,6 +1105,7 @@ Scala does not support static methods or fields. Instead of static members, you 
 ```
 import java.util.concurrent.atomic.AtomicInteger
 
+// companion class
 object Foo {
   val counter = new AtomicInteger(0)
 }
@@ -861,11 +1115,16 @@ class Foo {
   println(i)
 }
 ```
+
+https://stackoverflow.com/questions/49142108/why-does-the-spark-application-code-need-to-be-an-object-rather-than-a-class/49142925#49142925
+
 http://stackoverflow.com/questions/20963080/static-field-in-scala-companion-object
 
 
 ### Scala singletons
+
 For every Scala singleton object, the compiler will create a Java class for the object with a dollar sign added to the end.
+
 * http://stackoverflow.com/questions/5721046/singletons-as-synthetic-classes-in-scala
 
 ```
@@ -877,11 +1136,20 @@ object HelloWorld {
     println("Hello, world!")
   }
 }
+
+// or
+object Hello extends App {
+  println("Hello, World!")
+}
+// https://www.scala-lang.org/documentation/getting-started-intellij-track/getting-started-with-scala-in-intellij.html
 ```
 
+
 ### Scala objects do not exist in Java
+
 * http://stackoverflow.com/questions/9350528/how-to-work-with-javap-for-scala-java-interoperability
 * Every Scala object X causes two JVM class files to be generated:
+
 ```
 X.class  // Like an interface, includes static methods to access fields and methods
 
@@ -893,13 +1161,17 @@ X.i();
 X$.MODULE$.i();
 ```
 
+
 ### Converting Java object to Scala object
+
 ```
 import scala.collection.JavaConversions._
 ```
+
 http://stackoverflow.com/questions/6356465/how-to-get-scala-list-from-java-list
 
 ### Print to stdout
+
 ```
 println("foo")
 ```

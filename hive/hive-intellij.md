@@ -1,8 +1,17 @@
+### Maven Build
+
+View -> Tools Windows -> Maven
+
+Enable "itests" profile.
+
+
 ### `package org.apache.hive.tmpl does not exist`
+
 hive-service -> add target/generated-jamon as source directory
 
 
 ### Test specific tests, use custom init file
+
 ```
 diff --git a/itests/util/src/main/java/org/apache/hadoop/hive/cli/control/AbstractCliConfig.java b/itests/util/src/main/java/org/apache/hadoop/hive/cli/control/AbstractCliConfig.java
 index c12f51e..4cf4787 100644

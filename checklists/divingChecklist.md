@@ -15,3 +15,4 @@
 - tarp (useful for laying out all your equipment on)
 - hat, sunglasses (while hanging out on the surface)
 - sunscreen
+- dive log book

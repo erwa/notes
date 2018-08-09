@@ -1,3 +1,15 @@
+### Append to directory
+
+Not possibly natively in Pig, but you could write to another directory and then use a DFS command to move the files.
+
+https://community.hortonworks.com/questions/2562/appending-to-existing-partition-with-pig.html
+
+
+### Data Types
+
+Does not support union types. Even if you use AvroStorage and write using an output schema containing a union, you can only write 1 type to that union, since internally, a field can only be say, an int, or a string, but not both.
+
+
 ### PigRunner vs. PigServer
 
 Use PigRunner. Have experienced issues with PigServer in the past.
@@ -38,12 +50,14 @@ set pig.optimizer.rules.disabled 'all';
 
 
 ### SIZE UDF
+
 When used on bag, returns number of tuples in bag.
 
 https://www.tutorialspoint.com/apache_pig/apache_pig_size.htm
 
 
 ### In operator
+
 ```
 a = LOAD ‘1.txt’ USING PigStorage (‘,’) AS (i:int);
 
@@ -53,6 +67,7 @@ https://www.edureka.co/blog/operators-in-apache-pig-diagnostic-operators/
 
 
 ### COGROUP
+
 Put things into groups by a key, for each field specify the group key. In below example, A's key is owner, B's key is friend2.
 
 ```
@@ -70,6 +85,7 @@ http://pig.apache.org/docs/r0.15.0/basic.html#group
 
 
 ### Print dependencies
+
 ```
 ant ivy-deps
 # Generates a .html file with dependency graph
@@ -77,6 +93,7 @@ ant ivy-deps
 
 
 ### Contribute patch
+
 ```
 git diff --no-prefix <commit> > PIG-1234.1.patch
 
@@ -111,12 +128,14 @@ Make sure `pig.noSplitCombination` is NOT set to `true`.
 
 
 ### Accessing Tuple fields in UDF
+
 Must be by positional index, not name. If it were name, every Pig script would have to use the same names!
 
 http://stackoverflow.com/questions/16993414/get-fields-by-name-in-pig
 
 
 ### Define alias for UDF
+
 ```
 REGISTER piggybank.jar
 DEFINE MAXNUM org.apache.pig.piggybank.evaluation.math.MAX;
@@ -124,6 +143,7 @@ DEFINE MAXNUM org.apache.pig.piggybank.evaluation.math.MAX;
 
 
 ### Add file to distributed cache for use in UDF
+
 http://ragrawal.wordpress.com/2014/03/25/apache-pig-and-distributed-cache/
 ```
 -- no need to turn symlinking on in Hadoop 2, as it is always on in Hadoop 2
@@ -157,6 +177,7 @@ mapred.cache.files=<hdfs_path>#<local_symlink_name>
 pig -Dmapred.child.env="JYTHONPATH=job.jar/Lib" script.pig
 
 ### EXPLAIN a script to see the MR plan
+
 ```
 # From the Pig grunt shell
 explain -script <pig.script> -param <name>=<value> ...
@@ -171,6 +192,7 @@ pig -e "explain -script foo.pig" > temp
 PIG_CLASSPATH=/path/to/jars/* pig -x local
 
 ### Remove a file or directory
+
 ```
 -- Don't use quotes around the file path.
 RMF <file>;
@@ -192,6 +214,7 @@ line
 comments */
 
 ### Run shell command
+
 See http://pig.apache.org/docs/r0.9.1/cmds.html#sh for details.
 ```
 sh date
@@ -201,6 +224,7 @@ sh bash -c "date \-\-date=\"1 day ago\""
 ```
 
 ### Setting timezone in Pig
+
 ```
 -- Set default time zone for Pig's built-in date functions
 -- NOTE: This does not affect the default environment time zone (e.g.: for the `date` command)
@@ -241,21 +265,25 @@ Override environment timezone:
 -- Accessing array of records
 array_of_records.(record_field_1, record_field_2) --> bag of tuples(record_field_1, record_field_2)
 
-### FLATTEN
-https://pig.apache.org/docs/r0.11.1/basic.html#flatten
 
-#### Flatten a bag
+### Flatten a bag
+
 ```
 (a, {(b,c),(d,e)})
 GENERATE $0, flatten($1) --> (a,b,c), (a,d,e)
 ```
 
-#### FLATTEN and give alias
+https://pig.apache.org/docs/r0.11.1/basic.html#flatten
+
+
+### FLATTEN and give alias
+
 ```
 FLATTEN(foo) as (a,b,c);
 ```
 
 ### Eclipse Setup
+
 See https://cwiki.apache.org/confluence/display/PIG/How+to+set+up+Eclipse+environment.
 
 Make sure you're using JDK 1.7.
@@ -271,16 +299,30 @@ Make sure you're using JDK 1.7.
 
 You should now be able to build the project and run the tests using JUnit from within Eclipse.
 
+
 ### Contributing
+
 See https://cwiki.apache.org/confluence/display/PIG/HowToContribute.
+
 ```
 git diff --no-prefix
 ```
 
+
 ### Pig Input Format
+
 Pig seems to always set `mapreduce.job.inputformat.class` to `org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigInputFormat`.
 
+
+### Jars needed for testing
+
+```
+hadoop-mapreduce-client-common
+```
+
+
 ### Testing
+
 https://cwiki.apache.org/confluence/display/PIG/HowToTest
 
 Run single test:
@@ -288,20 +330,32 @@ Run single test:
 ant -Dtestcase=TestRegisteredJarVisibility clean test
 ```
 
+
 ### Dereferencing NULL in Pig
+
 * Dereferencing NULL returns NULL in Pig (according to a user)
 
+
 ### IMPORT statement
+
 IMPORT will search in jars, too.
 
+
 ### Decode Pig script from Hadoop job configuration
-If pig.script is set, you can run
+
+If pig.script is set, you can run:
+
 ```
+# Mac
+echo "BASE64_STRING" | base64 -D
+
 # Linux
 echo "BASE64_STRING" | base64 -d
 ```
 
+
 ### ILLUSTRATE
+
 https://pig.apache.org/docs/r0.11.1/test.html#illustrate
 ```
 words = load 'test.avro' using AvroStorage();

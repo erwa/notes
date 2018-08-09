@@ -1,3 +1,20 @@
+### Convert images to PDF and PDFs to images
+
+http://imagetopdf.com/
+
+http://pdf2png.com/
+
+
+### Diff PDFs
+
+https://www.diffchecker.com/pdf-diff
+
+
+### Reduce size of PDF
+
+https://smallpdf.com/compress-pdf
+
+
 ### Password Protect
 
 Open in Preview -> Export -> Add Password. Messes up links.

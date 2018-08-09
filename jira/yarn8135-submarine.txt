@@ -1,0 +1,17 @@
+yarn8135-submarine.txt
+
+RemoteDirectoryManager manages HDFS storage/access.
+
+Model serving API currently does not work. ModelCli is commented out.
+
+Argument substitution supported: %XXX% replaced.
+
+Hadoop {Submarine} project proposal.
+
+https://docs.google.com/document/d/199J4pB3blqgV9SCNvBbTqkEoQdjoyGMjESV4MktCo0k/edit#heading=h.5o584olrcpa
+
+RuntimeFactory <- YarnServiceRuntimeFactory
+
+JobSubmitter <- YarnServiceJobSubmitter
+
+Some inspiration from Google ML Engine: https://cloud.google.com/sdk/gcloud/reference/ml-engine/.

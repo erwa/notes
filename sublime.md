@@ -1,3 +1,10 @@
+### Copy file path
+
+Right click somewhere in file (NOT file tab) --> copy file path
+
+https://stackoverflow.com/questions/29743615/how-to-easily-get-current-file-path-in-sublime-text-3
+
+
 ### Delete trailing whitespace on save
 
 ```

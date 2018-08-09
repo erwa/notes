@@ -1,0 +1,543 @@
+hv18695-TestAccumuloCliDriver.testCliDriver[accumulo_queries].txt
+
+https://builds.apache.org/job/PreCommit-HIVE-Build/9361/testReport/junit/org.apache.hadoop.hive.cli/TestAccumuloCliDriver/testCliDriver_accumulo_queries_/
+
+Client Execution succeeded but contained differences (error code = 1) after executing accumulo_queries.q 386,390d385
+< 0 val_0
+< 2 val_2
+< 4 val_4
+< 8 val_8
+< 10 val_10
+392,418d386
+< 18 val_18
+< 20 val_20
+< 24 val_24
+< 26 val_26
+< 28 val_28
+...
+
+cd accumulo-handler
+
+# did not work in accumulo-handler folder
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver
+
+TestAccumuloCliDriver is in itest folder
+cd itests
+mvn test -Pitest -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver
+
+[WARNING] The requested profile "itest" could not be activated because it does not exist.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project hive-hcatalog-it-unit: Compilation failure: Compilation failure:
+[ERROR] /Users/ahsu/github/apache/hive/itests/hcatalog-unit/src/test/java/org/apache/hive/hcatalog/listener/DummyRawStoreFailEvent.java:[251,3] method does not override or implement a method from a supertype
+[ERROR] /Users/ahsu/github/apache/hive/itests/hcatalog-unit/src/test/java/org/apache/hive/hcatalog/listener/DummyRawStoreFailEvent.java:[254,16] cannot find symbol
+[ERROR] symbol:   method updateCreationMetadata(java.lang.String,java.lang.String,org.apache.hadoop.hive.metastore.api.CreationMetadata)
+[ERROR] location: variable objectStore of type org.apache.hadoop.hive.metastore.ObjectStore
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR]
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :hive-hcatalog-it-unit
+
+
+cd ..  # to root dir
+mvn test -Pitest -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver
+
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 03:02 min
+[INFO] Finished at: 2018-02-25T11:55:58-08:00
+[INFO] Final Memory: 276M/2050M
+[INFO] ------------------------------------------------------------------------
+[WARNING] The requested profile "itest" could not be activated because it does not exist.
+
+
+mvn test -Pitests -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver
+
+
+
+CREATE TABLE accumulo_table_1(key int, value string)
+STORED BY 'org.apache.hadoop.hive.accumulo.AccumuloStorageHandler'
+WITH SERDEPROPERTIES ("accumulo.columns.mapping" = ":rowID,cf:string")
+TBLPROPERTIES ("accumulo.table.name" = "accumulo_table_0");
+
+input format is HiveAccumuloTableInputFormat, which wraps AccumuloRowInputFormat
+
+
+HiveInputFormat.java suspicious change
+
++    // disable filter pushdown for mapreduce when there are more than one table aliases,
++    // since we don't clone jobConf per alias
++    if (mrwork != null && mrwork.getAliases() != null && mrwork.getAliases().size() > 1 &&
++      jobConf.get(ConfVars.HIVE_EXECUTION_ENGINE.varname).equals("mr")) {
++      return;
++    }
+
+TestAccumuloCliDriver config uses
+MiniClusterType.none, which is (CoreClusterType.MR, FsType.local)
+
+
+[ERROR] testCliDriver[accumulo_single_sourced_multi_insert](org.apache.hadoop.hive.cli.TestAccumuloCliDriver)  Time elapsed: 0.228 s  <<< FAILURE!
+java.lang.AssertionError: Unknown token: [@-1,0:0='TOK_FILEFORMAT_GENERIC',<831>,0:-1]
+
+cd itests
+mvn clean test -Pitests -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver
+
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/ahsu/github/apache/hive/itests/hcatalog-unit/src/test/java/org/apache/hive/hcatalog/listener/DummyRawStoreFailEvent.java:[251,3] method does not override or implement a method from a supertype
+[ERROR] /Users/ahsu/github/apache/hive/itests/hcatalog-unit/src/test/java/org/apache/hive/hcatalog/listener/DummyRawStoreFailEvent.java:[254,16] cannot find symbol
+  symbol:   method updateCreationMetadata(java.lang.String,java.lang.String,org.apache.hadoop.hive.metastore.api.CreationMetadata)
+  location: variable objectStore of type org.apache.hadoop.hive.metastore.ObjectStore
+[INFO] 2 errors
+
+
+cd ..
+mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Pitests
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:10 min
+[INFO] Finished at: 2018-02-25T12:20:31-08:00
+[INFO] Final Memory: 475M/2109M
+[INFO] ------------------------------------------------------------------------
+
+cd itests
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver
+
+
+HIVEOPTINDEXFILTER("hive.optimize.index.filter", false, "Whether to enable automatic use of indexes"),
+
+Repro'd failure
+
+[ERROR] Failures:
+[ERROR]   TestAccumuloCliDriver.testCliDriver:59 Client Execution succeeded but contained differences (error code = 1) after executing accumulo_queries.q 386,390d385
+< 0 val_0
+< 2 val_2
+< 4 val_4
+< 8 val_8
+< 10  val_10
+392,418d386
+
+
+reverted patch
+cd ql
+mvn install -DskipTests -Dmaven.javadoc.skip=true
+
+cd itests/qtest-accumulo/
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -DinitScript=src_only.sql
+
+// tests no longer fail due to extra rows, only failing diff due to stats differences (going to ignore)
+// stats differences problem because my src_only.sql did not run
+// ANALYZE TABLE src COMPUTE STATISTICS;
+// ANALYZE TABLE src COMPUTE STATISTICS FOR COLUMNS key,value;
+
+AccumuloStorageHandler implements HiveStoragePredicateHandler, is able to decomposePredicate
+
+Part of predicate that can be pushed down is no longer evaluated in Hive.
+
+Test new Accumulo test
+# tried running from itests/qtest-accumulo
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=test_accumulo.q -DinitScript=src_only.sql -Dtest.output.overwrite=true
+# test hung, failed to find server
+
+2018-02-25T18:24:38,873 DEBUG [main] impl.ServerClient: ClientService request failed null, retrying ...
+org.apache.thrift.transport.TTransportException: Failed to connect to a server
+
+# tried running from itests -- same problem
+
+org.apache.thrift.transport.TTransportException: Failed to connect to a server
+  at org.apache.accumulo.core.client.impl.ThriftTransportPool.getAnyTransport(ThriftTransportPool.java:474) ~[accumulo-core-1.7.3.jar:1.7.3]
+
+Accumulo server not started.
+Rename to accumulo_test.q
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=accumulo_test.q -DinitScript=src_only.sql -Dtest.output.overwrite=true
+
+Try
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=accumulo_queries.q -DinitScript=src_only.sql
+
+2018-02-25T18:34:45,407  WARN [main] rpc.ThriftUtil: Failed to open transport to ahsu-mn2.linkedin.biz:60644
+2018-02-25T18:34:45,407 DEBUG [main] impl.ThriftTransportPool: Failed to connect to ahsu-mn2.linkedin.biz:60644 (120000)
+
+A lot accumulo processes running
+ps -ef|grep accumulo
+Nevermind -- once control-C, no more
+
+try from root, no custom init script (FORGOT -Pitests)
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=accumulo_queries.q
+# 1 min 49 sec
+
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=accumulo_queries.q -DinitScript=src_only.sql -Pitests
+
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=accumulo_queries.q -DinitScript=src_only.sql
+
+rm -rf target/tmp inside qtest-accumulo
+
+Nope, same problem.
+
+rm accumulo_test.q
+mvn test -Dtest=org.apache.hadoop.hive.cli.TestAccumuloCliDriver -Dqfile=accumulo_queries.q
+
+
+argument type mismatch
+
+  @Parameters(name = "{0}")
+  public static List<Object[]> getParameters() throws Exception {
+    List<Object[]> ret = new ArrayList<>();
+    ret.add(new Object[] {"accumulo_queries", new File("accumulo_queries.q")});
+    return ret;
+//    return adapter.getParameters();
+  }
+
+NestedThrowablesStackTrace:
+The class "org.apache.hadoop.hive.metastore.model.MDatabase" is not persistable. This means that it either hasnt been enhanced, or that the enhanced version of the file is not in the CLASSPATH (or is hidden by an unenhanced version), or the Meta-Data/annotations for the class are not found.
+org.datanucleus.exceptions.ClassNotPersistableException: The class "org.apache.hadoop.hive.metastore.model.MDatabase" is not persistable. This means that it either hasnt been enhanced, or that the enhanced version of the file is not in the CLASSPATH (or is hidden by an unenhanced version), or the Meta-Data/annotations for the class are not found.
+
+Add hive-metastore jar explicitly at top of dependencies list
+
+Changed scope to Test.
+
+Switched to using *standalone*-metastore jar. Runtime scope. WORKED!
+
+File not found exception. Change file path to absolute path
+/Users/ahsu/github/apache/hive/accumulo-handler/src/test/queries/positive/accumulo_queries.q
+
+Passed. Now try running accumulo_test.q with -Dtest.output.overwrite=true
+
+Try again after -- SORT_QUERY_RESULTS
+
+-Dtest.output.overwrite=true
+-DinitScript=src_only.sql
+
+Output is very wrong:
+0 val_0
+0 val_10
+0 val_100
+0 val_104
+0 val_114
+0 val_116
+0 val_118
+0 val_12
+0 val_120
+0 val_126
+0 val_128
+0 val_134
+0 val_136
+0 val_138
+0 val_146
+0 val_150
+0 val_152
+0 val_156
+0 val_158
+0 val_160
+0 val_162
+0 val_164
+0 val_166
+0 val_168
+0 val_170
+0 val_172
+0 val_174
+0 val_176
+0 val_178
+0 val_18
+0 val_180
+0 val_186
+0 val_190
+0 val_192
+0 val_194
+0 val_196
+0 val_2
+0 val_20
+0 val_200
+0 val_202
+0 val_208
+0 val_214
+0 val_216
+0 val_218
+0 val_222
+0 val_224
+0 val_226
+0 val_228
+0 val_230
+0 val_238
+0 val_24
+0 val_242
+0 val_244
+0 val_248
+0 val_252
+0 val_256
+0 val_258
+0 val_26
+0 val_260
+0 val_262
+0 val_266
+0 val_272
+0 val_274
+0 val_278
+0 val_28
+0 val_280
+0 val_282
+0 val_284
+0 val_286
+0 val_288
+0 val_292
+0 val_296
+0 val_298
+0 val_30
+0 val_302
+0 val_306
+0 val_308
+0 val_310
+0 val_316
+0 val_318
+0 val_322
+0 val_332
+0 val_336
+0 val_338
+0 val_34
+0 val_342
+0 val_344
+0 val_348
+0 val_356
+0 val_360
+0 val_362
+0 val_364
+0 val_366
+0 val_368
+0 val_374
+0 val_378
+0 val_382
+0 val_384
+0 val_386
+0 val_392
+0 val_394
+0 val_396
+0 val_4
+0 val_400
+0 val_402
+0 val_404
+0 val_406
+0 val_414
+0 val_418
+0 val_42
+0 val_424
+0 val_430
+0 val_432
+0 val_436
+0 val_438
+0 val_44
+0 val_444
+0 val_446
+0 val_448
+0 val_452
+0 val_454
+0 val_458
+0 val_460
+0 val_462
+0 val_466
+0 val_468
+0 val_470
+0 val_472
+0 val_478
+0 val_480
+0 val_482
+0 val_484
+0 val_490
+0 val_492
+0 val_494
+0 val_496
+0 val_498
+0 val_54
+0 val_58
+0 val_64
+0 val_66
+0 val_70
+0 val_72
+0 val_74
+0 val_76
+0 val_78
+0 val_8
+0 val_80
+0 val_82
+0 val_84
+0 val_86
+0 val_90
+0 val_92
+0 val_96
+0 val_98
+2 val_0
+2 val_10
+2 val_100
+2 val_104
+2 val_114
+2 val_116
+2 val_118
+2 val_12
+2 val_120
+2 val_126
+2 val_128
+2 val_134
+2 val_136
+2 val_138
+2 val_146
+2 val_150
+2 val_152
+2 val_156
+2 val_158
+2 val_160
+2 val_162
+2 val_164
+2 val_166
+2 val_168
+2 val_170
+2 val_172
+2 val_174
+2 val_176
+2 val_178
+2 val_18
+2 val_180
+2 val_186
+2 val_190
+2 val_192
+2 val_194
+2 val_196
+2 val_2
+2 val_20
+2 val_200
+2 val_202
+2 val_208
+2 val_214
+2 val_216
+2 val_218
+2 val_222
+2 val_224
+2 val_226
+2 val_228
+2 val_230
+2 val_238
+2 val_24
+2 val_242
+2 val_244
+2 val_248
+2 val_252
+2 val_256
+2 val_258
+2 val_26
+2 val_260
+2 val_262
+2 val_266
+2 val_272
+2 val_274
+2 val_278
+2 val_28
+2 val_280
+2 val_282
+2 val_284
+2 val_286
+2 val_288
+2 val_292
+2 val_296
+2 val_298
+2 val_30
+2 val_302
+2 val_306
+2 val_308
+2 val_310
+2 val_316
+2 val_318
+2 val_322
+2 val_332
+2 val_336
+2 val_338
+2 val_34
+2 val_342
+2 val_344
+2 val_348
+2 val_356
+2 val_360
+2 val_362
+2 val_364
+2 val_366
+2 val_368
+2 val_374
+2 val_378
+2 val_382
+2 val_384
+2 val_386
+2 val_392
+2 val_394
+2 val_396
+2 val_4
+2 val_400
+2 val_402
+2 val_404
+2 val_406
+2 val_414
+2 val_418
+2 val_42
+2 val_424
+2 val_430
+2 val_432
+2 val_436
+2 val_438
+2 val_44
+2 val_444
+2 val_446
+2 val_448
+2 val_452
+2 val_454
+2 val_458
+2 val_460
+2 val_462
+2 val_466
+2 val_468
+2 val_470
+2 val_472
+2 val_478
+2 val_480
+2 val_482
+2 val_484
+2 val_490
+2 val_492
+2 val_494
+2 val_496
+2 val_498
+2 val_54
+2 val_58
+2 val_64
+2 val_66
+2 val_70
+2 val_72
+2 val_74
+2 val_76
+2 val_78
+2 val_8
+2 val_80
+2 val_82
+2 val_84
+2 val_86
+2 val_90
+2 val_92
+2 val_96
+2 val_98
+
+Try new script
+-DinitScript=test.sql -Dtest.output.overwrite=true
+
+accumulo_test_2.q
+-- SORT_QUERY_RESULTS
+
+DROP TABLE accumulo_test;
+CREATE TABLE accumulo_test(key int, value int)
+STORED BY 'org.apache.hadoop.hive.accumulo.AccumuloStorageHandler'
+WITH SERDEPROPERTIES ("accumulo.columns.mapping" = ":rowID,cf:string")
+TBLPROPERTIES ("accumulo.table.name" = "accumulo_table_0");
+
+INSERT OVERWRITE TABLE accumulo_test VALUES (0,0), (1,1), (2,2), (3,3);
+
+SELECT * from accumulo_test where key == 1 union all select * from accumulo_test where key == 2;

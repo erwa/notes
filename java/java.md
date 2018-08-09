@@ -1,3 +1,318 @@
+### Find jar that a class is in
+
+```
+for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
+```
+
+http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+
+Also check out http://findjar.com
+
+
+### Switch-case indentation
+
+```
+switch (i){
+case 0:
+    break;
+case 1:
+    break;
+}
+```
+
+Argument is `case`s are logical labels, so should be unindented from the code.
+
+https://stackoverflow.com/questions/4509039/why-the-strange-indentation-on-switch-statements
+
+
+### Iterate over stream with indices
+
+```
+String[] names = {"Sam", "Pamela", "Dave", "Pascal", "Erik"};
+IntStream.range(0, names.length)
+         .filter(i -> names[i].length() <= i)
+         .mapToObj(i -> names[i])
+         .collect(Collectors.toList());
+```
+
+https://stackoverflow.com/questions/18552005/is-there-a-concise-way-to-iterate-over-a-stream-with-indices-in-java-8
+
+
+### Transform `Map`
+
+```
+Map<String, Column> copy = original.entrySet()
+    .stream()
+    .collect(Collectors.toMap(Map.Entry::getKey,
+                              e -> new Column(e.getValue())));
+```
+
+https://stackoverflow.com/questions/22742974/in-java-8-how-do-i-transform-a-mapk-v-to-another-mapk-v-using-a-lambda
+
+
+### Wilcard generic
+
+`?` by itself means any class extending `Object`.
+
+https://stackoverflow.com/questions/3009745/what-does-the-question-mark-in-java-generics-type-parameter-mean
+
+`?` is different from `Object` and is important for enforcing type constraints.
+
+https://stackoverflow.com/a/1840022/1128392
+
+
+### Double-brace initialization
+
+```
+// Avoid
+Map map = new HashMap() {{ put("John", "Doe"); }};
+```
+
+https://stackoverflow.com/a/27521360/1128392
+
+
+### Throw exception from lambda
+
+If lambda does not throw the exception, need to catch and wrap in an exception it does throw or an unchecked exception
+
+```
+Function<String, Integer> f =
+    (String t) -> {
+        try {
+           return myMethod(t);
+        }
+        catch(IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    };
+```
+
+https://stackoverflow.com/questions/18198176/java-8-lambda-function-that-throws-exception
+
+
+### Lambda incompatible thrown types
+
+```
+java: incompatible thrown types <Exception> in method reference
+```
+
+Because `Consumer<T>` interface's `accept()` method does not declare any exceptions.
+
+https://stackoverflow.com/questions/25643348/java-8-method-reference-unhandled-exception
+
+
+### Get all constructors (including private ones) / Get private constructors
+
+```
+Constructor[] constructors = class.getDeclaredConstructors();
+```
+
+https://stackoverflow.com/questions/5629706/java-accessing-private-constructor-with-type-parameters
+
+
+### Question mark vs Object
+
+```
+List<?> vs. List<Object>
+```
+
+A `List<String>` can be passed to a method that accepts `List<?>` but not `List<Object>`.
+
+https://stackoverflow.com/questions/678822/what-is-the-difference-between-and-object-in-java-generics
+
+
+### Get all classes in package
+
+```
+Reflections reflections = new Reflections("com.linkedin.compliance.udfs", new SubTypesScanner(false));
+
+Set<Class<?>> udfs = reflections.getSubTypesOf(Object.class);
+```
+
+https://stackoverflow.com/questions/520328/can-you-find-all-classes-in-a-package-using-reflection
+
+
+### Check if class extends another class
+
+Check if `cls` extends `A.class`.
+
+```
+A.class.isAssignableFrom(cls)
+```
+
+https://stackoverflow.com/questions/4100281/how-do-i-determine-if-a-class-extends-another-class-in-java
+
+
+### Update list while iterating
+
+Can use ListIterator.
+
+https://docs.oracle.com/javase/8/docs/api/java/util/ListIterator.html
+
+
+### Update Set while iterating
+
+```
+Set<Integer> set = new HashSet<Integer>();
+Collection<Integer> removeCandidates = new LinkedList<Integer>(set);
+
+for (Integer element : set)
+   if(element % 2 == 0)
+       removeCandidates.add(element);
+
+set.removeAll(removeCandidates);
+```
+
+https://stackoverflow.com/questions/1110404/remove-elements-from-a-hashset-while-iterating
+
+
+### UnsupportedOperationException when changing size of list returned by `Arrays.asList()`
+
+```
+# Instead, use
+Lists.newArrayList()
+```
+
+https://stackoverflow.com/questions/1624144/unsupportedoperationexception-when-trying-to-remove-from-the-list-returned-by-ar
+
+
+### BitSets for Java
+
+Compressed BitSet: https://code.google.com/archive/p/compressedbitset/ (only supports int range)
+SparseBitSet: https://github.com/brettwooldridge/SparseBitSet (only supports int range)
+LongBitSet:
+* http://fastutil.di.unimi.it/docs/it/unimi/dsi/fastutil/longs/LongOpenHashSet.html
+* https://github.com/apache/lucene-solr/blob/master/lucene/core/src/java/org/apache/lucene/util/LongBitSet.java
+
+
+### Get enum declaration name
+
+```
+myEnum.name()
+```
+
+https://stackoverflow.com/questions/13291076/java-enum-why-use-tostring-instead-of-name
+
+
+### Import enum values
+
+```
+import static apackage.Test.Enum.*;
+```
+
+https://stackoverflow.com/questions/1677037/how-can-i-reference-my-java-enum-without-specifying-its-type
+
+
+### Endianness
+
+Java is Big Endian (which is network byte order, too). Endianness is at the level of bytes, NOT bits.
+
+https://stackoverflow.com/questions/362384/does-java-read-integers-in-little-endian-or-big-endian
+
+
+### Class initialization
+
+Exception jump table will be loaded (this includes exceptions caught in `catch` blocks).
+
+https://stackoverflow.com/questions/16087926/java-lazy-loading-exceptions
+
+Testing:
+
+```
+// ClassNotFoundException
+public static void foo() throws CustomException {
+
+// OK
+public static void foo() throws Exception {
+
+// ClassNotFoundException
+public static void foo() throws Exception {
+  throw new CustomException();
+}
+
+// ClassNotFoundException
+public void foo() throws Exception {
+  throw new CustomException();
+}
+
+// OK
+public static void foo() throws Exception {
+  if (false) {
+    throw new CustomException();
+  }
+}
+
+// ClassNotFoundException
+public static void foo() throws Exception {
+  if (false) {
+    throw new CustomException();
+  }
+}
+```
+
+
+### Concatenate list of strings
+
+```
+String joinedFirstNames = list.stream()
+  .map(Person::getFirstName)
+  .collect(Collectors.joining(", ")); // "John, Anna, Paul"
+```
+
+https://stackoverflow.com/questions/1751844/java-convert-liststring-to-a-string
+
+
+### Avoid string concatenation in logging lines that aren't executed
+
+Add logger level check around logging statement.
+
+
+### Suppress FindBugs warnings
+
+```
+@edu.umd.cs.findbugs.annotations.SuppressWarnings(value = "DL_SYNCHRONIZATION_ON_BOXED_PRIMITIVE")
+
+```
+
+https://stackoverflow.com/questions/14503001/how-to-suppress-findbugs-warnings-for-fields-or-local-variables
+
+
+### Double-checked locking idiom
+
+```
+// Works with acquire/release semantics for volatile in Java 1.5 and later
+// Broken under Java 1.4 and earlier semantics for volatile
+class Foo {
+    private volatile Helper helper;
+    public Helper getHelper() {
+        Helper result = helper;
+        if (result == null) {
+            synchronized(this) {
+                result = helper;
+                if (result == null) {
+                    helper = result = new Helper();
+                }
+            }
+        }
+        return result;
+    }
+
+    // other functions and members...
+}
+```
+
+* https://en.wikipedia.org/wiki/Double-checked_locking#Usage_in_Java
+* Also see Effective Java Item 71 (p. 283-285).
+* The local variable is not strictly necessary but may improve performance.
+
+
+### Lombok `@Data`
+
+Creates setters, getters, toString, hashCode, equals methods automatically based on fields.
+
+https://projectlombok.org/features/Data
+
+
 ### Wrapping lines
 
 * Break before an operator (so start next line with operator)
@@ -28,17 +343,6 @@ Try VisualVM in Intellij (see [intellij.md](intellij.md)).
 In Settings for Sampler, you can choose packages to profile.
 
 In Settings for Profiler, you can choose classes from which to start profiling.
-
-
-### Find jar that a class is in
-
-```
-for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
-```
-
-http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
-
-Also check out http://findjar.com
 
 
 ### Round to decimal places
@@ -117,6 +421,7 @@ https://stackoverflow.com/questions/11621917/arrays-with-trailing-commas-inside-
 
 
 ### Date math
+
 ```
 Calendar cal = Calendar.getInstance();
 cal.setTime(new Date());
@@ -127,19 +432,44 @@ Date d = cal.getTime();
 
 ### Print current date in time zone
 
+```
+import java.time.LocalDate
+import java.time.ZoneId
+
+LocalDate.now(ZoneId.of("America/Los_Angeles"))
+LocalDate.now(ZoneId.of("America/Los_Angeles")).minusDays(1)
+
+// outputs in ISO-8601 format, e.g.: 2007-12-03
+```
+
 Date object is in milliseconds since epoch UTC. Does not include time zone info. You apply time zone info when printing it using a DateFormat.
+
 ```
 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd-HH");
 dt.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
 System.out.println(dt.format(new Date()));
 ```
+
 https://stackoverflow.com/questions/1305350/how-to-get-the-current-date-and-time-of-your-timezone-in-java
 
 
+### Check enum equality
+
+```
+// null safe
+// .equals() defers to ==
+enumA == enumB
+```
+
+https://stackoverflow.com/questions/1750435/comparing-java-enum-members-or-equals
+
+
 ### Enum class
+
 File can contain only an enum class:
 
 Int.java
+
 ```
 public enum Int {
     ONE(1),
@@ -160,6 +490,13 @@ public enum Int {
 ### Read file line-by-line
 
 ```
+try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+  for (String line; (line = br.readLine()) != null; ) {
+    // process the line.
+  }
+  // line is not visible here.
+}
+
 try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
   stream.forEach(System.out::println);
 }
@@ -168,11 +505,44 @@ try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 https://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
 
 
+### Read InputStream into String
+
+```
+String theString2 = IOUtils.toString(new FileInputStream(new File("C:/temp/test.txt")), "UTF-8");
+```
+
+https://howtodoinjava.com/core-java/io/how-to-read-data-from-inputstream-into-string-in-java/
+
+
 ### Read file into String
+
+```
+new String(Files.readAllBytes(Paths.get("/path/to/file")));
+
+FileUtils.readFileToString(new File("/path/to/file"), Charset.defaultCharset());
+```
 
 Use commons-io `FileUtils.readFileToString(File file)`.
 
 http://stackoverflow.com/questions/326390/how-do-i-create-a-java-string-from-the-contents-of-a-file
+
+
+### Reflections
+
+```
+//scan urls that contain 'my.package', include inputs starting with 'my.package', use the default scanners
+Reflections reflections = new Reflections("my.package");
+
+//or using ConfigurationBuilder
+new Reflections(new ConfigurationBuilder()
+     .setUrls(ClasspathHelper.forPackage("my.project.prefix"))
+     .setScanners(new SubTypesScanner(),
+                  new TypeAnnotationsScanner().filterResultsBy(optionalFilter), ...),
+     .filterInputsBy(new FilterBuilder().includePackage("my.project.prefix"))
+     ...);
+```
+
+https://github.com/ronmamo/reflections
 
 
 ### Invoke static method via reflection
@@ -199,29 +569,35 @@ http://stackoverflow.com/questions/3567372/access-to-private-inherited-fields-vi
 
 
 ### Multiline strings
+
 `+` should be on newline, per CheckStyle.
 
 
 ### JVM arguments changeable at runtime
+
 ```
 java -XX:+PrintFlagsFinal -version|grep manageable
 ```
+
 https://confluence.atlassian.com/kb/how-to-change-jvm-arguments-at-runtime-to-avoid-application-restart-816682109.html
 
 
 ### `-client` vs. `-server` JVM flags
+
 `-client` ignored for 64-bit JDK. `-server` is implicit.
 
 http://stackoverflow.com/questions/198577/real-differences-between-java-server-and-java-client
 
 
 ### Garbage Collection
+
 ```
 jstat -gcutil <pid> <time between measurements> <number measurements>
 jstat -gcutil 11885 1000 10  # 10 measurements, 1 second between each
 
 # can also use -gccause to find out cause of last GC
 ```
+
 https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
 
 Major GC is cleaning the Tenured space.
@@ -229,6 +605,52 @@ Full GC is cleaning the entire Heap – both Young and Tenured spaces.
 
 https://plumbr.eu/blog/garbage-collection/minor-gc-vs-major-gc-vs-full-gc
 
+```
+-gc option
+Garbage-collected heap statistics.
+
+S0C: Current survivor space 0 capacity (kB).
+
+S1C: Current survivor space 1 capacity (kB).
+
+S0U: Survivor space 0 utilization (kB).
+
+S1U: Survivor space 1 utilization (kB).
+
+EC: Current eden space capacity (kB).
+
+EU: Eden space utilization (kB).
+
+OC: Current old space capacity (kB).
+
+OU: Old space utilization (kB).
+
+MC: Metaspace capacity (kB).
+
+MU: Metacspace utilization (kB).
+
+CCSC: Compressed class space capacity (kB).
+
+CCSU: Compressed class space used (kB).
+
+YGC: Number of young generation garbage collection events.
+
+# seconds
+# https://stackoverflow.com/questions/29798704/specific-meanings-of-jstat-parameters-ygct-fgct-gct
+YGCT: Young generation garbage collection time.
+
+FGC: Number of full GC events.
+
+# seconds
+# https://stackoverflow.com/questions/29798704/specific-meanings-of-jstat-parameters-ygct-fgct-gct
+FGCT: Full garbage collection time.
+
+# YGCT + FGCT
+GCT: Total garbage collection time.
+```
+
+https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
+https://stackoverflow.com/questions/14464987/interpreting-jstat-results
 
 
 ### JDBC
@@ -439,6 +861,7 @@ http://jd.benow.ca/
 ### Decompile Java class
 
 If jar, extract/unzip jar first.
+
 ```
 # unzip the jar first
 
@@ -455,60 +878,98 @@ Output explanations:
 
 ### Pipe output stream to a String
 
-See http://stackoverflow.com/questions/216894/get-an-outputstream-into-a-string.
+See http://stac
+koverflow.com/questions/216894/get-an-outputstream-into-a-string.
 ```
 // Use ByteArrayOutputStream
 baos.toString();
 ```
 
 ### System.nanoTime vs. System.currentTimeMillis
+
 According to Effective Java, 2nd Ed., page 276, you should use `System.nanoTime` instead of `System.currentTimeMillis` for interval timing.
 
+
 ### Java data types
+
 See http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html.
+
 * `float` is single-precision 32-bit IEEE 754 floating point
 * `double` is double-precision 64-bit IEEE 754 floating point
 
+
 ### Initializing a multidimensional array
+
 ```
 int[][][] threeDimArr = { { { 1, 2 }, { 3, 4 } }, { { 5, 6 }, { 7, 8 } } };
 ```
 
+
 ### Printing an array
+
 ```
 import java.util.Arrays;
 Arrays.toString(<array>);
 ```
 
+
 ### Common exceptions
+
 See Effective Java, 2nd Ed., Item 60:
 * `IllegalArgumentException` means non-null parameter value is inappropriate
 * `IllegalStateException` means object state is inappropriate for method invocation
 * `NullPointerException` means parameter value is null where prohibited
 
+
+### Print classpath
+
+```
+ClassLoader cl = ClassLoader.getSystemClassLoader();
+URL[] urls = ((URLClassLoader)cl).getURLs();
+for(URL url: urls){
+  System.out.println(url.getFile());
+}
+```
+
+https://www.mkyong.com/java/how-to-print-out-the-current-project-classpath/
+
+
 ### Classpath wildcard behavior / jar loading order
+
 See http://docs.oracle.com/javase/6/docs/technotes/tools/windows/classpath.html.
+
 > The order in which the JAR files in a directory are enumerated in the expanded class path is not specified
 
+
 ### Xms and Xmx
+
 The JVM is started with Xms memory and allowed to use up to Xmx memory
 
+
 ### Run a jar
+
 ```
 java -jar foo.jar
 ```
+
 The Main-Class must be defined in the jar's `META-INF/MANIFEST.MF` file.
 
+
 ### Array is not assignable to Iterable
+
 See http://stackoverflow.com/questions/1160081/why-is-an-array-not-assignable-to-iterable.
 
+
 ### How to interpret a stack trace
+
 ```
 <init>  # inside constructor or while initializing variables
 ```
+
 http://stackoverflow.com/questions/11789990/what-does-init-signify-in-a-java-exception
 
 See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmethoderror-message and http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3. Also see http://stackoverflow.com/a/357386/1128392.
+
 * `[TYPE` means array of TYPE (`[Ljava.lang.Object` means array of Object)
 * `B` means byte
 * `I` means integer
@@ -613,6 +1074,17 @@ Transport.send(msg);
 See http://stackoverflow.com/questions/8970455/java-mail-sending-multiple-attachments-not-working for details.
 
 
+### Case-insensitive map
+
+```
+Map<String, String> map = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+map.put("a", "a");
+map.put("A", "A");  // will override "a", map will still only contain 1 element.
+```
+
+https://codereview.stackexchange.com/questions/183127/map-with-case-insensitive-get-remove-and-containskey
+
+
 ### Case-insensitive regex
 
 ```
@@ -622,6 +1094,31 @@ System.out.println(target);
 ```
 
 http://stackoverflow.com/questions/5054995/how-to-replace-case-insensitive-literal-substrings-in-java
+
+
+### Named capture group
+
+```
+(?<name>capturing text)
+```
+
+https://stackoverflow.com/questions/415580/regex-named-groups-in-java
+
+
+### Java Pattern Matcher capture groups example
+
+```
+String line = "This order was placed for QT3000! OK?";
+Pattern pattern = Pattern.compile("(.*?)(\\d+)(.*)");
+Matcher matcher = pattern.matcher(line);
+while (matcher.find()) {
+    System.out.println("group 1: " + matcher.group(1));
+    System.out.println("group 2: " + matcher.group(2));
+    System.out.println("group 3: " + matcher.group(3));
+}
+```
+
+https://stackoverflow.com/questions/17969436/java-regex-capturing-groups
 
 
 ### Regex replace
@@ -641,8 +1138,17 @@ Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-d
 
 ### Get resource file path
 
+In Java project, in Gradle and in IDE, working directory is generally root project directory. You can construct relative paths from it.
+
+```
+private static final String RESOURCES_DIR = new File("./my-sub-module/src/test/resources").getAbsolutePath();
+```
+
 ```
 File file = new File(getClass().getClassLoader().getResource("file/test.xml").getFile());
+
+# read resource file into string
+FileUtils.readFileToString(new File(getClass().getClassLoader().getResource("file/test.xml").getFile()));
 ```
 
 https://www.mkyong.com/java/java-read-a-file-from-resources-folder/
@@ -668,9 +1174,34 @@ http://stackoverflow.com/questions/4871051/getting-the-current-working-directory
 
 
 
+### Javadoc Style Guide
+
+`@param PARAM  DESCRIPTION` - you can add spaces between `PARAM` and `DESCRIPTION` to line up all the descriptions.
+
+http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#@param
+
+Start with a verb, 3rd person descriptive. Say something beyond method name.
+
+http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#styleguide
+
+
 ### Javadoc
 
 For examples, scan through http://www.oracle.com/technetwork/articles/java/index-137868.html.
+
+Javadoc comments inside methods are ignored.
+
+https://stackoverflow.com/questions/15496472/does-the-javadoc-tool-recognize-comments-inside-methods
+
+
+### Print value of static variable
+
+```
+{@value #STATIC_FIELD}
+```
+
+https://www.codeproject.com/Articles/658382/Basic-Javadoc-guide
+
 
 ### Reference method
 
@@ -679,6 +1210,7 @@ For examples, scan through http://www.oracle.com/technetwork/articles/java/index
 ```
 
 http://stackoverflow.com/questions/5915992/how-to-reference-a-method-in-javadoc
+
 
 ### Reference method parameter in method Javadoc
 
@@ -710,18 +1242,49 @@ https://stackoverflow.com/questions/4030618/java-string-to-class
 ```
 PrintWriter out = new PrintWriter("filename.txt");
 out.println(text);
+
+# wrap output stream
+try (PrintWriter p = new PrintWriter(new FileOutputStream("output-text.txt", true))) {
+    p.println("Hello");
+} catch (FileNotFoundException e1) {
+    e1.printStackTrace();
+}
 ```
+
 http://stackoverflow.com/questions/1053467/how-do-i-save-a-string-to-a-text-file-using-java
 
-# Java 8 Features
+https://stackoverflow.com/questions/4069028/write-string-to-output-stream
+
 
 ### Functional interface
+
 A functional interface is any interface that contains only one abstract method.
+
 * https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach5
 
+
+### Stream array
+
+```
+String[] array = {"a", "b", "c", "d", "e"};
+
+//Arrays.stream
+Stream<String> stream1 = Arrays.stream(array);
+stream1.forEach(x -> System.out.println(x));
+
+//Stream.of
+Stream<String> stream2 = Stream.of(array);
+stream2.forEach(x -> System.out.println(x));
+```
+
+https://www.mkyong.com/java8/java-how-to-convert-array-to-stream/
+
+
 ### Streams
+
 Streams consist of:
+
 (1) source
 (2) intermediate operations
 (3) terminal perations
@@ -746,12 +1309,15 @@ int sum = numbers.parallelStream().reduce(0, Integer::sum);
 List<String> strings = stream.map(Object::toString)
                              .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 ```
+
 https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
 http://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
 
 
 ### `java -cp` vs. `java -jar`
+
 You cannot specify both.
+
 http://stackoverflow.com/questions/11922681/differences-between-java-cp-and-java-jar
 
 ```
@@ -803,6 +1369,12 @@ where
 
 # continue
 cont
+
+print MyClass.myStaticField
+print myObj.myInstanceField
+print i + j + k (i, j, k are primities and either fields or local variables)
+print myObj.myMethod() (if myMethod returns a non-null)
+print new java.lang.String("Hello").length()
 ```
 
 http://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html

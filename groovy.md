@@ -1,21 +1,34 @@
+### Dynamic methods and properties
+
+http://groovy-lang.org/metaprogramming.html#_methodmissing
+http://groovy-lang.org/metaprogramming.html#_propertymissing
+
+http://docs.groovy-lang.org/latest/html/api/groovy/lang/MetaClass.html
+
+
 ### `getText()`
+
 https://github.com/apache/groovy/blob/master/src/main/org/codehaus/groovy/runtime/IOGroovyMethods.java#L809
 
 
 ### Number Type Suffixes
+
 ```
 // BigDecimal
 1G
 1g
 ```
+
 http://docs.groovy-lang.org/next/html/documentation/core-syntax.html#_number_type_suffixes
 
 
 ### Memoization
+
 ```
 fib = { long n -> n<2?n:fib(n-1)+fib(n-2) }.memoize()
 assert fib(25) == 75025 // fast!
 ```
+
 http://groovy-lang.org/closures.html#_memoization
 http://docs.groovy-lang.org/2.4.7/html/gapi/groovy/transform/Memoized.html
 
@@ -40,6 +53,7 @@ http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-langu
 
 
 ### Command Chain
+
 "Command chain" feature allows you to omit parentheses and dots in method chains.
 ```
 // equivalent to: turn(left).then(right)
@@ -66,6 +80,7 @@ http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-langu
 
 
 ### leftShift operator (`<<`)
+
 Overloaded for adding elements to maps, lists:
 ```
 def list = [1,2]
@@ -80,6 +95,7 @@ http://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/Map.html#leftShift(
 
 
 ### Run Groovy using groovy-all jar
+
 ```
 java -cp 'src:.:lib/*' groovy.ui.GroovyMain src/com/example/MyScript.groovy
 ```
@@ -87,6 +103,7 @@ http://stackoverflow.com/questions/12391985/when-running-groovy-scripts-using-th
 
 
 ### GStrings
+
 See http://docs.groovy-lang.org/latest/html/documentation/index.html#all-strings. String interpolation only works in double-quoted strings, not single- or triple-quoted strings.
 ```
 foxtype = 'quick'
@@ -115,10 +132,12 @@ assert gs == 'x = 1'
 x = 2
 assert gs == 'x = 2'
 ```
+
 http://groovy-lang.org/closures.html#_closures_in_gstrings
 
 
 ### Groovy Arrays (Lists)
+
 See http://mrhaki.blogspot.com/2009/09/groovy-goodness-working-with-arrays.html.
 ```
 // Java
@@ -132,12 +151,15 @@ def s = ["a", "b"]
 
 
 ### Default access/visibility modifier is public
+
 * http://groovy-lang.org/style-guide.html#_public_by_defaulth
 * http://groovy.codehaus.org/Groovy+style+and+language+feature+guidelines+for+Java+developers.
 
 
 ### Groovy shell
+
 Shell variables are all UNtyped (no `def` or type info)
+
 ```
 // sets a shell variable
 foo = "bar"
@@ -145,10 +167,12 @@ foo = "bar"
 // evaluates a local variable that will NOT be saved to shell's environment
 def foo = "bar"
 ```
+
 http://www.groovy-lang.org/groovysh.html
 
 
 ### Start Groovy shell
+
 ```
 groovysh
 // To exit, enter
@@ -164,14 +188,21 @@ groovysh
 
 ### Closures
 
+When variable cannot be found in closure, first `this` checked, then `owner`, then `delegate`. `this` is containing class. `owner` is containing closure or class. `delegate` is same as `owner` unless changed. You can only change `delegate`.
+
+https://dzone.com/articles/groovy-closures-owner-delegate
+
 Closures can have default values:
+
 ```
 def closureWithTwoArgAndDefaultValue = { int a, int b=2 -> a+b }
 assert closureWithTwoArgAndDefaultValue(1) == 3
 ```
+
 http://groovy-lang.org/closures.html
 
 Restrict closure to calls without arguments:
+
 ```
 def magicNumber = { -> 42 }
 
@@ -180,6 +211,7 @@ magicNumber(11)
 ```
 
 Closures can have variable number of arguments:
+
 ```
 def concat1 = { String... args -> args.join('') }
 assert concat1('abc','def') == 'abcdef'
@@ -195,6 +227,7 @@ assert multiConcat(2, 'abc','def') == 'abcdefabcdef'
 `this` inside closure refers to instance object of enclosing class.
 
 Owner of a closure is the direct enclosing class instance or closure.
+
 ```
 class NestedClosures {
     void run() {
@@ -262,10 +295,12 @@ assert filter.accept('Groovy') == true
 Greeter greeter = { 'Groovy' }
 greeter.greet()
 ```
+
 http://docs.groovy-lang.org/latest/html/documentation/core-semantics.html#closure-coercion
 
 
 ### Closure Composition
+
 ```
 // reverse composition
  def times2 = { a -> a * 2 }
@@ -308,6 +343,7 @@ http://groovy-lang.org/closures.html#_trampoline
 
 
 ### Method Pointers
+
 ```
 boolean doFilter(String s) { s.contains('G') }
 
@@ -324,6 +360,7 @@ Method pointer operator returns a Closure. Can be used anywhere a Closure can be
 
 
 ### `it` default named parameter
+
 See http://groovy.codehaus.org/Quick+Start --> Working with closures.
 ```
 def closure = { println "hello " + it }
@@ -331,6 +368,7 @@ closure.call("world!")
 ```
 
 ### Groovy Regular Expressions
+
 See http://groovy.codehaus.org/Regular+Expressions.
 ```
 def matcher = "cheesecheese" =~ /cheese/
@@ -344,12 +382,16 @@ matcher.reset()
 assert matcher.collect { it } == [["chee", "ch"], ["se", "s"], [" ple", " pl"], ["ase", "as"]]
 ```
 
+
 ### Elvis operator (?:)
+
 See http://groovy.codehaus.org/Operators#Operators-ElvisOperator(?:)
 def displayName = user.name ? user.name : "Anonymous" //traditional ternary operator usage
 def displayName = user.name ?: "Anonymous"  // more compact Elvis operator - does same as above
 
+
 ### Map literal (associative array)
+
 ```
 def map = [name: 'Gromit', likes: 'cheese', id: 1234]
 // keys are strings by default
@@ -361,12 +403,15 @@ http://www.groovy-lang.org/groovy-dev-kit.html#_map_literals
 
 
 ### `withDefault`: Map default values
+
 ```
 final Map<String, Set<String>> myMap = [:].withDefault { new HashSet<>() }
 ```
 http://mrhaki.blogspot.com/2010/07/groovy-goodness-map-with-default-values.html
 
+
 ### Read/write string to file
+
 ```
 // Read file into string
 // http://stackoverflow.com/questions/7729302/how-to-read-a-file-in-groovy-into-a-string
@@ -399,7 +444,9 @@ http://docs.groovy-lang.org/latest/html/documentation/index.html#_spread_operato
 
 
 ### `@Field` Annotation
+
 Changes variable scope from run method to class level.
+
 ```
 import groovy.transform.Field
 
@@ -408,8 +455,11 @@ def awesum() { awe.sum() }
 assert awesum() == 6
 ```
 
+
 ### Direct field access operator `.@`
+
 http://docs.groovy-lang.org/latest/html/documentation/#_direct_field_access_operator
+
 ```
 class User {
     public final String name
@@ -422,6 +472,7 @@ assert user.@name == 'Bob'
 ```
 
 ### Tokenize
+
 ```
 String  testString='hello world'
 
@@ -435,6 +486,7 @@ http://www.tothenew.com/blog/groovy-tokenize-vs-split/
 
 
 ### Multiline Strings
+
 ```
 def a = """
     test
@@ -446,6 +498,7 @@ http://stackoverflow.com/a/5079914/1128392
 
 
 ### With Method
+
 ```
 class Sample {
     String username

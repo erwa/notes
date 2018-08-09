@@ -1,3 +1,8 @@
+### NullPointerException
+
+May be due to non-static Logger.
+
+
 ### Disable commons-logging
 
 ```
@@ -10,9 +15,17 @@
 https://stackoverflow.com/questions/1436761/turn-off-apache-common-logging
 
 
-# log4j
+### Change log level for slf4j log4j
 
-### Change log level for category
+```
+org.apache.log4j.Logger logger4j = org.apache.log4j.Logger.getRootLogger();
+logger4j.setLevel(org.apache.log4j.Level.toLevel("DEBUG"));
+```
+
+https://prateep.info/2015/12/12/dynamically-change-log-level-in-slf4j-log4j-with-standalone-java-class/
+
+
+### log4j: Change log level for category
 
 ```
 Logger.getLogger("CATEGORY_NAME").setLevel(Level.OFF)

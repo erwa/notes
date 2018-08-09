@@ -1,3 +1,55 @@
+### SHA256
+
+```
+# Mac OS
+shasum -a 256 /path/to/file
+```
+
+https://stackoverflow.com/questions/3358420/generating-a-sha256-from-the-linux-command-line
+
+
+### Less than Less than parentheses (`< <(...)`)
+
+```
+bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+```
+
+`bash -s stable < <(curl ...)`
+
+is equivalent to
+
+```
+curl ... > something
+bash -s stable < something
+```
+
+https://superuser.com/questions/404780/what-bash-syntax-mean
+
+
+### Brace expansion
+
+```
+cp -v file1.txt{,.bak}
+# is equivalent to
+cp -v file1.txt file1.txt.bak
+```
+
+https://www.cyberciti.biz/faq/explain-brace-expansion-in-cp-mv-bash-shell-commands/
+
+
+### Pretty-print JSON
+
+```
+# JSON already in file
+python -m json.tool my_json.json
+
+# pipe to pretty-print
+echo '{"foo": "lorem", "bar": "ipsum"}' | python -m json.tool
+```
+
+https://stackoverflow.com/a/1920585/1128392
+
+
 ### Get absolute path of current script
 
 ```
@@ -135,6 +187,7 @@ http://stackoverflow.com/questions/23842261/alternative-to-readarray-because-it-
 
 
 ### Run command as another user
+
 ```
 sudo -u pigmgr COMMAND
 ```
@@ -142,6 +195,7 @@ http://askubuntu.com/questions/294736/run-a-shell-script-as-another-user-that-ha
 
 
 ### base64 decode
+
 ```
 echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode
 ```
@@ -149,6 +203,7 @@ http://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-
 
 
 ### Validate JSON
+
 ```
 cat foo.json | python -m json.tool
 # will print error if invalid, otherwise prints out json
@@ -157,6 +212,7 @@ http://stackoverflow.com/questions/3858671/unix-command-line-json-parser
 
 
 ### `xmllint`
+
 Validate but don't output tree:
 ```
 xmllint -noout foo.xml
@@ -164,12 +220,14 @@ xmllint -noout foo.xml
 
 
 ### Time ANDed commands
+
 ```
 time (sleep 1 && sleep 1)
 ```
 
 
 ### Check alias
+
 Check what an alias is assigned to
 ```
 type ALIAS
@@ -178,6 +236,7 @@ http://askubuntu.com/questions/102093/how-to-see-the-command-attached-to-a-bash-
 
 
 ### Run commands in parallel
+
 ```
 pids=""
 for command in $COMMANDS
@@ -196,6 +255,7 @@ done
 
 
 ### Read file line-by-line
+
 ```
 filename="$1"
 while read -r line
@@ -207,6 +267,7 @@ http://stackoverflow.com/questions/10929453/bash-scripting-read-file-line-by-lin
 
 
 ### Iterate over files in directory
+
 ```
 for test_file in tests/test_*.py
 do
@@ -217,6 +278,7 @@ http://stackoverflow.com/questions/20796200/how-to-iterate-over-files-in-directo
 
 
 ### `if` Expressions
+
 http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 ```bash
 # Tests the return status of the last executed command
@@ -254,6 +316,8 @@ Examples:
 if [ "$a" -eq "$b" ]
 # http://tldp.org/LDP/abs/html/comparison-ops.html
 
+# check number of arguments
+# https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
 if [ "$#" -ne 2 ]; then
   echo "Two arguments required."
   exit 1
@@ -278,16 +342,19 @@ fi
 ```
 
 ### Truthiness: What is true? What is false?
+
 `0` is true, `1` is false. See http://stackoverflow.com/questions/3924182/how-the-keyword-if-test-the-value-true-of-false. Exit codes of commands are evaluated. `0` is true, `1` is false.
 
 
 ### Comparison operators
+
 ```
 -lt # less than
 http://www.tldp.org/LDP/abs/html/comparison-ops.html
 ```
 
 ### Test if string contains another string
+
 See http://stackoverflow.com/questions/229551/string-contains-in-bash.
 ```
 string='My long string';
@@ -299,6 +366,7 @@ fi
 ```
 
 ### See current memory usage
+
 ```
 free
 top
@@ -313,6 +381,7 @@ https://superuser.com/questions/117913/ps-aux-output-meaning
 
 
 ### Swap space
+
 See http://www.linux.com/news/software/applications/8208-all-about-linux-swap-space.
 
 Check `vm.swappiness` in `/etc/sysctl.conf`. Default is `60`. To verify:
@@ -323,6 +392,7 @@ A higher number means the system is more likely to swap pages out into swap spac
 
 
 ### Use awk to find 0-byte HDFS files in a directory
+
 You may need to add a `grep` to exclude directories (which are also 0 bytes):
 ```
 hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }'
@@ -332,53 +402,85 @@ To delete these 0-byte files, do:
 hadoop fs -ls <dir> | awk '{ if ($5 == 0) print $8 }' | xargs hadoop fs -rm
 ```
 
+
 ### See members of a group
+
 ```
 getent group <groupname>
 ```
 
+
 ### Archiving/Unarchiving
 
+Update one file in zip
+
+```
+# will update if file already exists
+zip -r foo.zip path/to/file
+```
+
+https://stackoverflow.com/questions/4799553/how-to-update-one-file-in-a-zip-archive
+
+
+Zip ignore hidden files
+
+```
+zip -r bitvolution.zip bitvolution -x *.git*
+```
+
+https://askubuntu.com/questions/28476/how-do-i-zip-up-a-folder-but-exclude-the-git-subfolder
+
+
 Zip hidden files
+
 ```
 zip -r foo.zip .
 ```
+
 http://stackoverflow.com/questions/12493206/zip-including-hidden-files
 
 Zip/unzip folder:
+
 ```
 zip -r foo.zip foo
 unzip foo.zip
 ```
 
 Unzip one file:
+
 ```
 unzip foo.zip file
 ```
 
 Unzip one file to standard out:
+
 ```
 unzip -p foo.zip file
 ```
 
 List files in a zip:
+
 ```
 zipinfo foo.zip
 unzip -l foo.zip
 ```
 
 Remove a file from a zip:
+
 ```
 zip -d foo.zip file
 ```
 
 Extract gunzip'd .gz file to specified file:
+
 ```bash
 gzip -c -d file.gz > file.out
 ```
+
 `-c` is equivalent to `--stdout`. `-d` is equivalent to `--decompress`.
 
 Show files in tar/tarball/tar.bz2:
+
 ```bash
 tar -tvf file.tar
 tar -ztvf file.tar.gz
@@ -386,47 +488,59 @@ tar -jtvf file.tar.bz2
 ```
 
 Extract .tar file to different directory:
+
 ```bash
 tar -xf archive.tar --directory=/target/directory
 ```
 
 Tar but exclude some directories:
+
 ```bash
 tar cvzf file.tar.gz  --exclude 'dir/a/*' --exclude 'dir/b/*' dir
 ```
 
 Extract one file from tarball to standard out:
+
 ```bash
 tar -Oxzf tarball.tar.gz path/to/file
 ```
 
+
 ### cd to previous directory
+
 ```bash
 cd -
 ```
 
+
 ### Substrings
 
 See:
+
 * http://stackoverflow.com/questions/428109/extract-substring-in-bash
 * http://tldp.org/LDP/abs/html/string-manipulation.html
 
 
 #### Delete longest match of `substring` from back of `string`
+
 ```
+# string can be a variable name
 ${string%%substring}
 ```
 http://tldp.org/LDP/abs/html/string-manipulation.html
 
 
 #### Substring using string manipulation
+
 ```
 $ word="abcde"
 $ echo ${word:0:3}
 abc
 ```
 
+
 #### Substring using cut
+
 ```
 $ word="abcde"
 $ echo $word | cut -c 1-3
@@ -434,6 +548,7 @@ abc
 ```
 
 #### Substring removal
+
 ```
 # Remove longest match of `substring` from `$string`
 ${string##substring}
@@ -448,6 +563,7 @@ ${MYSTRING%?}
 `%` (percent) matches from the end. `?` matches any character. See http://wiki.bash-hackers.org/syntax/pattern.
 
 ### Bash dollar sign variables
+
 See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
 ```bash
 $1, $2, $3 # positional parameters
@@ -474,12 +590,14 @@ See http://ss64.com/bash/bang.html. On Linux, `Alt + .` prints out the last word
 ```
 
 ### Clear history
+
 See http://askubuntu.com/questions/191999/how-to-clear-bash-history-completely.
 ```
 history -c && history -w # clear current history, then write empty history to ~/.bash_history
 ```
 
 ### Set/modify/remove/see user-specific ACLs:
+
 ```
 setfacl -m user:<user>:rwx <file>
 setfacl -x <user> <file> # Remove <user> from <file>'s ACL list
@@ -510,24 +628,31 @@ find . -name *.jar | grep PATTERN1 | xargs -n1 -I% sh -c 'echo % && jar tf % | g
 `-I%` tells `xargs` to replace `%` with the arguments passed in. See http://stackoverflow.com/questions/18731610/xargs-with-multiple-commands for details.
 
 ### scp multiple files in one command
+
 ```
 scp FILE1 FILE2 DESTINATION
 scp lib/{j1.jar,j2.jar,j3.jar} .
 ```
 
 ### Diff and ignore whitespace
+
 ```
 diff -w FILE1 FILE2
 ```
 
 ### Diff file names between two directories
+
 ```
 diff <(ls -1a ./dir1) <(ls -1a ./dir2)
 ```
+
 http://superuser.com/questions/228763/how-to-diff-file-names-in-two-directories-without-writing-to-intermediate-files
 
+
 ### Apply a patch, but strip off leading a/ and b/
+
 If your patch file `patch.diff` looks like
+
 ```
 diff --git a/file b/file
 ...
@@ -543,22 +668,26 @@ patch -p1 < patch.diff
 ```
 
 ### Apply patch as is
+
 ```
 patch -p0 < patch.diff
 ```
 
 
 ### Apply part of a patch (changes to only one file)
+
 ```
 patch FILE PATCH
 ```
 
 ### Apply patch in reverse
+
 ```
 patch -R < PATCH
 ```
 
 ### Extract diffs concerning specific files from a diff
+
 ```
 filterdiff -i '*file' patch.diff > filtered.diff
 ```
@@ -569,33 +698,47 @@ filterdiff -X fileWithExcludePatternsOnePerLine patch.diff > filtered.diff
 ```
 
 ### Change file/directory modified or inode change time
+
 ```
 # mtime
 touch -m --date="7 days ago" FILE
 ```
 
 
-# `ls`
-
 ### atime vs ctime vs mtime
+
 ```
 ls -l   # mtime (modification time)
 ls -cl  # ctime (inode change time)
 ls -ul  # atime (access time)
 ```
 
+
+### List folders only
+
+```
+ls -d */
+```
+
+https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash-an-examination
+
+
 ### `ls` another user's home directory
+
 ```
 ls ~USER
 ```
 
+
 ### `ls` color output
+
 Add the following to your .bashrc to enable color ls output by default:
 ```
 alias ls="ls --color=auto"
 ```
 
 ### ls everything on one line
+
 ```
 ls | tr "\\n" " "
 ```
@@ -635,6 +778,7 @@ From http://stackoverflow.com/questions/10574794/bash-how-to-list-only-files.
 
 
 ### Find and exec
+
 ```
 find . -name "test_*.py" -exec {} \;
 ```
@@ -642,12 +786,14 @@ http://stackoverflow.com/questions/7719785/using-find-with-exec-is-there-a-way-t
 
 
 ### Find and suppress permission denied errors
+
 ```
 find . ! -readable -prune
 ```
 http://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find
 
 ### Find but exclude directories
+
 ```
 find . -not -path "./dir/to/exclude/*"
 find . -path ./dir/to/exclude -prune -o -print
@@ -655,6 +801,7 @@ find . -path ./dir/to/exclude -prune -o -print
 http://stackoverflow.com/questions/4210042/exclude-directory-from-find-command
 
 ### ls: Show extended attributes
+
 This is an OSX-only feature:
 ```
 ls -l@
@@ -682,7 +829,7 @@ du -h DIR
 ```
 
 
-### du of every file/directory (including hidden ones) in current directory, sort from largest to smallest:
+### du of every file/directory (including hidden ones) in current directory, sort from smallest to largest:
 
 See http://askubuntu.com/questions/356902/why-doesnt-this-show-the-hidden-files-folders.
 
@@ -704,20 +851,27 @@ date -jf %s 1446662585
 
 http://stackoverflow.com/questions/21958851/convert-unix-epoch-time-to-human-readable-date-on-mac-osx-bsd
 
+
 ### Date in `yyyyMMdd` format
 
 ```
 date +%Y%m%d
 ```
 
+
 ### Date in epoch
 
 ```
+# Linux
+date +%s
+
+# Mac
 date -j -f "%Y%m%d %T" "20170808 00:00:00" +%s
 ```
 
 
 ### Date one day ago (only works on Linux)
+
 ```
 date --date="1 day ago" +%Y%m%d
 ```
@@ -751,29 +905,48 @@ See http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Ou
 
 
 ### Look up hostname/IP address associated with IP address/hostname
+
 ```
 nslookup <ip_address>
 nslookup <hostname>
 ```
 
+
+### URL encode string
+
+```
+# $1 is the first argument to the script
+value="$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$1")"
+echo $value
+```
+
+https://stackoverflow.com/questions/296536/how-to-urlencode-data-for-curl-command
+
+
 ### `echo` string with escape characters
+
 `$''` causes escape sequences to be interpreted.
 ```
 echo $'a\tb'
 ```
 
+
 ### Print current machine name
+
 ```
 hostname
 ```
 
+
 ### Find all file descriptors used by a process
+
 ```
 ls -l /proc/PROCESS_ID/fd | less
 ```
 
 
 ### Check system specs (CPU, memory, etc.)
+
 ```
 cat /proc/cpuinfo
 cat /proc/meminfo
@@ -781,17 +954,20 @@ cat /proc/meminfo
 
 
 ### Append to a file
+
 ```
 cat <file1> >> <file2>
 ```
 
 ### Use default language for output, force sorting to be bytewise
+
 See http://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do.
 ```
 LC_ALL=C
 ```
 
 ### `rsync` example:
+
 ```
 # copy and show progress
 rsync --progress SOURCE DEST
@@ -802,7 +978,9 @@ rsync -az
 
 
 ### Run command only if previous command succeeded (exit status of 0) or failed
+
 See http://stackoverflow.com/questions/7402587/run-command2-only-if-command1-succeeded-in-cmd-windows-shell.
+
 ```
 command1 && command2
 command1 || command2
@@ -810,6 +988,7 @@ command1 || command2
 
 
 ### Exit immediately if any command returns non-0
+
 ```
 set -e
 ```
@@ -817,6 +996,7 @@ http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mea
 
 
 ### Print out commands run
+
 ```
 set -x
 ```
@@ -824,44 +1004,62 @@ http://serverfault.com/questions/391255/what-does-passing-the-xe-parameters-to-b
 
 
 ### Start reading from middle of large file
+
 ```
 # Skip first 3 GB
 tail -c +3221225472 FILE | less
 ```
+
 http://unix.stackexchange.com/questions/8444/is-it-possible-in-bash-to-start-reading-a-file-from-an-arbitary-byte-count-offs
 
+
 ### Print full path of file
+
 NOTE: This does not work on Mac/BSD bash:
+
 ```
 # This also follows symbolic links.
 readlink -f <file>
 ```
 
+
 ### See login times
+
 ```
 last
 ```
 
+
 ### `[]` vs. `[[]]` (square brackets vs. double square brackets)
+
 See http://stackoverflow.com/questions/13542832/bash-if-difference-between-square-brackets-and-double-square-brackets. `[[]]` is an extension to `[]` and supports some extra conditional expressions.
 
+
 ### Fall back to default value when variable is not set
+
 See http://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash.
 ```
 FOO=${VARIABLE:-default}
 ```
 
+
 ### Use value of `<parameter>` as variable name and then evaluate variable
+
 ```
 ${!parameter}
 ```
+
 Suppose `$parameter` is `JAVA_HOME`, then `${!parameter}` is `${JAVA_HOME}`.
 
+
 ### Bash prompt appearance
+
 `PS1` environment variable can be used to control the appearance of the Bash prompt. See http://ss64.com/bash/syntax-prompt.html.
+
 ```
 export PS1="My simple prompt> "
 ```
+
 
 ### See quota for a user
 
@@ -884,6 +1082,14 @@ bind -P
 ```
 
 
+### Delete previous word
+
+```
+# on Mac
+Esc + Backspace
+```
+
+
 ### Delete to previous slash
 
 ```
@@ -891,6 +1097,7 @@ Esc, Ctrl-h
 ```
 
 ### Test if remote port is open
+
 See http://stackoverflow.com/questions/4922943/how-to-test-if-remote-tcp-port-is-opened-from-shell-script.
 ```
 nc -z -w5 <host> <port>
@@ -903,6 +1110,7 @@ echo $? # 0 on success, 1 on failure
 ```
 
 ### Find out when computer was last rebooted.
+
 See http://www.ehow.com/how_5915486_tell-last-time-computer-rebooted.html.
 ```
 uptime
@@ -910,12 +1118,14 @@ uptime
 The time after `up` is how long the computer has been running without reboot
 
 ### Read first few lines of a file
+
 ```
 head FILE
 ```
 
 
 ### Configure PATH
+
 ```
 # Option 1
 $HOME/.bash_profile
@@ -929,23 +1139,27 @@ http://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-vari
 
 
 ### Setting PKG_CONFIG_PATH for pkg-config
+
 There should be .pc files in the `PKG_CONFIG_PATH`.
 ```
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ```
 
 ### Get ./configure help
+
 ```
 ./configure --help
 ```
 
 ### Parcellite
+
 Cycle through clipboard:
 ```
 Ctrl + Alt + H, arrow keys, Enter
 ```
 
 ### Convert string to lowercase
+
 ```
 $ string="A FEW WORDS"
 $ echo ${string,}
@@ -957,6 +1171,7 @@ a FeW WoRDS
 ```
 
 ### Print folder tree / directory structure
+
 ```
 tree DIR
 tree -d DIR # print directories only
@@ -967,6 +1182,7 @@ tree -I build
 ```
 
 ### Extract filename and extension
+
 See http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash.
 ```
 extension="${filename##*.}"
@@ -976,18 +1192,21 @@ filename="${filename%.*}"
 * `%` matches and removes from the end.
 
 ### `cut` on whitespace
+
 ```
 tr -s ' ' | cut -d ' ' -f 4
 ```
 `-s` means `--squeeze-repeats`, which means to replace repeated instances of the character with a single instance.
 
 ### Trim whitespace
+
 ```
 cat FILE | tr -d '[[:space:]]'
 ```
 http://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 
 ### Send mail from command line
+
 ```
 mailx -s "Testing mailx" -a testattachment EMAIL_ADDRESS_1,EMAIL_ADDRESS_2
 BODY_OF_MESSAGE
@@ -995,12 +1214,14 @@ BODY_OF_MESSAGE
 ```
 
 ### List input devices
+
 ```
 xinput list
 lsusb
 ```
 
 ### Figure out your mouse buttons
+
 ```
 xev | grep button
 # Click around in pop-up window
@@ -1008,21 +1229,35 @@ xev | grep button
 
 
 ### Download file using `curl`
+
 ```
 curl http://example.com > example.txt
 ```
 
 ### MOTD (Message of the Day)
+
 Check out `/etc/motd`.
 
 
 ### Print all except first line
+
 ```
 tail -n +2
 ```
+
 See http://stackoverflow.com/questions/3507999/whats-the-opposite-of-head-i-want-all-but-the-first-n-lines-of-a-file.
 
+
+### Print last column
+
+```
+# $NF is number of fields
+hadoop fs -ls /input/part* | awk '{printf "%s ", $NF}'
+```
+
+
 ### Print columns of file in different order
+
 ```
 awk '{ print $4 " " $1 " " $5 }' FILE
 ```
@@ -1036,6 +1271,17 @@ sed 's/\/$//'
 ```
 
 See http://stackoverflow.com/questions/9044465/list-of-dirs-without-lates.
+
+
+### Delete lines in files
+
+```
+# Mac
+sed -i '' '/pattern/d' ./infile
+sed -i '' '/pattern/d' ./*.conf
+```
+
+https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string
 
 
 ### Find and replace
@@ -1077,6 +1323,7 @@ perl -pi -w -e 's/ahsu/dalitest/g' *.job
 
 
 ### lowercase line
+
 perl -pi -w -e 's/(^LINE_TO_LOWERCASE$)/lc($1)/ge'
 # /e tells Perl to evaluate replacement as Perl expression first
 ```
@@ -1095,18 +1342,22 @@ fi
 ```
 
 ### Match digit or other character classes
+
 ```
 ls -ld [[:digit:]]*
 ```
 http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_03.html#sect_04_03_02
 
 ### Auto enter input in command line
+
 ```
 yes | ./script
 ```
 http://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 
+
 ### Delete files older than 1 day
+
 ```
 # Test
 find ./my_dir -mtime +1
@@ -1116,25 +1367,44 @@ find ./my_dir -mtime +1 -delete
 ```
 http://stackoverflow.com/questions/13489398/delete-files-older-than-10-days-using-shell-script-in-unix
 
+
 ### Delete /tmp folders belonging to a user
+
 ```
 ls -l /tmp | grep $USER | tr -s ' ' | cut -d ' ' -f 9 | xargs -I% rm -rf /tmp/%
 ```
 
+
 ### Copy directory while resolving symlinks
+
 ```
 cp -Lr FROM TO
 ```
+
 http://superuser.com/questions/216919/how-to-copy-symlinks-to-target-as-normal-folders
 
 
+### Single quote literals inside single-quoted string
+
+Mix and match single and double-quoted strings.
+
+```
+'foo'"'"'bar'  # foo'bar
+```
+
+https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
+
+
 ### Double Quotes
-* Preserve literal value of all characters except $, `, \, and ! (when history expansion is enabled).
+
+* Preserve literal value of all characters except `$`, `\``, `\\`, and `!` (when history expansion is enabled).
 * http://www.gnu.org/software/bash/manual/html_node/Double-Quotes.html
 
 
 ### Extract substring in Bash
+
 http://stackoverflow.com/questions/13373249/extract-substring-using-regexp-in-plain-bash
+
 ```
 echo "US/Central - 10:26 PM (CST)" | grep -oP "\-\s+\K\d{2}:\d{2}"
 
@@ -1142,7 +1412,9 @@ $ echo "US/Central - 10:26 PM (CST)" |
     perl -lne 'print $& if /\-\s+\K\d{2}:\d{2}/'
 ```
 
+
 ### Update symlink
+
 ```
 # Mac
 ln -hfs NEW_LOCATION EXISTING_LINK
@@ -1155,12 +1427,14 @@ ln -fns NEW_LOCATION EXISTING_LINK
 
 
 ### Length of array
+
 ```
 ${#array[@]}
 ```
 http://unix.stackexchange.com/questions/193039/how-to-count-the-length-of-an-array-defined-in-bash
 
 ### Check filesystem type
+
 ```
 # Linux
 df -T
@@ -1171,6 +1445,7 @@ http://unix.stackexchange.com/questions/53313/how-to-show-the-filesystem-type-vi
 
 
 ### For loop
+
 ```
 for i in {1..5}
 do
@@ -1181,6 +1456,7 @@ done
 ```
 
 ### Loop over all files in directory
+
 ```
 for f in *; do echo $f; done
 
@@ -1191,6 +1467,7 @@ http://www.cyberciti.biz/faq/bash-loop-over-file/
 
 
 ### Split string
+
 ```
 # into multiple lines
 echo $FOO | tr '<delimiter>' '\n'
@@ -1219,6 +1496,7 @@ http://stackoverflow.com/questions/673055/correct-bash-and-shell-script-variable
 
 
 ### Multiline String
+
 ```
 s=$(cat << EOF
 multi
@@ -1229,4 +1507,5 @@ EOF
 
 echo "$s"
 ```
+
 http://stevemorin.blogspot.com/2011/01/multi-line-string-in-bash.html

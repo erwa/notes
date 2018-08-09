@@ -1,3 +1,13 @@
+### Avro table
+
+```
+create external table <table_name>
+stored as avro
+location '/path/to/avro/data'
+tblproperties('avro.schema.literal' = '{... schema ...}');
+```
+
+
 ### Hybrid table, union type
 
 ```

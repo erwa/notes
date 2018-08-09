@@ -1,3 +1,16 @@
+### Shorting a stock
+
+Done on a margin account. Borrow stock shares from broker, sell immediately at market price, get profit. At a future date, buy equivalent number of stock shares and give back to broker.
+
+
+### Tax-loss harvesting
+
+When your investment loses value, if you sell and buy something comparable, total value stays the same but you've realized a capital loss, which is tax-deductible. However, you can't sell and buy something "substantially identical" within 30 days. But you can buy something correlated but not substantially identical. Generally speaking, different stocks, even in the same industry, are NOT considered substantially identical. Up to $3000 of loss is tax deductible.
+
+* https://www.investopedia.com/articles/taxes/08/tax-loss-harvesting.asp
+* https://www.kitces.com/blog/the-wash-sale-problem-when-tax-loss-harvesting-almost-substantially-identical-mutual-funds-and-etfs/
+
+
 ### Hard pull vs. soft pull on credit score
 
 General rule of thumb:
@@ -39,31 +52,37 @@ http://www.investopedia.com/terms/p/price-earningsratio.asp
 
 
 ### Cost Basis
+
 Original value of an asset for tax purposes, usually the purchase price.
 
 http://www.investopedia.com/terms/c/costbasis.asp
 
 
 ### Wealthfront
+
 Robo-investor. No fees on first $10k. 0.25% fee on money exceeding $10k. Does tax-loss harvesting.
 
 
 ### Mutual Fund Capital Gains Distribution
+
 When manager sells stuff in mutual fund, gains must be distributed to investors, and those show up as capital gains distributions in taxable accounts.
 
 
 ### Mutual Fund
+
 A pool of money from many investors that is managed and invested into stocks, bonds, commodities, real estate, etc. Traded only once per day after the market has closed. Price is determined by net asset value divided by number of shares.
 
 http://www.investopedia.com/articles/investing/092915/trading-mutual-funds-beginners.asp
 
 #### No Transaction Fee
+
 Means you can buy the mutual fund with no up-front commission charge. The transaction fee is something charged by the *broker*, not the fund itself.
 
 http://money.stackexchange.com/questions/4364/why-does-a-no-load-fund-have-transaction-fees-isnt-that-a-contradiction
 http://www.investopedia.com/terms/n/ntfmutualfund.asp
 
 #### No Load
+
 Shares are bought and sold without a commission or sales charge. Properties of the fund itself, but a transaction fee could still be charged by the broker.
 
 Load funds are charged commission either at purchase time (front-end load) or sales time (back-end load).
@@ -72,6 +91,7 @@ http://www.investopedia.com/terms/n/no-loadfund.asp
 
 
 ### Index Fund
+
 A type of mutual fund that tracks an index. Generally lower management fees, since no need to hire a research team to actively manage it.
 
 
@@ -97,12 +117,14 @@ http://www.investopedia.com/terms/w/washsalerule.asp
 
 
 ### Balance Transfer
+
 Using one credit card to pay another.
 
 https://www.nerdwallet.com/blog/credit-cards/balance-transfer-3/
 
 
 ### Short and long term capital gains
+
 Short-term capital gains are taxed at the same rate as your income bracket.
 
 Long-term capital gains (assets held for more than 1 year) are taxed at a lower rate (15%).
@@ -111,9 +133,12 @@ https://en.wikipedia.org/wiki/Capital_gains_tax_in_the_United_States
 
 
 ### Roth 401k vs traditional 401k
+
 Contributions to Roth 401k are taxed, but earnings are not taxed, and distributions are not taxed.
 
 401k is not taxed immediately but taxed when distributed. Earnings are taxed at distribution time.
+
+With a traditional 401k, the account value will be larger at retirement, but you'll have to pay taxes on distributions (which include your earnings).
 
 https://en.wikipedia.org/wiki/Roth_401(k)
 

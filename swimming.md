@@ -1,3 +1,13 @@
+### Morris County Public Pools
+
+* At Gold's Gym, 901 NJ-10, Whippany, NJ 07981
+** Zapp Athletic Club / Swim Quest
+** http://jccmetrowest.org/wp-content/uploads/2017/10/Aquatics-Pool-Schedule-Sep2017-Jun2018_18_11x17-brochure.pdf
+* At Sheraton Parsippany Hotel's Atlantis Sports Club & Spa, 199 Smith Rd, Parsippany, NJ 07054
+** SMALL pool, about 15 yards in length
+** $20 for adult
+
+
 ### Bay Area Events
 
 Splash and Dash
@@ -23,6 +33,8 @@ https://www.quora.com/Is-it-better-to-wear-your-goggles-over-or-under-your-swim-
 
 ### Bay Area Open Water Swim Locations
 
+* Gull Park, Foster City (recommended by Soren, Open Water Swim Clinic instructor at Fremont High School (4/14))
+
 http://rhorii.com/BABP/bestswim.htm
 
 
@@ -35,6 +47,7 @@ Water quality: http://gis.co.santa-cruz.ca.us/PublicWaterQuality/
 ### Pools in Bay Area
 
 Sunnyvale Swim Complex at Fremont High School
+- Overview of schedule, classes, and fees: http://www.calsportscenter.com/wp-content/uploads/2017-fee-schedule-Final.pdf
 - http://www.calsportscenter.com/locations/sunnyvale-swim/
 - lap swim generally M-F 6-8 am, 6-8 pm; Sat/Sun 8-11 am
 - Masters: M-F 8-9 am, Tu/Th 5:30-6:30 am, Sat: 8-9am

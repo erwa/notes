@@ -1,3 +1,44 @@
+### Print transitive dependencies
+
+Use `pipdeptree`.
+
+https://stackoverflow.com/questions/9232568/identifying-the-dependency-relationship-for-python-packages-installed-with-pip
+
+
+### Double slash `//`
+
+Divide and round down.
+
+https://stackoverflow.com/questions/1535596/what-is-the-reason-for-having-in-python
+
+
+### Random integer
+
+```
+# Return a random integer N such that a <= N <= b
+random.randint(a, b)
+```
+
+https://docs.python.org/2/library/random.html#random.randint
+
+
+### `range` vs. `xrange`
+
+`range(a, b)` creates a list [a, b). `xrange` does so lazily.
+
+
+### switch-case
+
+Python does not support switch-case. Use if/else-if/else instead.
+
+https://stackoverflow.com/questions/11479816/what-is-the-python-equivalent-for-a-case-switch-statement
+
+
+### Lint
+
+Run `flake8`. Checks files recursively.
+
+
 ### Parse HTML
 
 ```
@@ -10,6 +51,13 @@ print parsed_html.body.find('div', attrs={'class':'container'}).text
 https://stackoverflow.com/questions/11709079/parsing-html-using-python
 
 
+### Wheel vs. Egg
+
+Wheel is newer (2012) vs. Egg (2004). Both are packaging formats that can be installed without building/compilation. Wheel is the current standard for built packages.
+
+https://packaging.python.org/discussions/wheel-vs-egg/
+
+
 ### Install Wheel
 
 ```
@@ -20,6 +68,8 @@ https://stackoverflow.com/questions/27885397/how-do-i-install-a-python-package-w
 
 
 ### Compile Python files
+
+Can be used to validate Python syntax.
 
 ```
 python -m py_compile test.py test2.py
@@ -83,10 +133,12 @@ os.devnull
 import subprocess
 subprocess.DEVNULL
 ```
+
 https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7
 
 
 ### Get host from IP
+
 ```
 import socket
 socket.getfqdn('<IP_ADDRESS>')
@@ -99,6 +151,7 @@ http://click.pocoo.org/5/
 
 
 ### Multiline strings
+
 ```
 s = """ this is a very
         long string if I had the
@@ -109,6 +162,7 @@ s = """ this is a very
       "for sure ..."
      )
 ```
+
 http://stackoverflow.com/questions/10660435/pythonic-way-to-create-a-long-multi-line-string
 
 
@@ -132,11 +186,13 @@ http://stackoverflow.com/questions/4512557/python-if-key-in-dict-vs-try-except/4
 
 
 ### Test if object is string or unicode
+
 ```
 isinstance(obj, basestring)
 # equivalent to
 isinstance(obj, (str, unicode))
 ```
+
 https://docs.python.org/2/library/functions.html#isinstance
 https://docs.python.org/2/library/functions.html#basestring
 
@@ -173,25 +229,31 @@ http://stackoverflow.com/questions/9004135/merge-multiple-xml-files-from-command
 
 
 ### Install pip
+
 ```
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 ```
+
 https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py
 
 On Linux:
 ```
 sudo easy_install -U pip
 ```
+
 http://stackoverflow.com/questions/28031277/pip-install-error-cannot-import-name-unpack-url
 
 
 ### Manipulate images
+
 Use Pillow
+
 ```
 # http://pillow.readthedocs.io/en/latest/installation.html
 pip install Pillow
 ```
+
 http://stackoverflow.com/questions/3735553/how-do-i-read-an-image-file-using-python
 
 Pillow does not support multi-channel images with > 8 bits per channel.
@@ -199,14 +261,17 @@ https://github.com/python-pillow/Pillow/issues/2107
 
 
 ### String contains
+
 ```
 if "blah" in my_var:
     ...
 ```
+
 http://stackoverflow.com/questions/3437059/does-python-have-a-string-contains-substring-method
 
 
 ### Enum to String
+
 ```
 from enum import Enum
 
@@ -218,10 +283,19 @@ class D(Enum):
 
 print(D.x.value)
 ```
+
 http://stackoverflow.com/questions/24487405/python-enum-getting-value-of-enum-on-string-conversion
 
 
+### Generator
+
+Iterable you can only iterate over once. Generators do not store values in memory; they generate them on the fly.
+
+https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
+
+
 ### Handling exception thrown in a generator
+
 Once a generator throws an exception, it exits. You cannot keep consuming items after that.
 
 http://stackoverflow.com/questions/11366064/handle-an-exception-thrown-in-a-generator
@@ -298,10 +372,12 @@ while True:
     except EOFError:  # terminate on Ctrl+D
         sys.exit()
 ```
+
 http://stackoverflow.com/questions/17650754/how-can-i-capture-ctrl-d-in-python-interactive-console
 
 
 ### Connect to MySQL
+
 ```
 #!/usr/bin/env python
 
@@ -325,16 +401,19 @@ db.close()
 
 
 ### Get function name as string
+
 ```
 def foo
     pass
 
 foo.__name__
 ```
+
 http://stackoverflow.com/questions/251464/how-to-get-a-function-name-as-a-string-in-python
 
 
 ### logging
+
 ```
 import logging
 logging.warning('Watch out!')  # will print a message to the console
@@ -353,15 +432,18 @@ logging.warning('is when this event was logged.')
 ```
 
 Convert logging level string to int:
+
 ```
 Log = logging.getLogger('myLogger')
 level = logging.getLevelName('INFO')
 Log.setLevel(level)
 ```
+
 http://stackoverflow.com/questions/10332748/python-logging-setlevel
 
 
 ### ArgumentParser
+
 Example:
 ```
 from argparse import ArgumentParser
@@ -389,18 +471,22 @@ Multiline help text:
 from argparse import RawTextHelpFormatter
 parser = ArgumentParser(description='test', formatter_class=RawTextHelpFormatter)
 ```
+
 http://stackoverflow.com/questions/3853722/python-argparse-how-to-insert-newline-in-the-help-text
 
 
 ### sleep
+
 ```
 import time
 time.sleep(5) # delays for 5 seconds
 ```
+
 http://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
 
 
 ### Expand list to function arguments / unpacking argument lists
+
 ```
 def foo(x,y,z):
    return "%d, %d, %d" % (x,y,z)
@@ -410,26 +496,32 @@ values = [1,2,3]
 # the solution.
 foo(*values)
 ```
+
 http://stackoverflow.com/questions/7745952/python-expand-list-to-function-arguments
 
 
 ### Invoke method by name
+
 ```
 import foo
 result = getattr(foo, 'bar')()
 ```
+
 http://stackoverflow.com/questions/3061/calling-a-function-of-a-module-from-a-string-with-the-functions-name-in-python
 
 
 ### Iterate with index
+
 ```
 for idx, val in enumerate(ints):
     print(idx, val)
 ```
+
 http://stackoverflow.com/questions/522563/accessing-the-index-in-python-for-loops
 
 
 ### Convert epoch to datetime
+
 ```
 import time
 time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime(1347517370))
@@ -437,7 +529,9 @@ time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime(1347517370))
 
 
 ### Variable Scope
+
 A function introduces a new scope.
+
 ```
 def foo(a):
     if a:
@@ -448,6 +542,7 @@ def foo(a):
     print b  # b will be either True or False, unlike in Java,
              # where b would not be defined
 ```
+
 http://stackoverflow.com/questions/291978/short-description-of-python-scoping-rules
 
 
@@ -457,6 +552,7 @@ http://stackoverflow.com/questions/291978/short-description-of-python-scoping-ru
 import getpass
 pw = getpass.getpass()
 ```
+
 http://stackoverflow.com/questions/1761744/read-password-from-stdin
 
 
@@ -465,18 +561,23 @@ http://stackoverflow.com/questions/1761744/read-password-from-stdin
 ```
 s.endswith('foo')
 ```
+
 http://www.tutorialspoint.com/python/string_endswith.htm
 
 
 ### Variable substitution inside triple strings
+
 ```
 """%s is awesome.""" % 'Pizza'
 ```
+
 http://stackoverflow.com/questions/3877623/in-python-can-you-have-variables-within-triple-quotes-if-so-how
 
 
 ### doctest
+
 Test interactive Python examples in documentation
+
 ```
 """
 This is the "example" module.
@@ -493,6 +594,7 @@ if __name__ == "__main__":
     import doctest
     doctest.testmod()
 ```
+
 https://docs.python.org/2/library/doctest.html
 
 
@@ -502,6 +604,7 @@ https://docs.python.org/devguide/documenting.html
 
 
 ### Unicode string comparison
+
 ```
 u'MyString' == 'MyString'  # True
 u'MyString' is 'MyString'  # False
@@ -581,6 +684,7 @@ https://www.python.org/dev/peps/pep-0008/#should-a-line-break-before-or-after-a-
 
 
 ### Class and static methods
+
 First argument to a class method is the class (not an instance). Static method does not take any required arguments.
 
 ```
@@ -598,6 +702,7 @@ http://stackoverflow.com/questions/12179271/python-classmethod-and-staticmethod-
 
 
 ### Accessing class variables
+
 Assigning to an instance variable (self.foo) named the same as a class variable (Class.foo) will hide the class attribute with an instance attribute with the same name.
 ```
 >>> class RLCN:
@@ -618,30 +723,37 @@ Assigning to an instance variable (self.foo) named the same as a class variable 
 >>> RLCN.static_var, rlcn.static_var
 (6, 7)
 ```
+
 http://stackoverflow.com/questions/25577578/python-access-class-variable-from-instance
 
 
 ### `self` argument
+
 First argument to every instance method, including `__init__`, is a reference to the current instance of the class.
 
 https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
 
 
 ### String startswith
+
 ```
 s.startswith('foo')
 ```
+
 https://www.tutorialspoint.com/python/string_startswith.htm
 
 
 ### Lowercase a string
+
 ```
 s.lower()
 ```
+
 https://stackoverflow.com/questions/6797984/how-to-convert-string-to-lowercase-in-python
 
 
 ### Naming conventions
+
 ```
 _INTERNAL_CLASS_CONSTANT
 PUBLIC_CLASS_CONSTANT
@@ -655,19 +767,33 @@ MyClass
 
 # packages (directories) should use lowercasepreferablywithoutunderscores
 ```
+
 https://google.github.io/styleguide/pyguide.html?showone=Naming#Naming
 http://programmers.stackexchange.com/questions/308972/python-file-naming-convention
 
 
+### Print module search path
+
+```
+import sys
+print sys.path
+```
+
+https://stackoverflow.com/questions/5751292/how-to-get-current-import-paths-in-python
+
+
 ### Find location library is installed / get file path of imported module
+
 ```
 import jpype
 print jpype.__file__
 ```
+
 http://stackoverflow.com/questions/269795/how-do-i-find-the-location-of-python-module-sources
 
 
 ### Set environment variable
+
 ```
 import os
 os.environ['FOO'] = 'bar'
@@ -734,9 +860,12 @@ class Test(object):
         if arg > cls.i:
             cls.i = arg # would the the same as  Test.i = arg1
 ```
+
 http://stackoverflow.com/questions/68645/static-class-variables-in-python
 
+
 #### Calling other methods within a class
+
 ```
 class Bag:
     def __init__(self):
@@ -763,6 +892,7 @@ set1.update(set2)
 ```
 str.replace(old, new[, max])
 ```
+
 http://www.tutorialspoint.com/python/string_replace.htm
 
 
@@ -782,6 +912,7 @@ http://stackoverflow.com/questions/42581/python-re-sub-multiline-caret-match
 # https://docs.python.org/2/library/re.html
 line = re.sub(r'</?\[\d+>', "", line)
 ```
+
 http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replace-in-python
 
 
@@ -791,6 +922,7 @@ http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replac
 match = re.search(r'CREATE TABLE ([a-z._]+)', contents)
 print match.group(1)  # print first capture group
 ```
+
 https://docs.python.org/2/library/re.html#re.search
 
 NOTE that `re.match` only matches at the BEGINNING of the string. See https://docs.python.org/2/library/re.html#re.match.
@@ -804,6 +936,7 @@ tar = tarfile.open("sample.tar.gz")
 tar.extractall()
 tar.close()
 ```
+
 http://stackoverflow.com/questions/8893359/untar-archive-in-python-with-errors
 
 
@@ -835,6 +968,7 @@ print myfile
 import json
 obj = json.loads(myfile)
 ```
+
 http://stackoverflow.com/questions/15138614/how-can-i-read-the-contents-of-an-url-with-python
 
 
@@ -851,11 +985,13 @@ handle = urllib.urlopen('http://host/foo.tgz')
 tarfile = tarfile.open(fileobj=StringIO(handle.read()))
 print tarfile.extractfile('file_inside_tgz').read()
 ```
+
 http://stackoverflow.com/a/4204690/1128392
 http://stackoverflow.com/questions/8858414/using-python-how-do-you-untar-purely-in-memory
 
 
 ### `defaultdict`
+
 ```
 from collections import defaultdict
 
@@ -866,10 +1002,12 @@ for k in s:
 # Create defaultdict with initial values
 d = defaultdict(int, {'a': 1, 'b': 2})
 ```
+
 http://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work
 
 
 ### Run shell command
+
 ```
 # using command substitution
 subprocess.Popen('echo `date`', shell=True)
@@ -877,20 +1015,46 @@ subprocess.Popen('echo `date`', shell=True)
 # using wildcards
 subprocess.Popen('cat foo*', shell=True)
 ```
+
 http://stackoverflow.com/questions/9997048/python-subprocess-wildcard-usage
 
 
-### Run background process
+### Kill process by pid
+
+```
+import os
+import signal
+
+os.kill(pid, signal.SIGTERM) #or signal.SIGKILL
+```
+
+
+### Remember pid of launched background process
+
 ```
 import subprocess
+pid = subprocess.Popen('tensorboard ...', shell=True).pid
+```
+
+https://stackoverflow.com/questions/7989922/opening-a-process-with-popen-and-getting-the-pid
+
+
+### Run background process
+
+```
+import subprocess
+subprocess.Popen('rm -r some.file', shell=True)
 subprocess.Popen(["rm","-r","some.file"])
 
 # subprocess.Popen() only runs a process in the background if nothing
 # in the python script depends on the output of the command being run
 ```
+
 http://stackoverflow.com/a/7224186/1128392
 
+
 ### Write to and read from other process
+
 ```
 #!/usr/bin/env python
 from subprocess import PIPE, Popen
@@ -915,6 +1079,7 @@ done < "${1:-/dev/stdin}"
 
 
 ### Parallel commands
+
 ```
 import multiprocessing as mp
 import time
@@ -922,10 +1087,12 @@ import time
 pool = mp.Pool(3)
 results = pool.map(time.sleep, [4, 6, 8])
 ```
+
 http://stackoverflow.com/a/12097555/1128392
 
 
 ### Write to file or stdout
+
 ```
 output = open(file, 'w') if file else sys.stdout
 
@@ -936,32 +1103,46 @@ if output is not sys.stdout:
 ```
 
 
+### `with` statement, context managers
+
+Context manager has `__enter__` and `__exit__` methods. Can also use `@contextmanager` decorator to combine `__enter__` and `__exit__`.
+
+https://docs.python.org/2.5/whatsnew/pep-343.html
+
+
 ### `with open` multiple files
+
 ```
 # Possible in Python 2.7+
 with open(newfile, 'w') as outfile, open(oldfile, 'r', encoding='utf-8') as infile:
 ```
+
 http://stackoverflow.com/questions/9282967/how-to-open-a-file-using-the-open-with-statement
 
 
 
 ### Write to file
+
 ```
 with open('somefile.txt', 'w') as the_file:
     the_file.write('Hello\n')
 ```
+
 http://stackoverflow.com/a/6160082/1128392
 
 
 ### Zip files
+
 ```
 import shutil
 shutil.make_archive(output_filename, 'zip', dir_name)
 ```
+
 http://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory
 
 
 ### Global Variables
+
 Reading from global variable does not require any special modifiers. To write to a global variable from a function, add
 ```
 global <var_name>
@@ -1001,6 +1182,7 @@ with open('data.txt', 'r') as myfile:
 # Option 3: one-liner that does not close the file
 data = open("data.txt").read().replace('\n','')
 ```
+
 http://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-string-variable-in-python
 
 
@@ -1028,7 +1210,26 @@ if len(sys.argv) > 1:
   ...
 
 
+### Add to list
+
+```
+my_list.insert(index, new_element)
+```
+
+
+### Remove from list
+
+```
+# remove from list by index
+del my_list[index]
+
+# remove from list by index and return deleted element
+deleted_element = my_list.pop(index)
+```
+
+
 ### Split list into multiple variables
+
 ```
 a = [1, 2]
 b, c = a  # b = 1, c = 2
@@ -1036,13 +1237,16 @@ b, c = a  # b = 1, c = 2
 
 
 ### Split string into two variables
+
 ```
 firstName, lastName = myString.split()
 ```
+
 http://stackoverflow.com/a/6670331/1128392
 
 
 ### Split string by whitespace
+
 ```
 # str.split() splits on whitespace by default
 >>> "many   fancy word \nhello    \thi".split()
@@ -1052,6 +1256,7 @@ http://stackoverflow.com/a/6670331/1128392
 import re
 re.split(r'\s+', <string>)  # 'r' means raw string
 ```
+
 http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
 
 
@@ -1061,6 +1266,7 @@ http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
 
 
 ### Write without newline
+
 ```
 import sys
 sys.stdout.write()
@@ -1070,14 +1276,18 @@ sys.stdout.write()
 # http://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python
 sys.stderr.write()
 
+
 ### Add a module import path
+
 ```
 sys.path.append("/path/to/directory")
 ```
+
 http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-permanently
 
 
 ### Insert list at beginning of list
+
 ```
 >>> a = [1,2,3]
 >>> a[:0] = [4,5,6]
@@ -1087,34 +1297,43 @@ http://stackoverflow.com/questions/10531359/how-do-i-add-a-python-import-path-pe
 
 
 ### Concat lists
+
 ```
 list1 + list2
 ```
+
 http://stackoverflow.com/questions/4344017/how-can-i-get-the-concatenation-of-two-lists-in-python-without-modifying-either
 
 
-### Append to list
+### Append to list / add element to end of list
+
 ```
 list.append(x)
 ```
+
 http://www.tutorialspoint.com/python/list_append.htm
 
 
-### Convert string to int
+### Convert string to int / atoi
+
 ```
 int(s)
 ```
+
 http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
 
 
 ### Count occurrences of character in string
+
 ```
 s.count('a')
 ```
+
 https://stackoverflow.com/questions/2600191/how-can-i-count-the-occurrences-of-a-list-item-in-python
 
 
 ### Convert list/array to string
+
 # http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
 list1 = ['1', '2', '3']
 str1 = ''.join(list1) # 123
@@ -1132,62 +1351,96 @@ output_dir[:output_dir.rfind('/')]
 
 
 ### String find
+
 ```
 str.find(str, beg=0, end=len(string))
 ```
+
 https://www.tutorialspoint.com/python/string_find.htm
 
 
 ### Check if file exists
+
 ```
 import os.path
 os.path.isfile(fname)
 ```
+
 http://stackoverflow.com/questions/82831/how-to-check-whether-a-file-exists-using-python
 
 
-#### Check if path exists and is directory
+### Check if path exists and is directory
+
 ```
 os.path.exists(path) and os.path.isdir(path)
 ```
+
 http://stackoverflow.com/a/8933290/1128392
 
-#### Change current working directory
+
+### Change current working directory
+
 ```
 os.chdir(path)
 ```
+
 http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python
 
-# Check if path is directory
-# https://docs.python.org/2/library/os.path.html#os.path.isdir
+
+### Check if path is directory
+
+https://docs.python.org/2/library/os.path.html#os.path.isdir
+
+```
 os.path.isdir(path)
+```
 
-# List files in directory
-# https://docs.python.org/2/library/os.html#os.listdir
+
+### List files in directory
+
+https://docs.python.org/2/library/os.html#os.listdir
+
+```
 os.listdir(<path>)
+```
 
-# Using regular expressions
-# http://stackoverflow.com/questions/4666973/how-to-extract-a-substring-from-inside-a-string-in-python
+### Using regular expressions
+
+http://stackoverflow.com/questions/4666973/how-to-extract-a-substring-from-inside-a-string-in-python
+
+```
 import re
 text = 'gfgfdAAA1234ZZZuijjk'
 m = re.search('AAA(.+?)ZZZ', text)
 if m:
     found = m.group(1) # found: 1234
+```
 
-# __init__.py file used to make Python treat directory as package
-# https://docs.python.org/2/tutorial/modules.html#packages
 
-# __str__ vs. __repr__
-# http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
-# __repr__ is unambiguous representation, __str__ is human-readable representation
-# if __repr__ defined and __str__ undefined, then __str__ = __repr__
-str(x)
-repr(x)
+### `__init__.py` file
 
-# *args and **kwargs
-# http://stackoverflow.com/questions/3394835/args-and-kwargs
-# *args = list of args as positional arguments
-# **kwargs = list of named args as dictionary
+Used to make Python treat directory as package.
+
+https://docs.python.org/2/tutorial/modules.html#packages
+
+
+### `__str__` vs. `__repr__`
+
+http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
+
+* `__repr__` is unambiguous representation, `__str__` is human-readable representation.
+* if `__repr__` defined and `__str__` undefined, then `__str__` = `__repr__`
+* `str(x)`
+* `repr(x)`
+
+
+### `*args` and `**kwargs`
+
+http://stackoverflow.com/questions/3394835/args-and-kwargs
+
+* `*args` = list of args as positional arguments
+* `**kwargs` = list of named args as dictionary
+
 
 ### Dictionaries
 
@@ -1196,7 +1449,7 @@ repr(x)
 if key in d:
 # http://stackoverflow.com/questions/1602934/check-if-a-given-key-already-exists-in-a-dictionary
 
-# Iterate over dictionary
+# Iterate over dictionary / iterate over map
 for key in d:
 for k,v in d.iteritems():
 
@@ -1211,12 +1464,17 @@ for k in mydict.keys(): # Creates copy of keys
 # http://stackoverflow.com/questions/5384914/how-to-delete-items-from-a-dictionary-while-iterating-over-it
 ```
 
+
 ### Docstrings
+
 See https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring.
 > A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the __doc__ special attribute of that object.
 
+
 ### Convert letter to int and back
+
 http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
+
 ```
 >>> ord('a')
 97
@@ -1227,12 +1485,14 @@ http://stackoverflow.com/questions/227459/ascii-value-of-a-character-in-python
 >>>
 ```
 
+
 ### Built-in exceptions
 
 https://docs.python.org/2/library/exceptions.html
 
 
 ### try except else
+
 https://docs.python.org/2/tutorial/errors.html#handling-exceptions
 
 ```
@@ -1249,11 +1509,14 @@ for arg in sys.argv[1:]:
 
 `else` clause must follow all `except` clauses and will be executed if the `try` block does not throw an exception.
 
+
 ### raise exception / reraise exception
+
 `raise` by itself re-raises the thrown exception.
 
 
 ### Debugger
+
 ```
 python -m pdb myscript.py
 
@@ -1285,21 +1548,26 @@ r
 # Quit
 q
 ```
+
 https://docs.python.org/2/library/pdb.html
 
 ### Exit with error code
+
 ```
 import sys
 sys.exit(1)
 ```
 
 ### Disable output buffering
+
 ```
 python -u foo.py
 ```
+
 http://stackoverflow.com/questions/107705/disable-output-buffering
 
 ### Redirect output
+
 http://stackoverflow.com/questions/4675728/redirect-stdout-to-a-file-in-python
 ```
 import sys
@@ -1312,6 +1580,7 @@ $ python foo.py > file
 ```
 
 ### mkdir
+
 ```
 os.mkdir(path)
 
@@ -1319,9 +1588,12 @@ os.mkdir(path)
 if not os.path.exists(directory):
     os.makedirs(directory)
 ```
+
 http://www.tutorialspoint.com/python/os_mkdir.htm
 
+
 ### Delete file or folder
+
 ```
 # Remove a file
 if os.path.isfile(path):
@@ -1331,22 +1603,28 @@ if os.path.isfile(path):
 os.rmdir()
 
 ### Delete a directory and all its contents / remove directory
+
 shutil.rmtree(path[, ignore_errors=False])
 # https://docs.python.org/2/library/shutil.html#shutil.rmtree
 ```
+
 http://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
 
+
 ### Delete if not exists
+
 ```
 try:
     os.remove(filename)
 except OSError:
     pass
 ```
+
 http://stackoverflow.com/questions/10840533/most-pythonic-way-to-delete-a-file-which-may-not-exist
 
 
 ### Read output of command as list
+
 ```
 import os
 fo = os.popen('ls')
@@ -1355,21 +1633,28 @@ result = fo.read().split()
 
 
 ### Run external command
+
 ```
 from subprocess import call
 exit_status = call(["ls", "-l"])
 ```
+
 http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
 
 
 ### Run external command and capture output
+
 ```
 from subprocess import check_output
+
+# output is no longer written to stdout
 output=check_output("dmesg | grep hda", shell=True)
 ```
+
 https://docs.python.org/2/library/subprocess.html#subprocess-replacements
 
 Ignore stderr
+
 ```
 from subprocess import check_output
 import os
@@ -1393,13 +1678,16 @@ exit_status = process.returncode
 process = Popen(cmd, stdout=PIPE, stderr=PIPE)
 (output, errorOutput) = process.communicate()  # Blocks until process finishes
 ```
+
 http://stackoverflow.com/a/4760517/1128392
 
 
 ### Print current working directory / current directory
+
 ```
 os.getcwd()
 ```
+
 http://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
 
 
@@ -1411,7 +1699,9 @@ http://stackoverflow.com/questions/7696924/multiline-comments-in-python
 
 
 ### Trim string
+
 ```
 s.strip()
 ```
+
 http://stackoverflow.com/questions/1185524/how-to-trim-whitespace-including-tabs
