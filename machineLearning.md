@@ -1,3 +1,17 @@
+### Output variable / response variable
+
+The variable you are trying to predict is the output or response variable.
+
+https://machinelearningmastery.com/data-terminology-in-machine-learning/
+
+
+### Top-5 error rate
+
+Fraction of test images where correct label is not in top-5 most probable labels.
+
+https://stats.stackexchange.com/questions/156471/imagenet-what-is-top-1-and-top-5-error-rate
+
+
 ### Dropout
 
 Ignoring nodes in a layer with some probability. Helps prevent overfitting.
@@ -7,7 +21,7 @@ https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-t
 
 ### Features vs. labels
 
-Features are inputs. Labels are outputs.
+Features are inputs. Labels are outputs. Training data may be *tagged* with labels.
 
 https://stackoverflow.com/questions/40898019/what-is-the-difference-between-a-feature-and-a-label
 

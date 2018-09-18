@@ -1,3 +1,17 @@
+### Edit iPhone contact on Mac
+
+Use Contacts app.
+
+https://support.apple.com/zh-tw/guide/contacts/make-changes-to-your-contacts-adrbk1515/mac
+
+
+### kernel_task
+
+When processes are using a lot of CPU and the computer is getting too hot, kernel_task will automatically run and hog CPU to reduce the amount of CPU available to the intense processes.
+
+https://support.apple.com/en-is/HT207359
+
+
 ### Brighten photo
 
 Photos app --> open photo --> Edit --> dial button for adjusting brightness
@@ -151,7 +165,7 @@ http://superuser.com/questions/421890/what-is-the-key
 Pinch or spread with 2 fingers on trackpad. Some programs support it, some don't.
 
 
-### Taking a picture with built-in webcam
+### Taking a picture with built-in webcam / take a selfie
 
 Use Photo Booth.
 
@@ -384,6 +398,13 @@ System Preferences -> Cmd + Option + click Display --> Rotation option should ap
 http://osxdaily.com/2012/05/11/batch-rotate-a-group-of-images-with-preview-for-mac-os-x/
 
 
+### Image Capture not showing iPhone photos
+
+Restart iPhone, restart Mac.
+
+https://forums.macrumors.com/threads/help-image-capture-not-recognizing-iphone-on-el-capitan.1929511/
+
+
 ### Open iPhone photos in Finder
 
 Use Image Capture to export to a folder, which you can then open in Finder.
@@ -430,18 +451,24 @@ http://www.wikihow.com/Resize-Pictures-(for-Macs)
 Batch resize with Preview: http://osxdaily.com/2009/12/16/batch-resize-images-on-mac-with-preview/
 
 
+### Send iMessages from Mac
+
+Make sure you have have enabled your Mac in Settings -> Message -> Message Delivery
+
+
 ### Text forwarding
+
 * Make sure phone and Mac are on same wifi network.
 * Open Messages on your Mac, sign in to iCloud
 * Make sure you're signed in to iCloud on your phone.
 * Settings -> Messages -> Send & Receive -> send as iCloud, add email
 * Text Forwarding should appear in iMessage menu, verification code should pop up on Mac, enter on phone.
 
-
 http://recomhub.com/blog/apple-ios-9-2-how-to-activate-text-message-forwarding/
 
 
 ### Chinese input
+
 ```
 # punctuation and emojis
 Shift + 6

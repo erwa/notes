@@ -1,3 +1,19 @@
+### Output job properties to next job
+
+```
+type=command
+command=sh test.sh
+```
+
+```
+cat <<EOF > $JOB_OUTPUT_PROP_FILE
+{
+  "foo": "bar"
+}
+EOF
+```
+
+
 ### Multiline properties
 
 Add `\` at end of each line to continue on next line.
@@ -140,13 +156,18 @@ curl -k https://<host>:<port>/index?all -b azkaban.browser.session.id=<session.i
 
 
 ### Setting jobtype properties
+
 Can just set hadoop.home and hive.home in common.properties and commonprivate.properties and don't need to redefine these properties in all the jobtype subdirectories.
 
+
 ### Pig job type Hadoop conf overrides
+
 For Pig jobs, you can override Hadoop confs by setting setting `jvm.args`. Example:
+
 ```
 -Dmapred.map.output.compression.codec=com.hadoop.compression.lzo.LzoCodec
 ```
+
 
 ### Flows in a project
 
@@ -158,36 +179,48 @@ B   C
 ```
 when you upload the project, you will get two flows: B and C
 
-# Errors
+
+### Errors
+
 If you're getting a Jetty NOT_FOUND error when you try to load Azkaban, it probably means one of your viewer plugins is not configured properly.
 
 When installing Reportal, make sure to include velocity-tools-2.0.jar and slf4j-log4j12-1.6.4.jar.
 
 If you're using Hadoop, make sure to include the hadoop-core jar and add the Hadoop conf directory to your classpath.
 
+
 ### OSX Test Failures
+
 On OSX, tests may fail unless you set
+
 ```
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 ```
+
 Fixed in https://github.com/azkaban/azkaban/pull/343.
 
+
 ### Running Azkaban as root
+
 Do not run Azkaban as root or else many default environment variables like `JAVA_HOME` and `HADOOP_HOME` will probably not be set and jobs will fail.
+
 
 ### Data triggers
 
 Azkaban currently does not support data triggers. However, one workaround is to use Azkaban's `retries` feature with `retry.backoff`.
 
------
 
 ### Building Azkaban
+
 To build just the jars (and skip the tests), run
+
 ```
 ./gradlew jar
 ```
 
+
 ### Updating the Azkaban documentation
+
 Source resides in gh-pages branch: https://github.com/azkaban/azkaban/tree/gh-pages. To use Jekyll and GitHub Pages, see https://help.github.com/articles/using-jekyll-with-pages/.
 
 ```
@@ -195,23 +228,27 @@ gem install bundler
 ```
 
 Create a `Gemfile` in repo with these contents:
+
 ```
 source 'https://rubygems.org'
 gem 'github-pages'
 ```
 
 Then run:
+
 ```
 bundle install
 bundle exec jekyll serve
 ```
 
 View the page at http://localhost:4000. If port is already in use, you can launch on different port:
+
 ```
 jekyll serve -P 4001
 ```
 
-# Azkaban Eclipse Setup
+### Azkaban Eclipse Setup
+
 1. Run some commands from a terminal:
     ```
     git clone git@github.com:azkaban/azkaban.git
@@ -237,7 +274,9 @@ jekyll serve -P 4001
 
 Now you should be able to run AzkabanSingleServer from Eclipse and view the web UI in your browser at http://localhost:8081. You can login using azkaban/azkaban. You can add additional users in azkaban-conf-local/azkaban-users.xml.
 
+
 ### Add jobtype plugins
+
 1. Run some terminal commands:
     ```
     git clone git@github.com:azkaban/azkaban-plugins.git

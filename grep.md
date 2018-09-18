@@ -1,3 +1,30 @@
+### Return number of matches / count number of matches
+
+```
+grep -c
+```
+
+https://unix.stackexchange.com/questions/6979/count-total-number-of-occurrences-using-grep
+
+
+### Grep lines longer than certain length
+
+```
+grep "duration: [[:digit:]]\+" datanode.log -o | cut -d ' ' -f 2 | grep '.\{10\}'
+```
+
+https://stackoverflow.com/questions/27026050/linux-terminal-finding-number-of-lines-longer-than-x
+
+
+### Grep with regular expressions
+
+```
+grep "duration: [[:digit:]]\+" datanode.log
+```
+
+https://www.gnu.org/software/findutils/manual/html_node/find_html/grep-regular-expression-syntax.html
+
+
 ### Grep only subdirectories matching pattern
 
 ```
@@ -46,23 +73,33 @@ grep PATTERN file1 file2
 
 
 ### Grep only files matching a pattern:
+
 ```
 grep --include=*.job -r "type=hive" ./*
 ```
 
+
 ### Grep and only show matching files:
+
 ```
 grep -l
 ```
+
 * http://stackoverflow.com/questions/3908156/grep-output-to-show-only-matching-file
 
-### Grep for classes with "Test" in their names. See http://www.robelle.com/smugbook/regexpr.html.
+
+### Grep for classes with "Test" in their names.
+
+See http://www.robelle.com/smugbook/regexpr.html.
+
 ```
 grep Test.*class
 ```
+
 NOTE: `grep Test*.class` and `grep Test*class` do NOT work as expected.
 
 Grep for files ending in .xml:
+
 ```
 grep "\.xml"
 ```

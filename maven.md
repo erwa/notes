@@ -1,3 +1,12 @@
+### Run a single test / run one test / run 1 test
+
+```
+mvn -Dtest=TestCircle#mytest test
+```
+
+http://maven.apache.org/plugins-archives/maven-surefire-plugin-2.12.4/examples/single-test.html
+
+
 ### `<dependencies>` vs. `<dependencyManagement>`
 
 `<dependencyManagement>` lets you declare all your dependencies in one place without having child POMs auto-inherit them. They can simply reference and include the ones they need.

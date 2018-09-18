@@ -111,31 +111,71 @@ git pull upstream master // git pull latest from upstream master
 git pull <remote> <src>:<dest>
 ```
 
-# create and push to remote branch from local branch
+### Create and push to remote branch from local branch
+
+```
 git push <remote> <local branch>:<remote branch>
 git push upstream junit-runner:master
 git push origin initial-queries:initial-queries
+```
 
-# set tracking branch
+
+### Set tracking branch
+
+```
 git branch --set-upstream <local-branch> <remote>/<remote-branch>
+```
 
-# see tracking branches
+
+### See tracking branches
+
+```
 git branch -vv
+```
 
-# git push one branch
+
+### git push one branch
+
+```
 git push <remote> <branch>
+```
 
-# Fetch remote branches
+
+### Fetch remote branches
+
+```
 git fetch <remote>
 git fetch <remote> <local-branch>:<remote-branch>
+```
+
 # http://stackoverflow.com/questions/11266478/git-add-remote-branch
 
-# Add refspec (you might need to do this if you did a shallow clone originally)
-git fetch origin +branch-1:branch-1
 
-# A git tag refers to a specific commit and does not change.
-# To fetch tags
+### Convert shallow clone to full clone
+
+```
+git fetch --unshallow
+```
+
+https://stackoverflow.com/questions/6802145/how-to-convert-a-git-shallow-clone-to-a-full-clone
+
+
+### Add refspec / fetch branch in shallow clone
+
+You might need to do this if you did a shallow clone originally.
+
+```
+git fetch origin +branch-1:branch-1
+```
+
+
+### Fetch tags
+
+```
 git fetch --tags
+```
+
+A git tag refers to a specific commit and does not change.
 
 
 ### Update tag
@@ -155,6 +195,7 @@ git push origin <tagname>
 ### Add annotated tag
 
 Annotated tags are meant for release versions.
+
 ```
 git tag -a TAG_NAME
 ```
@@ -167,12 +208,15 @@ git tag --sort version:refname
 ```
 http://stackoverflow.com/questions/18659959/git-tag-sorted-in-chronological-order-of-the-date-of-the-commit-pointed-to
 
+
 ### Delete remote tag
 
 ```
 git push origin :tagname
 ```
-* http://stackoverflow.com/questions/5480258/how-to-delete-a-remote-git-tag
+
+http://stackoverflow.com/questions/5480258/how-to-delete-a-remote-git-tag
+
 
 ### Show tags
 
@@ -280,15 +324,27 @@ git checkout HEAD~5 # checkout 5 commits ago
 git checkout COMMIT_HASH # checkout at specific commit
 ```
 
-# if you're in a detached HEAD state and want to get back on a branch, do
-git checkout <branch>
 
-# git remove untracked files
+### Get back on branch from detached HEAD state
+
+```
+git checkout <branch>
+```
+
+
+### Remove untracked files
+
+```
 git clean -f [-d]
 # -d removes untracked directories, too
+```
 
-# Add all untracked files
+
+### Add all untracked files
+
+```
 git add -A
+```
 
 
 ### Reset one file
@@ -356,24 +412,49 @@ git stash apply stash^{/name} # Doesn't seem to work anymore
 git stash apply stash@{0} # where 0 is a number (do git stash list first)
 ```
 
-# git pull rebase rather than merge
+
+### git pull rebase rather than merge
+
+```
 git pull --rebase
+```
 
-# git rename current branch
+
+### git rename current branch
+
+```
 git branch -m <newname>
+```
 
-# rename git branch
+
+### Rename git branch
+
+```
 git branch -m old_branch_name new_branch_name
+```
 
-# To reorder commits in git
+
+### Reorder commits in git
+
+```
 git rebase -i HEAD~2 # reorder last two commits
+```
 
-# To rebase and replay local commits on another branch
+
+### Rebase and replay local commits on another branch
+
+```
 git rebase <branch> # replays <branch> on your current branch
 git rebase <remote>/<branch>
+```
 
-# Rebase on top of a specific commit
+
+### Rebase on top of a specific commit
+
+```
 git rebase -i COMMIT_HASH
+```
+
 
 ### Undo a rebase
 
@@ -430,6 +511,11 @@ git diff --binary
 
 # Treat all files as text
 git diff --text
+
+# Highlight whitespace changes
+# Often easiest just to do reverse diff
+git diff -R
+# https://stackoverflow.com/questions/5257553/coloring-white-space-in-git-diffs-output
 
 # diff while ignoring whitespace changes
 git diff -w

@@ -1,3 +1,8 @@
+### Tuning Pig scripts
+
+http://blog.cloudera.com/blog/2015/07/how-to-tune-mapreduce-parallelism-in-apache-pig-jobs/
+
+
 ### Append to directory
 
 Not possibly natively in Pig, but you could write to another directory and then use a DFS command to move the files.

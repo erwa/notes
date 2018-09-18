@@ -1,3 +1,8 @@
+### Rates
+
+https://www.affinityfcu.com/tips-and-tools/rates-and-yields.aspx
+
+
 ### Travel Notification
 
 Log in on Affinity website --> Member Services --> Account Services --> Travel Notification Form

@@ -1,3 +1,17 @@
+### Condition variables
+
+`Condition` variables are intrinsically associated with a lock, so when `.await()` is called on the `Condition` variable, the lock gets released.
+
+https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html
+
+
+### Interrupting threads
+
+Threads must cooperate. One thread calls `Thread.interrupt()`. The other must check the interrupted status via `Thread.interrupted()`.
+
+https://stackoverflow.com/questions/3590000/what-does-java-lang-thread-interrupt-do
+
+
 ### Find jar that a class is in
 
 ```
@@ -7,6 +21,42 @@ for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; 
 http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
 
 Also check out http://findjar.com
+
+
+### Anonymous class with constructor argument
+
+```
+public class Hello {
+
+  protected String s;
+
+  public Hello(String str){
+    this.s = str;
+  }
+  public void sayHello(){
+    System.out.println(s);
+  };
+
+  void foo(){};
+}
+
+  public static void main(String[] args) {
+
+    //anonymous class inside method
+    Hello h = new Hello("abc") {
+
+      @Override
+      public void sayHello() {
+        System.out.println("Hello anonymous class "+s);
+      }
+    };
+
+    h.sayHello();
+
+  }
+```
+
+https://www.journaldev.com/12534/java-anonymous-class#java-anonymous-class-example-with-constructor-argument
 
 
 ### Switch-case indentation
@@ -678,6 +728,7 @@ http://stackoverflow.com/questions/244482/how-to-deal-with-linkageerrors-in-java
 
 
 ### Memory usage at runtime
+
 ```
 Runtime.getRuntime().totalMemory()
 Runtime.getRuntime().freeMemory()

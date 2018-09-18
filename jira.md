@@ -1,3 +1,10 @@
+### Queries
+
+```
+(summary ~ currentUser() OR description ~ currentUser() OR comment ~ currentUser()) and updatedDate >= -7d
+```
+
+
 ### Email notifications
 
 If you are mentioned in a ticket you're not the assignee or a watcher on, the email subject includes "mentioned you on".

@@ -28,11 +28,13 @@ def test_zero_division():
 https://stackoverflow.com/questions/23337471/how-to-properly-assert-that-an-exception-gets-raised-in-pytest
 
 
-### Run one pytest
+### Run one pytest / run one test
+
 ```
 pytest test_mod.py::TestClass::test_method  # run a single method in
                                             # a single class
 ```
+
 http://doc.pytest.org/en/latest/usage.html#specifying-tests-selecting-tests
 
 

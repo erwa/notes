@@ -1,3 +1,10 @@
+### Command-line browsers
+
+* lynx
+
+https://serverfault.com/questions/489192/ssh-tunnel-refusing-connections-with-channel-2-open-failed
+
+
 # Safari
 
 ### You cannot pin tabs in Safari
@@ -7,6 +14,13 @@ http://superuser.com/questions/790785/how-to-pin-a-tab-in-safari-in-osx
 
 
 # Chrome
+
+### View diffs in browser
+
+Good for upstream Hadoop patches.
+
+https://chrome.google.com/webstore/detail/git-patch-viewer/hkoggakcdopbgnaeeidcmopfekipkleg/related
+
 
 ### Open in new tab
 

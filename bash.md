@@ -1,3 +1,38 @@
+### Parameter Substitution
+
+```
+# Replace first occurrence of PATTERN with STRING or empty string
+${PARAMETER/PATTERN/STRING}
+${PARAMETER/PATTERN}
+
+# Replace all occurrences of PATTERN with STRING or empty string
+${PARAMETER//PATTERN/STRING}
+${PARAMETER//PATTERN}
+```
+
+http://wiki.bash-hackers.org/syntax/pe#search_and_replace
+
+
+### Bash function
+
+```
+function print_something() {
+  echo Hello $1
+}
+```
+
+https://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
+
+
+### Run command for each line of a file
+
+```
+cat temp | while read in; do host "$in"; done
+```
+
+https://stackoverflow.com/questions/13939038/how-do-you-run-a-command-for-each-line-of-a-file
+
+
 ### SHA256
 
 ```
@@ -32,6 +67,10 @@ https://superuser.com/questions/404780/what-bash-syntax-mean
 cp -v file1.txt{,.bak}
 # is equivalent to
 cp -v file1.txt file1.txt.bak
+
+mv foo{.bak,}
+# is equivalent to
+mv foo.bak foo
 ```
 
 https://www.cyberciti.biz/faq/explain-brace-expansion-in-cp-mv-bash-shell-commands/
@@ -97,6 +136,15 @@ cat MY_FILE | cut -d ' ' -f 11 | sed 's/,//' | awk '{s+=$1} END {print s}'
 ```
 
 http://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
+
+
+### Sort lexicographically
+
+```
+LC_ALL=C sort
+```
+
+https://superuser.com/questions/631402/sort-lexicographically-in-bash
 
 
 ### Sort by version number
@@ -557,10 +605,13 @@ ${string##substring}
 Also see http://wiki.bash-hackers.org/syntax/pe#substring_removal.
 
 Remove last character from substring:
+
 ```bash
 ${MYSTRING%?}
 ```
+
 `%` (percent) matches from the end. `?` matches any character. See http://wiki.bash-hackers.org/syntax/pattern.
+
 
 ### Bash dollar sign variables
 
@@ -608,8 +659,10 @@ getfacl <file>
 
 A user needs execute permissions on a directory to `cd` into it. Even if a file is 777, a user still needs permissions on the chain of parent directories to access the file.
 
-# `xargs`
+### `xargs`
+
 With substitution:
+
 ```
 cat temp | xargs -I 'TABLE' hive -e 'drop table TABLE'
 
@@ -626,6 +679,16 @@ Substitute in multiple places:
 find . -name *.jar | grep PATTERN1 | xargs -n1 -I% sh -c 'echo % && jar tf % | grep PATTERN2'
 ```
 `-I%` tells `xargs` to replace `%` with the arguments passed in. See http://stackoverflow.com/questions/18731610/xargs-with-multiple-commands for details.
+
+
+### SCP with proxy
+
+```
+scp -oProxyCommand="ssh -W %h:%p proxyhost.example.com" myFile destinationhost.example.com:
+```
+
+https://superuser.com/questions/276533/scp-files-via-intermediate-host
+
 
 ### scp multiple files in one command
 
@@ -879,6 +942,7 @@ date --date="1 day ago" +%Y%m%d
 ### Seconds since epoch:
 
 ```
+# Mac
 date +%s
 ```
 

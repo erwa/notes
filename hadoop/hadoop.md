@@ -1,3 +1,8 @@
+### LeveldbTimelineStore vs. RollingLevelDBTimelineStore
+
+Are identical in Hadoop 2.9.0.
+
+
 ### Set queue
 
 ```

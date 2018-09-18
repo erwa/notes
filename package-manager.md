@@ -11,6 +11,8 @@ rpm -qpl foo.rpm
 rpm2cpio foo.rpm  | cpio -idmv
 ```
 
+https://superuser.com/questions/209808/how-can-i-install-an-rpm-without-being-root
+
 
 ### Clear Yum cache
 

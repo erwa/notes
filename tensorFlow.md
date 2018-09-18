@@ -1,3 +1,93 @@
+### Disable GPU
+
+```
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
+```
+
+https://stackoverflow.com/questions/44552585/prevent-tensorflow-from-accessing-the-gpu
+
+
+### Print version
+
+```
+import tensorflow as tf
+
+print(tf.__version__)
+```
+
+
+### Test GPU
+
+```
+import tensorflow as tf
+
+# Creates a graph.
+with tf.device('/cpu:0'):
+  a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+  b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+
+c = tf.matmul(a, b)
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print(sess.run(c))
+```
+
+Output should show matmul was done on GPU.
+
+https://www.tensorflow.org/guide/using_gpu
+
+
+### Validate installation
+
+```
+# Python
+import tensorflow as tf
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+```
+
+https://www.tensorflow.org/install/install_sources#validate_your_installation
+
+
+### Eager execution
+
+Evaluate operations immediately.
+
+```
+import tensorflow as tf
+
+tf.enable_eager_execution()
+```
+
+https://www.tensorflow.org/guide/eager
+
+
+### Get shape of tensor
+
+```
+my_tensor.shape
+```
+
+https://www.tensorflow.org/guide/tensors#getting_a_tftensor_objects_shape
+
+
+### Using GFile
+
+```
+import os
+import avro.datafile
+import avro.io
+
+remote_avro_file = "hdfs://default/path/to/foo.avro"
+with tf.gfile.Open(remote_avro_file, 'rb') as gfile:
+    reader = avro.datafile.DataFileReader(gfile, avro.io.DatumReader())
+    DATA_SCHEMA = reader.datum_reader.writers_schema
+print("Extracted schema: {}".format(DATA_SCHEMA))
+```
+
+
 ### Examples
 
 See [tensorflow/examples](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples).
@@ -37,6 +127,24 @@ python mnist_distributed.py --cluster_spec='{"ps": ["localhost:2222"], "worker":
 https://www.tensorflow.org/api_docs/python/tf/train/Supervisor
 
 https://clusterone.com/blog/2017/09/13/distributed-tensorflow-clusterone/
+
+
+### Lighter colors in TensorBoard
+
+They show percentiles. The darkest color is the median.
+
+https://stackoverflow.com/questions/47735846/what-does-lighter-color-mean-in-tensorboard
+
+
+### Load multiple runs, log directories in TensorBoard
+
+```
+tensorboard --logdir=name1:/path/to/logs/1,name2:/path/to/logs/2
+```
+
+TensorBoard also scans subdirectories.
+
+https://stackoverflow.com/questions/36182380/how-do-display-different-runs-in-tensorboard
 
 
 ### Starting TensorBoard

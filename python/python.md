@@ -1,3 +1,172 @@
+### Get absolute path
+
+```
+import os
+os.path.abspath("mydir/myfile.txt")
+```
+
+https://stackoverflow.com/questions/51520/how-to-get-an-absolute-file-path-in-python
+
+
+### String formatting
+
+```
+# align left and pad to 10 characters
+'%-10s' % ('test',)
+```
+
+https://pyformat.info/#string_pad_align
+
+
+### Importing submodules
+
+Submodules are not automatically imported, unless `__init__.py` imports them.
+
+https://stackoverflow.com/questions/8899198/module-has-no-attribute
+
+
+### Read Avro schema from file
+
+```
+import os
+import avro.datafile
+import avro.io
+
+INPUT_PATH = "/path/to/foo.avro"
+with open(INPUT_PATH, 'rb') as fp:
+    reader = avro.datafile.DataFileReader(fp, avro.io.DatumReader())
+    DATA_SCHEMA = reader.datum_reader.writers_schema
+print("Extracted schema: {}".format(DATA_SCHEMA))
+```
+
+
+### Show module contents
+
+```
+import avro
+help(avro)
+```
+
+https://stackoverflow.com/questions/139180/how-to-list-all-functions-in-a-python-module
+
+
+### Get info about pypi package
+
+```
+https://pypi.org/pypi/<package_name>/json
+```
+
+https://python-forum.io/Thread-get-extensive-package-info-with-pip
+
+
+### Import module with same name as current file
+
+```
+from __future__ import absolute_import
+import socket
+```
+
+https://stackoverflow.com/questions/6031584/importing-from-builtin-library-when-module-with-same-name-exists
+
+
+### Private methods
+
+Are not strictly private in Python.
+
+https://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
+
+
+### Check if port is in use
+
+```
+with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
+    try:
+        sock.bind(('', 6005))
+    except socket.error as err:
+        print('Port is in use')
+```
+
+
+### Find free port
+
+```
+import socket
+from contextlib import closing
+
+def find_free_port():
+    with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
+        s.bind(('', 0))
+        return s.getsockname()[1]
+```
+
+Note that you can't bind to ports < 1024 as an unprivileged user.
+
+https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-port-number
+
+https://stackoverflow.com/questions/19196105/python-how-to-check-if-a-network-port-is-open-on-linux
+
+
+### Run function in new thread
+
+```
+from threading import Thread
+from time import sleep
+
+def threaded_function(arg):
+    for i in range(arg):
+        print "running"
+        sleep(1)
+
+
+if __name__ == "__main__":
+    thread = Thread(target = threaded_function, args = (10, ))
+    # add thread.daemon = True if you don't want sys.exit() to block on
+# the thread finishing
+    thread.start()
+    thread.join()
+    print "thread finished...exiting"
+```
+
+https://stackoverflow.com/questions/2905965/creating-threads-in-python
+
+
+### Ternary operator
+
+```
+a if condition else b
+```
+
+First `condition` evaluated, then `a` or `b`.
+
+https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator
+
+
+### pex files
+
+Self-contained Python environment, similar is spirit to virtualenv.
+
+https://pex.readthedocs.io/en/stable/whatispex.html
+
+
+### `__new__` vs. `__init__`
+
+`__new__` called to create a new instance, then `__init__` called to initialize the instance.
+
+* https://stackoverflow.com/questions/674304/why-is-init-always-called-after-new
+* https://spyhce.com/blog/understanding-new-and-init
+
+
+### Dynamically create list
+
+```
+>>> a = [1,2,3]
+>>> type(a)
+<type 'list'>
+>>> type(a)([4,5,6])
+[4, 5, 6]
+```
+
+
 ### Print transitive dependencies
 
 Use `pipdeptree`.
@@ -315,6 +484,21 @@ s.union(set2)   // set2 can be any iterable, returns NEW set
 https://docs.python.org/2/library/sets.html
 
 
+### virtualenv bin commands
+
+Apart from `python`, they are configured to execute using the `python` installed in the `bin`. However, this `python` path is hardcoded to a particular machine, e.g. `#!/Users/ahsu/.venv2/bin/python`.
+
+
+### Create virtualenv / virtual environment
+
+```
+wget https://pypi.org/packages/source/v/virtualenv/virtualenv-15.1.0.tar.gz
+tar xzvf virtualenv-15.1.0.tar.gz
+/PATH/TO/PYTHON/bin/python virtualenv-15.1.0/virtualenv.py <VENV_DIR>
+. <VENV_DIR>/bin/activate
+```
+
+
 ### Debug virtual environment
 
 Can write `test.py` file and import modules in the virtual environment.
@@ -377,6 +561,43 @@ http://stackoverflow.com/questions/17650754/how-can-i-capture-ctrl-d-in-python-i
 
 
 ### Connect to MySQL
+
+```
+import mysql.connector
+
+cnx = mysql.connector.connect(user='scott', password='password',
+                              host='127.0.0.1',
+                              database='employees')
+cnx.close()
+```
+
+https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
+
+```
+import datetime
+import mysql.connector
+
+cnx = mysql.connector.connect(user='scott', database='employees')
+cursor = cnx.cursor()
+
+query = ("SELECT first_name, last_name, hire_date FROM employees "
+         "WHERE hire_date BETWEEN %s AND %s")
+
+hire_start = datetime.date(1999, 1, 1)
+hire_end = datetime.date(1999, 12, 31)
+
+cursor.execute(query, (hire_start, hire_end))
+
+for (first_name, last_name, hire_date) in cursor:
+  print("{}, {} was hired on {:%d %b %Y}".format(
+    last_name, first_name, hire_date))
+
+cursor.close()
+cnx.close()
+```
+
+https://dev.mysql.com/doc/connector-python/en/connector-python-example-cursor-select.html
+
 
 ```
 #!/usr/bin/env python
@@ -688,14 +909,27 @@ https://www.python.org/dev/peps/pep-0008/#should-a-line-break-before-or-after-a-
 First argument to a class method is the class (not an instance). Static method does not take any required arguments.
 
 ```
-# Class method
+class Date(object):
+
+    def __init__(self, day=0, month=0, year=0):
+        self.day = day
+        self.month = month
+        self.year = year
+
+    # Class method
     @classmethod
     def from_string(cls, date_as_string):
         day, month, year = map(int, date_as_string.split('-'))
         date1 = cls(day, month, year)
         return date1
 
+    @staticmethod
+    def is_date_valid(date_as_string):
+        day, month, year = map(int, date_as_string.split('-'))
+        return day <= 31 and month <= 12 and year <= 3999
+
 date2 = Date.from_string('11-09-2012')
+is_date = Date.is_date_valid('11-09-2012')
 ```
 
 http://stackoverflow.com/questions/12179271/python-classmethod-and-staticmethod-for-beginner
@@ -826,6 +1060,20 @@ for filename in os.listdir(directory):
 http://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
 
 
+### Find directory by name
+
+```
+for root, dirs, filelist in os.walk('./'):
+  for dir in dirs:
+    if dir == 'avro_c':
+      environ_cp['AVRO_C_HOME'] = os.path.abspath(os.path.join(root, dir))
+      break
+```
+
+http://www.tutorialspoint.com/python/os_walk.htm
+https://stackoverflow.com/questions/28679938/how-do-i-recursively-find-a-specific-subfolder-name-in-a-directory-using-python
+
+
 ### Get path and directory of current file
 
 ```
@@ -921,7 +1169,12 @@ http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replac
 ```
 match = re.search(r'CREATE TABLE ([a-z._]+)', contents)
 print match.group(1)  # print first capture group
+
+if re.search(r'ddd', 'edddde'):
+    print('match')
 ```
+
+`re.match()` only matches at beginning of string.
 
 https://docs.python.org/2/library/re.html#re.search
 
@@ -1421,6 +1674,7 @@ if m:
 
 Used to make Python treat directory as package.
 
+https://stackoverflow.com/questions/448271/what-is-init-py-for
 https://docs.python.org/2/tutorial/modules.html#packages
 
 

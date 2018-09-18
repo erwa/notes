@@ -1,3 +1,15 @@
+### Remove artifact from configurations
+
+```
+jar.enabled = false
+configurations.all {
+  artifacts.removeAll artifacts.findAll { !it.archiveTask.enabled }
+}
+```
+
+https://discuss.gradle.org/t/should-disabling-a-task-automatically-remove-any-artifact-it-might-publish/2354
+
+
 ### Automatically enable annotation preprocessing
 
 Useful if you're using Lombok

@@ -1,3 +1,13 @@
+### mysqlsh
+
+```
+# switch to SQL mode
+\sql
+```
+
+https://dev.mysql.com/doc/mysql-shell/8.0/en/mysqlsh.html
+
+
 ### Drop rows
 
 ```
