@@ -1,3 +1,20 @@
+### Stream test output
+
+```
+# disables output capturing, equivalent to --capture=no
+py.test -s
+```
+
+https://stackoverflow.com/questions/14405063/how-can-i-see-normal-print-output-created-during-pytest-run
+
+
+### Print stacktrace on error
+
+```
+py.test --fulltrace ...
+```
+
+
 ### Monkeypatching
 
 ```
@@ -28,7 +45,7 @@ def test_zero_division():
 https://stackoverflow.com/questions/23337471/how-to-properly-assert-that-an-exception-gets-raised-in-pytest
 
 
-### Run one pytest / run one test
+### Run one pytest / run one test / run 1 test
 
 ```
 pytest test_mod.py::TestClass::test_method  # run a single method in
@@ -39,6 +56,7 @@ http://doc.pytest.org/en/latest/usage.html#specifying-tests-selecting-tests
 
 
 ### Parameterize tests
+
 ```
 import pytest
 
@@ -55,12 +73,15 @@ http://stackoverflow.com/a/25626660/1128392
 
 
 ### Enable logging in Pytest
+
 ```
 py.test --capture=no
 ```
 
 
 ### Pytest
+
 Test discovery: http://pytest.org/latest/goodpractises.html#test-discovery
+
 * Looks for `test_*.py` and `*_test.py` files, among other things.
 * Within a test file, runs `test_` prefixed functions and methods.

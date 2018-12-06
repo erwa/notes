@@ -11,6 +11,16 @@ https://stackoverflow.com/questions/9727688/how-to-get-the-cuda-version
 
 ### Check cuDNN version
 
+From Python
+
+```
+from ctypes import cdll
+cudnn = cdll.LoadLibrary('libcudnn.so.7')
+cudnn.cudnnGetVersion()
+```
+
+https://stackoverflow.com/questions/48566505/how-can-i-check-if-keras-tensorflow-is-using-cudnn
+
 ```
 $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 #define CUDNN_MAJOR 7

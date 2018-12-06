@@ -148,13 +148,16 @@ git fetch <remote>
 git fetch <remote> <local-branch>:<remote-branch>
 ```
 
-# http://stackoverflow.com/questions/11266478/git-add-remote-branch
+http://stackoverflow.com/questions/11266478/git-add-remote-branch
 
 
 ### Convert shallow clone to full clone
 
 ```
 git fetch --unshallow
+
+# assuming you have less than 1 million commits
+git fetch --depth=1000000
 ```
 
 https://stackoverflow.com/questions/6802145/how-to-convert-a-git-shallow-clone-to-a-full-clone
@@ -192,7 +195,7 @@ git push origin <tagname>
 ```
 
 
-### Add annotated tag
+### Add annotated tag / create tag
 
 Annotated tags are meant for release versions.
 
@@ -273,6 +276,15 @@ git push origin <tag>
 # Push all tags
 git push --tags
 ```
+
+
+### Checkout file from another branch
+
+```
+git checkout <branch> <file>
+```
+
+https://stackoverflow.com/questions/2364147/how-to-get-just-one-file-from-another-branch/2364223
 
 
 ### Checkout remote branch and have local branch track it
@@ -471,6 +483,15 @@ git reset --hard HEAD@{<number>}
 Try changing URL from HTTPS to SSH. Try including/excluding https:// or ssh://. Try adding or removing USERNAME@. Try using git@.
 
 
+### Diff tags / diff two tags
+
+```
+git diff tag1 tag2
+```
+
+https://stackoverflow.com/questions/3211809/how-to-compare-two-tags
+
+
 ### Git Diff
 
 ```
@@ -530,6 +551,7 @@ git diff branch1..branch2
 
 ```
 # repo 1
+# add --binary if binary change
 git diff FILE > patch
 
 # repo 2
@@ -571,6 +593,7 @@ git apply /path/to/foo.patch
 /path/to/1 $ cd /path/to/2
 /path/to/2 $ git am /path/to/1/0001-…-….patch
 ```
+
 http://stackoverflow.com/questions/3816040/git-apply-changes-introduced-by-commit-in-one-repo-to-another-repo
 
 
@@ -852,10 +875,18 @@ http://stackoverflow.com/questions/4404444/how-do-i-blame-a-deleted-line
 
 ### Open file at commit
 
+```
+git show <revision>:path/to/file
+```
+
+https://stackoverflow.com/questions/338436/is-there-a-quick-git-command-to-see-an-old-version-of-a-file
+
 In iTerm2:
+
 ```
 git show <commit>
 ```
+
 Cmd + click file name (--- a/path/to/file)
 
 

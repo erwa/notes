@@ -1,3 +1,18 @@
+### Things to try
+
+Indexing into everything!
+
+
+### Administrative
+
+Share Google Drive explicitly with each team member. Then user names will show up on spreadsheet instead of anonymous animals.
+
+
+### Generate spreadsheet crossword from image
+
+http://www.npinsker.me/puzzles/crossword
+
+
 ### Letter Encodings
 
 https://head-hunters.org/solution/in_memoriam

@@ -1,3 +1,10 @@
+### Remove URL from remembered URLs
+
+Fn + Shift + Delete
+
+https://superuser.com/questions/273278/how-to-remove-an-entry-from-chromes-remembered-urls-from-the-url-bar/676704#676704
+
+
 ### Plugin installation directory
 
 ```

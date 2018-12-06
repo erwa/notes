@@ -1,3 +1,8 @@
+### Multiple licenses
+
+All added to LICENSE.txt file. For example, see https://github.com/apache/hadoop/blob/trunk/LICENSE.txt.
+
+
 ### GPL
 
 GPL is fine for internal use at a company.

@@ -1,3 +1,8 @@
+### Gmail to PDF in iBooks
+
+Gmail --> ... --> Print --> Save to Google Drive. In Drive, share icon (open with) --> copy to iBooks.
+
+
 ### Get IMEI number
 
 Dial `*#06#`.

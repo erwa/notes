@@ -1,3 +1,20 @@
+### Print task dependency graph
+
+```
+# prints tasks in order they will be run
+gradle assemble --dry-run ...
+```
+
+https://stackoverflow.com/questions/10422054/is-there-a-way-to-list-task-dependencies-in-gradle
+
+
+### Show task usage
+
+```
+gradle help --task :my:task
+```
+
+
 ### Remove artifact from configurations
 
 ```
@@ -332,6 +349,15 @@ task printBuildScriptClasspath << {
 https://gist.github.com/xconnecting/4037220
 
 
+### Local variable
+
+```
+def foo = 123
+```
+
+https://docs.gradle.org/current/userguide/writing_build_scripts.html#sec:declaring_variables
+
+
 ### Buildscript variables
 
 Define variables in `buildscript` block, will be accessible both inside and outside it.
@@ -493,6 +519,22 @@ jar {
     exclude('mi/package/excluded2/**')
 }
 ```
+
+
+### Apply to subproject if it applies a plugin
+
+```
+subprojects {
+    plugins.withType(JavaPlugin) {
+        ...
+    }
+    plugins.withType(WarPlugin) {
+        ...
+    }
+}
+```
+
+https://discuss.gradle.org/t/how-do-i-detect-if-a-sub-project-has-applied-a-given-plugin-e-g-jar-or-war/4974
 
 
 ### Test class dependencies / depend on test classes in another subproject

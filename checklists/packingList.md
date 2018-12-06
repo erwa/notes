@@ -1,5 +1,9 @@
 ### General
 
+- neck cushion
+- when working remotely, find a library (at office or public library) to work in
+- star points of interest on Google Map
+- download transit map PDF for destination
 - remove bike lock, bike accessories
 - Jacket
 - Swimming trunks (preferably regular ones)

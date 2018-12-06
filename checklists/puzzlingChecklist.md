@@ -1,6 +1,7 @@
 Puzzling Checklist
 ==================
 
+* Knee pads
 * Scissors
 * Tape
 * Markers / highlighters

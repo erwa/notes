@@ -1,3 +1,10 @@
+### Adjust lines of output stored in Terminal
+
+iTerm2 -> Preferences -> Profiles -> Terminal -> Adjust "Scrollback lines"
+
+https://discussions.apple.com/thread/8123802
+
+
 ### Open file
 
 Cmd + click

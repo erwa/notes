@@ -1,3 +1,12 @@
+### Create custom keyboard shortcut
+
+System Preferences -> Keyboard -> Shortcuts -> App shorcuts
+
+Name of command must *exactly match* name of command. If you're using Chinese, you must enter the command in Chinese.
+
+http://osxdaily.com/2017/08/08/create-custom-keyboard-shortcut-mac/
+
+
 ### Edit iPhone contact on Mac
 
 Use Contacts app.

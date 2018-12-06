@@ -1,4 +1,13 @@
-### List files in RPM
+### See package installation and uninstallation scripts
+
+```
+rpm -qp --scripts foo.rpm
+```
+
+https://www.cyberciti.biz/faq/rhel-list-package-specific-scriptlets/
+
+
+### List files in RPM / see RPM contents
 
 ```
 rpm -qpl foo.rpm
@@ -45,6 +54,15 @@ sudo yum repolist
 ```
 
 http://www.cyberciti.biz/faq/centos-fedora-redhat-yum-repolist-command-tolist-package-repositories/
+
+
+### See yum package dependencies
+
+```
+sudo yum deplist perl-Time-HiRes
+```
+
+https://superuser.com/questions/294662/how-to-get-list-of-dependencies-of-non-installed-rpm-package
 
 
 ### Add a Yum Repository on RHEL

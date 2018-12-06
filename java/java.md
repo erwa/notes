@@ -1,3 +1,20 @@
+### Heap dump
+
+```
+# or -histo:live
+jmap -histo 1234 > process.jmap.histo
+
+# 1234 is PID
+jmap -heap 1234 > process.jmap.heap.usage
+
+# more in-depth info, but will significantly slow down process
+jmap -dump:live,format=b,file=process.jmap.bin 4363
+
+# -F will DRAMATICALLY SLOW THINGS down
+# https://stackoverflow.com/questions/26140182/running-jmap-getting-unable-to-open-socket-file
+```
+
+
 ### Condition variables
 
 `Condition` variables are intrinsically associated with a lock, so when `.await()` is called on the `Condition` variable, the lock gets released.
@@ -233,6 +250,25 @@ SparseBitSet: https://github.com/brettwooldridge/SparseBitSet (only supports int
 LongBitSet:
 * http://fastutil.di.unimi.it/docs/it/unimi/dsi/fastutil/longs/LongOpenHashSet.html
 * https://github.com/apache/lucene-solr/blob/master/lucene/core/src/java/org/apache/lucene/util/LongBitSet.java
+
+
+### Enum definition
+
+```
+class Enum<E extends Enum<E>>
+```
+
+```
+public class StatusCode extends Enum<StatusCode>
+```
+
+* E=StatusCode
+* StatusCode extends Enum<StatusCode>
+
+`enum StatusCode` gets converted to something like the above.
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html
+http://madbean.com/2004/mb2004-3/
 
 
 ### Get enum declaration name
@@ -1027,6 +1063,8 @@ See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmeth
 * `Lfoo.bar.ClassName;` means the type is foo.bar.ClassName
 * `V` means void
 * `Z` means boolean
+* `[B` byte array
+* `[C` char array
 
 Return type follows closing parenthesis
 
@@ -1271,9 +1309,11 @@ http://stackoverflow.com/questions/5915992/how-to-reference-a-method-in-javadoc
 
 http://stackoverflow.com/questions/1667212/how-to-add-reference-to-a-method-parameter-in-javadoc
 
+
 ### `{@code MyClassName}`
 
 https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
+
 
 ### `{@link InputStream}`
 

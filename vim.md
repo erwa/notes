@@ -1,3 +1,26 @@
+### ctrlp plugin
+
+Ctrl + P - search folders/files
+
+https://github.com/ctrlpvim/ctrlp.vim
+
+Installation guide: http://ctrlpvim.github.io/ctrlp.vim/#installation
+
+
+### Run terminal command from vim
+
+```
+:! <command>
+```
+
+
+### Show line numbers
+
+```
+:set nu
+```
+
+
 ### Quit Vim
 
 ```
@@ -134,6 +157,7 @@ http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
  ctrl-w_          - maximize current window
  ctrl-w=          - make all equal size
  :vsplit file     - vertical split
+ ctrl-w >         - increase horizontal width by 1 character
  10 ctrl-w >      - increase vertical window size by 10 characters
 
  10 ctrl-w+       - increase horizontal window size by 10 lines
@@ -238,6 +262,7 @@ Delete lines M to N, inclusive
 ### Indentation preferences per file type
 
 Add to `.vimrc`:
+
 ```
 autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 ```
@@ -258,13 +283,16 @@ set paste
 set nopaste
 ```
 
+
 ### Paste and preserve tabs
 
 ```
 :set noexpandtab
 # Paste
 ```
+
 http://stackoverflow.com/questions/12584465/how-to-maintain-tabs-when-pasting-in-vim
+
 
 ### Show escape characters
 
@@ -275,14 +303,20 @@ http://stackoverflow.com/questions/12584465/how-to-maintain-tabs-when-pasting-in
 # Stop showing them
 :set nolist
 ```
+
 http://www.unix.com/unix-for-dummies-questions-and-answers/22389-how-see-special-characters-file-using-vi.html
+
 
 ### NERDTree
 
 http://www.vim.org/scripts/script.php?script_id=1658
+
+Download and unzip into `~/.vim`
+
 ```
 :NERDTree
 ```
+
 
 ### Show whitespace characters
 
@@ -302,7 +336,9 @@ http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-c
 ```
 :%s/\s\+$//
 ```
+
 http://vim.wikia.com/wiki/Remove_unwanted_spaces
+
 
 ### Tab Pages
 

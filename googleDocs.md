@@ -1,3 +1,22 @@
+### Repeat action
+
+Cmd + Y
+
+
+### Length removing spaces, apostrophes, and question marks
+
+```
+=LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(A8,"'", ""), " ", ""), "?", ""))
+```
+
+
+### Convert column to row / paste transposed
+
+Edit -> Paste special -> Paste Transposed
+
+https://webapps.stackexchange.com/questions/6935/how-to-convert-rows-into-columns-in-google-spreadsheets
+
+
 ### Show document outline / table of contents on sidebar
 
 View -> Show outline
@@ -113,6 +132,13 @@ https://webapps.stackexchange.com/questions/53643/how-can-i-change-the-font-in-g
 ### Insert CSV into Google Spreadsheet
 
 File -> Import -> select CSV -> from current cell
+
+
+### Use precise color based on HTML code
+
+Install ColorPick Eyedropper Chrome extension: https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg/related
+
+Select text --> Format --> Text --> Color --> Custom --> type in HTML code
 
 
 ### Color Code Based on Value
@@ -293,6 +319,15 @@ It's all or nothing. See https://productforums.google.com/forum/#!topic/docs/PEL
 ```
 =ROW()
 ```
+
+
+### SUM if contains string
+
+```
+=SUM(FILTER(B4:B47, SEARCH("CS", A4:A47)))
+```
+
+https://productforums.google.com/forum/#!msg/docs/76EtTMrBRd8/39HSH5K1DwAJ
 
 
 ### SUM after applying transformation to range of cells

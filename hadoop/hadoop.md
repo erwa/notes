@@ -1,3 +1,15 @@
+### Get active conf
+
+```
+curl --negotiate -i -u : https://host:port/conf
+```
+
+
+### Task updates to ApplicationMaster
+
+See Figure 6.5 in Hadoop: The Definitive Guide (3rd Edition).
+
+
 ### LeveldbTimelineStore vs. RollingLevelDBTimelineStore
 
 Are identical in Hadoop 2.9.0.
@@ -194,14 +206,18 @@ export HADOOP_ROOT_LOGGER=DEBUG,console
 https://wiki.apache.org/hadoop/EOFException
 
 
-Disable _SUCCESS file:
+### Disable `_SUCCESS` file
+
 To disable the `_SUCCESS` file from being created upon job completion, set the `mapreduce.fileoutputcommitter.marksuccessfuljobs` property to `false`. See http://mail-archives.apache.org/mod_mbox/hadoop-user/201305.mbox/%3CCAO7hTbNSu7vJ5nori9u3+r9px_xkkgO=+Of248x=ujC0tNZpuA@mail.gmail.com%3E.
+
 
 ### Increase client heap size
 
 ```
 export HADOOP_CLIENT_OPTS="-Xmx10g"
 ```
+
+https://help.sap.com/viewer/50f26aa0f2044127bc5f6d5ad3d090fe/Cloud/en-US/2e66371176b8101480abd76da746ffe7.html
 
 
 ### Put user classpath first

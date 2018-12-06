@@ -1,3 +1,46 @@
+### `queue.Queue` vs. `multiprocessing.Queue`
+
+multiprocessing Queue is for communication between processes; it serializes data through pipes.
+
+queue Queue is for within-process communication; it uses a data structure shared between threads and uses locks.
+
+
+### Print Python version
+
+```
+import sys
+print(sys.version)
+```
+
+
+### Strings in Python 2
+
+Can represent 8-bit data and ASCII strings (character code up to 127).
+
+https://docs.python.org/2/reference/lexical_analysis.html#strings
+
+
+### `bytes` type
+
+Added in Python 3.
+
+```
+Python 2.6 adds bytes as a synonym for the str type, and it also supports the  b'' notation.
+```
+
+https://stackoverflow.com/questions/5901706/the-bytes-type-in-python-2-7-and-pep-358
+
+```
+bytes(nonlat, 'utf-8')
+
+# equivalent to
+
+nonlat.encode()  # uses UTF-8 encoding by default
+```
+
+https://www.pythoncentral.io/encoding-and-decoding-strings-in-python-3-x/
+
+
 ### Get absolute path
 
 ```
@@ -256,6 +299,26 @@ s.isalpha()
 https://docs.python.org/2/library/stdtypes.html#str.isalpha
 
 
+### Tuples
+
+```
+# Zero-element
+()
+
+# one-element
+1,
+(1,)
+# comma is essential, parentheses are optional
+
+1,2,3
+1,2,3,
+(1,2,3)
+(1,2,3,)
+```
+
+https://wiki.python.org/moin/TupleSyntax
+
+
 ### Unpack tuple into variables
 
 ```
@@ -304,6 +367,16 @@ subprocess.DEVNULL
 ```
 
 https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7
+
+
+### Get hostname
+
+```
+import socket
+print(socket.gethostname())
+```
+
+https://stackoverflow.com/questions/4271740/how-can-i-use-python-to-get-the-system-hostname
 
 
 ### Get host from IP
@@ -489,12 +562,20 @@ https://docs.python.org/2/library/sets.html
 Apart from `python`, they are configured to execute using the `python` installed in the `bin`. However, this `python` path is hardcoded to a particular machine, e.g. `#!/Users/ahsu/.venv2/bin/python`.
 
 
+### Activate virtual environment from Python
+
+```
+activate_this = '/path/to/venv/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+```
+
+
 ### Create virtualenv / virtual environment
 
 ```
-wget https://pypi.org/packages/source/v/virtualenv/virtualenv-15.1.0.tar.gz
-tar xzvf virtualenv-15.1.0.tar.gz
-/PATH/TO/PYTHON/bin/python virtualenv-15.1.0/virtualenv.py <VENV_DIR>
+wget https://pypi.org/packages/source/v/virtualenv/virtualenv-16.1.0.tar.gz
+tar xzvf virtualenv-16.1.0.tar.gz
+/PATH/TO/PYTHON/bin/python virtualenv-16.1.0/src/virtualenv.py <VENV_DIR>
 . <VENV_DIR>/bin/activate
 ```
 
@@ -1356,6 +1437,22 @@ if output is not sys.stdout:
 ```
 
 
+### Python annotations
+
+Called decorators
+
+```
+@classmethod
+def foo(arg1,arg2):
+    ...
+
+@accepts(int,int)
+@returns(float)
+def bar(low,high):
+    ...
+```
+
+
 ### `with` statement, context managers
 
 Context manager has `__enter__` and `__exit__` methods. Can also use `@contextmanager` decorator to combine `__enter__` and `__exit__`.
@@ -1688,12 +1785,23 @@ http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-py
 * `repr(x)`
 
 
-### `*args` and `**kwargs`
+### `*args` and `**kwargs` / Asterisks
 
 http://stackoverflow.com/questions/3394835/args-and-kwargs
 
 * `*args` = list of args as positional arguments
 * `**kwargs` = list of named args as dictionary
+
+
+### Merge dictionaries
+
+```
+# Python 3 only
+# for duplicates, value in d2 is used
+{ **d1, **d2 }
+```
+
+https://stackoverflow.com/questions/13361510/typeerror-unsupported-operand-types-for-dict-items-and-dict-items
 
 
 ### Dictionaries

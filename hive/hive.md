@@ -632,6 +632,7 @@ PARTITION (partition_column = partition_col_value)
 [LOCATION 'location1']
 ```
 
+https://stackoverflow.com/questions/11839989/can-i-change-a-table-from-internal-to-external-in-hive
 
 ### Alter partition SerDe properties
 
@@ -645,6 +646,15 @@ alter table foo partition(part_col='testpartition') set serde 'org.apache.hadoop
 ```
 drop table if exists TABLE;
 ```
+
+
+### Convert managed table to external table
+
+```
+ALTER TABLE <table> SET TBLPROPERTIES('EXTERNAL'='TRUE')
+```
+
+https://stackoverflow.com/questions/11839989/can-i-change-a-table-from-internal-to-external-in-hive
 
 
 ### Cannot drop external table

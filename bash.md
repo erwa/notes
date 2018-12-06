@@ -1,3 +1,33 @@
+### Pipe both stderr and stdout
+
+```
+<command> |& <command>
+```
+
+Syntactic sugar for `2>&1 |` in Bash. Introduced in Bash 4.0.
+
+https://stackoverflow.com/questions/16497317/piping-both-stdout-and-stderr-in-bash/37085215#37085215
+
+
+### Restart machine
+
+```
+sudo /sbin/shutdown -r now
+```
+
+http://tldp.org/LDP/lame/LAME/linux-admin-made-easy/system-shutdown-and-restart.html
+
+
+### Get info about a command
+
+```
+# command here is actually the name of a <command>!
+help command
+```
+
+https://askubuntu.com/questions/512770/what-is-use-of-command-command
+
+
 ### Parameter Substitution
 
 ```
@@ -358,6 +388,7 @@ if COMMAND1 || COMMAND2
 ```
 
 Examples:
+
 ```
 # integer comparison
 # equal to
@@ -388,6 +419,7 @@ else
   echo "This is not a leap year.  February has 28 days."
 fi
 ```
+
 
 ### Truthiness: What is true? What is false?
 
@@ -967,6 +999,8 @@ See http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Ou
 <command> &> file
 ```
 
+https://askubuntu.com/questions/625224/how-to-redirect-stderr-to-a-file
+
 
 ### Look up hostname/IP address associated with IP address/hostname
 
@@ -1026,9 +1060,11 @@ cat <file1> >> <file2>
 ### Use default language for output, force sorting to be bytewise
 
 See http://unix.stackexchange.com/questions/87745/what-does-lc-all-c-do.
+
 ```
 LC_ALL=C
 ```
+
 
 ### `rsync` example:
 
@@ -1038,6 +1074,7 @@ rsync --progress SOURCE DEST
 
 rsync -az
 ```
+
 `-a` means "archive" mode, which preserves symbolic links, permissions, etc. `-z` enables compression for the data transfer.
 
 
@@ -1399,18 +1436,22 @@ perl -pi -w -e 's/(^LINE_TO_LOWERCASE$)/lc($1)/ge'
 ### Check for existence of executable
 
 See http://stackoverflow.com/a/677212/1128392.
+
 ```
 if [ command -v java >/dev/null 2>&1 ]; then
   ...
 fi
 ```
 
+
 ### Match digit or other character classes
 
 ```
 ls -ld [[:digit:]]*
 ```
+
 http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_03.html#sect_04_03_02
+
 
 ### Auto enter input in command line
 

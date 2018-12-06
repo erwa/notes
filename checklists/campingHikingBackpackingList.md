@@ -1,5 +1,7 @@
 ### Camping/hiking/backpacking
 
+Get ski/winter gear from brother!
+
 Keep in backpacking pack for storage:
 - tent / footprint
 - sleeping bag / sleeping liner
@@ -10,6 +12,7 @@ Keep in backpacking pack for storage:
 - hat
 
 Other things:
+- lantern
 - download offline maps (Google Maps or Maps.me)
 - bar of soap for showering at campground showers (or just use water)
 - rubber bands

@@ -78,6 +78,8 @@ curl -k https://<host>:<port>/manager -d "action=create&name=<name>&description=
 curl http://localhost:<port>/executor?action=reloadJobTypePlugins
 ```
 
+Find the port by going to the /jmx page in the Azkaban web server.
+
 
 ### Get project permissions
 

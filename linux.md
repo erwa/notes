@@ -86,6 +86,13 @@ References:
 * http://www.techotopia.com/index.php/Configuring_the_RHEL_6_Desktop_Menu_System
 
 
+### Boot into terminal
+
+On boot menu, type 'e'. On `linux16` line, change `ro` to `rw init=/sysroot/bin/sh`. Press Ctrl-X. Mount root filesystem by running `chroot /sysroot/`. Do what you need to. Then `reboot -f`.
+
+https://www.tecmint.com/boot-into-single-user-mode-in-centos-7/
+
+
 ### Virtual Console
 
 Ctrl + Alt + F2 to switch to virtual console. Ctrl + Alt + F1/F7/F8 (depending on system) to switch back. Or use Alt + Left/Right to cycle through terminals.
