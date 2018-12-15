@@ -1,5 +1,3 @@
-xlearning.md
-
 ### Job History Server
 
 * doesn't use JobHistory
