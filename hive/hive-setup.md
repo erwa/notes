@@ -73,7 +73,9 @@ hive-site.xml:
 
 
 ### Local Acid Testing
+
 Can set the following properties:
+
 ```
     <property>
       <name>hive.txn.manager</name>
@@ -95,9 +97,11 @@ http://www.aboutyun.com/thread-12151-1-1.html
 
 
 ### Local Setup
+
 https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-RunningHive
 
 Start Hadoop daemons.
+
 ```
 hadoop fs -mkdir /tmp
 hadoop fs -mkdir -p /user/hive/warehouse
@@ -106,6 +110,7 @@ hadoop fs -chmod g+w /user/hive/warehouse
 ```
 
 Run HiveServer2 and Beeline in separate processes:
+
 ```
 # In one window
 bin/hiveserver2
@@ -115,12 +120,14 @@ bin/beeline -u jdbc:hive2://localhost:10000
 ```
 
 Run (embedded) HiveServer2 and Beeline in same process:
+
 ```
 beeline -u jdbc:hive2://
 ```
 
 
 ### Standalone local metastore
+
 ```
 hive --service metastore
 
@@ -128,6 +135,7 @@ hive --service metastore
 ```
 
 Add follow to hive-site.xml to allow clients to connect:
+
 ```
     <property>
       <name>hive.metastore.uris</name>
@@ -136,18 +144,24 @@ Add follow to hive-site.xml to allow clients to connect:
 ```
 
 Connect using Beeline with embedded HiveServer2:
+
 ```
 beeline -u jdbc:hive2://
 ```
 
+
 ### Configure logging
+
 Copy hive-log4j.properties.template to hive-log4j.properties. In trunk, it's hive-log4j2.properties.
 
 To enable printing to console, change
+
 ```
 log4j.rootLogger=${hive.root.logger}, EventCounter
 ```
+
 to
+
 ```
 log4j.rootLogger=${hive.root.logger}, console
 ```

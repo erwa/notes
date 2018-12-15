@@ -308,6 +308,11 @@ git remote prune <remote>
 ```
 
 
+### Merge branches and use theirs
+
+https://stackoverflow.com/a/4969679/1128392
+
+
 ### Merge branch
 
 ```
@@ -490,6 +495,19 @@ git diff tag1 tag2
 ```
 
 https://stackoverflow.com/questions/3211809/how-to-compare-two-tags
+
+
+### Apply patch to different file / path
+
+```
+cd first-repo
+git diff HEAD^ -- hello.test > ~/patch_file
+
+cd ../second-repo
+patch -p1 blue/red/hi.test ~/patch_file
+```
+
+https://stackoverflow.com/questions/16526321/how-to-apply-a-git-patch-to-a-file-with-a-different-name-and-path
 
 
 ### Git Diff

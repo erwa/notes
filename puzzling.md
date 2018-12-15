@@ -1,3 +1,8 @@
+### List of logic puzzles and rules
+
+http://www.cross-plus-a.com/puzzles.htm
+
+
 ### Things to try
 
 Indexing into everything!

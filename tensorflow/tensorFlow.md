@@ -1,3 +1,50 @@
+### Distributed `TF_CONFIG`
+
+```
+# chief worker
+TF_CONFIG='{
+    "cluster": {
+        "chief": ["host0:2222"],
+        "worker": ["host1:2222", "host2:2222", "host3:2222"],
+        "ps": ["host4:2222", "host5:2222"]
+    },
+    "task": {"type": "chief", "index": 0}
+}'
+
+# non-chief worker
+TF_CONFIG='{
+    "cluster": {
+        "chief": ["host0:2222"],
+        "worker": ["host1:2222", "host2:2222", "host3:2222"],
+        "ps": ["host4:2222", "host5:2222"]
+    },
+    "task": {"type": "worker", "index": 0}
+}'
+
+# ps
+TF_CONFIG='{
+    "cluster": {
+        "chief": ["host0:2222"],
+        "worker": ["host1:2222", "host2:2222", "host3:2222"],
+        "ps": ["host4:2222", "host5:2222"]
+    },
+    "task": {"type": "ps", "index": 0}
+}'
+
+# evaluator
+TF_CONFIG='{
+    "cluster": {
+        "chief": ["host0:2222"],
+        "worker": ["host1:2222", "host2:2222", "host3:2222"],
+        "ps": ["host4:2222", "host5:2222"]
+    },
+    "task": {"type": "evaluator", "index": 0}
+}'
+```
+
+https://www.tensorflow.org/api_docs/python/tf/estimator/train_and_evaluate
+
+
 ### Simple end-to-end code
 
 https://github.com/tensorflow/tensorboard/issues/1642
@@ -101,6 +148,19 @@ sess.run(init)  # will trigger initialization of all global variables
 ```
 
 https://www.tensorflow.org/guide/low_level_intro#initializing_layers
+
+
+### Read HDFS Data / Hadoop Support
+
+```
+# assumes HADOOP_HDFS_HOME env var is set and libhdfs.so exists in
+# $HADOOP_HDFS_HOME/lib/native
+# if not, add location of libhdfs.so to LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/java/default/jre/lib/amd64/server
+CLASSPATH=$(${HADOOP_HOME}/bin/hadoop classpath --glob) bin/python my_program.py
+```
+
+https://www.tensorflow.org/deploy/hadoop
 
 
 ### Running TensorFlow on YARN
@@ -329,7 +389,7 @@ import avro.io
 remote_avro_file = "hdfs://default/path/to/foo.avro"
 with tf.gfile.Open(remote_avro_file, 'rb') as gfile:
     reader = avro.datafile.DataFileReader(gfile, avro.io.DatumReader())
-    DATA_SCHEMA = reader.datum_reader.writers_schema
+    DATA_SCHEMA = reader.datum_reader.writer_schema  # With "avro" library in Python 2, it is writers_schema
 print("Extracted schema: {}".format(DATA_SCHEMA))
 ```
 

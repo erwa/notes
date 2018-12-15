@@ -2047,6 +2047,7 @@ http://stackoverflow.com/a/4760517/1128392
 ### Print current working directory / current directory
 
 ```
+# pwd
 os.getcwd()
 ```
 

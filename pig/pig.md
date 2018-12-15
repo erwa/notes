@@ -1,3 +1,10 @@
+### `exec` command
+
+Exec without any parameters can be used in scripts to force execution up to the point in the script where the exec occurs.
+
+https://pig.apache.org/docs/latest/cmds.html#exec
+
+
 ### Tuning Pig scripts
 
 http://blog.cloudera.com/blog/2015/07/how-to-tune-mapreduce-parallelism-in-apache-pig-jobs/

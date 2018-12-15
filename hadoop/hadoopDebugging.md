@@ -1,3 +1,8 @@
+### Check if YARN services were restarted in the middle of the job
+
+application_XXX_YYY - the XXX part is the start time of the YARN process (e.g.: RM).
+
+
 ### Log messages to search for for failed job
 
 ```

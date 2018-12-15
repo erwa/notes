@@ -47,6 +47,17 @@ show tblproperties my_db.my_table;
 Only a single expression is supported when used in `SELECT my_udtf(...)`. This is invalid: `SELECT my_udtf(...), another_field`.
 
 
+### INSERT OVERWRITE not deleting data
+
+Happens when creating a partitioned external table where partition points somewhere that already exists and has data. Can be fixed by running
+
+```
+MSCK REPAIR TABLE partition_test;
+```
+
+https://www.ericlin.me/2015/05/hive-insert-overwrite-does-not-remove-existing-data/
+
+
 ### Write to file
 
 ```
