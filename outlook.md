@@ -15,8 +15,9 @@ When switching accounts, you may need to restart your web browser.
 
 ### Keyboard shortcuts
 
-# type * to start a bullet list
-# type 1. to start a numbered list
+```
+* - start a bulleted list
+1 - start a numbered list
 
 Q - mark as read
 U - mark as unread
@@ -27,3 +28,4 @@ R - reply
 Cmd + N - new email
 Cmd + Shift + 1 - Email
 Cmd + Shift + 2 - Calendar
+```
