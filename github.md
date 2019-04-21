@@ -28,6 +28,13 @@ Press `y` in the source file.
 http://stackoverflow.com/questions/23821235/how-to-link-to-specific-line-number-on-github
 
 
+### Apply pull request locally
+
+There is a "command line instructions" link at the bottom of the PR page.
+
+https://help.github.com/en/articles/checking-out-pull-requests-locally
+
+
 ### Squash commits before merging pull request
 
 Set pull request commit option to "Squash and merge"
@@ -43,6 +50,17 @@ http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 ### Notififcations
 
 When you comment on a specific commit of a pull request, a notification is only sent to the watchers of the repo being pulled from; a notification is NOT sent to the watchers of the repo being merged into.
+
+
+### Markdown link to section
+
+```
+[link text](#abcde)
+
+## <a name='abcde'>Section 1</a>
+```
+
+https://stackoverflow.com/questions/2822089/how-to-link-to-part-of-the-same-document-in-markdown
 
 
 ### Markdown emoji cheatsheet

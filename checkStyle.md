@@ -22,6 +22,7 @@ In `checkstyle.xml`:
 In `suppresions.xml`:
 
 ```
+<!-- DON'T FORGET TO UPDATE checkstyle.xml!!! -->
 <suppressions>
   <suppress files="foo\.java" checks=".*"/>
   <suppress files="bar\.java" checks=".*"/>

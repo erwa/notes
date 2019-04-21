@@ -1,3 +1,17 @@
+### Issue: `Error:java: javacTask: source release 8 requires target release 1.8`
+
+Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> change Target bytecode version to 8
+
+https://stackoverflow.com/questions/29888592/errorjava-javactask-source-release-8-requires-target-release-1-8
+
+
+### Settings window won't open
+
+Probably plugin is causing problem. Check blinking red circle with exclamation point in bottom-right.
+
+https://intellij-support.jetbrains.com/hc/en-us/community/posts/206254389-can-not-open-Settings
+
+
 ### Community vs. Ultimate Edition differences
 
 Ultimate supports JavaScript.

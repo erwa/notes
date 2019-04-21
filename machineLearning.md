@@ -1,3 +1,31 @@
+### Synchronous vs. Asynchronous training
+
+https://blog.skymind.ai/distributed-deep-learning-part-1-an-introduction-to-distributed-training-of-neural-networks/#asynchronousstochasticgradientdescent
+
+Good visual showing epochs per second vs. accuracy per epoch between various async and sync approaches: https://blog.skymind.ai/content/images/2017/12/image8.svg
+
+
+### Conjugate Gradient
+
+How it can be applied to non-symmetric, non-positive definite matrices:
+
+```
+A^T Ax = A^T b
+```
+
+A^T A is symmetric and positive. Can use above to find a solution that minimizes
+
+```
+||Ax - b||^2
+```
+
+https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf section 13.
+
+Each new residual is orthogonal to all previous residuals.
+
+http://www.cs.cmu.edu/~15859n/RelatedWork/painless-conjugate-gradient.pdf Figure 29
+
+
 ### Hashing trick
 
 Hash words into a range. A way to deal with out-of-vocabulary words, also do not need to retrain model for new words/misspellings -- can update existing model.

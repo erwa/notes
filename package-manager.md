@@ -23,6 +23,15 @@ rpm2cpio foo.rpm  | cpio -idmv
 https://superuser.com/questions/209808/how-can-i-install-an-rpm-without-being-root
 
 
+### Refresh repos
+
+```
+sudo yum clean expire-cache
+```
+
+https://forums.fedoraforum.org/showthread.php?202402-How-to-refresh-yum
+
+
 ### Clear Yum cache
 
 May be necessary if you do not see a new RPM you just added.
@@ -44,6 +53,28 @@ sudo yum list PACKAGE
 ```
 sudo yum --disablerepo="*" --enablerepo="NAME_OF_REPO" list available
 ```
+
+
+### Download RPM without installing
+
+```
+sudo yum install downloadonly
+sudo yum install --downloadonly --downloaddir=<directory> <package>
+# default downloaddir is
+# /var/cache/yum/.../<repo>/packages/
+```
+
+https://access.redhat.com/solutions/10154
+https://superuser.com/questions/385712/where-does-yum-save-the-rpm-files-it-downloads
+
+
+### Get RPM URL for Yum package
+
+```
+sudo yumdownloader --urls mariadb-server
+```
+
+https://unix.stackexchange.com/questions/85715/how-do-i-find-package-urls-with-yum
 
 
 ### List all Yum repositories
@@ -116,6 +147,8 @@ rpm -qa
 https://www.howtoforge.com/community/threads/how-do-i-uninstall-rpm-packages.8/
 
 ```
+yum erase <package_name>
+
 # Find exact package name
 rpm -qa | grep -i package_name
 

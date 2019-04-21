@@ -1,3 +1,66 @@
+### Add method to object
+
+```
+out.seekable = lambda: False
+```
+
+
+### setup_requires vs. install_requires
+
+setup_requires describes other distributions that need to be present in order for setup.py script to run.
+
+install_requires will install the distributions in addition to making them available when setup.py runs.
+
+https://setuptools.readthedocs.io/en/latest/setuptools.html
+
+
+### setuptools vs. distutils
+
+Setuptools was created to overcome Distutils's limitations. Setuptools is recommended.
+
+https://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2
+
+
+### Modulus operator
+
+```
+%
+```
+
+https://stackoverflow.com/questions/4432208/what-is-the-result-of-in-python
+
+
+### Download file
+
+```
+from urllib.request import urlretrieve
+urllib.request.urlretrieve('https://www.google.com', 'local_file_name')
+```
+
+https://stackoverflow.com/questions/21171718/urllib-urlretrieve-file-python-3-3
+https://docs.python.org/3/library/urllib.request.html#urllib.request.urlretrieve
+
+
+### GET request
+
+```
+# Python 3
+import urllib.request
+contents = urllib.request.urlopen("http://example.com/foo/bar").read()
+```
+
+https://stackoverflow.com/questions/645312/what-is-the-quickest-way-to-http-get-in-python
+
+
+### Python equivalent of IllegalStateException
+
+```
+ValueError
+```
+
+https://stackoverflow.com/questions/1701199/is-there-an-analogue-to-java-illegalstateexception-in-python
+
+
 ### `queue.Queue` vs. `multiprocessing.Queue`
 
 multiprocessing Queue is for communication between processes; it serializes data through pipes.
@@ -18,6 +81,20 @@ print(sys.version)
 Can represent 8-bit data and ASCII strings (character code up to 127).
 
 https://docs.python.org/2/reference/lexical_analysis.html#strings
+
+
+### Bytes to string
+
+```
+b"abcde".decode("utf-8")
+
+# for utf-8 constant, could use
+import encodings
+encodings.utf_8.getregentry().name
+```
+
+https://stackoverflow.com/questions/606191/convert-bytes-to-a-string
+https://stackoverflow.com/questions/44109212/is-there-any-python-utf-8-string-constant
 
 
 ### `bytes` type
@@ -158,7 +235,7 @@ from time import sleep
 def threaded_function(arg):
     for i in range(arg):
         print "running"
-        sleep(1)
+        sleep(1)  # time in seconds
 
 
 if __name__ == "__main__":
@@ -439,6 +516,42 @@ https://docs.python.org/2/library/functions.html#isinstance
 https://docs.python.org/2/library/functions.html#basestring
 
 
+### `is not` vs. `!=`
+
+`is not` is identity test (same objects). `!=` is equality test.
+
+
+### Parse elements with namespace prefix / parse XML
+
+```
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="/path/to/included.xml">
+    </xi:include>
+</configuration>
+```
+
+```
+import xml.etree.ElementTree as ET
+import sys
+
+tree = ET.parse(sys.argv[1])
+root = tree.getroot()
+
+# merge XIncluded file properties
+xincludes = root.findall('{http://www.w3.org/2001/XInclude}include')
+for xinclude in xincludes:
+    included_file = xinclude.get('href')
+    data = ET.parse(included_file).getroot()
+    root.extend(data)
+
+nodes = root.findall('property')
+for node in nodes:
+    print(node.find('name').text, '-->', node.find('value').text)
+```
+
+https://docs.python.org/2/library/xml.etree.elementtree.html#parsing-xml-with-namespaces
+
+
 ### Merge XML files
 
 xmlcombine.py:
@@ -455,7 +568,7 @@ def run(files):
         if first is None:
             first = data
         else:
-            first.extend(data)
+            first.extend(data)  # Requires Python 2.7
     if first is not None:
         print ElementTree.tostring(first)
 
@@ -744,9 +857,10 @@ Log.setLevel(level)
 http://stackoverflow.com/questions/10332748/python-logging-setlevel
 
 
-### ArgumentParser
+### ArgumentParser / read input arguments / parse arguments
 
 Example:
+
 ```
 from argparse import ArgumentParser
 
@@ -764,11 +878,12 @@ file = args.f
 continue = args.continue
 ```
 
-https://docs.python.org/2/library/argparse.html
+https://docs.python.org/3/library/argparse.html
 
 Optional arguments start with `-`. Positional arguments do not.
 
 Multiline help text:
+
 ```
 from argparse import RawTextHelpFormatter
 parser = ArgumentParser(description='test', formatter_class=RawTextHelpFormatter)
@@ -867,6 +982,15 @@ s.endswith('foo')
 http://www.tutorialspoint.com/python/string_endswith.htm
 
 
+### String format
+
+```
+'%s %s' % ('one', 'two')
+```
+
+https://pyformat.info/
+
+
 ### Variable substitution inside triple strings
 
 ```
@@ -930,6 +1054,15 @@ b = json.loads(...)
 
 a == b
 ```
+
+
+### Join items in dictionary into string
+
+```
+'<br/>'.join(['%s:: %s' % (key, value) for (key, value) in d.items()])
+```
+
+https://stackoverflow.com/questions/8519599/python-dictionary-to-string-custom-format
 
 
 ### Sort dictionary by keys
@@ -1340,6 +1473,26 @@ d = defaultdict(int, {'a': 1, 'b': 2})
 http://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work
 
 
+### subprocess signal handling
+
+Change in behavior between 3.3 to 3.6. Best to use 3.7 which gives child process some time on SIGINT before sending SIGKILL.
+
+https://stackoverflow.com/questions/34458583/python-subprocess-call-doesnt-handle-signal-correctly
+https://github.com/python/cpython/pull/5026
+
+
+### Run subprocess in modified environment
+
+```
+import subprocess, os
+my_env = os.environ.copy()
+my_env["PATH"] = "/usr/sbin:/sbin:" + my_env["PATH"]
+subprocess.Popen(my_command, env=my_env)
+```
+
+https://stackoverflow.com/questions/2231227/python-subprocess-popen-with-a-modified-environment
+
+
 ### Run shell command
 
 ```
@@ -1348,9 +1501,24 @@ subprocess.Popen('echo `date`', shell=True)
 
 # using wildcards
 subprocess.Popen('cat foo*', shell=True)
+
+# wait for subprocess to finish
+subprocess.Popen('nvidia-smi').wait()
 ```
 
 http://stackoverflow.com/questions/9997048/python-subprocess-wildcard-usage
+https://stackoverflow.com/questions/15107714/wait-process-until-all-subprocess-finish
+
+
+### Current process id (pid of current process)
+
+```
+import os
+
+os.getpid() # int
+```
+
+https://www.systutorials.com/241719/how-to-get-the-running-process-pid-in-python/
 
 
 ### Kill process by pid
@@ -1378,7 +1546,7 @@ https://stackoverflow.com/questions/7989922/opening-a-process-with-popen-and-get
 ```
 import subprocess
 subprocess.Popen('rm -r some.file', shell=True)
-subprocess.Popen(["rm","-r","some.file"])
+subprocess.Popen(["rm", "-r", "some.file"])
 
 # subprocess.Popen() only runs a process in the background if nothing
 # in the python script depends on the output of the command being run
@@ -1539,6 +1707,15 @@ http://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-stri
 ### Read file line by line
 
 ```
+import re
+import sys
+
+with open(sys.argv[1]) as f:
+    for line in f:
+        line = line.strip()
+        if line and not line.startswith('#'):
+            parts = re.split(r'\s+', line)
+
 # Stream file line by line
 with open(...) as f:
     for line in f:
@@ -1551,13 +1728,18 @@ lines = [line.rstrip('\n') for line in open('filename')]
 # http://stackoverflow.com/questions/3277503/python-read-file-line-by-line-into-array
 ```
 
-# Read input arguments
-# http://stackoverflow.com/questions/983201/python-and-sys-argv
+
+### Read input arguments
+
+http://stackoverflow.com/questions/983201/python-and-sys-argv
+
+```
 import sys
 if len(sys.argv) > 1:
   # sys.argv[0] = file name
   # sys.argv[1] = first argument
   ...
+```
 
 
 ### Add to list
@@ -1576,6 +1758,16 @@ del my_list[index]
 # remove from list by index and return deleted element
 deleted_element = my_list.pop(index)
 ```
+
+
+### Split once
+
+```
+# result will have 2 parts
+s.split('mango', 1)[1]
+```
+
+https://stackoverflow.com/questions/6903557/splitting-on-first-occurrence
 
 
 ### Split list into multiple variables
@@ -1807,13 +1999,13 @@ https://stackoverflow.com/questions/13361510/typeerror-unsupported-operand-types
 ### Dictionaries
 
 ```
-# Check if key in dictionary
+# Check if key in dictionary / check if dictionary contains
 if key in d:
 # http://stackoverflow.com/questions/1602934/check-if-a-given-key-already-exists-in-a-dictionary
 
 # Iterate over dictionary / iterate over map
 for key in d:
-for k,v in d.iteritems():
+for k,v in d.items():
 
 # Sort a dictionary in descending order
 sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)

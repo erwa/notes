@@ -1,10 +1,23 @@
+### To do before leaving
+
+- Set water heater to "vacation" mode
+- Turn off heater
+- Set out-of-office auto-reply
+- Set Slack status to OOO
+- remove bike lock, bike accessories
+
+
 ### General
 
+- consider enabling "avoid tolls" in Google Maps
+- car phone mount
+- Drawstring bag
+- Toiletries (razor, toothbrush, toothpaste, floss, nail clipper, comb, contacts, contact solution)
+- add phone numbers of travel companions
 - neck cushion
 - when working remotely, find a library (at office or public library) to work in
 - star points of interest on Google Map
 - download transit map PDF for destination
-- remove bike lock, bike accessories
 - Jacket
 - Swimming trunks (preferably regular ones)
 - soap (if not available)
@@ -23,8 +36,6 @@
 - Money (split up into several places)
 - quarters / change (parking, exact fare on buses)
 - MetroCard, Clipper Card, Caltrain Go Pass
-- Drawstring bag
-- Toiletries (razor, toothbrush, toothpaste, floss, nail clipper, comb, contacts, contact solution)
 - Towel
 - Blindfold, ear plugs
 - Nice belt (for formal events)
@@ -51,7 +62,6 @@
 - Offline tour guide information
 - Printed itinerary/map - send email summarizing trip post-trip.
 - Figure out conversion rate, where to put toilet paper, whether tap water is potable.
-- Out-of-office response
 - photos / physical copies of boarding passes, in case no Internet access
 - Download language pack in Google Translate for offline translation
 - water filter (for filtering tap water, if coffee pot / water heater is not available)

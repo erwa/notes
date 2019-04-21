@@ -1,3 +1,24 @@
+### Count instances of each letter in cell
+
+```
+=len(A2)-len(SUBSTITUTE(A2,"N",""))
+```
+
+https://stackoverflow.com/questions/27154682/count-occurrences-of-given-character-per-cell
+
+
+### Resize canvas in drawing
+
+You can't resize the canvas.
+
+https://productforums.google.com/forum/#!topic/docs/_yhyLHXjBZw
+
+
+### Indirect lookup
+
+https://support.google.com/docs/answer/3093377?hl=en
+
+
 ### Repeat action
 
 Cmd + Y
@@ -28,7 +49,9 @@ https://support.google.com/docs/answer/6367684?hl=zh-Hant&co=GENIE.Platform%3DDe
 
 ```
 # Convert from X to USD
-=GOOGLEFINANCE("CURRENCY:"&E2&"USD")
+# D2 is value
+# E2 is foreign currency X
+=D2*GOOGLEFINANCE("CURRENCY:"&E2&"USD")
 ```
 
 https://www.ablebits.com/office-addins-blog/2017/11/30/currency-conversion-google-sheets/
@@ -65,6 +88,15 @@ n
 https://support.google.com/drive/answer/2563044?hl=en
 
 
+### Count unique characters
+
+```
+=COUNTUNIQUE(A1, B1, ...)
+```
+
+https://support.google.com/docs/answer/3093405?hl=en
+
+
 ### Count if not empty
 
 ```
@@ -92,8 +124,13 @@ Go to presentation mode -> Inspect Element -> get image URL -> go there and save
 ### Convert number to letter
 
 ```
+=mid("ABCDEFGHIJKLMNOPQRSTUVWXYZ", A1, 1)
+
+# doesn't seem to work anymore
 =CHAR(1 + 64)
 ```
+
+http://spreadsheetpro.net/how-to-get-letter-in-alphabet-based-on-number-in-excel-and-google-spreadsheet/
 
 
 ### Convert letter to number

@@ -1,6 +1,16 @@
 This file is about working with .so library files.
 
 
+### Check runpath (rpath) of library
+
+```
+readelf -d my.so | less
+# search for RUNPATH or runpath
+```
+
+https://stackoverflow.com/questions/2836330/is-there-a-way-to-inspect-the-current-rpath-on-linux
+
+
 ### Update SONAME
 
 ```

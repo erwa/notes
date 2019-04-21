@@ -410,6 +410,21 @@ final Map<String, Set<String>> myMap = [:].withDefault { new HashSet<>() }
 http://mrhaki.blogspot.com/2010/07/groovy-goodness-map-with-default-values.html
 
 
+### Combine file paths
+
+```
+import java.nio.file.Paths // only needed for second example
+
+def dir1 = "/the/path"
+def dir2 = "to/join"
+
+println new File(dir1, dir2)
+println Paths.get(dir1, dir2)
+```
+
+https://serviceorientedarchitect.com/how-to-combinejoin-file-paths-in-gradlegroovy/
+
+
 ### Read/write string to file
 
 ```

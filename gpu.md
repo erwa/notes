@@ -1,3 +1,12 @@
+### Check if machine has GPUs
+
+```
+lspci
+```
+
+https://askubuntu.com/questions/5417/how-to-get-the-gpu-info
+
+
 ### Check CUDA version
 
 ```

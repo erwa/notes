@@ -1,3 +1,10 @@
+### Check Presto version
+
+```
+select distinct node_version from system.runtime.nodes;
+```
+
+
 ### Median
 
 Use `approx_percentile(x, 0.5)`.

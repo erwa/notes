@@ -1,3 +1,10 @@
+### Change log level
+
+Update the log level in `sbin/yarn-daemon.sh` script.
+
+https://stackoverflow.com/questions/27853974/how-to-set-debug-log-level-for-resourcemanager
+
+
 ### Check if YARN services were restarted in the middle of the job
 
 application_XXX_YYY - the XXX part is the start time of the YARN process (e.g.: RM).

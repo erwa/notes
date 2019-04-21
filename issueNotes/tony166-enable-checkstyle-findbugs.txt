@@ -1,0 +1,14 @@
+tony-166-enable-checkstyle-findbugs.txt
+
+  Cannot open codebase filesystem:/Users/ahsu/.gradle/caches/modules-2/files-2.1/org.apache.curator/apache-curator/2.6.0/1bbbe3a8c191ec5a63ec2eaec7988d8292ea65d2/apache-curator-2.6.0.pom
+    java.io.IOException: Wrong magic bytes of 3c3f786d for zip file /Users/ahsu/.gradle/caches/modules-2/files-2.1/org.apache.curator/apache-curator/2.6.0/1bbbe3a8c191ec5a63ec2eaec7988d8292ea65d2/apache-curator-2.6.0.pom of 30359 bytes
+
+https://github.com/findbugsproject/findbugs/issues/157
+
+tasks.withType(FindBugs) {
+  classpath = classpath.filter {
+    // POM files are getting included in the classpath for some reason, but this causes parsing errors when FindBugs
+    // tries to analyze them, thinking they are zips. Excluding POM files as a workaround.
+    !it.name.endsWith('.pom')
+  }
+}

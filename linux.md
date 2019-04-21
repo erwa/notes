@@ -1,3 +1,42 @@
+### Total number of threads running on system
+
+```
+# nlwp = Number of LightWeight Processes
+ps -eo nlwp | tail -n +2 | awk '{ num_threads += $1 } END { print num_threads }'
+```
+
+https://askubuntu.com/questions/88972/how-to-get-from-terminal-total-number-of-threads-per-process-and-total-for-al
+
+
+### Print kernel ring buffer messages
+
+```
+dmesg | grep -i nvidia
+```
+
+https://forum.manjaro.org/t/solved-nvidia-modeset-error-gpu-idling-display-engine-timed-out/49762/7
+
+
+### PAM (Pluggable Authentication Module)
+
+https://www.linux.com/news/understanding-pam
+
+Four management realms:
+* auth
+* account
+* password
+* session
+
+
+### Check memory of running process
+
+```
+cat /proc/<pid>/status  # look at VmSize
+```
+
+https://stackoverflow.com/questions/131303/how-to-measure-actual-memory-usage-of-an-application-or-process
+
+
 ### Check mount filesystem of path
 
 ```

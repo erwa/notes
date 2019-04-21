@@ -93,6 +93,16 @@ https://sanctum.geek.nz/arabesque/special-characters-in-vim/
 http://unix.stackexchange.com/questions/217010/search-and-replace-control-characters-m-i-in-vi
 
 
+### Search for special character
+
+```
+# search for tab
+/\t
+```
+
+http://www.linuxask.com/questions/search-for-tab-characters-in-vim
+
+
 ### Next word in insert mode
 
 ```
@@ -106,6 +116,15 @@ Shift + right arrow
 Shift + R
 ```
 http://stackoverflow.com/questions/9209776/how-to-switch-to-replace-mode-in-vim
+
+
+### Go to character position in line
+
+```
+25|
+```
+
+https://stackoverflow.com/questions/4466950/go-to-n-th-symbol-in-line
 
 
 ### Open most recent file in a directory
@@ -138,13 +157,22 @@ vim `ls -t | head -1`
 :set list
 ```
 
-# Search for current word
+
+### Search for current word
+
+```
 *
+```
 
-# vim turn off search highlighting
+
+### Turn off search highlighting
+
+```
 :set nohlsearch
+```
 
-# Multiple Windows
+
+### Multiple Windows
 
 http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
 

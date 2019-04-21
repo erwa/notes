@@ -1,3 +1,8 @@
+### List packages or delete packages
+
+Preferences -> Package Control -> List Packages, Delete Package
+
+
 ### Copy file path
 
 Right click somewhere in file (NOT file tab) --> copy file path

@@ -1,3 +1,26 @@
+### Word list
+
+https://github.com/dwyl/english-words/blob/master/words_alpha.txt
+
+
+### Anagrams
+
+https://www.morewords.com/
+
+Will also show you anagrams containing one more letter.
+
+
+### MIT Hunt 2019
+
+Least solved puzzles: https://youtu.be/qkKN2ZcCxpc?t=2180
+
+
+### MIT Hunt tropes
+
+- Game of Life
+- Stata Center
+
+
 ### List of logic puzzles and rules
 
 http://www.cross-plus-a.com/puzzles.htm
@@ -16,6 +39,29 @@ Share Google Drive explicitly with each team member. Then user names will show u
 ### Generate spreadsheet crossword from image
 
 http://www.npinsker.me/puzzles/crossword
+
+
+### Ciphers
+
+Solitaire cipher - https://en.wikipedia.org/wiki/Solitaire_(cipher)
+Very tedious to do by hand. Use online encoder/decoder.
+https://ermarian.net/services/encryption/solitaire
+
+Chaocipher - http://www.mountainvistasoft.com/chaocipher/ActualChaocipher/Chaocipher-Revealed-Algorithm.pdf
+https://molasses.holiday/solution/arbor_day_bloomsday
+Very tedious to do by hand, should use online encoder/decoder.
+https://www.dcode.fr/chao-cipher
+
+Bacon's cipher - binary encode by using two fonts in groups of five
+https://en.wikipedia.org/wiki/Bacon's_cipher
+
+Playfair cipher -
+https://planetcalc.com/7751/
+http://rumkin.com/tools/cipher/playfair.php
+5x5 grid of letters, minus one. encode two letters at a time, replace with opposite rectangle corner letters. If same row, shift right with wrap-around.
+
+Vigenere cipher - uses repeating keyword with table lookup.
+https://www.geeksforgeeks.org/vigenere-cipher/
 
 
 ### Letter Encodings

@@ -1,3 +1,10 @@
+### Interpreters
+
+Zeppelin equivalent of a Jupyter kernel.
+
+E.g.: https://zeppelin.apache.org/docs/0.8.0/interpreter/livy.html
+
+
 ### What is Zeppelin?
 
 Apache notebook for Spark, SQL, Python.

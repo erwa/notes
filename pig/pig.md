@@ -1,3 +1,18 @@
+### Change tuple schema in bag
+
+```
+a = load 'temp' using PigStorage() as (value: {(A: int,B: int,C: int)});
+describe a;
+
+b = foreach a {
+  new_value = foreach value generate A, B;
+  generate new_value as value;
+}
+
+describe b;
+```
+
+
 ### `exec` command
 
 Exec without any parameters can be used in scripts to force execution up to the point in the script where the exec occurs.
@@ -338,6 +353,7 @@ hadoop-mapreduce-client-common
 https://cwiki.apache.org/confluence/display/PIG/HowToTest
 
 Run single test:
+
 ```
 ant -Dtestcase=TestRegisteredJarVisibility clean test
 ```

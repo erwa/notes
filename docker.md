@@ -1,5 +1,7 @@
 ### Example Commands
 
+Remember to start Docker program in Applications first.
+
 ```
 docker image load -i <file>
 

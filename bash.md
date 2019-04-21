@@ -1,3 +1,12 @@
+### Intersection of two files
+
+```
+comm -12  file1 file2
+```
+
+https://stackoverflow.com/questions/2696055/intersection-of-two-lists-in-bash
+
+
 ### Pipe both stderr and stdout
 
 ```
@@ -648,7 +657,8 @@ ${MYSTRING%?}
 ### Bash dollar sign variables
 
 See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
-```bash
+
+```
 $1, $2, $3 # positional parameters
 $@ # array representation of positional parameters
 $# # number of parameters
@@ -662,8 +672,10 @@ $! # PID of most recent background command
 $0 # name of shell or shell script
 ```
 
-# Bash Bang commands and related stuff
+### Bash Bang commands and related stuff
+
 See http://ss64.com/bash/bang.html. On Linux, `Alt + .` prints out the last word of the last command.
+
 ```
 !! # run last command again
 !foo # run most recent command starting with foo
@@ -672,12 +684,15 @@ See http://ss64.com/bash/bang.html. On Linux, `Alt + .` prints out the last word
 ^foo^bar # run last command replacing foo with bar
 ```
 
+
 ### Clear history
 
 See http://askubuntu.com/questions/191999/how-to-clear-bash-history-completely.
+
 ```
 history -c && history -w # clear current history, then write empty history to ~/.bash_history
 ```
+
 
 ### Set/modify/remove/see user-specific ACLs:
 
@@ -702,14 +717,17 @@ find . -name *.jar | grep hadoop- | grep -v tests | grep -v sources | xargs -n1 
 ```
 
 One argument per command line:
+
 ```
 find . -name *.jar | xargs -n 1 jar tf
 ```
 
 Substitute in multiple places:
+
 ```
 find . -name *.jar | grep PATTERN1 | xargs -n1 -I% sh -c 'echo % && jar tf % | grep PATTERN2'
 ```
+
 `-I%` tells `xargs` to replace `%` with the arguments passed in. See http://stackoverflow.com/questions/18731610/xargs-with-multiple-commands for details.
 
 
@@ -885,7 +903,9 @@ http://stackoverflow.com/questions/7719785/using-find-with-exec-is-there-a-way-t
 ```
 find . ! -readable -prune
 ```
+
 http://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find
+
 
 ### Find but exclude directories
 
@@ -893,22 +913,29 @@ http://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denie
 find . -not -path "./dir/to/exclude/*"
 find . -path ./dir/to/exclude -prune -o -print
 ```
+
 http://stackoverflow.com/questions/4210042/exclude-directory-from-find-command
+
 
 ### ls: Show extended attributes
 
 This is an OSX-only feature:
+
 ```
 ls -l@
 ```
+
 To show the value of extended attributes, use
+
 ```
 xattr -l <filename>
 ```
 
+
 ### ls output explained
 
 See http://unix.stackexchange.com/questions/103114/what-do-the-fields-in-ls-al-output-mean. The first character is the file type. See http://unix.stackexchange.com/a/103117. `c` means character special file, which behave like pipes and serial ports. Writing to them causes an immediate action, like displaying something on the screen or playing a sound. See http://unix.stackexchange.com/questions/60034/what-are-character-special-and-block-special-files-in-a-unix-system.
+
 
 ### Check disk usage, output in human-readable format:
 
@@ -989,6 +1016,15 @@ date +%s%3N
 ```
 TZ=America/Los_Angeles date
 ```
+
+
+### Store stderr in variable
+
+```
+VAR=$((your-command-including-redirect) 2>&1)
+```
+
+https://stackoverflow.com/questions/3130375/bash-script-store-stderr-in-a-variable
 
 
 ### Redirect both stdout and stderr to the same file
@@ -1078,6 +1114,15 @@ rsync -az
 `-a` means "archive" mode, which preserves symbolic links, permissions, etc. `-z` enables compression for the data transfer.
 
 
+### If command failed, do something
+
+```
+if ! command ; then ... ; fi
+```
+
+https://unix.stackexchange.com/questions/22726/how-to-conditionally-do-something-if-a-command-succeeded-or-failed
+
+
 ### Run command only if previous command succeeded (exit status of 0) or failed
 
 See http://stackoverflow.com/questions/7402587/run-command2-only-if-command1-succeeded-in-cmd-windows-shell.
@@ -1088,11 +1133,30 @@ command1 || command2
 ```
 
 
+### `set`: Treat unset variables as error and exit immediately
+
+```
+set -u
+```
+
+https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+
+
+### Set exit status of pipeline to rightmost command to exit with non-zero status
+
+```
+set -o pipefail
+```
+
+https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+
+
 ### Exit immediately if any command returns non-0
 
 ```
 set -e
 ```
+
 http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mean
 
 
@@ -1101,6 +1165,7 @@ http://stackoverflow.com/questions/19622198/what-does-set-e-in-a-bash-script-mea
 ```
 set -x
 ```
+
 http://serverfault.com/questions/391255/what-does-passing-the-xe-parameters-to-bin-bash-do
 
 
@@ -1292,6 +1357,17 @@ filename="${filename%.*}"
 * `##` is greedy match and removal from beginning.
 * `%` matches and removes from the end.
 
+
+### Count instances of character in string
+
+```
+# -o only prints matching portions, one per line
+getent netgroup my_custom_netgroup | grep -o '(' | wc -l
+```
+
+https://stackoverflow.com/questions/16679369/count-occurrences-of-a-char-in-a-string-using-bash
+
+
 ### `cut` on whitespace
 
 ```
@@ -1305,6 +1381,7 @@ tr -s ' ' | cut -d ' ' -f 4
 cat FILE | tr -d '[[:space:]]'
 ```
 http://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+
 
 ### Send mail from command line
 
@@ -1536,7 +1613,9 @@ ln -fns NEW_LOCATION EXISTING_LINK
 ```
 ${#array[@]}
 ```
+
 http://unix.stackexchange.com/questions/193039/how-to-count-the-length-of-an-array-defined-in-bash
+
 
 ### Check filesystem type
 
@@ -1546,6 +1625,7 @@ df -T
 
 mount
 ```
+
 http://unix.stackexchange.com/questions/53313/how-to-show-the-filesystem-type-via-the-terminal
 
 

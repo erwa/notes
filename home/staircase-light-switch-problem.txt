@@ -1,0 +1,40 @@
+staircase-light-switch-problem.txt
+
+4/20/19
+
+Two Way Light Switching Explained
+https://www.youtube.com/watch?v=opoEswRp_jg
+
+How to Fix 3-way Switch Problems
+https://www.youtube.com/watch?v=fz9KKvoS6p0
+
+non-contact voltage tester to find live wire
+continuity to check connector wires
+
+equipment
+- phone
+- screwdriver
+- wire caps
+- voltage detector
+- continuity tool
+- notebook to take notes
+- electrical tape (RED TAPE)
+- needle nose plier
+
+0) CHECK WHAT SCREWDRIVER NEEDED, PREP GLOVES
+1) turn off electricity
+2) take cover plates off switches
+3) use fluke voltage detector - touch all around to make sure electricity is off
+3b) TAKE PICTURES
+4) remove all wires from light switch
+5) might be white wire for live, should be recolored.
+6) put wire nuts over every wire
+7) turn on electricity briefly
+8) use fluke voltage detector to figure out LINE wire (LIVE, HOT wire). only 1 of 2 boxes should have a hot wire
+9) move that aside, PUT TAPE on it
+10) turn electricity off. DOUBLE CHECK with non-contact voltage detector
+11) figure out traveler and ground wires. live wire go to BLACK COMMON SCREW. green ground wire goes to GREEN screw. traveler wires go to BRONZE screws
+12) figure out LOAD wire
+13) hook the 2 traveler wires together on LIVE switch
+14) then can test continuity in other box, find traveler wires, put aside; put LOAD wire aside (that goes to black COMMON screw). can mark that with red tape, too.
+15) wire it, put it all together.

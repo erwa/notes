@@ -1,3 +1,14 @@
+### Superscript / Subscript
+
+```
+# superscript
+Cmd + + (shift + =)
+
+# subscript
+Cmd + =
+```
+
+
 ### Word Online
 
 To get notifications when someone edits your document, add them as a collaborator.

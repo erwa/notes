@@ -1,6 +1,26 @@
+### Argument list too long
+
+```
+# use find
+find . -type f -exec grep <pattern> {} +
+```
+
+https://stackoverflow.com/questions/29727135/error-grep-argument-list-too-long
+
+
+### No output, just exit status
+
+```
+-q
+```
+
+https://unix.stackexchange.com/questions/104641/how-can-i-suppress-output-from-grep-so-that-it-only-returns-the-exit-status
+
+
 ### Return number of matches / count number of matches
 
 ```
+# shows number of matches per file
 grep -c
 ```
 
@@ -98,76 +118,126 @@ grep Test.*class
 
 NOTE: `grep Test*.class` and `grep Test*class` do NOT work as expected.
 
-Grep for files ending in .xml:
+
+### Grep for files ending in `.xml`
 
 ```
 grep "\.xml"
 ```
 
-Grep for items that do NOT match a pattern:
+
+### Grep for items that do NOT match a pattern
+
 ```
 grep -v <pattern>
 ```
 
-Grep starting from certain line number:
+
+### Grep starting from certain line number
+
 ```
 sed -n '<line_number>,$ p' <file> | grep <pattern>
 ```
 
-Grep, cut, and sed:
+
+### Grep, cut, and sed
+
 ```
 grep pattern FILE | cut -d '"' -f 4 | sed -e 's/://' | sed -e 's/\.git//'
 ```
 
-Grep and only print the second field:
+
+### Grep and only print the second field
+
 ```
 grep -r "pattern" ./* | cut -d ' ' -f 2
 ```
+
 `-d ' '` means split on space. `-f 2` means select only the 2nd field.
 
-Grep, split on whitespace, and print fifth field:
+
+### Grep, split on whitespace, and print fifth field
+
 ```
 grep "pattern" | awk '{print $5}'
 ```
 
 
+### Match the beginning of lines
+
 ```
-# Match the beginning of lines
 grep '^<pattern>'
+```
 
-# Don't show file name
+
+### Grep without showing file name / don't show file name
+
+```
 grep -h
+```
 
-# Show matching part only
+
+### Show matching part only
+
+```
 grep -o
+```
 
-# Trim whitespace (technically will leave one leading space)
+
+### Trim whitespace (technically will leave one leading space)
+
+```
 grep ... | tr -s [:space:]
 ```
 
-Grep number of occurrences of WORD in FILE
+
+### Grep number of occurrences of WORD in FILE
+
 ```
 grep -o WORD FILE | wc -l
 ```
+
 `-o` causes grep to only print matching part (not entire line)
 
-Grep and ignore errors
+
+### Grep and ignore errors
+
 ```
 grep -s ...
 ```
 
-Grep and hide filename
+
+### Grep and hide filename
+
 ```
 grep -h
 ```
 
-Grep and show lines before and after
+
+### Grep and show characters before and after
+
+```
+# show 5 characters before and after (must have preceding and succeeding 5 characters)
+grep -o -P '.{5}search_string.{5}' file
+
+# 0-20 characters before or after
+grep -o -P '.{0,20}search_string.{0,20}' file
+```
+
+https://stackoverflow.com/questions/8101701/grep-characters-before-and-after-match
+
+
+### Grep and show lines before and after
+
 ```
 grep -B 1 -A 1
 ```
+
 http://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines
 
-Grep for full word
+
+### Grep for full word
+
 ```
 grep -w WORD
 # http://stackoverflow.com/questions/2879085/how-to-grep-for-the-whole-word

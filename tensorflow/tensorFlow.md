@@ -1,3 +1,27 @@
+### Benchmarking
+
+https://github.com/tensorflow/benchmarks/tree/master/perfzero
+
+Mentioned in "NVIDIA Quadro RTX 8000 Performance Benchmarks for TensorFlow" on discuss@tensorflow.org mailing list
+
+
+### Distribution Strategies
+
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/distribute/README.md
+
+
+### TensorFlow 2.0 Status Tracker
+
+https://github.com/orgs/tensorflow/projects/4
+
+
+### Data Parallelism
+
+By default, each worker iterates over the entire dataset. Queues are local and not shared.
+
+https://stackoverflow.com/questions/45989971/distributed-training-with-tf-estimator-resulting-in-more-training-steps
+
+
 ### Distributed `TF_CONFIG`
 
 ```
@@ -43,6 +67,7 @@ TF_CONFIG='{
 ```
 
 https://www.tensorflow.org/api_docs/python/tf/estimator/train_and_evaluate
+https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute
 
 
 ### Simple end-to-end code
@@ -160,6 +185,7 @@ export LD_LIBRARY_PATH=/usr/java/default/jre/lib/amd64/server
 CLASSPATH=$(${HADOOP_HOME}/bin/hadoop classpath --glob) bin/python my_program.py
 ```
 
+https://github.com/tensorflow/examples/blob/master/community/en/docs/deploy/hadoop.md
 https://www.tensorflow.org/deploy/hadoop
 
 
@@ -313,13 +339,13 @@ c = tf.constant([[1.0, 2.0], [3.0, 4.0]])
 ```
 
 
-### Test GPU
+### Test GPU / GPU test / GPU example
 
 ```
 import tensorflow as tf
 
 # Creates a graph.
-with tf.device('/cpu:0'):
+with tf.device('/gpu:0'):
   a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
   b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
 
@@ -348,6 +374,15 @@ print(sess.run(hello))
 ```
 
 https://www.tensorflow.org/install/install_sources#validate_your_installation
+
+
+### Reset default graph / clear default graph
+
+```
+tf.reset_default_graph()
+```
+
+https://www.tensorflow.org/api_docs/python/tf/reset_default_graph
 
 
 ### `Session.run()`

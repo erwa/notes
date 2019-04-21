@@ -1,3 +1,13 @@
+### Enterprise Gateway
+
+https://jupyter-enterprise-gateway.readthedocs.io
+
+
+### Defining custom magic
+
+https://ipython.readthedocs.io/en/stable/config/custommagics.html
+
+
 ### sparkmagic
 
 Includes a PySpark kernel. You use `%load_ext sparkmagic.magics` and `%manage_spark` to load sparkmagic and create a Spark session, and then you can run Python commands remotely through it. It requires a Livy server that will interact with the Spark cluster.
@@ -31,6 +41,18 @@ https://dwhsys.com/2017/03/25/apache-zeppelin-vs-jupyter-notebook/
 ### Execution indicator
 
 Circle in top-right is grey. If clear/white, not executing.
+
+
+### Kernel communication / Messaging between frontend and kernel
+
+https://jupyter-client.readthedocs.io/en/stable/messaging.html
+
+
+### Connect to remote kernel
+
+https://github.com/ipython/ipython/wiki/Cookbook:-Connecting-to-a-remote-kernel-via-ssh
+
+Works via SSH tunnels.
 
 
 ### Kernel

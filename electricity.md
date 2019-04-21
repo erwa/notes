@@ -1,3 +1,17 @@
+### Current symbols
+
+`~` is AC (alternating current) symbol
+
+````
+# direct current symbol looks like this
+# solid line on top, dash line on bottom
+____
+----
+````
+
+https://www.electrical-symbols.com/electric-electronic-symbols/electric-current-symbols.htm
+
+
 ### Acronyms
 
 AWG = American wire gauge. Smaller number is thicker than larger number. https://en.wikipedia.org/wiki/American_wire_gauge

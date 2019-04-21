@@ -6,6 +6,8 @@ private static JobFinishedEvent createJobFinishedEvent(JobImpl job)
 
 `JobImpl` stores `finishTime`.
 
+AsyncDispatcher.getEventHandler() -> GenericEventHandler
+
 
 ### Schema
 

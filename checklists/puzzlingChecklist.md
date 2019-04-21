@@ -1,6 +1,7 @@
 Puzzling Checklist
 ==================
 
+* transparencies / acetate sheets to put over puzzles to preserve original
 * Knee pads
 * Scissors
 * Tape

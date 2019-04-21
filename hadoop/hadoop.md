@@ -1,3 +1,27 @@
+### Specify node label
+
+```
+# MR
+mapreduce.job.node-label-expression  # sets it for all containers
+mapreduce.job.am.node-label-expression
+mapreduce.map.node-label-expression
+mapreduce.reduce.node-label-expression
+
+# Spark
+spark.yarn.am.nodeLabelExpression
+spark.yarn.executor.nodeLabelExpression
+```
+
+https://developer.ibm.com/hadoop/2017/03/10/yarn-node-labels/
+
+
+### Set number of reducers
+
+```
+set mapreduce.job.reduces=3;
+```
+
+
 ### Get active conf
 
 ```
@@ -164,8 +188,8 @@ Way CombineFileInputFormat algorithm works:
 ```
 FileUtil.copy(srcFs, srcPath, destFs, destPath, false, c);
 ```
-http://stackoverflow.com/questions/35806830/how-to-copy-a-file-from-one-hdfs-folder-to-another-hdfs-folder-using-java-api
 
+http://stackoverflow.com/questions/35806830/how-to-copy-a-file-from-one-hdfs-folder-to-another-hdfs-folder-using-java-api
 
 
 ### Host job was submitted from
@@ -178,6 +202,7 @@ http://stackoverflow.com/questions/35806830/how-to-copy-a-file-from-one-hdfs-fol
 ```
 dfs.replication=1
 ```
+
 http://stackoverflow.com/questions/30558217/to-change-replication-factor-of-a-directory-in-hadoop
 
 
@@ -194,11 +219,15 @@ hadoop fs -ls # Look at 2nd column
 * Re-add the project in Eclipse.
 * Make sure you don't accidentally "Build project" or else the bin folder will get overridden with compiled classes.
 
-# version 0.20S = 1.2.1
-# version 0.23 = 2.x
+* version 0.20S = 1.2.1
+* version 0.23 = 2.x
 
-# Enable more logging
+
+### Enable more logging
+
+```
 export HADOOP_ROOT_LOGGER=DEBUG,console
+```
 
 
 ### EOFException
@@ -232,22 +261,34 @@ Hadoop setup on Mac
 http://stackoverflow.com/questions/7134723/hadoop-on-osx-unable-to-load-realm-info-from-scdynamicstore
 
 To fix “Unable to load realm info from SCDynamicStore” error, add this to hadoop-env.sh
+
+```
 export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc="
+```
 
 To suppress "$HADOOP_HOME is deprecated" warning message, add the follow to hadoop-env.sh
+
+```
 export HADOOP_HOME_WARN_SUPPRESS="TRUE"
+```
 
-# http://stackoverflow.com/questions/3425688/why-does-the-hadoop-incompatible-namespaceids-issue-happen
-# http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#javaioioexception-incompatible-namespaceids
-# Reformat the namenode
+http://stackoverflow.com/questions/3425688/why-does-the-hadoop-incompatible-namespaceids-issue-happen
+http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#javaioioexception-incompatible-namespaceids
+
+
+### Reformat the namenode
+
+```
 hadoop namenode -format
-# You may need to delete the hadoop tmp and dfs.data.dir directories.
+```
 
-# For Hadoop local (single process) mode, just leave core-site.xml, hdfs-site.xml, and mapred-site.xml empty.
+You may need to delete the hadoop tmp and dfs.data.dir directories.
 
-# Don't forget to set JAVA_HOME in conf/hadoop-env.sh
+For Hadoop local (single process) mode, just leave core-site.xml, hdfs-site.xml, and mapred-site.xml empty.
 
-# To avoid having to type your password when launching the daemons, append .ssh/*.pub to .ssh/authorized_keys
+Don't forget to set JAVA_HOME in conf/hadoop-env.sh
+
+To avoid having to type your password when launching the daemons, append `.ssh/*.pub` to `.ssh/authorized_keys`.
 
 Using curl to contact a secure WebHDFS instance
 http://www.adaltas.com/blog/2013/09/25/webhdfs-security-kerberos-delegation-tokens/
@@ -262,18 +303,24 @@ Get delegation token
 curl --negotiate -u : -L "http://NAMENODE_HOST:50070/webhdfs/v1/?op=GETDELEGATIONTOKEN&user.name=USER"
 ```
 
-# To leave safemode
+
+### To leave safemode
+
+```
 hadoop dfsadmin -safemode leave
+```
 
 
-# Hadoop 2.3.0
+### Hadoop 2.3.0
 
 http://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/SingleNodeSetup.html
 (2.3.0 redirects to 2.4.1)
 
+
 ### Passwordless SSH
 
 Ensure the public keys in `~/.ssh` are appended to `~/.ssh/authorized_keys`.
+
 
 ### Setup
 
@@ -289,6 +336,7 @@ jps
 ```
 NameNode UI running at http://localhost:50070
 
+
 ### Eclipse Setup
 
 You must use Java 7 to compile.
@@ -303,6 +351,7 @@ export HADOOP_PROTOC_PATH=/opt/protobuf/protobuf-2.5.0/bin/protoc
 
 Build
 
+```
 # Make sure you don't have environment variables from Hadoop 1.x still set
 env | grep -i home
 env | grep -i conf
@@ -330,6 +379,9 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 
 # Conf is in etc/hadoop
 # core-site.xml
+```
+
+core-site.xml
 
 ```
 <configuration>
@@ -344,7 +396,8 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 </configuration>
 ```
 
-# hdfs-site.xml
+hdfs-site.xml
+
 ```
 <configuration>
   <property>
@@ -358,7 +411,8 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 </configuration>
 ```
 
-# mapred-site.xml
+mapred-site.xml
+
 ```
 <configuration>
   <property>
@@ -368,7 +422,7 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 </configuration>
 ```
 
-# yarn-site.xml
+yarn-site.xml
 
 ```
 <configuration>
@@ -384,6 +438,7 @@ mvn clean package  -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
 </configuration>
 ```
 
+```
 # Before namenode can start, you must format the hadoop.tmp.dir
 hadoop namenode -format
 
@@ -404,9 +459,12 @@ hadoop namenode -format
 # Running example job
 # Pi job (no files required)
 yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar pi 2 100
+```
 
-# Word count example
-# Copy conf directory to HDFS
+
+### Word count example
+
+Copy conf directory to HDFS
 
 ```
 hadoop fs -put etc/hadoop/ conf
@@ -415,10 +473,14 @@ hadoop fs -put etc/hadoop/ conf
 hadoop fs -put -f <src> <dst>
 ```
 
-# Run word count
-yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out
+Run word count
 
-# Increase memory of tasks
+```
+yarn jar /export/apps/hadoop-2.3.0_li-SNAPSHOT/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.3.0_li-SNAPSHOT.jar wordcount conf conf-out
+```
+
+
+### Increase memory of tasks
 
 ```
 set mapred.job.map.memory.mb 4096;
@@ -426,13 +488,17 @@ set mapred.job.reduce.memory.mb 4096;
 set mapred.child.java.opts '-Xmx3G -Djava.net.preferIPv4Stack=true';
 ```
 
-# Find job given application id
-# The /proxy/application_xxx_xxx URL often expires quickly
-# Look for the Hadoop job id job_xxx_xxx (the xxx_xxx will match the xxx_xxx part in the application URL)
-# Search for the job on the Job History Server
 
-# Deprecated properties between Hadoop 1 and Hadoop 2:
-# http://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-common/DeprecatedProperties.html
+### Find job given application id
+
+The /proxy/application_xxx_xxx URL often expires quickly
+Look for the Hadoop job id job_xxx_xxx (the xxx_xxx will match the xxx_xxx part in the application URL)
+Search for the job on the Job History Server
+
+
+### Deprecated properties between Hadoop 1 and Hadoop 2
+
+http://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-common/DeprecatedProperties.html
 
 
 ### `java.net.ConnectException: Connection refused`

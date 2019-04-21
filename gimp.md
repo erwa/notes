@@ -1,3 +1,14 @@
+### Stack pictures
+
+Open one picture.
+File -> Open as Layers.
+Image -> Canvas Size --> make much bigger
+Select layers one by one and move.
+Image -> Fit Canvas to Layers.
+
+https://gimper.net/threads/re-how-can-i-put-multiple-pics-side-by-side-to-make-one-picture.1042/
+
+
 ### Replace one color with another
 
 Colors -> Map -> Color Exchange
@@ -39,6 +50,13 @@ Use eraser on layer with alpha channel.
 Colors -> Color to Alpha
 
 https://graphicdesign.stackexchange.com/questions/5446/making-the-background-of-an-image-transparent-in-gimp
+
+
+### Scale Selection
+
+Shift + T
+
+https://graphicdesign.stackexchange.com/questions/49941/how-can-i-shrink-these-areas-using-gimp
 
 
 ### Paste face into picture

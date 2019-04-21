@@ -1,3 +1,8 @@
+### Messenger
+
+To use Messenger from mobile browser, need to request desktop version (or else they will prompt you to install the mobile app).
+
+
 ### PDFs
 
 Cannot upload PDF to event. Take screenshot of PDF or convert to JPG.
@@ -6,6 +11,7 @@ https://www.facebook.com/help/community/question/?id=663497893677367
 
 
 ### Time zone of events
+
 Based on location. If the time zone is wrong, try changing to another city in that time zone first and then changing back.
 
 https://www.facebook.com/help/community/question/?id=478630788879431

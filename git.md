@@ -1,3 +1,15 @@
+### Checkout Submodules
+
+```
+git submodule init
+git submodule update
+```
+
+https://stackoverflow.com/questions/3796927/how-to-git-clone-including-submodules
+
+Example: horovod uses them: https://github.com/horovod/horovod/blob/master/.gitmodules
+
+
 ### Find largest files in git history
 
 ```
@@ -21,6 +33,17 @@ git branch | tr -d \* | xargs git grep "foo"
 ```
 
 http://stackoverflow.com/questions/15292391/is-it-possible-to-perform-a-grep-search-in-all-the-branches-of-git-project
+
+
+### Ignore file but not directory
+
+```
+# order matters as rules are processed sequentially
+*.user     # ignore all paths ending in '.user'
+!*.user/   # but don't ignore these paths if they are directories.
+```
+
+https://stackoverflow.com/questions/16770282/how-to-gitignore-only-files
 
 
 ### Ignore file only in root directory
@@ -377,9 +400,11 @@ git reset HEAD^ path/to/file
 git reset --soft HEAD^
 ```
 
+
 ### Show changes in commit
 
 git show <commit-hash>
+
 
 ### Show state of file at commit
 
@@ -565,6 +590,14 @@ git diff branch1..branch2
 ```
 
 
+### Apply diff from one file to another file
+
+```
+git diff path/to/file > changes.patch
+patch -p1 path/to/other/file changes.patch
+```
+
+
 ### Apply diff in one repo to another
 
 ```
@@ -579,10 +612,20 @@ git apply /path/to/patch
 ### Cherry-pick specific files
 
 ```
+git cherry-pick -n <commit> # get your patch, but don't commit (-n = --no-commit)
+git reset                   # unstage the changes from the cherry-picked commit
+git add -p                  # make all your choices (add the changes you do want)
+git commit                  # make the commit!
+```
+
+https://stackoverflow.com/questions/1526044/partly-cherry-picking-a-commit-with-git
+
+```
 # use `git apply -3 -` to allow for conflict resolution
 # can also use `-p<n>` and `--directory`
 git show SHA -- file1.txt file2.txt | git apply -
 ```
+
 http://stackoverflow.com/questions/5717026/how-to-git-cherry-pick-only-changes-to-certain-files
 
 `git apply` also support `--include=<path-pattern>` to only apply patches to some files.
@@ -647,19 +690,29 @@ http://stackoverflow.com/questions/2733873/reverting-a-single-file-to-a-previous
 git checkout <commit> path/to/file
 ```
 
-# revert part of a commit
-# http://stackoverflow.com/questions/4795600/reverting-part-of-a-commit-with-git
+
+### Revert part of a commit
+
+http://stackoverflow.com/questions/4795600/reverting-part-of-a-commit-with-git
+
+```
 $ git revert -n $bad_commit    # Revert the commit, but don't commit the changes; -n means --no-commit
 $ git reset HEAD .             # Unstage the changes
 $ git add --patch .            # Add whatever changes you want
 $ git commit                   # Commit those changes
+```
+
 
 ### Squash all history into one commit
-# http://stackoverflow.com/questions/1657017/squash-all-git-commits-into-a-single-commit
+
+http://stackoverflow.com/questions/1657017/squash-all-git-commits-into-a-single-commit
+
+```
 rm -rf .git
 git init
 git add .
 git commit -m "<commit message>"
+```
 
 
 ### Squash several commits into one

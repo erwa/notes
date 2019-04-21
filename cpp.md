@@ -1,3 +1,10 @@
+### Make vs. CMake
+
+Make a build system. CMake generates build files such as Makefiles from a CMakeLists.txt file.
+
+https://stackoverflow.com/questions/25789644/difference-between-using-makefile-and-cmake-to-compile-the-code
+
+
 ### Parameterized constructor
 
 ```

@@ -1,3 +1,10 @@
+### Manhattan to Newark Airport
+
+Newark Airport Express bus. Board at Port Authority, Grand Central, or Bryant Park (on 42nd St). About 1 hour from Bryant Park to Newark Airport.
+
+https://www.newarkairportexpress.com/
+
+
 ### Lakeland Bus
 
 7 AM depart Parsippany, 8:05 AM arrive PABT

@@ -1,3 +1,11 @@
+### Jump to percent of file
+
+```
+# type 80%
+80%
+```
+
+
 ### Start reading from 50.2% in
 
 Seems to be fastest way of jumping to a specific time in a file.

@@ -1,0 +1,3 @@
+- Check if water bottles are allowed
+- Check if bags can be brought in
+- Might be difficult to fit bike on public transit, may want to leave bike at home if possible

@@ -1,3 +1,8 @@
+### Initialize once per executor
+
+https://stackoverflow.com/questions/40015777/how-to-perform-one-operation-on-each-executor-once-in-spark
+
+
 ### IntelliJ setup
 
 Enable hadoop-2.7 and yarn profiles. Enabling yarn profile is needed for spark-yarn module.

@@ -10,7 +10,8 @@ https://serverfault.com/questions/544917/pdsh-gives-error-rcmd-socket-permission
 ### `dshbak`
 
 ```
-pdsh -g my_group <command> | dshbak -c
+# 2>/dev/null is useful for ignoring errors
+pdsh -g my_group <command> 2>/dev/null | dshbak -c
 ```
 
 dshbak aggregates identical output, just prints a list of nodes with matching output in header block.

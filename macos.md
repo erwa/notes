@@ -131,7 +131,7 @@ http://www.macworld.com/article/1156861/software-graphics/howto-rip-cds.html
 
 ### Copy video from phone to Mac
 
-Use Photos app.
+Use Photos app. Once imported, select pictures -> File -> Export.
 
 
 ### Find frame rate of video
@@ -180,9 +180,12 @@ Use Photo Booth.
 
 * http://apple.stackexchange.com/questions/11497/can-i-take-a-still-photo-with-my-built-in-webcam
 
-### Taking screenshots
+### Taking screenshots / copy screenshot to clipboard
 
 ```
+# Copy screenshot to clipboard
+Ctrl + Shift + Cmd + 4
+
 # Picture gets saved on Desktop
 Shift+Cmd+3
 
@@ -405,6 +408,13 @@ System Preferences -> Cmd + Option + click Display --> Rotation option should ap
 * Cmd + S to save all changes.
 
 http://osxdaily.com/2012/05/11/batch-rotate-a-group-of-images-with-preview-for-mac-os-x/
+
+
+### Stop program from auto-opening when you plug in iPhone
+
+Open Image Capture - click triangle in bottom left corner, select don't open any program when phone is connected.
+
+https://www.macworld.co.uk/how-to/iphone/stop-itunes-photos-opening-automatically-3629261/
 
 
 ### Image Capture not showing iPhone photos

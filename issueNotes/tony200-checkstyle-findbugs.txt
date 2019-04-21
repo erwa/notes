@@ -1,0 +1,13 @@
+tony200-checkstyle-findbugs.txt
+
+1a2,5
+>   <!--
+>     Allow a class to hold or return mutable objects. While this has obvious risks, it is much too
+>     common a pattern to treat as a bug.
+>   -->
+3c7
+<     <Source name="~.*YarnTensorFlowClusterProtos.*java"/>
+---
+>     <Bug code="EI, EI2"/>
+5a10
+>

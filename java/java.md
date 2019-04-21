@@ -1,11 +1,26 @@
-### Heap dump
+### Find jar that a class is in
 
 ```
-# or -histo:live
-jmap -histo 1234 > process.jmap.histo
+for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
+```
 
+http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
+
+Also check out http://findjar.com
+
+
+### Heap dump
+
+Make sure you run the command as the same user who owns the process!
+
+```
 # 1234 is PID
+# Have had cases where -heap failed ("sun.jvm.hotspot.debugger.DebuggerException: cannot open binary file") but -histo worked
 jmap -heap 1234 > process.jmap.heap.usage
+
+# or -histo:live
+# Won't work if JVM started with -XX:+DisableAttachMechanism
+jmap -histo 1234 > process.jmap.histo
 
 # more in-depth info, but will significantly slow down process
 jmap -dump:live,format=b,file=process.jmap.bin 4363
@@ -22,22 +37,18 @@ jmap -dump:live,format=b,file=process.jmap.bin 4363
 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html
 
 
+### Thread vs. Runnable
+
+Runnable is "purer" - implement an interface (can use composition) vs. extending a class. You usually just want to run sommething rather than customize a thread's behavior.
+
+https://stackoverflow.com/questions/541487/implements-runnable-vs-extends-thread-in-java
+
+
 ### Interrupting threads
 
 Threads must cooperate. One thread calls `Thread.interrupt()`. The other must check the interrupted status via `Thread.interrupted()`.
 
 https://stackoverflow.com/questions/3590000/what-does-java-lang-thread-interrupt-do
-
-
-### Find jar that a class is in
-
-```
-for f in `find . -name '*.jar'`;  do echo $f && jar tvf $f | grep -i CLASSNAME; done
-```
-
-http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-use-given-a-class-name
-
-Also check out http://findjar.com
 
 
 ### Anonymous class with constructor argument
@@ -186,17 +197,6 @@ List<?> vs. List<Object>
 A `List<String>` can be passed to a method that accepts `List<?>` but not `List<Object>`.
 
 https://stackoverflow.com/questions/678822/what-is-the-difference-between-and-object-in-java-generics
-
-
-### Get all classes in package
-
-```
-Reflections reflections = new Reflections("com.linkedin.compliance.udfs", new SubTypesScanner(false));
-
-Set<Class<?>> udfs = reflections.getSubTypesOf(Object.class);
-```
-
-https://stackoverflow.com/questions/520328/can-you-find-all-classes-in-a-package-using-reflection
 
 
 ### Check if class extends another class
@@ -361,6 +361,62 @@ Add logger level check around logging statement.
 ```
 
 https://stackoverflow.com/questions/14503001/how-to-suppress-findbugs-warnings-for-fields-or-local-variables
+
+
+### When to use `volatile`
+
+```
+// WRONG!
+class BadExample {
+    private volatile int counter;
+
+    public void hit(){
+        /* This operation is in fact two operations:
+         * 1) int tmp = this.counter;
+         * 2) this.counter = tmp + 1;
+         * and is thus broken (counter becomes fewer
+         * than the accurate amount).
+         */
+        counter++;
+    }
+}
+
+// RIGHT
+class BadExampleFixed {
+    private int counter;
+
+    public synchronized void hit(){
+        /*
+         * Only one thread performs action (1), (2) at a time
+         * "atomically", in the sense that other threads can not
+         * observe the intermediate state between (1) and (2).
+         * Therefore, the counter will be accurate.
+         */
+        counter++;
+    }
+}
+
+// RIGHT
+class GoodExample {
+    private static volatile int temperature;
+
+    //Called by some other thread than main
+    public static void todaysTemperature(int temp){
+        // This operation is a single operation, so you
+        // do not need compound atomicity
+        temperature = temp;
+    }
+
+    public static void main(String[] args) throws Exception{
+        while(true){
+           Thread.sleep(2000);
+           System.out.println("Today's temperature is "+temperature);
+        }
+    }
+}
+```
+
+https://stackoverflow.com/questions/3488703/when-exactly-do-you-use-the-volatile-keyword-in-java
 
 
 ### Double-checked locking idiom
@@ -591,6 +647,19 @@ try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 https://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
 
 
+### UTF-8 constant
+
+```
+import java.nio.charset.StandardCharsets;
+
+...
+
+StandardCharsets.UTF_8.name();
+```
+
+https://stackoverflow.com/questions/6698354/where-to-get-utf-8-string-literal-in-java
+
+
 ### Read InputStream into String
 
 ```
@@ -613,47 +682,6 @@ Use commons-io `FileUtils.readFileToString(File file)`.
 http://stackoverflow.com/questions/326390/how-do-i-create-a-java-string-from-the-contents-of-a-file
 
 
-### Reflections
-
-```
-//scan urls that contain 'my.package', include inputs starting with 'my.package', use the default scanners
-Reflections reflections = new Reflections("my.package");
-
-//or using ConfigurationBuilder
-new Reflections(new ConfigurationBuilder()
-     .setUrls(ClasspathHelper.forPackage("my.project.prefix"))
-     .setScanners(new SubTypesScanner(),
-                  new TypeAnnotationsScanner().filterResultsBy(optionalFilter), ...),
-     .filterInputsBy(new FilterBuilder().includePackage("my.project.prefix"))
-     ...);
-```
-
-https://github.com/ronmamo/reflections
-
-
-### Invoke static method via reflection
-
-```
-// String.class here is the parameter type, that might not be the case with you
-Method method = clazz.getMethod("methodName", String.class);
-Object o = method.invoke(null, "whatever");
-```
-
-https://stackoverflow.com/questions/2467544/invoking-a-static-method-using-reflection
-
-
-### Access private field
-
-```
-B b = new B();
-Field[] fs = b.getClass().getSuperclass().getDeclaredFields();
-fs[0].setAccessible(true);
-System.out.println(fs[0].get(b));
-```
-
-http://stackoverflow.com/questions/3567372/access-to-private-inherited-fields-via-reflection-in-java
-
-
 ### Multiline strings
 
 `+` should be on newline, per CheckStyle.
@@ -673,6 +701,15 @@ https://confluence.atlassian.com/kb/how-to-change-jvm-arguments-at-runtime-to-av
 `-client` ignored for 64-bit JDK. `-server` is implicit.
 
 http://stackoverflow.com/questions/198577/real-differences-between-java-server-and-java-client
+
+
+### jstack
+
+```
+jstack <PID> > jstack_out
+```
+
+https://docs.oracle.com/javase/7/docs/technotes/tools/share/jstack.html
 
 
 ### Garbage Collection
@@ -1068,29 +1105,51 @@ See http://stackoverflow.com/questions/2945862/interpreting-java-lang-nosuchmeth
 
 Return type follows closing parenthesis
 
+
+### Read file with explicit encoding
+
+```
+new InputStreamReader(new FileInputStream(filePath), encoding)
+```
+
+https://stackoverflow.com/questions/696626/java-filereader-encoding-issue
+
+
 ### Set encoding of Java build and execution
+
 See http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding.
+
 ```
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 java -Dfile.encoding=UTF-8 ... com.x.Main
 ```
 
+
 ### Typical Java JDK installation location on OSX
+
 ```
 /Library/Java/JavaVirtualMachines
 ```
 
+
 ### Daemon thread
+
 A daemon thread is one that does not prevent the JVM from exiting when the program finishes but the thread is still running. See http://stackoverflow.com/questions/2213340/what-is-daemon-thread-in-java.
+
 ```
 setDaemon(true)
 ```
 
+
 ### Java has no notion of a subpackage
+
 `foo.bar` and `foo.bar.baz` are completely separate packages. See http://stackoverflow.com/questions/1967229/java-subpackage-visiblity.
 
+
 ### Thread.sleep() and locks
+
 `Thread.sleep()` does not cause the current thread to relinquish any currently held locks. See https://docs.oracle.com/javase/6/docs/api/java/lang/Thread.html#sleep(long).
+
 
 ### Monitor
 
@@ -1262,62 +1321,6 @@ System.out.println("Working Directory = " + System.getProperty("user.dir"));
 http://stackoverflow.com/questions/4871051/getting-the-current-working-directory-in-java
 
 
-
-### Javadoc Style Guide
-
-`@param PARAM  DESCRIPTION` - you can add spaces between `PARAM` and `DESCRIPTION` to line up all the descriptions.
-
-http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#@param
-
-Start with a verb, 3rd person descriptive. Say something beyond method name.
-
-http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#styleguide
-
-
-### Javadoc
-
-For examples, scan through http://www.oracle.com/technetwork/articles/java/index-137868.html.
-
-Javadoc comments inside methods are ignored.
-
-https://stackoverflow.com/questions/15496472/does-the-javadoc-tool-recognize-comments-inside-methods
-
-
-### Print value of static variable
-
-```
-{@value #STATIC_FIELD}
-```
-
-https://www.codeproject.com/Articles/658382/Basic-Javadoc-guide
-
-
-### Reference method
-
-```
-/** See also the method {@link #myMethod(String)}. */
-```
-
-http://stackoverflow.com/questions/5915992/how-to-reference-a-method-in-javadoc
-
-
-### Reference method parameter in method Javadoc
-
-```
-{@code paramName}
-```
-
-http://stackoverflow.com/questions/1667212/how-to-add-reference-to-a-method-parameter-in-javadoc
-
-
-### `{@code MyClassName}`
-
-https://blogs.oracle.com/darcy/entry/javadoc_tip_code_and_literal
-
-
-### `{@link InputStream}`
-
-
 ### Convert String to Class
 
 ```
@@ -1370,6 +1373,16 @@ stream2.forEach(x -> System.out.println(x));
 ```
 
 https://www.mkyong.com/java8/java-how-to-convert-array-to-stream/
+
+
+### Sum integers using Stream API
+
+```
+Map<String, Integer> integers;
+integers.values().stream().mapToInt(Integer::intValue).sum();
+```
+
+https://stackoverflow.com/questions/30125296/how-to-sum-a-list-of-integers-with-java-streams
 
 
 ### Streams

@@ -1,3 +1,24 @@
+### Add generated sources dir
+
+```
+// For some reason, you need to add to both sourceDirs and generatedSourceDirs
+def generatedSourcesDir = file('src/generated/main/java')
+idea {
+  module {
+    sourceDirs += generatedSourcesDir
+    generatedSourceDirs += generatedSourcesDir
+  }
+}
+```
+
+https://stackoverflow.com/questions/36749015/how-do-i-get-intellij-to-recognize-gradle-generated-sources-dir/55655332#55655332
+
+
+### Java Benchmarking
+
+https://github.com/melix/jmh-gradle-plugin
+
+
 ### Print task dependency graph
 
 ```
@@ -430,6 +451,13 @@ test {
   environment("VAR_NAME", "VAR_VALUE")
 }
 ```
+
+
+### Print all configurations
+
+Use `gradle dependencies`.
+
+https://stackoverflow.com/questions/41173616/how-can-i-get-a-list-of-all-configurations-for-a-gradle-project
 
 
 ### Configurations
