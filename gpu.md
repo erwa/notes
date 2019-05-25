@@ -1,3 +1,10 @@
+### NCCL ("nickel") - NVIDIA Collective Communications Library
+
+Efficient implementations of collective communication primitives like all-reduce, broadcast, and all-gather.
+
+https://docs.nvidia.com/deeplearning/sdk/nccl-developer-guide/docs/overview.html
+
+
 ### Check if machine has GPUs
 
 ```
@@ -5,6 +12,13 @@ lspci
 ```
 
 https://askubuntu.com/questions/5417/how-to-get-the-gpu-info
+
+
+### What is CUDA?
+
+A general-purpose programming API for GPUs. It used to stand for "Compute Unified Device Architecture" but NVIDIA dropped the acronym.
+
+https://en.wikipedia.org/wiki/CUDA
 
 
 ### Check CUDA version

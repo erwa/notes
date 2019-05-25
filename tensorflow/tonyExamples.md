@@ -1,9 +1,19 @@
+### venv
+
+```
+--python_venv=$HOME/test/test-virtualenv/test-tony/venv.zip
+```
+
+
 ### Run shell command
 
 ```
 java -cp `hadoop classpath`:$HOME/git/TonY/tony-cli/build/libs/tony-cli-0.3.0-all.jar com.linkedin.tony.cli.ClusterSubmitter \
 --executes="sleep infinity" \
 --conf_file=$HOME/tony-test/tony-test.xml
+
+export TONY_CONF_DIR=$HOME/test/dr-elephant-test/tony-conf-test
+java -cp `hadoop classpath`:$HOME/github/linkedin/TonY/tony-cli/build/libs/tony-cli-0.3.8-all.jar com.linkedin.tony.cli.ClusterSubmitter --executes="echo 'hi'" --conf_file=$HOME/test/test-tony/tony-test.xml
 ```
 
 

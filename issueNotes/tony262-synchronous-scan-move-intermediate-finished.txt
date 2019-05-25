@@ -1,0 +1,17 @@
+tony262-synchronous-scan-move-intermediate-finished.txt
+
+https://www.playframework.com/documentation/2.4.x/JavaAkka
+https://www.bradcypert.com/scheduling-background-jobs-in-play-with-scala/
+
+Need to add a new Task that I bind in Module.java
+
+https://stackoverflow.com/questions/4907603/where-do-i-put-startup-code-in-play-framework
+
+just spawn my own Java executor
+
+Move from intermediate to finished does not behave as expected on local filesystem.
+
+fs.rename
+The contents of the source directory get moved rather than the folder itself.
+
+https://github.com/google/guice/issues/1115

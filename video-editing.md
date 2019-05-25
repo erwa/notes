@@ -1,3 +1,19 @@
+### Blur text in video
+
+Use XKCD substitutions plugin (see "Change URLs" section below).
+
+Use Mosaic effect in Wondershare Filmora9.
+
+https://filmora.wondershare.com/video-editing-tips/blur-pictures.html
+
+
+### Change URLs
+
+Can use [XKCD substitutions plugin](https://chrome.google.com/webstore/detail/xkcd-substitutions/jkgogmboalmaijfgfhfepckdgjeopfhk/related) to change words. It supports regex matching.
+
+https://www.reddit.com/r/xkcd/comments/2gd62k/xkcd_substitutions_update/
+
+
 ### Create animated GIF
 
 Use LICEcap - https://www.cockos.com/licecap/

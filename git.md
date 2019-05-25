@@ -964,6 +964,7 @@ Cmd + click file name (--- a/path/to/file)
 ### Search for deleted file
 
 http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-on-in-the-project-commit-history
+
 ```
 git log --all -- <path-to-file>
 

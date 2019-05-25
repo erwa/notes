@@ -1,3 +1,22 @@
+### Check if RPM is relocatable
+
+```
+rpm -qpi foo.rpm
+```
+
+https://www.cyberciti.biz/faq/rpm-relocatable-packages/
+
+
+### Create relocatable RPM package
+
+```
+# Add the following in your SPEC file
+Prefix: <dir>
+```
+
+http://rpm5.org/docs/api/relocatable.html
+
+
 ### See package installation and uninstallation scripts
 
 ```

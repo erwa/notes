@@ -1,3 +1,10 @@
+### Upload image to GitHub's CDN
+
+https://gist.github.com/vinkla/dca76249ba6b73c5dd66a4e986df4c8d
+
+Create New Issue and drag an image in. Copy and use the URL. Don't need to publish the issue.
+
+
 ### Incremental diff between feature branches
 
 Need to do development in the same repo. Then you can change the base branch.

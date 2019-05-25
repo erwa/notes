@@ -65,11 +65,11 @@ tony-test.xml
 ```
 
 ```
-java -cp `hadoop classpath`:/Users/ahsu/github/linkedin/TonY/tony-cli/build/libs/tony-cli-0.2.0-all.jar com.linkedin.tony.cli.ClusterSubmitter \
+java -cp `hadoop classpath`:/Users/ahsu/github/linkedin/TonY/tony-cli/build/libs/tony-cli-0.3.2-all.jar com.linkedin.tony.cli.ClusterSubmitter \
 --src_dir=/Users/ahsu/github/linkedin/TonY/tony-core/src/test/resources/scripts \
 --executes=exit_0.py \
 --conf_file=/Users/ahsu/test/test-tony/tony-test.xml \
---python_binary_path=/export/apps/python/2.7/bin/python2.7
+--python_binary_path=python
 ```
 
 

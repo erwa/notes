@@ -1,3 +1,10 @@
+### Health Insurance
+
+No penalty for not having coverage in 2019+ (no more Shared Responsibility Payment).
+
+https://www.healthcare.gov/fees/fee-for-not-being-covered/
+
+
 ### Picking at scabs
 
 Can help wound recover faster and prevent scarring. Most sites say not to pick at scabs but to keep them moist.

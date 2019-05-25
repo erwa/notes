@@ -367,6 +367,7 @@ http://stackoverflow.com/questions/20796200/how-to-iterate-over-files-in-directo
 ### `if` Expressions
 
 http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+
 ```bash
 # Tests the return status of the last executed command
 # AND
@@ -381,6 +382,7 @@ fi
 # OR
 if COMMAND1 || COMMAND2
 
+[ -d FILE ] # true if FILE exists and is a directory
 # Conditional expressions (include square brackets [ ] around them)
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists. FILE could be directory.
@@ -1301,15 +1303,18 @@ $HOME/.bash_profile
 
 # System defaults are in `/etc/paths`
 ```
+
 http://www.cyberciti.biz/faq/appleosx-bash-unix-change-set-path-environment-variable/
 
 
 ### Setting PKG_CONFIG_PATH for pkg-config
 
 There should be .pc files in the `PKG_CONFIG_PATH`.
+
 ```
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ```
+
 
 ### Get ./configure help
 
@@ -1317,12 +1322,15 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./configure --help
 ```
 
+
 ### Parcellite
 
 Cycle through clipboard:
+
 ```
 Ctrl + Alt + H, arrow keys, Enter
 ```
+
 
 ### Convert string to lowercase
 

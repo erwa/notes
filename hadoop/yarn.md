@@ -1,3 +1,10 @@
+### REST API for RM
+
+http://<host>:8088/ws/v1/cluster/apps/<appId>
+
+https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html#Cluster_Application_API
+
+
 ### Stack trace of RM
 
 http://<host>:8088/stacks

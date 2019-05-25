@@ -1,0 +1,14 @@
+tony98-history-retention.txt
+
+Oops, cannot start the server.
+java.lang.ClassCastException: org.slf4j.impl.Log4jLoggerFactory cannot be cast to ch.qos.logback.classic.LoggerContext
+
+SLF4J: Found binding in [jar:file:/export/apps/tony/tony_0225/lib/org.slf4j-slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/export/apps/tony/tony_0225/lib/ch.qos.logback-logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+
+rm -f ../../nohup.out
+
+Caused by: java.time.temporal.UnsupportedTemporalTypeException: Unsupported unit: Seconds
+        at java.time.LocalDate.plus(LocalDate.java:1247)
+        at java.time.LocalDate.minus(LocalDate.java:1406)
+        at history.HistoryFileCleaner.<init>(HistoryFileCleaner.java:45)

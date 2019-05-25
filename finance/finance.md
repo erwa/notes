@@ -1,3 +1,10 @@
+### 60-Day Window
+
+The period during which you can withdraw from 401k or IRA and re-deposit to a qualifying account without any penalty.
+
+https://www.fool.com/retirement/2017/04/13/what-is-a-60-day-rollover.aspx
+
+
 ### Shorting a stock
 
 Done on a margin account. Borrow stock shares from broker, sell immediately at market price, get profit. At a future date, buy equivalent number of stock shares and give back to broker.
@@ -132,6 +139,15 @@ Long-term capital gains (assets held for more than 1 year) are taxed at a lower 
 https://en.wikipedia.org/wiki/Capital_gains_tax_in_the_United_States
 
 
+### 401k maximum contribution
+
+In addition to the $19k (2019) pre-tax and Roth contributions, you can additionally make up to $37k (2019) in after-tax contribution for a maximum total contribution of $56k (2019).
+
+Earnings are taxed for pre-tax and after-tax, but not for Roth.
+
+https://www.doughroller.net/retirement-planning/pros-and-cons-of-after-tax-401k-contributions/
+
+
 ### Roth 401k vs traditional 401k
 
 Contributions to Roth 401k are taxed, but earnings are not taxed, and distributions are not taxed.
@@ -145,9 +161,12 @@ https://en.wikipedia.org/wiki/Roth_401(k)
 
 ### 401k vs. IRA
 
+* IRA has wider investment selections.
+* No penalty for withdrawing contributions to Roth IRA early.
 * 401k has $18k/yr contribution limit (across all 401k accounts)
 * IRA has $5.5k/yr contribution limit. You can only open Roth IRA if income is < $132k (filing as individual)
 
+https://www.nerdwallet.com/article/investing/ira-vs-401k-retirement-accounts (good pros and cons comparison table)
 https://www.fidelity.com/mymoney/multiple-401k-accounts
 https://en.wikipedia.org/wiki/Roth_401(k)#Traditional_401.28k.29_and_Roth_IRA_plans
 https://en.wikipedia.org/wiki/Comparison_of_401(k)_and_IRA_accounts#Comparison

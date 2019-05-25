@@ -1,0 +1,27 @@
+# start YARN
+cd $HADOOP_HOME
+sbin/yarn-daemon.sh start resourcemanager && sbin/yarn-daemon.sh start nodemanager
+
+# download tony-cli-all from Maven Central
+wget https://search.maven.org/remotecontent?filepath=com/linkedin/tony/tony-cli/0.3.8/tony-cli-0.3.8-all.jar -O tony-cli-0.3.8-all.jar
+
+# downlaod MNIST example
+wget https://raw.githubusercontent.com/linkedin/TonY/master/tony-examples/mnist-tensorflow/mnist_distributed.py
+
+# show venv
+source bin/activate
+pip list
+
+# clear working_dir
+rm -rf /tmp/tensorflow/mnist/working_dir
+
+# run TonY job
+cd $HOME/Desktop/tony-demo
+java -cp `hadoop classpath`:tony-cli-0.3.8-all.jar \
+com.linkedin.tony.cli.ClusterSubmitter \
+--src_dir=src \
+--executes=mnist_distributed.py \
+--conf_file=tony-demo.xml \
+--python_venv=venv-tensorflow.zip \
+--python_binary_path=venv-tensorflow/bin/python
+

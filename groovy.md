@@ -49,12 +49,14 @@ def please(action) {
 please show the square_root of 100
 // ==> 10.0
 ```
+
 http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html
 
 
 ### Command Chain
 
 "Command chain" feature allows you to omit parentheses and dots in method chains.
+
 ```
 // equivalent to: turn(left).then(right)
 turn left then right
@@ -76,12 +78,14 @@ given { } when { } then { }
 // equivalent to: select(all).unique().from(names)
 select all unique() from names
 ```
+
 http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html
 
 
 ### leftShift operator (`<<`)
 
 Overloaded for adding elements to maps, lists:
+
 ```
 def list = [1,2]
 list << 3
@@ -91,6 +95,7 @@ def map = [a:1, b:2]
 map << [c:3, d:4]
 assert map == [a:1, b:2, c:3, d:4]
 ```
+
 http://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/Map.html#leftShift(java.util.Map)
 
 
@@ -99,12 +104,14 @@ http://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/Map.html#leftShift(
 ```
 java -cp 'src:.:lib/*' groovy.ui.GroovyMain src/com/example/MyScript.groovy
 ```
+
 http://stackoverflow.com/questions/12391985/when-running-groovy-scripts-using-the-groovy-all-jar-how-do-you-specify-a-class
 
 
 ### GStrings
 
 See http://docs.groovy-lang.org/latest/html/documentation/index.html#all-strings. String interpolation only works in double-quoted strings, not single- or triple-quoted strings.
+
 ```
 foxtype = 'quick'
 foxcolor = ['b', 'r', 'o', 'w', 'n']
@@ -362,14 +369,17 @@ Method pointer operator returns a Closure. Can be used anywhere a Closure can be
 ### `it` default named parameter
 
 See http://groovy.codehaus.org/Quick+Start --> Working with closures.
+
 ```
 def closure = { println "hello " + it }
 closure.call("world!")
 ```
 
+
 ### Groovy Regular Expressions
 
 See http://groovy.codehaus.org/Regular+Expressions.
+
 ```
 def matcher = "cheesecheese" =~ /cheese/
 assert matcher instanceof Matcher

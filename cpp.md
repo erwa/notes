@@ -23,7 +23,7 @@ class Point
         {
             x = x1;
             y = y1;
-           }
+        }
 
         int getX()
         {

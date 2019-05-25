@@ -1,0 +1,199 @@
+drelephant553-tony-jobtype-support.txt
+
+com.ctc.wstx.io.InputBootstrapper not found
+in com.fasterxml.woodstox:woodstox-core
+
+[error] Test com.linkedin.drelephant.tony.fetchers.TonyFetcherTest.testFetchData failed: java.io.FileNotFoundException: File /var/folders/nb/6ft9rsns2mngfjl4ndbw5cpm000_1d/T/1556852790215-0/finished/2019/05/02/application_123_456/2019/05/02/application_123_456/tony-final.xml does not exist
+[error]     at org.apache.hadoop.fs.RawLocalFileSystem.deprecatedGetFileStatus(RawLocalFileSystem.java:511)
+[error]     at org.apache.hadoop.fs.RawLocalFileSystem.getFileLinkStatusInternal(RawLocalFileSystem.java:722)
+[error]     at org.apache.hadoop.fs.RawLocalFileSystem.getFileStatus(RawLocalFileSystem.java:501)
+[error]     at org.apache.hadoop.fs.FilterFileSystem.getFileStatus(FilterFileSystem.java:398)
+[error]     at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSInputChecker.<init>(ChecksumFileSystem.java:137)
+[error]     at org.apache.hadoop.fs.ChecksumFileSystem.open(ChecksumFileSystem.java:339)
+[error]     at org.apache.hadoop.fs.FileSystem.open(FileSystem.java:765)
+[error]     at com.linkedin.drelephant.tony.fetchers.TonyFetcher.fetchData(TonyFetcher.java:67)
+[error]     at com.linkedin.drelephant.tony.fetchers.TonyFetcherTest.testFetchData(TonyFetcherTest.java:116)
+[error]     ...
+[info] com.linkedin.drelephant.tony.fetchers.TonyFetcherTest
+[info] x testFetchData
+
+When trying to run from IDE, the persistence stuff for model.AppResult - the getter methods aren't found
+
+Persistence
+Error:(226, 43) java: cannot find symbol
+  symbol:   method getJobExecId()
+  location: variable result of type models.AppResult
+
+
+  <property>
+    <name>tony.history.mover-interval-ms</name>
+    <value>300000</value>
+    <description>Frequency at which to scan the intermediate directory for completed jobs to move to the
+    finished directory.</description>
+  </property>
+
+
+export TONY_CONF_DIR=/Users/ahsu/test/dr-elephant-test/tony-conf-test
+java -cp `hadoop classpath`:$HOME/github/linkedin/TonY/tony-cli/build/libs/tony-cli-0.3.6-all.jar com.linkedin.tony.cli.ClusterSubmitter --executes="echo 'hi'"
+
+# not enough
+activator clean compile
+
+compile.sh packages stuff into dist
+
+activator dist
+
+bin/start.sh $HOME/test/dr-elephant-test/app-conf
+
+dali avro tojson --pretty application_1556591816404_0004-1557355985049-1557356027395-ahsu-SUCCEEDED.jhist
+
+Metrics don't work on Mac. ProcFsResourceTree.
+
+05-09-2019 11:02:07 ERROR [dr-el-executor-thread-2] com.linkedin.drelephant.ElephantRunner : java.lang.NullPointerException
+  at com.linkedin.drelephant.tony.util.TonyUtils.getMaxMemoryBytesUsedForTaskType(TonyUtils.java:13)
+  at com.linkedin.drelephant.tony.TonyMetricsAggregator.aggregate(TonyMetricsAggregator.java:59)
+  at com.linkedin.drelephant.analysis.AnalyticJob.getAnalysis(AnalyticJob.java:336)
+  at com.linkedin.drelephant.ElephantRunner$ExecutorJob.run(ElephantRunner.java:390)
+  at com.linkedin.drelephant.priorityexecutor.RunnableWithPriority$1.run(RunnableWithPriority.java:36)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:748)
+
+
+export TONY_CONF_DIR=$HOME/test/dr-elephant-test/tony-conf-test
+bin/start.sh $HOME/test/dr-elephant-test/app-conf
+
+Changed fetch interval to 10 seconds
+
+unzip /Users/ahsu/github/linkedin/dr-elephant/target/universal/dr-elephant-2.1.7.zip|
+cd dr-elephant-2.1.7/dr-elephant-2.1.7
+bin/start.sh $HOME/test/dr-elephant-test/app-conf
+kill -9 `cat RUNNING_PID`
+
+did not contain my new logging changes
+dre
+rm -rf target dist
+activator dist
+unzip ./target/universal/dr-elephant-2.1.7.zip
+
+dr-elephant-2.1.7.zip contains RUNNING_PID file...
+need to delete dist directory too
+
+activator dist
+cp -r scripts/* dr-elephant-2.1.7/bin
+
+dr-elephant-2.1.7/bin/start.sh $HOME/test/dr-elephant-test/app-conf
+error: Failed to start Dr. Elephant. Please check if this is a valid dr.E executable or logs under 'logs' directory.
+
+Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.conf.Configuration
+  at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+  at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+  at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)
+  at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+  ... 21 more
+
+sed -i.bak $'/declare -r app_classpath/s/.$/:`hadoop classpath`:${ELEPHANT_CONF_DIR}"/' dr-elephant-2.1.7/bin/dr-elephant
+
+[error] (*:checkstyle) java.io.FileNotFoundException: http://checkstyle.sourceforge.net/dtds/configuration_1_3.dtd
+
+sbt checkstyle
+
+http://checkstyle.sourceforge.net/config_header.html
+RegexpHeader
+
+
+[error] Not a valid command: findbugs
+[error] Not a valid project ID: findbugs
+[error] Expected ':' (if selecting a configuration)
+[error] Not a valid key: findbugs (similar: definedSbtPlugins, defined-sbt-plugins)
+[error] findbugs
+[error]         ^
+
+
+https://travis-ci.org/linkedin/dr-elephant/builds/535543280?utm_source=github_status&utm_medium=notification
+
+[ERROR] Build failed due to 26 Findbugs issues...
+The command "./travis.sh" exited with 1.
+
+https://travis-ci.org/linkedin/dr-elephant/builds/535582763?utm_source=github_status&utm_medium=notification
+
+
+sbt findbugs
+
+mv target/scala-2.10/findbugs/report.xml target/scala-2.10/findbugs/report.html
+
+Cherry-picked findbugs fixing patch
+
+[ERROR] CPD for Java code failed as 37 duplicates found (threshold: 32)
+
+
+# on Linux box
+# of tests, 2 failed
+[error] Test com.linkedin.drelephant.tuning.TuningManagerTest.testFlowTestRunner failed: java.lang.VerifyError: Stack map does not match the one at exception handler 494
+
+[error] Test com.linkedin.drelephant.tuning.TuningManagerTest.testFitnessManagerTestRunner failed: java.lang.VerifyError: Stack map does not match the one at exception handler 494
+
+[info] x testFlowTestRunner
+[info] x testFitnessManagerTestRunner
+
+[error] Failed: Total 564, Failed 2, Errors 0, Passed 557, Skipped 5
+
+
+On Mac, additionally:
+[info] o testRestGetCurrentRunParameters
+[info] o testRestGetCurrentRunParametersNewJob
+[warn] Test assumption in test rest.RestAPITest.testRestGetCurrentRunParameters failed: org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+[warn] Test assumption in test rest.RestAPITest.testRestGetCurrentRunParametersNewJob failed: org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+
+# tests can just be run directly
+sbt test jacoco:cover
+
+
+[warn] Test assumption in test com.linkedin.drelephant.tuning.PSOParamGeneratorTest.getParamsTest failed: org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+[warn] Test assumption in test com.linkedin.drelephant.tuning.PSOParamGeneratorTest.generateParamSetTest failed: org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+[info] com.linkedin.drelephant.tuning.PSOParamGeneratorTest
+[info] o getParamsTest
+[info] o generateParamSetTest
+
+[info] Test com.linkedin.drelephant.analysis.AnalyticJobTest ignored
+[info] com.linkedin.drelephant.analysis.AnalyticJobTest
+[info] o com.linkedin.drelephant.analysis.AnalyticJobTest
+
+[error] Error: Total 557, Failed 2, Errors 1, Passed 549, Skipped 5
+
+# on clean tuning_20190221, sbt test jacoco:cover has
+[error] Error: Total 546, Failed 0, Errors 1, Passed 540, Skipped 5
+
+[info] com.linkedin.drelephant.spark.exception.ExceptionFingerprintingSparkTest *** ABORTED ***
+
+[info]   Cause: java.lang.NullPointerException:
+[info]   at java.net.URI$Parser.parse(URI.java:3042)
+[info]   at java.net.URI.<init>(URI.java:588)
+[info]   at com.linkedin.drelephant.mapreduce.fetchers.MapReduceFSFetcherHadoop2.<init>(MapReduceFSFetcherHadoop2.java:94)
+
+same 1 error on Travis CI
+
+com.linkedin.drelephant.spark.exception
+
+activator "test-only com.linkedin.drelephant.tez.fetchers.TezFetcherTest"
+
+sbt "testOnly *ExceptionFingerprintingSparkTest"
+
+https://mikulskibartosz.name/how-to-run-a-single-test-in-sbt-2e078fe5b5ad
+
+
+[error] Test com.linkedin.drelephant.tuning.TuningManagerTest.testFlowTestRunner failed: java.lang.VerifyError: Stack map does not match the one at exception handler 494
+
+ExceptionFingerprintingSparkTest took 10 minutes!
+
+sbt "testOnly com.linkedin.drelephant.tuning.TuningManagerTest"
+
+probably the addDefaultResource is screwing things up
+
+https://github.com/playframework/playframework/issues/2856
+# suggests multiple library versions on classpath
+
+
+https://www.howtoforge.com/tutorial/how-to-install-openssl-from-source-on-linux/

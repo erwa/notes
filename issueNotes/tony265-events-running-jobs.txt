@@ -1,0 +1,18 @@
+tony265-events-running-jobs.txt
+
+Caused by: java.io.EOFException: null
+        at org.apache.avro.io.BinaryDecoder$InputStreamByteSource.readRaw(BinaryDecoder.java:827)
+        at org.apache.avro.io.BinaryDecoder.doReadBytes(BinaryDecoder.java:349)
+        at org.apache.avro.io.BinaryDecoder.readFixed(BinaryDecoder.java:302)
+        at org.apache.avro.io.Decoder.readFixed(Decoder.java:150)
+        at org.apache.avro.file.DataFileStream.initialize(DataFileStream.java:100)
+        at org.apache.avro.file.DataFileStream.<init>(DataFileStream.java:84)
+        at com.linkedin.tony.util.ParserUtils.parseEvents(ParserUtils.java:243)
+        at cache.CacheWrapper.updateCaches(CacheWrapper.java:89)
+
+
+Caused by: java.lang.NullPointerException
+  at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:782)
+  at com.google.common.cache.LocalCache.put(LocalCache.java:4356)
+  at com.google.common.cache.LocalCache$LocalManualCache.put(LocalCache.java:5070)
+  at cache.CacheWrapper.updateCaches(CacheWrapper.java:90)

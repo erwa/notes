@@ -1,3 +1,12 @@
+### Python Garbage Collection
+
+```
+gc.collect()
+```
+
+https://docs.python.org/3/library/gc.html
+
+
 ### Add method to object
 
 ```

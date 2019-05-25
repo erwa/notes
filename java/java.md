@@ -1,3 +1,10 @@
+### Java Persistence API (JPA)
+
+An approach to ORM (object-relational mapping) in Java.
+
+https://www.vogella.com/tutorials/JavaPersistenceAPI/article.html
+
+
 ### Find jar that a class is in
 
 ```
@@ -562,6 +569,40 @@ int a[][] = {{1,2,} ,{3,4,} , {5,6,},}; //Trailing commas cause no compiler erro
 https://stackoverflow.com/questions/11621917/arrays-with-trailing-commas-inside-an-array-initializer-in-java
 
 
+### Get date in epoch
+
+Use Joda.
+
+```
+import org.joda.time.DateTime;
+
+new DateTime(2019, 4, 27, 0, 0).getMillis();
+```
+
+
+### Convert epoch to LocalDate
+
+```
+LocalDate.from(Instant.ofEpochMilli(epoch));
+```
+
+
+### Get current year, month, day
+
+```
+Date date = new Date();
+LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+int year  = localDate.getYear();
+int month = localDate.getMonthValue();
+int day   = localDate.getDayOfMonth();
+
+# Calendar is weird because months is 0-indexed.
+```
+
+https://stackoverflow.com/questions/9474121/i-want-to-get-year-month-day-etc-from-java-date-to-compare-with-gregorian-cal/32363174#32363174
+https://stackoverflow.com/questions/9474121/i-want-to-get-year-month-day-etc-from-java-date-to-compare-with-gregorian-cal
+
+
 ### Date math
 
 ```
@@ -570,6 +611,16 @@ cal.setTime(new Date());
 cal.add(Calendar.DAY_OF_YEAR, -3);
 Date d = cal.getTime();
 ```
+
+
+### Create specific date
+
+```
+SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+Date d = sdf.parse("21/12/2012");
+```
+
+https://stackoverflow.com/questions/6437257/whats-the-right-way-to-create-a-date-in-java
 
 
 ### Print current date in time zone
@@ -786,9 +837,11 @@ Connection
 ### Metaspace
 
 Memory used by JVM to load classes. No default max size (apart from OS limits), so often makes sense to set a max size yourself:
+
 ```
 -XX:MaxMetaspaceSize=<metaspace size>[g|m|k]
 ```
+
 http://stackoverflow.com/questions/27131165/what-is-the-difference-between-permgen-and-metaspace
 http://blog.sokolenko.me/2014/11/javavm-options-production.html
 
@@ -1132,6 +1185,21 @@ java -Dfile.encoding=UTF-8 ... com.x.Main
 ```
 
 
+### Run background thread
+
+```
+new Thread(new Runnable() {
+    @Override
+    public void run() {
+        // Time consuming task.
+    }
+}).start();
+// The method continues without stopping.
+```
+
+https://stackoverflow.com/questions/36408498/background-processing-java
+
+
 ### Daemon thread
 
 A daemon thread is one that does not prevent the JVM from exiting when the program finishes but the thread is still running. See http://stackoverflow.com/questions/2213340/what-is-daemon-thread-in-java.
@@ -1186,6 +1254,30 @@ getClass().getClassLoader()
 // thread context classloader
 Thread.currentThread().getContextClassLoader()
 ```
+
+
+### Create empty file
+
+```
+File file = new File("/tmp/foo");
+file.createNewFile();
+```
+
+http://www.technicalkeeda.com/java-tutorials/create-new-empty-file-using-java
+
+
+### Make temp dir / make temporary directory
+
+```
+# Guava
+File f = Files.createTempDir();
+
+Path tempDirWithPrefix = Files.createTempDirectory(prefix);
+```
+
+https://google.github.io/guava/releases/23.0/api/docs/com/google/common/io/Files.html#createTempDir--
+
+https://stackoverflow.com/questions/617414/how-to-create-a-temporary-directory-folder-in-java
 
 
 ### `java.io.tmpdir` not guaranteed to be affected by programmatic changes.

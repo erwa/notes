@@ -1,3 +1,8 @@
+### Transformer
+
+[Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)
+
+
 ### Synchronous vs. Asynchronous training
 
 https://blog.skymind.ai/distributed-deep-learning-part-1-an-introduction-to-distributed-training-of-neural-networks/#asynchronousstochasticgradientdescent
