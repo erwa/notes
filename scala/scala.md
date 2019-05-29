@@ -239,12 +239,22 @@ To run Scala classes compiled for a certain version of Scala, you only need to h
 http://stackoverflow.com/questions/1893714/can-a-scala-program-be-compiled-to-run-on-any-jvm-without-having-scala-installe
 
 
+### Exclude transitive dependencies in sbt
+
+```
+libraryDependencies += "group" % "name" % "version" intransitive()
+```
+
+https://stackoverflow.com/questions/49222459/how-can-i-exclude-all-transitive-dependencies-of-a-library-in-sbt
+
+
 ### Cross-building
 
 ```
 # sbt
 + package  # build against all versions listed in build.scala.versions
 ```
+
 http://www.scala-sbt.org/0.12.2/docs/Detailed-Topics/Cross-Build.html#cross-buildiwng-a-project
 
 
@@ -255,6 +265,7 @@ http://www.scala-sbt.org/0.12.2/docs/Detailed-Topics/Cross-Build.html#cross-buil
 line
 string"""
 ```
+
 https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch01s03.html
 
 
@@ -263,6 +274,7 @@ https://www.safaribooksonline.com/library/view/scala-cookbook/9781449340292/ch01
 ```
 util.Properties.versionString
 ```
+
 http://stackoverflow.com/questions/6121403/how-do-i-get-the-scala-version-from-within-scala-itself
 
 

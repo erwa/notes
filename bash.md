@@ -1226,7 +1226,12 @@ Suppose `$parameter` is `JAVA_HOME`, then `${!parameter}` is `${JAVA_HOME}`.
 
 ```
 export PS1="My simple prompt> "
+
+# host:current_directory user$
+export PS1="\h:\W \u$ "
 ```
+
+https://superuser.com/questions/60555/show-only-current-directory-name-not-full-path-on-bash-prompt
 
 
 ### See quota for a user

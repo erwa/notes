@@ -393,7 +393,7 @@ http://superuser.com/questions/184763/is-there-a-way-to-move-the-current-window-
 
 ### Terminal prompts for "login"
 
-Try deleting the entry containing "localhost" from ~/.ssh/known_hosts.
+Try deleting the entry containing "localhost" from `~/.ssh/known_hosts`.
 
 
 ### Rotate screen

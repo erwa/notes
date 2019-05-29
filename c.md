@@ -1,3 +1,14 @@
+### strcat
+
+```
+char *strcat(char *dest, const char *src)
+```
+
+Requires `dest` to have enough space for src to be appended. Seems to need one more than the final string length in order to write the `\0` character.
+
+https://www.tutorialspoint.com/c_standard_library/c_function_strcat.htm
+
+
 ### Start new process
 
 `fork()`

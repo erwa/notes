@@ -68,7 +68,7 @@ ssh -A ...
 ```
 
 
-### Enable password-less SSH to host
+### Enable password-less SSH to host / passwordless SSH
 
 Add public key to `~/.ssh/authorized_keys` file on the host.
 
