@@ -7,6 +7,13 @@ gcc -march=native -Q --help=target | grep march
 https://unix.stackexchange.com/questions/230634/how-to-find-out-intel-architecture-family-from-command-line
 
 
+### Lock screen
+
+Super + L
+
+https://askubuntu.com/questions/126782/keyboard-shortcut-for-lockscreen-not-working
+
+
 ### Total number of threads running on system
 
 ```
@@ -173,9 +180,19 @@ sudo rpm -ivh foo.rpm
 ```
 
 
+### Take screenshot
+
+Shift + Print Screen to select area to screenshot.
+
+Screenshots saved to ~/Pictures.
+
+https://www.wikihow.com/Take-a-Screenshot-in-Linux
+
+
 ### Install Shutter Screenshot Editor
 
 http://shutter-project.org/downloads/third-party-packages/
+
 ```
 sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-1.el6.nux.noarch.rpm
 sudo yum install shutter
