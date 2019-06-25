@@ -1,3 +1,14 @@
+### Array literal / append to array
+
+```
+ARRAY=()
+ARRAY+=('foo')
+ARRAY+=('bar')
+```
+
+https://stackoverflow.com/questions/1951506/add-a-new-element-to-an-array-without-specifying-the-index-in-bash
+
+
 ### Intersection of two files
 
 ```
@@ -75,6 +86,9 @@ https://stackoverflow.com/questions/13939038/how-do-you-run-a-command-for-each-l
 ### SHA256
 
 ```
+# Linux
+sha256sum /path/to/file
+
 # Mac OS
 shasum -a 256 /path/to/file
 ```
@@ -82,7 +96,9 @@ shasum -a 256 /path/to/file
 https://stackoverflow.com/questions/3358420/generating-a-sha256-from-the-linux-command-line
 
 
-### Less than Less than parentheses (`< <(...)`)
+### Less than Less than parentheses (`< <(...)`), Process Substitution
+
+`<(...)` basically runs a command and captures the output as a file-like object.
 
 ```
 bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
@@ -98,6 +114,11 @@ bash -s stable < something
 ```
 
 https://superuser.com/questions/404780/what-bash-syntax-mean
+http://tldp.org/LDP/abs/html/process-sub.html
+
+```
+diff <(ls $first_directory) <(ls $second_directory)
+```
 
 
 ### Brace expansion

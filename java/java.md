@@ -1,3 +1,10 @@
+### Flat map
+
+Function is applied to each element and returns a stream. Flat map takes care of merging all streams together.
+
+https://www.geeksforgeeks.org/stream-flatmap-java-examples/
+
+
 ### Java Persistence API (JPA)
 
 An approach to ORM (object-relational mapping) in Java.

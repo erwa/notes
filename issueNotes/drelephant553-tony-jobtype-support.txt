@@ -197,3 +197,82 @@ https://github.com/playframework/playframework/issues/2856
 
 
 https://www.howtoforge.com/tutorial/how-to-install-openssl-from-source-on-linux/
+
+https://stackoverflow.com/questions/42334392/java-lang-verifyerror-stack-map-does-not-match-the-one-at-exception-handler-98
+
+Seems may be an issue with Scala and newer JDK 8 releases.
+
+[error] javac: source release 1.8 requires target release 1.8
+
+https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
+
+bootstrap class path not set in conjunction with -source 1.7
+
+With 1.7, still 8 failures, including TuningManagerTest
+
+Removing try-catch fixes issue.
+
+sbt "testOnly com.linkedin.drelephant.spark.exception.ExceptionFingerprintingSparkTest"
+
+# v-- only seems to fail on Mac
+
+[error] Test com.linkedin.drelephant.tuning.PSOParamGeneratorTest.getParamsTest failed: Swarm size did not match expected:<3> but was:<0>
+[error] Test com.linkedin.drelephant.tuning.PSOParamGeneratorTest.generateParamSetTest failed: java.lang.RuntimeException: java.lang.NullPointerException
+[error]     at play.libs.Json.parse(Json.java:71)
+[error]     at com.linkedin.drelephant.tuning.PSOParamGeneratorTest$2.run(PSOParamGeneratorTest.java:119)
+[error]     at play.test.Helpers.running(Helpers.java:417)
+[error]     at com.linkedin.drelephant.tuning.PSOParamGeneratorTest.generateParamSetTest(PSOParamGeneratorTest.java:86)
+[error]     ...
+[error] Caused by: java.lang.NullPointerException
+[error]     at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:822)
+[error]     at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2580)
+[error]     at play.libs.Json.parse(Json.java:69)
+[error]     ... 40 more
+
+
+[error] Test controllers.ApplicationTest failed: java.lang.RuntimeException: Unable to read AggregatorConf.xml
+[error]     at com.linkedin.drelephant.util.Utils.loadXMLDoc(Utils.java:89)
+
+./compile.sh does some setup
+
+Above NPE happens when you run sbt test directly. Doesn't happen when you run ./compile.sh.
+- play test or activator test rather than sbt test. Different behaviors, probably different setup of classpath.
+
+
+https://stackoverflow.com/questions/51020317/einvres-request-to-https-bower-herokuapp-com-packages-failed-with-502
+
+
+play_command $OPTS clean test compile dist
++play_command -Dhadoopversion=2.3.0 -Dsparkversion=1.4.0 clean test compile dist
++type activator
++play -Dhadoopversion=2.3.0 -Dsparkversion=1.4.0 clean test compile dist
+./compile.sh: line 27: play: command not found
+The command "./compile.sh" exited with 127.
+
+sbt "testOnly *TuningManagerTest -- -t testFlowTestRunner"
+
+If I comment out this logger line, tests pass:
+
+//      logger.info(
+//          " Calculating Fitness for " + jobSuggestedParamSet.id + " " + jobSuggestedParamSet.fitnessJobExecution.id
+//              + " " + jobExecution.id);
+
+Specifically jobSuggestedParamSet.fitnessJobExecution.id causes issue.
+
+./compile.sh compile.conf (6 tests fail)
+
+[error] Test com.linkedin.drelephant.tony.fetchers.TonyFetcherTest.testFetchData failed: java.lang.IllegalArgumentException: Can not create a Path from a null string
+[error]     at org.apache.hadoop.fs.Path.checkPathArg(Path.java:122)
+[error]     at org.apache.hadoop.fs.Path.<init>(Path.java:134)
+[error]     at com.linkedin.drelephant.tony.fetchers.TonyFetcher.<init>(TonyFetcher.java:56)
+[error]     at com.linkedin.drelephant.tony.fetchers.TonyFetcherTest.testFetchData(TonyFetcherTest.java:110)
+
+[info] *** 6 TESTS FAILED ***
+[error] Failed: Total 564, Failed 7, Errors 0, Passed 552, Skipped 5
+[error] Failed tests:
+[error]         com.linkedin.drelephant.tony.fetchers.TonyFetcherTest
+[error]         com.linkedin.drelephant.util.SparkUtilsTest
+
+
+Cause: java.net.UnknownHostException: nn1.grid.example.com
+

@@ -1,3 +1,10 @@
+### Print source code
+
+Use TextWrangler.
+
+https://apple.stackexchange.com/questions/56629/printing-source-code-with-os-x
+
+
 ### Create custom keyboard shortcut
 
 System Preferences -> Keyboard -> Shortcuts -> App shorcuts

@@ -1,3 +1,22 @@
+### Memory issues
+
+Try calling `gc.collect()`
+
+Try not running TensorBoard.
+
+https://github.com/tensorflow/tensorboard/issues/766
+
+
+### Test CUDA support
+
+```
+from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+```
+
+https://github.com/tensorflow/tensorflow/issues/25329
+
+
 ### Benchmarking
 
 https://github.com/tensorflow/benchmarks/tree/master/perfzero
@@ -302,15 +321,21 @@ with tf.Session() as sess:
 
 ```
 import tensorflow as tf
-import tensorflow.contrib.nccl as n
+from tensorflow.python.ops.nccl_ops import all_sum
 
 graph = None
 with tf.device('/device:GPU:0'):
     a = tf.constant(1)
-    graph = tf.contrib.nccl.all_sum([a])
+    graph = all_sum([a])
 
 with tf.Session() as sess:
-    sess.run(graph)
+    print(sess.run(graph))
+```
+
+For TF 1.12 and below, use
+
+```
+import tensorflow.contrib.nccl as n
 ```
 
 
@@ -434,6 +459,8 @@ print("Extracted schema: {}".format(DATA_SCHEMA))
 Low-level example:
 
 ```
+import tensorflow as tf
+
 x = tf.constant([[1], [2], [3], [4]], dtype=tf.float32)
 y_true = tf.constant([[0], [-1], [-2], [-3]], dtype=tf.float32)
 

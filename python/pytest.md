@@ -1,3 +1,12 @@
+### Skip test
+
+```
+@pytest.mark.skip('This test needs to be fixed.')
+```
+
+https://docs.pytest.org/en/latest/skipping.html
+
+
 ### Stream test output
 
 ```

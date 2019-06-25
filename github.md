@@ -59,6 +59,27 @@ http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 When you comment on a specific commit of a pull request, a notification is only sent to the watchers of the repo being pulled from; a notification is NOT sent to the watchers of the repo being merged into.
 
 
+### Diff code block Markdown
+
+```diff
+public class ApplicationMaster {
+
+     if (secureMode) {
+       // Set up secret manager for RPC servers
+-      ClientToAMTokenIdentifier identifier = new ClientToAMTokenIdentifier(appAttemptID, user);
++      ApplicationAttemptId tmpAttemptId = containerId.getApplicationAttemptId();
++      ClientToAMTokenIdentifier identifier = new ClientToAMTokenIdentifier(tmpAttemptId, user);
+       byte[] secret = response.getClientToAMTokenMasterKey().array();
+-      ClientToAMTokenSecretManager secretManager = new ClientToAMTokenSecretManager(appAttemptID, secret);
++      ClientToAMTokenSecretManager secretManager = new ClientToAMTokenSecretManager(tmpAttemptId, secret);
+       applicationRpcServer.setSecretManager(secretManager);
+       metricsServerBuilder.setSecretManager(secretManager);
+
+```
+
+https://github.com/linkedin/TonY/issues/82#issuecomment-504351334
+
+
 ### Markdown link to section
 
 ```

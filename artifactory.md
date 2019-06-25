@@ -1,3 +1,12 @@
+### Checksum search
+
+Can also add `&repos=...` to restrict the repos searched.
+
+http://host:port/artifactory/api/search/checksum?sha256=9a7fb65f15e00aa2a22c1917d0dafd4374fee8daf0966a4d94cd37a0b9acafb9
+
+https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-ChecksumSearch
+
+
 ### Default Virtual Repository
 
 Virtual repository is an aggregation of local and remote (physical) repositories.

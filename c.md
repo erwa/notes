@@ -1,3 +1,47 @@
+### %. (.precision)
+
+Precision specifies minimum number of digits to be printed, zero-padded.
+
+```
+unsigned u = 0x40b8bu;
+char arr[10];
+sprintf(arr, "%.8x", u);
+```
+
+```
+$ gcc test.c && ./a.out
+0040b8bu
+```
+
+https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm
+
+
+### size_t
+
+Unsigned integer type.
+
+https://stackoverflow.com/questions/2550774/what-is-size-t-in-c
+
+
+### Goto statement
+
+```
+goto label;
+...
+label:
+...
+```
+
+https://www.geeksforgeeks.org/goto-statement-in-c-cpp/
+
+
+### Signals
+
+2 = SIGINT (ctrl-c)
+
+http://www.yolinux.com/TUTORIALS/C++Signals.html
+
+
 ### strcat
 
 ```

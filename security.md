@@ -8,12 +8,14 @@ https://unix.stackexchange.com/questions/116191/give-server-access-to-internet-v
 sudo yum install squid
 sudo squid
 
+ssh -R 3129:localhost:3128 my-remote-host
+
 # on remote host
-# ensure following are in remote host /etc/environment
+# run the following
+# best NOT to set in /etc/environment or else it may cause
+# permanent issues
 export http_proxy=http://127.0.0.1:3129
 export https_proxy=http://127.0.0.1:3129
-
-ssh -R 3129:localhost:3128 my-remote-host
 
 # run your command that uses the Internet!
 ```

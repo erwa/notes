@@ -269,6 +269,25 @@ gradle test --tests *SomeTest.method
 http://stackoverflow.com/questions/22505533/how-to-run-a-one-test-class-only-on-gradle
 
 
+### Apply local plugin
+
+```
+buildscript{
+    repositories{
+        ...
+    }
+
+    dependencies{
+        classpath files('relative/path/to/plugin.jar')
+    }
+}
+
+apply plugin: fully.qualified.package.PluginClassName
+```
+
+https://stackoverflow.com/questions/35302414/adding-local-plugin-to-a-gradle-project
+
+
 ### Use local repo
 
 Note that the order of the repositories listed matters. Gradle checks them in order.

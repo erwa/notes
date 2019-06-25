@@ -1,0 +1,19 @@
+tony327-remove-default-1-ps-worker.txt
+
+Gradle suite > Gradle test > com.linkedin.tony.TestTonyE2E.testAMStopsJobAfterWorker0Killed FAILED
+    java.lang.AssertionError at TestTonyE2E.java:265
+
+Gradle suite > Gradle test > com.linkedin.tony.TestTonyE2E.testNonChiefWorkerFail FAILED
+    java.lang.AssertionError at TestTonyE2E.java:296
+
+Gradle suite > Gradle test > com.linkedin.tony.TestTonyE2E.testPSWorkerTrainingShouldFail FAILED
+    java.lang.AssertionError at TestTonyE2E.java:218
+
+Gradle suite > Gradle test > com.linkedin.tony.TestTonyE2E.testPSWorkerTrainingShouldFailMissedHeartbeat FAILED
+    java.lang.AssertionError at TestTonyE2E.java:157
+
+Gradle suite > Gradle test > com.linkedin.tony.TestTonyE2E.testTonyClientCallbackHandler FAILED
+    java.lang.NullPointerException at TestTonyE2E.java:376
+
+Gradle suite > Gradle test > com.linkedin.tony.util.TestUtils.testParseContainerRequests FAILED
+    java.lang.NullPointerException at TestUtils.java:67

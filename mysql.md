@@ -130,6 +130,9 @@ sudo mysqladmin shutdown
 
 ```
 # http://stackoverflow.com/questions/18373366/mysql-connection-over-ssh-tunnel-how-to-specify-other-mysql-server
+
+# ssh.example.com is host that is allowed to access MySQL host
+# mysql1.example.com is the MySQL host you're trying to access
 ssh -f user@ssh.example.com -L 3307:mysql1.example.com:3306 -N
 mysql -h 127.0.0.1 -P 3307
 ```

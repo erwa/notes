@@ -1,3 +1,14 @@
+### Delete queue
+
+Not possible at runtime.
+
+https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html#Features
+
+```
+Administrators can add additional queues at runtime, but queues cannot be deleted at runtime.
+```
+
+
 ### REST API for RM
 
 http://<host>:8088/ws/v1/cluster/apps/<appId>

@@ -1,3 +1,15 @@
+### To update one HTML file
+
+```
+sbt dist
+
+# unzip target/universal/dr-elephant-2.1.7.zip
+# copy lib/com.linkedin.drelephant.dr-elephant-2.1.7.jar over to
+# <deployment dir>/lib (replacing existing jar)
+# restart Dr. Elephant
+```
+
+
 ### Run 1 test
 
 ```
@@ -55,7 +67,7 @@ Starting Dr. Elephant
 # Remove "clean" and "test" in the
 # "play_command $OPTS clean compile test $extra_commands"
 # line in compile.sh to speed up iteration.
-./compile.sh compile.conf
+./compile.sh
 cd dist
 unzip dr-elephant-*.zip
 cd dr-elephant-x.x.x
@@ -70,7 +82,7 @@ bin/start.sh $HOME/test/dr-elephant-test/app-conf
 Need TonY Portal set up to move intermediate jobs to finished.
 
 ```
-cd $HOME/test/test-tony-portal/tony-portal-0.3.6
+cd $HOME/test/test-tony-portal/tony-portal-0.3.12
 export TONY_CONF_DIR=$HOME/test/dr-elephant-test/tony-conf-test
 bin/startTonyPortal.sh
 ```
@@ -80,6 +92,8 @@ Run TonY job
 ```
 export TONY_CONF_DIR=$HOME/test/dr-elephant-test/tony-conf-test
 java -cp `hadoop classpath`:$HOME/github/linkedin/TonY/tony-cli/build/libs/tony-cli-0.3.8-all.jar com.linkedin.tony.cli.ClusterSubmitter --executes="echo 'hi'" --conf_file=$HOME/test/test-tony/tony-test.xml
+
+java -cp `hadoop classpath`:$HOME/github/linkedin/TonY/tony-cli/build/libs/tony-cli-0.3.8-all.jar com.linkedin.tony.cli.ClusterSubmitter --executes="echo 'hi'" --conf tony.application.security.enabled=false
 ```
 
 

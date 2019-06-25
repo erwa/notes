@@ -1,3 +1,12 @@
+### Determine CPU architecture
+
+```
+gcc -march=native -Q --help=target | grep march
+```
+
+https://unix.stackexchange.com/questions/230634/how-to-find-out-intel-architecture-family-from-command-line
+
+
 ### Total number of threads running on system
 
 ```

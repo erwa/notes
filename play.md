@@ -1,3 +1,12 @@
+### Run one test class using activator
+
+```
+activator "test-only com.linkedin.drelephant.tez.fetchers.TezFetcherTest"
+```
+
+https://stackoverflow.com/questions/32267731/how-to-execute-a-single-unit-test-case-using-activator
+
+
 ### Test configuration
 
 ```

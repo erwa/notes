@@ -1,0 +1,44 @@
+tony330-am-stop-all-tasks-wait.txt
+
+2019-06-19 16:14:02 INFO  Utils:508 - Completed worker tasks: 2 out of 1 worker tasks.
+
+incrementing twice!
+
+Fix testAMStopsJobAfterWorker0Killed
+* synchronize increment
+* simplify accounting
+
+TestTonyE2E.testNullAMRpcClient now hanging
+
+TestTonyE2E.testTensorBoardPortSetOnlyOnChiefWorker fine when run alone, hangs when running in sequence (13th test)
+
+2019-06-20 10:51:28 INFO  ApplicationMaster:833 - Received registrations from 1 tasks, awaiting registration from 2 tasks.
+2019-06-20 10:51:44 INFO  ApplicationMaster:833 - Received registrations from 1 tasks, awaiting registration from 2 tasks.
+2019-06-20 10:51:59 INFO  ApplicationMaster:833 - Received registrations from 1 tasks, awaiting registration from 2 tasks.
+
+Emitting event: {"type": "APPLICATION_INITED", "event": {"applicationId": "application_1561052650731_0013", "numTasks": 0, "host": "localhost"}, "timestamp": 1561052875115}
+
+just took really long time for testTensorBoardPortSetOnlyOnChiefWorker to get all containers
+
+default_container_executor.sh also hangs around
+0004 sticks around
+
+9, 10, 11, 13, 4
+
+
+bash: /bin/hadoop: No such file or directory
+Exception in thread "main" java.lang.NullPointerException
+  at com.linkedin.tony.ApplicationMaster.stop(ApplicationMaster.java:664)
+  at com.linkedin.tony.ApplicationMaster.run(ApplicationMaster.java:355)
+  at com.linkedin.tony.ApplicationMaster.main(ApplicationMaster.java:294)
+
+
+ps -ef|grep MiniTonY | cut -d ' ' -f 2 | xargs -I% kill -9 %
+
+
+fixed NPE. 4 no longer hangs, it seems. Neither does 9 or 10.
+actually, nothing hangs anymore
+
+
+Gradle suite > Gradle test > com.linkedin.tony.TestTonyE2E.testTonyClientCallbackHandler FAILED
+    java.lang.AssertionError at TestTonyE2E.java:389
