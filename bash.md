@@ -1,3 +1,30 @@
+### Print calendar
+
+```
+cal
+```
+
+https://www.cyberciti.biz/faq/howto-displays-calendar-date-of-easter/
+
+
+### Print length of each line in file
+
+```
+awk '{ print length }' abc.txt
+```
+
+https://stackoverflow.com/questions/8786634/how-to-print-the-number-of-characters-in-each-line-of-a-text-file
+
+
+### Check max length of line in file
+
+```
+wc -L my_file
+```
+
+http://www.cs.cmu.edu/afs/cs/academic/class/15513-m19/www/codeStyle.html
+
+
 ### Array literal / append to array
 
 ```

@@ -1,3 +1,12 @@
+### Working directory of running process
+
+```
+pwdx <PID>
+```
+
+https://unix.stackexchange.com/questions/94357/find-out-current-working-directory-of-a-running-process
+
+
 ### Determine CPU architecture
 
 ```

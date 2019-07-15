@@ -1,3 +1,10 @@
+### Quick sum of columns
+
+Select cells, look on status bar for sum.
+
+https://www.ablebits.com/office-addins-blog/2016/05/18/excel-sum-formula-total-column-rows-cells/
+
+
 ### Mac Keyboard Shortcuts
 
 `Shift + Spacebar` - select entire row

@@ -1,3 +1,14 @@
+### Set breakpoint at line number
+
+```
+b <file_name>:<line_number
+
+b foo.c:123
+```
+
+http://web.eecs.umich.edu/~sugih/pointers/gdbQS.html
+
+
 ### Run multiple commands
 
 Must define function.

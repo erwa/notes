@@ -602,6 +602,7 @@ python get-pip.py
 https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py
 
 On Linux:
+
 ```
 sudo easy_install -U pip
 ```
@@ -1885,20 +1886,32 @@ https://stackoverflow.com/questions/2600191/how-can-i-count-the-occurrences-of-a
 
 ### Convert list/array to string
 
-# http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
+http://stackoverflow.com/questions/5618878/how-to-convert-list-to-string
+
+```
 list1 = ['1', '2', '3']
 str1 = ''.join(list1) # 123
 list1 = [1, 2, 3]
 str1 = ''.join(str(e) for e in list1) # 123
+```
 
-# Check if list is empty
-# http://stackoverflow.com/questions/53513/best-way-to-check-if-a-list-is-empty
+
+### Check if list is empty
+
+http://stackoverflow.com/questions/53513/best-way-to-check-if-a-list-is-empty
+
+```
 a = []
 if not a:
   print "List is empty"
+```
 
-# Python slicing and finding the last index (indexof) of a character
+
+### Python slicing and finding the last index (indexof) of a character
+
+```
 output_dir[:output_dir.rfind('/')]
+```
 
 
 ### String find

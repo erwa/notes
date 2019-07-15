@@ -1,3 +1,13 @@
+### Refresh file
+
+```
+:e non_existent_file
+# causes less to reload current file
+```
+
+https://unix.stackexchange.com/questions/4351/is-there-a-way-to-dynamically-refresh-the-less-command
+
+
 ### Jump to percent of file
 
 ```
@@ -58,25 +68,33 @@ See http://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less
 
 
 ### Open file at line number
+
 ```
 less +320123 filename
 ```
+
 http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
 
 
 ### Jump to line number
+
 See http://stackoverflow.com/questions/8586648/going-to-a-specific-line-number-using-less-in-unix
+
 ```
 ng # jump to line `n`
 -N # turn line numbers on/off
 ```
 
+
 ### Search forward
+
 ```
 /pattern
 ```
 
+
 ### Search backward
+
 ```
 ?pattern
 ```

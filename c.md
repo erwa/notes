@@ -1,3 +1,55 @@
+### printf bool
+
+```
+bool x = true;
+printf("%d\n", x); // prints 1
+```
+
+https://stackoverflow.com/questions/17307275/what-is-the-printf-format-specifier-for-bool
+
+
+### offsetof
+
+Returns offset (in bytes) of element within a struct.
+
+```
+offsetof(my_struct, elem_in_struct)
+```
+
+https://en.wikipedia.org/wiki/Offsetof
+
+
+### Signed short to unsigned int
+
+Sign extend, then reinterpret.
+
+https://stackoverflow.com/questions/19262851/what-is-the-rule-for-c-to-cast-between-short-and-int
+
+
+### Generate assembly
+
+```
+# generates foo.s
+gcc -S foo.c
+```
+
+https://stackoverflow.com/questions/137038/how-do-you-get-assembler-output-from-c-c-source-in-gcc
+
+
+### Static function
+
+Only visible in the scope of the file it is define in.
+
+```
+static void staticFunc(void)
+{
+  printf("Inside the static function staticFunc() ");
+}
+```
+
+https://www.tutorialspoint.com/static-functions-in-c
+
+
 ### %. (.precision)
 
 Precision specifies minimum number of digits to be printed, zero-padded.
@@ -18,9 +70,22 @@ https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm
 
 ### size_t
 
-Unsigned integer type.
+Unsigned integer type. On 64-bit machines, should be unsigned long long (8 bytes).
 
+https://www.geeksforgeeks.org/size_t-data-type-c-language/
 https://stackoverflow.com/questions/2550774/what-is-size-t-in-c
+
+Print size_t
+
+```
+size_t x = ...;
+ssize_t y = ...;
+printf("%zu\n", x);  // prints as unsigned decimal
+printf("%zx\n", x);  // prints as hex
+printf("%zd\n", y);  // prints as signed decimal
+```
+
+https://stackoverflow.com/questions/2524611/how-can-one-print-a-size-t-variable-portably-using-the-printf-family
 
 
 ### Goto statement
@@ -51,6 +116,13 @@ A struct in a function is a local copy.
 https://stackoverflow.com/questions/161788/are-there-any-downsides-to-passing-structs-by-value-in-c-rather-than-passing-a
 
 
+### Variable scope
+
+Enclosing brackets. So variables declared inside if blocks disappear after you leave the block.
+
+https://stackoverflow.com/questions/8543167/scope-of-variables-in-if-statements
+
+
 ### Variable initialization
 
 Global variables initialized to 0 automatically.
@@ -79,10 +151,12 @@ https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
 
 ### printf format
 
+`%f` - double
 `%lx` - long as hex
 `%p` - pointer address
 `%x` - unsigned hex integer
 
+https://stackoverflow.com/questions/4264127/correct-format-specifier-for-double-in-printf
 http://www.cplusplus.com/reference/cstdio/printf/
 
 
@@ -107,24 +181,19 @@ https://stackoverflow.com/questions/5894892/why-and-when-do-i-need-to-use-parent
 
 ```
 #include <stdio.h>
-int main ( void )
-{
-   static const char filename[] = "file.txt";
-   FILE *file = fopen ( filename, "r" );
-   if ( file != NULL )
-   {
-      char line [ 128 ]; /* or other suitable maximum line size */
-      while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
-      {
-         fputs ( line, stdout ); /* write the line */
-      }
-      fclose ( file );
-   }
-   else
-   {
-      perror ( filename ); /* why didn't the file open? */
-   }
-   return 0;
+int main ( void ) {
+  static const char filename[] = "file.txt";
+  FILE *file = fopen ( filename, "r" );
+  if ( file != NULL ) {
+    char line [ 128 ]; /* or other suitable maximum line size */
+    while ( fgets ( line, sizeof line, file ) != NULL ) { /* read a line */
+      fputs ( line, stdout ); /* write the line */
+    }
+    fclose ( file );
+  } else {
+    perror ( filename ); /* why didn't the file open? */
+  }
+  return 0;
 }
 ```
 

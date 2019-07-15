@@ -1,3 +1,10 @@
+### Move line up
+
+Ctrl + Cmd + up/down
+
+http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_osx.html
+
+
 ### List packages or delete packages
 
 Preferences -> Package Control -> List Packages, Delete Package

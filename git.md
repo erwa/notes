@@ -377,6 +377,10 @@ git checkout <branch>
 ```
 git clean -f [-d]
 # -d removes untracked directories, too
+
+# -i for interactive
+# -x do NOT use standard ignore rules from .gitignore and $GIT_DIR/info/exclude, allows for removing all untracked files including build products
+git clean -idx
 ```
 
 

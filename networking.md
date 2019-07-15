@@ -1,3 +1,12 @@
+### See network bandwidth usage
+
+iftop
+
+3 numbers are average bandwidth over past 2, 10, 40 seconds.
+
+https://www.linuxjournal.com/content/sysadmins-toolbox-iftop
+
+
 ### Check host CNAME resolves to
 
 ```
