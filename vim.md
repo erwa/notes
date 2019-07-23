@@ -1,3 +1,14 @@
+### set^=
+
+```
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+```
+
+`^=` prepends the value to a comma-separated list, adding the comma if the list is not empty.
+
+http://vimdoc.sourceforge.net/htmldoc/options.html
+
+
 ### ctrlp plugin
 
 Ctrl + P - search folders/files
@@ -373,8 +384,12 @@ http://vim.wikia.com/wiki/Remove_unwanted_spaces
 ```
 gt # next tab
 gT # previous tab
+
+:tabnew  # open new tab
+:tabc  # close current tab
 ```
 
+https://www.techrepublic.com/blog/linux-and-open-source/use-tabs-to-open-multiple-files-in-vim/
 http://vim.wikia.com/wiki/Using_tab_pages
 
 
