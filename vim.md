@@ -1,3 +1,42 @@
+### See column numbers
+
+```
+:set ruler
+```
+
+https://superuser.com/questions/365320/how-to-show-the-current-column-in-the-statusbar-in-vim
+
+
+### Recordings
+
+```
+qa
+# do something
+q
+
+# repeat
+@a
+
+# repeat 10x
+10@a
+```
+
+
+### Change inner (ci)
+
+Delete everything between X and enter insert mode.
+
+```
+ci"
+ci'
+ci(
+ci[
+ci{
+```
+
+https://stackoverflow.com/questions/14650788/why-ci-and-ci-ci-behave-differently
+
+
 ### set^=
 
 ```
@@ -29,6 +68,7 @@ Installation guide: http://ctrlpvim.github.io/ctrlp.vim/#installation
 
 ```
 :set nu
+:set number
 ```
 
 
@@ -114,6 +154,18 @@ http://unix.stackexchange.com/questions/217010/search-and-replace-control-charac
 http://www.linuxask.com/questions/search-for-tab-characters-in-vim
 
 
+### Enter insert with cursor at different positions
+
+```
+I  # cursor at beginning of line
+a  # cursor after character
+i  # cursor before character
+A  # cursor at end of line
+```
+
+https://superuser.com/questions/918500/how-to-set-cursor-to-after-last-character-in-vim
+
+
 ### Next word in insert mode
 
 ```
@@ -186,10 +238,12 @@ vim `ls -t | head -1`
 ### Multiple Windows
 
 http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
+https://www.linux.com/learn/vim-tips-using-viewports
 
 ```
  :e filename      - edit another file
  :split filename  - split window and load another file
+ :sp filename     - short version of split filename
  ctrl-w w         - switch to another split window
  ctrl-w up arrow  - move cursor up a window
  ctrl-w ctrl-w    - move cursor to another window (cycle)
@@ -208,20 +262,33 @@ http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
  :b 2             - open buffer #2 in this window
 ```
 
-```
-# Jump to matching parenthesis/bracket/brace
+
+### Jump to matching parenthesis/bracket/brace
+
 ```
 %
 ```
 
-# Insert control character
+
+### Insert control character
+
+```
 Ctrl + v + <character>
+```
 
-# Change casing of a character / Lowercase/uppercase current character
+
+### Change casing of a character / Lowercase/uppercase current character
+
 See http://vim.wikia.com/wiki/Switching_case_of_characters.
-~
 
-# Insert literal tab when expand tab is on
+```
+~
+```
+
+
+### Insert literal tab when expand tab is on
+
+```
 Ctrl+v, Tab
 ```
 
@@ -261,7 +328,8 @@ set wrap
 set nowrap
 ```
 
-Lower/upper-case word: http://stackoverflow.com/questions/2285255/how-to-change-letters-in-a-word-from-upper-case-to-lower-case-or-the-other-way-a
+
+### Lower/upper-case word: http://stackoverflow.com/questions/2285255/how-to-change-letters-in-a-word-from-upper-case-to-lower-case-or-the-other-way-a
 
 ```
 # Lowercase word
@@ -271,7 +339,9 @@ guiw
 gUiw
 ```
 
-Global command
+
+### Global command
+
 See http://vim.wikia.com/wiki/Power_of_g.
 
 ```
@@ -384,13 +454,21 @@ http://vim.wikia.com/wiki/Remove_unwanted_spaces
 ```
 gt # next tab
 gT # previous tab
+{i}gt  # go to tab i (1-indexed)
 
 :tabnew  # open new tab
+:tabnew FILE  # open FILE in new tab
+:tabe FILE  # open FILE in new tab
 :tabc  # close current tab
+:tabc i  # close tab i (1-indexed)
+:tabm i  # move tab to position i (0-indexed)
+:tabm +i  # move tab forward i positions
+:tabm -i  # move tab backward i positions
 ```
 
+https://stackoverflow.com/questions/7961581/is-there-a-vim-command-to-relocate-a-tab
 https://www.techrepublic.com/blog/linux-and-open-source/use-tabs-to-open-multiple-files-in-vim/
-http://vim.wikia.com/wiki/Using_tab_pages
+https://vim.fandom.com/wiki/Using_tab_pages
 
 
 ### Find file within vim

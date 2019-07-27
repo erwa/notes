@@ -1,3 +1,13 @@
+### Accessing different man pages
+
+```
+whatis kill
+man 2 kill
+```
+
+https://stackoverflow.com/questions/16912444/linux-how-to-find-man-page-or-different-versions-of-linux-commands
+
+
 ### Working directory of running process
 
 ```
