@@ -1,3 +1,13 @@
+### Marks
+
+```
+ma  # set mark a
+'a  # go to mark a
+```
+
+https://vim.fandom.com/wiki/Using_marks
+
+
 ### See column numbers
 
 ```

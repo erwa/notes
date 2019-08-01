@@ -17,7 +17,7 @@ https://smallpdf.com/compress-pdf
 
 ### Password Protect
 
-Open in Preview -> Export -> Add Password. Messes up links.
+Mac: Open in Preview -> Export -> Add Password. Messes up links.
 
 Use File -> Print -> PDF -> Save as PDF -> Add Password to preserve links.
 
@@ -26,23 +26,27 @@ https://www.digitaltrends.com/computing/password-protect-pdf/
 
 ### Delete page from PDF
 
-Open in Preview -> in sidebar, select page to delete, press Delete key.
+Mac: Open in Preview -> in sidebar, select page to delete, press Delete key.
 
 
 ### Combine PDFs
 
-Open 1 PDF in Preview -> Edit -> Insert from File.
+Mac: Open 1 PDF in Preview -> Edit -> Insert from File.
 
 https://support.apple.com/en-us/HT202945
 
-Alternative: http://www.pdfmerge.com/
+Alternatives:
+https://combinepdf.com/
+http://www.pdfmerge.com/
 
 
 ### Rotate PDF
 
-Open in Preview -> Tools -> Rotate (do on each page you need rotated) -> Save
+Mac: Open in Preview -> Tools -> Rotate (do on each page you need rotated) -> Save
 
 
 ### Reorder pages
 
-Open in Preview -> drag around pages in the navigation panel
+https://www.pdf2go.com/sort-delete-pdf
+
+Mac: Open in Preview -> drag around pages in the navigation panel

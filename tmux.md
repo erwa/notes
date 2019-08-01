@@ -1,0 +1,58 @@
+### Nested tmux sessions
+
+Send command to inner-session:
+C-b C-b ,  # for example, to rename inner window
+
+https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/ 
+
+
+### Resize pane
+
+C-b C-<arrow>
+C-b Alt-1  # 50-50 vertical split
+C-b Alt-2  # 50-50 horizontal split
+
+https://unix.stackexchange.com/questions/32986/how-do-i-equally-balance-tmux1-split-panes
+
+
+### Full screen current pane
+
+C-b z  # do again to go back to normal split screen
+
+
+### Sessions
+
+C-b d  # detach session
+tmux ls  # list sessions
+tmux attach -t 0  # attach to session 0
+tmux new -s debug-npe  # create session named "debug-npe"
+tmux rename-session -t 0 debug-npe  # rename session
+
+
+### Kill window
+
+C-b &
+
+https://gist.github.com/henrik/1967800
+
+
+### Rename current window
+
+C-b ,
+
+
+### New window
+
+C-b c
+C-b n  # next window
+C-b p  # prev window
+C-b <number>  # go to window number
+
+
+### Split screen
+
+C-b % (vertical split)
+C-b " (horizontal split)
+C-b <arrow>  (change screen)
+
+https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/

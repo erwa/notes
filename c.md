@@ -1,3 +1,21 @@
+### String starts with
+
+```
+strncmp(pre, str, strlen(pre)) == 0
+```
+
+https://stackoverflow.com/questions/4770985/how-to-check-if-a-string-starts-with-another-string-in-c
+
+
+### String equals
+
+```
+strcmp(check, input) != 0
+```
+
+https://stackoverflow.com/questions/8004237/how-do-i-properly-compare-strings
+
+
 ### printf bool
 
 ```

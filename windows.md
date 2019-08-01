@@ -1,3 +1,10 @@
+### Show properties
+
+Alt + Enter
+
+https://mattrefghi.com/blog/2011/07/two-quick-shortcuts-to-show-file-properties-in-windows/
+
+
 ### Open program as administrator
 
 Ctrl + Shift + click.
