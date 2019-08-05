@@ -1,3 +1,48 @@
+### Wait and notify
+
+Use `pthread_cond_wait` and `pthread_cond_signal` or `pthread_cond_broadcast`.
+
+https://stackoverflow.com/questions/2085511/wait-and-notify-in-c-c-shared-memory
+
+
+### String split
+
+Use `strtok`.
+
+Note that strtok modifies the input string!
+
+https://wiki.sei.cmu.edu/confluence/display/c/STR06-C.+Do+not+assume+that+strtok%28%29+leaves+the+parse+string+unchanged
+
+
+### String index of, index of character
+
+```
+// strstr
+char * source = "test string";         /* assume source address is */
+                                       /* 0x10 for example */
+char * found = strstr( source, "in" ); /* should return 0x18 */
+if (found != NULL) {                   /* strstr returns NULL if item not found */
+  int index = found - source;          /* index is 8 */
+                                       /* source[8] gets you "i" */
+}
+
+// strchr
+char *pos = strchr (myString, '#');
+int pos = pos ? pos - myString : -1;
+```
+
+https://stackoverflow.com/questions/4824/string-indexof-function-in-c
+
+
+### String concatenation
+
+```
+strcat(s1, s2);
+```
+
+https://stackoverflow.com/questions/8465006/how-do-i-concatenate-two-strings-in-c/8465083
+
+
 ### String starts with
 
 ```
@@ -118,6 +163,28 @@ label:
 https://www.geeksforgeeks.org/goto-statement-in-c-cpp/
 
 
+### Signal Handling
+
+Use sigaction(). signal() seems unreliable.
+
+```
+static void install_sigpipe_handler() {
+    struct sigaction action;
+    sigset_t block_mask;
+    sigemptyset(&block_mask);
+
+    action.sa_handler = sigpipe_handler;
+    action.sa_mask = block_mask;
+    action.sa_flags = SA_RESTART; /* Restart syscalls if possible */
+
+    if (sigaction(SIGPIPE, &action, NULL) < 0) {
+        sio_fprintf(STDERR_FILENO, "Signal error\n");
+        _exit(1);
+    }
+}
+```
+
+
 ### Signals
 
 2 = SIGINT (ctrl-c)
@@ -183,6 +250,10 @@ http://www.cplusplus.com/reference/cstdio/printf/
 ```
 typedef int Length;
 ```
+
+They are private to the file (and any files that include the file). You cannot have a "static" typedef.
+
+https://stackoverflow.com/questions/12444611/using-static-on-typedef-struct
 
 
 ### sizeof

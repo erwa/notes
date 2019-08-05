@@ -1,3 +1,13 @@
+### Frozen window
+
+Example: frozen vim session. You may have pressed Ctrl+S by accident. Try pressing Ctrl+Q to resume.
+
+
+### Signals
+
+See `man 7 signal`.
+
+
 ### Accessing different man pages
 
 ```

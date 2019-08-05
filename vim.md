@@ -1,3 +1,11 @@
+### Switch panels
+
+C-w w  # switch in order
+C-w h/j/k/l  # switch in direction
+
+https://www.quora.com/How-do-I-switch-between-panes-in-split-mode-in-Vim
+
+
 ### Marks
 
 ```
@@ -327,6 +335,7 @@ zb # Move cursor line to bottom
 # vim command-line (:) navigation
 # http://stackoverflow.com/questions/2075569/how-can-i-move-around-in-the-vim-command-line
 Ctrl+b # jump to beginning of line
+0  # move to column 0 of line
 Ctrl+e # jump to end of line
 ```
 
