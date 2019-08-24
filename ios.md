@@ -22,9 +22,13 @@ Delete photo/video -> go to Recently Deleted photo album -> delete.
 https://support.apple.com/en-us/HT205856
 
 
-### Transfer PDF from Mac to iPhone
+### Transfer PDF from PC to iPhone
 
-Install iBooks on iPhone. Use iTunes -> Books -> drag and drop PDF file to transfer file.
+PC: Install iTunes, connect iPhone, find your device --> Books --> Ctrl + C, Ctrl + V PDF into Books folder. (Cannot drag and drop.)
+
+https://support.apple.com/en-us/HT201593#manual_computer
+
+Mac: Install iBooks on iPhone. Use iTunes -> Books -> drag and drop PDF file to transfer file.
 
 
 ### Extension on phone number

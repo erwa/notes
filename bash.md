@@ -7,6 +7,15 @@ cal
 https://www.cyberciti.biz/faq/howto-displays-calendar-date-of-easter/
 
 
+### Sort lines of file by length
+
+```
+cat testfile | awk '{ print length, $0 }' | sort -n | cut -d" " -f2-
+```
+
+https://stackoverflow.com/questions/5917576/sort-a-text-file-by-line-length-including-spaces
+
+
 ### Print length of each line in file
 
 ```

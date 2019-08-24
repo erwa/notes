@@ -87,6 +87,7 @@ Crop one layer: Layer -> Crop to Selection
 
 Alternatively, use Crop Tool, and ensure "Current layer only" is checked in options.
 
+https://graphicdesign.stackexchange.com/questions/7137/gimp-how-to-crop-a-layer
 https://docs.gimp.org/en/gimp-layer-crop.html
 
 Shift + C. Exacto Knife icon. Tools -> Transform Tools -> Crop.

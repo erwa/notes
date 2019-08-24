@@ -246,6 +246,13 @@ vim `ls -t | head -1`
 ```
 
 
+### Incremental search (will search and move window after every character)
+
+```
+:set incsearch
+```
+
+
 ### Turn off search highlighting
 
 ```

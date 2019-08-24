@@ -1,6 +1,7 @@
 Puzzling Checklist
 ==================
 
+* tarp (as picnic blanket)
 * transparencies / acetate sheets to put over puzzles to preserve original
 * Knee pads
 * Scissors

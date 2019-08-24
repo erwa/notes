@@ -12,6 +12,7 @@ https://www.diffchecker.com/pdf-diff
 
 ### Reduce size of PDF
 
+https://www.ilovepdf.com/compress_pdf
 https://smallpdf.com/compress-pdf
 
 

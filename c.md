@@ -1,3 +1,17 @@
+### Using pthread
+
+Compile using `gcc -pthread ...`.
+
+https://stackoverflow.com/questions/1662909/undefined-reference-to-pthread-create-in-linux
+
+
+### Unsigned overflow vs. signed overflow
+
+Unsigned overflow is defined by the C standard while signed overflow is not. Most likely because only one obvious unsigned representation while multiple signed representations.
+
+https://stackoverflow.com/questions/18195715/why-is-unsigned-integer-overflow-defined-behavior-but-signed-integer-overflow-is/18195756
+
+
 ### Wait and notify
 
 Use `pthread_cond_wait` and `pthread_cond_signal` or `pthread_cond_broadcast`.
@@ -249,6 +263,12 @@ http://www.cplusplus.com/reference/cstdio/printf/
 
 ```
 typedef int Length;
+
+typedef struct foo_node node;
+struct foo_node {
+    node *next;
+    node *prev;
+};
 ```
 
 They are private to the file (and any files that include the file). You cannot have a "static" typedef.

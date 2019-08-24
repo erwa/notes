@@ -1,3 +1,12 @@
+### Screenshot
+
+Windows + shift + S
+
+Snip & Sketch tool
+
+https://www.cnet.com/how-to/8-ways-you-can-take-screenshots-in-windows-10/
+
+
 ### Show properties
 
 Alt + Enter
