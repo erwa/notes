@@ -3,15 +3,15 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
-\usepackage{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage[margin=1.0in]{geometry}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{makecell}
 \usepackage{xcolor}
+%\usepackage[hyphenbreaks]{breakurl}
 
 \newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
-\newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 \title{Facts about matrix and vector norms}

@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Yao's Minimax Principle notes}
+
+\setlength{\parskip}{1em}
+\begin{document}
+\maketitle
+
+Following notes from \link{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall19/Recitation_1.pdf}{Recitation 1} and \link{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall17/ps1.pdf}{problem 4.1 from 2017} and its \link{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall17/ps1sol.pdf}{solution}.
+
+Informally: expected cost of randomized algorithm on worst-case input is at least the expected cost of best deterministic algorithm over fixed distribution of inputs.
+
+Formally: Let $\mathcal{X}$ be a set of inputs to problem, $\mathcal{A}$ be the set of all possible deterministic algorithms that solve the problem. For any $a \in \mathcal{A}$ and $x \in \mathcal{X}$, let $c(a,x)$ be cost of algorithm $a$ on input $x$. Let $p,q$ be distributions over $\mathcal{A},\mathcal{X}$. Then
+\eq{
+\max_{x \in \mathcal{X}} \mathbb{E}_{A\sim_p\mathcal{A}}[c(A,x] \geq
+\min_{a \in \mathcal{A}} \mathbb{E}_{X\sim_q \mathcal{X}}[c(a,X)]
+}
+
+\section{Example problem (4.1 from 2017)}
+
+What follows is a sketch of the solution.
+
+Assumptions:
+
+\begin{itemize}
+\item Our randomized algorithm succeeds (outputs $x'$ such that $\norm{Ax'-b}_2 \leq 2 \min_x \norm{Ax-b}_2$) with probability at least 3/4.
+\end{itemize}
+
+Create $A^0$ and $A^{i',j'}$. Assume our inputs $(A, b)$ come from $(A^0, b)$ (distribution $\mu$) half the time and uniformly from $(A^{i'j'},b)$ (distribution $\nu$) the other half of the time. Our input distribution is thus $(\mu + \nu)/2$.
+
+By way of contradiction, suppose our randomized algorithm reads $o(m)$ entries in expectation over the inputs we defined. Then by Yao's, there is a deterministic algorithm that succeeds with probability at least 3/4 that reads $o(m)$ entries in expectation. (If the left side of Yao's inequality is $o(m)$, right side must be as well.) Let $D$ be the deterministic algorithm.
+
+Apply Markov's. As a reminder, Markov's inequality says:
+\eq{
+\Pr\left[X \geq a \cdot \mathbb{E}[X]\right] \leq 1/a
+}
+
+Let $X$ be the number of entries read by $D$. Then
+\eq{
+\Pr[X \geq a \cdot o(m)] \leq 1/a
+}
+
+Suppose we set $a = 20$, then the probability that $D$ reads more than $20o(m) = o(m)$ entries is at most $1/20$.
+
+The probability $D$ fails is $1 - 3/4 = 1/4$.
+
+Now we apply union bound. Union bound says that the probability of at least one of the events $A_i$ happening is at most the sum of the probabilities of each of the $A_i$ events:
+\eq{
+\Pr[\text{At least one of $A_i$s happens}] \leq \sum_i \Pr[A_i] \\
+\Pr[\bigcup_i A_i] \leq \sum_i \Pr[A_i]
+}
+
+We apply the union bound to the bad events:
+\begin{itemize}
+\item $D$ fails (probability 1/4)
+\item $D$ reads more than $o(m)$ entries (probability 1/20)
+\end{itemize}
+
+The probability that at least one of these bad events happens is less than or equal to $1/4 + 1/20 = 3/10$. Thus, the probability that neither of these bad events happens is $1 - 3/10 = 7/10 > 2/3$.
+
+Ok, if this is the case, then this deterministic algorithm $D$ better differentiate between $(A^0, b)$ and $(A^{i',j'},b)$ with probability at least $2/3$. If $D$ reads $o(m)$ entries, then the probability it will find the $3n$ entry is $o(m)/m = o(1)$. Thus, with probability $1 - o(1)$, it only reads $1/d$ or $1$ entries and cannot differentiate between the two distributions. Thus, for the $(A^{i',j'},b)$ distribution, the algorithm can only be correct with $o(1)$. Thus, the algorithm is correct with probability $(1 + o(1))/2 < 2/3$, which contradicts our assumption that the algorithm is correct with probability greater than $2/3$.
+\end{document}

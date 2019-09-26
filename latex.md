@@ -1,3 +1,10 @@
+### Compile TeX file online
+
+https://latexonline.cc/
+
+Example: https://latexonline.cc/compile?git=https%3A%2F%2Fgithub.com%2Ferwa%2Fnotes&target=norm-facts.tex&command=pdflatex
+
+
 ### Union symbol
 
 ```
@@ -516,6 +523,12 @@ https://tex.stackexchange.com/questions/63250/typesetting-144-4-with-n-times-und
 
 
 ### Wrap long URLs
+
+```
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+```
+
+https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url
 
 ```
 \usepackage[hyphenbreaks]{breakurl}

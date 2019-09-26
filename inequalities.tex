@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Inequalities}
+
+\setlength{\parskip}{1em}
+\begin{document}
+\maketitle
+
+\section{Markov's Inequality}
+\eq{
+\Pr[X \geq t] \leq \mathbb{E}[X]/t
+}
+
+Probability a variable is greater than $t$ is less than or equal to its expected value divided by $t$. Also implies
+\eq{
+\Pr[X^l \geq t^l] \leq \mathbb{E}[X^l]/t^l
+}
+
+\section{Chebyshev's Inequality}
+Requirements
+\begin{itemize}
+\item Finite expected value $\mu$
+\item Finite non-zero variance $\sigma^2$
+\end{itemize}
+
+Different formulations of the same thing (holds for any real $k > 0$):
+\eq{
+\Pr[|X - \mathbb{E}[X]| \geq k\sigma] \leq 1/k^2 \\
+\Pr[|X - \mu| \geq k\sigma] \leq 1/k^2 \\ \\
+\Pr[|X - \mathbb{E}[X]| \geq t] \leq \sigma^2/t^2 \\
+}
+
+Probability that $X$ is more than $k$ standard deviations from its mean is less than or equal to $1/k^2$.
+
+Or can relate difference between $X$ and its mean to its variance.
+\end{document}
