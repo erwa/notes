@@ -1,3 +1,13 @@
+### Copy paste
+
+C-b [ to enter copy mode
+C-<space> to start copying
+C-w (or Alt-w) to copy selected to buffer
+C-b ] to paste
+
+https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/
+
+
 ### Nested tmux sessions
 
 Send command to inner-session:
@@ -41,7 +51,7 @@ https://gist.github.com/henrik/1967800
 C-b ,
 
 
-### New window
+### New window / new tab
 
 C-b c
 C-b n  # next window

@@ -806,6 +806,15 @@ scp FILE1 FILE2 DESTINATION
 scp lib/{j1.jar,j2.jar,j3.jar} .
 ```
 
+### Recursively diff directories
+
+```
+diff -r dir1 dir2
+```
+
+https://unix.stackexchange.com/questions/49496/recursively-compare-two-directories-with-diff-r-without-output-on-broken-links
+
+
 ### Diff and ignore whitespace
 
 ```

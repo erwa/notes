@@ -1,3 +1,62 @@
+### Anonymous function / inline function
+
+```
+double = lambda x: x * 2
+```
+
+https://www.programiz.com/python-programming/anonymous-function
+
+
+### Choose k elements of a set without replacement
+
+```
+>>> import random
+>>> random.sample(range(1, 100), 3)
+[77, 52, 45]
+```
+
+https://stackoverflow.com/questions/22842289/generate-n-unique-random-numbers-within-a-range
+
+
+### Exponentiation / exponents / powers
+
+```
+x**y
+
+math.pow(x, y)
+
+# ^ is xor
+```
+
+https://stackoverflow.com/questions/30148740/how-do-i-do-exponentiation-in-python
+
+
+### Ellipsis (...) / Dot dot dot
+
+How `...` is interpreted is up to `__getitem__`'s implementation.
+
+```
+>>> a
+array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12],
+       [13, 14, 15, 16]])
+
+>>> a[:2,:2]  # top left
+array([[1, 2],
+       [5, 6]])
+
+# for 3D array
+a[...,0] # same as a[:, :, 0]
+
+# for 4D array
+a[0,...,0] # same as a[0,:,:,0]
+```
+
+https://stackoverflow.com/questions/772124/what-does-the-python-ellipsis-object-do
+https://www.quora.com/What-do-the-dots-mean-in-Python
+
+
 ### Python Garbage Collection
 
 ```
@@ -256,6 +315,9 @@ if __name__ == "__main__":
     print "thread finished...exiting"
 ```
 
+Note: "CPython implementation detail: In CPython, due to the Global Interpreter Lock, only one thread can execute Python code at once (even though certain performance-oriented libraries might overcome this limitation). If you want your application to make better use of the computational resources of multi-core machines, you are advised to use multiprocessing or concurrent.futures.ProcessPoolExecutor. However, threading is still an appropriate model if you want to run multiple I/O-bound tasks simultaneously."
+
+https://docs.python.org/3.7/library/threading.html
 https://stackoverflow.com/questions/2905965/creating-threads-in-python
 
 
@@ -303,7 +365,18 @@ Use `pipdeptree`.
 https://stackoverflow.com/questions/9232568/identifying-the-dependency-relationship-for-python-packages-installed-with-pip
 
 
-### Double slash `//`
+### Round to nearest integer
+
+```
+int(round(x))
+```
+
+https://stackoverflow.com/questions/31818050/round-number-to-nearest-integer
+
+
+### Double slash `//` / slash slash
+
+In Python 3, `/` does FP division by default, `//` does integer division.
 
 Divide and round down.
 
@@ -383,6 +456,17 @@ s.isalpha()
 ```
 
 https://docs.python.org/2/library/stdtypes.html#str.isalpha
+
+
+### Concatenate tuples
+
+```
+a = ('2',)
+b = 'z'
+new = a + (b,)
+
+(1,) + (2,)
+```
 
 
 ### Tuples
@@ -693,13 +777,33 @@ execfile(activate_this, dict(__file__=activate_this))
 ```
 
 
+### Clone venv
+
+```
+# source venv
+pip freeze > requirements.txt
+
+# dest venv
+pip install -r requirements.txt
+```
+
+
 ### Create virtualenv / virtual environment
 
 ```
-wget https://pypi.org/packages/source/v/virtualenv/virtualenv-16.1.0.tar.gz
-tar xzvf virtualenv-16.1.0.tar.gz
-/PATH/TO/PYTHON/bin/python virtualenv-16.1.0/src/virtualenv.py <VENV_DIR>
+wget https://pypi.org/packages/source/v/virtualenv/virtualenv-16.7.5.tar.gz
+tar xzvf virtualenv-16.7.5.tar.gz
+/PATH/TO/PYTHON/bin/python virtualenv-16.7.5/virtualenv.py <VENV_DIR>
 . <VENV_DIR>/bin/activate
+```
+
+See https://pypi.org/project/virtualenv/ for latest.
+
+If virtualenv is installed as package in your Python distribution, can use
+
+```
+python -m virtualenv MY_VENV_DIR
+python3 -m virtualenv MY_VENV_DIR
 ```
 
 
@@ -1598,8 +1702,16 @@ import time
 
 pool = mp.Pool(3)
 results = pool.map(time.sleep, [4, 6, 8])
+
+# Python 3.3+
+def func(a, b):
+    return a + b
+
+pool.starmap(func, [(1, 1), (2, 1), (3, 1)])
 ```
 
+https://docs.python.org/dev/library/multiprocessing.html#multiprocessing.pool.Pool.starmap
+https://stackoverflow.com/questions/5442910/python-multiprocessing-pool-map-for-multiple-arguments
 http://stackoverflow.com/a/12097555/1128392
 
 
@@ -1812,9 +1924,13 @@ re.split(r'\s+', <string>)  # 'r' means raw string
 http://stackoverflow.com/questions/8113782/split-string-on-whitespace-in-python
 
 
-# Remove last character from string
-# http://stackoverflow.com/questions/15478127/remove-final-character-from-string-python
+### Remove last character from string
+
+```
 'abcdefghij'[:-1]
+```
+
+http://stackoverflow.com/questions/15478127/remove-final-character-from-string-python
 
 
 ### Write without newline
@@ -1921,6 +2037,18 @@ str.find(str, beg=0, end=len(string))
 ```
 
 https://www.tutorialspoint.com/python/string_find.htm
+
+
+### Get last component of path
+
+```
+# normpath removes trailing slashes
+# basename returns last component
+>>> os.path.basename(os.path.normpath('/folderA/folderB/folderC/folderD/'))
+'folderD'
+```
+
+https://stackoverflow.com/questions/3925096/how-to-get-only-the-last-part-of-a-path-in-python
 
 
 ### Check if file exists

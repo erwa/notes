@@ -1,3 +1,10 @@
+### Resize images
+
+Windows: can use IrfanView
+
+https://www.howtogeek.com/354015/how-to-resize-images-and-photos-in-windows/
+
+
 ### hex to RGB
 
 https://www.rgbtohex.net/hextorgb/

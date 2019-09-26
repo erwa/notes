@@ -1,3 +1,21 @@
+### Delete folder
+
+```
+rmdir /S nonemptydir
+```
+
+https://www.windows-commandline.com/delete-directory-from-command-line/
+
+
+### Hide other windows
+
+Win + Home
+
+Alternatively, click and hold menu bar at top of window and shake.
+
+https://www.labnol.org/software/minimize-open-windows-quickly/9985/
+
+
 ### Screenshot
 
 Windows + shift + S

@@ -1,4 +1,11 @@
+### Extract one page or specific pages of PDF
+
+PDF -> Print -> choose pages -> Print to PDF
+
+
 ### Convert images to PDF and PDFs to images
+
+Windows: select photos -> right click -> Print -> Microsoft Print to PDF
 
 http://imagetopdf.com/
 
@@ -42,6 +49,10 @@ http://www.pdfmerge.com/
 
 
 ### Rotate PDF
+
+Windows: Use web or free software like PDF Shaper Free. PDF Shaper Free: Action -> Modify -> Rotate Pages.
+
+https://www.intowindows.com/3-ways-to-rotate-pdf-and-save-in-windows-10/
 
 Mac: Open in Preview -> Tools -> Rotate (do on each page you need rotated) -> Save
 

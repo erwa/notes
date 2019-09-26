@@ -1,3 +1,10 @@
+### Disable test page
+
+When replacing ink cartridge, test page will automatically print. You need to do what it says: place it on the scanner and then press Scan.
+
+https://h30434.www3.hp.com/t5/Printers-Archive-Read-Only/psc-1350-prints-a-test-page-every-time-it-gets-turned-quot/td-p/194410
+
+
 ### Scan to Email
 
 In Gmail security settings, ensure 2FA disabled. Enabled connections from less secure devices.

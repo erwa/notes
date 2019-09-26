@@ -1,3 +1,31 @@
+### Orthonomal matrices
+
+Let M be an n x k matrix with n > k and orthonormal columns. Row norms are all <= 1 by Pythagorean theorem. Norm of Mx is equal to norm of M.
+
+https://en.wikipedia.org/wiki/Orthogonal_matrix#Overview
+https://math.stackexchange.com/questions/2638990/row-norms-of-a-tall-matrix-with-orthonormal-columns
+
+
+### Matrix norm
+
+Must satisfy some properties, including
+
+* ||A+B|| <= ||A|| + ||B||
+
+https://en.wikipedia.org/wiki/Matrix_norm#Matrix_norms_induced_by_vector_norms
+
+
+### Different views of matrix-matrix multiplication
+
+* row by column multiplication
+* column at a time
+* row at a time
+* sum of outer products
+* block multiplication
+
+http://mlwiki.org/index.php/Matrix-Matrix_Multiplication
+
+
 ### Eigenvalues of A, B, and AB
 
 Product of eigenvalues of AB = product of all eigenvalues in A and B

@@ -1,3 +1,123 @@
+### Union symbol
+
+```
+\bigcup
+\cup
+```
+
+https://tex.stackexchange.com/questions/205125/formatting-the-union-of-sets
+https://timmurphy.org/2010/05/22/union-and-intersection-symbols-in-latex/
+
+
+### for all
+
+```
+\forall
+```
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Set_and.2For_logic_notation
+
+
+### Kronecker product
+
+```
+\otimes
+```
+
+https://en.wikipedia.org/wiki/List_of_mathematical_symbols_by_subject#Matrix_calculus
+
+
+### Tilde
+
+```
+\sim
+```
+
+https://tex.stackexchange.com/questions/9363/how-does-one-insert-a-backslash-or-a-tilde-into-latex
+
+
+### Backslash
+
+```
+\textbackslash
+```
+
+https://tex.stackexchange.com/questions/9363/how-does-one-insert-a-backslash-or-a-tilde-into-latex
+
+
+### Underscore
+
+```
+\_
+
+\textunderscore
+```
+
+https://texfaq.org/FAQ-underscore
+
+
+### Left align and right align on same line
+
+Use `\hfill`.
+
+```
+Left-aligned \hfill right-aligned.
+```
+
+https://tex.stackexchange.com/questions/294150/left-and-right-aligned-on-same-line
+
+
+### Fancy P
+
+https://tex.stackexchange.com/questions/232922/a-hack-for-getting-a-capital-weierstrass-p-in-order-to-represent-the-power-set
+
+
+### Logic symbols
+
+```
+\lor     # logical or
+\land    # logical and
+\to      # implies
+\implies # implies
+```
+
+https://en.wikipedia.org/wiki/List_of_logic_symbols
+
+
+### Imaginary Number Symbol
+
+Just use `i`.
+
+https://texblog.org/2013/11/27/complex-number-symbols-in-latex/
+
+
+### Section heading
+
+```
+\section{Introduction}
+
+\subsection{Overview}
+
+% Skip a subsection
+\stepcounter{subsection}
+\setcount{subsection}{4} % next subsection will be 5
+```
+
+https://tex.stackexchange.com/questions/111504/setting-section-counter
+https://tex.stackexchange.com/questions/132698/how-do-i-skip-a-subsection
+https://www.overleaf.com/learn/latex/Sections_and_chapters
+https://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/SectionHeadings.html
+
+
+### Footnote
+
+```
+Main text\footnote{A footnote}
+```
+
+https://www.overleaf.com/learn/latex/Footnotes
+
+
 ### Footnote without numbering
 
 ```
@@ -37,6 +157,69 @@ https://en.wikibooks.org/wiki/LaTeX/Colors
 https://tex.stackexchange.com/questions/91378/how-to-draw-the-calculation-of-a-determinant
 
 
+### Put box around expression or equation / box around answer
+
+```
+\boxed{1 + 1 = 2}
+```
+
+https://tex.stackexchange.com/questions/180325/boxed-equation-with-number/180326
+
+
+### Image align top
+
+```
+\usepackage[export]{adjustbox}
+\item \includegraphics[valign=t]{foo.jpg}
+```
+
+https://tex.stackexchange.com/questions/101858/make-two-figures-aligned-at-top
+
+
+### tikzpicture align with top of text
+
+```
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+```
+
+https://www.yesterdayscoffee.de/2014/10/15/align-the-top-of-a-tikz-picture-with-the-text/
+
+
+### Disable marks for points / hide points
+
+```
+mark=none
+```
+
+https://tex.stackexchange.com/questions/65221/how-to-remove-pgfplots-circular-points
+
+
+### Plotting vector field / quiver plot
+
+```
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+  \begin{axis}[
+        domain=-2:2,
+        view={0}{90},
+        axis background/.style={fill=white},
+    ]
+    \addplot3[blue,
+        quiver={
+            u={-y},
+            v={x},
+            scale arrows=0.3,
+        },
+        -stealth, samples=15]{0};  % stealth style arrow head
+  \end{axis}
+  \end{tikzpicture}
+```
+
+Quiver plot: https://www.mathworks.com/help/matlab/ref/quiver.html
+http://pgfplots.net/media/tikz/examples/TEX/differential-equation.tex
+
+https://tex.stackexchange.com/questions/20046/tikz-drawing-a-changing-vector-field-in-a-grid
+
+
 ### Insert graph / plot graph
 
 ```
@@ -44,6 +227,9 @@ https://tex.stackexchange.com/questions/91378/how-to-draw-the-calculation-of-a-d
 
 \begin{tikzpicture}
 \begin{axis}
+
+% plot line
+%\addplot[mark=none]{-2 * x};
 
 % discontinuous function
 \addplot[domain=0:4,blue] {x*x};
@@ -73,7 +259,7 @@ https://tex.stackexchange.com/questions/91378/how-to-draw-the-calculation-of-a-d
 % position labels
 % https://tex.stackexchange.com/questions/375706/how-to-control-label-positions
 \begin{axis}[
-axis equal,
+axis equal,  % same scale per axis, https://tex.stackexchange.com/questions/61039/how-to-keep-a-11-scale-with-x-and-y-axis
 axis lines = center,
 width = 10cm,
 height = 10cm,
@@ -100,6 +286,25 @@ https://tex.stackexchange.com/questions/76418/plot-non-continuous-function-with-
 ```
 
 https://tex.stackexchange.com/questions/10574/includegraphics-dots-in-filename
+
+
+### Greater than or equal to / less than or equal to
+
+```
+\geq
+\leq
+```
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+
+
+### Greater than with slash through it / inequality with slash through it
+
+```
+\not>
+```
+
+https://tex.stackexchange.com/questions/64556/not-greater-than-with-vertical-bar-instead-of-slanted-bar
 
 
 ### Much greater than
@@ -133,12 +338,45 @@ https://github.com/Ruben-Sten/TeXiFy-IDEA/pull/108
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Relation_operators
 
 
+### No hanging indentation for enumeration items
+
+```
+\begin{enumerate}[wide=0pt]
+```
+
+https://tex.stackexchange.com/questions/311667/using-enumerate-with-no-indent/
+
+
+### Skip item in enumeration
+
+```
+\stepcounter{enumi}
+```
+
+https://www.overleaf.com/learn/latex/Counters
+
+
+### Enumerate with custom prefix
+
+```
+\usepackage{enumitem}
+
+% Make enumeration number bold
+\begin{enumerate}[\textbf{label=Q2.\arabic*}]
+\item foo  % Q2.1
+\end{enumerate}
+```
+
+https://tex.stackexchange.com/questions/116101/add-bold-enumerate-items
+https://tex.stackexchange.com/questions/94224/how-to-create-a-list-with-a-fixed-prefix-and-incremental-numbers
+
+
 ### Enumerate from 2, start numbering from 2
 
 ```
 \begin{enumerate}
   % use enumii or enumiii for deeper lists
-  \setcounter{enumi}{4}
+  \setcounter{enumi}{4}  % 0-indexed
   \item fifth element
 \end{enumerate}
 ```
@@ -162,6 +400,23 @@ https://www.tutorialspoint.com/tex_commands/rm.htm
 ```
 B^0_i(x) = \begin{cases}1 & x \in [x_i,x_{i+1}) \\ 0 & \textrm{ otherwise.}\end{cases}
 ```
+
+
+### Source code / inline code
+
+```
+\texttt{monospace text block}
+
+\usepackage{listings}
+
+\begin{lstlisting}
+int foo() {
+  return 1;
+}
+\end{lstlisting}
+```
+
+https://tex.stackexchange.com/questions/36030/how-to-make-a-single-word-look-as-some-code
 
 
 ### Pseudocode function
@@ -191,12 +446,15 @@ https://tex.stackexchange.com/questions/238574/algorithm-return-statement-does-n
 ### Define new command
 
 ```
+\newcommand{\eq}[1]{$\begin{aligned}[t]#1\end{aligned}$}
+
 \newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
 
 \eq{
   x^2 + 9 &= 0
 }
 
+\newcommand{\mat}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 ```
 
@@ -215,9 +473,12 @@ https://alexwlchan.net/2017/10/latex-underlines/
 ### Horizontal rule
 
 ```
+\hrulefill
+
 \begin{center}\rule{10cm}{0.4pt}\end{center}
 ```
 
+https://www.techwalla.com/articles/horizontal-line-options-in-latex
 https://tex.stackexchange.com/questions/23650/when-should-we-use-begincenter-instead-of-centering/23653
 
 
@@ -234,7 +495,7 @@ Using `||` also looks fine, generally.
 https://tex.stackexchange.com/questions/107186/how-to-write-norm-which-adjusts-its-size
 
 
-### a, b, c
+### a, b, c | Alphabetical list
 
 ```
 \usepackage{enumitem}
@@ -247,6 +508,7 @@ https://tex.stackexchange.com/questions/129951/enumerate-tag-using-the-alphabet-
 ### Indicate "n times"
 
 ```
+\overbrace{44\cdots4\,}^\text{$n$ times}
 \underbrace{44\cdots4\,}_\text{$n$ times}
 ```
 
@@ -280,9 +542,26 @@ https://tex.stackexchange.com/questions/54946/how-to-break-long-url-in-an-item
 ```
 \usepackage{hyperref}
 \url{http://mathforcollege.com/nm/mws/gen/05inp/mws_gen_inp_txt_ndd.pdf}
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}} % extra brackets are needed to turn off blue afterward
+\link{https://www.google.com}{Google}
 ```
 
 https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+
+
+### Itemize without bullets
+
+```
+\begin{itemize}[label={}]
+  \item First.
+  \item Second.
+\end{itemize}
+```
+
+https://tex.stackexchange.com/questions/50269/itemize-without-bullets
 
 
 ### Bullet list
@@ -314,6 +593,52 @@ https://tex.stackexchange.com/questions/23773/a-centered-plus-minus-symbol
 ```
 
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+
+
+### Increase table cell padding
+
+```
+{\renewcommand{\arraystretch}{2}%
+\begin{tabular}{|l|l|}
+  \hline
+  column 1 & column 2 \\
+  \hline
+  I really would like this less & crammed \\
+  \hline
+\end{tabular}
+```
+
+https://tex.stackexchange.com/questions/31672/column-and-row-padding-in-tables
+
+
+### Line break inside table cell
+
+```
+\usepackage{makecell}
+
+\begin{tabular}{ | c | c | c |}
+  \hline
+  \thead{A Head} & \thead{A Second \\ Head} & \thead{A Third \\ Head} \\
+  \hline
+  Some text &  \makecell{Some really \\ longer text}  & Text text text  \\
+  \hline
+\end{tabular}
+```
+
+https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell/19678
+
+
+### Table without borders
+
+```
+\begin{tabular}{ccc}
+first row & & \\
+second row & & \\
+and & so & on \\
+\end{tabular}
+```
+
+https://tex.stackexchange.com/questions/4400/how-can-one-make-a-table-without-borders
 
 
 ### Draw table
@@ -373,10 +698,11 @@ Generally no special notation, just use `e`.
 https://tex.stackexchange.com/questions/58067/how-to-best-typeset-special-constants-complex-unit-i-eulers-number-e
 
 
-### Natural Logarithm
+### Logarithm
 
 ```
-\ln
+\log
+\ln  % Natural logarithm
 ```
 
 https://tex.stackexchange.com/questions/314609/no-natural-log-parentheses-when-typesetting
@@ -398,7 +724,7 @@ https://docs.latexbase.com/symbols/absolute%20value/
 
 ```
 % integral from a to b
-\int_{a}^{b}
+\int_{a}^{b} x \,dx
 ```
 
 https://www.overleaf.com/learn/latex/Integrals,_sums_and_limits
@@ -473,6 +799,17 @@ https://tex.stackexchange.com/questions/33519/vertical-line-in-matrix-using-late
 https://tex.stackexchange.com/questions/327779/how-to-draw-matrix-with-dots
 
 
+### Increase max number of columns of matrix
+
+```
+# to solve "Extra alignment tab has been changed to \cr" error
+\setcounter{MaxMatrixCols}{20}
+```
+
+https://tex.stackexchange.com/questions/3519/how-to-use-more-than-10-tab-stops-in-bmatrix-or-other-amsmath-matrix-environment
+https://www.overleaf.com/learn/latex/Errors/Extra%20alignment%20tab%20has%20been%20changed%20to%20%5Ccr
+
+
 ### Matrix / matrices / matrixes
 
 `bmatrix` includes brackets, `matrix` does not. `pmatrix` uses parentheses.
@@ -514,8 +851,8 @@ https://tex.stackexchange.com/questions/156016/how-do-i-make-a-small-pmatrix
 ### Dot dot dot
 
 ```
-\dots  % horizontal dots
-\cdots
+\dots  % low horizontal dots
+\cdots % line-height centered horizontal dots
 
 # three literal periods
 ...
@@ -538,12 +875,29 @@ n \to \infty
 ```
 
 
+### All uppercase font with bigger first letter (small caps)
+
+```
+\textsc{First Letter}
+```
+
+https://tex.stackexchange.com/questions/56332/all-letters-in-uppercase-but-the-first-letter-bigger-than-the-other-ones
+
+
 ### Lowercase and uppercase Greek letters
 
 ```
+% variants
+\varphi % variant phi
+
 \delta  % lowercase
 \Delta  % uppercase
+
+\mathcal{X} % uppercase chi
 ```
+
+https://jblevins.org/log/greek
+https://tex.stackexchange.com/questions/304534/what-does-the-var-prefix-stand-for-in-varphi-and-varepsilon-etc
 
 
 ### Given that
@@ -597,6 +951,8 @@ https://tex.stackexchange.com/questions/55957/how-do-you-write-times
 
 ```
 \cdot
+
+\langle x, y \rangle
 ```
 
 https://tex.stackexchange.com/questions/19180/which-dot-character-to-use-in-which-context
@@ -661,6 +1017,17 @@ It seems this has to be put at the end of another line, not on a line by itself.
 https://tex.stackexchange.com/questions/51682/is-it-possible-to-pagebreak-aligned-equations
 
 
+### Align without new line
+
+```
+% must be done in math mode
+$\begin{aligned}[t]
+\end{aligned}$
+```
+
+https://tex.stackexchange.com/questions/269685/avoiding-line-break-when-starting-align
+
+
 ### `align` vs. `align*`
 
 With `align*`, equations will NOT be numbered.
@@ -695,6 +1062,8 @@ https://tex.stackexchange.com/questions/10355/blank-lines-in-align-environment
 Use `\begin{align}...\end{align}` for equations split across multiple lines.
 
 ```
+\usepackage{amsmath}
+
 \begin{align*}
 & \text{if} \sum_{j \in numeric} a_j x_j \le s & \text{go left}
 \\
@@ -703,6 +1072,7 @@ Use `\begin{align}...\end{align}` for equations split across multiple lines.
 ```
 
 https://www.sharelatex.com/learn/Aligning_equations_with_amsmath#Aligning_several_equations
+https://tex.stackexchange.com/questions/131841/environment-align-undefined-line-11-all-i-can-see-to-do-is-to-retype-the-line-a/131842
 
 
 ### Center
@@ -738,6 +1108,15 @@ https://tex.stackexchange.com/questions/34014/qed-for-theorems-without-proofs
 `\star`
 
 
+### Maximum
+
+```
+\max
+```
+
+https://tex.stackexchange.com/questions/342538/how-to-write-underneath-max-in-formula-latex
+
+
 ### argmin, argmax
 
 ```
@@ -760,6 +1139,7 @@ https://tex.stackexchange.com/questions/34014/qed-for-theorems-without-proofs
 ### Expected value
 
 ```
+\usepackage{amssymb}
 \mathbb{E}
 ```
 
@@ -784,10 +1164,20 @@ https://tex.stackexchange.com/questions/63781/how-to-write-a-not-equal-to-sign-i
 ### Overline
 
 ```
-\bar{\x}
+\bar{x}
+\overline{x}
 ```
 
 https://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+
+
+### Multiple line subscript
+
+```
+\sum_{\substack{i=0 \\ i\neq 4}}^n i
+```
+
+https://tex.stackexchange.com/questions/80460/expression-under-summation-on-multiple-lines
 
 
 ### Subscript and superscript
@@ -803,6 +1193,30 @@ https://www.sharelatex.com/learn/Subscripts_and_superscripts
 
 ```
 % This is a comment
+```
+
+
+### Bibliography / References
+
+```
+Great paper \cite{latexcompanion}.
+
+\begin{thebibliography}{9}
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+ 
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+ 
+\bibitem{knuthwebsite} 
+Knuth: Computers and Typesetting,
+\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+\end{thebibliography}
 ```
 
 
@@ -863,6 +1277,14 @@ https://tex.stackexchange.com/questions/100652/easier-than-latex-bibtex-latex-la
 
 ### Adjust margins
 
+Example 1:
+
+```
+\usepackage[margin=1.0in]{geometry}
+```
+
+Example 2:
+
 ```
 % in preamble
 
@@ -883,6 +1305,8 @@ https://tex.stackexchange.com/a/600
 ```
 \vec u
 ```
+
+To actually write out a column vector of elements, use the matrix syntax.
 
 
 ### Fonts
@@ -948,9 +1372,32 @@ https://latex.codecogs.com/eqneditor/editor.php
 https://www.codecogs.com/eqnedit.php
 
 
+### Set paragraph spacing
+
+```
+\setlength{\parskip}{1em}
+\begin{document}
+...
+```
+
+https://www.overleaf.com/learn/latex/Paragraph_formatting
+
+
+### Spacing in enumeration
+
+```
+\begin{enumerate}[parsep=3ex]
+```
+
+https://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-items-with-usepackageenumerate
+
+
 ### Whitespace / Spacing / Newline / Blank lines
 
 ```
+\,  % tiny nonbreaking space (will not go to next line or page)
+% https://practicaltypography.com/nonbreaking-spaces.html
+
 \enskip
 \enspace  % in-line space
 \quad  % bigger in-line space

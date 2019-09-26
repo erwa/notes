@@ -1,3 +1,12 @@
+### db dw dd dq dt ddq do
+
+```
+dd  ; define double word, 4 bytes
+```
+
+https://stackoverflow.com/questions/10168743/which-variable-size-to-use-db-dw-dd-with-x86-assembly
+
+
 ### ret
 
 Implicitly pops address from stack and jumps to that address.
@@ -40,6 +49,11 @@ al = 1 byte (lower byte of ax)
 Can often be inferred by register sizes.
 
 https://stackoverflow.com/questions/44577130/when-should-i-use-size-directives-in-x86
+
+
+### mov instruction
+
+https://esolangs.org/wiki/Mov
 
 
 ### movl

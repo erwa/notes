@@ -1,3 +1,8 @@
+### Change color of event
+
+Right click on the event on your calendar.
+
+
 ### Jump to day
 
 Edit the URL:

@@ -1,3 +1,15 @@
+### Horizontal line / horizontal rule
+
+```
+set cursorline
+
+# turn off
+set nocursorline
+```
+
+https://stackoverflow.com/questions/9608974/horizontal-line-in-vim
+
+
 ### Switch panels
 
 C-w w  # switch in order
@@ -26,6 +38,8 @@ https://superuser.com/questions/365320/how-to-show-the-current-column-in-the-sta
 
 
 ### Recordings
+
+Can be used to achieve multi-cursor-like effects.
 
 ```
 qa
@@ -73,6 +87,10 @@ Ctrl + P - search folders/files
 https://github.com/ctrlpvim/ctrlp.vim
 
 Installation guide: http://ctrlpvim.github.io/ctrlp.vim/#installation
+
+To change the directory, run `:cd ...`.
+
+https://github.com/kien/ctrlp.vim/issues/150
 
 
 ### Run terminal command from vim
@@ -266,25 +284,26 @@ http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
 https://www.linux.com/learn/vim-tips-using-viewports
 
 ```
- :e filename      - edit another file
- :split filename  - split window and load another file
- :sp filename     - short version of split filename
- ctrl-w w         - switch to another split window
- ctrl-w up arrow  - move cursor up a window
- ctrl-w ctrl-w    - move cursor to another window (cycle)
- ctrl-w_          - maximize current window
- ctrl-w=          - make all equal size
- :vsplit file     - vertical split
- ctrl-w >         - increase horizontal width by 1 character
- 10 ctrl-w >      - increase vertical window size by 10 characters
+:e filename      - edit another file
+:split filename  - split window and load another file
+:sp filename     - short version of split filename
+ctrl-w w         - switch to another split window
+ctrl-w up/down/left/right  - move cursor to another window
+ctrl-w ctrl-w    - move cursor to another window (cycle)
+ctrl-w _         - maximize current window
+ctrl-w =         - make all splits/windows equal size
+:vsplit file     - vertical split
+ctrl-w +         - increase horizontal window by 1 character
+ctrl-w -         - decrease horizontal window size
+10 ctrl-w >      - increase vertical window size by 10 characters
+ctrl-w <         - decrease vertical window size
+10 ctrl-w +      - increase horizontal window size by 10 lines
 
- 10 ctrl-w+       - increase horizontal window size by 10 lines
-
- :sview file      - same as split, but readonly
- :hide            - close current window
- :only            - keep only this window open
- :ls              - show current buffers
- :b 2             - open buffer #2 in this window
+:sview file      - same as split, but readonly
+:hide            - close current window
+:only            - keep only this window open
+:ls              - show current buffers
+:b 2             - open buffer #2 in this window
 ```
 
 

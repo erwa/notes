@@ -1,6 +1,15 @@
+### Wrap command to get line history
+
+```
+rlwrap cmd
+```
+
+https://linux.die.net/man/1/rlwrap
+
+
 ### Frozen window
 
-Example: frozen vim session. You may have pressed Ctrl+S by accident. Try pressing Ctrl+Q to resume.
+Example: frozen vim session. You may have pressed Ctrl+S (suspend) by accident. Try pressing Ctrl+Q to resume.
 
 
 ### Signals

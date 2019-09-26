@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Facts about matrix and vector norms}
+
+\setlength{\parskip}{1em}
+\begin{document}
+\maketitle
+
+\section{Vector norm properties}
+
+\begin{itemize}
+\item $\norm{x + y} \leq \norm{x} + \norm{y}$ (subadditive property or triangle inequality)
+\end{itemize}
+
+\section{General matrix norm properties}
+
+Must hold for all matrix norms.
+
+\begin{itemize}
+\item $\norm{A + B} \leq \norm{A} + \norm{B}$ (sub-additive or satisfying triangle inequality)
+\end{itemize}
+
+\section{Frobenius Norm}
+
+Frobenius norm of a matrix is square root of the sum of squares of all the elements of the matrix. It's like Euclidean norm extended to a matrix.
+
+\subsection{Properties}
+
+\begin{itemize}
+\item
+\eq{
+\norm{AB}_F^2 \leq \norm{A}_F^2 \norm{B}_F^2
+}
+Proof: \url{https://math.stackexchange.com/questions/1393301/frobenius-norm-of-product-of-matrix}
+
+\item Count-Sketch preserves Frobenius norm with high probability:
+\eq{
+\Pr[\norm{SA}_F^2 = (1 \pm \epsilon) \norm{A}_F^2] > 3/4
+}
+
+\item $\norm{A}_2 \leq \norm{A}_F$. The operator norm is less than or equal to the Frobenius norm.
+
+Proof: \url{https://math.stackexchange.com/questions/252819/why-is-frobenius-norm-of-a-matrix-greater-than-or-equal-to-the-2-norm}
+\end{itemize}
+
+\section{Operator Norm}
+The operator norm of $A$, $\norm{A}_2$, is defined as follows:
+\eq{
+\norm{A}_2 = \sup_{\norm{x}_2=1} \norm{Cx}_2
+}
+
+If we use the Euclidean norm on the right, then the operator norm of $A$ is just the largest singular value of $A$, which is the square root of the largest eigenvalue of $A^T A$ ($A^* A$ if you want to be strict).
+
+The value of the operator norm depends on what vector norm you use. However, we do have
+\eq{
+\text{operator norm of $A$} \leq \sigma_{max} = \text{spectral norm of $A$}
+}
+
+Ref: \url{https://math.stackexchange.com/questions/482170/2-norm-vs-operator-norm}
+
+If you use the Euclidean vector norm, then the operator norm is the same as the spectral norm. Ref: \url{https://en.wikipedia.org/wiki/Matrix_norm#Special_cases}
+
+Another definition of operator norm given vectors $x, y$:
+\eq{
+\norm{A}_2 = \sup_{\norm{x}=\norm{y}=1} |x^T A y|
+}
+
+\section{Spectral Norm}
+
+The spectral norm of $A$ is its largest singular value. It's a measure of how much $A$ can stretch a vector.
+
+\end{document}

@@ -1,3 +1,20 @@
+### List installed package contents
+
+```
+dpkg-query -L PACKAGE_NAME
+```
+
+
+### apt - Search for package
+
+```
+apt-cache search keyword
+apt-cache info PACKAGE_NAME
+```
+
+https://askubuntu.com/questions/160897/how-do-i-search-for-available-packages-from-the-command-line
+
+
 ### Check if RPM is relocatable
 
 ```
