@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{xcolor}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Fourier transform notes}
+
+\setlength{\parskip}{1em}
+\begin{document}
+\maketitle
+
+\section{Discrete Fourier Transform}
+
+Given a sequence $\{x_n\} := x_0, x_1, ..., x_{N-1}$, by definition it converts it into another sequence $\{X_k\}:= X_0,X_1,...,X_{N-1}$ by applying the following transformation (the discrete Fourier transform:
+\eq{
+X_k = X(\omega^k) &= \sum_{n=0}^{N-1} x_n \cdot \omega^{kn} \\
+&= \sum_{n=0}^{N-1} x_n \cdot e^{-\frac{i2\pi}{N}kn}
+}
+Note that calculating each term of $X_k$ requires combining all terms in $x_n$. The calculation can be done in $O(n \log n)$ time using the Fast Fourier Transform.
+
+The discrete Fourier basis consists of the vectors
+\eq{
+u_k = \left[\begin{array}{c|c}
+e^{\frac{i2\pi}{N}kn} & n = 0,1,...,N-1 \\
+\end{array}\right]
+}
+The vectors $u_k$ are orthogonal to one another (though they are not unit vectors).
+
+Inverse discrete Fourier transform is defined by
+\eq{
+x_n = x(\omega^n) &= \frac{1}{N}\sum_{k=0}^{N-1} X_k \cdot \omega^{kn} \\
+&= \frac{1}{N}\sum_{k=0}^{N-1} X_k \cdot e^{i2\pi kn/N}
+}
+Note that calculating a term $x_n$ involves combining all $N$ $X_k$ terms. This transform can also be done in $O(n \log n)$ time using the Fast Fourier Transform.
+
+Convolution of two sequences can be done as multiplication in the frequency domain.
+
+See \url{https://en.wikipedia.org/wiki/Discrete_Fourier_transform} for more details.
+\end{document}

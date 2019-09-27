@@ -789,6 +789,8 @@ https://tex.stackexchange.com/questions/219951/laplaces-equation-symbols
 ### Matrix with right hand side / vertical line in middle
 
 ```
+% need to use array environment rather than bmatrix
+% the | describes the vertical line
 \left[
 \begin{array}{cccc|c}
     1 & 0 & 3 & -1 & 0 \\
