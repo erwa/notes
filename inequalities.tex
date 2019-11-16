@@ -13,6 +13,9 @@
 \newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
 \newcommand{\link}[2]{{\color{blue}\href{#1}{#2}}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}[1]{\mathbb{E}[#1]}
+\newcommand{\eps}{\epsilon}
 
 \title{Inequalities}
 
@@ -47,4 +50,32 @@ Different formulations of the same thing (holds for any real $k > 0$):
 Probability that $X$ is more than $k$ standard deviations from its mean is less than or equal to $1/k^2$.
 
 Or can relate difference between $X$ and its mean to its variance.
+
+\section{Chernoff Bound}
+
+Let $X_1, X_2, ..., X_n$ be independent random indicator variables. Let $X$ denote their sum and $\mu = \E{X}$. Then
+
+\begin{itemize}
+\item $\Pr[X \leq (1 - \delta)\mu] \leq e^{-\frac{\delta^2\mu}{2}}$ for $0 \leq \delta \leq 1$
+\item $\Pr[X \geq (1 + \delta)\mu] \leq e^{-\frac{\delta^2\mu}{2+\delta}}$ for $0 \leq \delta$
+\end{itemize}
+
+Alternatively:
+\eq{
+\Pr[|X - \mu| \geq \delta \mu] \leq 2e^{-\mu\delta^2/3} ~\forall~ 0 < \delta < 1
+}
+
+\url{http://math.mit.edu/~goemans/18310S15/chernoff-notes.pdf} \\
+\url{https://en.wikipedia.org/wiki/Chernoff_bound#Multiplicative_form_(relative_error)}
+
+\subsection{Matrix Chernoff Bound}
+
+Let $X_1, ..., X_k$ be independent copies of a symmetric random matrix $X \in \R^{d \times d}$ with $\E[X] = 0$, $\norm{X}_2 \leq \gamma$, and $\norm{\E[X^T X]}_2 \leq \sigma^2$. Let $W = \frac{1}{k} \sum_{j \in [k]} X_j$. For any $\eps > 0$,
+\eq{
+	\Pr[\norm{W}_2 > \eps] \leq 2de^{-\frac{k\eps^2}{\sigma^2 + \frac{\gamma\eps}{3}}}
+}
+where $\norm{W}_2$ is the operator norm of $W$.
+
+Ref: \url{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall19/weekOne.pdf}
+
 \end{document}

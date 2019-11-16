@@ -1,3 +1,10 @@
+### Fixed matrix / "Fixed" matrix
+
+All entries are constant, not variables.
+
+https://math.stackexchange.com/questions/1508206/what-is-a-fixed-matrix
+
+
 ### Softmax
 
 Normalizes a vector of reals to the range (0, 1] and so the normalized values sum to 1.

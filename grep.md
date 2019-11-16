@@ -1,3 +1,13 @@
+### Backslash literal
+
+```
+# search for literal "\ap"
+grep -r '\\ap' *
+```
+
+https://unix.stackexchange.com/questions/417406/how-can-i-search-for-a-string-with-a-literal-backslash-when-using-grep
+
+
 ### Argument list too long
 
 ```

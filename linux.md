@@ -1,3 +1,24 @@
+### Remove all files EXCEPT
+
+```
+rm !(filename)
+rm !(filename1|filename2)
+rm !(*.zip)
+rm !(*.zip|*.odt)
+```
+
+https://www.tecmint.com/delete-all-files-in-directory-except-one-few-file-extensions/
+
+
+### Zip without folder
+
+```
+zip -jr foo.zip myfolder/
+```
+
+https://unix.stackexchange.com/questions/182032/zip-the-contents-of-a-folder-without-including-the-folder-itself
+
+
 ### Wrap command to get line history
 
 ```

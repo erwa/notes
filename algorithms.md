@@ -1,3 +1,10 @@
+### Top K largest in a stream
+
+Use *min* heap of size of K to store K largest elements so far.
+
+https://www.geeksforgeeks.org/kth-largest-element-in-a-stream/
+
+
 ### Settling expenses among a group
 
 https://stackoverflow.com/questions/974922/algorithm-to-share-settle-expenses-among-a-group

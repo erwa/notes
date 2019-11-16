@@ -1,6 +1,18 @@
+### QR factorization
+
+Suppose m x n matrix A with m >= n and linearly independent columns. Then A = QR, where Q is m x n and R is n x n takes O(mn^2) using modified Gram-Schmidt algorithm. Q has orthonormal columns, so Q^T * Q = I. R is upper triangular and invertible.
+
+http://www.seas.ucla.edu/~vandenbe/133A/lectures/qr.pdf
+
+
+### Unitary matrix
+
+A matrix whose conjugate transpose is also its inverse.
+
+
 ### Orthonomal matrices
 
-Let M be an n x k matrix with n > k and orthonormal columns. Row norms are all <= 1 by Pythagorean theorem. Norm of Mx is equal to norm of M.
+Let M be an n x k matrix with n > k and orthonormal columns. Norm of Mx is equal to norm of x. Row norms are all <= 1 by Pythagorean theorem. Squared row norms are the leverage scores. See section 2.4 of [Sketching as a Tool for Numerical Linear Algebra](https://arxiv.org/abs/1411.4357).
 
 https://en.wikipedia.org/wiki/Orthogonal_matrix#Overview
 https://math.stackexchange.com/questions/2638990/row-norms-of-a-tall-matrix-with-orthonormal-columns
@@ -18,7 +30,7 @@ https://en.wikipedia.org/wiki/Matrix_norm#Matrix_norms_induced_by_vector_norms
 ### Different views of matrix-matrix multiplication
 
 * row by column multiplication
-* column at a time
+* column at a time: each column c_j is a linear combination of the columns of A.
 * row at a time
 * sum of outer products
 * block multiplication
@@ -45,7 +57,14 @@ d/dx(Ax) = A^T
 [Matrix Calculus](http://www.doc.ic.ac.uk/~ahanda/referencepdfs/MatrixCalculus.pdf) - see bottom of D-4
 
 
-### Scalar-by-vector derivative
+### Derivative of vector with respect to a matrix
+
+Will be a three dimensional array, since vector has 1 dimension and matrix has 2 dimensions.
+
+http://cs231n.stanford.edu/vecDerivs.pdf
+
+
+### Scalar-by-vector derivative / matrix-vector derivatives
 
 ```
 d/dx(x^T a) = d/dx(a^T x) = a
@@ -53,10 +72,19 @@ d/dx(x^T x) = 2x
 d/dx(x^T A x) = (A + A^T)x
 d/dx(x^T A^T A x) = 2 A^T A x
 d/dx(x^T A^T y) = A^T y
+d/dx(Wx) = W
 ```
 
 https://eli.thegreenplace.net/2015/the-normal-equation-and-matrix-calculus/
 https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf
+http://cs231n.stanford.edu/vecDerivs.pdf
+
+
+### AA^T
+
+AA^T is symmetric and positive definite.
+
+https://math.stackexchange.com/questions/812624/is-aat-positive-semidefinite
 
 
 ### Symmetric matrix

@@ -164,7 +164,8 @@ https://en.wikipedia.org/wiki/Roth_401(k)
 * IRA has wider investment selections.
 * No penalty for withdrawing contributions to Roth IRA early.
 * 401k has $18k/yr contribution limit (across all 401k accounts)
-* IRA has $5.5k/yr contribution limit. You can only open Roth IRA if income is < $132k (filing as individual)
+* IRA has $6k/yr contribution limit. You can only open Roth IRA if income is < $135k (filing as individual)
+** See https://www.fidelity.com/retirement-ira/contribution-limits-deadlines for latest info.
 
 https://www.nerdwallet.com/article/investing/ira-vs-401k-retirement-accounts (good pros and cons comparison table)
 https://www.fidelity.com/mymoney/multiple-401k-accounts

@@ -1,3 +1,15 @@
+### Sets / groups of things
+
+https://phenomist.wordpress.com/storage/sets/
+
+
+### Word finder
+
+Word contains, word ends in, word starts with, anagram solver1
+
+http://www.thefreedictionary.com/Word-Finder.htm
+
+
 ### Google image search part of page
 
 Huntress plugin: https://chrome.google.com/webstore/detail/huntress-reverse-image-se/nkhjamjppefmeceaokadfacbdmmcmdpg
@@ -8,9 +20,11 @@ Huntress plugin: https://chrome.google.com/webstore/detail/huntress-reverse-imag
 https://github.com/dwyl/english-words/blob/master/words_alpha.txt
 
 
-### Anagrams
+### Anagrams / regex / phrase lookup
 
+https://nutrimatic.org/
 https://www.morewords.com/
+https://www.visca.com/regexdict/
 
 Will also show you anagrams containing one more letter.
 
@@ -44,6 +58,11 @@ Share Google Drive explicitly with each team member. Then user names will show u
 ### Generate spreadsheet crossword from image
 
 http://www.npinsker.me/puzzles/crossword
+
+
+### Crossword clues
+
+https://www.wordplays.com/crossword-solver/
 
 
 ### Ciphers
@@ -186,6 +205,7 @@ http://bestforpuzzles.com/cryptic-crossword-dictionary -> has A-Z dictionary
 Anagram indicators: http://cryptics.wikia.com/wiki/List_of_anagram_indicators
 
 Subtraction indicators:
+
 * http://www.highlightpress.com.au/subtractions.html
 * http://bestforpuzzles.com/cryptic-crossword-dictionary/subtraction-indicators.html
 

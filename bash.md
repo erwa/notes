@@ -1,3 +1,16 @@
+### Resume stopped process
+
+```
+# stop process
+Ctrl-Z
+
+# resume
+fg
+```
+
+https://stackoverflow.com/questions/1879219/how-to-temporarily-exit-vim-and-go-back
+
+
 ### Print calendar
 
 ```

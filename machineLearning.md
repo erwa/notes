@@ -1,3 +1,8 @@
+### One-hot vector
+
+Vector with all 0s except a single 1. Often used in classification.
+
+
 ### Transformer
 
 [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)

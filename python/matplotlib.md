@@ -1,3 +1,71 @@
+### Plot curve
+
+```
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+fig.suptitle('My awesome neural network')
+
+ax = fig.add_subplot(211)
+ax.plot(epochs, train_loss)
+ax.plot(epochs, valid_loss)
+ax.set(xlabel='epochs', ylabel='avg loss')
+ax.grid()
+ax.legend(('train', 'valid'))
+
+ax = fig.add_subplot(212)
+ax.plot(epochs, train_acc)
+ax.plot(epochs, valid_acc)
+ax.set(xlabel='epochs', ylabel='accuracy')
+ax.grid()
+ax.legend(('train', 'valid'))
+
+plt.subplots_adjust(hspace=0.5)
+plt.show()
+```
+
+https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.subplots_adjust.html
+https://matplotlib.org/3.1.1/gallery/images_contours_and_fields/irregulardatagrid.html#sphx-glr-gallery-images-contours-and-fields-irregulardatagrid-py
+https://matplotlib.org/3.1.1/gallery/subplots_axes_and_figures/figure_title.html
+https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/masked_demo.html#sphx-glr-gallery-lines-bars-and-markers-masked-demo-py
+https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/simple_plot.html#sphx-glr-gallery-lines-bars-and-markers-simple-plot-py
+
+
+### 3d scatterplot
+
+```
+# This import registers the 3D projection, but is otherwise unused.
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
+
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+for x,y,z in points:
+	ax.scatter(x,y,z)
+
+plt.show()
+```
+
+https://matplotlib.org/3.1.1/gallery/mplot3d/scatter3d.html
+
+
+### Wait for user to close plot to continue
+
+```
+plt.show()
+```
+
+
+### Wait for key press to close plot
+
+```
+plt.draw()
+plt.waitforbuttonpress(0)
+```
+
+
 ### Save figure without white margins
 
 ```

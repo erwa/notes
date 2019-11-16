@@ -1,3 +1,8 @@
+### Ink settings
+
+If print-out is faint, in addition to increasing quality, can also try unchecking "use ink-saving mode".
+
+
 ### Disable test page
 
 When replacing ink cartridge, test page will automatically print. You need to do what it says: place it on the scanner and then press Scan.

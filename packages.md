@@ -9,9 +9,10 @@ dpkg-query -L PACKAGE_NAME
 
 ```
 apt-cache search keyword
-apt-cache info PACKAGE_NAME
+apt-cache show PACKAGE_NAME
 ```
 
+https://askubuntu.com/questions/341178/how-do-i-get-details-about-a-package-which-isnt-installed
 https://askubuntu.com/questions/160897/how-do-i-search-for-available-packages-from-the-command-line
 
 

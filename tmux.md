@@ -1,3 +1,17 @@
+### Scroll up
+
+Ctrl-b, [
+q  # to quit scroll mode
+Esc-up/down  # half page up/down
+Ctrl-up/down  # scroll up/down
+
+Ctrl-S # search forward
+Ctrl-R # search backward
+
+https://superuser.com/questions/231002/how-can-i-search-within-the-output-buffer-of-a-tmux-shell
+https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
+
+
 ### Copy paste
 
 C-b [ to enter copy mode

@@ -257,6 +257,17 @@ vim `ls -t | head -1`
 ```
 
 
+### Search for word boundary
+
+```
+\< # start word
+\> # end word
+\<the\> # search for full word the
+```
+
+https://stackoverflow.com/questions/8404349/in-vim-how-do-you-search-for-a-word-boundary-character-like-the-b-in-regexp
+
+
 ### Search for current word
 
 ```
@@ -278,6 +289,13 @@ vim `ls -t | head -1`
 ```
 
 
+### Swap windows
+
+C-w, r
+
+https://vi.stackexchange.com/questions/3725/swap-the-position-of-two-windows
+
+
 ### Multiple Windows
 
 http://www.cs.oberlin.edu/~kuperman/help/vim/windows.html
@@ -290,7 +308,7 @@ https://www.linux.com/learn/vim-tips-using-viewports
 ctrl-w w         - switch to another split window
 ctrl-w up/down/left/right  - move cursor to another window
 ctrl-w ctrl-w    - move cursor to another window (cycle)
-ctrl-w _         - maximize current window
+ctrl-w _         - maximize current window / full screen current window
 ctrl-w =         - make all splits/windows equal size
 :vsplit file     - vertical split
 ctrl-w +         - increase horizontal window by 1 character
@@ -514,6 +532,26 @@ gT # previous tab
 https://stackoverflow.com/questions/7961581/is-there-a-vim-command-to-relocate-a-tab
 https://www.techrepublic.com/blog/linux-and-open-source/use-tabs-to-open-multiple-files-in-vim/
 https://vim.fandom.com/wiki/Using_tab_pages
+
+
+### Find and replace in visual block
+
+```
+# finds and replaces in last visual block
+# after doing visual selection, when you type :, '<,'> will be automatically populated
+:'<,'>s/red/green/g
+```
+
+https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
+
+
+### Find and replace in current line only
+
+```
+:.s/old/new/g
+```
+
+https://stackoverflow.com/questions/46181488/in-vim-how-to-search-and-replace-in-current-line-only
 
 
 ### Find file within vim

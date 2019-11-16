@@ -1,3 +1,43 @@
+### Exit REPL in Windows
+
+Ctrl-Z
+
+
+### SML documentation
+
+http://typesafety.net/cmlib/
+
+
+### CM compilation manager export filters
+
+```
+(* the stuff between `Group` and `is` is what gets publicly exported *)
+Group
+        structure Table
+        signature TABLE
+        structure Main
+        functor A
+        funsig A
+is
+        main.sml
+        a/fct.sml
+        a/fsig.sml
+        table/sources.cm
+        RCS/parser.grm,v
+```
+
+https://www.smlnj.org/doc/CM/Old/index.html
+
+
+### Function composition
+
+```
+(f o g) (x) = f(g x)
+```
+
+http://homepages.inf.ed.ac.uk/stg/NOTES/node34.html
+
+
 ### Handle errors
 
 ```
@@ -18,6 +58,10 @@ fun factorial_driver () =
 
 ```
 datatype 'a option = NONE | SOME of 'a
+
+(* create expression of option type *)
+SOME(e)
+NONE
 ```
 
 http://sml-family.org/Basis/option.html
@@ -78,7 +122,7 @@ val uncurry = fn f => fn (x, y) => f x y;
 http://homepages.inf.ed.ac.uk/stg/NOTES/node33.html
 
 
-### Mutually recursive functions
+### Mutually recursive functions / corecursive functions
 
 ```
 fun even 0 = true
@@ -93,10 +137,10 @@ https://www.cs.cmu.edu/~rwh/introsml/core/recfns.htm
 ### Logical not
 
 ```
-not(boolean_expr)
+not boolean_expr
 ```
 
-http://rigaux.org/language-study/syntax-across-languages-per-language/SML.html#2
+http://rigaux.org/language-study/syntax-across-languages-per-language/SML.html
 
 
 ### Logical and
@@ -153,11 +197,22 @@ op *(4, 2);
 https://www.cs.bham.ac.uk/research/projects/poplog/paradigms_lectures/ml.html
 
 
+### DICT
+
+http://typesafety.net/cmlib/SigDICT.html
+
+```
+type foo = int Dict
+```
+
+
 ### Functor
 
 Generates structures. Parameterized module or generic structure.
 
 ```
+% when using a functor, you pass in the key type
+% when you create an 'a dict, you define the value type 'a
 functor Dict (structure K : ORDERED) :> DICT where type Key.t=K.t =
 struct
    structure Key : ORDERED = K
@@ -172,6 +227,7 @@ structure StringDict = Dict (structure K = StringLT)
 ```
 
 https://www.cs.cmu.edu/~rwh/introsml/modules/subfun.htm
+http://www.cs.cmu.edu/~rwh/isml/examples/parameterization.sml
 
 
 ### Signature ascription
@@ -187,7 +243,7 @@ Two kinds:
 (* can still access definition and its methods directly *)
 structure strid : sigexp = strexp
 
-(* opaque ascription *)
+(* opaque ascription :> *)
 (* can only access structure through signature and signature methods *)
 structure strid :> sigexp = strexp
 ```
@@ -239,7 +295,7 @@ fun member_of (item, list) = List.exists (fn x => x = item) list
 https://stackoverflow.com/questions/43336460/how-to-check-if-x-value-exists-in-sml-list
 
 
-### Lists
+### Lists / list data structure
 
 ```
 a::rest (* `a` is the head of the list *)
@@ -248,6 +304,15 @@ rev l  (* returns list with elements in reverse order *)
 ```
 
 http://sml-family.org/Basis/list.html
+
+
+### Datatype replication
+
+```
+datatype id = datatype longid
+```
+
+https://people.mpi-sws.org/~rossberg/sml.html
 
 
 ### Defining a new type / type definition
@@ -268,6 +333,17 @@ datatype expr = Numeral of int | Plus of expr * expr | Times of expr * expr
 https://www.cs.cmu.edu/~rwh/introsml/core/datatypes.htm
 
 
+### Type constructor
+
+A type with parameters, e.g. `list`:
+
+```
+(* `list` is a type constructor *)
+(* `nil` and `::` are data constructors *)
+datatype 'a list = nil | :: of 'a * 'a list
+```
+
+
 ### Type vs. datatype
 
 Type is just giving another name to an existing type
@@ -277,7 +353,9 @@ Datatype is used to define new types and constructors.
 https://stackoverflow.com/questions/19805544/sml-difference-between-type-and-datatype
 
 
-### Type variable / apostrophe variable
+### Type variable / apostrophe variable / type scheme
+
+Type scheme is type expression involving one or more unknown type variables.
 
 ```
 (* list is a built-in type operator used to form compound types *)
@@ -286,6 +364,7 @@ type 'a list
 
 `'a` is a type variable and can be substituted with any type.
 
+https://www.cs.cmu.edu/~rwh/introsml/core/typeinf.htm
 https://cs.fit.edu/~ryan/sml/intro.html
 https://stackoverflow.com/questions/20437520/what-is-the-difference-between-a-and-a-in-sml
 
@@ -310,6 +389,13 @@ https://stackoverflow.com/questions/12715464/sml-map-function-on-list-with-a-fun
 https://stackoverflow.com/questions/2437019/curried-anonymous-function-in-sml
 
 
+### Function declaration with types
+
+```
+fun checkpat (pat: Pat.t): typ * context = ...
+```
+
+
 ### Function declaration
 
 ```
@@ -317,6 +403,17 @@ fun fourthroot (x:real):real = sqrt (sqrt x)
 ```
 
 https://www.cs.cmu.edu/~rwh/introsml/core/functions.htm
+
+
+### Rename pattern as / nested as
+
+```
+fun findCase l nil = raise Malformed
+  | findCase l ((h as ((li, _), _))::r) =
+    if Label.equal(l, li)
+    then h
+    else findCase l r
+```
 
 
 ### Pattern matching

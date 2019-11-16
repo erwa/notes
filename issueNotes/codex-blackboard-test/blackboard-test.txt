@@ -1,0 +1,65 @@
+Unexpected mongo exit code 14. Restarting.
+Unexpected mongo exit code 14. Restarting.
+Unexpected mongo exit code 14. Restarting.
+Can't start Mongo server.
+
+https://github.com/meteor/meteor/issues/9914
+cd codex-blackboard/.meteor
+rm -rf local
+ln -s ~/projects/codex-blackboard-meteor local
+
+^ solved Mongo issue
+
+=> Errors prevented startup:
+
+   While processing files with coffeescript (for target os.linux.x86_64):
+   server/emoji.coffee:5:1: reserved word 'import'
+
+https://stackoverflow.com/questions/50757646/meteor-1-6-coffeescript-reserved-word-import
+meteor add modules
+
+# tried
+db = require './emoji.json'
+
+
+W20191115-16:43:05.740(-5)? (STDERR) Error:                                                                                                                                 W20191115-16:43:05.740(-5)? (STDERR) The @babel/runtime npm package could not be found in your node_modules                                                                 W20191115-16:43:05.740(-5)? (STDERR) directory. Please run the following command to install it:                                                                             W20191115-16:43:05.740(-5)? (STDERR)                                                                                                                                        W20191115-16:43:05.740(-5)? (STDERR)   meteor npm install --save @babel/runtime                                                                                             W20191115-16:43:05.740(-5)? (STDERR)                                                                                                                                        W20191115-16:43:05.740(-5)? (STDERR)     at babel-runtime.js (packages/babel-runtime.js:25:9)                                                                               W20191115-16:43:05.740(-5)? (STDERR)     at fileEvaluate (packages/modules-runtime.js:343:9)                                                                                W20191115-16:43:05.741(-5)? (STDERR)     at require (packages/modules-runtime.js:238:16)                                                                                    W20191115-16:43:05.741(-5)? (STDERR)     at packages/babel-runtime.js:156:15                                                                                                W20191115-16:43:05.741(-5)? (STDERR)     at packages/babel-runtime.js:163:3                                                                                                 W20191115-16:43:05.741(-5)? (STDERR)     at /home/erwaman/projects/codex-blackboard-meteor/build/programs/server/boot.js:411:36                                             W20191115-16:43:05.741(-5)? (STDERR)     at Array.forEach (<anonymous>)                                                                                                     W20191115-16:43:05.741(-5)? (STDERR)     at /home/erwaman/projects/codex-blackboard-meteor/build/programs/server/boot.js:220:19                                             W20191115-16:43:05.741(-5)? (STDERR)     at /home/erwaman/projects/codex-blackboard-meteor/build/programs/server/boot.js:471:5                                              W20191115-16:43:05.742(-5)? (STDERR)     at Function.run (/home/erwaman/projects/codex-blackboard-meteor/build/programs/server/profile.js:510:12)                           => Exited with code: 1                                                                                                                            
+
+meteor npm install --save @babel/runtime
+
+
+
+W20191115-16:44:38.931(-5)? (STDERR) The version of @babel/runtime installed in your node_modules directory                                                                 W20191115-16:44:38.967(-5)? (STDERR) (7.7.2) contains a breaking change which was introduced by                                                                             W20191115-16:44:38.967(-5)? (STDERR) https://github.com/babel/babel/pull/8266. Please either downgrade by                                                                   W20191115-16:44:38.968(-5)? (STDERR) running the following command:                                                                                                         W20191115-16:44:38.968(-5)? (STDERR)                                                                                                                                        W20191115-16:44:38.968(-5)? (STDERR)   meteor npm install --save-exact @babel/runtime@7.0.0-beta.55                                                                         W20191115-16:44:38.968(-5)? (STDERR)                                                                                                                                        W20191115-16:44:38.968(-5)? (STDERR) or update to the latest beta version of Meteor 1.7.1, as explained in                                                                  W20191115-16:44:38.968(-5)? (STDERR) this pull request: https://github.com/meteor/meteor/pull/9942.
+
+
+meteor npm install --save-exact @babel/runtime@7.0.0-beta.55
+
+# using metoer 1.6.1.4
+
+# meteor update  # to upgrade to 1.8.1
+
+Google Drive related errors, but expected. preventing start-up
+trying create private/settings.json with
+{"password":"","folder":"My Dev Test Folder"}
+as suggested in README
+
+
+TypeError: Cannot read property 'forEach' of undefined
+
+couple options:
+- try upgrading meteor 1.8.1
+- try exports.db = db
+- try deleting ~/projects/codex-blackboard-meteor/*
+
+
+https://stackoverflow.com/questions/50757646/meteor-1-6-coffeescript-reserved-word-import
+
+Your coffeescript package version is very old. The package added support for modules in 1.2.5, back in 2016
+
+
+ meteor npm show coffeescript@* version
+
+
+# emoji.coffee
+
+ db = {}
+db.default = require './emoji.json'

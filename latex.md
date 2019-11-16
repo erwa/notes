@@ -1,3 +1,68 @@
+### Quotes / quotation marks
+
+```
+``Double quotes''
+`Single quotes'
+```
+
+https://tex.stackexchange.com/questions/52351/quote-marks-are-backwards-using-texmaker-pdflatex
+
+
+### Import multiple packages
+
+```
+\usepackage{
+  amsmath,
+  amssymb,
+  amsthm
+}
+```
+
+
+### Congruent
+
+```
+\cong
+```
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Relation_operators
+
+
+### Make one page landscape
+
+```
+\usepackage{pdflscape}
+...
+\begin{landscape}
+...
+\end{landscape}
+```
+
+https://tex.stackexchange.com/questions/337/how-to-change-certain-pages-into-landscape-portrait-mode
+
+
+### Equivalent to / left-right arrow
+
+```
+% note the capital L
+\Leftrightarrow
+```
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Set_and.2For_logic_notation
+
+
+### Trace of a matrix
+
+```
+\usepackage{amsmath}
+\DeclareMathOperator{\Tr}{Tr}
+
+\Tr
+```
+
+https://tex.stackexchange.com/questions/34532/how-to-represent-the-trace-of-a-matrix
+
+
 ### Compile TeX file online
 
 https://latexonline.cc/
@@ -105,9 +170,9 @@ https://texblog.org/2013/11/27/complex-number-symbols-in-latex/
 
 \subsection{Overview}
 
-% Skip a subsection
+% Skip a subsection, set subsection counter
 \stepcounter{subsection}
-\setcount{subsection}{4} % next subsection will be 5
+\setcounter{subsection}{4} % next subsection will be 5
 ```
 
 https://tex.stackexchange.com/questions/111504/setting-section-counter
@@ -227,16 +292,24 @@ http://pgfplots.net/media/tikz/examples/TEX/differential-equation.tex
 https://tex.stackexchange.com/questions/20046/tikz-drawing-a-changing-vector-field-in-a-grid
 
 
-### Insert graph / plot graph
+### Insert graph / plot graph / graph function
 
 ```
 \usepackage{pgfplots}
+
+% plot derivative of sigmoid function
+% https://tex.stackexchange.com/questions/68299/adding-a-legend-entry-to-a-plot
+\begin{axis}[xlabel=$x$,ylabel=$\frac{e^{-x}}{(1+e^{-x})^2}$]
+\addplot[domain=-10:10,samples=100,mark=none]{e^(-x)/(1+e^(-x))^2};
+\addlegendentry{$\frac{e^{-x}}{(1+e^{-x})^2}$}
+\end{axis}
+\end{tikzpicture}
 
 \begin{tikzpicture}
 \begin{axis}
 
 % plot line
-%\addplot[mark=none]{-2 * x};
+\addplot[mark=none]{-2 * x};
 
 % discontinuous function
 \addplot[domain=0:4,blue] {x*x};
@@ -295,6 +368,15 @@ https://tex.stackexchange.com/questions/76418/plot-non-continuous-function-with-
 https://tex.stackexchange.com/questions/10574/includegraphics-dots-in-filename
 
 
+### Squiggle less than
+
+```
+\preceq
+```
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Relation_operators
+
+
 ### Greater than or equal to / less than or equal to
 
 ```
@@ -343,6 +425,17 @@ https://github.com/Ruben-Sten/TeXiFy-IDEA/pull/108
 ```
 
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Relation_operators
+
+
+### No paragraph indentation
+
+```
+\setlength\parindent{0pt}
+\begin{document}
+```
+
+https://www.overleaf.com/learn/latex/Paragraph_formatting#Paragraph_Indentation
+https://tex.stackexchange.com/questions/27802/set-noindent-for-entire-file
 
 
 ### No hanging indentation for enumeration items
@@ -416,6 +509,7 @@ B^0_i(x) = \begin{cases}1 & x \in [x_i,x_{i+1}) \\ 0 & \textrm{ otherwise.}\end{
 
 \usepackage{listings}
 
+% \begin{lstlisting}[basicstyle=\small] % to reduce font size
 \begin{lstlisting}
 int foo() {
   return 1;
@@ -423,6 +517,7 @@ int foo() {
 \end{lstlisting}
 ```
 
+https://tex.stackexchange.com/questions/180222/how-to-change-font-size-for-specific-lstlisting
 https://tex.stackexchange.com/questions/36030/how-to-make-a-single-word-look-as-some-code
 
 
@@ -453,6 +548,8 @@ https://tex.stackexchange.com/questions/238574/algorithm-return-statement-does-n
 ### Define new command
 
 ```
+% can't define commands with numbers
+% https://tex.stackexchange.com/questions/9718/defining-commands-abbreviations-that-contain-numbers
 \newcommand{\eq}[1]{$\begin{aligned}[t]#1\end{aligned}$}
 
 \newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
@@ -565,6 +662,15 @@ https://tex.stackexchange.com/questions/54946/how-to-break-long-url-in-an-item
 https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
 
 
+### Change style of nested bullets
+
+```
+\renewcommand{\labelitemii}{$\star$}
+```
+
+https://tex.stackexchange.com/questions/36443/how-to-change-the-nested-itemize-bullet-characters
+
+
 ### Itemize without bullets
 
 ```
@@ -611,7 +717,7 @@ https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 ### Increase table cell padding
 
 ```
-{\renewcommand{\arraystretch}{2}%
+\def\arraystretch{2} % default is 1
 \begin{tabular}{|l|l|}
   \hline
   column 1 & column 2 \\
@@ -624,7 +730,7 @@ https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 https://tex.stackexchange.com/questions/31672/column-and-row-padding-in-tables
 
 
-### Line break inside table cell
+### Line break inside table cell / newline in table cell
 
 ```
 \usepackage{makecell}
@@ -654,7 +760,7 @@ and & so & on \\
 https://tex.stackexchange.com/questions/4400/how-can-one-make-a-table-without-borders
 
 
-### Draw table
+### Draw table / create table / make table
 
 Need to use dollars signs around formulas: `$<formula>$`
 
@@ -825,6 +931,20 @@ https://tex.stackexchange.com/questions/3519/how-to-use-more-than-10-tab-stops-i
 https://www.overleaf.com/learn/latex/Errors/Extra%20alignment%20tab%20has%20been%20changed%20to%20%5Ccr
 
 
+### Block matrix
+
+```
+\left[\begin{array}{ccccc}
+    \multicolumn{5}{c}{\multirow{3}{*}{\huge $U^T$}} \\
+    & & & & \\
+    & & & &
+\end{array} \right]
+```
+
+https://tex.stackexchange.com/questions/351627/make-a-symbol-take-up-an-entire-multi-column-multi-row-sub-matrix
+https://tex.stackexchange.com/questions/167366/combining-multirow-and-multicolumn
+
+
 ### Matrix / matrices / matrixes
 
 `bmatrix` includes brackets, `matrix` does not. `pmatrix` uses parentheses.
@@ -899,6 +1019,13 @@ n \to \infty
 https://tex.stackexchange.com/questions/56332/all-letters-in-uppercase-but-the-first-letter-bigger-than-the-other-ones
 
 
+### Cursive l / lowercase l / cursive ell / lowercase ell
+
+```
+\ell
+```
+
+
 ### Lowercase and uppercase Greek letters
 
 ```
@@ -919,6 +1046,15 @@ https://tex.stackexchange.com/questions/304534/what-does-the-var-prefix-stand-fo
 
 ```
 \vert
+```
+
+
+### Indent block of text
+
+```
+\begin{quote}
+Indented block.
+\end{quote}
 ```
 
 
@@ -1072,6 +1208,21 @@ https://tex.stackexchange.com/questions/47687/adding-line-by-line-comments-to-ma
 https://tex.stackexchange.com/questions/10355/blank-lines-in-align-environment
 
 
+### Alignment with less whitespace
+
+Use `alignat*`.
+
+```
+\begin{alignat*}{3}
+    \noalign{$\quad \op{f} * \op{r} = \op{c}_{\op{f}*\op{r}} (x_1,...,x_k) = (\op{f}(a_1,...,a_k), \op{r}(b_1,...,b_k))$}
+    &\text{if } x_i=(x^{\op{f}}_i,x^{\op{r}}_i), &&\quad\text{then } a_i=x^{\op{f}}_i \in \mathcal{S}, b_i=x^{\op{r}}_i \in (\mathcal{A}^*)^*, &&\quad 1 \leq i \leq k\\
+    &\text{if } x_i \in \mathcal{A}^*, &&\quad\text{then } a_i=b_i=x_i, &&\quad 1 \leq i \leq k
+\end{alignat*}
+```
+
+https://tex.stackexchange.com/questions/83658/why-does-aligning-equations-not-work-here
+
+
 ### Alignment
 
 Use `\begin{align}...\end{align}` for equations split across multiple lines.
@@ -1151,7 +1302,7 @@ https://tex.stackexchange.com/questions/342538/how-to-write-underneath-max-in-fo
 `\sum_{}^{}`
 
 
-### Expected value
+### Expected value / expectation
 
 ```
 \usepackage{amssymb}
@@ -1222,16 +1373,19 @@ Michel Goossens, Frank Mittelbach, and Alexander Samarin.
 \textit{The \LaTeX\ Companion}. 
 Addison-Wesley, Reading, Massachusetts, 1993.
  
-\bibitem{einstein} 
-Albert Einstein. 
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
-[\textit{On the electrodynamics of moving bodies}]. 
-Annalen der Physik, 322(10):891–921, 1905.
- 
 \bibitem{knuthwebsite} 
 Knuth: Computers and Typesetting,
 \\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
 \end{thebibliography}
+```
+
+
+### List all references, even if you don't cite them
+
+```
+\begin{document}
+\nocite{*}
+...
 ```
 
 
@@ -1253,6 +1407,9 @@ Knuth: Computers and Typesetting,
 \addbibresource{sample.bib}
 ```
 
+Make sure to run bibtex before pdflatex.
+
+https://tex.stackexchange.com/questions/305381/biblatex-empty-bibliography
 https://www.sharelatex.com/learn/Biblatex_citation_styles
 http://mirror.hmc.edu/ctan/macros/latex/exptl/biblatex/doc/biblatex.pdf
 
@@ -1348,6 +1505,7 @@ To actually write out a column vector of elements, use the matrix syntax.
 \texttt{blah}
 
 % Bold
+{\bf bold text}  % Gotchas: https://texfaq.org/FAQ-2letterfontcmd
 \mathbf{x}  % can use for vector
 \textbf{my_text}
 
@@ -1410,6 +1568,7 @@ https://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-ite
 ### Whitespace / Spacing / Newline / Blank lines
 
 ```
+~  % adds some spacing in math mode
 \,  % tiny nonbreaking space (will not go to next line or page)
 % https://practicaltypography.com/nonbreaking-spaces.html
 

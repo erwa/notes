@@ -458,6 +458,20 @@ s.isalpha()
 https://docs.python.org/2/library/stdtypes.html#str.isalpha
 
 
+### Accessing elements of tuples
+
+```
+tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5, 6, 7 );
+
+# tup1[0]:  physics
+print "tup1[0]: ", tup1[0];
+
+# tup2[1:5]:  [2, 3, 4, 5]
+print "tup2[1:5]: ", tup2[1:5];
+```
+
+
 ### Concatenate tuples
 
 ```
@@ -777,6 +791,15 @@ execfile(activate_this, dict(__file__=activate_this))
 ```
 
 
+### pip update package
+
+```
+pip install PACKAGE --upgrade
+```
+
+https://stackoverflow.com/questions/4536103/how-can-i-upgrade-specific-packages-using-pip-and-a-requirements-file
+
+
 ### Clone venv
 
 ```
@@ -837,6 +860,9 @@ https://docs.python.org/2/library/unittest.html#unittest.TestCase.setUp
 
 ```
 type(obj)
+
+>>> type(1) is int
+True
 ```
 
 http://stackoverflow.com/questions/402504/how-to-determine-the-variable-type-in-python
@@ -2212,6 +2238,17 @@ for arg in sys.argv[1:]:
 ```
 
 `else` clause must follow all `except` clauses and will be executed if the `try` block does not throw an exception.
+
+To catch everything:
+
+```
+try:
+    ...
+except:
+    ...
+```
+
+https://stackoverflow.com/questions/4990718/about-catching-any-exception
 
 
 ### raise exception / reraise exception

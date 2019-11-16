@@ -1,3 +1,10 @@
+### Change casing
+
+C-K, C-U or C-K, C-L
+
+https://www.nobledesktop.com/blog/change-text-case-in-sublime-text
+
+
 ### Move line up
 
 Ctrl + Cmd + up/down

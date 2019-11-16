@@ -12,6 +12,8 @@
 
 \newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\Tr}{Tr}
 
 \title{Facts about matrix and vector norms}
 
@@ -23,6 +25,10 @@
 
 \begin{itemize}
 \item $\norm{x + y} \leq \norm{x} + \norm{y}$ (subadditive property or triangle inequality)
+
+\item $\norm{x}_1 \geq \norm{x}_2$ by Pythagorean theorem. L1 norm is always larger than the L2 norm.
+
+\item $\sqrt{d}\norm{x}_2 \geq \norm{x}_1 \geq \norm{x}_2$. See \url{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall19/scribe10.pdf} for proof. L1 norm is between L2 norm and $\sqrt{d}$ times the L2 norm, where $d$ is the dimension of the space we are in ($x \in \R^d$).
 \end{itemize}
 
 \section{General matrix norm properties}
@@ -54,12 +60,28 @@ Proof: \url{https://math.stackexchange.com/questions/1393301/frobenius-norm-of-p
 \item $\norm{A}_2 \leq \norm{A}_F$. The operator norm is less than or equal to the Frobenius norm.
 
 Proof: \url{https://math.stackexchange.com/questions/252819/why-is-frobenius-norm-of-a-matrix-greater-than-or-equal-to-the-2-norm}
+
+\item For a projection matrix $P$ onto a $k$-dimensional subspace,
+\eq{
+\norm{P}_F^2 = \sum_{i=1}^k \lambda_i = \sum_{i=1}^k 1 = k
+}
+
+Proof: \url{https://math.stackexchange.com/questions/62523/prove-frobenius-norm-of-projection-matrix-is-1}
+
+\item $\norm{A + B}_F^2 = \norm{A}_F^2 + \norm{B}_F^2 + 2 \Tr(A^T B)$
+
+Proof: \url{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall19/scribe6.pdf}
+
+\item $\Tr(AB) \leq \norm{A}_F \norm{B}_F$
+
+Proof: \url{http://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15859-fall19/scribe6.pdf}
+
 \end{itemize}
 
 \section{Operator Norm}
 The operator norm of $A$, $\norm{A}_2$, is defined as follows:
 \eq{
-\norm{A}_2 = \sup_{\norm{x}_2=1} \norm{Cx}_2
+\norm{A}_2 = \sup_{\norm{x}_2=1} \norm{Ax}_2
 }
 
 If we use the Euclidean norm on the right, then the operator norm of $A$ is just the largest singular value of $A$, which is the square root of the largest eigenvalue of $A^T A$ ($A^* A$ if you want to be strict).

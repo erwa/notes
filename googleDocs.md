@@ -1,3 +1,10 @@
+### Keep leading zeroes in numbers
+
+Set custom format for cell of "0000" (adjust for length of numbers you expect)
+
+https://webapps.stackexchange.com/questions/35526/leading-zeros-in-google-spreadsheet-automatically-removed
+
+
 ### Count instances of each letter in cell
 
 ```
@@ -140,9 +147,10 @@ http://spreadsheetpro.net/how-to-get-letter-in-alphabet-based-on-number-in-excel
 ```
 
 
-### Change sheets
+### Change sheets / change tabs in sheets
 
 Cmd + Shift + Fn + Up/Down
+Ctrl + Shift + Fn + Up/Down
 
 https://support.google.com/docs/answer/181110?co=GENIE.Platform%3DDesktop&hl=en
 

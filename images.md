@@ -1,3 +1,8 @@
+### See pixel coordinates on image
+
+Windows: Use IrfanView, left click and look at top menu bar.
+
+
 ### Resize images
 
 Windows: can use IrfanView

@@ -1,3 +1,10 @@
+### Change layer
+
+Page Down/Up
+
+https://docs.gimp.org/2.10/en/gimp-layer-next.html
+
+
 ### Stack pictures
 
 Open one picture.
@@ -50,6 +57,15 @@ Use eraser on layer with alpha channel.
 Colors -> Color to Alpha
 
 https://graphicdesign.stackexchange.com/questions/5446/making-the-background-of-an-image-transparent-in-gimp
+
+
+### Create layer from selection
+
+F (lasso) to create freeform selection.
+
+Select --> Float (Shift + Ctrl + L), then New Layer (Shift + Ctrl + N)
+
+https://logosbynick.com/gimp-make-selection-new-layer/
 
 
 ### Scale Selection
