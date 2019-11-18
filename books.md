@@ -1,4 +1,4 @@
 ### Where to buy
 
-abebooks.com
-thriftbooks.com
+* abebooks.com
+* thriftbooks.com

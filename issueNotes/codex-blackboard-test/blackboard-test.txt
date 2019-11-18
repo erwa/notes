@@ -65,3 +65,11 @@ Your coffeescript package version is very old. The package added support for mod
 
  db = {}
 db.default = require './emoji.json'
+
+ERROR BulkWriteError: E11000 duplicate key error collection: meteor.nicks index: canon_1 dup key: { : "codexbot" }
+
+delete the db folder in ~/project/codex-blackboard-meteor/db
+
+# can add
+console.log(...)
+# in .coffee files and see output in console for debugging purposes
