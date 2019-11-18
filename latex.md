@@ -151,6 +151,7 @@ https://tex.stackexchange.com/questions/232922/a-hack-for-getting-a-capital-weie
 \land    # logical and
 \to      # implies
 \implies # implies
+\neg     # logical not, negation
 ```
 
 https://en.wikipedia.org/wiki/List_of_logic_symbols
@@ -427,7 +428,7 @@ https://github.com/Ruben-Sten/TeXiFy-IDEA/pull/108
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Relation_operators
 
 
-### No paragraph indentation
+### No paragraph indentation / no indentation
 
 ```
 \setlength\parindent{0pt}

@@ -1,3 +1,4 @@
+ meteor  # to run app
  meteor npm show coffeescript@* version
  meteor show --show-all coffeescript
  meteor add coffeescript@1.12.7_3

@@ -1,3 +1,22 @@
+### Check equality
+
+```
+1 = 1
+1 <> 0
+```
+
+http://rigaux.org/language-study/syntax-across-languages-per-language/SML.html
+
+
+### Return unit type
+
+```
+()
+```
+
+https://stackoverflow.com/questions/19529612/what-does-val-it-unit-mean-in-sml
+
+
 ### Exit REPL in Windows
 
 Ctrl-Z
@@ -182,6 +201,19 @@ end
 ```
 
 
+### Infix operator declaration
+
+```
+(* precedence in 0-9, 0 lowest, 9 highest *)
+infix <precedence> <operator>
+
+(* right-associative *)
+infixr <precedence> <operator>
+```
+
+https://en.wikibooks.org/wiki/Standard_ML_Programming/Expressions#Infix_function_calls
+
+
 ### `op` keyword
 
 Turns an infix operator into a regular operator.
@@ -301,6 +333,10 @@ https://stackoverflow.com/questions/43336460/how-to-check-if-x-value-exists-in-s
 a::rest (* `a` is the head of the list *)
 
 rev l  (* returns list with elements in reverse order *)
+
+(* check if any element satisfies predicate *)
+exists f l
+(* applies f to each element x of the list l, from left to right, until f x evaluates to true; it returns true if such an x exists and false otherwise. *)
 ```
 
 http://sml-family.org/Basis/list.html
@@ -387,6 +423,13 @@ https://stackoverflow.com/questions/12715464/sml-map-function-on-list-with-a-fun
 ```
 
 https://stackoverflow.com/questions/2437019/curried-anonymous-function-in-sml
+
+
+### No-argument function
+
+```
+fun foo (): unit = ()
+```
 
 
 ### Function declaration with types

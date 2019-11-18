@@ -16,6 +16,15 @@ Alternatively, click and hold menu bar at top of window and shake.
 https://www.labnol.org/software/minimize-open-windows-quickly/9985/
 
 
+### Record video of screen / screen recording
+
+Use Xbox Game Bar.
+
+Win + G 
+
+https://www.pcmag.com/news/349410/how-to-capture-video-clips-in-windows-10
+
+
 ### Screenshot
 
 Windows + shift + S

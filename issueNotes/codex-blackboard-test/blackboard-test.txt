@@ -3,6 +3,8 @@ Unexpected mongo exit code 14. Restarting.
 Unexpected mongo exit code 14. Restarting.
 Can't start Mongo server.
 
+# fix MongoDB on Windows issue
+
 https://github.com/meteor/meteor/issues/9914
 cd codex-blackboard/.meteor
 rm -rf local
