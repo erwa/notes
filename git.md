@@ -1,3 +1,10 @@
+### Change default editor
+
+```
+git config --global core.editor "vi"
+```
+
+
 ### Checkout Submodules
 
 ```

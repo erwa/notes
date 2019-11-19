@@ -37,6 +37,15 @@ https://github.com/azkaban/azkaban/commits/master?author=erwa
 http://stackoverflow.com/questions/12174276/github-list-commits-by-author
 
 
+### Link with same text as link
+
+```
+[https://www.google.com/]()
+```
+
+https://github.github.com/gfm/#example-495
+
+
 ### Link to specific commit (canonical URLs)
 
 Press `y` in the source file.

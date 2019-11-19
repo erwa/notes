@@ -1,3 +1,11 @@
+### Show file in sidebar / reveal in sidebar
+
+Right click inside file -> Reveal in Side Bar
+
+https://forum.sublimetext.com/t/shortcut-for-reveal-in-side-bar/36372
+https://julianhigman.com/2013/07/23/sublime-text-3-keyboard-shortcut-to-reveal-file-in-sidebar/
+
+
 ### Change casing
 
 C-K, C-U or C-K, C-L

@@ -1,3 +1,29 @@
+### Create database with user and password
+
+```
+sudo -u postgres psql
+
+CREATE DATABASE mydb;
+create user myuser with encrypted password 'mypass';
+grant all privileges on database mydb to myuser;
+```
+
+https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
+
+
+### Show databases / show tables / show roles
+
+```
+\l  # show databases and privileges
+
+\dt  # show tables (once inside database)
+
+\du
+```
+
+https://stackoverflow.com/questions/769683/show-tables-in-postgresql
+
+
 ### List foreign tables
 
 ```
