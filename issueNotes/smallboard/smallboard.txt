@@ -226,8 +226,10 @@ Just put the singleton objects in modules and import them
 # database stuff
 heroku restart; heroku pg:reset DATABASE --confirm smallboard;
 
+# this is the old webhook (make sure not to check in webhook URLs in the future) - we got an email from Slack saying they found this webhook on GitHub and invalidated it
 https://hooks.slack.com/services/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
 
+# don't check in webhooks in the future
 curl -X POST -H 'Content-type: application/json' --data '{"text":"Test Small Board message"}' https://hooks.slack.com/services/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
 - no security on this, it seems
 - well, this is a public external API, and then your app can parse the data and decide whether to post it or not
