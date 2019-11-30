@@ -1,3 +1,16 @@
+### Drop all tables from database
+
+Use this to generate the SQL
+
+```
+select 'drop table if exists "' || tablename || '" cascade;' from pg_tables where schemaname = 'public';
+
+select  'drop table if exists "' || tablename || '" cascade;' from pg_tables where tableowner = 'testuser';
+```
+
+https://stackoverflow.com/questions/3327312/how-can-i-drop-all-the-tables-in-a-postgresql-database
+
+
 ### Create database with user and password
 
 ```
@@ -11,7 +24,7 @@ grant all privileges on database mydb to myuser;
 https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
 
 
-### Show databases / show tables / show roles
+### Show databases / show tables / show roles / use database / describe table
 
 ```
 \l  # show databases and privileges
@@ -19,6 +32,12 @@ https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-pos
 \dt  # show tables (once inside database)
 
 \du
+
+# use database DB_NAME;
+\c <DB_NAME>;
+
+# describe table
+\d <TABLE>;
 ```
 
 https://stackoverflow.com/questions/769683/show-tables-in-postgresql

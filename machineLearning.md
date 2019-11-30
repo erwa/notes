@@ -1,3 +1,10 @@
+### Least squares regression computational complexity
+
+Given N training examples with C features, time to solve least squares exactly is O(NC^2).
+
+https://math.stackexchange.com/questions/84495/computational-complexity-of-least-square-regression-operation
+
+
 ### One-hot vector
 
 Vector with all 0s except a single 1. Often used in classification.

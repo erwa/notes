@@ -397,10 +397,11 @@ https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 https://tex.stackexchange.com/questions/64556/not-greater-than-with-vertical-bar-instead-of-slanted-bar
 
 
-### Much greater than
+### Much greater than / much less than
 
 ```
 \gg
+\ll
 ```
 
 

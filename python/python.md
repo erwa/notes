@@ -1,3 +1,13 @@
+### String to boolean
+
+```
+from distutils.util import strtobool
+bool(strtobool('tRuE'))
+```
+
+https://stackoverflow.com/questions/21732123/convert-true-false-value-read-from-file-to-boolean
+
+
 ### Anonymous function / inline function
 
 ```
@@ -1196,6 +1206,16 @@ a == b
 ```
 
 
+### Create dictionary from string
+
+```
+string = "{'A':13, 'B':14, 'C':15}"
+mydict = eval(string) 
+```
+
+https://www.geeksforgeeks.org/python-program-to-create-a-dictionary-from-a-string/
+
+
 ### Join items in dictionary into string
 
 ```
@@ -1755,7 +1775,7 @@ if output is not sys.stdout:
 
 ### Python annotations
 
-Called decorators
+Called decorators. Used to wrap functions to add additional functionality such as timing, logging, or authentication.
 
 ```
 @classmethod
@@ -1767,6 +1787,8 @@ def foo(arg1,arg2):
 def bar(low,high):
     ...
 ```
+
+https://www.geeksforgeeks.org/decorators-in-python/
 
 
 ### `with` statement, context managers

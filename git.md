@@ -1,3 +1,12 @@
+### Update initial commit
+
+```
+git rebase -i --root
+```
+
+https://stackoverflow.com/questions/2246208/change-first-commit-of-project-with-git
+
+
 ### Change default editor
 
 ```

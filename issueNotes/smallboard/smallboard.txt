@@ -1,0 +1,319 @@
+setup Python venv
+pip install -r requirements.txt
+
+pg_config - need libpq-dev
+https://stackoverflow.com/questions/11618898/pg-config-executable-not-found
+
+sudo apt-get install libpq-dev
+
+./psycopg/psycopg.h:34:10: fatal error: Python.h: No such file or directory
+# --> didn't work # sudo apt-get install python3-dev # already installed
+sudo apt-get install python3.7-dev
+#test with
+#locate Python.h
+# not sure what that does, didn't work from shell
+# after install python3.7-dev, pip install -r requirements.txt worked
+
+
+erwaman@Anthony-Lenovo-Flex:codex-blackboard$ sudo snap install --classic heroku
+[sudo] password for erwaman:
+Interacting with snapd is not yet supported on Windows Subsystem for Linux.
+This command has been left available for documentation purposes only.
+
+Actually, can manually install Heroku on WSL
+https://superuser.com/questions/1391219/setting-up-heroku-cli-in-wsl
+
+ModuleNotFoundError: No module named 'django.utils.translation'
+Try installing django-utils
+
+Probably a corrupt installation due to Ctrl-C'ing in the middle of pip install
+
+python manage.py runserver
+
+settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+
+Need to have your email added as collaborator to Heroku app. Ask Sushi to do it.
+I had to add erwaman@gmail.com
+
+heroku git:remote -a smallboard
+
+for testing locally, I think you can just run the server directly or use gunicorn. for the local db, I installed postgres and put some code in setting.py to load .env, my .env file is just:
+  DATABASE_URL=postgres://username:password@localhost/smallboard
+  and it'll load that instead of the heroku
+
+# installing postgresql
+sudo apt-get install postgresql
+
+erwaman@Anthony-Lenovo-Flex:Desktop$ pg_lsclusters
+Ver Cluster Port Status Owner    Data directory              Log file
+10  main    5432 down   postgres /var/lib/postgresql/10/main /var/log/postgresql/postgresql-10-main.log
+
+Success. You can now start the database server using:
+
+
+# start server
+/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
+
+# name of logfile is "logfile" in current directory
+postgres: could not access the server configuration file "/var/lib/postgresql/10/main/postgresql.conf": No such file or directory
+
+touch postgresql.conf
+
+could not open configuration file "/var/lib/postgresql/10/main/pg_hba.conf": No such file or directory
+
+# just doing this won't work, need to add an example pg_hba.conf file
+touch pg_hba.conf
+# got an example one from
+https://raw.githubusercontent.com/abevoelker/docker-postgres/master/pg_hba.conf.default
+
+configuration file "/var/lib/postgresql/10/main/pg_hba.conf" contains no entries
+
+https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
+
+# restart server
+
+/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile restart
+
+# no, no, did not need md5
+
+https://stackoverflow.com/questions/17443379/psql-fatal-peer-authentication-failed-for-user-dev/17443990
+
+^ this fixed issue
+
+psql myuser -h 127.0.01 -d smallboard
+
+# in pg_hba.conf (should be present by default)
+local   all             all                                     peer
+
+SSL error
+
+django.db.utils.OperationalError: server does not support SSL, but SSL was required
+
+# change ssl_require=True to ssl_require=False
+
+You have 19 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, puzzles, sessions.
+Run 'python manage.py migrate' to apply them.
+
+python manage.py migrate
+
+python manage.py runserver
+
+# update cache
+sudo apt-get update
+sudo apt-get install python3-venv
+# above is for 3.6
+
+# for 3.7
+sudo apt-get install python3.7-venv 
+
+python3 -m venv venv_smallboard
+
+
+TODO:
+- Notes should be required when creating puzzle
+
+- Do we want to limit puzzle creation to just admins?
+- set base google drive folder as environment, same with app settings
+
+
+small-board.txt
+
+Google Drive API smallboard-test API key 1: API_KEY
+
+curl \
+  'https://www.googleapis.com/drive/v3/about?fields=*&key=API_KEY' \
+  --header 'Authorization: Bearer [YOUR_ACCESS_TOKEN]' \
+  --header 'Accept: application/json' \
+  --compressed
+
+# need authorization token
+smallboard-test
+
+service account key id: ca6bf4b1c0db884c0a0cf490839c375f63dab3af
+
+
+https://github.com/googleapis/google-api-python-client
+pip install google-api-python-client
+
+https://stackoverflow.com/questions/45492703/google-drive-api-oauth-and-service-account
+service account has own drive space?
+- can share Drive folder with service account
+
+https://developers.google.com/identity/protocols/OAuth2ServiceAccount
+service account
+
+creating service account
+https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount
+
+https://console.cloud.google.com/iam-admin/serviceaccounts?pli=1&authuser=2&project=smallboard-test&folder=&organizationId=&supportedpurview=project
+- create service account
+
+I have a service account for my project smallboard-test-260001 (2nd one I created)
+smallboard-test@smallboard-test-260001.iam.gserviceaccount.com
+
+https://developers.google.com/drive/api/v3/quickstart/python?authuser=2
+pip install google-auth-oauthlib
+
+metadata on folder
+{'kind': 'drive#file', 'id': '1qHA4cVDceLqIeL0zK5Nhl_W3TNODZuPz', 'name': 'test-smallboard', 'mimeType': 'application/vnd.google-apps.folder'}
+
+metadata on sheets
+{'kind': 'drive#file', 'id': '19drSWWlYPa6BnM8FdKvzzpcEaUY0_aQnKuqbhaZd3gM', 'name': 'test-sheets', 'mimeType': 'application/vnd.google-apps.spreadsheet'}
+
+# differentiate types of files by mimeType
+
+# Python Drive API documentation
+http://googleapis.github.io/google-api-python-client/docs/dyn/drive_v3.html
+
+Drive API Scopes:
+https://developers.google.com/drive/api/v3/about-auth#OAuth2Authorizing
+
+# create new file, returned is
+{'kind': 'drive#file', 'id': '1yhUNarGRWX-m1MUvYkcgMNnK2DSY-w_afB5A0MnPzy8', 'name': 'test-sheets-copy', 'mimeType': 'application/vnd.google-apps.spreadsheet'}
+# created in same folder as previous file
+# ok if same name as existing, will still have different id
+
+dj_database_url.py reads DATABASE_URL from env by default
+
+# just store secrets as Config Vars
+https://dashboard.heroku.com/apps/smallboard/settings
+
+# reset database
+select 'drop table if exists "' || tablename || '" cascade;' from pg_tables where tableowner='testuser';
+
+ drop table if exists "django_migrations" cascade;
+ drop table if exists "django_content_type" cascade;
+ drop table if exists "auth_group_permissions" cascade;
+ drop table if exists "auth_group" cascade;
+ drop table if exists "auth_user_groups" cascade;
+ drop table if exists "auth_permission" cascade;
+ drop table if exists "auth_user_user_permissions" cascade;
+ drop table if exists "auth_user" cascade;
+ drop table if exists "django_admin_log" cascade;
+ drop table if exists "puzzles_puzzle" cascade;
+ drop table if exists "django_session" cascade;
+
+
+heroku run python manage.py createsuperuser --username erwa
+
+Django Admin
+https://docs.djangoproject.com/en/2.2/ref/contrib/admin/
+
+Model Admin
+https://docs.djangoproject.com/en/2.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin
+
+# access configs
+heroku config
+heroku config -a smallboard
+
+# can set configs this way too
+https://devcenter.heroku.com/articles/config-vars
+
+# restart app
+heroku dyno:restart
+
+
+# when database changes are made, need to use Console on Heroku to connect to deployments and run "python manage.py migrate" to update real deployments
+
+# Can connect to production database by using
+psql postgres://user:pass@...compute-1.amazonaws.com:5432/database
+# https://starkandwayne.com/blog/using-a-postgres-uri-with-psql/
+
+https://stackoverflow.com/questions/57468620/python-django-and-services-as-classes/
+Singleton objects for clients to connect to external APIs
+Just put the singleton objects in modules and import them
+
+# database stuff
+heroku restart; heroku pg:reset DATABASE --confirm smallboard;
+
+https://hooks.slack.com/services/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
+
+curl -X POST -H 'Content-type: application/json' --data '{"text":"Test Small Board message"}' https://hooks.slack.com/services/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
+- no security on this, it seems
+- well, this is a public external API, and then your app can parse the data and decide whether to post it or not
+
+Seems we need to "Add features and functionality" before we can do stuff
+
+then can go to api.slack.com/apps
+manage google sign-in secrets through API console
+
+
+Run database migrations:
+python manage.py migrate
+
+
+https://smallboard.herokuapp.com/hunts/1/
+relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+
+FATAL:  could not create lock file "/var/run/postgresql/.s.PGSQL.5432.lock": No such file or directory
+# manually created directory
+
+Exception Value:	
+column puzzles_puzzle.answer does not exist
+LINE 1: ...zzles_puzzle"."notes", "puzzles_puzzle"."status", "puzzles_p...
+
+https://docs.djangoproject.com/en/2.2/intro/tutorial02/#creating-models
+# explains models and DB set-up
+let's erase database first
+
+
+Google OAuth 2 authentication integration
+https://www.toptal.com/django/integrate-oauth-2-into-django-drf-back-end
+https://medium.com/trabe/oauth-authentication-in-django-with-social-auth-c67a002479c1
+
+Do we really need Google+ API? 
+
+https://stackoverflow.com/questions/51906428/django-cannot-import-login-from-django-contrib-auth-views
+
+<int:pk>
+# captures part of the URL
+# int means expect an int
+":pk" is the name we give to the captured part
+https://docs.djangoproject.com/en/2.2/intro/tutorial03/
+
+urls.py
+path("<int:pk>/", views.index),
+
+# views.py
+@login_required(login_url='/accounts/login/')
+def index(request, pk):
+
+
+https://stackoverflow.com/questions/4951203/what-are-the-default-urls-for-djangos-user-authentication-system
+# for /accounts/login /accounts/logout overview
+
+context_processors basically add key-value pairs to context that you can use in template when rendering
+see social_django/context_processors.py for what backends and login_redirect context_processors add
+
+https://docs.djangoproject.com/en/2.2/topics/auth/customizing/#reusable-apps-and-auth-user-model
+AUTH_USER_MODEL
+
+LOGIN_URL doesn't seem necessary.
+
+https://docs.djangoproject.com/en/2.2/topics/http/urls/
+namespaces, urls, request routing
+
+https://stackoverflow.com/questions/28533854/provide-extra-context-to-all-views
+# add context data to all views
+
+500 when Debug = FALSE
+https://stackoverflow.com/questions/15128135/setting-debug-false-causes-500-error
+ALLOWED_HOSTS key must be set
+^ not enough
+
+v below solved problem
+python manage.py collectstatic
+
+https://stackoverflow.com/questions/15128135/setting-debug-false-causes-500-error#comment66654567_33877811
+
+https://stackoverflow.com/questions/4012865/output-request-parameter-by-template
+# access request GET parameter
+
+https://stackoverflow.com/questions/44461471/python-social-auth-for-django-raises-authforbidden-exception
+# set up error handling, "messages" object
+
+Ugly debug page with AuthForbidden error unless Debug = False. If True, the social auth exception middleware doesn't run.
+
+# generate random secret key
+https://stackoverflow.com/questions/4664724/distributing-django-projects-with-unique-secret-keys/16630719#16630719

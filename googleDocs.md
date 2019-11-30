@@ -1,3 +1,10 @@
+### Email notifications for Google Form form submissions
+
+Responses --> ... --> Get email notifications for new responses
+
+https://medium.com/zapier/how-to-get-customized-email-notifications-from-google-forms-with-a-hidden-feature-b08f1b941e38
+
+
 ### Keep leading zeroes in numbers
 
 Set custom format for cell of "0000" (adjust for length of numbers you expect)

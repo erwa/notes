@@ -1,3 +1,10 @@
+### SVD complexity
+
+SVD of an m x n matrix A can be computed in `O(min(m*n^2, m^2*n))` time.
+
+https://mathoverflow.net/questions/161252/what-is-the-time-complexity-of-truncated-svd
+
+
 ### QR factorization
 
 Suppose m x n matrix A with m >= n and linearly independent columns. Then A = QR, where Q is m x n and R is n x n takes O(mn^2) using modified Gram-Schmidt algorithm. Q has orthonormal columns, so Q^T * Q = I. R is upper triangular and invertible.

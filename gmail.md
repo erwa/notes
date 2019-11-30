@@ -14,6 +14,11 @@ Alternatively, copy strikethrough text from another program/website and then edi
 https://webapps.stackexchange.com/questions/62412/how-do-i-strikethrough-text-in-gmail
 
 
+### Mark as read
+
+Shift + I
+
+
 ### Mark All as Read
 
 is:unread -> Checkbox -> All -> "Select all conversations that match this search" -> More -> Mark as read

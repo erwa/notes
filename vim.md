@@ -1,3 +1,12 @@
+### Remove Ctrl-M (^M) characters
+
+```
+dos2unix myfile.txt
+```
+
+https://stackoverflow.com/questions/12508032/how-to-remove-ctrl-m-characters-when-transferring-files-from-window-to-unix-usin
+
+
 ### Horizontal line / horizontal rule
 
 ```

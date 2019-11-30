@@ -1,0 +1,13 @@
+### Start database
+
+sudo -u postgres /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
+
+
+### Connect to production database
+
+psql postgres://user:pass@....compute-1.amazonaws.com:5432/database
+
+Use DATABASE_URL from https://dashboard.heroku.com/apps/smallboard/settings
+
+# works too
+heroku psql

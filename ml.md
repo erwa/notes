@@ -1,3 +1,12 @@
+### Run CM.make automatically as part of start-up
+
+```
+sml -m sources.cm
+
+# see sml -h for more info
+```
+
+
 ### Check equality
 
 ```
@@ -86,7 +95,7 @@ NONE
 http://sml-family.org/Basis/option.html
 
 
-### Run file
+### Run file / run in non-interactive mode / exit after running program
 
 ```
 sml < foo.sml

@@ -60,6 +60,15 @@ C-b &
 https://gist.github.com/henrik/1967800
 
 
+### Renumber windows
+
+```
+tmux movew -r
+```
+
+https://stackoverflow.com/questions/8469612/how-do-i-make-tmux-reorder-windows-when-one-is-deleted
+
+
 ### Rename current window
 
 C-b ,

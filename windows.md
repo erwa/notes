@@ -1,3 +1,8 @@
+### Update start-up apps
+
+Start -> Settings -> Start-up Apps
+
+
 ### Delete folder
 
 ```
@@ -18,6 +23,8 @@ https://www.labnol.org/software/minimize-open-windows-quickly/9985/
 
 ### Record video of screen / screen recording
 
+If microphone is needed, use ScreenRec: https://screenrec.com/screen-recorder/record-computer-screen-and-audio/. Download at https://screenrec.com/download-screenrec/.
+
 Use Xbox Game Bar.
 
 Win + G 
@@ -27,10 +34,13 @@ https://www.pcmag.com/news/349410/how-to-capture-video-clips-in-windows-10
 
 ### Screenshot
 
+Windows + Print Screen (screenshot saved to C:\Users\<USER>\Pictures\Screenshots)
+
 Windows + shift + S
 
 Snip & Sketch tool
 
+https://www.howtogeek.com/226280/how-to-take-screenshots-in-windows-10/
 https://www.cnet.com/how-to/8-ways-you-can-take-screenshots-in-windows-10/
 
 

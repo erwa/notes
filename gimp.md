@@ -1,3 +1,19 @@
+### Subtract from selection
+
+Hold Ctrl and then make another selection.
+
+
+### Add to selection
+
+Hold Shift and then make another selection.
+
+
+### Solving jigsaw puzzle in GIMP
+
+http://nastyissues.blogspot.com/2019/11/solving-jigsaw-puzzle-in-gimp.html
+https://youtu.be/uydt3Q-CWi4
+
+
 ### Change layer
 
 Page Down/Up
