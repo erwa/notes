@@ -1,3 +1,8 @@
+### Show and concert discounts
+
+The Metropolitan Opera: http://studentdiscounts.lincolncenter.org/content/student-guide-metopera.html
+
+
 ### Manhattan to Newark Airport
 
 Newark Airport Express bus. Board at Port Authority, Grand Central, or Bryant Park (on 42nd St). About 1 hour from Bryant Park to Newark Airport.

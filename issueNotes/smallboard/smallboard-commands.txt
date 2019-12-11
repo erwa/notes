@@ -1,3 +1,22 @@
+### Mass delete Slack channels
+
+https://blog.rmotr.com/how-to-delete-multiple-slack-channels-at-once-7ba00f4890cd
+
+
+### Drop entire database
+
+```
+# drop all tables
+heroku pg:reset DATABASE --confirm smallboard;
+
+# run DB migrations
+heroku run python manage.py migrate
+
+# restart app
+heroku restart
+```
+
+
 ### Start database
 
 sudo -u postgres /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start

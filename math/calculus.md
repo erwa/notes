@@ -7,6 +7,8 @@ Jacobian is generalization of gradient to vector-valued functions.
 https://math.stackexchange.com/questions/1519367/difference-between-gradient-and-jacobian
 https://en.wikipedia.org/wiki/Gradient#Generalizations
 
+Layout of partial derivatives has several conventions: https://en.wikipedia.org/wiki/Matrix_calculus#Layout_conventions
+
 
 ### Commutativity of partial derivatives
 

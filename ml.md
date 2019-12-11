@@ -1,3 +1,21 @@
+### Remove duplicates from list / dedup list
+
+```
+fun dedup [] = []
+  | dedup (x::xs) = x::dedup(List.filter (fn y => y <> x) xs)
+```
+
+https://stackoverflow.com/questions/21077272/remove-duplicates-from-a-list-in-sml/48563577
+
+
+### True/False
+
+```
+true
+false
+```
+
+
 ### Run CM.make automatically as part of start-up
 
 ```
@@ -239,6 +257,10 @@ https://www.cs.bham.ac.uk/research/projects/poplog/paradigms_lectures/ml.html
 
 
 ### DICT
+
+Part of CMU's cmlib.
+
+See https://github.com/standardml/cmlib/blob/master/dict.sig for some comments.
 
 http://typesafety.net/cmlib/SigDICT.html
 

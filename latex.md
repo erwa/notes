@@ -1,3 +1,12 @@
+### Function composition symbol
+
+```
+\circ
+```
+
+https://tex.stackexchange.com/questions/8301/is-there-a-circle-symbol
+
+
 ### Quotes / quotation marks
 
 ```
@@ -17,6 +26,18 @@ https://tex.stackexchange.com/questions/52351/quote-marks-are-backwards-using-te
   amsthm
 }
 ```
+
+
+### Triple equal (three line equal sign)
+
+```
+\equiv
+
+% with slash through it
+\not\equiv
+```
+
+https://en.wikipedia.org/wiki/Triple_bar
 
 
 ### Congruent
@@ -523,6 +544,39 @@ https://tex.stackexchange.com/questions/180222/how-to-change-font-size-for-speci
 https://tex.stackexchange.com/questions/36030/how-to-make-a-single-word-look-as-some-code
 
 
+### Algorithms / algorithm2e
+
+```
+\usepackage[ruled,linesnumbered,noline]{algorithm2e}
+
+\begin{algorithm}
+\KwIn{Some numbers}
+\KwOut{The answer}
+ initialization\;
+ \While{While condition}{
+  instructions\;
+  \eIf{condition}{
+   instructions1\;
+   instructions2\;
+   }{
+   instructions3\;
+  }
+ }
+ \caption{How to write algorithms}
+\end{algorithm}
+```
+
+https://tex.stackexchange.com/questions/250310/how-to-remove-vertical-lines-representing-a-block-in-algorithm2e
+https://www.overleaf.com/learn/latex/algorithms
+
+Other examples
+
+```
+\For{$i \gets 1$ \KwTo $O(\log n)$} {
+}
+```
+
+
 ### Pseudocode function
 
 ```
@@ -591,6 +645,9 @@ https://tex.stackexchange.com/questions/23650/when-should-we-use-begincenter-ins
 ### Norm
 
 ```
+% physics package already defines norm the same way!
+\usepackage{physics}
+
 \left\lVert Ax \right\rVert_2
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
@@ -875,8 +932,16 @@ https://tex.stackexchange.com/questions/117358/newcommand-argument-confusion
 
 ```
 \newtheorem{<name>}{<heading>}[<counter>]
+
+\begin{<name>}[Pythagorean theorem]
+\label{pythagorean}
+...
+\end{<name>}
+
+You can reference theorems such as \ref{pythagorean} when a label is assigned.
 ```
 
+https://www.overleaf.com/learn/latex/Theorems_and_proofs#Numbered_theorems.2C_definitions.2C_corollaries_and_lemmas
 https://tex.stackexchange.com/questions/64931/using-newtheorem
 
 
@@ -1121,6 +1186,9 @@ https://tex.stackexchange.com/questions/19180/which-dot-character-to-use-in-whic
 ### Partial derivative
 
 ```
+\usepackage{physics}
+\pdv{Q}{t} = \pdv{s}{t}
+
 \frac{\partial Q}{\partial t}
 ```
 

@@ -53,6 +53,11 @@ Press `y` in the source file.
 http://stackoverflow.com/questions/23821235/how-to-link-to-specific-line-number-on-github
 
 
+### Delete branch automatically when merging pull requests
+
+In project Settings page, check "Automatically delete head branches" under "Merge button".
+
+
 ### Apply pull request locally
 
 There is a "command line instructions" link at the bottom of the PR page.
@@ -72,7 +77,7 @@ https://help.github.com/articles/about-pull-request-merges/
 http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 
 
-### Notififcations
+### Notifications
 
 When you comment on a specific commit of a pull request, a notification is only sent to the watchers of the repo being pulled from; a notification is NOT sent to the watchers of the repo being merged into.
 

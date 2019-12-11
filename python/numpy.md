@@ -1,3 +1,32 @@
+### Norm of a vector
+
+```
+# 2-norm
+np.linalg.norm(v)
+
+>>> a = np.asarray([1,2])
+>>> np.linalg.norm(a)
+2.23606797749979
+>>> np.sqrt(5)
+2.23606797749979
+```
+
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html
+
+
+### Inverse of matrix
+
+```
+np.linalg.inv(A)
+
+# Moore-Penrose pseudo-inverse
+np.linalg.pinv(A)
+```
+
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.pinv.html
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.inv.html
+
+
 ### Create zero array of same shape as another array / create one array of same shape as another array
 
 ```
@@ -142,7 +171,18 @@ https://docs.scipy.org/doc/numpy/reference/generated/numpy.matmul.html
 
 ```
 np.transpose(A)
+
+A.T
+
+>>> x
+array([[ 1.,  2.],
+       [ 3.,  4.]])
+>>> x.T
+array([[ 1.,  3.],
+       [ 2.,  4.]])
 ```
+
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.T.html
 
 
 ### Data types

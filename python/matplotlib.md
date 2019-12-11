@@ -1,3 +1,31 @@
+### Plot rectangle on image
+
+```
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from PIL import Image
+import numpy as np
+
+im = np.array(Image.open('stinkbug.png'), dtype=np.uint8)
+
+# Create figure and axes
+fig,ax = plt.subplots(1)
+
+# Display the image
+ax.imshow(im)
+
+# Create a Rectangle patch
+rect = patches.Rectangle((50,100),40,30,linewidth=1,edgecolor='r',facecolor='none')
+
+# Add the patch to the Axes
+ax.add_patch(rect)
+
+plt.show()
+```
+
+https://stackoverflow.com/questions/37435369/matplotlib-how-to-draw-a-rectangle-on-image
+
+
 ### Plot curve
 
 ```
@@ -64,6 +92,16 @@ plt.show()
 plt.draw()
 plt.waitforbuttonpress(0)
 ```
+
+
+### Show image in grayscale
+
+```
+plt.imshow(data, cmap='gray')
+plt.show()
+```
+
+https://stackoverflow.com/questions/3823752/display-image-as-grayscale-using-matplotlib
 
 
 ### Save figure without white margins
