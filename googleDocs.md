@@ -1,3 +1,17 @@
+### Sort by multiple columns / sort by one column, then another
+
+Select cells --> Data --> Sort range
+
+https://www.wikihow.com/Sort-by-Multiple-Columns-in-Google-Spreadsheets
+
+
+### Go to last cell with data in a column
+
+If no blank cells in middle, Ctrl + Down. Otherwise, scroll to bottom. Ctrl + Up.
+
+https://www.quora.com/How-can-I-jump-to-the-last-cell-with-data-in-a-column-in-Google-Sheet
+
+
 ### Email notifications for Google Form form submissions
 
 Responses --> ... --> Get email notifications for new responses

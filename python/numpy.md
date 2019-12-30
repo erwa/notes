@@ -1,3 +1,12 @@
+### Print full array without truncation
+
+```
+np.set_printoptions(threshold=sys.maxsize)
+```
+
+https://stackoverflow.com/questions/1987694/how-to-print-the-full-numpy-array-without-truncation
+
+
 ### Norm of a vector
 
 ```
@@ -360,6 +369,15 @@ https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndenumerate.html
 https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html
 
 
+### Nonzero indices
+
+```
+x,y = np.nonzero(a)
+```
+
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.nonzero.html
+
+
 ### Count number of nonzero elements
 
 ```
@@ -373,9 +391,11 @@ https://docs.scipy.org/doc/numpy/reference/generated/numpy.count_nonzero.html
 ### Initialize matrix
 
 ```
+np.empty((3, 3))
 np.zeros((3, 3), dtype=np.uint8)
 ```
 
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.empty.html
 https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
 
 

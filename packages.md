@@ -179,7 +179,7 @@ rpm -qa
 ```
 
 
-### Delete RPM package
+### Delete RPM package / remove RPM package
 
 https://www.howtoforge.com/community/threads/how-do-i-uninstall-rpm-packages.8/
 
@@ -191,4 +191,7 @@ rpm -qa | grep -i package_name
 
 # Uninstall it
 sudo rpm -e <package name>
+
+# Ubuntu
+sudo apt-get remove <package_name>
 ```

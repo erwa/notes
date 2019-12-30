@@ -1,3 +1,31 @@
+### Define multiple variables at once
+
+```
+var a = 5
+  , b = 2
+  , c = 3
+  , d = {}
+  , e = [];
+```
+
+https://stackoverflow.com/questions/4166785/javascript-how-to-define-multiple-variables-on-a-single-line
+
+
+### Multiline strings
+
+Use template literals (since ECMAScript 6).
+
+```
+var html = `
+  <div>
+    <span>Some HTML here</span>
+  </div>
+`;
+```
+
+https://stackoverflow.com/questions/805107/creating-multiline-strings-in-javascript
+
+
 ### `event.clientX` vs. `event.X`
 
 `clientX` is relative to window; `x` is relative to parent element.

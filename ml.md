@@ -1,3 +1,14 @@
+### Numeric literals
+
+```
+0w0
+0w10
+0wxFF
+```
+
+http://www.itu.dk/~sestoft/sml/language-chapter.html
+
+
 ### Remove duplicates from list / dedup list
 
 ```

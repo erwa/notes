@@ -1,3 +1,41 @@
+### Run script
+
+```
+\i foo.sql
+
+psql -f thefile.sql targetdatabase
+```
+
+https://superuser.com/questions/701415/how-do-i-execute-run-a-sql-file-in-postgresql-9-2-6-centos
+
+
+### Check Postgres version
+
+```
+select version();
+```
+
+https://stackoverflow.com/questions/13733719/which-version-of-postgresql-am-i-running
+
+
+### Disable output paging
+
+```
+\pset pager off
+```
+
+https://stackoverflow.com/questions/11180179/postgresql-disable-more-output
+
+
+### DROP DATABASE
+
+```
+DROP DATABASE [IF EXISTS] name;
+```
+
+http://www.postgresqltutorial.com/postgresql-drop-database/
+
+
 ### Drop all tables from database
 
 Use this to generate the SQL
@@ -24,14 +62,14 @@ grant all privileges on database mydb to myuser;
 https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
 
 
-### Show databases / show tables / show roles / use database / describe table
+### Show databases / show tables / show roles / show user privileges / use database / describe table
 
 ```
 \l  # show databases and privileges
 
 \dt  # show tables (once inside database)
 
-\du
+\du  # show user privileges
 
 # use database DB_NAME;
 \c <DB_NAME>;
@@ -40,6 +78,7 @@ https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-pos
 \d <TABLE>;
 ```
 
+https://dba.stackexchange.com/questions/4286/list-the-database-privileges-using-psql
 https://stackoverflow.com/questions/769683/show-tables-in-postgresql
 
 

@@ -304,6 +304,17 @@ https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-po
 https://stackoverflow.com/questions/19196105/python-how-to-check-if-a-network-port-is-open-on-linux
 
 
+### Time function / measure time
+
+```
+import time
+start = time.time()
+...
+end = time.time()
+print('Total time (sec):', end - start)
+```
+
+
 ### Run function in new thread
 
 ```
@@ -999,9 +1010,9 @@ logging.warning('is when this event was logged.')
 Convert logging level string to int:
 
 ```
-Log = logging.getLogger('myLogger')
+logger = logging.getLogger('myLogger')
 level = logging.getLevelName('INFO')
-Log.setLevel(level)
+logger.setLevel(level)
 ```
 
 http://stackoverflow.com/questions/10332748/python-logging-setlevel
@@ -1210,7 +1221,7 @@ a == b
 
 ```
 string = "{'A':13, 'B':14, 'C':15}"
-mydict = eval(string) 
+mydict = eval(string)
 ```
 
 https://www.geeksforgeeks.org/python-program-to-create-a-dictionary-from-a-string/
@@ -1565,6 +1576,30 @@ tar.close()
 ```
 
 http://stackoverflow.com/questions/8893359/untar-archive-in-python-with-errors
+
+
+### Don't follow redirect
+
+```
+import requests
+r = requests.get('http://github.com', allow_redirects=False)
+print(r.status_code, r.headers['Location'])
+```
+
+https://stackoverflow.com/questions/110498/is-there-an-easy-way-to-request-a-url-in-python-and-not-follow-redirects
+
+
+### Request with cookie
+
+```
+import requests
+
+cookies = {'enwiki_session': '17ab96bd8ffbe8ca58a78657a918558'}
+
+r = requests.post('http://wikipedia.org', cookies=cookies)
+```
+
+https://stackoverflow.com/questions/7164679/how-to-send-cookies-in-a-post-request-with-the-python-requests-library
 
 
 ### POST request

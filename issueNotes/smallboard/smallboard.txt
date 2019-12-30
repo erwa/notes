@@ -104,7 +104,7 @@ sudo apt-get install python3-venv
 # above is for 3.6
 
 # for 3.7
-sudo apt-get install python3.7-venv 
+sudo apt-get install python3.7-venv
 
 python3 -m venv venv_smallboard
 
@@ -263,7 +263,7 @@ LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
 FATAL:  could not create lock file "/var/run/postgresql/.s.PGSQL.5432.lock": No such file or directory
 # manually created directory
 
-Exception Value:	
+Exception Value:
 column puzzles_puzzle.answer does not exist
 LINE 1: ...zzles_puzzle"."notes", "puzzles_puzzle"."status", "puzzles_p...
 
@@ -276,7 +276,7 @@ Google OAuth 2 authentication integration
 https://www.toptal.com/django/integrate-oauth-2-into-django-drf-back-end
 https://medium.com/trabe/oauth-authentication-in-django-with-social-auth-c67a002479c1
 
-Do we really need Google+ API? 
+Do we really need Google+ API?
 
 https://stackoverflow.com/questions/51906428/django-cannot-import-login-from-django-contrib-auth-views
 
@@ -360,3 +360,246 @@ def my_view_function(request, template='my_template.html'):
 https://stackoverflow.com/questions/433162/can-i-access-constants-in-settings-py-from-templates-in-django
 
 Heroku lets you force push to master. So you can push from branch, force push to overwrite.
+
+
+https://stackoverflow.com/questions/1596552/django-urls-without-a-trailing-slash-do-not-redirect
+
+
+12/15/19
+
+update website list every time one of these events fires
+
+member_left_channel
+
+member_joined_channel - also fired when channel first created
+
+Make sure signed in as cardinality-puzzles@gmail.com before visiting https://cardinality-puzzles.slack.com/apps/manage to see the proper Small Board configuration and settings.
+https://api.slack.com/apps
+
+https://smallboard.herokuapp.com/puzzles/slack_guess/
+
+https://stackoverflow.com/questions/28545553/django-rest-frameworks-request-post-vs-request-data
+
+request.data more flexible than request.POST
+
+use to test webhook
+
+https://stackoverflow.com/questions/1208067/wheres-my-json-data-in-my-incoming-django-request
+where's the POST data?
+https://webhook.site/
+
+Channel join event
+
+2019-12-15T06:51:30.267559+00:00 app[web.1]: Got event:
+
+event.type
+event.user
+
+{'token': 'asdf', 'team_id': 'TQX0SJ0AH', 'api_app_id': 'AQJ748KMY',
+'event': {'type': 'member_joined_channel', 'user': 'UQWGEV4UU', 'channel': 'CREJV6LJC', 'channel_type': 'C', 'team': 'TQX0SJ0AH', 'event_ts': '1576392689.000100'}, 'type': 'event_callback', 'event_id': 'EvRQ3X348M', 'event_time': 1576392689, 'authed_users': ['UQX0GMQ9E']}
+
+member_left_channel event. Got event:
+{'token': 'asdf', 'team_id': 'TQX0SJ0AH', 'api_app_id': 'AQJ748KMY', 'event': {'type': 'member_left_channel', 'user': 'UQWGEV4UU', 'channel': 'CREJV6LJC', 'channel_type': 'C', 'team': 'TQX0SJ0AH', 'event_ts': '1576392756.000300'}, 'type': 'event_callback', 'event_id': 'EvRQ3XAT37', 'event_time': 1576392756, 'authed_users': ['UQX0GMQ9E']}
+
+need to store joined/left users in database?
+yeah, probably. won't stay up to date on restart.
+on restart, can do a user sync of channels.
+
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'users:read', 'provided': 'admin,identify,bot,commands,incoming-webhook,channels:read,groups:read,channels:write,chat:write:user'}
+
+When user joins channels
+
+member_joined_channel
+on member_joined_channel:
+    add puzzle -> puzzler mapping
+
+figure out the puzzle? should be based on channel name
+channel_id to channel name
+channel_id is enough, probably what we store in DB?
+puzzles.channel field
+
+find user by email
+accounts_puzzler where email = slack_email
+if none just ignore
+
+member_left_channel
+remove puzzle -> puzzler mapping
+
+/puzzles/slack_events
+
+-X POST
+
+curl -H "Content-Type: application/json" -d '{"event": {"type": "member_joined_channel", "user":"UQWGEV4UU", "channel": "test-meta"}}' -X POST http://localhost:8000/puzzles/slack_events/
+
+curl -H "Content-Type: application/json" -d '{"event": {"type": "member_left_channel", "user":"UQWGEV4UU", "channel": "test-meta"}}' -X POST http://localhost:8000/puzzles/slack_events/
+
+use little human icon
+Font Awesome
+
+https://fontawesome.com/v4.7.0/icon/users?fbclid=IwAR1NATfXbZXUBrFhlKtWW7LlvcPxObWlD3EJY0ZQw32hY-HNlomn2itVJB0
+
+
+puz2
+
+curl -H "Content-Type: application/json" -d '{"event": {"type": "member_left_channel", "user":"UQWGEV4UU", "channel": "test-meta"}}' -X POST http://localhost:8000/puzzles/slack_events/
+
+
+# erwaman@gmail.com
+curl -H "Content-Type: application/json" -d '{"event": {"type": "member_joined_channel", "user":"UQWGEV4UU", "channel": "puz2"}}' -X POST http://localhost:8000/puzzles/slack_events/
+
+
+curl -H "Content-Type: application/json" -d '{"event": {"type": "member_joined_channel", "user":"nonexistent_user", "channel": "puz2"}}' -X POST http://localhost:8000/puzzles/slack_events/
+
+
+https://stackoverflow.com/questions/13037368/bootstrap-tooltip-without-a-link
+
+DataTables slowness
+https://datatables.net/faqs/index#General-initialisation
+
+https://stackoverflow.com/questions/51121872/rendering-array-data-in-datatable
+- render data client side
+
+
+Received Slack event: {'type': 'member_joined_channel', 'user': 'UQWGEV4UU', 'channel': 'puz2'}
+User with email erwaman@gmail.com not found. Exception: Puzzler matching query does not exist.
+[16/Dec/2019 20:55:04] "POST /puzzles/slack_events/ HTTP/1.1" 200 44
+
+TODO:
+- make google spreadsheet field just an id
+
+# stuff to fill in
+Add tag to {{puzzle.name}}
+
+# tags
+
+
+# Add Tag button
+                    <form method="post" action="/puzzles/add_tag/{{ puzzle.pk }}/">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ tag_form.name }}
+                            {{ tag_form.color }}
+                         <button type="submit" class="btn btn-primary btn-sm">add</button>
+                        </div>
+                    </form>
+
+need to add request to any render() call in order for csrf_token to get added automatically
+
+https://stackoverflow.com/questions/13048228/django-csrf-token-was-used-in-a-template-but-the-context-did-not-provid
+
+
+12/19/19
+
+https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-DATABASE-TEST
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'mydatabaseuser',
+        'NAME': 'mydatabase',
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        },
+    },
+}
+
+https://circleci.com/docs/2.0/language-python/
+# example config with 2 Docker containers
+
+https://discuss.circleci.com/t/circleci-postgres-image-suddenly-causing-problems-role-postgres-not-found/25044
+
+https://hub.docker.com/_/postgres/
+POSTGRES environment variables for Docker image
+
+create user myuser with encrypted password 'mypass';
+grant all privileges on database smallboard to myuser;
+ALTER USER myuser CREATEDB;
+
+postgres role not created by default, fixed by disabling django_heroku, which hardcodes references to postgres
+test_runner=false
+
+enabling GitHub CircleCI checks: https://circleci.com/docs/2.0/enable-checks/
+
+https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution
+
+
+12/20/19
+# need to decorate dispatch method
+@method_decorator(csrf_exempt, name='dispatch')
+
+https://stackoverflow.com/questions/27315592/csrf-exempt-does-not-work-on-generic-view-based-class
+
+https://stackoverflow.com/questions/853796/problems-with-contenttypes-when-loading-a-fixture-in-django
+
+# can probably add optimization --natural-primary, too
+manage.py dumpdata --natural-foreign -e contenttypes -e auth.Permission
+# can also add --indent 4, too
+# this worked, now issue with our handlers, m2mhandler
+
+
+12/27/19
+looks like we need the Heroku Standard tier to spin up multiple dynos: https://devcenter.heroku.com/articles/limits#dyno-scale
+$161 in credit from GitHub Pro.
+
+https://user-images.githubusercontent.com/544734/71537342-af7dc380-28e8-11ea-8f57-c37c17d658ae.png
+
+dynamically produce content for cell:
+https://stackoverflow.com/questions/30489307/make-column-data-as-hyperlink-datatable-jquery/30489991
+
+https://stackoverflow.com/questions/31237042/whats-the-difference-between-select-related-and-prefetch-related-in-django-orm
+prefetch_related - do join in Python
+speeds up query
+
+Try Django Debug Toolbar
+https://github.com/jazzband/django-debug-toolbar
+
+Ideas from daiweili
+https://github.com/bencripps/react-redux-grid
+https://www.apollographql.com/docs/
+
+https://github.com/eamigo86/graphene-django-subscriptions
+
+
+12/29/19
+
+https://datatables.net/reference/option/columns.render
+
+$('#example').dataTable( {
+  "columnDefs": [ {
+    "targets": 0,
+    "data": "download_link",
+    "render": function ( data, type, row, meta ) {
+      return '<a href="'+data+'">Download</a>';
+    }
+  } ]
+} );
+
+$('#example').dataTable( {
+  "columnDefs": [ {
+    "targets": 4,
+    "data": "description",
+    "render": function ( data, type, row, meta ) {
+      return type === 'display' && data.length > 40 ?
+        '<span title="'+data+'">'+data.substr( 0, 38 )+'...</span>' :
+        data;
+    }
+  } ]
+} );
+
+https://stackoverflow.com/questions/7048278/accessing-variable-outside-of-document-ready-jquery
+
+https://stackoverflow.com/questions/25186921/change-row-background-color-based-on-cell-value-datatable/42680866
+change background color based on status
+
+https://unix.stackexchange.com/questions/32001/what-is-m-and-how-do-i-get-rid-of-it
+^M (carriage return)
+screwed up restoring from Postgres dump
+
+https://datatables.net/forums/discussion/38881/searching-a-rendered-column
+searching not working
+
+https://stackoverflow.com/questions/32108487/datables-searching-filtering-with-rendered-data
+
+Was it just a matter of ctrl-shift-R? cached version of jquery? It was daiweili's datatables min changes.
+
+jquery treegrid: https://maxazan.github.io/jquery-treegrid/

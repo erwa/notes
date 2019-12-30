@@ -1,6 +1,9 @@
- meteor  # to run app
+ meteor  # to run app, visit localhost:3000
  meteor npm show coffeescript@* version
  meteor show --show-all coffeescript
  meteor add coffeescript@1.12.7_3
  meteor add coffeescript@1.12.7_3 --allow-incompatible-update
  meteor update --release 1.4
+
+# clear database
+rm -rf ~/project/codex-blackboard-meteor/db

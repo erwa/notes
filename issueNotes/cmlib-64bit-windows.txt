@@ -1,0 +1,45 @@
+cmlib-64bit-windows.txt
+
+repro: (with 110.96) (latest)
+sml -m cmlib.cm
+
+Try with 110.81 (works)
+
+110.93 (fails)
+
+does 110.81 have "bad magic number" errors? YES.
+
+110.85 (works, with binfile format error: bad magic number errors)
+110.88 (works, with binfile format error: bad magic number errors)
+110.89 (no Windows installer)
+
+110.90 (fails)
+convert-word-nj.sml:2.1-226.7 Error: value type in structure does not match signature spec
+    name: word32ToBytesL
+  spec:   Word32.word -> Bytestring.string
+  actual: Word64.word -> Bytestring.string
+convert-word-nj.sml:2.1-226.7 Error: value type in structure does not match signature spec
+    name: bytesToWord32B
+  spec:   Bytestring.string -> Word32.word
+  actual: Bytestring.string -> Word64.word
+
+
+# last error
+convert-word-nj.sml:2.1-226.7 Error: value type in structure does not match signature spec
+    name: bytesToWord32SL
+  spec:   Bytesubstring.substring -> Word32.word
+  actual: Bytesubstring.substring -> Word64.word
+
+http://sml-family.org/Basis/pack-word.html
+PACK_WORD defined in pack-word.sig (in system.tgz file at https://www.smlnj.org/dist/working/110.96/index.html)
+PackWord32Little : PACK_WORD defined in pack-word-l32.sml in system.tgz
+
+
+git clone git@github.com:erwa/cmlib.git --branch support-64-bit
+cd cmlib
+sml -m cmlib.cm
+
+config/install.sh -default 64
+config/install.sh -64
+
+https://www.smlnj.org/dist/working/110.96/install.html

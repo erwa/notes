@@ -38,6 +38,7 @@ https://stackoverflow.com/questions/29743615/how-to-easily-get-current-file-path
 "trim_trailing_white_space_on_save": true
 ```
 
+https://blog.revathskumar.com/2012/08/sublimetext-remove-tailing-spaces-on-file-save.html
 http://nategood.com/sublime-text-strip-whitespace-save
 
 

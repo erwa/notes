@@ -1,3 +1,10 @@
+### Move cursor when typing
+
+Hold down spacebar and drag around to move cursor.
+
+https://www.youtube.com/watch?v=_EhCg5j9m-U
+
+
 ### Gmail to PDF in iBooks
 
 Gmail --> ... --> Print --> Save to Google Drive. In Drive, share icon (open with) --> copy to iBooks.
@@ -36,7 +43,6 @@ Mac: Install iBooks on iPhone. Use iTunes -> Books -> drag and drop PDF file to 
 Press `+*#` button, then "Pause" to insert comma.
 
 
-
 ### iMessage new line
 
 Alt + enter
@@ -62,8 +68,10 @@ Create playlist
 
 
 ### Check data usage
+
 Settings -> Cellular -> Scroll down to "Cellular Data Usage" --> Current Period
 
 
 ### Tethering
+
 Settings -> Personal Hotspot. Connect to "iPhone" network on your laptop.

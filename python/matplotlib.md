@@ -1,3 +1,10 @@
+### Plot points without connnecting line
+
+```
+ax.plot(x, y, color='red', marker='o', markersize=1, linestyle='None')
+```
+
+
 ### Plot rectangle on image
 
 ```

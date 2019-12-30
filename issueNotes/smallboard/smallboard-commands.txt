@@ -1,13 +1,20 @@
+### Create superuser in production
+
+heroku run python manage.py createsuperuser
+
+
 ### Mass delete Slack channels
 
 https://blog.rmotr.com/how-to-delete-multiple-slack-channels-at-once-7ba00f4890cd
 
 
-### Drop entire database
+### Drop entire database / delete all data
 
 ```
+python manage.py flush
+
 # drop all tables
-heroku pg:reset DATABASE --confirm smallboard;
+heroku pg:reset DATABASE --confirm smallboard
 
 # run DB migrations
 heroku run python manage.py migrate
@@ -18,6 +25,9 @@ heroku restart
 
 
 ### Start database
+
+sudo mkdir -p /var/run/postgresql
+sudo chown postgres /var/run/postgresql
 
 sudo -u postgres /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
 
@@ -30,3 +40,15 @@ Use DATABASE_URL from https://dashboard.heroku.com/apps/smallboard/settings
 
 # works too
 heroku psql
+
+
+### Copy production database locally for testing
+
+heroku run pg_dump postgres://user:pass@....compute-1.amazonaws.com:5432/database > prod_db_out
+
+psql postgres://myuser:mypass@localhost/smallboard < prod_db_out
+
+
+### Validate CircleCI config
+
+circleci config validate

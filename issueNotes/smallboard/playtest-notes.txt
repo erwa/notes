@@ -1,0 +1,32 @@
+playtest-notes.txt
+
+- assigned meta1 to both meta2 and metameta
+- assigned meta2 to metameta
+
+meta1 appeared twice, both times under meta2 (rather than once under meta2 and once under metameta)
+
+- search box at top? (kind of broken, Max pointed this out too)
+
+Max:
+- slack and sheets links don't open new tabs
+
+meta sheet - auto fill in feeder puzzles and answers
+- auto fill in puzzles
+
+NEED TO FIX LATENCY BEFORE I CAN DEMO SMALL BOARD IN A VIDEO
+https://www.reddit.com/r/mysteryhunt/comments/e9ft5k/show_off_your_tech_stack/ - share Small Board
+
+- Small Board loading lags: JavaScript issue
+
+Midori - sound identification app
+
+
+Setting up a new hunt:
+- clear database
+- DEBUG = False
+- set up new Google Drive
+- update Google Drive id
+- update template sheet id
+
+Follow-up:
+- snapshot who has worked on a puzzle after it's solved

@@ -1,3 +1,9 @@
+### Markup for Messenger
+
+Triple backtick: code block (\`\`\`)
+Quote: `> quoted text`
+
+
 ### Messenger
 
 To use Messenger from mobile browser, need to request desktop version (or else they will prompt you to install the mobile app).

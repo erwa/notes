@@ -81,12 +81,14 @@ A pool of money from many investors that is managed and invested into stocks, bo
 
 http://www.investopedia.com/articles/investing/092915/trading-mutual-funds-beginners.asp
 
+
 #### No Transaction Fee
 
 Means you can buy the mutual fund with no up-front commission charge. The transaction fee is something charged by the *broker*, not the fund itself.
 
 http://money.stackexchange.com/questions/4364/why-does-a-no-load-fund-have-transaction-fees-isnt-that-a-contradiction
 http://www.investopedia.com/terms/n/ntfmutualfund.asp
+
 
 #### No Load
 
@@ -171,3 +173,22 @@ https://www.nerdwallet.com/article/investing/ira-vs-401k-retirement-accounts (go
 https://www.fidelity.com/mymoney/multiple-401k-accounts
 https://en.wikipedia.org/wiki/Roth_401(k)#Traditional_401.28k.29_and_Roth_IRA_plans
 https://en.wikipedia.org/wiki/Comparison_of_401(k)_and_IRA_accounts#Comparison
+
+
+### IRA Rollover / IRA Conversion
+
+Converting (or "rolling over") from traditional IRA to Roth IRA is a taxable event.
+
+https://www.fool.com/knowledge-center/what-is-the-difference-between-the-conversion-and.aspx
+
+
+### Traditional IRA vs. Roth IRA
+
+* For traditional IRA, contributions are tax-deductible; for Roth IRA, they are not.
+* For traditional IRA, distributions are taxed; for Roth, they are not.
+* Roth IRA has no minimum distribution requirement whereas traditional IRA does.
+* If you have high income, you probably don't qualify for traditional IRA deductions.
+* You can withdraw *contributions* to Roth IRA at any time without penalty. For traditional IRA, you will likely have to pay 10% penalty.
+* You can contribute to Roth IRA past age 70 1/2.
+
+https://www.nerdwallet.com/article/investing/roth-or-traditional-ira-account

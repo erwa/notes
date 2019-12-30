@@ -1,3 +1,10 @@
+### Switch between windows of same app
+
+Ctrl + click on app icon on taskbar. Can also repeatedly press Windows + N, where N is the icon number on taskbar.
+
+https://stackoverflow.com/questions/11175261/keyboard-shortcut-to-cycle-through-windows-of-same-application-in-windows-7
+
+
 ### Mount SSH Filesystem / mount remote filesystem
 
 https://github.com/billziss-gh/sshfs-win

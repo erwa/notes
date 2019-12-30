@@ -27,7 +27,7 @@ https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-
 Send command to inner-session:
 C-b C-b ,  # for example, to rename inner window
 
-https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/ 
+https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/
 
 
 ### Resize pane
@@ -60,12 +60,17 @@ C-b &
 https://gist.github.com/henrik/1967800
 
 
-### Renumber windows
+### Renumber windows / reorder windows / rearrange windows
 
 ```
 tmux movew -r
+
+# swap current window with first window
+Ctrl-b :
+swap-window  -t 0
 ```
 
+https://superuser.com/questions/343572/how-do-i-reorder-tmux-windows
 https://stackoverflow.com/questions/8469612/how-do-i-make-tmux-reorder-windows-when-one-is-deleted
 
 
