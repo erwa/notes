@@ -9,6 +9,7 @@
 
 ### General
 
+- MetroCard, Clipper Card, Caltrain Go Pass, subway pass
 - consider enabling "avoid tolls" in Google Maps
 - car phone mount
 - Drawstring bag
@@ -35,7 +36,6 @@
 - Reading material
 - Money (split up into several places)
 - quarters / change (parking, exact fare on buses)
-- MetroCard, Clipper Card, Caltrain Go Pass
 - Towel
 - Blindfold, ear plugs
 - Nice belt (for formal events)

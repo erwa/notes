@@ -1,3 +1,8 @@
+### SOS
+
+Hold power button plus one of the volume buttons for about 10 seconds.
+
+
 ### Move cursor when typing
 
 Hold down spacebar and drag around to move cursor.

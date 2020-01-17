@@ -1,7 +1,8 @@
 ### 60-Day Window
 
-The period during which you can withdraw from 401k or IRA and re-deposit to a qualifying account without any penalty.
+The period during which you can withdraw from 401k or IRA and re-deposit to a qualifying account without any penalty. You can only do one of these per 12-month period. See the "IRA Rollover / IRA Conversion" section below for more details.
 
+https://www.investmentnews.com/article/20150104/REG/301049998
 https://www.fool.com/retirement/2017/04/13/what-is-a-60-day-rollover.aspx
 
 
@@ -67,7 +68,8 @@ http://www.investopedia.com/terms/c/costbasis.asp
 
 ### Wealthfront
 
-Robo-investor. No fees on first $10k. 0.25% fee on money exceeding $10k. Does tax-loss harvesting.
+- Robo-investor. No fees on first $10k. 0.25% fee on money exceeding $10k. Does tax-loss harvesting.
+- Does not withhold taxes, so you may need to make estimated tax payments to IRS.
 
 
 ### Mutual Fund Capital Gains Distribution
@@ -177,8 +179,22 @@ https://en.wikipedia.org/wiki/Comparison_of_401(k)_and_IRA_accounts#Comparison
 
 ### IRA Rollover / IRA Conversion
 
-Converting (or "rolling over") from traditional IRA to Roth IRA is a taxable event.
+In general, you can only rollover one IRA to another in any 12-month period. However, many exceptions.
 
+The following are unlimited:
+- trustee-to-trustee transfer (one custodian to another without client touching money)
+- traditional to Roth conversion
+- IRA to plan (e.g.: 401k)
+- plan (e.g.: 401k) to IRA
+- plan to plan
+
+Converting (or "rolling over") from traditional IRA to Roth IRA is a taxable event. You can do an unlimited number of conversions from traditional to Roth IRA per 12-month period.
+
+Anyone can convert a traditional IRA to a Roth IRA, regardless of income. Wealthfront lets you do it easily: [https://blog.wealthfront.com/wealthfront-now-offers-easy-roth-conversions/]()
+
+https://www.investopedia.com/roth-ira-conversion-rules-4770480
+https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions
+https://www.irs.gov/retirement-plans/ira-one-rollover-per-year-rule
 https://www.fool.com/knowledge-center/what-is-the-difference-between-the-conversion-and.aspx
 
 
@@ -192,3 +208,5 @@ https://www.fool.com/knowledge-center/what-is-the-difference-between-the-convers
 * You can contribute to Roth IRA past age 70 1/2.
 
 https://www.nerdwallet.com/article/investing/roth-or-traditional-ira-account
+
+Check Roth IRA contribution limits at [https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits]().

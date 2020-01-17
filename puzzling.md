@@ -60,9 +60,10 @@ Share Google Drive explicitly with each team member. Then user names will show u
 http://www.npinsker.me/puzzles/crossword
 
 
-### Crossword clues
+### Crossword clues / Crossword solver
 
 https://www.wordplays.com/crossword-solver/
+http://crossword-solver.io/
 
 
 ### Ciphers

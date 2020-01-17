@@ -162,7 +162,11 @@ metadata on sheets
 
 # differentiate types of files by mimeType
 
-# Python Drive API documentation
+# Google Python APIs by API:
+https://github.com/googleapis/google-api-python-client/blob/master/docs/dyn/index.md
+http://googleapis.github.io/google-api-python-client/docs/dyn/sheets_v4.html
+
+# Python Google Drive API documentation
 http://googleapis.github.io/google-api-python-client/docs/dyn/drive_v3.html
 
 https://developers.google.com/drive/api/v3/fields-parameter
@@ -373,7 +377,8 @@ member_left_channel
 
 member_joined_channel - also fired when channel first created
 
-Make sure signed in as cardinality-puzzles@gmail.com before visiting https://cardinality-puzzles.slack.com/apps/manage to see the proper Small Board configuration and settings.
+=== MAKE SURE SIGNED IN AS cardinality-puzzles@gmail.com ===
+Make sure signed in as cardinality-puzzles@gmail.com before visiting https://cardinality-puzzles.slack.com/apps/manage to see the proper Small Board (NOT Smallboard) configuration and settings.
 https://api.slack.com/apps
 
 https://smallboard.herokuapp.com/puzzles/slack_guess/
@@ -603,3 +608,292 @@ https://stackoverflow.com/questions/32108487/datables-searching-filtering-with-r
 Was it just a matter of ctrl-shift-R? cached version of jquery? It was daiweili's datatables min changes.
 
 jquery treegrid: https://maxazan.github.io/jquery-treegrid/
+
+
+1/1/20
+update answers_answer set created_on='2019-12-19 17:30:00.000000+00' where text='3BURRITOS';
+
+
+1/3/20
+Reddit thread:
+https://www.reddit.com/r/mysteryhunt/comments/e9ft5k/show_off_your_tech_stack/
+
+Need users:read.email scope to get email when doing users.list with Slack client
+
+1/5/20
+https://datatables.net/forums/discussion/46699/auto-refresh-datatable
+https://datatables.net/reference/api/ajax.reload()
+use setInterval with table.ajax.reload()
+
+https://stackoverflow.com/questions/13957993/submit-form-on-dropdown-change-using-ajax
+
+http://html5doctor.com/html5-custom-data-attributes/
+data-X attributes
+https://stackoverflow.com/questions/194101/what-is-the-best-way-to-track-changes-in-a-form-via-javascript
+
+datatables redraw single row
+https://datatables.net/forums/discussion/40798/update-and-redraw-single-row-only
+row().invalidate()
+
+1/7/20
+https://datatables.net/forums/discussion/45484/how-to-update-a-cell-without-refreshing-the-row
+
+https://stackoverflow.com/questions/23990481/how-to-replace-the-data-array-in-jquery-datatables
+
+https://stackoverflow.com/questions/2759520/listing-objects-from-manytomanyfield
+
+1/8/20
+array equality
+
+# check if array
+Array.isArray(obj)
+https://stackoverflow.com/questions/4775722/how-to-check-if-an-object-is-an-array
+https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
+
+https://stackoverflow.com/questions/10364298/will-the-same-addeventlistener-work
+multiple handlers unless same function
+if new function, different handlers, even if code the same
+
+Google Sheets Python API
+API docs:
+http://googleapis.github.io/google-api-python-client/docs/dyn/sheets_v4.html
+
+Example:
+https://developers.google.com/sheets/api/samples/writing#write_a_single_range
+https://developers.google.com/sheets/api/guides/values#writing_to_a_single_range
+https://developers.google.com/sheets/api/guides/batchupdate#example
+
+read-write scope: https://www.googleapis.com/auth/spreadsheets
+https://developers.google.com/sheets/api/guides/authorizing
+
+https://console.developers.google.com/apis/api/sheets.googleapis.com/overview?project=1059136102866
+
+# Slack channel links via API
+https://api.slack.com/reference/surfaces/formatting#linking-channels
+https://stackoverflow.com/questions/39105038/create-hyperlink-in-slack
+
+1/9/20
+Add a sheet
+https://developers.google.com/sheets/api/samples/sheet#add_a_sheet
+https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/request#addsheetrequest
+
+Get list of sheet titles
+https://developers.google.com/sheets/api/samples/sheet#determine_sheet_id_and_other_properties
+
+# format cell
+https://stackoverflow.com/questions/13693612/how-can-i-format-a-google-sheets-spreadsheet-cell-with-the-api
+
+https://cloud.google.com/blog/products/application-development/formatting-cells-with-the-google-sheets-api
+
+text formatting
+https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/other#TextFormat
+
+# auto-fit width
+https://stackoverflow.com/questions/49970988/how-to-autofit-column-width-with-google-sheets-api
+
+async function
+https://stackoverflow.com/questions/6602761/django-background-task
+
+# just launch a thread!
+https://stackoverflow.com/questions/21945052/simple-approach-to-launching-background-task-in-django
+
+ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2488)
+# google python api is not thread safe
+
+
+1/10/20
+https://devcenter.heroku.com/articles/python-rq
+
+https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
+Handlers are not applied to dynamically created elements unless you attach handler to an existing element that is a parent of the dynamically created element, and on('<event>', '<selector>', function() {...})
+
+https://stackoverflow.com/questions/21944735/what-is-the-data-target-attribute-in-bootstrap-3
+Bootstrap uses data-toggle and data-target to make interactive things easier (without needing to write JavaScript)
+
+https://stackoverflow.com/questions/15247849/how-to-set-focus-to-first-text-input-in-a-bootstrap-modal-after-shown
+Need to use delay since fade in doesn't let you set focus
+
+https://stackoverflow.com/questions/2663740/what-is-the-name-keyword-in-javascript
+"name" is JavaScript built-in property. Avoid using it.
+https://www.w3schools.com/js/js_reserved.asp
+
+.data('foo')
+and .attr('data-foo')
+are 2 diffferent things!!!
+
+https://stackoverflow.com/questions/20971051/html5-bootstrap-display-floating-error-message
+float error
+position: fixed
+z-index: <large>
+
+datatable 1000 rows
+$( "#dataTable tbody tr" ).on( "click", function() {
+  console.log( $( this ).text() );
+});
+handler attached to 1000 elements
+
+$( "#dataTable tbody" ).on( "click", "tr", function() {
+  console.log( $( this ).text() );
+});
+handler attached to 1 element
+
+e.stopImmediatePropagataion();
+// to prevent handler from triggering on all matching children element
+https://api.jquery.com/on/#event-handler
+
+https://stackoverflow.com/questions/18431313/how-can-static-method-access-class-variable-in-python
+accessing class attribute from static method
+class method vs static method
+
+https://datatables.net/forums/discussion/46826/is-there-an-event-that-fires-when-invalidate-is-called
+no invalidate() event
+
+Only when entire row is invalidated, then need to reregister handlers
+
+To summarize my findings:
+* handlers only need to be re-registered if there are new items (example, dynamically added new tag)?
+* or when row invalidated (need to re-init handlers)
+* well, actually, if the cell containing the HTML elements where tag is get invalidated, you need to re-init handler.
+
+
+1/15/20
+
+Internal Server Error: /hunts/1/puzzles
+Traceback (most recent call last):
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/views/decorators/http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/hunts/views.py", line 91, in puzzles
+    sorted_np_pairs = PuzzleTree(puzzle_objects).get_sorted_node_parent_pairs()
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/puzzles/puzzle_tree.py", line 77, in __init__
+    node.parents = [self.puzzle_to_node[meta.pk] for meta in p.metas.all()]
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/puzzles/puzzle_tree.py", line 77, in <listcomp>
+    node.parents = [self.puzzle_to_node[meta.pk] for meta in p.metas.all()]
+KeyError: 299
+
+
+Set/Clear prop
+.prop('selected', true);
+.prop('selected', false);
+https://stackoverflow.com/questions/6364289/clear-form-fields-with-jquery
+https://stackoverflow.com/questions/4680075/set-selected-option-of-select-box
+
+# where I learned .attr('selected', 'selected') which doesn't work in jquery 1.9
+https://stackoverflow.com/questions/496052/jquery-setting-the-selected-value-of-a-select-control-via-its-text-description
+
+# prevent modal from closing
+https://stackoverflow.com/questions/18893814/prevent-bootstrap-modal-window-from-closing-on-form-submission
+
+    $('#addpuzzle').on('hide.bs.modal', function(e) {
+        e.preventDefault();
+    })
+
+
+1/16/20
+clear form with jquery
+https://stackoverflow.com/questions/6364289/clear-form-fields-with-jquery
+
+https://stackoverflow.com/questions/3978492/fastest-way-to-duplicate-an-array-in-javascript-slice-vs-for-loop
+duplicate array
+original_array.slice();
+
+
+Internal Server Error: /puzzles/delete/86/
+Traceback (most recent call last):
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/views/decorators/http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/puzzles/views.py", line 232, in delete_puzzle
+    SlackClient.getInstance().archive_channel(puzzle.channel)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/slack_lib/slack_client.py", line 220, in archive_channel
+    response = self._web_client.channels_info(channel=channel_id)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/slack/web/client.py", line 358, in channels_info
+    return self.api_call("channels.info", http_verb="GET", params=kwargs)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/slack/web/base_client.py", line 171, in api_call
+    return self._event_loop.run_until_complete(future)
+  File "/usr/lib/python3.7/asyncio/base_events.py", line 571, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.7/asyncio/base_events.py", line 526, in run_forever
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+https://stackoverflow.com/questions/56154176/runtimeerror-asyncio-run-cannot-be-called-from-a-running-event-loop
+
+https://github.com/erdewit/nest_asyncio
+pip install nest_asyncio
+
+import nest_asyncio
+nest_asyncio.apply()
+
+
+# with nest_asyncio 1.2.2
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/slack/web/base_client.py", line 214, in _send
+    http_verb=http_verb, api_url=api_url, req_args=req_args
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/slack/web/base_client.py", line 244, in _request
+    async with session.request(http_verb, api_url, **req_args) as res:
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/aiohttp/client.py", line 504, in _request
+    await resp.start(conn)
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/aiohttp/client_reqrep.py", line 847, in start
+    message, payload = await self._protocol.read()  # type: ignore  # noqa
+  File "/mnt/c/Users/volde/Desktop/github/cardinalitypuzzles/smallboard/venv/lib/python3.7/site-packages/aiohttp/streams.py", line 591, in read
+    await self._waiter
+  File "/usr/lib/python3.7/asyncio/futures.py", line 260, in __await__
+    yield self  # This tells Task to wait for completion.
+  File "/usr/lib/python3.7/asyncio/tasks.py", line 292, in __wakeup
+    future.result()
+  File "/usr/lib/python3.7/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/usr/lib/python3.7/asyncio/sslproto.py", line 689, in _process_write_backlog
+    del self._write_backlog[0]
+IndexError: deque index out of range
+
+Fatal error on SSL transport
+protocol: <asyncio.sslproto.SSLProtocol object at 0x7f6586163208>
+transport: <_SelectorSocketTransport fd=19 read=polling write=<idle, bufsize=0>>
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/asyncio/sslproto.py", line 689, in _process_write_backlog
+    del self._write_backlog[0]
+IndexError: deque index out of range
+Internal Server Error: /puzzles/delete/84/
+
+
+1/17/20
+
+2020-01-17T05:38:26.387819+00:00 app[web.1]: File "/app/hunts/views.py", line 190, in post
+2020-01-17T05:38:26.387821+00:00 app[web.1]: is_meta)
+2020-01-17T05:38:26.387823+00:00 app[web.1]: File "/app/slack_lib/slack_client.py", line 87, in announce_puzzle_creation
+2020-01-17T05:38:26.387825+00:00 app[web.1]: sheet_url))
+2020-01-17T05:38:26.387827+00:00 app[web.1]: File "/app/slack_lib/slack_client.py", line 58, in announce
+2020-01-17T05:38:26.387830+00:00 app[web.1]: self.send_message(self.announcement_channel_name, message)
+2020-01-17T05:38:26.387832+00:00 app[web.1]: File "/app/slack_lib/slack_client.py", line 69, in send_message
+2020-01-17T05:38:26.387834+00:00 app[web.1]: self._web_client.chat_postMessage(channel=channel, text=message)
+2020-01-17T05:38:26.387836+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/slack/web/client.py", line 382, in chat_postMessage
+2020-01-17T05:38:26.387838+00:00 app[web.1]: return self.api_call("chat.postMessage", json=kwargs)
+2020-01-17T05:38:26.387840+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/slack/web/base_client.py", line 172, in api_call
+2020-01-17T05:38:26.387842+00:00 app[web.1]: return self._event_loop.run_until_complete(future)
+2020-01-17T05:38:26.387844+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/asyncio/base_events.py", line 467, in run_until_complete
+2020-01-17T05:38:26.387847+00:00 app[web.1]: return future.result()
+2020-01-17T05:38:26.387849+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/slack/web/base_client.py", line 241, in _send
+2020-01-17T05:38:26.387851+00:00 app[web.1]: return SlackResponse(**{**data, **res}).validate()
+2020-01-17T05:38:26.387853+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/slack/web/slack_response.py", line 176, in validate
+2020-01-17T05:38:26.387855+00:00 app[web.1]: raise e.SlackApiError(message=msg, response=self)
+2020-01-17T05:38:26.387857+00:00 app[web.1]: slack.errors.SlackApiError: The request to the Slack API failed.
+2020-01-17T05:38:26.387866+00:00 app[web.1]: The server responded with: {'ok': False, 'error': 'is_archived'}
+
+Need to use LEGACY SLACK API TOKEN for slack.py

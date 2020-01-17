@@ -1,3 +1,14 @@
+### String with single quotes
+
+Single quote literal = two quotes.
+
+```
+select * from puzzles_puzzle where name = 'Who''s Who';
+```
+
+https://stackoverflow.com/questions/12316953/insert-text-with-single-quotes-in-postgresql
+
+
 ### Run script
 
 ```
@@ -18,7 +29,18 @@ select version();
 https://stackoverflow.com/questions/13733719/which-version-of-postgresql-am-i-running
 
 
-### Disable output paging
+### Output to file
+
+```
+# tab-separated by default
+\copy (Select * From foo) To '/tmp/test.csv'
+\copy (Select * From foo) To '/tmp/test.csv' With CSV
+```
+
+https://stackoverflow.com/questions/1517635/save-pl-pgsql-output-from-postgresql-to-a-csv-file
+
+
+### Disable output paging / turn off "less" output
 
 ```
 \pset pager off

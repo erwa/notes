@@ -1,3 +1,12 @@
+### First matching item in list
+
+```
+next((x for x in test_list if x.value == value), None)
+```
+
+https://stackoverflow.com/questions/7125467/find-object-in-list-that-has-attribute-equal-to-some-value-that-meets-any-condi
+
+
 ### String to boolean
 
 ```
@@ -269,7 +278,20 @@ https://stackoverflow.com/questions/6031584/importing-from-builtin-library-when-
 
 ### Private methods
 
-Are not strictly private in Python.
+Prefix with two underscores.
+
+```
+>>> import fileinfo
+>>> m = fileinfo.MP3FileInfo()
+>>> m.__parse("/music/_singles/kairo.mp3") 1
+Traceback (innermost last):
+  File "<interactive input>", line 1, in ?
+AttributeError: 'MP3FileInfo' instance has no attribute '__parse'
+```
+
+https://linux.die.net/diveintopython/html/object_oriented_framework/private_functions.html
+
+The private is still discoverable and accessible if you try hard enough.
 
 https://stackoverflow.com/questions/70528/why-are-pythons-private-methods-not-actually-private
 
@@ -1098,6 +1120,17 @@ for idx, val in enumerate(ints):
 http://stackoverflow.com/questions/522563/accessing-the-index-in-python-for-loops
 
 
+### datetime to seconds / datetime object to seconds
+
+```
+from datetime import datetime
+dt = datetime.today()  # Get timezone naive now
+seconds = dt.timestamp()  # returns float
+```
+
+https://stackoverflow.com/questions/7852855/in-python-how-do-you-convert-a-datetime-object-to-seconds
+
+
 ### Convert epoch to datetime
 
 ```
@@ -1546,6 +1579,9 @@ http://stackoverflow.com/questions/42581/python-re-sub-multiline-caret-match
 line = re.sub(r'</?\[\d+>', "", line)
 ```
 
+By default replaces all occurrences.
+
+https://docs.python.org/3/library/re.html#re.sub
 http://stackoverflow.com/questions/5658369/how-to-input-a-regex-in-string-replace-in-python
 
 
@@ -1773,6 +1809,22 @@ do
   echo "$line"
 done < "${1:-/dev/stdin}"
 ```
+
+
+### Thread pool
+
+```
+from concurrent.futures import ThreadPoolExecutor
+import shutil
+
+executor = ThreadPoolExecutor(max_workers=2)
+executor.submit(shutil.copy, 'src1.txt', 'dest1.txt')
+executor.submit(shutil.copy, 'src2.txt', 'dest2.txt')
+executor.submit(shutil.copy, 'src3.txt', 'dest3.txt')
+executor.submit(shutil.copy, 'src4.txt', 'dest4.txt')
+```
+
+https://stackoverflow.com/questions/3033952/threading-pool-similar-to-the-multiprocessing-pool
 
 
 ### Parallel commands

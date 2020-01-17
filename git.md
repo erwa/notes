@@ -1,3 +1,16 @@
+### Break commit into several commits
+
+```
+git rebase -i <commit>^ # 1 before the commit
+git reset HEAD^
+# replace "pick" with "edit"
+# commit pieces individually in usual way
+git rebase --continue
+```
+
+https://stackoverflow.com/questions/6217156/break-a-previous-commit-into-multiple-commits
+
+
 ### Update initial commit
 
 ```

@@ -1,3 +1,8 @@
+### Delete Slack channels
+
+export SLACK_API_TOKEN=..
+
+
 ### Create superuser in production
 
 heroku run python manage.py createsuperuser
@@ -40,6 +45,13 @@ Use DATABASE_URL from https://dashboard.heroku.com/apps/smallboard/settings
 
 # works too
 heroku psql
+
+
+### connect to local db
+
+```
+psql postgres://myuser:mypass@localhost/smallboard
+```
 
 
 ### Copy production database locally for testing

@@ -1,3 +1,10 @@
+### Disable JavaScript on a page
+
+F12 (open developer console) --> Ctrl + Shift + P --> Disable JavaScript
+
+https://stackoverflow.com/questions/13405383/how-to-disable-javascript-in-chrome-developer-tools
+
+
 ### Remove URL from remembered URLs
 
 Fn + Shift + Delete

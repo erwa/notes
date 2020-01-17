@@ -1,3 +1,10 @@
+### Disable converting to fractions
+
+Open any Google Doc --> Tools --> Preferences --> delete all the fraction rules
+
+https://www.solveyourtech.com/how-to-stop-converting-to-fractions-in-google-docs/
+
+
 ### Sort by multiple columns / sort by one column, then another
 
 Select cells --> Data --> Sort range

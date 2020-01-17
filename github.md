@@ -14,6 +14,17 @@ https://stackoverflow.com/questions/8646517/see-the-size-of-a-github-repo-before
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis
 
 
+### Set image width in GitHub markdown
+
+Use HTML
+
+```
+<img src="https://github.com/favicon.ico" width="48">
+```
+
+https://github.com/jgm/pandoc/issues/2554
+
+
 ### Upload image to GitHub's CDN
 
 https://gist.github.com/vinkla/dca76249ba6b73c5dd66a4e986df4c8d

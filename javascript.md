@@ -1,3 +1,103 @@
+### Event handler return value
+
+`true` means to continue event chain. `false` means to stop chain.
+
+https://www.permadi.com/tutorial/jsEventBubbling/index.html
+
+
+### Append to array
+
+```
+// initialize array
+var arr = ["Hi", "Hello", "Bonjour", "Hola"];
+
+// append multiple values to the array
+arr.push("Salut", "Hey");
+```
+
+https://stackoverflow.com/questions/351409/how-to-append-something-to-an-array
+
+
+### Check if object is an array
+
+```
+Array.isArray(obj)
+```
+
+https://stackoverflow.com/questions/4775722/how-to-check-if-an-object-is-an-array
+
+
+### Length of array
+
+```
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.length;
+```
+
+https://www.w3schools.com/jsref/jsref_length_array.asp
+
+
+### Site to test CORS
+
+https://cors-anywhere.herokuapp.com/ - responds with `access-control-allow-origin` header set
+
+https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+
+
+### let vs. var
+
+let-defined variables only accessible in immediate surrounding `{}` block.
+
+```
+function run() {
+  var foo = "Foo";
+  let bar = "Bar";
+
+  console.log(foo, bar);
+
+  {
+    let baz = "Bazz";
+    console.log(baz);
+  }
+
+  console.log(baz); // ReferenceError
+}
+
+run();
+```
+
+https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var
+
+
+### Transform array, applying function to each element
+
+```
+const numbers = [1,2,3,4,5];
+const doubled = numbers.map(n => n * 2);
+```
+
+https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript
+
+
+### Iterate over array
+
+```
+const array = ["one", "two", "three"]
+array.forEach(function (item, index) {
+  console.log(item, index);
+});
+
+let colors = ['red', 'green', 'blue'];
+for (const color of colors){
+  console.log(color);
+}
+
+// avoid for ... in ... as it will enumerate *object properties*
+```
+
+https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript
+
+
 ### Define multiple variables at once
 
 ```

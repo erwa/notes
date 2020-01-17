@@ -1,3 +1,12 @@
+### Run tests in one module
+
+```
+python manage.py test my_module
+```
+
+https://docs.djangoproject.com/en/3.0/topics/testing/overview/#running-tests
+
+
 ### Turn off escaping
 
 ```
