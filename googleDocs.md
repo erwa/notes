@@ -1,3 +1,10 @@
+### Line chart, ignore missing values
+
+Edit Chart --> Customize --> Chart Style --> Check "Plot null values". This will draw a line between values that do exist, ignoring missing values.
+
+https://support.google.com/docs/forum/AAAABuH1jm0mX4K9VsIGVU/
+
+
 ### Disable converting to fractions
 
 Open any Google Doc --> Tools --> Preferences --> delete all the fraction rules

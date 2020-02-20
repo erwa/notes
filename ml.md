@@ -1,3 +1,23 @@
+### Pound signs in output
+
+Output only printed up to certain depth. Increase depth as follows:
+
+```
+Control.Print.printDepth := 1024;
+```
+
+https://stackoverflow.com/questions/4532144/output-is-truncated-with-signs-in-the-repl
+
+
+### Negative numbers
+
+```
+~1
+```
+
+http://homepages.inf.ed.ac.uk/mfourman/teaching/mlCourse/notes/practicals/p1.html#x1-60006
+
+
 ### Numeric literals
 
 ```
@@ -323,6 +343,15 @@ structure strid :> sigexp = strexp
 ```
 
 
+### Convert integer to string
+
+```
+print(Int.toString(i) ^ "\n");
+```
+
+http://sml-family.org/Basis/integer.html
+
+
 ### Print
 
 ```
@@ -461,7 +490,7 @@ https://stackoverflow.com/questions/12715464/sml-map-function-on-list-with-a-fun
 ```
 (fn x => fn y => x+y) 2 3
 
-(fn (x,y) => x + y) (2,3) 
+(fn (x,y) => x + y) (2,3)
 ```
 
 https://stackoverflow.com/questions/2437019/curried-anonymous-function-in-sml
@@ -519,8 +548,6 @@ case x of
 
 https://courses.cs.washington.edu/courses/cse341/04wi/lectures/03-ml-functions.html
 https://stackoverflow.com/questions/40334583/nested-pattern-matching-sml-stepping-through-an-example-and-very-confused
-
-
 
 ```
 fun factorial (0) = 1

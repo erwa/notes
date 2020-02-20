@@ -169,6 +169,8 @@ http://googleapis.github.io/google-api-python-client/docs/dyn/sheets_v4.html
 # Python Google Drive API documentation
 http://googleapis.github.io/google-api-python-client/docs/dyn/drive_v3.html
 
+filter files: https://developers.google.com/drive/api/v3/search-files
+
 https://developers.google.com/drive/api/v3/fields-parameter
 # nested fields a/b
 
@@ -897,3 +899,8 @@ Internal Server Error: /puzzles/delete/84/
 2020-01-17T05:38:26.387866+00:00 app[web.1]: The server responded with: {'ok': False, 'error': 'is_archived'}
 
 Need to use LEGACY SLACK API TOKEN for slack.py
+
+
+1/21/20
+revisions API (file activity) does not work on folders.
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://www.googleapis.com/drive/v3/files/127neQGZIdJfh0CtbkAWZOK1KoD8i-ZNu/revisions?fields=revisions%2FlastModifyingUser%2FemailAddress&alt=json returned "The file does not support revisions.">

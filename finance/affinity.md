@@ -1,3 +1,10 @@
+### IRA Account Transfer Fee
+
+$50
+
+https://www.affinityfcu.com/privacy-and-disclosures/fee-schedule.aspx
+
+
 ### Rates
 
 https://www.affinityfcu.com/tips-and-tools/rates-and-yields.aspx

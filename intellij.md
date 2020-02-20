@@ -179,6 +179,10 @@ http://stackoverflow.com/questions/3320764/how-to-make-system-out-println-shorte
 ### Show Javadoc / documentation
 
 ```
+# Windows
+Ctrl + Q
+
+# Mac
 Ctrl + J
 ```
 

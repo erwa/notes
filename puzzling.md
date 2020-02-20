@@ -1,3 +1,9 @@
+### Idea generation
+
+- Look at puzzle page background
+- [The Benjian Puzzle Maxims](https://docs.google.com/document/d/1cu5v2n3zKzwag7rdzfJqdTPw9kp9vHFCIYYieHX_E-U/edit)
+
+
 ### Sets / groups of things
 
 https://phenomist.wordpress.com/storage/sets/

@@ -1,3 +1,66 @@
+### Cumulative distribution
+
+See example under "Shade under curve".
+
+https://tex.stackexchange.com/questions/198383/drawing-cumulative-distribution-function-for-a-discrete-variable
+
+
+### Shade under curve
+
+Plot curve. Plot y = 0. Use fillbetween.
+
+```
+\usepackage{pgfplots, pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+
+% if inside tcolorbox, make sure "fit" parameter is NOT set
+\begin{tikzpicture}
+\begin{axis}[
+    clip=false,
+    ymin=0,ymax=100,
+    xmin=10, xmax=20,
+    every axis plot/.style={very thick},
+    table/create on use/cumulative distribution/.style={
+        create col/expr={\pgfmathaccuma + \thisrow{f(x)}}
+    }
+]
+\addplot [name path=A, red] table [y=cumulative distribution]{
+x f(x)
+15.50 2
+16.00 2
+16.25 2
+17.00 20
+18.00 50
+19.25 10
+20.00 10
+};
+\addplot[draw=none,name path=B,domain=15.5:20] {0};
+\addplot[red] fill between[of=A and B,soft clip={domain=15.5:20}]; %filling
+\end{axis}
+\end{tikzpicture}
+```
+
+https://tex.stackexchange.com/questions/453853/shading-area-under-curve-tikz
+
+
+### n choose k
+
+`{n \choose x}`
+
+https://www.stat.berkeley.edu/~paciorek/computingTips/How_do_I_insert_symbol.html
+
+
+### XOR
+
+```
+\oplus
+```
+
+https://tex.stackexchange.com/questions/3936/logic-operators-in-latex-xor/77670
+
+
 ### Function composition symbol
 
 ```
@@ -680,6 +743,14 @@ https://tex.stackexchange.com/questions/63250/typesetting-144-4-with-n-times-und
 
 ### Wrap long URLs
 
+You may also need to set the line width. For example, you can wrap in a minipage:
+
+```
+\begin{minipage}{16cm}
+\url{...}
+\end{minipage}
+```
+
 ```
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 ```
@@ -740,6 +811,32 @@ https://tex.stackexchange.com/questions/36443/how-to-change-the-nested-itemize-b
 ```
 
 https://tex.stackexchange.com/questions/50269/itemize-without-bullets
+
+
+### Reduce space between bullets
+
+```
+\begin{itemize}
+\itemsep0em
+\item one
+\item two
+\item three
+\end{itemize}
+
+
+% No item and no list separation:
+\usepackage{enumitem}
+
+\setlist{nolistsep}
+% if inside tcolorbox, need to use \begin{tcolorbox}[parbox=false]
+\begin{itemize}[noitemsep]
+    \item one
+    \item two
+    \item three
+\end{itemize}
+```
+
+https://tex.stackexchange.com/questions/6081/reduce-space-between-enumerated-items
 
 
 ### Bullet list
@@ -1438,12 +1535,12 @@ https://www.sharelatex.com/learn/Subscripts_and_superscripts
 Great paper \cite{latexcompanion}.
 
 \begin{thebibliography}{9}
-\bibitem{latexcompanion} 
-Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
-\textit{The \LaTeX\ Companion}. 
+\bibitem{latexcompanion}
+Michel Goossens, Frank Mittelbach, and Alexander Samarin.
+\textit{The \LaTeX\ Companion}.
 Addison-Wesley, Reading, Massachusetts, 1993.
- 
-\bibitem{knuthwebsite} 
+
+\bibitem{knuthwebsite}
 Knuth: Computers and Typesetting,
 \\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
 \end{thebibliography}
@@ -1618,11 +1715,19 @@ https://www.codecogs.com/eqnedit.php
 ### Set paragraph spacing
 
 ```
+\usepackage{parskip}
+
 \setlength{\parskip}{1em}
 \begin{document}
 ...
+
+% inside tcolorbox
+\begin{tcolorbox}[parbox=false]
+...
+\end{tcolorbox}
 ```
 
+https://tex.stackexchange.com/questions/154901/how-do-i-control-parskip-within-a-tcolorbox
 https://www.overleaf.com/learn/latex/Paragraph_formatting
 
 

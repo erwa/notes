@@ -582,6 +582,13 @@ zip -r foo.zip path/to/file
 
 https://stackoverflow.com/questions/4799553/how-to-update-one-file-in-a-zip-archive
 
+Exclude files
+
+```
+zip -r $(BASE_NAME).zip $(BASE_NAME) -x foo/{*.class,*.swp}
+```
+
+https://gist.github.com/ldong/15ee0b1faa121891e9b53dddcefa0ca0
 
 Zip ignore hidden files
 

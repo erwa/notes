@@ -1,3 +1,8 @@
+### Disable passcode
+
+Settings --> Touch ID & Passcode --> Turn Passcode Off
+
+
 ### SOS
 
 Hold power button plus one of the volume buttons for about 10 seconds.

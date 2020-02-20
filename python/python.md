@@ -1614,6 +1614,24 @@ tar.close()
 http://stackoverflow.com/questions/8893359/untar-archive-in-python-with-errors
 
 
+### Process chunked response using requests
+
+```
+import requests
+
+request = {}
+request['userId'] = ...
+...
+files = {'infile' : (file_name, open(file_name, 'rb')) }    # cgi parameter
+response = requests.post(request['url'], data=request['values'],
+                       files=files, auth=(request['userId'], request['password']),
+                       stream=True)
+for line in response.iter_content(chunk_size=None, decode_unicode=True):
+    if line:
+        print(line)
+```
+
+
 ### Don't follow redirect
 
 ```

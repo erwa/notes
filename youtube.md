@@ -1,4 +1,6 @@
-### YouTube Looper
+### Loop YouTube video
+
+Right click in video --> Loop
 
 http://www.infinitelooper.com/
 

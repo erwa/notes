@@ -1430,6 +1430,24 @@ c.newInstance();
 https://stackoverflow.com/questions/4030618/java-string-to-class
 
 
+### Write line-by-line to file
+
+```
+FileWriter f0 = new FileWriter("output.txt");
+
+String newLine = System.getProperty("line.separator");
+
+
+for(i=0;i<10;i++)
+{
+    f0.write("Result "+ i +" : "+ ans + newLine);
+}
+f0.close();
+```
+
+https://stackoverflow.com/questions/15726972/using-for-loop-write-lines-one-by-one-in-file-using-java
+
+
 ### Write String to file
 
 ```
