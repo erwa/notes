@@ -1,3 +1,8 @@
+### Expense Ratio
+
+How much of a fund's assets are used for administrative and operational expenses.
+
+
 ### 60-Day Window
 
 The period during which you can withdraw from 401k or IRA and re-deposit to a qualifying account without any penalty. You can only do one of these per 12-month period. See the "IRA Rollover / IRA Conversion" section below for more details.
@@ -74,7 +79,9 @@ http://www.investopedia.com/terms/c/costbasis.asp
 
 ### Mutual Fund Capital Gains Distribution
 
-When manager sells stuff in mutual fund, gains must be distributed to investors, and those show up as capital gains distributions in taxable accounts.
+You might see capital gain distributions associated with your mutual funds, even though you didn't sell any shares. This happens because when the fund manager sells assets and incurs capital gains, these capital gains are passed onto the shareholders.
+
+https://www.nicholasfunds.com/NicholasCo/Distribution-Information/Distribution-FAQ.htm
 
 
 ### Mutual Fund
@@ -106,9 +113,9 @@ http://www.investopedia.com/terms/n/no-loadfund.asp
 A type of mutual fund that tracks an index. Generally lower management fees, since no need to hire a research team to actively manage it.
 
 
-### Exchange-Traded Fund (ETF)
+### Exchange-Traded Fund (ETF) / Exchange Traded Fund
 
-Basket of assets, traded on a stock market, unlike mutual funds. The basket of assets is divided into shares that can be owned and traded.
+Basket of assets, traded on a stock market, unlike mutual funds (which are traded once per day after markets close). The basket of assets is divided into shares that can be owned and traded.
 
 http://www.investopedia.com/terms/e/etf.asp
 

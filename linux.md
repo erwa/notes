@@ -1,3 +1,13 @@
+### Change SSH login shell
+
+```
+# shell must be listed in /etc/shells
+chsh -s /bin/bash username
+```
+
+https://serverfault.com/questions/106722/choosing-the-shell-that-ssh-uses
+
+
 ### Remove all files EXCEPT
 
 ```

@@ -1,3 +1,12 @@
+### Pretty print JSON
+
+```
+curl ... | json_pp
+```
+
+https://til.hashrocket.com/posts/pgyjvtuwba-pretty-print-json-responses-from-curl
+
+
 ### Curl with Kerberos
 
 ```

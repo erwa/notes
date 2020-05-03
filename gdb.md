@@ -1,3 +1,17 @@
+### Print stack trace / stacktrace
+
+```
+where
+```
+
+
+### Compile with debugging info
+
+Use `-g`.
+
+https://www.geeksforgeeks.org/gdb-command-in-linux-with-examples/
+
+
 ### Set breakpoint at line number
 
 ```
@@ -16,10 +30,11 @@ Must define function.
 ```
 (gdb) define fn
 > finish
-> next
+> next  # step over line (does not enter function calls)
 > end
 ```
 
+https://unix.stackexchange.com/questions/297982/how-to-step-into-step-over-and-step-out-with-gdb
 https://stackoverflow.com/questions/1262639/multiple-commands-in-gdb-separated-by-some-sort-of-delimiter
 
 
@@ -38,10 +53,30 @@ https://stackoverflow.com/questions/3818755/imul-assembly-instruction-one-operan
 ```
 x/g $rsp  # examine 8-byte word starting at address $rsp
 
+x/wx 0xf7bd3040  # examine 4-byte word at address
+p/x *0xf7bd3040
+
 x/gx $rsp+0x28  # examine 8-byte word at $rsp+0x28, print as hex
 
 x/48b $rsp  # print 48 bytes from $rsp onward
 ```
+
+https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html
+
+
+### Print contents of array | print array
+
+```
+p/x array[index]
+
+# array is array variable
+# length is length of array
+p *array@length
+
+p/x *roots@6
+```
+
+https://sourceware.org/gdb/current/onlinedocs/gdb/Arrays.html
 
 
 ### Print string at address

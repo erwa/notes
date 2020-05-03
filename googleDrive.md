@@ -1,3 +1,10 @@
+### See folder size
+
+Use Backup and Sync app. It'll show you folder size on screen where you select folders to sync.
+
+https://www.techjunkie.com/get-folder-size-google-drive-folders/ Method 2
+
+
 ### List files in folder
 
 https://www.googleapis.com/drive/v3/files?q="folderId"+in+parents&fields=files(md5Checksum,+originalFilename)

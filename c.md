@@ -78,6 +78,8 @@ https://stackoverflow.com/questions/8004237/how-do-i-properly-compare-strings
 ### printf bool
 
 ```
+#include <stdbool.h>
+
 bool x = true;
 printf("%d\n", x); // prints 1
 ```

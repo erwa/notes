@@ -1,3 +1,58 @@
+### HTTP GET request
+
+```
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+    // one instance, reuse
+    private final HttpClient httpClient = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_2)
+            .build();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create("https://httpbin.org/get"))
+                .setHeader("User-Agent", "Java 11 HttpClient Bot")
+                .build();
+
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // print status code
+        System.out.println(response.statusCode());
+
+        // print response body
+        System.out.println(response.body());
+```
+
+https://mkyong.com/java/how-to-send-http-request-getpost-in-java/
+
+
+### Double.MIN_VALUE
+
+`Double.MIN_VALUE` is positive! Use `-Double.MAX_VALUE` for the least Double value.
+
+https://stackoverflow.com/questions/3884793/why-is-double-min-value-in-not-negative
+
+
+### Comparator for sorting | inline comparator | lambda comparator
+
+```
+Collections.sort(termScores, Comparator.comparingDouble(ts -> ts.score));
+
+private static Map<Pair,Integer> tracedInputs = new TreeMap<>(
+    (Pair p1, Pair p2) -> {
+      if (p1.tx != p2.tx) {
+        return p1.tx - p2.tx;
+      }
+      return p1.idx - p2.idx;
+    });
+```
+
+https://mkyong.com/java8/java-8-lambda-comparator-example/
+
+
 ### Flat map
 
 Function is applied to each element and returns a stream. Flat map takes care of merging all streams together.
@@ -224,6 +279,21 @@ A.class.isAssignableFrom(cls)
 https://stackoverflow.com/questions/4100281/how-do-i-determine-if-a-class-extends-another-class-in-java
 
 
+### Remove from map while iterating
+
+```
+testMap.entrySet().removeIf(entry -> "Sample".equalsIgnoreCase(entry.getValue()));
+
+Iterator<Map.Entry<String,String>> iter = testMap.entrySet().iterator();
+while (iter.hasNext()) {
+    Map.Entry<String,String> entry = iter.next();
+    if("Sample".equalsIgnoreCase(entry.getValue())){
+        iter.remove();
+    }
+}
+```
+
+
 ### Update list while iterating
 
 Can use ListIterator.
@@ -231,15 +301,50 @@ Can use ListIterator.
 https://docs.oracle.com/javase/8/docs/api/java/util/ListIterator.html
 
 
+### Max element in set
+
+```
+import java.util.Collections;
+
+Collections.max(myCollection);
+```
+
+https://www.geeksforgeeks.org/collections-max-method-in-java-with-examples/
+
+
+### Set to String
+
+```
+String joined = String.join(",", set);
+```
+
+https://stackoverflow.com/questions/3042060/fastest-way-to-put-contents-of-setstring-to-a-single-string-with-words-separat
+
+
+### Get element from Set
+
+```
+set.iterator().next();
+```
+
+https://stackoverflow.com/questions/20511140/how-to-get-first-item-from-a-java-util-set
+
+
 ### Update Set while iterating
 
 ```
+// method 1
+integerSet.removeIf(integer -> integer.equals(5));
+
+// method 2
 Set<Integer> set = new HashSet<Integer>();
 Collection<Integer> removeCandidates = new LinkedList<Integer>(set);
 
-for (Integer element : set)
-   if(element % 2 == 0)
-       removeCandidates.add(element);
+for (Integer element : set) {
+  if (element % 2 == 0) {
+    removeCandidates.add(element);
+  }
+}
 
 set.removeAll(removeCandidates);
 ```
@@ -687,7 +792,7 @@ public enum Int {
 ```
 
 
-### Read file line-by-line
+### Read file line-by-line | read file line by line
 
 ```
 try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -1473,6 +1578,13 @@ A functional interface is any interface that contains only one abstract method.
 
 * https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach5
+
+
+### Fill array / initialize array
+
+```
+Arrays.fill(v, desiredNumResultsPerIntent);
+```
 
 
 ### Stream array

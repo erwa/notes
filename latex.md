@@ -1,3 +1,12 @@
+### Caret literal
+
+```
+\string^
+```
+
+https://tex.stackexchange.com/questions/77646/how-to-typeset-the-symbol-caret-circumflex-hat
+
+
 ### Cumulative distribution
 
 See example under "Shade under curve".
@@ -777,7 +786,7 @@ svn co \url{https://svn.xxx.ch/reps/yyyyyyyyyy/Publications/ABC-paper-2012/trunk
 https://tex.stackexchange.com/questions/54946/how-to-break-long-url-in-an-item
 
 
-### Insert URL
+### Insert URL / URL with custom text
 
 ```
 \usepackage{hyperref}
@@ -870,6 +879,17 @@ https://tex.stackexchange.com/questions/23773/a-centered-plus-minus-symbol
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 
 
+### Wrap text in table
+
+```
+\begin{tabular}{|p{1cm}|p{3cm}|}
+  This text will be wrapped & Some more text \\
+\end{tabular}
+```
+
+https://stackoverflow.com/questions/790932/how-to-wrap-text-in-latex-tables
+
+
 ### Increase table cell padding
 
 ```
@@ -895,11 +915,14 @@ https://tex.stackexchange.com/questions/31672/column-and-row-padding-in-tables
   \hline
   \thead{A Head} & \thead{A Second \\ Head} & \thead{A Third \\ Head} \\
   \hline
-  Some text &  \makecell{Some really \\ longer text}  & Text text text  \\
+  Some text &  \makecell[l]{Some really \\ longer text}  & Text text text  \\
   \hline
 \end{tabular}
 ```
 
+Use `\makecell[l]` to left-align.
+
+https://tex.stackexchange.com/questions/281571/how-to-left-align-text-in-a-table-with-makecell/281580
 https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell/19678
 
 
@@ -914,6 +937,20 @@ and & so & on \\
 ```
 
 https://tex.stackexchange.com/questions/4400/how-can-one-make-a-table-without-borders
+
+
+### Monospace table contents
+
+```
+\texttt{
+ \begin{tabular}{ll}
+  table text & in courier\\
+  table text & in courier\\
+ \end{tabular}
+}
+```
+
+https://tex.stackexchange.com/questions/28494/how-to-change-the-font-of-a-latex-table-to-typewriter-font
 
 
 ### Draw table / create table / make table
@@ -1260,6 +1297,15 @@ https://tex.stackexchange.com/a/93760/156856
 https://tex.stackexchange.com/questions/15129/how-to-write-n-x-n-with-a-multiplication-symbol-for-matrix-dimensions
 
 https://tex.stackexchange.com/questions/55957/how-do-you-write-times
+
+
+### Product of terms (Pi)
+
+```
+\prod_{i=1}^{\infty} a_{i}
+```
+
+https://tex.stackexchange.com/questions/85071/how-to-get-n-1-under-product-character-prod-or-pi
 
 
 ### Dot product
@@ -1712,6 +1758,24 @@ https://latex.codecogs.com/eqneditor/editor.php
 https://www.codecogs.com/eqnedit.php
 
 
+### tcolorbox gotchas
+
+Need to escape pound signs (`#`) inside tcolorboxes, such as in URLs.
+
+
+### Left align in tcolorbox
+
+Use the `flushleft upper` option
+
+```
+\begin{tcolorbox}[flushleft upper,boxrule=0pt,arc=0pt,colback=gray]
+...
+\end{tcolorbox}
+```
+
+https://tex.stackexchange.com/questions/231977/adjustment-of-text-inside-tcolorbox-and-getting-rid-of-ident-after-box
+
+
 ### Set paragraph spacing
 
 ```
@@ -1743,6 +1807,8 @@ https://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-ite
 ### Whitespace / Spacing / Newline / Blank lines
 
 ```
+\hspace*{0.5cm}  % forces indentation even at beginning of line
+
 ~  % adds some spacing in math mode
 \,  % tiny nonbreaking space (will not go to next line or page)
 % https://practicaltypography.com/nonbreaking-spaces.html
@@ -1765,6 +1831,7 @@ https://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-ite
 \newline
 ```
 
+https://tex.stackexchange.com/questions/37343/how-can-i-force-a-hspace-at-the-beginning-of-a-line
 https://tex.stackexchange.com/questions/63761/inserting-a-specific-number-of-blank-lines
 
 

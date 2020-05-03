@@ -1,3 +1,10 @@
+### Hide taskbar on fullscreen
+
+If not working, restart Windows Explorer from Task Manager (Ctrl + Shift + Esc)
+
+https://www.guidingtech.com/windows-10-taskbar-not-hiding-in-fullscreen-8-ways-to-solve-it/
+
+
 ### Switch between windows of same app
 
 Ctrl + click on app icon on taskbar. Can also repeatedly press Windows + N, where N is the icon number on taskbar.
@@ -10,7 +17,7 @@ https://stackoverflow.com/questions/11175261/keyboard-shortcut-to-cycle-through-
 https://github.com/billziss-gh/sshfs-win
 
 
-### Update start-up apps
+### Update start-up apps | change startup apps
 
 Start -> Settings -> Start-up Apps
 
@@ -39,7 +46,7 @@ If microphone is needed, use ScreenRec: https://screenrec.com/screen-recorder/re
 
 Use Xbox Game Bar.
 
-Win + G 
+Win + G
 
 https://www.pcmag.com/news/349410/how-to-capture-video-clips-in-windows-10
 

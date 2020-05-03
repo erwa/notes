@@ -1,3 +1,10 @@
+### Switch to other panel / change panel
+
+Ctrl + 1/2/3
+
+https://superuser.com/questions/368785/switch-between-columns-active-tabs-in-sublime-text-2
+
+
 ### Show file in sidebar / reveal in sidebar
 
 Right click inside file -> Reveal in Side Bar

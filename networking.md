@@ -41,6 +41,18 @@ https://en.wikipedia.org/wiki/SOCKS
 http://docs.oracle.com/javase/7/docs/technotes/guides/net/proxies.html (section 2.4 SOCKS)
 
 
+### Check what ports are in use
+
+```
+lsof -i -P -n | grep LISTEN
+# -i to select Internet addresses
+# -P don't convert port numbers to names
+# -n don't convert network numbers to host names
+```
+
+https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
+
+
 ### Find process running on port
 
 ```
@@ -61,12 +73,14 @@ sudo netstat -tulpn | grep <port>
 http://stackoverflow.com/questions/3855127/find-and-kill-process-locking-port-3000-on-mac
 
 On a Mac, use:
+
 ```
 lsof -i tcp:22
 
 # alternative
 netstat -anp tcp | grep <port>
 ```
+
 * `-a` means show the state of all sockets, including server process sockets.
 * `-n` means show network addresses as IP addresses instead of using domain names.
 * `-p tcp` means show stats for the TCP protocol.

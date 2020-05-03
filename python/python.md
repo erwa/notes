@@ -1,3 +1,29 @@
+### Truthiness
+
+True
+* `0 == False`
+* `1 == True`
+* `False is False`
+
+False:
+* empty set
+* `0 is False`
+
+
+### String template
+
+```
+>>> 'Hello, %s' % name
+"Hello, Bob"
+
+>>> 'Hey {name}, there is a 0x{errno:x} error!'.format(
+...     name=name, errno=errno)
+'Hey Bob, there is a 0xbadc0ffee error!'
+```
+
+https://realpython.com/python-string-formatting/
+
+
 ### First matching item in list
 
 ```
@@ -170,7 +196,7 @@ Can represent 8-bit data and ASCII strings (character code up to 127).
 https://docs.python.org/2/reference/lexical_analysis.html#strings
 
 
-### Bytes to string
+### Bytes to string / b string
 
 ```
 b"abcde".decode("utf-8")
@@ -807,17 +833,20 @@ Once a generator throws an exception, it exits. You cannot keep consuming items 
 http://stackoverflow.com/questions/11366064/handle-an-exception-thrown-in-a-generator
 
 
-### Sets
+### Sets | set operations
 
 ```
 s = set()
+1 in s  # set membership
 s.add(x)
 s.pop()
 s.remove(x)
 s.update(set2)  // set2 can be any iterable, modifies existing set
 s.union(set2)   // set2 can be any iterable, returns NEW set
+len(s) // set size / size of set
 ```
 
+https://realpython.com/python-sets/#set-size-and-membership
 https://docs.python.org/2/library/sets.html
 
 
@@ -854,7 +883,7 @@ pip install -r requirements.txt
 ```
 
 
-### Create virtualenv / virtual environment
+### Create virtualenv / virtual environment / create venv
 
 ```
 wget https://pypi.org/packages/source/v/virtualenv/virtualenv-16.7.5.tar.gz
@@ -1131,12 +1160,22 @@ seconds = dt.timestamp()  # returns float
 https://stackoverflow.com/questions/7852855/in-python-how-do-you-convert-a-datetime-object-to-seconds
 
 
-### Convert epoch to datetime
+### Convert epoch to datetime | epoch to UTC time
 
 ```
+# method 1
+import datetime
+import time
+t = time.gmtime(1398107773)
+d = datetime.date(t.tm_year, t.tm_mon, t.tm_mday)
+
+# method 2
 import time
 time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime(1347517370))
 ```
+
+https://stackoverflow.com/questions/5476065/how-to-truncate-the-time-on-a-datetime-object-in-python
+https://stackoverflow.com/questions/12400256/converting-epoch-time-into-the-datetime
 
 
 ### Variable Scope
@@ -1250,6 +1289,28 @@ a == b
 ```
 
 
+### Pretty print dictionary
+
+```
+import pprint
+stuff = ['spam', 'eggs', 'lumberjack', 'knights', 'ni']
+stuff.insert(0, stuff[:])
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(stuff)
+```
+
+https://docs.python.org/3.6/library/pprint.html
+
+
+### Size of dictionary | dict size | dictionary size
+
+```
+len(my_dict)
+```
+
+https://www.tutorialspoint.com/python/dictionary_len.htm
+
+
 ### Create dictionary from string
 
 ```
@@ -1271,6 +1332,14 @@ https://stackoverflow.com/questions/8519599/python-dictionary-to-string-custom-f
 
 ### Sort dictionary by keys
 
+```
+x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
+{0: 0, 2: 1, 1: 2, 4: 3, 3: 4}
+```
+
+https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
+
 Dictionaries are unsorted, but you can achieve this effect by serializing to a list, sorting the list, and then reconstructing the dictionary using OrderedDict.
 
 ```
@@ -1286,6 +1355,8 @@ https://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value
 ### Parse JSON
 
 ```
+json.loads(string_or_bytes)
+
 with open('/path/to/file') as f:  # defaults to 'r' mode
     data = json.load(f)
 
@@ -1979,6 +2050,17 @@ data = open("data.txt").read().replace('\n','')
 http://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-string-variable-in-python
 
 
+### Iterate over two files simultaneously
+
+```
+with open(file1name) as file1, open(file2name) as file2:
+    for line1, line2 in zip(file1, file2):
+        #do stuff
+```
+
+https://stackoverflow.com/questions/3322419/how-to-iterate-across-lines-in-two-files-simultaneously
+
+
 ### Read file line by line
 
 ```
@@ -2302,6 +2384,10 @@ https://stackoverflow.com/questions/13361510/typeerror-unsupported-operand-types
 ### Dictionaries
 
 ```
+# dict values | get dict values | get dictionary values
+my_dict.values()
+# https://www.geeksforgeeks.org/python-dictionary-values/
+
 # Check if key in dictionary / check if dictionary contains
 if key in d:
 # http://stackoverflow.com/questions/1602934/check-if-a-given-key-already-exists-in-a-dictionary
@@ -2313,9 +2399,14 @@ for k,v in d.items():
 # Sort a dictionary in descending order
 sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
 
+# Remove key from dict
+my_dict.pop('key', None)  # returns key or None if key not present
+my_dict.pop('key')  # KeyError if key not present
+del my_dict['key']  # KeyError if key not present
+
+
 # Delete from dictionary while iterating
-# Only works in Python 2
-for k in mydict.keys(): # Creates copy of keys
+for k in list(mydict.keys()):
     if k == 'two':
         del mydict[k]
 # http://stackoverflow.com/questions/5384914/how-to-delete-items-from-a-dictionary-while-iterating-over-it

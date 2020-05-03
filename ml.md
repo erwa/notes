@@ -1,3 +1,62 @@
+### Backtraces | stack traces | stacktraces
+
+```
+CM.make "$smlnj-tdp/back-trace.cm";
+SMLofNJ.Internals.TDP.mode := true;
+(* then recompile everything *)
+```
+
+
+### Polymorphic function
+
+```
+- fun swap(x: 'a, y: 'b): 'b * 'a = (y,x)
+val swap = fn : 'a * 'b -> 'b * 'a
+
+swap(1,2);          (* swap : (int * int) -> (int * int) *)
+swap(3.14,2.17);    (* swap : (real * real) -> (real * real) *)
+swap("foo","bar");  (* swap : (string * string) -> (string * string) *)
+swap("foo",3.14);   (* swap : (string * real) -> (real * string) *)
+```
+
+http://www.cs.cornell.edu/courses/cs312/2008sp/lectures/lec04.html
+
+
+### Load file in REPL
+
+```
+use "dir/myfile.sml";
+```
+
+https://courses.cs.washington.edu/courses/cse505/98au/software/sml.html
+
+
+### Record types
+
+```
+- val foo = {x = 3};
+val foo = {x=3} : {x:int}
+- val bar = {x = 3, y = true};
+val bar = {x=3,y=true} : {x:int, y:bool}
+- val baz = {x = "hi", y = foo};
+val baz = {x="hi",y={x=3}} : {x:string, y:{x:int}}
+- val boo = {foo = #"h", bar = "i", baz = 123.0};
+val boo = {bar="i",baz=123.0,foo=#"h"} : {bar:string, baz:real, foo:char}
+```
+
+https://courses.cs.washington.edu/courses/cse341/04wi/lectures/02-ml-intro.html "Records" section
+
+
+### Extract element from tuple
+
+```
+(* extract 2nd element from tuple *)
+#2 (1, "two", 3.0) = "two"
+```
+
+https://www.cs.cornell.edu/courses/cs312/2004fa/lectures/lecture3.htm
+
+
 ### Pound signs in output
 
 Output only printed up to certain depth. Increase depth as follows:
@@ -139,6 +198,9 @@ datatype 'a option = NONE | SOME of 'a
 (* create expression of option type *)
 SOME(e)
 NONE
+
+(* extract value of SOME(e) *)
+valOf optVal
 ```
 
 http://sml-family.org/Basis/option.html
@@ -323,6 +385,24 @@ structure StringDict = Dict (structure K = StringLT)
 https://www.cs.cmu.edu/~rwh/introsml/modules/subfun.htm
 http://www.cs.cmu.edu/~rwh/isml/examples/parameterization.sml
 
+```
+signature LIST =
+   sig
+      type a = int * int
+   end
+
+functor FooFun (l : LIST) = l
+
+structure List :> LIST =
+   struct
+      type a = int * int
+   end
+
+structure Foo = FooFun (List)
+```
+
+http://www.cs.cornell.edu/courses/cs312/2006fa/recitations/rec08.html
+
 
 ### Signature ascription
 
@@ -413,7 +493,7 @@ exists f l
 http://sml-family.org/Basis/list.html
 
 
-### Datatype replication
+### Datatype replication | datatype copying
 
 ```
 datatype id = datatype longid
@@ -476,6 +556,15 @@ https://cs.fit.edu/~ryan/sml/intro.html
 https://stackoverflow.com/questions/20437520/what-is-the-difference-between-a-and-a-in-sml
 
 
+### Map over pair of lists / iterate over pair of lists
+
+```
+val mapEq : ('a * 'b -> 'c) -> 'a list * 'b list -> 'c list
+```
+
+http://sml-family.org/Basis/list-pair.html
+
+
 ### Apply function to every element of a list
 
 ```
@@ -527,6 +616,10 @@ fun findCase l nil = raise Malformed
     if Label.equal(l, li)
     then h
     else findCase l r
+
+case foo of
+  bar as Mycon _ => ...
+| _ => ...
 ```
 
 

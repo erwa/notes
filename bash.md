@@ -20,6 +20,28 @@ cal
 https://www.cyberciti.biz/faq/howto-displays-calendar-date-of-easter/
 
 
+### Sort by column
+
+```
+cat foo.txt | sort -k 3  # sort by third column
+```
+
+https://unix.stackexchange.com/questions/104525/sort-based-on-the-third-column
+
+
+### Print nth line of file
+
+```
+# replace N with line
+head -N file | tail -1
+
+# NUM is line number (possibly faster for giant file)
+sed 'NUMq;d' file
+```
+
+https://stackoverflow.com/questions/6022384/bash-tool-to-get-nth-line-from-a-file
+
+
 ### Sort lines of file by length
 
 ```
@@ -1190,6 +1212,17 @@ LC_ALL=C
 ```
 
 
+### Copy files while excluding certain files
+
+```
+rsync -avr --exclude='path1/to/exclude' --exclude='path2/to/exclude' source/ destination
+```
+
+`source/` (with trailing slash) means copy contents of `source` into `destination`. `source` means copy `source` folder itself into `destination`.
+
+https://askubuntu.com/questions/333640/cp-command-to-exclude-certain-files-from-being-copied
+
+
 ### `rsync` example:
 
 ```
@@ -1654,6 +1687,16 @@ http://stackoverflow.com/questions/13489398/delete-files-older-than-10-days-usin
 ```
 ls -l /tmp | grep $USER | tr -s ' ' | cut -d ' ' -f 9 | xargs -I% rm -rf /tmp/%
 ```
+
+
+### Copy file multiple times
+
+```
+for i in {a,b,c,d}; do cp HW3-Exp-1a.qry HW3-Exp-3${i}.qry; done
+```
+
+https://unix.stackexchange.com/questions/291065/duplicate-file-x-times-in-command-shell
+https://www.cyberciti.biz/faq/bash-for-loop-array/
 
 
 ### Copy directory while resolving symlinks

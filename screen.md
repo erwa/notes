@@ -1,3 +1,14 @@
+### Scroll up
+
+```
+Ctrl-A, Esc to switch to scroll mode
+Page Up/Down or Up/Down to scroll
+Esc to exit
+```
+
+https://smallbusiness.chron.com/scroll-up-linux-screen-46302.html
+
+
 ### Create a named screen `foo`
 
 ```
