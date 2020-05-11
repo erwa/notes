@@ -88,6 +88,15 @@ http://homepages.inf.ed.ac.uk/mfourman/teaching/mlCourse/notes/practicals/p1.htm
 http://www.itu.dk/~sestoft/sml/language-chapter.html
 
 
+### nth of list
+
+```
+nth (l, i)
+```
+
+https://smlfamily.github.io/Basis/list.html#SIG:LIST.nth:VAL
+
+
 ### Remove duplicates from list / dedup list
 
 ```
@@ -556,10 +565,14 @@ https://cs.fit.edu/~ryan/sml/intro.html
 https://stackoverflow.com/questions/20437520/what-is-the-difference-between-a-and-a-in-sml
 
 
-### Map over pair of lists / iterate over pair of lists
+### Map over pair of lists / iterate over pair of lists | ListPair
 
 ```
+(* raises exception if lists are of unequal lengths *)
 val mapEq : ('a * 'b -> 'c) -> 'a list * 'b list -> 'c list
+
+(* ignores excess items of longer list *)
+val map   : ('a * 'b -> 'c) -> 'a list * 'b list -> 'c list
 ```
 
 http://sml-family.org/Basis/list-pair.html
@@ -611,6 +624,7 @@ https://www.cs.cmu.edu/~rwh/introsml/core/functions.htm
 ### Rename pattern as / nested as
 
 ```
+(* function patter match *)
 fun findCase l nil = raise Malformed
   | findCase l ((h as ((li, _), _))::r) =
     if Label.equal(l, li)
@@ -624,6 +638,12 @@ case foo of
 
 
 ### Pattern matching
+
+```
+(* pattern match function arguments *)
+fun elabDecls (ctx: context) (ectx as (c,m,s): elabctx)
+    (dList : EL.decl list) : ILModule.sg * ILModule.module =
+```
 
 For nested pattern matching, use parentheses.
 

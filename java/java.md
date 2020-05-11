@@ -294,6 +294,26 @@ while (iter.hasNext()) {
 ```
 
 
+### List literal
+
+```
+// Java 9+
+List.of("foo", "bar");
+```
+
+https://docs.oracle.com/javase/9/docs/api/java/util/List.html#immutable
+
+
+### Set literal
+
+```
+// Java 9+
+Set<String> flavors = Set.of("vanilla", "strawberry", "chocolate", "butter pecan");
+```
+
+https://stackoverflow.com/questions/924285/efficiency-of-java-double-brace-initialization
+
+
 ### Update list while iterating
 
 Can use ListIterator.

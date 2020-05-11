@@ -1,3 +1,17 @@
+### Reorder files / randomly sort files
+
+Use Bulk Rename Utility.
+
+https://www.bulkrenameutility.co.uk/
+
+If Rename is grayed out, make sure in the "Numbering" section, you select something for "Mode".
+
+
+### Show file extensions and hidden files
+
+Open Explorer --> View tab --> check "File name extensions" and "Hidden items".
+
+
 ### Hide taskbar on fullscreen
 
 If not working, restart Windows Explorer from Task Manager (Ctrl + Shift + Esc)

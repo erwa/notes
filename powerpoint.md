@@ -1,3 +1,22 @@
+### Insert background music
+
+Insert -> Audio
+
+Select audio object -> Playback -> {Play in Background, check "Hide During Show", "Play Across Slides", "Loop until Stopped"}
+
+If you have multiple songs, best to combine them into one audio file first using something like [https://clideo.com/merge-audio]().
+
+
+### One picture per slide
+
+Insert -> Photo Album
+
+
+### Auto-play slides / auto-transition slides / auto-advance slides
+
+Select slides -> Transitions -> under "Advance Slide", uncheck "On Mouse Click" and check "After" and specify a time
+
+
 ### Create group
 
 Select items -> Option + Cmd + G

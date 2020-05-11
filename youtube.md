@@ -9,7 +9,7 @@ If music video is blocked, find a lyrics video.
 
 ### Download YouTube Video as MP3
 
-http://www.listentoyoutube.com/
+https://ytmp3.cc/en13/
 
 
 ### Download YouTube Video + Audio
