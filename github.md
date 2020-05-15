@@ -55,6 +55,18 @@ https://github.com/azkaban/azkaban/commits/master?author=erwa
 http://stackoverflow.com/questions/12174276/github-list-commits-by-author
 
 
+### Link to file within repo
+
+```
+[a relative link](other_file.md)
+
+# however, it seems if you want the text to be the file name, you have to repeat the file name:
+[other_file.md](other_file.md)
+```
+
+https://stackoverflow.com/questions/7653483/github-relative-link-in-markdown-file
+
+
 ### Link with same text as link
 
 ```

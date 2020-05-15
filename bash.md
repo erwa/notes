@@ -982,9 +982,12 @@ tree -d
 ```
 
 
-### List files sorted by size
+### List files sorted by size | ls sort by file size
 
 ```
+# smallest to largest
+ls -Slhr
+
 ls -Ssh
 ```
 

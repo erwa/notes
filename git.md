@@ -1,3 +1,28 @@
+### Git Large File Storage / Git LFS
+
+https://github.com/git-lfs/git-lfs
+
+```
+# this modifies .gitattributes file
+git lfs track "*.psd"
+
+# then just use git add, git commit
+# make sure you also commit changes to .gitattributes!
+
+# to untrack
+git lfs untrack foo.psd
+
+# clone repo / pull without large files
+# one-time
+GIT_LFS_SKIP_SMUDGE=1 git clone SERVER-REPOSITORY
+
+# always
+git config --global filter.lfs.smudge "git-lfs smudge --skip"
+```
+
+https://stackoverflow.com/questions/42019529/how-to-clone-pull-a-git-repository-ignoring-lfs
+
+
 ### Break commit into several commits
 
 ```
@@ -779,7 +804,7 @@ git log [FOLDER]
 http://stackoverflow.com/questions/11950037/view-git-history-for-folder
 
 
-### Case-insensitive search for "word" in commit log *contents*
+### Case-insensitive search for "word" in commit log *contents* | search log
 
 http://stackoverflow.com/questions/1337320/how-to-grep-git-commit-diffs-or-contents-for-a-certain-word
 

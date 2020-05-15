@@ -65,3 +65,12 @@
 - photos / physical copies of boarding passes, in case no Internet access
 - Download language pack in Google Translate for offline translation
 - water filter (for filtering tap water, if coffee pot / water heater is not available)
+
+
+### When moving (or for an extended trip)
+
+- hot water kettle
+- iron
+- bicycle
+- bike pump / bicycle pump
+- vacuum cleaner

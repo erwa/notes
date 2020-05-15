@@ -1,3 +1,10 @@
+### Remove leading and trailing whitespace / strip / trim
+
+```
+s.trim();
+```
+
+
 ### HTTP GET request
 
 ```
@@ -629,10 +636,15 @@ In Settings for Profiler, you can choose classes from which to start profiling.
 ### Round to decimal places
 
 ```
+DecimalFormat df = new DecimalFormat();
+df.setMaximumFractionDigits(2);
+System.out.println(df.format(decimalNumber));
+
 DecimalFormat df = new DecimalFormat("#.00000");
 df.format(0.912385);
 ```
 
+https://stackoverflow.com/questions/2538787/how-to-print-a-float-with-2-decimal-places-in-java
 https://stackoverflow.com/questions/153724/how-to-round-a-number-to-n-decimal-places-in-java
 
 
