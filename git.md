@@ -55,10 +55,15 @@ git config --global core.editor "vi"
 ### Checkout Submodules
 
 ```
+# in one command
+git submodule update --init --recursive
+
+# separately
 git submodule init
 git submodule update
 ```
 
+https://git-scm.com/book/en/v2/Git-Tools-Submodules
 https://stackoverflow.com/questions/3796927/how-to-git-clone-including-submodules
 
 Example: horovod uses them: https://github.com/horovod/horovod/blob/master/.gitmodules

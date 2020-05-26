@@ -158,6 +158,13 @@ To enable: Add-ons -> Auto-Latex Equations -> Start
 https://sites.google.com/site/autolatexequations/tutorial
 
 
+### Save image from Google Doc
+
+Right click -> Save to Keep -> in sidebar -> right click -> Save Image As
+
+https://www.youtube.com/watch?v=ms4xDmDJhEM
+
+
 ### Download image from Google Slides
 
 Go to presentation mode -> Inspect Element -> get image URL -> go there and save

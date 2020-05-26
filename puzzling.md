@@ -205,7 +205,7 @@ Clues do not always have to be definition + word play. Can be double definition.
 http://solving-cryptics.com/
 
 
-### Cryptics Reference / Cryptic Dictionary
+### Cryptics Reference / Cryptic Dictionary / Cryptic indicators
 
 http://bestforpuzzles.com/cryptic-crossword-dictionary -> has A-Z dictionary
 

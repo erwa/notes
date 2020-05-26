@@ -958,7 +958,13 @@ ls ~USER
 Add the following to your .bashrc to enable color ls output by default:
 ```
 alias ls="ls --color=auto"
+
+# On Mac, to mimic default Linux colors
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 ```
+
+https://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
+
 
 ### ls everything on one line
 

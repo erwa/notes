@@ -1,3 +1,83 @@
+### Operator overloading for increment (pre-increment and post-increment)
+
+```
+struct X
+{
+    // pre-increment
+    X& operator++()
+    {
+        // actual increment takes place here
+        return *this;
+    }
+
+    // post-increment
+    X operator++(int)
+    {
+        X tmp(*this); // copy
+        operator++(); // pre-increment
+        return tmp;   // return old value
+    }
+};
+```
+
+https://en.cppreference.com/w/cpp/language/operators#Increment_and_decrement
+
+
+### Reference types
+
+```
+int a = 5;
+int& r_a = a; // reference to int
+
+extern int& r_b; // reference to int
+
+// function that returns a reference to int
+int& Foo();
+
+// function that takes a parameter that is
+// a reference to int
+void Bar(int& r_p);
+```
+
+Differences from pointers:
+
+* cannot directly refer to reference; usages of its name refer to referenced object
+* references cannot be reassigned to refer to something else
+* references cannot be null
+* references cannot be uninitialized
+
+https://en.wikipedia.org/wiki/Reference_(C%2B%2B)
+
+
+### Destructor
+
+```
+class String
+{
+private:
+    char *s;
+    int size;
+public:
+    String(char *); // constructor
+    ~String();      // destructor
+};
+
+String::String(char *c)
+{
+    size = strlen(c);
+    s = new char[size+1];
+    strcpy(s,c);
+}
+
+String::~String()
+{
+    delete []s;
+}
+```
+
+https://www.geeksforgeeks.org/destructors-c/
+
+
 ### Make vs. CMake
 
 Make a build system. CMake generates build files such as Makefiles from a CMakeLists.txt file.
@@ -83,6 +163,18 @@ https://stackoverflow.com/questions/120876/what-are-the-rules-for-calling-the-su
 ### Colon after constructor
 
 Used for initialization. Can initialize member variables or call base class constructors.
+
+```
+class Demo
+{
+    // only time you can change a const member variable
+    Demo(int& val) : m_val(val)
+     {
+     }
+private:
+    const int& m_val;
+};
+```
 
 https://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
 

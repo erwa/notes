@@ -1,3 +1,23 @@
+### Author affiliation
+
+```
+\documentclass{article}
+\title{My Title}
+\author{Author One$^1$ \and Author Two$^2$}
+\date{%
+    $^1$Organization 1\\%
+    $^2$Organization 2\\[2ex]%
+    \today
+}
+
+\begin{document}
+\maketitle
+\end{document}
+```
+
+https://tex.stackexchange.com/questions/214404/add-affiliations-to-the-authors-name-in-the-article-class
+
+
 ### Caret literal
 
 ```
@@ -267,8 +287,12 @@ https://texblog.org/2013/11/27/complex-number-symbols-in-latex/
 % Skip a subsection, set subsection counter
 \stepcounter{subsection}
 \setcounter{subsection}{4} % next subsection will be 5
+
+% sub sub section
+\subsubsection{Very specific section}
 ```
 
+https://texfaq.org/FAQ-subsubsub
 https://tex.stackexchange.com/questions/111504/setting-section-counter
 https://tex.stackexchange.com/questions/132698/how-do-i-skip-a-subsection
 https://www.overleaf.com/learn/latex/Sections_and_chapters
@@ -330,6 +354,36 @@ https://tex.stackexchange.com/questions/91378/how-to-draw-the-calculation-of-a-d
 ```
 
 https://tex.stackexchange.com/questions/180325/boxed-equation-with-number/180326
+
+
+### Image overflow in table cell
+
+```
+\usepackage{verbatimbox}
+\newcommand\Includegraphics[2][]{\addvbuffer[3pt 3pt]{\includegraphics[#1]{#2}}}
+
+\Includegraphics[width=0.75\textwidth]{figures/foo.png}
+```
+
+https://tex.stackexchange.com/questions/170941/images-in-table-going-over-cell-lines
+
+
+### Align image with text in same row
+
+```
+\raisebox{-.5\height}{\includegraphics{some_picture}}
+
+% full example
+\documentclass{article}
+\usepackage{mwe}
+\begin{document}
+\begin{tabular}{lll}
+\raisebox{-.5\height}{\includegraphics[scale=0.25]{example-image}} & text & text\\
+\end{tabular}
+\end{document}
+```
+
+https://tex.stackexchange.com/questions/19080/how-to-vertically-center-text-with-an-image-in-the-same-row-of-a-table
 
 
 ### Image align top
@@ -451,14 +505,25 @@ every axis y label/.style={ at={(ticklabel* cs:1.05)}}
 https://tex.stackexchange.com/questions/76418/plot-non-continuous-function-with-tikz
 
 
-### Insert picture
+### Insert picture / insert figure
 
 ```
 \usepackage{graphicx}
 \includegraphics[width=0.6\linewidth]{picture.png}
 \includegraphics{{file.with.dots}.png}
+
+% htb gives preferences: here, then top, then bottom
+\begin{figure}[!htb]
+  \center{
+    \includegraphics[width=\textwidth]{figures/biotensor.png}
+  }
+  \caption{\label{fig:my-label} My figure.  An example of a cool figure}
+\end{figure}
+
+% you can refer to the figure using Figure \ref{fig:my-label}.
 ```
 
+http://www.sci.utah.edu/~macleod/latex/latex-figures.html
 https://tex.stackexchange.com/questions/10574/includegraphics-dots-in-filename
 
 
@@ -1389,6 +1454,7 @@ $\begin{aligned}[t]
 \end{aligned}$
 ```
 
+https://tex.stackexchange.com/questions/103601/top-alignment-of-cell-content-in-tabularx
 https://tex.stackexchange.com/questions/269685/avoiding-line-break-when-starting-align
 
 
@@ -1602,31 +1668,6 @@ Knuth: Computers and Typesetting,
 ```
 
 
-### Using BibTeX
-
-```
-@ Comment line in .bib file
-@ https://tex.stackexchange.com/questions/21709/comments-in-bibtex
-```
-
-```
-% Add to beginning of your .tex file
-\usepackage[
-  backend=bibtex,
-  style=alphabetic,
-  citestyle=alphabetic,
-  maxnames=4
-]{biblatex}
-\addbibresource{sample.bib}
-```
-
-Make sure to run bibtex before pdflatex.
-
-https://tex.stackexchange.com/questions/305381/biblatex-empty-bibliography
-https://www.sharelatex.com/learn/Biblatex_citation_styles
-http://mirror.hmc.edu/ctan/macros/latex/exptl/biblatex/doc/biblatex.pdf
-
-
 ### Reference equations
 
 ```
@@ -1651,22 +1692,18 @@ The equation \ref{eq:1} is a typical power series.
 https://www.overleaf.com/learn/latex/Cross_referencing_sections_and_equations#Referencing_equations.2C_figures_and_tables
 
 
-### Why "latex bibtex latex latex"?
-
-Multiple passes are required because some references aren't defined yet on the first pass.
-
-If formatting doesn't look right, try running latex again.
-
-https://tex.stackexchange.com/questions/100652/easier-than-latex-bibtex-latex-latex
-
-
 ### Adjust margins
 
 Example 1:
 
 ```
 \usepackage[margin=1.0in]{geometry}
+
+% use this to fix URL wrapping
+\Urlmuskip = 0mu plus 1mu
 ```
+
+https://tex.stackexchange.com/questions/107955/url-wrapping-extends-into-marginal-notes-space
 
 Example 2:
 
