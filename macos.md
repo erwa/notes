@@ -267,6 +267,8 @@ cmd + alt + h
 
 ```
 Cmd + F3 (no need to press Fn key, unless function lock enabled)
+
+# use menu key (next to right Ctrl) on Windows keyboard for Fn
 Fn + F11
 ```
 
