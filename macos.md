@@ -187,6 +187,14 @@ Use Photo Booth.
 
 * http://apple.stackexchange.com/questions/11497/can-i-take-a-still-photo-with-my-built-in-webcam
 
+
+### Clipboard Manager
+
+Clip: Cmd + Shift + V to select what to paste
+
+https://clipy-app.com/
+
+
 ### Taking screenshots / copy screenshot to clipboard
 
 ```

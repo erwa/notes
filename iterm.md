@@ -25,6 +25,11 @@ cmd-shift-d
 cmd-shift-enter
 
 
+### Change panes
+
+Cmd + Opt + Left/Right
+
+
 ### Rearrange panes
 
 Drag the menubar at the top of the pane.
