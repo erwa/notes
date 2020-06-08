@@ -207,6 +207,8 @@ http://solving-cryptics.com/
 
 ### Cryptics Reference / Cryptic Dictionary / Cryptic indicators
 
+Abbreviations list: https://sphinx.mythic-beasts.com/~mark/random/indicators/
+
 http://bestforpuzzles.com/cryptic-crossword-dictionary -> has A-Z dictionary
 
 Anagram indicators: http://cryptics.wikia.com/wiki/List_of_anagram_indicators

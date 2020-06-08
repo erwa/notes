@@ -851,6 +851,22 @@ svn co \url{https://svn.xxx.ch/reps/yyyyyyyyyy/Publications/ABC-paper-2012/trunk
 https://tex.stackexchange.com/questions/54946/how-to-break-long-url-in-an-item
 
 
+### Link to section
+
+```
+\usepackage{hyperref}
+
+%... other code
+
+\section{Hello World}
+\label{sec:hello}
+
+\hyperref[sec:hello]{Word of text}
+```
+
+https://tex.stackexchange.com/questions/180571/making-clickable-links-to-sections-with-hyperref
+
+
 ### Insert URL / URL with custom text
 
 ```

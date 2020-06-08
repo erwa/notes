@@ -1,3 +1,15 @@
+### Fix "object file is empty"
+
+```
+cp -a .git .git.bak
+find .git/objects/ -type f -empty | xargs rm
+git fetch -p
+git fsck --full
+```
+
+https://stackoverflow.com/questions/11706215/how-to-fix-git-error-object-file-is-empty
+
+
 ### Git Large File Storage / Git LFS
 
 https://github.com/git-lfs/git-lfs
@@ -908,7 +920,7 @@ git config --global core.pager more
 http://michael.otacoo.com/linux-2/avoid-escape-characters-in-git/
 
 
-### See configs
+### See configs / show configs / list configs
 
 ```
 # one config
