@@ -1,3 +1,61 @@
+### Double colon
+
+Used to cast to a type
+
+```
+% a.dc is cast to a date
+b.date_completed >  a.dc::date + INTERVAL '1 DAY 7:20:00'
+```
+
+https://stackoverflow.com/questions/5758499/double-colon-notation-in-sql
+
+
+### Alter table example / alter column example
+
+```
+alter table test_conversion alter column my_field type varchar;
+
+ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
+```
+
+https://www.postgresql.org/docs/9.5/ddl-alter.html
+
+
+### CREATE TABLE
+
+```
+CREATE TABLE IF NOT EXISTS test (
+    f       jsonb   NOT NULL default '{}'::jsonb
+);
+```
+
+
+### JSON operators
+
+```
+delete from foo where field->>‘type’ = ‘v2’;
+```
+
+https://www.postgresql.org/docs/9.3/functions-json.html
+
+
+### Insert example
+
+```
+insert into test_conversion values ('"test json string"');
+insert into test values ('"test json string"');
+```
+
+
+### String match on jsonb field
+
+```
+select * from test where f::text like '%json%';
+```
+
+https://dba.stackexchange.com/questions/179598/how-can-i-use-a-full-text-search-on-a-jsonb-column-with-postgres
+
+
 ### String with single quotes
 
 Single quote literal = two quotes.
@@ -84,9 +142,12 @@ grant all privileges on database mydb to myuser;
 https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
 
 
-### Show databases / show tables / show roles / show user privileges / use database / describe table
+### Show databases / show tables / show schemas /show roles / show user privileges / use database / describe table
 
 ```
+# show schemas (which are like folders to group tables, views, and functions)
+\dn
+
 \l  # show databases and privileges
 
 \dt  # show tables (once inside database)

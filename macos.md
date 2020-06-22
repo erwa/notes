@@ -245,6 +245,17 @@ Drag the Finder file or folder to the Terminal.
 * http://apple.stackexchange.com/questions/11323/how-can-i-open-a-terminal-window-directly-from-my-current-finder-location
 
 
+### SSHFS / mount remote filesystem over SSH
+
+First install FUSE and SSHFS. Then use
+
+```
+sshfs username@server:/path-on-server/ ~/path-to-mount-point
+```
+
+https://github.com/osxfuse/osxfuse/wiki/SSHFS
+
+
 ### SSH
 
 When ssh'ing from a Mac, you may need to add -A in order for git SSH connections to work. E.g.:
@@ -347,12 +358,14 @@ http://apple.stackexchange.com/questions/37914/move-through-images-in-a-folder-w
 Cmd + Option + Esc -> Choose app
 
 
-### Show all root folder contents in Finder
+### Show all root folder contents in Finder / show hidden files
 
 ```
 defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
 ```
 
+https://appleinsider.com/articles/18/07/27/how-to-see-hidden-files-and-folders-in-macos
 http://apple.stackexchange.com/questions/34871/how-to-view-root-directory-and-subdirectories-in-finder
 
 

@@ -20,7 +20,7 @@ cmd-d
 cmd-shift-d
 
 
-### Maximize current panel / restore all panels
+### Maximize current panel / restore all panels / full screen current pane
 
 cmd-shift-enter
 

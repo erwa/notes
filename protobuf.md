@@ -1,3 +1,14 @@
+### JSON to protobuf
+
+```
+JsonFormat.parser().merge(json_string, builder);
+```
+
+JsonFormat is is com.google.protobuf:protobuf-java-util jar.
+
+https://stackoverflow.com/questions/38406211/how-to-convert-from-json-to-protobuf
+
+
 ### Nested types
 
 ```

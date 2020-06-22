@@ -512,10 +512,15 @@ git commit --allow-empty
 ### Git Stash
 
 ```
+# stash one file
+git stash push path/to/file
+
 git stash save "name"
 git stash apply stash^{/name} # Doesn't seem to work anymore
 git stash apply stash@{0} # where 0 is a number (do git stash list first)
 ```
+
+https://stackoverflow.com/questions/3040833/stash-only-one-file-out-of-multiple-files-that-have-changed-with-git/3041055#3041055
 
 
 ### git pull rebase rather than merge
