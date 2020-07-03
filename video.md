@@ -1,3 +1,14 @@
+### Examples
+
+```
+# -re means read input at native frame rate
+# -c copy means not to re-encode stream
+ffmpeg -re -i foo.ts -c copy -map 0 -f mpegts udp://1.2.3.4:56789?pkt_size=1234
+```
+
+
+
+
 ### Check encoding of video
 
 ```

@@ -20,6 +20,15 @@ cal
 https://www.cyberciti.biz/faq/howto-displays-calendar-date-of-easter/
 
 
+### Sort by second column numerically
+
+```
+sort -k2n
+```
+
+https://www.unix.com/unix-for-advanced-and-expert-users/262294-sort-second-column-numeric-values.html
+
+
 ### Sort by column
 
 ```
@@ -331,6 +340,8 @@ NEWLINES" | tr '\n' ' '
 
 ```
 echo -e $(cat filename)
+
+grep PATTERN myfile | sed 's/\\n/\n/g'
 ```
 
 
@@ -1127,7 +1138,7 @@ date +%Y%m%d
 ### Date in epoch
 
 ```
-# Linux
+# Linux, works on Mac too
 date +%s
 
 # Mac

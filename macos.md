@@ -1,3 +1,10 @@
+### Split windows left and right / side-by-side windows / split view
+
+Hold down green full screen button and select Tile Left/Right.
+
+https://support.apple.com/en-us/HT204948
+
+
 ### Print source code
 
 Use TextWrangler.

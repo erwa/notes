@@ -1,3 +1,14 @@
+### Search path
+
+Set schemas to search:
+
+```
+set search_path to myschema,public;
+```
+
+https://www.postgresql.org/docs/9.1/ddl-schemas.html
+
+
 ### Double colon
 
 Used to cast to a type
@@ -16,6 +27,8 @@ https://stackoverflow.com/questions/5758499/double-colon-notation-in-sql
 alter table test_conversion alter column my_field type varchar;
 
 ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
+
+ALTER TABLE IF EXISTS mytable ADD COLUMN IF NOT EXISTS mycolumn VARCHAR NOT NULL DEFAULT '';
 ```
 
 https://www.postgresql.org/docs/9.5/ddl-alter.html
@@ -96,6 +109,17 @@ https://stackoverflow.com/questions/13733719/which-version-of-postgresql-am-i-ru
 ```
 
 https://stackoverflow.com/questions/1517635/save-pl-pgsql-output-from-postgresql-to-a-csv-file
+
+
+### Scroll up in long output
+
+```
+# use pager that can scroll up
+export PAGER=less
+psql ...
+```
+
+https://stackoverflow.com/questions/48938202/postgresql-how-to-scroll-up-in-long-output
 
 
 ### Disable output paging / turn off "less" output

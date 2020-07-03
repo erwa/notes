@@ -8,6 +8,9 @@ s.orElse("");
 
 s.isPresent()
 s.isEmpty()
+
+// returns Optional<T> where T is return type of transform()
+s.map(thing -> transform(thing))
 ```
 
 
@@ -802,6 +805,19 @@ Date d = sdf.parse("21/12/2012");
 https://stackoverflow.com/questions/6437257/whats-the-right-way-to-create-a-date-in-java
 
 
+### Date in yyyy-mm-dd format
+
+```
+import java.time.Instant;
+import java.time.ZoneOffset;
+
+Instant.ofEpochMilli(1593112770000L)
+    .atOffset(ZoneOffset.UTC)
+    .toLocalDate()
+    .toString()
+```
+
+
 ### Print current date in time zone
 
 ```
@@ -1591,6 +1607,9 @@ File file = new File(getClass().getClassLoader().getResource("file/test.xml").ge
 
 # read resource file into string
 FileUtils.readFileToString(new File(getClass().getClassLoader().getResource("file/test.xml").getFile()));
+
+# using Guava
+File f = new File(Resources.getResource("var/conf/runtime.yml").getFile());
 ```
 
 https://www.mkyong.com/java/java-read-a-file-from-resources-folder/
