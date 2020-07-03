@@ -4,10 +4,8 @@ In your SSH config file
 
 ```
 ControlMaster auto
-
-Host xyz
-  ControlPath ~/.ssh/%r@%h:%p.connection
-  ControlPersist 480m
+ControlPath ~/.ssh/%r@%h:%p.connection
+ControlPersist 480m
 ```
 
 https://www.nccgroup.com/us/about-us/newsroom-and-events/blog/2019/october/bypassing-authentication-on-ssh-bastion-hosts/
