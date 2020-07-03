@@ -20,6 +20,15 @@ cal
 https://www.cyberciti.biz/faq/howto-displays-calendar-date-of-easter/
 
 
+### Sort by second column numerically
+
+```
+sort -k2n
+```
+
+https://www.unix.com/unix-for-advanced-and-expert-users/262294-sort-second-column-numeric-values.html
+
+
 ### Sort by column
 
 ```
@@ -291,6 +300,16 @@ sort -V
 ```
 
 
+### ps full command
+
+```
+# don't truncate ps command
+ps axuww
+```
+
+https://stackoverflow.com/questions/2159860/viewing-full-output-of-ps-command
+
+
 ### `ps` output explained
 
 ```
@@ -321,6 +340,8 @@ NEWLINES" | tr '\n' ' '
 
 ```
 echo -e $(cat filename)
+
+grep PATTERN myfile | sed 's/\\n/\n/g'
 ```
 
 
@@ -755,6 +776,20 @@ ${MYSTRING%?}
 `%` (percent) matches from the end. `?` matches any character. See http://wiki.bash-hackers.org/syntax/pattern.
 
 
+### Dash dash (--)
+
+Usually used to signify end of arguments
+
+```
+# -- means end of arguments
+# $$ means pid of current process
+kill -- -$$
+```
+
+https://stackoverflow.com/questions/976059/shell-script-to-spawn-processes-terminate-children-on-sigterm
+https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean
+
+
 ### Bash dollar sign variables
 
 See http://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables.
@@ -1103,7 +1138,7 @@ date +%Y%m%d
 ### Date in epoch
 
 ```
-# Linux
+# Linux, works on Mac too
 date +%s
 
 # Mac
@@ -1314,9 +1349,15 @@ http://unix.stackexchange.com/questions/8444/is-it-possible-in-bash-to-start-rea
 NOTE: This does not work on Mac/BSD bash:
 
 ```
+# On Mac
+brew install coreutils
+greadlink -f <file>
+
 # This also follows symbolic links.
 readlink -f <file>
 ```
+
+https://superuser.com/questions/717105/how-to-show-full-path-of-a-file-including-the-full-filename-in-mac-osx-terminal
 
 
 ### See login times

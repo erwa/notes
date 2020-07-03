@@ -1,3 +1,19 @@
+### Optional
+
+```
+Optional<String> s = Optional.of("foo");
+
+// when String is needed
+s.orElse("");
+
+s.isPresent()
+s.isEmpty()
+
+// returns Optional<T> where T is return type of transform()
+s.map(thing -> transform(thing))
+```
+
+
 ### Remove leading and trailing whitespace / strip / trim
 
 ```
@@ -311,6 +327,18 @@ List.of("foo", "bar");
 https://docs.oracle.com/javase/9/docs/api/java/util/List.html#immutable
 
 
+### Set intersection
+
+Check if set contains any element of another set
+
+```
+// NOTE: disjoint() allows you to pass collections containing different types of elements. Make sure you pass the correct collections!
+Collections.disjoint(A, B)
+```
+
+https://stackoverflow.com/questions/8708542/something-like-contains-any-for-java-set
+
+
 ### Set literal
 
 ```
@@ -499,6 +527,11 @@ https://stackoverflow.com/questions/1751844/java-convert-liststring-to-a-string
 Add logger level check around logging statement.
 
 
+### Nonnull annotation
+
+Not actually checked at runtime. Should use `Preconditions.checkNotNull` in addition.
+
+
 ### Suppress FindBugs warnings
 
 ```
@@ -592,6 +625,11 @@ class Foo {
 * https://en.wikipedia.org/wiki/Double-checked_locking#Usage_in_Java
 * Also see Effective Java Item 71 (p. 283-285).
 * The local variable is not strictly necessary but may improve performance.
+
+
+### Writing hashCode method
+
+Can use `Objects.hash()`.
 
 
 ### Lombok `@Data`
@@ -765,6 +803,19 @@ Date d = sdf.parse("21/12/2012");
 ```
 
 https://stackoverflow.com/questions/6437257/whats-the-right-way-to-create-a-date-in-java
+
+
+### Date in yyyy-mm-dd format
+
+```
+import java.time.Instant;
+import java.time.ZoneOffset;
+
+Instant.ofEpochMilli(1593112770000L)
+    .atOffset(ZoneOffset.UTC)
+    .toLocalDate()
+    .toString()
+```
 
 
 ### Print current date in time zone
@@ -1329,6 +1380,17 @@ java -Dfile.encoding=UTF-8 ... com.x.Main
 ```
 
 
+### Inline thread / lambda thread
+
+```
+Thread t = new Thread(() -> {
+    // your code here ...
+});
+```
+
+https://alvinalexander.com/java/java-8-lambda-thread-runnable-syntax-examples/
+
+
 ### Run background thread
 
 ```
@@ -1520,6 +1582,18 @@ http://www.javamex.com/tutorials/regular_expressions/search_replace.shtml
 Must match ENTIRE string. See http://stackoverflow.com/questions/8923398/regex-doesnt-work-in-string-matches for details.
 
 
+### Try with resources
+
+```
+try (BufferedReader br =
+               new BufferedReader(new FileReader(path))) {
+    return br.readLine();
+}
+```
+
+https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+
+
 ### Get resource file path
 
 In Java project, in Gradle and in IDE, working directory is generally root project directory. You can construct relative paths from it.
@@ -1533,6 +1607,9 @@ File file = new File(getClass().getClassLoader().getResource("file/test.xml").ge
 
 # read resource file into string
 FileUtils.readFileToString(new File(getClass().getClassLoader().getResource("file/test.xml").getFile()));
+
+# using Guava
+File f = new File(Resources.getResource("var/conf/runtime.yml").getFile());
 ```
 
 https://www.mkyong.com/java/java-read-a-file-from-resources-folder/
@@ -1617,6 +1694,28 @@ A functional interface is any interface that contains only one abstract method.
 ```
 Arrays.fill(v, desiredNumResultsPerIntent);
 ```
+
+
+### forEach
+
+```
+import java.util.List;
+import java.util.ArrayList;
+public class Example {
+   public static void main(String[] args) {
+      List<String> fruits = new ArrayList<String>();
+      fruits.add("Apple");
+      fruits.add("Orange");
+      fruits.add("Banana");
+      fruits.add("Pear"); 
+      fruits.add("Mango");
+      //lambda expression in forEach Method 
+      fruits.forEach(str->System.out.println(str));
+   }
+}
+```
+
+https://beginnersbook.com/2017/10/java-8-foreach/
 
 
 ### Stream array

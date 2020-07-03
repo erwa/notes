@@ -1,3 +1,14 @@
+### Mock final classes
+
+Create file `src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker` with contents:
+
+```
+mock-maker-inline
+```
+
+https://www.baeldung.com/mockito-final
+
+
 ### Use `@Mock` annotation
 
 ```

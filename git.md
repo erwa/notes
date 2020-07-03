@@ -10,6 +10,18 @@ git fsck --full
 https://stackoverflow.com/questions/11706215/how-to-fix-git-error-object-file-is-empty
 
 
+### Encountered files that should have been pointers, but weren't
+
+```
+git lfs uninstall
+git reset --hard
+git lfs install
+git lfs pull
+```
+
+https://github.com/git-lfs/git-lfs/issues/1939
+
+
 ### Git Large File Storage / Git LFS
 
 https://github.com/git-lfs/git-lfs
@@ -524,10 +536,15 @@ git commit --allow-empty
 ### Git Stash
 
 ```
+# stash one file
+git stash push path/to/file
+
 git stash save "name"
 git stash apply stash^{/name} # Doesn't seem to work anymore
 git stash apply stash@{0} # where 0 is a number (do git stash list first)
 ```
+
+https://stackoverflow.com/questions/3040833/stash-only-one-file-out-of-multiple-files-that-have-changed-with-git/3041055#3041055
 
 
 ### git pull rebase rather than merge
@@ -608,6 +625,16 @@ patch -p1 blue/red/hi.test ~/patch_file
 ```
 
 https://stackoverflow.com/questions/16526321/how-to-apply-a-git-patch-to-a-file-with-a-different-name-and-path
+
+
+### Don't truncate file names in `--stat` output
+
+```
+# 200 is the line width
+git show <commit> --stat=200
+```
+
+https://stackoverflow.com/questions/10459374/making-git-diff-stat-show-full-file-path
 
 
 ### Git Diff

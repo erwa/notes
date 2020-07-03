@@ -257,7 +257,7 @@ test {
 https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
 
 
-### Run one test / run one unit test / run 1 unit test
+### Run one test / run 1 test / run one unit test / run 1 unit test
 
 ```
 ./gradlew :gobblin-data-management:test --tests *AvroSchemaManagerTest
@@ -430,7 +430,7 @@ https://docs.gradle.org/current/userguide/build_lifecycle.html
 Tasks may be defined at the end of the Configuration phase: https://stackoverflow.com/a/44325473/1128392
 
 
-### Figure out whether you're depending on a jar
+### Figure out whether you're depending on a jar / see dependency tree
 
 ```
 gradle dependencyInsight --configuration default --dependency azkaban
@@ -442,6 +442,7 @@ https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:
 
 ```
 gradle tasks
+gradle tasks --all
 ```
 
 
@@ -636,6 +637,22 @@ configurations.CONFIG_NAME.exclude group: 'com.foo', module: 'foo'
 ```
 
 http://stackoverflow.com/questions/9918568/gradle-exclude-a-dependency-for-a-configuration-but-not-for-an-inheriting-con
+
+
+### Set Java version
+
+```
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+```
+
+https://docs.gradle.org/current/userguide/building_java_projects.html#introduction
 
 
 ### Build with Java 7

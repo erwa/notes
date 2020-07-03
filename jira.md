@@ -1,3 +1,10 @@
+### Jira Chrome search engine
+
+https://jira.example.com/issues/?jql=%s
+
+https://stackoverflow.com/questions/17239740/add-jira-quick-search-to-chrome-omnibox
+
+
 ### Filter by sprint
 
 ```

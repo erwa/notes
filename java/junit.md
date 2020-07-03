@@ -1,3 +1,16 @@
+### Expect exception / expect an exception
+
+```
+@Test(expected = NullPointerException.class)
+public void whenExceptionThrown_thenExpectationSatisfied() {
+    String test = null;
+    test.length();
+}
+```
+
+https://www.baeldung.com/junit-assert-exception#junit-4
+
+
 ### Parameterized tests
 
 `@Parameterized`

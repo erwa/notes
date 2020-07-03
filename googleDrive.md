@@ -20,6 +20,8 @@ http://googleapis.github.io/google-api-python-client/docs/dyn/drive_v3.files.htm
 
 ### Sync offline
 
+https://www.google.com/drive/download/
+
 Need to download "Backup and Sync" app: https://support.google.com/drive/answer/2374987
 
 https://it.stonybrook.edu/help/kb/accessing-google-drive-files-offline-on-a-mobile-devicecomputer

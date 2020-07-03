@@ -1,3 +1,10 @@
+### Zoom
+
+Use reverse pinch on trackpad. Or in Preferences -> Editor -> General -> enabled "Change font size (Zoom) with Ctrl/Cmd + MouseWheel"
+
+https://www.jetbrains.com/help/rider/Zooming_in_the_Editor.html
+
+
 ### Issue: `Error:java: javacTask: source release 8 requires target release 1.8`
 
 Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> change Target bytecode version to 8
@@ -580,6 +587,7 @@ Option + F12
 # https://www.jetbrains.com/idea/help/working-with-embedded-local-terminal.html
 
 # Delete line
+Cmd + Backspace
 Cmd + Y
 
 # Turn Project navigation window on/off
