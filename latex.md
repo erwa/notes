@@ -536,9 +536,13 @@ https://tex.stackexchange.com/questions/10574/includegraphics-dots-in-filename
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Relation_operators
 
 
-### Greater than or equal to / less than or equal to
+### Greater than, less than, greater than or equal to, less than or equal to
 
 ```
+# literal greater than, less than (does not look pretty)
+\rangle
+\langle
+
 \geq
 \leq
 ```

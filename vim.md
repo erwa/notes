@@ -1,3 +1,11 @@
+### Open new file
+
+```
+# opens in horizontally split pane
+:new MYFILENAME
+```
+
+
 ### Remove Ctrl-M (^M) characters
 
 ```

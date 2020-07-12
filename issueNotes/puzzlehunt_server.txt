@@ -1,0 +1,13 @@
+puzzlehunt_server.txt
+
+# installing Docker
+https://docs.docker.com/engine/install/ubuntu/
+
+# need this hacky fix to make "gi" package work with Python 3.7
+sudo ln -s /usr/lib/python3/dist-packages/gi/_gi.cpython-{36m,37m}-x86_64-linux-gnu.so
+
+https://stackoverflow.com/questions/59389831/cannot-import-name-gi
+
+
+# installing on Windows
+Docker Desktop requires Windows 10 Pro/Enterprise (15063+) or Windows 10 Home (19018+).

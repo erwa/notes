@@ -208,6 +208,17 @@ IntStream.range(0, names.length)
 https://stackoverflow.com/questions/18552005/is-there-a-concise-way-to-iterate-over-a-stream-with-indices-in-java-8
 
 
+### Initialize or update Map
+
+Use `compute`.
+
+```
+map.compute(key, (k, v) -> (v == null) ? msg : v.concat(msg))
+```
+
+https://docs.oracle.com/javase/8/docs/api/java/util/Map.html#compute-K-java.util.function.BiFunction-
+
+
 ### Transform `Map`
 
 ```
@@ -1707,9 +1718,9 @@ public class Example {
       fruits.add("Apple");
       fruits.add("Orange");
       fruits.add("Banana");
-      fruits.add("Pear"); 
+      fruits.add("Pear");
       fruits.add("Mango");
-      //lambda expression in forEach Method 
+      //lambda expression in forEach Method
       fruits.forEach(str->System.out.println(str));
    }
 }
