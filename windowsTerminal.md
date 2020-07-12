@@ -1,3 +1,8 @@
+### Tab tearoff and tab merge | splitting tab into a new window
+
+Work in progress: https://github.com/microsoft/terminal/issues/1256
+
+
 ### Split panes
 
 Split vertically: Alt + Shift + +
