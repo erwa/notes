@@ -313,6 +313,15 @@ A.class.isAssignableFrom(cls)
 https://stackoverflow.com/questions/4100281/how-do-i-determine-if-a-class-extends-another-class-in-java
 
 
+### Remove specific keys from Map
+
+```
+map.keySet().removeAll(keySet);
+```
+
+https://stackoverflow.com/questions/17675804/remove-multiple-keys-from-map-in-efficient-way
+
+
 ### Remove from map while iterating
 
 ```

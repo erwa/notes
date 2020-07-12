@@ -480,7 +480,9 @@ https://discussions.apple.com/thread/3075727?start=0&tstart=0
 4. Select pictures to delete.
 5. Press "Delete" icon.
 
+
 ### Shrink PDF size
+
 Open PDF in Preview. File -> Export -> change Quartz Filter to "Reduce File Size".
 * http://www.cultofmac.com/260256/use-preview-make-pdf-documents-smaller-os-x/
 
@@ -493,11 +495,14 @@ http://www.cultofmac.com/95739/how-to-crop-any-image-to-a-perfect-square-using-p
 
 
 ### Adjust Picture Size
+
 Batch resize
+
 ```
 # resizes all images in-place to 800 pixels max length/width, preserving aspect ratio
 sips -Z 800 *.JPG
 ```
+
 http://lifehacker.com/5962420/batch-resize-images-quickly-in-the-os-x-terminal
 
 

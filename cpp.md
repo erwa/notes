@@ -85,6 +85,34 @@ Make a build system. CMake generates build files such as Makefiles from a CMakeL
 https://stackoverflow.com/questions/25789644/difference-between-using-makefile-and-cmake-to-compile-the-code
 
 
+### Capture list and parameter list
+
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  const auto addSome = [](double some) {
+    // [some] is a capture list
+    // (double val) is a parameter list
+    return [some](double val) { return some+val; } ;
+  };
+
+  const auto addFive = addSome(5);
+
+  std::cout << addFive(2) << std::endl;
+}
+```
+
+https://stackoverflow.com/questions/28669941/c-lambdas-capture-list-vs-parameter-list
+
+
+### Variable initialization rules
+
+https://stackoverflow.com/questions/2218254/variable-initialization-in-c
+
+
 ### Parameterized constructor
 
 ```
