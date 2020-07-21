@@ -5,26 +5,6 @@ Use https://api.github.com/repos/<USER>/<PROJECT>. E.g.: https://api.github.com/
 https://stackoverflow.com/questions/8646517/see-the-size-of-a-github-repo-before-cloning-it
 
 
-### Strikethrough
-
-```
-~~This text will be strikethroughed.~~
-```
-
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis
-
-
-### Set image width in GitHub markdown
-
-Use HTML
-
-```
-<img src="https://github.com/favicon.ico" width="48">
-```
-
-https://github.com/jgm/pandoc/issues/2554
-
-
 ### Upload image to GitHub's CDN
 
 https://gist.github.com/vinkla/dca76249ba6b73c5dd66a4e986df4c8d
@@ -53,27 +33,6 @@ http://stackoverflow.com/questions/28533602/navigating-to-the-earliest-commit-in
 https://github.com/azkaban/azkaban/commits/master?author=erwa
 
 http://stackoverflow.com/questions/12174276/github-list-commits-by-author
-
-
-### Link to file within repo
-
-```
-[a relative link](other_file.md)
-
-# however, it seems if you want the text to be the file name, you have to repeat the file name:
-[other_file.md](other_file.md)
-```
-
-https://stackoverflow.com/questions/7653483/github-relative-link-in-markdown-file
-
-
-### Link with same text as link
-
-```
-[https://www.google.com/]()
-```
-
-https://github.github.com/gfm/#example-495
 
 
 ### Link to specific commit (canonical URLs)
@@ -110,49 +69,3 @@ http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 ### Notifications
 
 When you comment on a specific commit of a pull request, a notification is only sent to the watchers of the repo being pulled from; a notification is NOT sent to the watchers of the repo being merged into.
-
-
-### Diff code block Markdown
-
-```diff
-public class ApplicationMaster {
-
-     if (secureMode) {
-       // Set up secret manager for RPC servers
--      ClientToAMTokenIdentifier identifier = new ClientToAMTokenIdentifier(appAttemptID, user);
-+      ApplicationAttemptId tmpAttemptId = containerId.getApplicationAttemptId();
-+      ClientToAMTokenIdentifier identifier = new ClientToAMTokenIdentifier(tmpAttemptId, user);
-       byte[] secret = response.getClientToAMTokenMasterKey().array();
--      ClientToAMTokenSecretManager secretManager = new ClientToAMTokenSecretManager(appAttemptID, secret);
-+      ClientToAMTokenSecretManager secretManager = new ClientToAMTokenSecretManager(tmpAttemptId, secret);
-       applicationRpcServer.setSecretManager(secretManager);
-       metricsServerBuilder.setSecretManager(secretManager);
-
-```
-
-https://github.com/linkedin/TonY/issues/82#issuecomment-504351334
-
-
-### Markdown link to section
-
-```
-[link text](#abcde)
-
-## <a name='abcde'>Section 1</a>
-```
-
-https://stackoverflow.com/questions/2822089/how-to-link-to-part-of-the-same-document-in-markdown
-
-
-### Markdown emoji cheatsheet
-
-http://www.emoji-cheat-sheet.com/
-
-
-### Bold/italicize part of a word
-
-```
-<b>some</b><i>what</i>
-```
-
-http://meta.stackexchange.com/questions/140706/how-do-i-make-part-of-a-word-bold-using-markdown

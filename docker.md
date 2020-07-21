@@ -1,3 +1,12 @@
+### List all containers
+
+```
+docker container ls -a
+```
+
+https://docs.docker.com/engine/reference/commandline/container_ls/
+
+
 ### Stop a container
 
 ```

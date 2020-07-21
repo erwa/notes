@@ -1,4 +1,4 @@
-### Vertical bar / pipe symbol
+### Vertical bar / pipe symbol / `|`
 
 Indicates what follows is a multi-line scalar (ignoring indentation, newlines included).
 

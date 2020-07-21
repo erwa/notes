@@ -1268,6 +1268,13 @@ Output explanations:
 * `invokeinterface` class an interface mthod
 
 
+### Convert String to InputStream
+
+```
+InputStream stream = new ByteArrayInputStream(exampleString.getBytes(StandardCharsets.UTF_8));
+```
+
+
 ### Pipe output stream to a String
 
 See http://stac

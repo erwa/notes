@@ -1,3 +1,12 @@
+### Copy file to clipboard
+
+```
+pbcopy < my_file
+```
+
+https://coderwall.com/p/osbzzq/copy-files-to-clipboard-using-command-line-on-osx
+
+
 ### Split windows left and right / side-by-side windows / split view
 
 Hold down green full screen button and select Tile Left/Right.

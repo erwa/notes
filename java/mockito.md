@@ -1,3 +1,22 @@
+### Verify method never called
+
+```
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+
+// ...
+
+verify(dependency, never()).someMethod();
+```
+
+https://stackoverflow.com/questions/12862659/how-to-verify-that-a-specific-method-was-not-called-using-mockito
+
+
+### How does Mockito work
+
+https://stackoverflow.com/questions/14440270/how-does-mockito-when-invocation-work
+
+
 ### Mock fluent APIs using deep stubbing
 
 ```

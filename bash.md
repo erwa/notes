@@ -92,7 +92,7 @@ https://stackoverflow.com/questions/1951506/add-a-new-element-to-an-array-withou
 ### Intersection of two files
 
 ```
-comm -12  file1 file2
+comm -12 file1 file2
 ```
 
 https://stackoverflow.com/questions/2696055/intersection-of-two-lists-in-bash
