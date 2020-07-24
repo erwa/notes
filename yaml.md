@@ -1,3 +1,14 @@
+### Comments
+
+```
+# this
+# is a multiple
+# line comment
+```
+
+https://www.tutorialspoint.com/yaml/yaml_comments.htm
+
+
 ### Vertical bar / pipe symbol / `|`
 
 Indicates what follows is a multi-line scalar (ignoring indentation, newlines included).
