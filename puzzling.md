@@ -28,11 +28,12 @@ https://github.com/dwyl/english-words/blob/master/words_alpha.txt
 
 ### Anagrams / regex / phrase lookup
 
+https://onelook.com/
+- e.g.: ???? ? ????? ??? will show you phrases matching the enumeration (4 1 5 3)
 https://nutrimatic.org/
-https://www.morewords.com/
 https://www.visca.com/regexdict/
-
-Will also show you anagrams containing one more letter.
+https://www.morewords.com/
+- Will also show you anagrams containing one more letter.
 
 
 ### MIT Hunt 2019
@@ -185,6 +186,13 @@ I am a marvelous housekeeper. Every time I leave a man, I keep his house.
 ### Movie character name search
 
 http://www.imdb.com/find?ref_=nv_sr_fn&q=&s=ch -> search by "Characters" -> View Exact character matches
+
+
+### Flats
+
+https://enigma.puzzlers.org/guide/composing
+
+Rebus: https://enigma.puzzlers.org/guide/rebi#rebus
 
 
 ### Cryptic tips

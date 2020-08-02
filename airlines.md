@@ -10,8 +10,8 @@ Now has Economy Basic (which does NOT include 1 carry-on).
 
 ### Spirit
 
-Carry-on: $25
-Checked bag: $20
+Carry-on: $38
+Checked bag: $32
 
 
 ### Frontier
