@@ -1149,6 +1149,16 @@ for idx, val in enumerate(ints):
 http://stackoverflow.com/questions/522563/accessing-the-index-in-python-for-loops
 
 
+### Print current time / print current date / print current datetime
+
+```
+from datetime import datetime
+print(datetime.now())
+```
+
+https://www.w3resource.com/python-exercises/python-basic-exercise-3.php
+
+
 ### datetime to seconds / datetime object to seconds
 
 ```
@@ -1355,7 +1365,7 @@ https://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value
 ### Parse JSON
 
 ```
-json.loads(string_or_bytes)
+data = json.loads(string_or_bytes)
 
 with open('/path/to/file') as f:  # defaults to 'r' mode
     data = json.load(f)

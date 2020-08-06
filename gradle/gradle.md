@@ -435,6 +435,7 @@ Tasks may be defined at the end of the Configuration phase: https://stackoverflo
 ```
 gradle dependencyInsight --configuration default --dependency azkaban
 ```
+
 https://docs.gradle.org/current/userguide/tutorial_gradle_command_line.html#sec:dependency_insight
 
 

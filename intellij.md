@@ -201,6 +201,11 @@ Shift + Cmd + A, "Open Recent"
 ```
 
 
+### Suspend thread / suspend entire process
+
+Right click on breakpoint -> Suspend Thread.
+
+
 ### Conditional Breakpoint
 
 Right click on breakpoint -> Condition. Examples:

@@ -122,6 +122,19 @@ jmap -dump:live,format=b,file=process.jmap.bin 4363
 ```
 
 
+### Heap analysis
+
+After getting hprof file, can use Eclipse Memory Analyzer (MAT) to analyze it: https://www.eclipse.org/mat/
+
+```
+"./MemoryAnalyzer -consolelog -application org.eclipse.mat.api.parse path/to/java_pid123.hprof org.eclipse.mat.api:suspects org.eclipse.mat.api:overview org.eclipse.mat.api:top_components
+```
+
+Copy the .zip files to local machine and open index.html inside in browser.
+
+https://www.eclipse.org/forums/index.php/t/371792/
+
+
 ### Condition variables
 
 `Condition` variables are intrinsically associated with a lock, so when `.await()` is called on the `Condition` variable, the lock gets released.
@@ -1273,6 +1286,15 @@ Output explanations:
 ```
 InputStream stream = new ByteArrayInputStream(exampleString.getBytes(StandardCharsets.UTF_8));
 ```
+
+
+### NullOutputStream
+
+```
+import org.apache.commons.io.output.NullOutputStream;
+```
+
+https://stackoverflow.com/questions/691813/is-there-a-null-outputstream-in-java
 
 
 ### Pipe output stream to a String

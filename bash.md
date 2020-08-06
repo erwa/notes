@@ -1,3 +1,12 @@
+### Run script every N seconds
+
+```
+while ./my_script; do sleep 10; done
+```
+
+https://stackoverflow.com/questions/25157642/how-to-repeatedly-run-bash-script-every-n-seconds
+
+
 ### Resume stopped process
 
 ```

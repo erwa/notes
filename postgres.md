@@ -1,3 +1,12 @@
+### Epoch to timestamp
+
+```
+SELECT *, to_timestamp(time_in_milli_sec / 1000) FROM mytable;
+```
+
+https://stackoverflow.com/questions/7872720/convert-date-from-long-time-postgres
+
+
 ### Search path
 
 Set schemas to search:
@@ -46,6 +55,16 @@ CREATE TABLE IF NOT EXISTS test (
 ### JSON operators
 
 ```
+% -> returns object, ->> returns text
+
+SELECT info -> 'items' ->> 'product' as product
+FROM orders
+ORDER BY product;
+
+SELECT info ->> 'customer' AS customer
+FROM orders
+WHERE info -> 'items' ->> 'product' = 'Diaper';
+
 delete from foo where field->>‘type’ = ‘v2’;
 ```
 
@@ -175,6 +194,8 @@ https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-pos
 \l  # show databases and privileges
 
 \dt  # show tables (once inside database)
+\dt my_schema.  # show tables in schema 'my_schema'
+                # the trailing "." is important!
 
 \du  # show user privileges
 

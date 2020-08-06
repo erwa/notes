@@ -24,6 +24,11 @@ Ending with:
 * "6" is money manager
 
 
+### IRA Transfers
+
+Call or email Affinity and ask them to send you a transfer form you can fill out and send back.
+
+
 ### Transfer remarks
 
 If no "Note" / "Remark" / "Description" added, default seems to be "Internet TransferFROM: /XXX1234". To avoid confusion, can put name and purpose on transfers to external accounts.
