@@ -101,6 +101,20 @@ http://stackoverflow.com/questions/275120/java-how-do-i-know-which-jar-file-to-u
 Also check out http://findjar.com
 
 
+### Print heap size / print heap size
+
+```
+// Get current size of heap in bytes
+long heapSize = Runtime.getRuntime().totalMemory(); 
+
+// Get maximum size of heap in bytes. The heap cannot grow beyond this size.// Any attempt will result in an OutOfMemoryException.
+long heapMaxSize = Runtime.getRuntime().maxMemory();
+
+ // Get amount of free memory within the heap in bytes. This size will increase // after garbage collection and decrease as new objects are created.
+long heapFreeSize = Runtime.getRuntime().freeMemory(); 
+```
+
+
 ### Heap dump
 
 Make sure you run the command as the same user who owns the process!
@@ -680,6 +694,8 @@ https://projectlombok.org/features/Data
 ### Underscores in numeric literals
 
 ```
+100_000;
+
 long creditCardNumber = 1234_5678_9012_3456L;
 long socialSecurityNumber = 999_99_9999L;
 float pi =  3.14_15F;
@@ -741,6 +757,17 @@ for (File f : filesList) {
 ```
 
 https://stackoverflow.com/questions/15482423/how-to-list-the-files-in-current-directory
+
+
+### Generate random string / random file name / random name
+
+```
+import org.apache.commons.lang3.RandomStringUtils;
+
+String s = RandomStringUtils.randomAlphanumeric(8);
+```
+
+https://stackoverflow.com/questions/825678/what-is-the-best-way-to-generate-a-unique-and-short-file-name-in-java
 
 
 ### Random long in [m, n)

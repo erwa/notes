@@ -1,3 +1,8 @@
+### Populate drop-down list with row data
+
+Select cells --> Data --> Data validation --> Criteria: List from a range --> select rows from sheet (can be different tab)
+
+
 ### Line chart, ignore missing values
 
 Edit Chart --> Customize --> Chart Style --> Check "Plot null values". This will draw a line between values that do exist, ignoring missing values.

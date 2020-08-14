@@ -1620,9 +1620,13 @@ See http://stackoverflow.com/questions/3507999/whats-the-opposite-of-head-i-want
 ### Print last column
 
 ```
+echo 'maps.google.com' | rev | cut -d'.' -f 1 | rev
+
 # $NF is number of fields
 hadoop fs -ls /input/part* | awk '{printf "%s ", $NF}'
 ```
+
+https://stackoverflow.com/questions/22727107/how-to-find-the-last-field-using-cut
 
 
 ### Print columns of file in different order

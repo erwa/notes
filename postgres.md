@@ -253,5 +253,10 @@ select pytest(a) from test;
 ### Enable timing
 
 ```
+\timing on
+
+-- to toggle on/off
 \timing
 ```
+
+https://stackoverflow.com/questions/9063402/get-execution-time-of-postgresql-query

@@ -1170,7 +1170,16 @@ seconds = dt.timestamp()  # returns float
 https://stackoverflow.com/questions/7852855/in-python-how-do-you-convert-a-datetime-object-to-seconds
 
 
-### Convert epoch to datetime | epoch to UTC time
+### Datetime to epoch
+
+```
+import datetime
+d = datetime.datetime(2021, 6, 20)
+d.timestamp()
+```
+
+
+### Convert epoch to datetime | epoch to UTC time | epoch to time
 
 ```
 # method 1
@@ -2107,6 +2116,17 @@ if len(sys.argv) > 1:
   # sys.argv[1] = first argument
   ...
 ```
+
+
+### List comprehension
+
+```
+h_letters = [ letter for letter in 'human' ]
+print( h_letters)
+# ['h', 'u', 'm', 'a', 'n']
+```
+
+https://www.programiz.com/python-programming/list-comprehension
 
 
 ### Add to list
