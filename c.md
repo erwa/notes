@@ -1,3 +1,54 @@
+### Doxygen
+
+Ignore file.
+
+```
+# configure in doxygen.conf
+EXCLUDE = dir/ path/to/file.txt
+```
+
+https://stackoverflow.com/questions/34776315/doxygen-special-command-to-ignore-a-file
+
+
+### NaN, infinity, negative infinity
+
+```
+double NAN = 0.0/0.0;
+double POS_INF = 1.0 /0.0;
+double NEG_INF = -1.0/0.0;
+```
+
+https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
+
+
+### Substring
+
+Use `strncpy` or `memcpy`.
+
+https://stackoverflow.com/questions/10530064/how-to-use-substring-function-in-c/10530098
+
+
+### Casting to void / cast to void
+
+Used to suppress compiler warnings about unused variables.
+
+```
+int x;
+(void) x;
+```
+
+https://stackoverflow.com/questions/34288844/what-does-casting-to-void-really-do
+
+
+### Operator precedence
+
+1) struct member access, array subscripting (left-to-right)
+2) casting (right-to-left)
+3) +/- (addition) (left-to-right)
+
+https://en.cppreference.com/w/c/language/operator_precedence
+
+
 ### Using pthread
 
 Compile using `gcc -pthread ...`.
@@ -103,6 +154,16 @@ https://en.wikipedia.org/wiki/Offsetof
 Sign extend, then reinterpret.
 
 https://stackoverflow.com/questions/19262851/what-is-the-rule-for-c-to-cast-between-short-and-int
+
+
+### Inline assembly
+
+```
+asm("movl $0xffff000,4(%ebp)");
+```
+
+https://www.codeproject.com/Articles/15971/Using-Inline-Assembly-in-C-C
+https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
 
 
 ### Generate assembly
@@ -250,13 +311,24 @@ sscanf(line, " %c %lx,%*d", &c, &address);
 https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
 
 
+### Octal char literal
+
+```
+\60  // octal for '0'
+```
+
+http://www.asciitable.com/
+
+
 ### printf format
 
 `%f` - double
 `%lx` - long as hex
+`%o` - octal integer
 `%p` - pointer address
 `%x` - unsigned hex integer
 
+https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html
 https://stackoverflow.com/questions/4264127/correct-format-specifier-for-double-in-printf
 http://www.cplusplus.com/reference/cstdio/printf/
 
@@ -286,6 +358,17 @@ sizeof ( type-name )
 ```
 
 https://stackoverflow.com/questions/5894892/why-and-when-do-i-need-to-use-parentheses-after-sizeof
+
+
+### Convert FILE pointer to file descriptor
+
+```
+#include <stdio.h>
+
+int fileno(FILE *stream)
+```
+
+https://stackoverflow.com/questions/3167298/how-can-i-convert-a-file-pointer-file-fp-to-a-file-descriptor-int-fd
 
 
 ### Read file line-by-line, line by line

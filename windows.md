@@ -1,10 +1,20 @@
+### Disable Cortana
+
+After disabling, to get rid of alt-tab Cortana Window, use Task Manager to end task the Cortana task.
+
+https://endurtech.com/how-to-turn-off-and-disable-microsofts-cortana/
+https://www.reddit.com/r/Windows10/comments/gxhlye/cortana_alttab_bug/
+
+
 ### Reorder files / randomly sort files
 
-Use Bulk Rename Utility.
+Use Bulk Rename Utility. Actions -> List -> Apply Random Sort.
 
 https://www.bulkrenameutility.co.uk/
 
 If Rename is grayed out, make sure in the "Numbering" section, you select something for "Mode".
+
+Can remove existing name by selecting Name -> Remove under "Name (2)".
 
 
 ### Show file extensions and hidden files

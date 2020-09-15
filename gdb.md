@@ -1,3 +1,8 @@
+### Restart
+
+r  # run
+
+
 ### Print stack trace / stacktrace
 
 ```
@@ -102,6 +107,15 @@ x/10i my_function
 ```
 
 https://stackoverflow.com/questions/10874298/gdb-disassemble-one-line
+
+
+### Step into function
+
+```
+s  # will step into function if line is function call
+```
+
+http://web.eecs.umich.edu/~sugih/pointers/gdbQS.html
 
 
 ### Step out of function

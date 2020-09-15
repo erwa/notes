@@ -1,3 +1,10 @@
+### Typing
+
+Optional[X] = Union[X, None]
+
+https://docs.python.org/3/library/typing.html#typing.Optional
+
+
 ### Truthiness
 
 True
@@ -76,7 +83,25 @@ math.pow(x, y)
 https://stackoverflow.com/questions/30148740/how-do-i-do-exponentiation-in-python
 
 
-### Ellipsis (...) / Dot dot dot
+### Ellipsis (...) / dot dot dot / triple dot
+
+Can be used for stub methods.
+
+```
+from typing import Any
+
+BORDER_WIDTH: int = ...
+
+class Window:
+    parent: Any = ...
+    width: Any = ...
+    height: Any = ...
+    def __init__(self, width, height) -> None: ...
+
+def create_empty() -> Window: ...
+```
+
+https://mypy.readthedocs.io/en/latest/stubgen.html
 
 How `...` is interpreted is up to `__getitem__`'s implementation.
 
@@ -477,6 +502,10 @@ https://stackoverflow.com/questions/11479816/what-is-the-python-equivalent-for-a
 ### Lint
 
 Run `flake8`. Checks files recursively.
+
+To disable for entire file, can add to list of excluded paths or add `# flake8: noqa` to the file.
+
+https://flake8.pycqa.org/en/3.1.1/user/ignoring-errors.html
 
 
 ### Parse HTML
@@ -2679,6 +2708,24 @@ os.getcwd()
 ```
 
 http://stackoverflow.com/questions/5137497/find-current-directory-and-files-directory
+
+
+### Multiline if statement style
+
+```
+if (
+    some_super_long_condition
+    and some_other_condition
+    and one_more_condition
+):
+    do_something_awesome()
+    do_something_else_awesome()
+    etc()
+else:
+    dont_do_anything_awesome()
+```
+
+https://www.naftaliharris.com/blog/python-multiline-if-statements/
 
 
 ### Multiline comments

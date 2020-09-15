@@ -1,3 +1,8 @@
+### Tabletop Simulator Save Location
+
+Documents\My Games\Tabletop Simulator\Saves
+
+
 ### Tabletop Simulator
 
 Hands zone (private) - by your name, when you drag object close by, a box will appear outlining the zone.

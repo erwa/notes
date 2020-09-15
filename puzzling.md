@@ -2,6 +2,7 @@
 
 - Look at puzzle page background
 - [The Benjian Puzzle Maxims](https://docs.google.com/document/d/1cu5v2n3zKzwag7rdzfJqdTPw9kp9vHFCIYYieHX_E-U/edit)
+- [Have you tried...](https://www.mit.edu/~puzzle/resources/haveyoutried.pdf)
 
 
 ### Sets / groups of things
@@ -202,6 +203,11 @@ Ignore punctuation.
 Example cryptic puzzles:
 
 * https://2018.galacticpuzzlehunt.com/puzzle/cryptic-command
+
+
+### Puzzle writing
+
+http://web.mit.edu/dwilson/www/puzzles/puzzlewriting.html
 
 
 ### Writing Cryptics

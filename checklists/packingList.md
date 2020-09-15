@@ -74,3 +74,4 @@
 - bicycle
 - bike pump / bicycle pump
 - vacuum cleaner
+- instant coffee

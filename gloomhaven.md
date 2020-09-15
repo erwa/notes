@@ -1,3 +1,10 @@
+### In Tabletop Simulator
+
+Single click - black X
+Double click - set up scenario
+Triple click - red X
+
+
 ### Items on Summons
 
 In general, you cannot use items on summons.

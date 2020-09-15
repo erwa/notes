@@ -180,6 +180,21 @@ alias gt="git tag"
 ```
 
 
+### Ignore local changes to file
+
+```
+git update-index --skip-worktree <file_name>
+
+# to track local changes again, use
+git update-index --no-skip-worktree <file_name>
+
+# list flagged files
+git ls-files -v | grep '^S'
+```
+
+https://compiledsuccessfully.dev/git-skip-worktree/
+
+
 ### Run git command from outside Git repo
 
 ```

@@ -1,3 +1,13 @@
+### Change working directory
+
+```
+# can be relative or absolute
+:cd newdirectory
+```
+
+https://stackoverflow.com/questions/2288756/how-to-set-working-current-directory-in-vim
+
+
 ### Open new file
 
 ```
@@ -35,12 +45,17 @@ C-w h/j/k/l  # switch in direction
 https://www.quora.com/How-do-I-switch-between-panes-in-split-mode-in-Vim
 
 
-### Marks
+### Marks / bookmarks
 
 ```
 ma  # set mark a
 'a  # go to mark a
+
+:delm a  # delete mark a
+:delm!   # delete all lowercase marks
 ```
+
+`'` (apostrophe) is a default mark you cannot delete.
 
 https://vim.fandom.com/wiki/Using_marks
 
@@ -108,6 +123,12 @@ Installation guide: http://ctrlpvim.github.io/ctrlp.vim/#installation
 To change the directory, run `:cd ...`.
 
 https://github.com/kien/ctrlp.vim/issues/150
+
+Refresh files (clear cache):
+
+```
+:CtrlPClearCache
+```
 
 
 ### Run terminal command from vim

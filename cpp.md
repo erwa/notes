@@ -71,10 +71,15 @@ String::String(char *c)
 
 String::~String()
 {
-    delete []s;
+    delete[] s; // invokes destructor for each element of array
 }
 ```
 
+Destructor called automatically when object goes out-of-scope or explicitly destroyed via call to `delete`.
+
+http://www.cplusplus.com/reference/new/operator%20delete[]/
+https://stackoverflow.com/questions/18046571/c-delete-array-memory-without-brackets-still-works
+https://docs.microsoft.com/en-us/cpp/cpp/destructors-cpp
 https://www.geeksforgeeks.org/destructors-c/
 
 

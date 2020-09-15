@@ -1,3 +1,9 @@
+### Webhooks
+
+For Discord: https://gist.github.com/jagrosh/5b1761213e33fc5b54ec7f6379034a22
+- need to be channel admin
+
+
 ### Size of repository
 
 Use https://api.github.com/repos/<USER>/<PROJECT>. E.g.: https://api.github.com/repos/sml-nj/smlnj. Look at `size` field. Size is in KB. May not be the true size because it does not account for Git Alternates storage.

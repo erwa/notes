@@ -3,6 +3,18 @@
 Select cells --> Data --> Data validation --> Criteria: List from a range --> select rows from sheet (can be different tab)
 
 
+### Share link to copy file
+
+Share -> get shareable link -> change "edit" to "copy" in the URL
+
+https://support.google.com/docs/thread/5761657?hl=en
+
+
+### Insert trendline
+
+Chart editor -> Customize -> Series -> choose the series -> scroll down and check "Trendline"
+
+
 ### Line chart, ignore missing values
 
 Edit Chart --> Customize --> Chart Style --> Check "Plot null values". This will draw a line between values that do exist, ignoring missing values.
