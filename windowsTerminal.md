@@ -16,6 +16,20 @@ https://docs.microsoft.com/en-us/windows/terminal/panes#closing-a-pane
 https://www.howtogeek.com/673729/heres-why-the-new-windows-10-terminal-is-amazing/
 
 
+### Change starting directory
+
+In settings, add
+
+```
+{
+    "commandline" : "wsl.exe -d Ubuntu",
+    "startingDirectory": "//wsl$/Ubuntu/home/erwaman"
+}
+```
+
+https://goulet.dev/posts/how-to-set-windows-terminal-starting-directory/
+
+
 ### Change default shell
 
 In settings, in the "profiles" section, copy the guid for the shell you want to be the default into the global.defaultProfile field.

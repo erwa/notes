@@ -1,3 +1,8 @@
+### Paste transparent image
+
+May have to Insert -> Image. Copy and paste might lose transparency.
+
+
 ### Populate drop-down list with row data
 
 Select cells --> Data --> Data validation --> Criteria: List from a range --> select rows from sheet (can be different tab)

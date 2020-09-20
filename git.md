@@ -1,3 +1,12 @@
+### Fix dangling blob
+
+```
+git gc --prune=now
+```
+
+https://stackoverflow.com/questions/18514659/git-what-is-a-dangling-commit-blob-and-where-do-they-come-from
+
+
 ### Fix "object file is empty"
 
 ```

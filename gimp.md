@@ -75,6 +75,13 @@ Colors -> Color to Alpha
 https://graphicdesign.stackexchange.com/questions/5446/making-the-background-of-an-image-transparent-in-gimp
 
 
+### Delete layer
+
+Use Ctrl + X to cut layer as a hack.
+
+https://superuser.com/questions/603406/whats-the-shortcut-to-delete-selected-layer-in-gimp/
+
+
 ### Create layer from selection
 
 F (lasso) to create freeform selection.

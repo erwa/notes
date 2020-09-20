@@ -1,3 +1,12 @@
+### Include quotes vs. angle brackets
+
+`#include <filename>` searches in implementation-dependent manner. Usually used to include standard library header files.
+
+`#include "filename"` searches in the same directory as file containing include, and then does search that `#include <filename>` does.
+
+https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename
+
+
 ### Doxygen
 
 Ignore file.

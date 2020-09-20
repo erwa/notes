@@ -9,6 +9,7 @@
 
 ### General
 
+- climbing gear (consider bringing ATC)
 - MetroCard, Clipper Card, Caltrain Go Pass, subway pass
 - consider enabling "avoid tolls" in Google Maps
 - car phone mount

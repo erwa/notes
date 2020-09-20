@@ -3,7 +3,7 @@
 Ctrl-b, [
 q  # to quit scroll mode
 Esc-up/down  # half page up/down
-Ctrl-up/down  # scroll up/down
+Ctrl-up/down  # scroll up/down (without moving cursor)
 
 Ctrl-S # search forward
 Ctrl-R # search backward

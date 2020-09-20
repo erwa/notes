@@ -46,7 +46,7 @@ https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-head
 
 ### let vs. var
 
-let-defined variables only accessible in immediate surrounding `{}` block.
+let-defined variables only accessible in immediate surrounding `{}` block. `var`'s scope is enclosing function.
 
 ```
 function run() {

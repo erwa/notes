@@ -1,3 +1,15 @@
+### f-strings / f strings
+
+```
+>>> name = "Eric"
+>>> age = 74
+>>> f"Hello, {name}. You are {age}."
+'Hello, Eric. You are 74.'
+```
+
+https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python
+
+
 ### Typing
 
 Optional[X] = Union[X, None]
@@ -2148,6 +2160,24 @@ if len(sys.argv) > 1:
 
 
 ### List comprehension
+
+```
+>>> [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+
+# equivalent to
+
+>>> combs = []
+>>> for x in [1,2,3]:
+...     for y in [3,1,4]:
+...         if x != y:
+...             combs.append((x, y))
+...
+>>> combs
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+```
+
+https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
 
 ```
 h_letters = [ letter for letter in 'human' ]
