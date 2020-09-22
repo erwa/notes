@@ -1,3 +1,10 @@
+### Two's complement
+
+Non-negative numbers are same as binary representation.
+
+For negative numbers, they are the two's complement of their absolute value. To get the two's complement of a number, take the one's complement and add 1. E.g.: -1 -> 1 -> 11111110 -> 11111111.
+
+
 ### Monad
 
 A concept in functional programming related to wrapping a type and performing computations inside a context. Think Maybe X or X opt or Option(X).

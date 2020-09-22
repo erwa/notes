@@ -1,3 +1,36 @@
+### Using namespaces
+
+```
+using namespace std;
+
+// allows us to use
+cout << "hi";
+
+// instead of
+std::cout << "hi";
+```
+
+https://medium.com/breaktheloop/why-using-namespace-std-is-used-after-including-iostream-dc5ae45db652
+
+
+### Include without .h
+
+Include files can have any extension in both C and C++. C++ standard library headers have no extension. C standard library headers have a .h extension.
+
+https://stackoverflow.com/questions/2799682/c-includes-with-and-without-h
+
+
+### Output (<<)
+
+```
+cout <<  "x = ";
+
+// same as
+
+put(cout, "x = ");
+```
+
+
 ### Operator overloading for increment (pre-increment and post-increment)
 
 ```
@@ -25,6 +58,8 @@ https://en.cppreference.com/w/cpp/language/operators#Increment_and_decrement
 
 ### Reference types
 
+Must be initialized where they are created. Uses of reference refer to actual object (there is an implicit dereference of a pointer), not the address.
+
 ```
 int a = 5;
 int& r_a = a; // reference to int
@@ -47,6 +82,19 @@ Differences from pointers:
 * references cannot be uninitialized
 
 https://en.wikipedia.org/wiki/Reference_(C%2B%2B)
+
+Can use function that returns reference type on left-hand side of assignment:
+
+```
+double vals[] = {10.1, 12.6, 33.1, 24.1, 50.0};
+
+double& setValues( int i ) {
+   return vals[i];   // return a reference to the ith element
+}
+
+setValues(1) = 20.23; // change 2nd element
+setValues(3) = 70.8;  // change 4th element
+```
 
 
 ### Destructor
@@ -90,6 +138,21 @@ Make a build system. CMake generates build files such as Makefiles from a CMakeL
 https://stackoverflow.com/questions/25789644/difference-between-using-makefile-and-cmake-to-compile-the-code
 
 
+### auto type / auto keyword
+
+`auto` is a placeholder for a type. Means type will be inferred from the initialization expression. Can modify with pointer (`*`), reference (`&`), `const`, `volatile`.
+
+https://docs.microsoft.com/en-us/cpp/cpp/auto-cpp
+
+```
+for (auto x : vec) ...        // when you want to work with a copy
+for (auto &x : vec) ...       // when you want to modify
+for (auto const &x : vec) ... // when you don't want to copy or modify
+```
+
+https://stackoverflow.com/questions/15176104/c11-range-based-loop-get-item-by-value-or-reference-to-const
+
+
 ### Capture list and parameter list
 
 ```
@@ -114,6 +177,19 @@ https://stackoverflow.com/questions/28669941/c-lambdas-capture-list-vs-parameter
 
 
 ### Variable initialization rules
+
+```
+// all legal
+int i(3);
+int i{3};
+int i = 3;
+
+// https://en.cppreference.com/w/cpp/language/zero_initialization
+int i{}; // zero initialization
+
+int a[10] = {} // all zeroed
+int a[10] = {1,2} // all zeroed except first two elements
+```
 
 https://stackoverflow.com/questions/2218254/variable-initialization-in-c
 

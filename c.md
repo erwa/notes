@@ -9,6 +9,8 @@ https://stackoverflow.com/questions/21593/what-is-the-difference-between-include
 
 ### Doxygen
 
+`@brief` description should end with period. Add empty line between it and extended description to avoid having the extended description included in the brief.
+
 Ignore file.
 
 ```
