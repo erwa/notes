@@ -73,6 +73,8 @@ http://www.npinsker.me/puzzles/crossword
 https://www.wordplays.com/crossword-solver/
 http://crossword-solver.io/
 
+Answer to clue: https://www.wordplays.com/crossword-clues/
+
 
 ### Ciphers
 

@@ -1,3 +1,48 @@
+### Use statement or declaration in expression
+
+```
+# using if block as expression
+# wrap compound expression in braces
+# wrap that in parentheses
+int i = ({int j; if (true) j = 1; else j = 2; j;});
+```
+
+https://gcc.gnu.org/onlinedocs/gcc/Statement-Exprs.html
+
+
+### Barriers
+
+```
+#include <pthread.h>
+
+pthread_barrier_t barrier;
+...
+pthread_barrier_init(&barrier, NULL, nThreads);
+...
+pthread_barrier_wait(&barrier);
+```
+
+https://docs.oracle.com/cd/E19253-01/816-5137/gfwek/index.html
+
+
+### Disable GCC compiler optimizations
+
+Pass `-O0` as a flag to GCC.
+
+https://stackoverflow.com/questions/5765899/how-to-disable-compiler-optimizations-in-gcc
+
+
+### Generate random double between 0 and 1
+
+```
+#include <stdlib.h>
+
+(double)rand() / RAND_MAX
+```
+
+https://stackoverflow.com/questions/33058848/generate-a-random-double-between-1-and-1
+
+
 ### Include quotes vs. angle brackets
 
 `#include <filename>` searches in implementation-dependent manner. Usually used to include standard library header files.
@@ -37,6 +82,17 @@ https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
 Use `strncpy` or `memcpy`.
 
 https://stackoverflow.com/questions/10530064/how-to-use-substring-function-in-c/10530098
+
+
+### Suppress warnings inline
+
+```
+#pragma GCC diagnostic ignored "-Wuninitialized"
+    foo(b);         /* no diagnostic for this one */
+#pragma GCC diagnostic pop
+```
+
+https://stackoverflow.com/questions/3378560/how-to-disable-gcc-warnings-for-a-few-lines-of-code
 
 
 ### Casting to void / cast to void
@@ -79,6 +135,18 @@ https://stackoverflow.com/questions/18195715/why-is-unsigned-integer-overflow-de
 Use `pthread_cond_wait` and `pthread_cond_signal` or `pthread_cond_broadcast`.
 
 https://stackoverflow.com/questions/2085511/wait-and-notify-in-c-c-shared-memory
+
+
+### Multiline string
+
+```
+// multiple string literals are concatenated
+char* my_str =
+  "Here is the first line."
+  "Here is the second line.";
+```
+
+https://jameshfisher.com/2016/11/30/c-multiline-literal/
 
 
 ### String split
@@ -169,6 +237,27 @@ https://stackoverflow.com/questions/19262851/what-is-the-rule-for-c-to-cast-betw
 
 ### Inline assembly
 
+Output and input operands are 0-indexed, starting with output operands and continuing with input operands.
+
+```
+int x = 1;
+printf("%d\n", x);
+asm("addl $1, %1"
+    : "=r" (x)     // = means overwrites, r for register operand
+    : "ir" (x));   // i for integer operand, r for register operand
+printf("%d\n", x);
+
+int *y = &x;
+printf("%d\n", *y);
+asm("addl $1, (%0)"
+    :
+    : "ir" (y));
+printf("%d\n", *y);
+```
+
+https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#OutputOperands
+https://gcc.gnu.org/onlinedocs/gcc/Simple-Constraints.html
+
 ```
 asm("movl $0xffff000,4(%ebp)");
 ```
@@ -185,6 +274,26 @@ gcc -S foo.c
 ```
 
 https://stackoverflow.com/questions/137038/how-do-you-get-assembler-output-from-c-c-source-in-gcc
+
+
+### Static initialization
+
+```
+static bool initialized = false;
+
+__attribute__((constructor))
+static void initialize(void) {
+    initialized = true;
+    // do some other initialization
+}
+
+int main(int argc, char **argv) {
+    // initialize will have been run before main started
+    return 0;
+}
+```
+
+https://stackoverflow.com/questions/10678607/possible-to-initialize-static-variable-by-calling-function
 
 
 ### Static function

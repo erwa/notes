@@ -1,3 +1,12 @@
+### Force rebuild
+
+```
+make -B MY_TARGET
+```
+
+https://stackoverflow.com/questions/816370/how-do-you-force-a-makefile-to-rebuild-a-target
+
+
 ### .PHONY
 
 Phony targets are those that are not actually files. For example, a "clean" command. It can also be used to force a target to always run (e.g.: always recompile).

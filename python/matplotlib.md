@@ -1,3 +1,18 @@
+### Invert y-axis
+
+```
+plt.ylim(max(y_array), min(y_array))
+
+// can also try
+scatter = plt.scatter(x, y)
+ax = scatter.axes
+ax.invert_xaxis()
+ax.invert_yaxis()
+```
+
+https://stackoverflow.com/questions/2051744/reverse-y-axis-in-pyplot
+
+
 ### Plot points without connnecting line
 
 ```
@@ -139,7 +154,7 @@ ax1.set_xlabel('time')
 ### subplot
 
 ```
-# plt.figure() optional (plt.figure(1) created automatically) 
+# plt.figure() optional (plt.figure(1) created automatically)
 # plt.subplot(111) optional (created by default if no axes specified)
 
 # numrows, numcols, plot_number (1 to numrows * numcols)

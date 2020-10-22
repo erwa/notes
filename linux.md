@@ -1,3 +1,15 @@
+### rsync
+
+Sync local directory (recursively) with server.
+
+```
+# -a for archive mode (preserve times, links, etc.)
+# -v for verbose
+# -z for compression during transfer
+rsync -avz LOCAL_DIR user@host:REMOTE_DIR
+```
+
+
 ### Change SSH login shell
 
 ```

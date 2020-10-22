@@ -1,3 +1,23 @@
+### Custom migration
+
+https://docs.djangoproject.com/en/3.1/topics/migrations/#data-migrations
+
+
+### QuerySet
+
+Get size of QuerySet: `my_query_set.count()` (does `SELECT COUNT(*)`)
+
+https://stackoverflow.com/questions/14327036/count-vs-len-on-a-django-queryset
+
+Case-insensitive match:
+
+```
+Blog.objects.get(name__iexact='beatles blog')
+```
+
+https://docs.djangoproject.com/en/3.1/ref/models/querysets/#std:fieldlookup-iexact
+
+
 ### Related objects
 
 a -> b

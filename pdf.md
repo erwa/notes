@@ -1,3 +1,10 @@
+### Open same PDF multiple times
+
+In Adobe Acrobat Reader, open PDF, then Window -> New Window.
+
+https://superuser.com/questions/58384/open-the-same-pdf-multiple-times/1043183
+
+
 ### Extract one page or specific pages of PDF
 
 PDF -> Print -> choose pages -> Print to PDF

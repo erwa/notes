@@ -82,7 +82,7 @@ https://stackoverflow.com/questions/55584797/what-does-movslq-do
 q = quad = 64 bits
 l = long = 32 bits
 w = word = 16 bits
-b = byte = 8 bites
+b = byte = 8 bits
 
 Should match the size of the registers being used.
 

@@ -1,3 +1,23 @@
+### Run Apache web server
+
+```
+sudo service apache2 start
+
+# visit localhost in browser
+```
+
+https://medium.com/@fiqriismail/how-to-setup-apache-mysql-and-php-in-linux-subsystem-for-windows-10-e03e67afe6ee
+
+
+### Open current directory in Explorer
+
+```
+explorer.exe .
+```
+
+https://superuser.com/questions/1338991/how-to-open-windows-explorer-from-current-working-directory-of-wsl-shell/1385493
+
+
 ### Windows Subsystem for Linux
 
 This file is about Windows Subsystem for Linux (WSL).

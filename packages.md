@@ -9,6 +9,8 @@ dpkg-query -L PACKAGE_NAME
 
 ```
 apt-cache search keyword
+
+# show info about package
 apt-cache show PACKAGE_NAME
 ```
 

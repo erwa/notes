@@ -48,7 +48,7 @@
 - Laundry bag
 - Notebook / loose leaf paper / sheet protectors
 - Clipboard
-- whiteboard
+- whiteboard, dry erase markers
 - Halt mail / newspaper
 - Notify credit card company of travel destination
 - ATM/debit card for withdrawals, also notify bank

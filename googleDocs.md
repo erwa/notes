@@ -320,12 +320,14 @@ https://blog.tryadhawk.com/marketing-tips/google-docs-shortcuts/
 
 
 ### Hide page breaks
+
 View -> disable Print View
 
 http://stackoverflow.com/questions/33195011/how-to-turn-off-page-breaks-in-google-docs
 
 
-### COUNTIF not blank
+### COUNTIF not blank / COUNTIF not empty
+
 ```
 =COUNTIF(F90:F158,"<>")
 ```
@@ -335,6 +337,7 @@ http://stackoverflow.com/questions/12519073/google-docs-count-cells-that-contain
 ### SUMIF
 
 Range to be tested against criteria comes FIRST.
+
 ```
 =SUMIF(range_to_be_tested_against_criteria, criteria, range_to_be_summed)
 ```
@@ -347,10 +350,12 @@ https://support.google.com/docs/answer/3093583?hl=en
 ```
 =SUMIFS(sum_range, criteria_range_1, criteria1, criteria_range_2, criteria2, ...)
 ```
+
 https://support.google.com/docs/answer/3238496?hl=en
 
 
 ### Keyboard Shortcuts
+
 * https://support.google.com/docs/answer/179738?hl=en
 * `Ctrl/Command + /` for help.
 

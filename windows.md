@@ -64,6 +64,13 @@ Alternatively, click and hold menu bar at top of window and shake.
 https://www.labnol.org/software/minimize-open-windows-quickly/9985/
 
 
+### Concat videos
+
+Use Photos app. Select Video Project from menu.
+
+https://www.msftnext.com/merge-videos-windows-10-photos-app/
+
+
 ### Record video of screen / screen recording
 
 If microphone is needed, use ScreenRec: https://screenrec.com/screen-recorder/record-computer-screen-and-audio/. Download at https://screenrec.com/download-screenrec/.

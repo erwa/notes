@@ -1,3 +1,12 @@
+### Disable output buffering / disable input buffering
+
+```
+stdbuf -i0 -o0 -e0 COMMAND
+```
+
+https://stackoverflow.com/questions/3465619/how-to-make-output-of-any-shell-command-unbuffered
+
+
 ### Run script every N seconds
 
 ```
@@ -999,7 +1008,7 @@ ls ~USER
 
 ### `ls` color output
 
-Add the following to your .bashrc to enable color ls output by default:
+Add the following to your .bashrc or .bash_profile to enable color ls output by default:
 ```
 alias ls="ls --color=auto"
 
