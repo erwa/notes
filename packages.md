@@ -1,8 +1,11 @@
-### List installed package contents
+### List installed package contents such as installation location
 
 ```
+dpkg -L PACKAGE_NAME
 dpkg-query -L PACKAGE_NAME
 ```
+
+https://askubuntu.com/questions/129022/determine-destination-location-of-apt-get-install-package
 
 
 ### apt - Search for package

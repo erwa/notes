@@ -1,3 +1,10 @@
+### Import .ics
+
+Gear icon -> Settings -> Import and Export -> Import
+
+https://support.google.com/calendar/thread/3231927?hl=en
+
+
 ### Change color of event
 
 Right click on the event on your calendar.

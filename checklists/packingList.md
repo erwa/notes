@@ -35,6 +35,7 @@
 -- bring non-prescription sunglasses if wearing contacts
 - Small umbrella / poncho
 - Reading material
+- Checkbook
 - Money (split up into several places)
 - quarters / change (parking, exact fare on buses)
 - Towel

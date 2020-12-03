@@ -1,3 +1,25 @@
+### Nested macros
+
+```
+#define FOO abcd
+
+#define MACRO1(FOO, x) FOO##_##x
+// Won't work
+#define MACRO2(x) MACRO1(FOO, x)
+
+// This combination will
+#define MACRO3(FOO, x) MACRO1(FOO, x)
+#define MACRO4(x) MACRO3(FOO, x)
+
+
+MACRO1(xyz, x) // xyz_x
+MACRO2(jkl) // FOO_jkl
+MACRO4(x) // abcd_x
+```
+
+https://stackoverflow.com/questions/30113944/how-to-write-a-macro-that-will-append-text-to-a-partial-function-name-to-create
+
+
 ### Use statement or declaration in expression
 
 ```
@@ -93,6 +115,19 @@ https://stackoverflow.com/questions/10530064/how-to-use-substring-function-in-c/
 ```
 
 https://stackoverflow.com/questions/3378560/how-to-disable-gcc-warnings-for-a-few-lines-of-code
+
+
+### Cast to function pointer
+
+```
+(void (*)(void *))SGENT_1_calc
+
+// more readable alternative
+typedef void sigrout_t(void*);
+((sigrout_t*) SGENT_1_calc) (someptr);
+```
+
+https://stackoverflow.com/questions/15807333/cast-to-function-pointer
 
 
 ### Casting to void / cast to void
@@ -348,6 +383,35 @@ printf("%zd\n", y);  // prints as signed decimal
 https://stackoverflow.com/questions/2524611/how-can-one-print-a-size-t-variable-portably-using-the-printf-family
 
 
+### Acceptable use of goto
+
+```
+int foo(int bar)
+{
+    int return_value = 0;
+    if (!do_something( bar )) {
+        goto error_1;
+    }
+    if (!init_stuff( bar )) {
+        goto error_2;
+    }
+    if (!prepare_stuff( bar )) {
+        goto error_3;
+    }
+    return_value = do_the_thing( bar );
+error_3:
+    cleanup_3();
+error_2:
+    cleanup_2();
+error_1:
+    cleanup_1();
+    return return_value;
+}
+```
+
+https://stackoverflow.com/questions/788903/valid-use-of-goto-for-error-management-in-c
+
+
 ### Goto statement
 
 ```
@@ -443,11 +507,13 @@ http://www.asciitable.com/
 ### printf format
 
 `%f` - double
-`%lx` - long as hex
+`%lx` - print long in hex
+`%ld` - print long in decimal
 `%o` - octal integer
 `%p` - pointer address
 `%x` - unsigned hex integer
 
+https://stackoverflow.com/questions/38561/what-is-the-argument-for-printf-that-formats-a-long
 https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html
 https://stackoverflow.com/questions/4264127/correct-format-specifier-for-double-in-printf
 http://www.cplusplus.com/reference/cstdio/printf/

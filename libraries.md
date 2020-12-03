@@ -1,6 +1,15 @@
 This file is about working with .so library files.
 
 
+### Print constant strings in binary
+
+```
+readelf -p .rodata my_binary_name
+```
+
+https://stackoverflow.com/questions/29935915/finding-strings-in-the-text-section
+
+
 ### Check runpath (rpath) of library
 
 ```

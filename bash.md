@@ -444,6 +444,22 @@ time (sleep 1 && sleep 1)
 ```
 
 
+### Alias with parameters
+
+Not supported natively, but can just define a function:
+
+```
+graph ()
+{
+    dot -o$1.pdf -Tpdf $1.gv
+}
+
+graph my_graph_data
+```
+
+https://stackoverflow.com/questions/7131670/make-a-bash-alias-that-takes-a-parameter
+
+
 ### Check alias
 
 Check what an alias is assigned to
@@ -1683,6 +1699,9 @@ http://stackoverflow.com/questions/15402770/how-to-grep-and-replace
 ```
 # Linux
 sed -i 's/old-word/new-word/g' *.txt
+
+# sed per file
+grep -rl PATTERN * | xargs -I% sed -i 's/old-word/new-word/g' %
 
 sed -i 's/%{foo}/\/export\/apps\/foo/g' my_file
 

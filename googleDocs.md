@@ -1,3 +1,8 @@
+### Follow-up actions on google docs
+
+followup:actionitems
+
+
 ### Paste transparent image
 
 May have to Insert -> Image. Copy and paste might lose transparency.

@@ -288,7 +288,7 @@ vim `ls -t | head -1`
 :%s/old/new/gc
 
 
-### Show special characters
+### Show special characters / show hidden characters
 
 ```
 :set list

@@ -1,3 +1,16 @@
+### Lists inside tables.
+
+Use HTML like `<br/>`. E.g.:
+
+```
+| Event         | Platform      | Description |
+| ------------- |-----------| -----:|
+| `message_received`| `facebook-messenger`<br/>`skype`|
+```
+
+https://stackoverflow.com/questions/19950648/how-to-write-lists-inside-a-markdown-table
+
+
 ### Tables
 
 ```
@@ -10,7 +23,7 @@ Colons can be used to align columns.
 | zebra stripes | are neat      |    $1 |
 
 There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the 
+The outer pipes (|) are optional, and you don't need to make the
 raw Markdown line up prettily. You can also use inline Markdown.
 ```
 

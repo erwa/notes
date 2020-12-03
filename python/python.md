@@ -1,3 +1,15 @@
+### Print all attributes and methods of a module / print all properties of an object
+
+```
+dir(my_module)
+
+my_module.__dict__
+```
+
+https://stackoverflow.com/questions/192109/is-there-a-built-in-function-to-print-all-the-current-properties-and-values-of-a
+https://stackoverflow.com/questions/139180/how-to-list-all-functions-in-a-python-module
+
+
 ### f-strings / f strings
 
 ```
@@ -2457,6 +2469,39 @@ http://stackoverflow.com/questions/3394835/args-and-kwargs
 
 * `*args` = list of args as positional arguments
 * `**kwargs` = list of named args as dictionary
+
+```
+def func(required_arg, *args, **kwargs):
+    # required_arg is a positional-only parameter.
+    print required_arg
+
+    # args is a tuple of positional arguments,
+    # because the parameter name has * prepended.
+    if args: # If args is not empty.
+        print args
+
+    # kwargs is a dictionary of keyword arguments,
+    # because the parameter name has ** prepended.
+    if kwargs: # If kwargs is not empty.
+        print kwargs
+
+>>> func()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: func() takes at least 1 argument (0 given)
+
+>>> func("required argument")
+required argument
+
+>>> func("required argument", 1, 2, '3')
+required argument
+(1, 2, '3')
+
+>>> func("required argument", 1, 2, '3', keyword1=4, keyword2="foo")
+required argument
+(1, 2, '3')
+{'keyword2': 'foo', 'keyword1': 4}
+```
 
 
 ### Merge dictionaries
