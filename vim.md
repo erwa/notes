@@ -519,9 +519,17 @@ http://www.unix.com/unix-for-dummies-questions-and-answers/22389-how-see-special
 
 ### NERDTree
 
+https://github.com/preservim/nerdtree
 http://www.vim.org/scripts/script.php?script_id=1658
 
-Download and unzip into `~/.vim`
+Installation:
+
+```
+git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+```
+
+Use:
 
 ```
 :NERDTree

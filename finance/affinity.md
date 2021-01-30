@@ -33,6 +33,8 @@ Ending with:
 
 Call or email Affinity and ask them to send you a transfer form you can fill out and send back.
 
+Roth conversion can only be done when Traditional IRA CD matures.
+
 
 ### Transfer remarks
 

@@ -1,0 +1,48 @@
+1) erwaman@Anthony-Lenovo-Flex:smallboard-2$ docker-compose up
+ERROR: Couldn't find env file: /home/erwaman/github/cardinalitypuzzles/smallboard-2/.env
+
+cp .env.test .env
+
+
+2) sb-manage test
+5 test failures
+
+sb-manage collectstatic
+
+
+3) sb-manage test
+1 test failure
+ERROR: testLoggedInHomePages (smallboard.tests.TestHomePage)
+ValueError: Missing staticfiles manifest entry for 'main.js'
+
+seems need to use
+yarn run dev
+but webpack not installed in Docker container
+"webpack: not found" seen in web_1 docker logs
+
+trying "docker-compose build --no-cache"
+
+# in docker-entrypoint.sh
+yarn run dev
+# works from container CLI
+# afterward, `docker-compose up` worked
+
+# fails for fresh checkout
+
+# seems yarn.lock is out-of-date
+
+# use NVM to install Node, the apt version of node is out of date
+https://docs.microsoft.com/en-us/windows/nodejs/setup-on-wsl2
+
+# after running `yarn install`, `docker-compose up` seems to work
+
+FIX:
+- move `COPY . .` up and remove all the other COPYs (superfluous)
+
+
+# first time `docker-compose up` run
+
+web_1  | $ webpack --config webpack.dev.js ./hunts/src/index.js --output-path ./hunts/static
+web_1  | /bin/sh: webpack: not found
+
+# no node_modules folder

@@ -1,3 +1,14 @@
+### Team collaboration hunt dashboard tools
+
+https://github.com/cardinalitypuzzles/smallboard
+https://github.com/gwillen/herring
+https://github.com/obijywk/hunttracker
+https://github.com/onigame/czar
+https://github.com/Torgen/codex-blackboard / https://github.com/Galactic-Infrastructure/galackboard
+
+https://www.reddit.com/r/mysteryhunt/comments/jlap0k/what_technology_stack_are_teams_thinking_about/gav3hql/
+
+
 ### Idea generation
 
 - Look at puzzle page background
@@ -15,6 +26,11 @@ https://phenomist.wordpress.com/storage/sets/
 Word contains, word ends in, word starts with, anagram solver1
 
 http://www.thefreedictionary.com/Word-Finder.htm
+
+
+### Calculate things on Google Maps
+
+https://www.calcmaps.com/
 
 
 ### Google image search part of page
@@ -46,6 +62,13 @@ Least solved puzzles: https://youtu.be/qkKN2ZcCxpc?t=2180
 
 - Game of Life
 - Stata Center
+
+
+### Logic puzzle solver
+
+https://www.mstang.xyz/noq
+
+Can also use Cross+A
 
 
 ### List of logic puzzles and rules

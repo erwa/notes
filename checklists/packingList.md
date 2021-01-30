@@ -1,19 +1,22 @@
 ### To do before leaving
 
+- schedule meet-ups with friends
 - Set water heater to "vacation" mode
 - Turn off heater
 - Set out-of-office auto-reply
 - Set Slack status to OOO
 - remove bike lock, bike accessories
+- unplug power outlets
 
 
 ### General
 
+- drawstring bag
+- PPE (personal protective equipment) - face mask, hand sanitizer, disinfecting wipes, gloves
 - climbing gear (consider bringing ATC)
 - MetroCard, Clipper Card, Caltrain Go Pass, subway pass
 - consider enabling "avoid tolls" in Google Maps
 - car phone mount
-- Drawstring bag
 - Toiletries (razor, toothbrush, toothpaste, floss, nail clipper, comb, contacts, contact solution)
 - add phone numbers of travel companions
 - neck cushion
@@ -60,7 +63,7 @@
 - slippers / flip-flops
 - Tissues / toilet paper / trowel
 - Keys
-- card/board games / juggling balls
+- card/board games / juggling balls / Rubik's Cube
 - Offline tour guide information
 - Printed itinerary/map - send email summarizing trip post-trip.
 - Figure out conversion rate, where to put toilet paper, whether tap water is potable.

@@ -1,3 +1,133 @@
+### Promises
+
+Promise handler has an invisible try-catch around it:
+
+```
+new Promise((resolve, reject) => {
+  throw new Error("Whoops!");
+}).catch(alert); // Error: Whoops!
+```
+
+If an error is not handled, the script will terminate with an error in the console.
+
+https://javascript.info/promise-error-handling#implicit-try-catch
+
+
+### Square brackets object key
+
+```
+var a = "b"
+var c = {[a]: "d"}
+
+// is syntactic sugar for
+
+var a = "b"
+var c = {}
+c[a] = "d"
+```
+
+It's called a "computed property name".
+
+https://stackoverflow.com/questions/32515598/square-brackets-javascript-object-key
+
+
+### Rename using destructuring
+
+```
+const { twitter: tweet, facebook: fb } = wes.links.social;
+```
+
+https://wesbos.com/destructuring-renaming
+
+
+### Destructuring subfield
+
+```
+const user = {
+  id: 3,
+  name: 'Ron',
+  organization: {
+    name: 'Parks & Recreation',
+    city: 'Pawnee',
+  },
+}
+
+const updatedUser = {
+  ...user,
+  organization: {
+    ...user.organization,  // same as ...(user.organization)
+    position: 'Director',
+  },
+}
+
+console.log(updatedUser)
+
+// Output
+// id: 3
+// name: "Ron"
+// organization: {name: "Parks & Recreation", city: "Pawnee", position: "Director"}
+```
+
+https://www.digitalocean.com/community/tutorials/understanding-destructuring-rest-parameters-and-spread-syntax-in-javascript
+https://levelup.gitconnected.com/there-is-no-such-thing-as-the-spread-operator-in-javascript-9c4e4dbd8a02
+
+
+### Destructuring assignment, assign to array, unpack array, spread operator
+
+```
+let a, b, rest;
+[a, b] = [10, 20];
+
+console.log(a);
+// expected output: 10
+
+console.log(b);
+// expected output: 20
+
+// dot dot dot / ellipsis
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+
+console.log(rest);
+// expected output: Array [30,40,50]
+
+function myFunc(...[x, y, z]) {
+  return x * y * z;
+}
+
+myFunc(1)          // NaN
+myFunc(1, 2, 3)    // 6
+myFunc(1, 2, 3, 4) // 6 (fourth parameter is not destructured)
+
+let arr = [3, 5, 1];
+
+alert( Math.max(...arr) ); // 5 (spread turns array into a list of arguments)
+
+let arr = [3, 5, 1];
+let arr2 = [8, 9, 15];
+
+let merged = [0, ...arr, 2, ...arr2];
+
+// copying array or object
+let arr = [1, 2, 3];
+let arrCopy = [...arr]; // spread the array into a list of parameters
+                        // then put the result into a new array
+
+// do the arrays have the same contents?
+alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
+
+let obj = { a: 1, b: 2, c: 3 };
+let objCopy = { ...obj }; // spread the object into a list of parameters
+                          // then return the result in a new object
+
+// do the objects have the same contents?
+alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true
+```
+
+https://javascript.info/rest-parameters-spread#spread-syntax
+https://dev.to/sagar/three-dots---in-javascript-26ci
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+
 ### Event handler return value
 
 `true` means to continue event chain. `false` means to stop chain.

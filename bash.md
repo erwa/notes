@@ -1069,42 +1069,6 @@ ls -Ssh
 http://superuser.com/questions/368784/how-can-i-sort-all-files-by-size-in-a-directory
 
 
-### List files only
-
-```
-find . -maxdepth 1 -type f
-```
-
-From http://stackoverflow.com/questions/10574794/bash-how-to-list-only-files.
-
-
-### Find and exec
-
-```
-find . -name "test_*.py" -exec {} \;
-```
-http://stackoverflow.com/questions/7719785/using-find-with-exec-is-there-a-way-to-count-the-total
-
-
-### Find and suppress permission denied errors
-
-```
-find . ! -readable -prune
-```
-
-http://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find
-
-
-### Find but exclude directories
-
-```
-find . -not -path "./dir/to/exclude/*"
-find . -path ./dir/to/exclude -prune -o -print
-```
-
-http://stackoverflow.com/questions/4210042/exclude-directory-from-find-command
-
-
 ### ls: Show extended attributes
 
 This is an OSX-only feature:
@@ -1220,9 +1184,14 @@ https://stackoverflow.com/questions/3130375/bash-script-store-stderr-in-a-variab
 See http://www.gnu.org/software/bash/manual/bashref.html#Redirecting-Standard-Output-and-Standard-Error.
 
 ```
+# depending on shell, print output to console and file
+./a.out 2>&1 | tee output
+./a.out |& tee output
+
 <command> &> file
 ```
 
+https://stackoverflow.com/questions/363223/how-do-i-get-both-stdout-and-stderr-to-go-to-the-terminal-and-a-log-file
 https://askubuntu.com/questions/625224/how-to-redirect-stderr-to-a-file
 
 
@@ -1475,23 +1444,31 @@ Esc, Ctrl-h
 ### Test if remote port is open
 
 See http://stackoverflow.com/questions/4922943/how-to-test-if-remote-tcp-port-is-opened-from-shell-script.
+
 ```
 nc -z -w5 <host> <port>
 ```
+
 * `-z` means scan for listening daemons without sending any data.
 * `-w5` sets timeout to 5 seconds.
+
 This will print a message if successful:
+
 ```
 echo $? # 0 on success, 1 on failure
 ```
 
+
 ### Find out when computer was last rebooted.
 
 See http://www.ehow.com/how_5915486_tell-last-time-computer-rebooted.html.
+
 ```
 uptime
 ```
+
 The time after `up` is how long the computer has been running without reboot
+
 
 ### Read first few lines of a file
 
@@ -1562,6 +1539,19 @@ tree -d DIR # print directories only
 tree -I build
 # http://unix.stackexchange.com/questions/61074/tree-command-for-multiple-includes-and-excludes
 ```
+
+
+### Change extension of files in folder
+
+```
+# Rename all *.txt to *.text
+for f in *.txt; do
+    mv -- "$f" "${f%.txt}.text"
+done
+```
+
+https://unix.stackexchange.com/questions/19654/how-do-i-change-the-extension-of-multiple-files
+
 
 ### Extract filename and extension
 
@@ -1662,6 +1652,15 @@ awk '{ print $4 " " $1 " " $5 }' FILE
 See http://stackoverflow.com/questions/2129123/rearrange-columns-using-cut.
 
 
+### Insert line after first line in all files
+
+```
+sed -i '2i#include <stdlib.h>' *
+```
+
+https://unix.stackexchange.com/questions/442524/how-to-prepend-a-line-to-all-files-in-a-directory
+
+
 ### Remove trailing slash
 
 ```
@@ -1680,18 +1679,6 @@ sed -i '' '/pattern/d' ./*.conf
 ```
 
 https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string
-
-
-### Find and replace
-
-```
-# Portable
-find . -name pom.xml -exec perl -pi -w -e 's/foo/bar/g' {} \;
-
-find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
-```
-
-http://stackoverflow.com/questions/15402770/how-to-grep-and-replace
 
 
 ### Replace string in all files

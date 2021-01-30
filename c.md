@@ -1,3 +1,29 @@
+### No argument function
+
+```
+f(void)
+
+f() // can take any number of arguments
+```
+
+https://softwareengineering.stackexchange.com/questions/286490/what-is-the-difference-between-function-and-functionvoid/287002
+
+
+### Variable number of arguments / varargs
+
+```
+void Error(const char* format, ...)
+{
+    va_list argptr;
+    va_start(argptr, format);
+    vfprintf(stderr, format, argptr);
+    va_end(argptr);
+}
+```
+
+https://stackoverflow.com/questions/1056411/how-to-pass-variable-number-of-arguments-to-printf-sprintf
+
+
 ### Nested macros
 
 ```
@@ -63,6 +89,15 @@ https://stackoverflow.com/questions/5765899/how-to-disable-compiler-optimization
 ```
 
 https://stackoverflow.com/questions/33058848/generate-a-random-double-between-1-and-1
+
+
+### Where are gcc header files
+
+```
+`gcc -print-prog-name=cpp` -v
+```
+
+https://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files
 
 
 ### Include quotes vs. angle brackets
@@ -288,8 +323,27 @@ asm("addl $1, (%0)"
     :
     : "ir" (y));
 printf("%d\n", *y);
+
+
+// This code copies src to dst and add 1 to dst.
+int src = 1;
+int dst;
+
+asm ("mov %1, %0\n\t"
+    "add $1, %0"
+    : "=r" (dst)
+    : "r" (src));
+
+printf("%d\n", dst);
+
+// inline assembly to save %ds to variable
+uint32_t x = 0;
+asm("push %%ds; pop %0"
+    : "=r" (x)
+    :);
 ```
 
+https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#Extended-Asm
 https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html#OutputOperands
 https://gcc.gnu.org/onlinedocs/gcc/Simple-Constraints.html
 

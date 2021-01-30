@@ -1,0 +1,56 @@
+windows-reorder-navigation-panel.txt
+
+https://www.tenforums.com/customization/87070-how-sort-pc-quick-access-navigation-pane.html
+
+https://www.tenforums.com/tutorials/3123-clsid-key-guid-shortcuts-list-windows-10-a.html
+
+https://endurtech.com/how-to-remove-microsoft-onedrive-from-windows-10-file-explorer-sidebar/
+
+MS OneDrive
+Computer\HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}
+# same as under HKEY_CLASSES_ROOT\CLSID directly
+
+ORIGINAL
+
+Quick access {679f85cb-0220-4080-b29b-5540cc05aab6}
+System.IsPinned = 1
+System.Home>PropList.Sort REG_SZ prop:System.Home.SortOrder;System.ItemNameDisplay
+
+Network {F02C1A0D-BE21-4350-88B0-7367FC96EF3C}
+SortOrderIndex DWORD 67
+
+Network (WorkGroup): {208D2C60-3AEA-1069-A2D7-08002B30309D}
+
+OneDrive {018D5C66-4533-4307-9B53-224DE2ED1FE6}
+System.IsPinnedToNameSpaceTree 1
+SortOrderIndex 66
+
+This PC {20D04FE0-3AEA-1069-A2D8-08002B30309D}
+Computer\HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}
+
+CHANGED perms
+quick access, network, onedrive
+
+
+QUICK ACCESS
+
+Computer\HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}
+
+Computer\HKEY_CLASSES_ROOT\CLSID\{679f85cb-0220-4080-b29b-5540cc05aab6}
+
+x46
+
+
+Network
+
+Computer\HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}
+
+Computer\HKEY_CLASSES_ROOT\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}
+
+x43
+
+Dropbox
+HKEY_CLASSES_ROOT\CLSID\{E31EA727-12ED-4702-820C-4B6445F28E1A}
+
+seems Quick Access cannot be reordered
+https://www.tenforums.com/tutorials/72210-move-libraries-above-pc-navigation-pane-windows-10-a.html

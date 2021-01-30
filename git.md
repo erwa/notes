@@ -1,3 +1,12 @@
+### Git pull hanging
+
+```
+GIT_TRACE=true git pull
+```
+
+https://stackoverflow.com/questions/44031150/why-does-git-pull-hang
+
+
 ### Fix dangling blob
 
 ```

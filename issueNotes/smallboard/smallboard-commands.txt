@@ -1,3 +1,15 @@
+### Docker setup and management
+
+```
+docker-compose up
+
+# docker-compose exec SERVICE COMMAND
+# SERVICE comes from the "services" section of
+# the docker-compose.yaml file
+docker-compose exec web python manage.py test
+```
+
+
 ### Delete Slack channels
 
 export SLACK_API_TOKEN=..

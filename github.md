@@ -1,3 +1,12 @@
+### Draft pull request
+
+Select in drop-down on create a pull request button.
+
+Cannot be merged until marked ready for review.
+
+https://github.blog/2019-02-14-introducing-draft-pull-requests/
+
+
 ### Webhooks
 
 For Discord: https://gist.github.com/jagrosh/5b1761213e33fc5b54ec7f6379034a22

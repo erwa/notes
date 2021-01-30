@@ -1038,7 +1038,7 @@ https://tex.stackexchange.com/questions/4400/how-can-one-make-a-table-without-bo
 https://tex.stackexchange.com/questions/28494/how-to-change-the-font-of-a-latex-table-to-typewriter-font
 
 
-### Draw table / create table / make table
+### Draw table / create table / make table / add table / insert table
 
 Need to use dollars signs around formulas: `$<formula>$`
 
@@ -1061,6 +1061,8 @@ Need to use dollars signs around formulas: `$<formula>$`
 \end{center}
 
 % c for center
+% after tabular, the specification {| c ... |} is required
+% need \\ at end of each table row
 \begin{tabular}{| c | c | c | c |}
   \hline
   $y_i$ & Approximation using Euler's method with $h = 0.1$ & Actual value & Error \\ \hline

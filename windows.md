@@ -71,6 +71,11 @@ Use Photos app. Select Video Project from menu.
 https://www.msftnext.com/merge-videos-windows-10-photos-app/
 
 
+### Video using webcam
+
+Use Camera app.
+
+
 ### Record video of screen / screen recording
 
 If microphone is needed, use ScreenRec: https://screenrec.com/screen-recorder/record-computer-screen-and-audio/. Download at https://screenrec.com/download-screenrec/.
