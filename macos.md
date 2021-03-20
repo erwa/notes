@@ -102,6 +102,12 @@ Preferences --> App Store --> Uncheck "Automatically check for updates"
 https://mac-how-to.gadgethacks.com/how-to/disable-annoying-software-update-notifications-your-mac-0164224/
 
 
+### Reverse scroll direction mouse scroll wheel vs. trackpad
+
+https://pilotmoon.com/scrollreverser/
+https://apple.stackexchange.com/questions/116617/how-to-separate-mouse-and-trackpad-settings 
+
+
 ### Always show scroll bars
 
 Settings -> General -> Show scroll bars -> Always
@@ -166,6 +172,10 @@ https://forums.macrumors.com/threads/how-to-find-out-the-frame-rate-of-a-video.1
 
 ### Lock screen / sleep
 
+Cmd + Ctrl + Q
+
+https://macpaw.com/how-to/lock-mac-screen
+
 Ctrl + Shift + Power
 
 
@@ -204,7 +214,7 @@ Use Photo Booth.
 * http://apple.stackexchange.com/questions/11497/can-i-take-a-still-photo-with-my-built-in-webcam
 
 
-### Clipboard Manager
+### Clipboard Manager / Copy history
 
 Clip: Cmd + Shift + V to select what to paste
 
