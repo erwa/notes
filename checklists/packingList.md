@@ -11,18 +11,24 @@
 
 ### General
 
+- download transit map PDF for destination
+- HDMI cable
+- extension cable / extension cord / power cord / power strip
+- plastic bags, trash bags, extra Ziploc bags
+- move Curex insoles to shoes I plan to wear on trip
+- slippers / flip-flops
 - drawstring bag
 - PPE (personal protective equipment) - face mask, hand sanitizer, disinfecting wipes, gloves
 - climbing gear (consider bringing ATC)
 - MetroCard, Clipper Card, Caltrain Go Pass, subway pass
 - consider enabling "avoid tolls" in Google Maps
+- toll pass (e.g.: FasTrak or E-ZPass)
 - car phone mount
 - Toiletries (razor, toothbrush, toothpaste, floss, nail clipper, comb, contacts, contact solution)
 - add phone numbers of travel companions
 - neck cushion
 - when working remotely, find a library (at office or public library) to work in
 - star points of interest on Google Map
-- download transit map PDF for destination
 - Jacket
 - Swimming trunks (preferably regular ones)
 - soap (if not available)
@@ -59,8 +65,6 @@
 - Cash, for transferring into local currency
 - Dictionary/phrasebook for language of destination
 - learn/practice language of destination
-- trash bags, extra Ziploc bags
-- slippers / flip-flops
 - Tissues / toilet paper / trowel
 - Keys
 - card/board games / juggling balls / Rubik's Cube

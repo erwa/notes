@@ -14,6 +14,9 @@ ORIGINAL
 
 Quick access {679f85cb-0220-4080-b29b-5540cc05aab6}
 System.IsPinned = 1
+
+[adding System.IsPinnedToNameSpaceTree 1 seems to stop Quick access from disappearing when I modify it]
+
 System.Home>PropList.Sort REG_SZ prop:System.Home.SortOrder;System.ItemNameDisplay
 
 Network {F02C1A0D-BE21-4350-88B0-7367FC96EF3C}

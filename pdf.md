@@ -1,5 +1,7 @@
 ### Draw in PDF
 
+Open PDF in Microsoft Edge browser.
+
 https://smallpdf.com/edit-pdf
 
 
@@ -49,7 +51,7 @@ https://www.digitaltrends.com/computing/password-protect-pdf/
 Mac: Open in Preview -> in sidebar, select page to delete, press Delete key.
 
 
-### Combine PDFs
+### Combine PDFs / Concatenate PDFs
 
 Mac: Open 1 PDF in Preview -> Edit -> Insert from File.
 

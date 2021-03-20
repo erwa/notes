@@ -1,3 +1,72 @@
+### return this
+
+```
+class myclass {
+public:
+   // Return by pointer needs const and non-const versions
+         myclass* ReturnPointerToCurrentObject()       { return this; }
+   const myclass* ReturnPointerToCurrentObject() const { return this; }
+
+   // Return by reference needs const and non-const versions
+         myclass& ReturnReferenceToCurrentObject()       { return *this; }
+   const myclass& ReturnReferenceToCurrentObject() const { return *this; }
+
+   // Return by value only needs one version.
+   myclass ReturnCopyOfCurrentObject() const { return *this; }
+};
+```
+
+https://stackoverflow.com/questions/6919330/return-this-in-c
+
+
+### GTest
+
+Run one test
+
+```
+test/grading_buffer_pool_manager_test --gtest_filter=BufferPoolManagerTest.FetchPage
+```
+
+
+### if statement with initializer list
+
+```
+if (auto it = v.find(foo); it != v.end()) {
+  ...
+}
+
+// equivalent to
+{
+  auto it = v.find(foo);
+  if (it != v.end()) {
+    ...
+  }
+}
+```
+
+Since C++17.
+
+https://en.cppreference.com/w/cpp/language/if
+
+
+### Locking
+
+Lock auto-released when leaving scope:
+
+```
+#include <mutex>
+using namespace std;
+mutex m;
+
+void f() {
+  scoped_lock<mutex> lck {m};
+  // ...
+}
+```
+
+A Tour of C++, 2nd Edition, 13.2
+
+
 ### Print type of variable
 
 ```
@@ -277,6 +346,17 @@ cout << p.first << " " << p.second << endl;
 p.first = 3;
 cout << p.first << endl;
 ```
+
+
+### Reverse iterator
+
+```
+for (auto it = foo.rbegin(); it != foo.rend(); it++) {
+  ...
+}
+```
+
+https://en.cppreference.com/w/cpp/iterator/reverse_iterator
 
 
 ### Iterators
@@ -664,6 +744,15 @@ int main()
 https://www.geeksforgeeks.org/new-vs-operator-new-in-cpp/
 
 
+### Default value for template type
+
+```
+T()
+```
+
+https://stackoverflow.com/questions/12615549/how-to-get-the-default-value-of-any-type
+
+
 ### Default constructor
 
 ```
@@ -875,13 +964,42 @@ https://en.cppreference.com/w/cpp/language/nested_types
 ### Inheritance
 
 ```
+// if derived type is struct, default access specifier is "public"
+class A {};
+struct B: /* public */ A {};
+
+// if derived type is class, default access specifier is "private"
+// "private" means inherited public and protected members become private
+struct A {};
+class B: /* private */ A {};
+
 class derived_class_name: public base_class_name
 { /*...*/ };
 ```
 
 "public" is the accessibility set on members inherited from `base_class_name`.
 
+https://stackoverflow.com/questions/4796789/default-inheritance-access-specifier/
+https://www.learncpp.com/cpp-tutorial/inheritance-and-access-specifiers/
 http://www.cplusplus.com/doc/tutorial/inheritance/#inheritance
+
+
+### Accessibility
+
+Class methods can access private members of object of same class (same as in Java).
+
+```
+class Foo : public Blah {
+ public:
+  void foo(Foo f) {
+    f.priv_foo();
+  }
+ private:
+  void priv_foo() {
+    cout << "priv_foo\n";
+  }
+};
+```
 
 
 ### HashMap / unordered map
