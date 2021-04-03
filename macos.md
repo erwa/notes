@@ -1,3 +1,10 @@
+### Disable auto-period inserted on double space
+
+System Preferences -> Keyboard -> Text -> uncheck "Add period with double-space"
+
+https://www.idownloadblog.com/2016/12/19/how-to-stop-your-mac-from-inserting-a-period-when-you-double-press-the-space-bar/
+
+
 ### Copy file to clipboard
 
 ```

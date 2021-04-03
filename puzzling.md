@@ -221,6 +221,11 @@ https://enigma.puzzlers.org/guide/composing
 Rebus: https://enigma.puzzlers.org/guide/rebi#rebus
 
 
+### What is a cryptic?
+
+https://puzzling.stackexchange.com/questions/45984/cryptic-clue-guide
+
+
 ### Cryptic tips
 
 Ignore punctuation.

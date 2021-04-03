@@ -1,3 +1,19 @@
+### Double colon prefix / prefix double colon
+
+```
+::Configuration * tmpCo = m_configurationDB;//pointer to current db
+```
+
+Means resolution starts from global namespace rather than current namespace.
+
+
+### Anonymous namespaces
+
+Things defined inside will not be visible elsewhere and cannot clash with names defined elsewhere.
+
+https://stackoverflow.com/questions/357404/why-are-unnamed-namespaces-used-and-what-are-their-benefits
+
+
 ### return this
 
 ```
@@ -208,6 +224,13 @@ priority_queue<int,vector<int>,greater<int> > q;
 ```
 
 https://stackoverflow.com/questions/2786398/is-there-an-easy-way-to-make-a-min-heap-in-c
+
+
+### Insert vs. emplace
+
+Emplace does in-place initialization and avoids copying. Emplace was added in C++11 and is preferred for inserting into containers.
+
+https://stackoverflow.com/questions/17172080/insert-vs-emplace-vs-operator-in-c-map#
 
 
 ### Sets
@@ -455,6 +478,15 @@ Created when prvalue is converted to glvalue.
 https://en.cppreference.com/w/cpp/language/lifetime#Temporary_object_lifetime
 
 
+### Namespace aliases
+
+```
+namespace n = ::path::to::really::nested::namespace;
+
+n::super_duper_method();
+```
+
+
 ### Using namespaces
 
 ```
@@ -672,6 +704,8 @@ auto &&z = raw_array<int,5>{};
 
 https://stackoverflow.com/questions/16949016/how-to-declare-array-with-auto
 
+Good practice to use `auto*` to emphasize something is a pointer.
+
 
 ### Capture list and parameter list
 
@@ -751,6 +785,34 @@ T()
 ```
 
 https://stackoverflow.com/questions/12615549/how-to-get-the-default-value-of-any-type
+
+
+### Delegating constructors
+
+```
+class class_c {
+public:
+    int max;
+    int min;
+    int middle;
+
+    class_c(int my_max) {
+        max = my_max > 0 ? my_max : 10;
+    }
+    class_c(int my_max, int my_min) : class_c(my_max) {
+        min = my_min > 0 && my_min < max ? my_min : 1;
+    }
+    class_c(int my_max, int my_min, int my_middle) : class_c (my_max, my_min){
+        middle = my_middle < max && my_middle > min ? my_middle : 5;
+}
+};
+int main() {
+
+    class_c c1{ 1, 3, 2 };
+}
+```
+
+https://docs.microsoft.com/en-us/cpp/cpp/delegating-constructors?view=msvc-160
 
 
 ### Default constructor
