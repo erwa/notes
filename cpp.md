@@ -929,6 +929,13 @@ class SubClass : public SuperClass
 https://stackoverflow.com/questions/120876/what-are-the-rules-for-calling-the-superclass-constructor
 
 
+### Constructor initialization
+
+Before body is executed, base classes and non-static data members are first initialized. If you want non-default initialization, use a member-initializer list.
+
+https://en.cppreference.com/w/cpp/language/constructor
+
+
 ### Colon after constructor
 
 Used for initialization. Can initialize member variables or call base class constructors.

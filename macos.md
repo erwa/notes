@@ -223,7 +223,12 @@ Use Photo Booth.
 
 ### Clipboard Manager / Copy history
 
-Clip: Cmd + Shift + V to select what to paste
+Jumpcut: Ctrl + Option + V
+
+https://snark.github.io/jumpcut/
+
+
+Clip: Cmd + Shift + V to select what to paste.
 
 https://clipy-app.com/
 
