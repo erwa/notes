@@ -1,3 +1,13 @@
+### Bulk save emails as PDFs
+
+https://www.labnol.org/internet/print-multiple-gmail-in-bulk/29000/
+
+
+### Sending email as another account
+
+If having issues, check your security settings. From that other account, go to Account settings -> Security -> Less secure app access -> On.
+
+
 ### Change Gmail Timezone
 
 Change it in Google Calendar.

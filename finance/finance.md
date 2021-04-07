@@ -1,3 +1,10 @@
+### Alternative minimum tax
+
+Puts in place a minimum amount of tax each person owes to ensure everyone pays their fair share.
+
+https://www.investopedia.com/terms/a/alternativeminimumtax.asp
+
+
 ### Expense Ratio
 
 How much of a fund's assets are used for administrative and operational expenses.
@@ -182,6 +189,24 @@ https://www.nerdwallet.com/article/investing/ira-vs-401k-retirement-accounts (go
 https://www.fidelity.com/mymoney/multiple-401k-accounts
 https://en.wikipedia.org/wiki/Roth_401(k)#Traditional_401.28k.29_and_Roth_IRA_plans
 https://en.wikipedia.org/wiki/Comparison_of_401(k)_and_IRA_accounts#Comparison
+
+
+### IRA basis
+
+The amount of an IRA that has already been taxed.
+
+https://www.kiplinger.com/article/retirement/t032-c032-s014-tracking-down-ira-basis-gold-mine-for-beneficiarie.html
+
+
+### Non-deductible contributions to traditional IRA
+
+You cannot take any deductions for your Traditional IRA contributions if your income exceeds some threshold. Most software engineers will exceed this threshold. When you convert a traditional IRA to a Roth IRA, you only have to pay taxes on the tax-deductible contributions and the earnings.
+
+It seems if you cannot take any deductions for your traditional IRA contributions and you can immediately convert a traditional IRA to a Roth IRA after contributing, then it's strictly better to go with a Roth IRA.
+
+https://turbotax.intuit.com/tax-tips/investments-and-taxes/what-is-irs-form-8606-nondeductible-iras/L7iVxrgTs
+
+https://www.investopedia.com/articles/pf/12/roth-ira.asp
 
 
 ### IRA Rollover / IRA Conversion
