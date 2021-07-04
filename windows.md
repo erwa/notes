@@ -1,3 +1,19 @@
+### Connect Apple Magic Mouse or Magic Keyboard
+
+Use Magic Utilities
+
+https://magicutilities.net/
+
+
+### Use wired and wireless headphones at same time
+
+- Connect both.
+- Sound -> Playback tab -> set speakers as default device.
+- Sound -> Recording tab -> Stereo Mix -> enable, set as default device -> Properties -> Listen -> check "Listen to this device" -> Playback through (bluetooth headphones)
+
+https://www.intowindows.com/use-speakers-headphones-at-the-same-time-in-windows-10/
+
+
 ### Disable Cortana
 
 After disabling, to get rid of alt-tab Cortana Window, use Task Manager to end task the Cortana task.

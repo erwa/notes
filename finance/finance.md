@@ -209,6 +209,15 @@ https://turbotax.intuit.com/tax-tips/investments-and-taxes/what-is-irs-form-8606
 https://www.investopedia.com/articles/pf/12/roth-ira.asp
 
 
+### Rollover vs. Transfer
+
+From Vanguard: "A rollover is a way to move assets between retirement plans (such as from a 401(k) plan to another 401(k) plan), or from a retirement plan to an IRA (such as from a 401(k) or 403(b) to an IRA).
+
+A transfer is a way to move assets from a retirement account (such as an IRA) or a nonretirement account (such as an individual or joint account) from one financial firm to another."
+
+https://apps.vanguard.com/web/cf/move-money/account-type
+
+
 ### IRA Rollover / IRA Conversion
 
 In general, you can only rollover one IRA to another in any 12-month period. However, many exceptions.
@@ -224,6 +233,9 @@ Converting (or "rolling over") from traditional IRA to Roth IRA is a taxable eve
 
 Anyone can convert a traditional IRA to a Roth IRA, regardless of income. Wealthfront lets you do it easily: [https://blog.wealthfront.com/wealthfront-now-offers-easy-roth-conversions/]()
 
+If you earn too much to contribute directly to Roth, then you also earn too much to do pre-tax contributions to a traditional IRA. But you can immediately convert traditional IRA contributions to a Roth IRA, and you don't have to pay taxes again during the conversion.
+
+https://www.investopedia.com/how-to-set-up-a-backdoor-roth-ira-4584775
 https://www.investopedia.com/roth-ira-conversion-rules-4770480
 https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions
 https://www.irs.gov/retirement-plans/ira-one-rollover-per-year-rule

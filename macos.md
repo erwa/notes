@@ -1,3 +1,10 @@
+### Output to multiple headphones simultaneously
+
+Audio Midi Setup -> + -> Create Multi-Output Device
+
+https://support.apple.com/guide/audio-midi-setup/play-audio-through-multiple-devices-at-once-ams7c093f372/mac
+
+
 ### Disable auto-period inserted on double space
 
 System Preferences -> Keyboard -> Text -> uncheck "Add period with double-space"
@@ -112,7 +119,7 @@ https://mac-how-to.gadgethacks.com/how-to/disable-annoying-software-update-notif
 ### Reverse scroll direction mouse scroll wheel vs. trackpad
 
 https://pilotmoon.com/scrollreverser/
-https://apple.stackexchange.com/questions/116617/how-to-separate-mouse-and-trackpad-settings 
+https://apple.stackexchange.com/questions/116617/how-to-separate-mouse-and-trackpad-settings
 
 
 ### Always show scroll bars

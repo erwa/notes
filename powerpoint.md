@@ -1,3 +1,14 @@
+### Insert video
+
+Insert -> Video
+
+To auto-play, on playback, select Start Automatically.
+
+To auto-transition when video finishes, just set Transitions -> Advance Slide After 0 seconds (will still wait until video finishes).
+
+https://lucpowerpoint.blogspot.com/2018/09/play-video-automatically-and-advance-to.html
+
+
 ### Insert background music
 
 Insert -> Audio
@@ -5,6 +16,10 @@ Insert -> Audio
 Select audio object -> Playback -> {Play in Background, check "Hide During Show", "Play Across Slides", "Loop until Stopped"}
 
 If you have multiple songs, best to combine them into one audio file first using something like [https://clideo.com/merge-audio]().
+
+To stop the music after a certain number of slides, open the Animation Pane (under Animations) for the audio clip, Effect Options -> change stop playing after X slides.
+
+https://www.youtube.com/watch?v=wlduN6AEpgY
 
 
 ### One picture per slide
