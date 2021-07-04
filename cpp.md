@@ -1,3 +1,29 @@
+### Friendship is not inherited
+
+Subclass does not inherit friends of parent class and does not automatically become a friend of the classes the parent is a friend of.
+
+https://stackoverflow.com/questions/7371087/c-friend-inheritance
+
+
+### Mod operator (%)
+
+Actually a remainder operator. Sign of result is same as sign of dividend, NOT divisor.
+
+https://stackoverflow.com/questions/11720656/modulo-operation-with-negative-numbers
+
+
+### When do copies happen?
+
+If there are two names, a copy happens. If one (returning a local from function) or zero (temporary), no copy.
+
+https://abseil.io/tips/77
+
+
+### unique_ptr
+
+Are always moved rather than copied, so explicit `std::move` is not necessary.
+
+
 ### Double colon prefix / prefix double colon
 
 ```
@@ -63,6 +89,33 @@ if (auto it = v.find(foo); it != v.end()) {
 Since C++17.
 
 https://en.cppreference.com/w/cpp/language/if
+
+
+### Using mutex in const method
+
+Make it mutable:
+
+```
+struct foo 
+{
+    mutable mutex foo_mutex;
+    // ....
+    void bar() const
+    {
+        auto_locker lock(foo_mutex);
+        // ...
+    }
+};
+```
+
+https://stackoverflow.com/questions/3239905/c-mutex-and-const-correctness/3239934
+
+
+### Mutex lock visibility / mutex unlock visibility
+
+All loads and stores that happen before unlock are visible after lock.
+
+https://stackoverflow.com/questions/58021311/do-the-release-acquire-visibility-guarantees-of-stdmutex-apply-to-only-the-cri
 
 
 ### Locking
@@ -424,6 +477,13 @@ https://stackoverflow.com/questions/20368195/stdinitializer-list-that-can-be-sor
 Array of constants. Cannot be std:sort'd.
 
 
+### Fixed-size array at construction time
+
+If not known at compile-time, then use a vector. Can reserve the fixed size.
+
+https://stackoverflow.com/questions/751878/determine-array-size-in-constructor-initializer
+
+
 ### Vectors
 
 ```
@@ -469,6 +529,13 @@ Lookup (v[i] or v.at(i)) is constant-time.
 
 https://stackoverflow.com/questions/181693/what-are-the-complexity-guarantees-of-the-standard-containers
 http://www.cplusplus.com/reference/vector/vector/operator[]/
+
+
+### rvalues explained
+
+Roughly, lvalue is something that refers to a memory location (and you can thus take the address of that location). rvalue is anything that is not an lvalue.
+
+http://thbecker.net/articles/rvalue_references/section_01.html
 
 
 ### Temporary objects
@@ -604,6 +671,16 @@ setValues(3) = 70.8;  // change 4th element
 ```
 
 
+### Fill string with n copies of a char
+
+```
+// fill string with n copies of c
+string(size_t n, char c);
+```
+
+https://www.cplusplus.com/reference/string/string/string/
+
+
 ### Destructor
 
 ```
@@ -707,7 +784,9 @@ https://stackoverflow.com/questions/16949016/how-to-declare-array-with-auto
 Good practice to use `auto*` to emphasize something is a pointer.
 
 
-### Capture list and parameter list
+### Capture list and parameter list / lambda functions
+
+Example:
 
 ```
 #include <iostream>
@@ -728,6 +807,18 @@ int main() {
 ```
 
 https://stackoverflow.com/questions/28669941/c-lambdas-capture-list-vs-parameter-list
+
+Other notes:
+
+```
+[&]  // all variables captured by reference
+[=]  // all variables captured by value
+
+[this]  // capture this by reference
+```
+
+https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-160#capture-clause
+https://docs.microsoft.com/en-us/cpp/cpp/examples-of-lambda-expressions?view=msvc-160#methodLambdaExpressions
 
 
 ### Variable initialization rules
@@ -899,6 +990,16 @@ int main()
 https://www.geeksforgeeks.org/constructors-c/
 
 
+### Check to help catch incorrect argument order for arguments that are the same type
+
+```
+void foo(bool TurnKey, bool PressButton);
+foo(/*TurnKey=*/true, /*PressButton=*/false);
+```
+
+https://clang.llvm.org/extra/clang-tidy/checks/bugprone-argument-comment.html
+
+
 ### Base class constructor
 
 Called before subclass constructor is called. If the base class constructor has no arguments, it is called automatically. Otherwise, you must explicitly specify the constructor.
@@ -927,6 +1028,13 @@ class SubClass : public SuperClass
 ```
 
 https://stackoverflow.com/questions/120876/what-are-the-rules-for-calling-the-superclass-constructor
+
+
+### Default initialization of variables
+
+When you declare variable, default constructor is invoked. For primitives like int, default constructor does nothing, so memory may still be garbage.
+
+https://www.tutorialspoint.com/How-are-Cplusplus-Local-and-Global-variables-initialized-by-default
 
 
 ### Constructor initialization
@@ -1008,14 +1116,16 @@ https://stackoverflow.com/questions/21187965/c-code-explanation-for-method-proto
 ### How to read type definitions
 
 ```
-int* - pointer to int
-int const * - pointer to const int
-int * const - const pointer to int
-int const * const - const pointer to const int
+int*              // pointer to int
+int const         // pointer to const int
+int* const        // const pointer to int
+int const* const  // const pointer to const int
 
 // first const can be on either side of the type so
-const int * == int const *
-const int * const == int const * const
+const int* == int const*
+
+// constant pointer to constant data
+const int* const == int const* const
 ```
 
 
@@ -1071,11 +1181,22 @@ class Foo : public Blah {
 ```
 
 
+### Using `std::hash`
+
+```
+std::hash<Key>()(k1);
+```
+
+https://en.cppreference.com/w/cpp/utility/hash
+
+
 ### HashMap / unordered map
 
 ```
 #include <unordered_map>
 
+// calls default constructor of unordered_map
+// will be empty
 unordered_map<int, int> m;
 m[0] = 1;
 m[1] = 2;
@@ -1098,6 +1219,7 @@ for (auto &e : m) {
 }
 ```
 
+https://iq.opengenus.org/initialize-map-cpp-stl/
 https://www.techiedelight.com/use-std-pair-key-std-unordered_map-cpp/
 
 

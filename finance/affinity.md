@@ -2,6 +2,8 @@
 
 Additional Services -> Request Center -> Account Services -> Certificate Maturity Redemption Form
 
+Works for regular CDs, not IRA CDs.
+
 
 ### IRA Account Transfer Fee
 
@@ -29,11 +31,13 @@ Ending with:
 * "6" is money manager
 
 
-### IRA Transfers
+### IRA Transfers / Open IRA account / Roth conversion
+
+Use the form here: https://www2.iraservicecenter.com/rc/?OrgNbr=5865
 
 Call or email Affinity and ask them to send you a transfer form you can fill out and send back.
 
-Roth conversion can only be done when Traditional IRA CD matures.
+Roth conversion can only be done when Traditional IRA CD matures. Can use the open IRA account form to convert a Traditional IRA to Roth IRA.
 
 
 ### Transfer remarks

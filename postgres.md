@@ -1,3 +1,15 @@
+### Different types of indexes
+
+E.g.: hash, btree, gist, gin, etc. Explained in links at bottom of https://www.interdb.jp/pg/pgsql01.html
+
+
+### Vacuum
+
+One of the things it helps with is solving the transaction id wraparound issue.
+
+https://www.postgresql.org/docs/9.4/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND
+
+
 ### Epoch to timestamp
 
 ```
@@ -185,15 +197,20 @@ grant all privileges on database mydb to myuser;
 https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
 
 
-### Show databases / show tables / show schemas /show roles / show user privileges / use database / describe table
+### Show databases / show functions / show tables / show schemas / show roles / show user privileges / use database / describe table
 
 ```
+\df  # show all functions
+# show functions in some schema
+\df <schema>.*
+
 # show schemas (which are like folders to group tables, views, and functions)
 \dn
 
 \l  # show databases and privileges
 
 \dt  # show tables (once inside database)
+\dt <schema>.*  # show tables in one schema
 \dt my_schema.  # show tables in schema 'my_schema'
                 # the trailing "." is important!
 

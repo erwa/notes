@@ -1,3 +1,13 @@
+### Hex to decimal / hexadecimal to decimal / decimal to hex
+
+```
+$ printf "%x\n" 12345678
+bc614e
+$ printf "%d\n" 0xbc614e
+12345678
+```
+
+
 ### Disable output buffering / disable input buffering
 
 ```
@@ -535,6 +545,7 @@ if COMMAND1 || COMMAND2
 [ -e FILE ] # true if FILE exists. FILE could be directory.
 [ -h FILE ] # true if FILE exists and is a symlink.
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
+[ -r FILE ] # true if FILE has read permission for current user
 [ -s FILE ] # true if FILE exists and has a size greater than 0
 [ -x FILE ] # true if FILE exists and is executable
 [ -z STRING ] # true if STRING is of length 0 (empty string)
@@ -544,6 +555,8 @@ if COMMAND1 || COMMAND2
 [ $# < 1 ] # true if no arguments passed to script
 [ ! EXPR ] # true if EXPR is false
 ```
+
+https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/fto.html
 
 Examples:
 
@@ -997,6 +1010,15 @@ touch -m --date="7 days ago" FILE
 ```
 
 
+### ls sort by modification time
+
+```
+ls -t
+```
+
+https://unix.stackexchange.com/questions/14728/ls-how-do-i-list-directories-sorted-by-timestamps-of-the-files-it-contains
+
+
 ### atime vs ctime vs mtime
 
 ```
@@ -1299,6 +1321,20 @@ See http://stackoverflow.com/questions/7402587/run-command2-only-if-command1-suc
 command1 && command2
 command1 || command2
 ```
+
+
+### Error if variable is unset
+
+```
+# question mark at end
+${MY_VARIABLE?}
+
+# `:` also checks if variable is null
+# "error_message" is optional error message to print
+${MY_VARIABLE:?error_message}
+```
+
+https://stackoverflow.com/questions/8889302/what-is-the-meaning-of-a-question-mark-in-bash-variable-parameter-expansion-as-i
 
 
 ### `set`: Treat unset variables as error and exit immediately
@@ -1681,7 +1717,7 @@ sed -i '' '/pattern/d' ./*.conf
 https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string
 
 
-### Replace string in all files
+### Replace string in all files / replace occurrences in file
 
 ```
 # Linux

@@ -1,3 +1,10 @@
+### Renaming field
+
+Is ok if you don't use JSON representation. Maintains wire compatibility.
+
+https://stackoverflow.com/questions/45431685/protocol-buffer-does-changing-field-name-break-the-message
+
+
 ### JSON to protobuf
 
 ```

@@ -11,7 +11,9 @@
 
 ### General
 
+- card/board games / juggling balls / Rubik's Cube
 - download transit map PDF for destination
+- adapters (e.g.: USB-C to HDMI)
 - HDMI cable
 - extension cable / extension cord / power cord / power strip
 - plastic bags, trash bags, extra Ziploc bags
@@ -20,7 +22,7 @@
 - drawstring bag
 - PPE (personal protective equipment) - face mask, hand sanitizer, disinfecting wipes, gloves
 - climbing gear (consider bringing ATC)
-- MetroCard, Clipper Card, Caltrain Go Pass, subway pass
+- zipcard, MetroCard, Clipper Card, Caltrain Go Pass, subway pass
 - consider enabling "avoid tolls" in Google Maps
 - toll pass (e.g.: FasTrak or E-ZPass)
 - car phone mount
@@ -36,7 +38,7 @@
 - Laptop, charger
 - ear buds
 - Phone, phone charger, battery pack
-- Power adaptor/converter -- different countries have different plugs and outlets, also useful for cruise ships
+- Power adapter/converter -- different countries have different plugs and outlets, also useful for cruise ships
 - Sunscreen (replace big sunscreen bottle with small one)
 - Hat
 - sunglasses
@@ -67,7 +69,6 @@
 - learn/practice language of destination
 - Tissues / toilet paper / trowel
 - Keys
-- card/board games / juggling balls / Rubik's Cube
 - Offline tour guide information
 - Printed itinerary/map - send email summarizing trip post-trip.
 - Figure out conversion rate, where to put toilet paper, whether tap water is potable.
