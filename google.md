@@ -1,3 +1,8 @@
+### Check Google Cloud status
+
+https://status.cloud.google.com/summary
+
+
 ### Check Google storage space usage
 
 https://one.google.com/storage

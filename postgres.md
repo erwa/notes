@@ -197,6 +197,14 @@ grant all privileges on database mydb to myuser;
 https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
 
 
+### Show configuration
+
+```
+show <config>;
+show all;  --show all configs
+```
+
+
 ### Show databases / show functions / show tables / show schemas / show roles / show user privileges / use database / describe table
 
 ```
