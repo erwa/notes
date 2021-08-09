@@ -37,13 +37,14 @@ Spices and cooking essentials
 - condiments (ketchup, mustard, BBQ, chili sauce)
 
 
-### Preparation
+### Preparation / Tools
 
 - preheat grill to 350-450 F
 - spoon for spooning oil
 - scraper for cleaning grill
 - paper towels
 - forks, knives
+- chopsticks
 - tongs
 - plates, trays, bowls
 - peeler

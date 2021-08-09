@@ -127,7 +127,9 @@ http://www.investopedia.com/terms/n/no-loadfund.asp
 
 ### Index Fund
 
-A type of mutual fund that tracks an index. Generally lower management fees, since no need to hire a research team to actively manage it.
+A type of mutual fund or ETF that tracks an index. Generally lower management fees, since no need to hire a research team to actively manage it.
+
+https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4
 
 
 ### Exchange-Traded Fund (ETF) / Exchange Traded Fund
