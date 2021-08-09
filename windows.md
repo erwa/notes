@@ -1,3 +1,10 @@
+### Emoji keyboard
+
+```
+Windows + ;
+```
+
+
 ### Connect Apple Magic Mouse or Magic Keyboard
 
 Use Magic Utilities

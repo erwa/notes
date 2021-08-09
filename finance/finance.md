@@ -1,3 +1,13 @@
+### Market order, limit order, stop order
+
+Market order: buy/sell at current market price
+Limit order: don't buy/sell until price reaches X, visible to market immediately
+Stop order: don't buy/sell until price reaches X, not visible to market until stop price reached. Then market order executed.
+Stop-limit order: once stop price is reached, issue limit order.
+
+https://www.investopedia.com/ask/answers/04/022704.asp
+
+
 ### Alternative minimum tax
 
 Puts in place a minimum amount of tax each person owes to ensure everyone pays their fair share.
@@ -161,7 +171,7 @@ https://en.wikipedia.org/wiki/Capital_gains_tax_in_the_United_States
 
 In addition to the $19k (2019) pre-tax and Roth contributions, you can additionally make up to $37k (2019) in after-tax contribution for a maximum total contribution of $56k (2019).
 
-Earnings are taxed for pre-tax and after-tax, but not for Roth.
+Earnings are taxed for pre-tax and after-tax, but not for Roth. After-tax contributions can be converted to Roth automatically by Vanguard, after which earnings will no longer be taxed.
 
 https://www.doughroller.net/retirement-planning/pros-and-cons-of-after-tax-401k-contributions/
 
@@ -242,15 +252,26 @@ https://www.irs.gov/retirement-plans/ira-one-rollover-per-year-rule
 https://www.fool.com/knowledge-center/what-is-the-difference-between-the-conversion-and.aspx
 
 
+### Roth IRA withdrawal 5-year rule
+
+* Roth contributions can be withdrawn at any time without penalty.
+* Must wait 5 years from FIRST Roth IRA contribution before you can start withdrawing earnings tax free.
+* For Roth conversions, must wait 5 years before you can withdraw either principle or earnings tax-free.
+* If you inherit IRA before owner started required distributions, you may have to withdraw entire balance within 5 years: https://www.irs.gov/publications/p590b#en_US_2020_publink1000230726
+
+https://www.investopedia.com/ask/answers/05/waitingperiodroth.asp
+
+
 ### Traditional IRA vs. Roth IRA
 
 * For traditional IRA, contributions are tax-deductible; for Roth IRA, they are not.
 * For traditional IRA, distributions are taxed; for Roth, they are not.
 * Roth IRA has no minimum distribution requirement whereas traditional IRA does.
 * If you have high income, you probably don't qualify for traditional IRA deductions.
-* You can withdraw *contributions* to Roth IRA at any time without penalty. For traditional IRA, you will likely have to pay 10% penalty.
+* You can withdraw *contributions* to Roth IRA at any time without penalty. For traditional IRA, you will likely have to pay 10% penalty. There are a few exceptions, such as for medical expenses, a permanent disability, higher education expenses, inherited IRAs, and a first-time home purchase.
 * You can contribute to Roth IRA past age 70 1/2.
 
+https://www.investopedia.com/articles/retirement/02/111202.asp
 https://www.nerdwallet.com/article/investing/roth-or-traditional-ira-account
 
 Check Roth IRA contribution limits at [https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits]().

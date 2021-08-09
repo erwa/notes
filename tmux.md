@@ -1,5 +1,10 @@
 ### Scroll up
 
+```
+# jump to top of buffer / jump to beginning of buffer
+option + Shift + ,
+```
+
 Ctrl-b, [
 q  # to quit scroll mode
 Esc-up/down  # half page up/down
@@ -68,7 +73,7 @@ tmux movew -r
 
 # swap current window with first window
 Ctrl-b :
-swap-window  -t 0
+:swap-window  -t 0
 ```
 
 https://superuser.com/questions/343572/how-do-i-reorder-tmux-windows

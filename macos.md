@@ -566,6 +566,13 @@ Make sure you have have enabled your Mac in Settings -> Message -> Message Deliv
 http://recomhub.com/blog/apple-ios-9-2-how-to-activate-text-message-forwarding/
 
 
+### Emoji keyboard
+
+```
+Cmd + Ctrl + Space
+```
+
+
 ### Chinese input
 
 ```
