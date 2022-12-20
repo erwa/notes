@@ -1,3 +1,41 @@
+# Postgres notes
+
+
+### Find blocks in buffer cache from relation
+
+```
+CREATE EXTENSION pg_buffercache;
+
+SELECT COUNT(*) FROM pg_buffercache WHERE relfilenode='t1'::regclass AND relforknumber=0 AND relblocknumber=0;
+```
+
+
+### Get relation name from OID
+
+```
+select oid,relname from pg_class where oid=16421;
+  oid  | relname
+-------+---------
+ 16421 | test
+```
+
+https://postgrespro.com/list/thread-id/1348909
+
+
+### Get relation OID
+
+`SELECT 'mytbl'::regclass::oid;`
+
+https://stackoverflow.com/questions/10953123/how-to-determine-the-oid-of-a-postgres-table
+
+
+### Current WAL flush LSN
+
+`SELECT pg_current_wal_flush_lsn();`
+
+https://www.postgresql.org/docs/14/functions-admin.html#FUNCTIONS-ADMIN-BACKUP
+
+
 ### Different types of indexes
 
 E.g.: hash, btree, gist, gin, etc. Explained in links at bottom of https://www.interdb.jp/pg/pgsql01.html
@@ -109,6 +147,20 @@ select * from puzzles_puzzle where name = 'Who''s Who';
 ```
 
 https://stackoverflow.com/questions/12316953/insert-text-with-single-quotes-in-postgresql
+
+
+### Run Postgres locally
+
+```
+sudo --user=postgres /usr/lib/postgresql/14/bin/initdb /tmp/data
+sudo --user=postgres /usr/lib/postgresql/14/bin/pg_ctl -D /tmp/data -l /tmp/logfile start
+sudo --user=postgres /usr/lib/postgresql/14/bin/pg_ctl -D /tmp/data -l /tmp/logfile stop
+
+# connect
+psql -U postgres
+```
+
+https://www.postgresql.org/docs/14/server-start.html
 
 
 ### Run script
