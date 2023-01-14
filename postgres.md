@@ -1,6 +1,13 @@
 # Postgres notes
 
 
+### Get my process id (pid)
+
+```
+SELECT pg_backend_pid();
+```
+
+
 ### Find blocks in buffer cache from relation
 
 ```
@@ -27,6 +34,15 @@ https://postgrespro.com/list/thread-id/1348909
 `SELECT 'mytbl'::regclass::oid;`
 
 https://stackoverflow.com/questions/10953123/how-to-determine-the-oid-of-a-postgres-table
+
+
+### Convert pg_lsn to bigint
+
+```
+SELECT lsn - '0/0';
+```
+
+https://stackoverflow.com/questions/66797767/lsn-external-representation
 
 
 ### Current WAL flush LSN
