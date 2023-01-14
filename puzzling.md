@@ -1,3 +1,8 @@
+### Solving tools
+
+https://tools.qhex.org/ - text, search, logic tools
+
+
 ### Team collaboration hunt dashboard tools
 
 https://github.com/cardinalitypuzzles/smallboard
@@ -11,6 +16,7 @@ https://www.reddit.com/r/mysteryhunt/comments/jlap0k/what_technology_stack_are_t
 
 ### Idea generation
 
+- Try reading last letters in addition to first letters
 - Look at puzzle page background
 - [The Benjian Puzzle Maxims](https://docs.google.com/document/d/1cu5v2n3zKzwag7rdzfJqdTPw9kp9vHFCIYYieHX_E-U/edit)
 - [Have you tried...](https://www.mit.edu/~puzzle/resources/haveyoutried.pdf)
@@ -41,6 +47,11 @@ Huntress plugin: https://chrome.google.com/webstore/detail/huntress-reverse-imag
 ### Word list
 
 https://github.com/dwyl/english-words/blob/master/words_alpha.txt
+
+
+### Find all words that differ by one letter
+
+https://www.morewords.com/change-one-letter-in/WORD
 
 
 ### Anagrams / regex / phrase lookup

@@ -135,6 +135,10 @@ Cmd + .  # Superscript
 
 https://productforums.google.com/forum/#!topic/docs/H90aHHv2bIU
 
+Superscripts in Google Sheets aren't supported but one workaround: copy and paste Unicode characters that look like superscripts
+
+https://www.benlcollins.com/spreadsheets/superscript-in-google-sheets/
+
 
 ### Disable smart quotes
 

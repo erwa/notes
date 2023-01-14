@@ -8,6 +8,10 @@ sudo service apache2 start
 
 https://medium.com/@fiqriismail/how-to-setup-apache-mysql-and-php-in-linux-subsystem-for-windows-10-e03e67afe6ee
 
+To change the DocumentRoot, edit `/etc/apache2/sites-available/000-default.conf` and `/etc/apache2/apache2.conf`. Then `sudo service apache2 restart`.
+
+http://mytechjournal.info/apache2-change-documentroot-folder/
+
 
 ### Open current directory in Explorer
 

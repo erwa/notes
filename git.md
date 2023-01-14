@@ -2,6 +2,11 @@
 
 ```
 GIT_TRACE=true git pull
+
+# may need to remove dangling commits and blobs:
+git fsck && git gc --prune=now
+
+# also try deleting stale connections in ~/.ssh
 ```
 
 https://stackoverflow.com/questions/44031150/why-does-git-pull-hang

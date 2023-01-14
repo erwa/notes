@@ -74,6 +74,9 @@ tmux movew -r
 # swap current window with first window
 Ctrl-b :
 :swap-window  -t 0
+
+# can also add following to ~/tmux.conf
+set-option -g renumber-windows on
 ```
 
 https://superuser.com/questions/343572/how-do-i-reorder-tmux-windows

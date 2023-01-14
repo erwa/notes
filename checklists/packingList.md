@@ -11,8 +11,8 @@
 
 ### General
 
-- card/board games / juggling balls / Rubik's Cube
 - vitamins, supplements (e.g.: fiber)
+- card/board games / juggling balls / Rubik's Cube
 - download transit map PDF for destination
 - adapters (e.g.: USB-C to HDMI)
 - HDMI cable
