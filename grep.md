@@ -50,9 +50,12 @@ https://stackoverflow.com/questions/27026050/linux-terminal-finding-number-of-li
 
 ```
 grep "duration: [[:digit:]]\+" datanode.log
-```
+# https://www.gnu.org/software/findutils/manual/html_node/find_html/grep-regular-expression-syntax.html
 
-https://www.gnu.org/software/findutils/manual/html_node/find_html/grep-regular-expression-syntax.html
+# 2 or 3 digit numbers
+grep -E '[0-9]{2,3}' txt.txt
+# https://stackoverflow.com/questions/69278768/grep-for-line-having-only-2-or-3-digits
+```
 
 
 ### Grep only subdirectories matching pattern

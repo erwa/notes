@@ -1,3 +1,10 @@
+### Show full command
+
+Press 'c' while top is running.
+
+https://serverfault.com/questions/139632/show-full-process-name-in-top
+
+
 ### Memory columns
 
 `VIRT` is virtual memory.

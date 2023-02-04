@@ -1,5 +1,6 @@
 # Snowboarding checklist
 
+* ski rack key + backup
 * pass for ski resort
 * contact lenses
 * swimming trunks (for the hot tub / swimming pool)

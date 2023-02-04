@@ -1,6 +1,13 @@
 # Postgres notes
 
 
+### One record per page
+
+```
+CREATE TABLE t1(col1 bigint, col2 char(4096)[] default '{"1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"}') with (fillfactor = 10, autovacuum_enabled=false);
+```
+
+
 ### Get my process id (pid)
 
 ```
@@ -14,6 +21,13 @@ SELECT pg_backend_pid();
 CREATE EXTENSION pg_buffercache;
 
 SELECT COUNT(*) FROM pg_buffercache WHERE relfilenode='t1'::regclass AND relforknumber=0 AND relblocknumber=0;
+```
+
+
+### Get database name from OID
+
+```
+select oid, datname from pg_database where oid=18091;
 ```
 
 
