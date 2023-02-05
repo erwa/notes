@@ -1,5 +1,6 @@
 # Snowboarding checklist
 
+* snacks to bring on the slopes
 * ski rack key + backup
 * pass for ski resort
 * contact lenses
