@@ -59,6 +59,15 @@ SELECT lsn - '0/0';
 https://stackoverflow.com/questions/66797767/lsn-external-representation
 
 
+### Find WAL file containing LSN
+
+```
+select pg_walfile_name('76/7D000028');
+```
+
+https://www.crunchydata.com/blog/postgres-wal-files-and-sequuence-numbers
+
+
 ### Current WAL flush LSN
 
 `SELECT pg_current_wal_flush_lsn();`
@@ -264,6 +273,11 @@ select  'drop table if exists "' || tablename || '" cascade;' from pg_tables whe
 ```
 
 https://stackoverflow.com/questions/3327312/how-can-i-drop-all-the-tables-in-a-postgresql-database
+
+
+### See current user
+
+`SELECT current_user;`
 
 
 ### Create database with user and password

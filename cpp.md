@@ -33,7 +33,11 @@ Are always moved rather than copied, so explicit `std::move` is not necessary.
 Means resolution starts from global namespace rather than current namespace.
 
 
-### Anonymous namespaces
+### Anonymous namespace / internal namespace / unnamed namespace
+
+Can call functions inside anonymous namespace as if they were directly inside parent namespace, but functions are not visible outside file.
+
+https://www.learncpp.com/cpp-tutorial/unnamed-and-inline-namespaces/
 
 Things defined inside will not be visible elsewhere and cannot clash with names defined elsewhere.
 

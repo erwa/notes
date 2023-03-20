@@ -1463,6 +1463,13 @@ bind -P
 ```
 
 
+### Delete next word / delete word forward
+
+```
+Esc + D
+```
+
+
 ### Delete previous word
 
 ```
