@@ -1,6 +1,9 @@
 Things to prepare/do before hosting a guest
 ===========================================
 
+* space heater
+* extension cord
+* Slippers
 * Wifi password
 * Towels
 * Clipper or other transit card

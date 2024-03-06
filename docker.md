@@ -1,3 +1,21 @@
+### Check if PID outside Docker corresponds to PID inside Docker
+
+```
+grep -i pid /proc/${PID_OUTSIDE_DOCKER}/status
+# then look at NSpid line to see if it contains the PID inside Docker
+```
+
+https://stackoverflow.com/questions/52021956/get-internal-docker-pid-by-system-pid
+
+
+### sudo-less access
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+
 ### List all containers
 
 ```

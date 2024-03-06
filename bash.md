@@ -17,6 +17,16 @@ stdbuf -i0 -o0 -e0 COMMAND
 https://stackoverflow.com/questions/3465619/how-to-make-output-of-any-shell-command-unbuffered
 
 
+### while loop example
+
+```
+while [[ <condition> ]]
+do
+  <do something>
+done
+```
+
+
 ### Run script every N seconds
 
 ```
@@ -104,6 +114,25 @@ wc -L my_file
 ```
 
 http://www.cs.cmu.edu/afs/cs/academic/class/15513-m19/www/codeStyle.html
+
+
+### Loop over array
+
+```
+# declare an array variable
+declare -a arr=("element1" "element2" "element3")
+
+## now loop through the above array
+for i in "${arr[@]}"
+do
+   echo "$i"
+   # or do whatever with individual element of the array
+done
+
+# You can access them using echo "${arr[0]}", "${arr[1]}" also
+```
+
+https://stackoverflow.com/questions/8880603/loop-through-an-array-of-strings-in-bash
 
 
 ### Array literal / append to array

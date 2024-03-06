@@ -37,10 +37,17 @@ https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-
 
 ### Resize pane
 
-C-b C-<arrow>
-C-b Alt-1  # equal horizontal spacing (panes stacked horizontally)
-C-b Alt-2  # equal vertical spacing (panes stacked vertically)
-C-b Alt-5  # 4 quadrants
+```
+# resize current pane upward by 10 cells
+:resize-pane -U 10
+```
+
+https://michaelsoolee.com/resize-tmux-panes/
+
+* C-b C-<arrow>
+* C-b Alt-1  # equal horizontal spacing (panes stacked horizontally)
+* C-b Alt-2  # equal vertical spacing (panes stacked vertically)
+* C-b Alt-5  # 4 quadrants
 
 https://unix.stackexchange.com/questions/32986/how-do-i-equally-balance-tmux1-split-panes
 

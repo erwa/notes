@@ -1,5 +1,78 @@
 # Postgres notes
 
+### Tuples only
+
+`\t` or `\pset tuples_only` or use `psql -t`
+
+https://www.postgresql.org/docs/current/app-psql.html
+
+### Logical replication slot spilled bytes
+
+https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-REPLICATION-SLOTS-VIEW
+
+Can monitor the `spill_bytes` field of `pg_stat_replication_slots` to measure the rate of spilling to disk.
+
+### Sum size of all relations in database
+
+```
+SELECT
+       sum(c.reltuples) AS row_estimate,
+      pg_size_pretty(sum(pg_total_relation_size(c.oid))) AS total_bytes,
+      pg_size_pretty(sum(pg_indexes_size(c.oid))) AS index_bytes,
+      pg_size_pretty(sum(pg_total_relation_size(reltoastrelid))) AS toast_bytes
+    FROM
+      pg_class c
+      LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+    WHERE relkind = 'r'
+;
+```
+
+### Check available space in table
+
+```
+select avail as available_space, count(*) as number_of_blocks
+from pg_freespace('pg_toast.pg_toast_9828')
+group by avail order by avail;
+```
+
+### Find blocked processes and which process is blocking them
+
+```
+select pid,
+       usename,
+       pg_blocking_pids(pid) as blocked_by,
+       query as blocked_query
+from pg_stat_activity
+where cardinality(pg_blocking_pids(pid)) > 0;
+```
+
+https://stackoverflow.com/questions/26489244/how-to-detect-query-which-holds-the-lock-in-postgres
+
+
+### kill all Postgres processes
+
+```
+ps -ef | grep postgres | tr -s ' ' | cut -d ' '  -f 2 | xargs -I% sudo kill -9 %
+```
+
+
+### Record size limit
+
+No maximum. You can create an arbitrarily large record by, for example, creating a lot of tables inside one transaction - the COMMIT record will be very big.
+
+```
+DO $$
+DECLARE
+  table_name CHAR(32);
+BEGIN
+  FOR i IN 1..4000 LOOP
+        table_name := 'table_' || i;
+        EXECUTE format('CREATE TABLE %s (a INT)', table_name);
+  END LOOP;
+END;
+$$;
+```
+
 
 ### One record per page
 
@@ -57,6 +130,15 @@ SELECT lsn - '0/0';
 ```
 
 https://stackoverflow.com/questions/66797767/lsn-external-representation
+
+
+### Look at raw WAL bytes
+
+```
+$ hexdump -s 0x1FF0 -n 100 000000010000003E00000002
+0001ff0 1004 a280 f080 04cf 8010 80a2 cff0 1004
+...
+```
 
 
 ### Find WAL file containing LSN
@@ -298,6 +380,13 @@ https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-pos
 ```
 show <config>;
 show all;  --show all configs
+```
+
+
+### Number of databases
+
+```
+select count(*) from pg_catalog.pg_database;
 ```
 
 

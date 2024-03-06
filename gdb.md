@@ -1,3 +1,11 @@
+### Collect backtraces for multiple processes
+
+```
+ps -ef | grep PATTERN | tr -s ' ' | cut -d ' ' -f 2 | \
+  xargs -I{} gdb -p {} --batch -ex=bt > backtraces
+```
+
+
 ### Restart
 
 r  # run
@@ -17,12 +25,16 @@ Use `-g`.
 https://www.geeksforgeeks.org/gdb-command-in-linux-with-examples/
 
 
-### Set breakpoint at line number
+### Set breakpoint
 
 ```
+# at line number
 b <file_name>:<line_number
 
 b foo.c:123
+
+# at function
+b MyFunction
 ```
 
 http://web.eecs.umich.edu/~sugih/pointers/gdbQS.html

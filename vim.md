@@ -558,6 +558,14 @@ http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-c
 http://vim.wikia.com/wiki/Remove_unwanted_spaces
 
 
+### Close current file and open new file without exiting vim
+
+```
+# deletes (unloads) current buffer and opens NEW_FILE for editing
+:bd | e NEW_FILE
+```
+
+
 ### Tab Pages
 
 ```

@@ -1,3 +1,10 @@
+### Increase refresh frequency
+
+`d`, then input new refresh frequency.
+
+https://www.baeldung.com/linux/top-command
+
+
 ### Show full command
 
 Press 'c' while top is running.
@@ -33,6 +40,13 @@ o, type MEM, Enter
 
 o, n, Enter
 ```
+
+
+### Show CPU percentage as percentage of all CPUs
+
+By default, %CPU is percentage of single CPU. To show as percentage of all CPUs, `Shift + I`.
+
+https://askubuntu.com/questions/707203/top-command-on-ubuntu-multicore-cpu-shows-cpu-usage-100
 
 
 ### Sort by CPU
