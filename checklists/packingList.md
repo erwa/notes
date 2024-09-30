@@ -11,6 +11,8 @@
 
 ### General
 
+- neck cushion
+- hand sanitizer
 - vitamins, supplements (e.g.: fiber)
 - card/board games / juggling balls / Rubik's Cube
 - download transit map PDF for destination
@@ -21,7 +23,6 @@
 - move Curex insoles to shoes I plan to wear on trip
 - slippers / flip-flops
 - drawstring bag
-- PPE (personal protective equipment) - face mask, hand sanitizer, disinfecting wipes, gloves
 - climbing gear (consider bringing ATC)
 - zipcard, MetroCard, Clipper Card, Caltrain Go Pass, subway pass
 - consider enabling "avoid tolls" in Google Maps
@@ -29,7 +30,6 @@
 - car phone mount
 - Toiletries (razor, toothbrush, toothpaste, floss, nail clipper, comb, contacts, contact solution)
 - add phone numbers of travel companions
-- neck cushion
 - when working remotely, find a library (at office or public library) to work in
 - star points of interest on Google Map
 - Jacket

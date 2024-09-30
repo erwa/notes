@@ -572,7 +572,8 @@ if COMMAND1 || COMMAND2
 # Conditional expressions (include square brackets [ ] around them)
 [ -f FILE ] # true if FILE exists and is regular file (not directory of link)
 [ -e FILE ] # true if FILE exists. FILE could be directory.
-[ -h FILE ] # true if FILE exists and is a symlink.
+[ -h FILE ] # true if FILE exists and is a symlink
+[ -L FILE ] # true if FILE exists and is a symlink
 [ -n STRING ] or [ STRING ] # true if length of STRING is non-zero
 [ -r FILE ] # true if FILE has read permission for current user
 [ -s FILE ] # true if FILE exists and has a size greater than 0
@@ -1899,6 +1900,24 @@ ln -fns NEW_LOCATION EXISTING_LINK
 # http://serverfault.com/questions/389997/how-to-override-update-a-symlink
 ```
 
+### Associative array
+
+```
+$ declare -A my_arr
+$ my_arr["ABC"]="abc"
+$ my_arr["DEF"]="def"
+$ my_arr["GHI"]="ghi"
+$ echo ${my_arr[@]}
+def ghi abc
+$ for k in "${!my_arr[@]}"; do echo $k; done
+DEF
+GHI
+ABC
+$ for k in "${my_arr[@]}"; do echo $k; done
+def
+ghi
+abc
+```
 
 ### Length of array
 

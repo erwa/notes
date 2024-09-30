@@ -258,7 +258,7 @@ https://www.fool.com/knowledge-center/what-is-the-difference-between-the-convers
 
 * Roth contributions can be withdrawn at any time without penalty.
 * Must wait 5 years from FIRST Roth IRA contribution before you can start withdrawing earnings tax free.
-* For Roth conversions, must wait 5 years before you can withdraw either principle or earnings tax-free.
+* For Roth conversions, must wait 5 years before you can withdraw either principal or earnings tax-free.
 * If you inherit IRA before owner started required distributions, you may have to withdraw entire balance within 5 years: https://www.irs.gov/publications/p590b#en_US_2020_publink1000230726
 
 https://www.investopedia.com/ask/answers/05/waitingperiodroth.asp

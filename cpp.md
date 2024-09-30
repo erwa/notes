@@ -790,6 +790,14 @@ Good practice to use `auto*` to emphasize something is a pointer.
 
 ### Capture list and parameter list / lambda functions
 
+Specify return type (optional):
+
+```
+[capture_specification] (function_parameters) -> return_type { body }
+```
+
+Ref: https://software-dl.ti.com/ccs/esd/documents/sdto_cgt_lambda.html#syntax
+
 Example:
 
 ```

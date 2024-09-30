@@ -1,10 +1,21 @@
 # Postgres notes
 
+### pg_waldump stats
+
+```
+# prints statistics about types of log records
+pg_waldump --stats
+```
+
 ### Tuples only
 
 `\t` or `\pset tuples_only` or use `psql -t`
 
 https://www.postgresql.org/docs/current/app-psql.html
+
+### Logical replication initial data sync
+
+https://github.com/2ndQuadrant/pglogical/blob/6cbbf53782435b05ba4e4c5aa50ac3280ebdbb0c/pglogical_sync.c#L524
 
 ### Logical replication slot spilled bytes
 
@@ -403,9 +414,10 @@ select count(*) from pg_catalog.pg_database;
 \l  # show databases and privileges
 
 \dt  # show tables (once inside database)
-\dt <schema>.*  # show tables in one schema
-\dt my_schema.  # show tables in schema 'my_schema'
-                # the trailing "." is important!
+\dt pg_catalog.*  # show pg_catalog tables
+\dt <schema>.*    # show tables in one schema
+\dt my_schema.    # show tables in schema 'my_schema'
+                  # the trailing "." is important!
 
 \du  # show user privileges
 

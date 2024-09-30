@@ -35,6 +35,14 @@ C-b C-b ,  # for example, to rename inner window
 https://www.freecodecamp.org/news/tmux-in-practice-local-and-nested-remote-tmux-sessions-4f7ba5db8795/
 
 
+### Swap panes
+
+```
+Ctrl-b + {  // swap-pane -U
+Ctrl-b + }  // swap-pane -D
+```
+
+
 ### Resize pane
 
 ```
@@ -76,11 +84,15 @@ https://gist.github.com/henrik/1967800
 ### Renumber windows / reorder windows / rearrange windows
 
 ```
+# https://unix.stackexchange.com/questions/14300/moving-tmux-pane-to-window
+# move pane from window 1 into current pane
+:join-pane -s :1
+
 tmux movew -r
 
 # swap current window with first window
 Ctrl-b :
-:swap-window  -t 0
+:swap-window -t 0
 
 # can also add following to ~/tmux.conf
 set-option -g renumber-windows on

@@ -1,3 +1,12 @@
+# Go
+
+### Escape analysis and automatic heap allocation
+
+If you return pointer to local value, Go automatically allocates it on the heap based on escape analysis.
+
+https://stackoverflow.com/questions/13715237/return-pointer-to-local-struct
+
+
 ### Getters
 
 Getter for a field `owner` should be named `Owner`, not GetOwner.
@@ -117,12 +126,24 @@ http://stackoverflow.com/questions/19482612/go-golang-array-type-inside-struct-m
 
 
 ### Exported functions
+
 Functions are exported if they begin with a capital letter.
 
 https://tour.golang.org/basics/3
 
 
+### Implicit pointer referencing
+
+```
+# if p is type *T, both are same
+filename := p.Title + ".txt"
+filename := (*p).Title + ".txt"
+```
+
+Ref: https://stackoverflow.com/questions/30786206/are-pointers-dereferenced-by-default-inside-of-methods
+
 ### Instantiate struct.
+
 ```
 type person struct {
     name string
@@ -161,6 +182,7 @@ https://gobyexample.com/structs
 
 
 ### GoSublime plugin
+
 * Requires Sublime Text 3.
 * https://github.com/DisposaBoy/GoSublime
 
