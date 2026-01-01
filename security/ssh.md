@@ -1,3 +1,10 @@
+### Cannot see what you're typing
+
+`stty sane`
+
+https://www.oreilly.com/library/view/bash-cookbook/0596526784/ch19s09.html
+
+
 ### Share and persist SSH connections
 
 In your SSH config file

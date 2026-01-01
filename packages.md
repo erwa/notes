@@ -197,6 +197,7 @@ rpm -qa | grep -i package_name
 # Uninstall it
 sudo rpm -e <package name>
 
-# Ubuntu
+# Ubuntu / Debian
+sudo apt remove <package>
 sudo apt-get remove <package_name>
 ```

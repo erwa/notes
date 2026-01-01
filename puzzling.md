@@ -1,3 +1,8 @@
+### Find word one-letter different
+
+https://tools.qhex.org/ -> Word Play -> `change 1: <word>`
+
+
 ### Solving tools
 
 https://tools.qhex.org/ - text, search, logic tools

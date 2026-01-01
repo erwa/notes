@@ -1,5 +1,40 @@
 # Postgres notes
 
+### Convert integer to LSN
+
+```
+postgres=# select '0/0'::pg_lsn + 2427059189968;
+   ?column?   
+--------------
+ 235/180038D0
+(1 row)
+```
+
+### 1 row per page
+
+```
+create table foo (t char(8000));
+alter table foo alter column t set storage plain;   // 8000 bytes = 1 row per buffer page
+
+insert into foo (t)
+SELECT array_to_string(array(select substr('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',((random()*(36-1)+1)::integer),1) from generate_series(1,8000)),'') from generate_series(1,5000000); // 8k * 5M rows = 40GB
+
+create extension pg_prewarm;
+select pg_prewarm('foo');  // ensure all 5M pages are in shared_buffers
+
+select count(1) from foo; \watch 0
+```
+
+### Default database flags per database, per user, or per role
+
+```
+ALTER USER ... SET <flag> TO <value>;
+```
+
+* https://www.postgresql.org/docs/current/sql-alteruser.html
+* https://www.postgresql.org/docs/current/config-setting.html#CONFIG-SETTING-SQL
+
+
 ### pg_waldump stats
 
 ```

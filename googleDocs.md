@@ -1,3 +1,9 @@
+### Save images
+
+https://www.reddit.com/r/GoogleAppsScript/comments/z4uub7/extract_images_from_google_doc_and_save_to_drive/
+
+Download doc as Web Page (.html zipped). Images are in their own `images/` folder.
+
 ### Follow-up actions on google docs
 
 followup:actionitems

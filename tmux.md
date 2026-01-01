@@ -17,6 +17,20 @@ https://superuser.com/questions/231002/how-can-i-search-within-the-output-buffer
 https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
 
 
+### Save output to file / copy history to file
+
+```
+# save past 3000 lines
+C-b :
+capture-pane -S -3000
+
+# save buffer to /tmp/tmux.out
+C-b :
+save-buffer /tmp/tmux.out
+```
+
+https://unix.stackexchange.com/questions/26548/write-all-tmux-scrollback-to-a-file
+
 ### Copy paste
 
 C-b [ to enter copy mode

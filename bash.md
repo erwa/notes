@@ -116,7 +116,7 @@ wc -L my_file
 http://www.cs.cmu.edu/afs/cs/academic/class/15513-m19/www/codeStyle.html
 
 
-### Loop over array
+### Loop over array / iterate over string array
 
 ```
 # declare an array variable
@@ -580,6 +580,8 @@ if COMMAND1 || COMMAND2
 [ -x FILE ] # true if FILE exists and is executable
 [ -z STRING ] # true if STRING is of length 0 (empty string)
               # can also be used to test if a variable is set
+
+# compare strings
 [ STRING1 == STRING2 ] # true if two strings are equal
 [ STRING1 != STRING2 ] # true if two strings are not equal
 [ $# < 1 ] # true if no arguments passed to script
@@ -866,6 +868,19 @@ kill -- -$$
 https://stackoverflow.com/questions/976059/shell-script-to-spawn-processes-terminate-children-on-sigterm
 https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean
 
+
+### Dollar sign before single quotes
+
+Causes escape sequences to be interpreted.
+
+```
+$ echo $'Name\tAge\nBob\t24\nMary\t36'
+Name    Age
+Bob     24
+Mary    36
+```
+
+https://stackoverflow.com/questions/11966312/how-does-the-leading-dollar-sign-affect-single-quotes-in-bash
 
 ### Bash dollar sign variables
 

@@ -267,7 +267,7 @@ git push origin initial-queries:initial-queries
 ### Set tracking branch
 
 ```
-git branch --set-upstream <local-branch> <remote>/<remote-branch>
+git branch --track <local-branch> <remote>/<remote-branch>
 ```
 
 
@@ -613,12 +613,22 @@ git rebase -i HEAD~2 # reorder last two commits
 ```
 
 
+### Rebase on top of another branch
+
+```
+git checkout <branch>
+git rebase <other_branch>
+```
+
+
 ### Rebase and replay local commits on another branch
 
 ```
 git rebase <branch> # replays <branch> on your current branch
 git rebase <remote>/<branch>
 ```
+
+https://stackoverflow.com/questions/37709298/how-to-get-changes-from-another-branch
 
 
 ### Rebase on top of a specific commit
@@ -650,6 +660,13 @@ git diff tag1 tag2
 ```
 
 https://stackoverflow.com/questions/3211809/how-to-compare-two-tags
+
+
+### Apply GitHub patch locally
+
+```
+curl https://github.com/postgres/postgres/commit/fc2d1ac1ad44b5c03e0e8edf0f9eb0e3f42cada4.patch | patch -p1
+```
 
 
 ### Apply patch to different file / path
